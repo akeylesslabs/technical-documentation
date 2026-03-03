@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-_The External Secrets Manager has been renamed Universal Secrets Connector. All`esm` commands will still work as expected._
+_The External Secrets Manager has been renamed Universal Secrets Connector. All `esm` commands will still work as expected._
 
 This section outlines the CLI commands relevant to Universal Secrets Connector.
 
@@ -49,6 +49,8 @@ akeyless create-usc \
 `--use-prefix-as-filter[=true]`: Filter the USC secret list by the usc-prefix [`true`/`false`]
 
 `--gcp-project-id`: GCP Project ID (Relevant only for GCP targets)
+
+`--gcp-sm-regions`: GCP Secret Manager regions for regional secrets (comma-separated, for example: `us-east1,us-west1`). USC with GCP targets only. Maximum 12 regions.
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
@@ -107,6 +109,8 @@ usc create \
 
 `--tags`:Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
 
+`--region`: Optional, create the secret in a specific region (GCP only). If omitted, the secret is created as a global secret.
+
 ### `delete`
 
 Delete a secret from an Universal Secrets Connector
@@ -149,7 +153,7 @@ usc get \
 
 `-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or Kubernetes targets) to get from the Universal Secrets Connector
 
-`--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
+`--object-type[=secret]`: Object type filter: `secret` (default), `certificate` (Azure KV), or `regional-secrets` (GCP)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 

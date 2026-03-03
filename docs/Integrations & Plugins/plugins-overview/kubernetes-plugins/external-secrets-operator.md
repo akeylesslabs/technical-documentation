@@ -11,7 +11,7 @@ next:
       url: >-
         https://external-secrets.io/latest/api/spec/#external-secrets.io/v1.AkeylessAuthSecretRef
 ---
-This guide shows how to integrate the **Akeyless Platform** with the **<Anchor label="External Secrets Operator (ESO)" target="_blank" href="https://external-secrets.io/latest/provider/akeyless/">External Secrets Operator (ESO)</Anchor>** to synchronize secrets between Akeyless and Kubernetes.
+This guide shows how to integrate the **Akeyless Platform** with the **[External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/)** to synchronize secrets between Akeyless and Kubernetes.
 
 It covers:
 
@@ -23,7 +23,7 @@ It covers:
 
 ## How ESO Works With Akeyless
 
-The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates <Anchor label="standard Kubernetes Secret objects" target="_blank" href="https://kubernetes.io/docs/concepts/configuration/secret/">standard Kubernetes Secret objects</Anchor> in a Kubernetes cluster.
+The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates [standard Kubernetes Secret objects](https://kubernetes.io/docs/concepts/configuration/secret/) in a Kubernetes cluster.
 
 For Akeyless, ESO uses the following custom resources:
 
@@ -97,17 +97,13 @@ ESO’s Akeyless provider supports the following **access types**:
 * `api_key`
 * `k8s`
 * `azure_ad`
-  <Callout icon="📘" theme="info">
-    For AKS Workload Identity, use the Azure AD Authentication Method (`accessType: azure_ad`).
-
-    When using `accessType: azure_ad`, ESO relies on the identity of the Kubernetes `ServiceAccount` that runs the `ExternalSecret`. Identity is not selected through the `SecretStore`. For full guidance, see [ESO and AKS Workload Identity](https://docs.akeyless.io/docs/eso-and-aks-workload-identity).
-  </Callout>
 * `aws_iam`
 * `gcp`
 
-<Callout icon="❗️" theme="error">
-  OIDC is not supported as an **access type** at this time.
-</Callout>
+> ℹ️ **Note:** For AKS Workload Identity, use the Azure AD Authentication Method (`accessType: azure_ad`).
+> When using `accessType: azure_ad`, ESO relies on the identity of the Kubernetes `ServiceAccount` that runs the `ExternalSecret`. Identity is not selected through the `SecretStore`. For full guidance, see <https://docs.akeyless.io/docs/eso-and-aks-workload-identity>.
+>
+> ⚠️ **Warning:** OIDC is not supported as an **access type** at this time.
 
 Each Authentication Method in Akeyless exposes an **Access ID**, and for some methods an additional parameter (`accessTypeParam`) such as:
 
@@ -192,9 +188,7 @@ stringData:
 
 This Secret is suitable when using Azure AD Managed Identity with sub-claim enforcement.
 
-<Callout icon="📘" theme="info">
-  ESO does not implement Azure Workload Identity flows internally. When `accessType: azure_ad` is used, ESO relies entirely on the Azure AD token available in the pod’s environment. This is typically projected by way of AKS Workload Identity. Therefore, the identity ESO uses depends on the `ServiceAccount` the `ExternalSecret` runs under, not on the `SecretStore`.
-</Callout>
+> ℹ️ **Note:** ESO does not implement Azure Workload Identity flows internally. When `accessType: azure_ad` is used, ESO relies entirely on the Azure AD token available in the pod’s environment. This is typically projected by way of AKS Workload Identity. Therefore, the identity ESO uses depends on the `ServiceAccount` the `ExternalSecret` runs under, not on the `SecretStore`.
 
 ### `SecretStore`: Namespaced Secret Provider
 
@@ -229,7 +223,7 @@ spec:
 If using a **private Akeyless Gateway** (for example in a zero-knowledge or hybrid deployment), set:
 
 ```yaml
-      akeylessGWApiURL: "https://<the.akeyless.gw:8000>/api/v2"
+      akeylessGWApiURL: "https://<the.akeyless.gw>:8000/api/v2"
 ```
 
 Custom CAs can be configured by way of `caBundle` or `caProvider` if the Akeyless Gateway uses a private CA.
@@ -628,4 +622,4 @@ This pattern ties together:
 
 ## Tutorial
 
-For a hands-on walkthrough, check out our tutorial video on <Anchor label="Sync Secrets to Kubernetes with External Secrets Operator (ESO)" target="_blank" href="https://tutorials.akeyless.io/docs/sync-secrets-to-k8s-with-external-secrets-operator">Sync Secrets to Kubernetes with External Secrets Operator (ESO)</Anchor>.
+For a hands-on walkthrough, check out our tutorial video on [Sync Secrets to Kubernetes with External Secrets Operator (ESO)](https://tutorials.akeyless.io/docs/sync-secrets-to-k8s-with-external-secrets-operator).

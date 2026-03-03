@@ -14,9 +14,7 @@ You can use Akeyless Dynamic Secrets to generate short-lived credentials that le
 
 ## Create an OpenAI Dynamic Secret with the CLI
 
-<Callout icon="👍" theme="okay">
-  We recommend using Dynamic Secrets with Targets. While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
-</Callout>
+> ✅ **Tip:** We recommend using Dynamic Secrets with Targets. While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a Dynamic Secret for OpenAI with the CLI using an existing OpenAI target, run the following command:
 
@@ -25,7 +23,7 @@ akeyless dynamic-secret create openai \
 --name <New Secret Name> \
 --target-name <Target Name> \
 --project-id <Project ID>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 Or using an inline connection string:
@@ -36,7 +34,7 @@ akeyless dynamic-secret create openai \
 --api-key-id <Admin API key ID> \
 --api-key <Admin API key> \
 --org-id <organization ID> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 Where:
@@ -53,7 +51,7 @@ Where:
 
 * `api-key-id`: The **ID** of the Admin API Key.
 
-* `api-key`: The Admin API Key that will be used in order to create the API Key.
+* `api-key`: The Admin API Key that will be used to create the API Key.
 
 * `org-id`: The organization ID.
 
@@ -61,9 +59,7 @@ Where:
 
 ## Create a Dynamic OpenAI Secret in the Akeyless Console
 
-<Callout icon="👍" theme="okay">
-  To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
-</Callout>
+> ✅ **Tip:** To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items** > **New** > **Dynamic Secret**.
 
@@ -75,12 +71,12 @@ Where:
 
     * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-    * **Target mode:** In this section, you can either select an existing OpenAI Target or specify details of the target OpenAI account explicitly.ֿ
+    * **Target mode:** In this section, you can either select an existing OpenAI Target or specify details of the target OpenAI account explicitly.
 
-        * Use the **Choose an existing target** drop-down list to select the existing OpenAI Target .
+        * Use the **Choose an existing target** drop-down list to select the existing OpenAI Target.
         * Check the **Explicitly specify target properties** to provide details of the target OpenAI account in the next step.
 
-    * **Project ID** The Project ID where the new API Key will be created.
+    * **Project ID:** The Project ID where the new API Key will be created.
 
     * **User TTL**: Provide a time-to-live value for a dynamic secret. When TTL expires, the token becomes obsolete.
 
@@ -88,11 +84,11 @@ Where:
 
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge#/).
 
-5. If you checked the Explicitly specify target properties, click Next.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target OpenAI account:
 
-    * **API Key:** The Admin API Key that will be used in order to create the API Key.
+    * **API Key:** The Admin API Key that will be used to create the API Key.
 
     * **API Key ID:** The **ID** of the Admin API Key.
 

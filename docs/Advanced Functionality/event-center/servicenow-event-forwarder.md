@@ -12,7 +12,7 @@ next:
 ---
 **ServiceNow Event Forwarder** enables you to forward event notifications to **Endpoint URLs** based on your configuration. These include notifications about **Items, Auth Methods, Targets, and Gateways**, which can be configured to be sent immediately or every 1 to 24 hours.
 
-> 📘 Note
+> ℹ️ **Note:**
 >
 > The URL for the **ServiceNow** endpoint would be: `<serviceNowURL>/akeyless-events/`
 
@@ -23,7 +23,7 @@ To set up a **ServiceNow** Event Forwarder, use the following command:
 ```shell JWT
 akeyless event-forwarder create servicenow \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --host <Endpoint URL> \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>
@@ -40,7 +40,7 @@ akeyless event-forwarder create servicenow \
 ```shell User-Pass
 akeyless event-forwarder create servicenow \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --host <Endpoint URL> \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>
@@ -85,7 +85,7 @@ The main parameters for the command are as follows:
 
 * `--every`: Rate of periodic runner repetition in hours
 
-You can find the complete list of parameters for this command in the [CLI Reference - ServiceNow Event forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-servicenowp)
+You can find the complete list of parameters for this command in the [CLI Reference - ServiceNow Event forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#event-forwarder-create-servicenow)
 
 ## Create a ServiceNow Event Forwarder Using the Console
 

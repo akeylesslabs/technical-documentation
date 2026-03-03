@@ -14,7 +14,7 @@ next:
 
 The Secrets Store CSI Driver `secrets-store.csi.k8s.io` allows Kubernetes to mount multiple secrets, keys, and certs stored in enterprise-grade external secrets stores into their pods as a volume. Once the volume is attached, the data is mounted into the container's file system.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > Kubernetes Secrets Store CSI Provider supports Static Secrets, Rotated Secrets and Certificates
 
@@ -53,11 +53,11 @@ The `SecretProviderClass` is a namespaced resource in Secrets Store CSI Provider
 
 Supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
-* [API Key](https://docs.akeyless.io/docs/api-key)  
-* [Kubernetes (K8s)](https://docs.akeyless.io/docs/kubernetes-auth)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)  
+* [Kubernetes (K8s)](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 
 `SecretProviderClass` custom resource should state the `akeylessAccessType`- which can be one of the supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
@@ -159,7 +159,7 @@ spec:
         fileName: "bar"
 ```
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > Using Access Key within `YAML` files is not secure. You can provide the `AKEYLESS_ACCESS_KEY` as an environment variable instead.
 
@@ -191,7 +191,7 @@ spec:
           secretProviderClass: "akeyless-test"
 ```
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > The `SecretProviderClass` needs to be created in the same Namespace as the pod.
 

@@ -31,7 +31,7 @@ Or use the following Maven dependency definition:
 </dependency>
 ```
 
-In order to deploy this plugin into a Keycloak environment copy the `akeyless-keycloak-<version>-jar-with-dependencies.jar` into your Keycloak `deployments` folder.
+To deploy this plugin into a Keycloak environment, copy the `akeyless-keycloak-<version>-jar-with-dependencies.jar` into your Keycloak `deployments` folder.
 
 Verify your deployment in Keycloak logs:
 
@@ -43,7 +43,7 @@ Verify your deployment in Keycloak logs:
 [org.jboss.as.server] (DeploymentScanner-threads - 1) WFLYSRV0010: Deployed "akeyless-keycloak-jar-with-dependencies.jar" (runtime-name : "akeyless-keycloak-jar-with-dependencies.jar")
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > When working with [Ephemeral Containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/), the `deployments` folder should be mounted using Persistent Volumes.
 

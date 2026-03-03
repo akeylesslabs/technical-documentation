@@ -22,11 +22,11 @@ This guide provides guidance for the deployment of the Akeyless-Web-Access-Basti
 
 * Web Access Bastion - `docker-compose.yml` file.
 
-* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and  1 vCPU available with 1 GB RAM for the `WebDispatcher`.
+* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and 1 vCPU available with 1 GB RAM for the `WebDispatcher`.
 
 _**Network**_
 
-When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
+When using an embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout. It is advised to increase it to a reasonably high value or leave it unlimited.
 
 For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
@@ -36,7 +36,7 @@ To be able to download files to your local machine, the Docker Engine requires m
 
 For security reasons, please limit the volume mount permissions to `0650`.
 
-> 🚧 Note:
+> ℹ️ **Note:**
 >
 > To enable Secure Remote Access features, you will have to get an access key to Akeyless's private repository. Please contact your Account Manager for more details.
 
@@ -69,7 +69,7 @@ The Secure Remote Access Bastion should be set with a **privileged** `AccessID` 
 
 Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
 
-To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` comma separated that will be authorized to request access.
+To control which users are allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`.
 
 ```yaml
 services:
@@ -95,17 +95,17 @@ services:
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
 
-* [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
+* [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
 
-* [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method)
+* [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp)
 
 ### API Key Authentication
 
-To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` as environment variables with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/auth-with-api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` as environment variables with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -130,7 +130,7 @@ services:
 
 ### CSP IAM Authentication
 
-While running your Docker inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
+While running your Docker inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
 
 ### AWS IAM
 
@@ -138,7 +138,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -164,7 +164,7 @@ services:
 
 Azure AD authentication is provided with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
-Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your `PRIVILEGED\_ACCESS\_ID` with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+Set your [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) `Access ID` as your `PRIVILEGED\_ACCESS\_ID` with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -188,7 +188,7 @@ services:
 
 ### GCP GCE
 
-Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP. Set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID` as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
+Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/auth-with-gcp) can be done using the GCP. Set your [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp) `Access ID` as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
 
 ```yaml
 services:
@@ -344,7 +344,7 @@ cat <<EOT > policies.json
 EOT
 ```
 
-> 🚧 Notice:
+> **Notice:**
 >
 > The `policies.json` **must** be provided for the isolated web browsing to work.
 

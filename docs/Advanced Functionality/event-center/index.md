@@ -69,13 +69,13 @@ For `items-event-source-locations`:
 
 For `auth-methods-event-source-locations`:
 
-* `uid-rotation-failure`: On [Universal Identity](https://docs.akeyless.io/docs/universal-identity) rotation failure, to track the automatic rotation.
+* `uid-rotation-failure`: On [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) rotation failure, to track the automatic rotation.
 
 * `auth-method-pending-expiration`: by default **30 days** in advance before an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is about to expire can be customized.
 
 * `auth-method-expired`: When an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is expired.
 
-* `email-auth-method-approved`: When the invite of user based on [Email](https://docs.akeyless.io/docs/email) Auth Method is approved.
+* `email-auth-method-approved`: When the invite of user based on [Email](https://docs.akeyless.io/docs/auth-with-email) Auth Method is approved.
 
 * `multi-auth-failure`: When an auth attempt keeps failing, once blocked (after 5 consecutive attempts)
 
@@ -97,7 +97,7 @@ Event forwarders are tools you can configure through the Event Center to get not
 
 Event Forwarders can only be managed by **Admins** or by users with explicit [permissions](https://docs.akeyless.io/docs/rbac).
 
-> 📘 Note
+> ℹ️ **Note:**
 >
 > Event Forwarders require a running [Gateway](https://docs.akeyless.io/docs/api-gw). Both **Admins** and authorized users need to have [Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions) on at least one [Gateway](https://docs.akeyless.io/docs/api-gw) to create and manage Event Forwarders.
 

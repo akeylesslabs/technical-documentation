@@ -9,15 +9,13 @@ metadata:
 next:
   description: ''
 ---
-<Callout icon="🚧" theme="warn">
-  This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator/)
-</Callout>
+> ⚠️ **Warning:** This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator)
 
 [External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/) is a Kubernetes (K8s) operator that integrates with external secret management systems like Akeyless. The operator reads information from Akeyless APIs and automatically injects the values into a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 The goal of the ESO is to synchronize secrets from Akeyless into Kubernetes. ESO is a collection of custom API resources - `ExternalSecret`, `SecretStore`, and `ClusterSecretStore` that provides a user-friendly abstraction for the external API that stores and manages the lifecycle of the secrets for you.
 
-The ESO runs within your Kubernetes cluster as a `deployment` resource. It utilizes `CustomResourceDefinitions` to configure access to secret providers through `SecretStore` resources and manages Kubernetes Secret resources with `ExternalSecret` resources.
+The ESO runs within your Kubernetes cluster as a `deployment` resource. It uses `CustomResourceDefinitions` to configure access to secret providers through `SecretStore` resources and manages Kubernetes Secret resources with `ExternalSecret` resources.
 
 You can use two types of resources to fetch secrets from Akeyless:
 
@@ -45,13 +43,13 @@ helm install external-secrets external-secrets/external-secrets
 
 Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/) support the following Authentication Methods:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+* [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > This guide demonstrates authentication using API Key and Kubernetes Authentication Methods. However, for security purposes, it’s highly recommended to avoid using API Keys in production.
 
@@ -140,7 +138,7 @@ kubectl apply -f secretstore.yaml
 
 ### Explicit Secret Store
 
-Authentication with Akeyless can be done using credentials stored in the `akeyless-secret-creds` Kubernetes Secret through the [SecretStore](https://docs.akeyless.io/docs/external-secret-operator-copy#secretstore). Alternatively, you can authenticate directly using your Kubernetes Authentication settings.
+Authentication with Akeyless can be done using credentials stored in the `akeyless-secret-creds` Kubernetes Secret through the [SecretStore](https://docs.akeyless.io/docs/external-secrets-operator). Alternatively, you can authenticate directly using your Kubernetes Authentication settings.
 
 Using an explicit secret store provides key benefits for access control and security. By segregating secrets based on service accounts, you can ensure that each service account only has access to the secrets it needs.
 
@@ -199,7 +197,7 @@ Where:
 
 * `refreshInterval`: The amount of time before the values are read again
 
-* `secretStoreRef`: Reference to the `SecretStore` that was created earlier, in case of `ClusterSecretStore` set the `Kind` to `ClusterSecretStore`
+* `secretStoreRef`: Reference to the `SecretStore` that was created earlier. If using `ClusterSecretStore`, set the `Kind` to `ClusterSecretStore`.
 
 * `target`: Name of the Kubernetes Secret to create.
 
@@ -325,7 +323,7 @@ kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.key}' | ba
 
 The [ClusterSecretStore](https://external-secrets.io/v0.4.2/api-clustersecretstore/) is cluster-wide and can be accessed by `ExternalSecrets` from any Namespace, offering centralized secret management:
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > The **Namespace** value is required in the `secretRef` section.
 

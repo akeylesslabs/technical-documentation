@@ -14,7 +14,7 @@ next:
       title: SSH Remote Access
       type: basic
 ---
-> ❗️ Note
+> ℹ️ **Note:**
 >
 > This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) and is no longer available.
 
@@ -38,7 +38,7 @@ Currently, the Helm chart requires a StorageClass with `ReadWriteMany` access mo
 
 ### Network
 
-When using SSH sessions behind load balancer such as ELB, the session can be closed due to idle connection timeout, so its advise to increase it to a reasonable high value, or event unlimited.
+When using SSH sessions behind a load balancer such as ELB, the session can close due to an idle connection timeout, so it is advised to increase it to a reasonably high value, or even unlimited.
 
 For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
@@ -47,7 +47,7 @@ For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticl
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.
 For it to work properly, Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server)
 
-> 🚧 Note:
+> ℹ️ **Note:**
 >
 > To enable Secure Remote Access features you will have to get an access-key to Akeyless private repository. Please contact your Account Manager for more details.
 
@@ -68,14 +68,14 @@ If you don't have an SSH certificate ready, please follow this guide on how to c
 
 The following parameters are mandatory:
 
-| Parameter             | Default                                              | Info                                                                                                                                                                         |
+| Parameter | Default | Info |
 | --- | --- | --- |
-| dockerRepositoryCreds | N/A                                                  | Credentials to access Akeyless private image                                                                                                                                 |
-| apiGatewayURL         | [https://rest.akeyless.io](https://rest.akeyless.io) | A full URL of Akeyless API GW                                                                                                                                                |
-| CAPublicKey           | N/A                                                  | SSH Cert Issuer CA Public key                                                                                                                                                |
-| privilegedAccess      | N/A                                                  | Credentials for zero-trust access: If provided, it is possible for end users to have only "list" permissions on Akeyless items if privileged credentials have "read" access |
+| dockerRepositoryCreds | N/A | Credentials to access Akeyless private image |
+| apiGatewayURL | [https://rest.akeyless.io](https://rest.akeyless.io) | A full URL of Akeyless API GW |
+| CAPublicKey | N/A | SSH Cert Issuer CA Public key |
+| privilegedAccess | N/A | Credentials for zero-trust access: If provided, it is possible for end users to have only "list" permissions on Akeyless items if privileged credentials have "read" access |
 
-> 👍 Tip
+> ✅ **Tip:**
 >
 > Akeyless supports session termination, which can be configured as part of this chart deployment.
 > To enable session termination please set your Okta\Keycloak `apiURL` and `apiToken` under `sessionTermination` section.

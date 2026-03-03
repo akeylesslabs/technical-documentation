@@ -50,7 +50,7 @@ Where:
 
 Once the GoDaddy Target is created, it can be used to generate a [public certificate](https://docs.akeyless.io/docs/public-ca).
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluegodaddyp) section
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#godaddy) section
 
 ## Create a GoDaddy Target in the Console
 

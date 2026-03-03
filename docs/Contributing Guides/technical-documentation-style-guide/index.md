@@ -5,13 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-<Callout icon="🚧" theme="warn">
-  Work In Progress
-</Callout>
-
-<Callout icon="❗️" theme="error">
-  This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
-</Callout>
+> ⚠️ **Warning:** This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
 
 ## Purpose
 
@@ -31,6 +25,17 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Audience awareness**: Assume readers have basic technical knowledge but may not be experts.
 * **Third person**: Where possible, use a third-person voice, rather than first-person ("I") or second-person ("you"). Quickstarts are exempted from this.
 * **Simplicity**: Keep punctuation simple and avoid chained clauses.
+
+### Common Grammar Corrections
+
+Use these preferred forms to keep wording concise and consistent:
+
+* Use **"Note that"** instead of **"Please note that"**.
+* Use **"To"** instead of **"In order to"**.
+* Use **"can"** instead of **"will be able to"**.
+* Use **"encrypted in transit"** instead of **"encrypted at transit"**.
+* Use **"comma-separated"** instead of **"comma separated"**.
+* Use sentence case for generic terms unless they are official product names or you are referencing specific items in a console. For example, use **"TLS private key"** instead of **"TLS Private Key"**.
 
 ### Punctuation
 
@@ -77,7 +82,10 @@ This guide defines standards for writing clear, consistent, and professional tec
   git clone https://github.com/example/repo.git
   ```
 
-* Use code block tabbing when presenting the same example across multiple languages or platform configurations:
+#### Code tabbing (ReadMe.com specific)
+
+* Favor code block tabbing when presenting the same example across multiple languages or platform configurations.
+    * For ReadMe code tabs to render correctly, adjacent fenced code blocks must have no blank line between them.
 
   ```python
   Python Code
@@ -107,6 +115,47 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
   ```
 </details>
 
+### Blockquote callouts
+
+Use markdown blockquote syntax for callouts with this heading format:
+
+`> [emoji] **Label:**`
+
+If needed, include context in parentheses:
+
+`> [emoji] **Label (Context):**`
+
+Do not use ReadMe's proprietary `<Callout>` tag.
+
+Use the following label and emoji set:
+
+* `ℹ️ **Note:**`
+* `ℹ️ **Info:**`
+* `✅ **Tip:**`
+* `⚠️ **Warning:**`
+* `❗ **Important:**`
+* `🚫 **Caution:**`
+
+Callout rules:
+
+* Keep the body on the next quoted line (or lines).
+* Do not repeat intros such as `Note:` or `Note that` inside the callout body.
+* Do not bold the first sentence in the body.
+* Keep punctuation and capitalization consistent with the selected label.
+* Prefer markdown blockquote callouts in all docs and reusable content blocks for portability and consistency.
+
+Example:
+
+> ⚠️ **Warning:**
+>
+> Rotating this key before dependent services are updated can break production workloads.
+
+With context:
+
+> ℹ️ **Note (Authentication):**
+>
+> Use an Authentication Method with read and list permissions on the required item path.
+
 ## Formatting
 
 * **Bold**: For UI elements, important notes, or emphasis.
@@ -132,14 +181,14 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
 * When referencing non-Akeyless products and features, consistently apply the capitalization and punctuation of the owning organization of the product referenced. Some examples are:
     * GitLab (instead of Gitlab)
     * GitHub (instead of Github)
-    * Docker Hub (instead of dockerhub)
-    * HashiCorp Vault (instead of Hashi-Vault)
+    * Docker Hub (instead of `dockerhub`)
+    * HashiCorp Vault (instead of `Hashi-Vault`)
     * SAP HANA database (instead of HANA DB)
     * MySQL (instead of mysql)
     * MSSQL (instead of mssql)
     * Amazon Redshift (instead of Redshift)
     * Amazon EKS (instead of EKS or AWS EKS)
-    * `kubectl` (instead of Kubectl)'
+    * `kubectl` (instead of Kubectl)
 
 ### Command-Line Conventions
 
@@ -166,7 +215,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 
 * Dates: `YYYY-MM-DD` (ISO 8601).
 * Time: Use UTC when relevant (For example, `14:00 UTC`).
-* Numbers: Use numerals for all numbers greater than 10 (For example, "11 files," not "eleen files").
+* Numbers: Use numerals for all numbers greater than 10 (For example, "11 files," not "eleven files").
 * Units:
     * Use SI units (For example, "MB," "ms").
     * Use a space between the value and unit (For example, "10 GB", "12 ms").
@@ -204,7 +253,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 
 * **Keep sentences simple and clear**: Short sentences are easier to translate and less likely to create ambiguity.
 * **Avoid fragments**: Sentence fragments are harder to translate; therefore, wherever possible, write in complete sentences.
-* **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meeting to a native speaker or speakers from a particular regions. Examples:
+* **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meaning to a native speaker or speakers from a particular region. Examples:
     * "At heart, this product does a thing."
     * "Under the hood, the library uses an event-driven architecture.”
     * “As a rule of thumb, use HTTPS for all API calls.”
@@ -219,7 +268,8 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * If possible, have Harrison ([harrison.s@akeyless.io](mailto:harrison.s@akeyless.io)) review all content.
 * Verify technical accuracy.
 * Run spell check and grammar review.
-* Utilize the ReadMe.com AI Linter.
+* Use the ReadMe.com AI Linter.
 * Validate code snippets and commands.
+* When introducing conventions that apply broadly (for example, all files or repository-wide automation), update this style guide where relevant.
 
 ***

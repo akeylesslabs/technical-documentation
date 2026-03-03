@@ -12,7 +12,7 @@ next:
 ---
 You can create a PingFederate secret to allow users to dynamically receive short-lived authentication options to interact with a PingFederate service using an API Key, a public key (private key JWT) and client certificates.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/ping-target). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -26,7 +26,7 @@ To create a dynamic Ping secret with the CLI using an existing [Ping Target](htt
 akeyless dynamic-secret create ping \
 --name <Producer Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --ping-client-authentication-type CLIENT_SECRET \
 --ping-grant-types AUTHORIZATION_CODES \
 --ping-redirect-uris 'https://<Your-Redirect-URL>'
@@ -51,7 +51,7 @@ To create a Ping Dynamic Secret without using an existing target, amend the comm
 ```shell
 akeyless dynamic-secret create ping \
 --name <Producer Name> \
---gateway-url 'https://<Your_Akeyless_GW_URL:8000>' \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
 --ping-url 'https://my-pf-server.com' \
 --ping-privileged-user <Username> \
 --ping-password <Password>\
@@ -68,17 +68,17 @@ Where:
 
 * `ping-password`: Password related to the privileged user.
 
-All other parameters have the same meaning whether or not you choose to use a target. Additional parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluepingp).
+All other parameters have the same meaning whether or not you choose to use a target. Additional parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#ping).
 
 You may update the Dynamic Secret information using the following command with the same parameters:
 
 ```shell
-akeyless dynamic-secret updateakeyless dynamic-secret get-value ping
+akeyless dynamic-secret update ping
 ```
 
 ### Fetch a Dynamic Ping Secret Value
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration):
 >
@@ -103,7 +103,7 @@ The output should look as follows:
 
 ## Working With Ping Dynamic Secrets from the Console
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > To start working with Dynamic Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -147,7 +147,7 @@ The output should look as follows:
 
 ### Fetch a Dynamic Ping Secret Value
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration):
 >
@@ -157,4 +157,4 @@ The output should look as follows:
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

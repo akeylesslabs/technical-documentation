@@ -34,7 +34,7 @@ Where:
 
 * `bind-dn-password`: The password of the LDAP user.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueldapp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#ldap) section.
 
 ## Create an LDAP Target in the Console
 

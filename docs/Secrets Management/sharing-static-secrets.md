@@ -12,13 +12,13 @@ next:
 ---
 You can securely share copies of [Static](https://docs.akeyless.io/docs/static-secrets) and [Rotated](https://docs.akeyless.io/docs/rotated-secrets#/) secret items saved in Akeyless with anyone, even if they don’t use Akeyless or are part of your organization based on a well-defined TTL. When you share an item, you can choose either to share it by way of email or to wrap the value of the secret with a temporary token. Upon item sharing, a temporary [Access Role](https://docs.akeyless.io/docs/rbac) will be created automatically, so as a break glass solution, this can be revoked immediately. Upon access to the shared secret, a log entry will be recorded with the relevant details.
 
-When sharing by way of **emails** you’ll get a unique link you need to share with those users, choose when the share expires and who are the specific users that will be able to access it. When sharing using **wrapping tokens**, you'll get a temporary token that can be shared on the wire without exposing the real secret.
+When sharing by way of **emails**, you’ll get a unique link to share with those users, choose when the share expires, and specify which users can access it. When sharing using **wrapping tokens**, you'll get a temporary token that can be shared on the wire without exposing the real secret.
 
 You can define a list of allowed email domains in the **Global Settings**. Secrets can only be shared with users whose email addresses belong to these domains. By default, sharing is allowed with all domains.
 
-> 🚧 Note
+> ℹ️ **Note:**
 >
-> You can define a list of allowed email domains in the Global Settings. Secrets can only be shared with users whose email addresses belong to these domains. For security purposes, when working with email-based sharing, only users whose email addresses you’ve specified will be able to access the item using the shared link. By default, sharing is allowed with all domains.
+> You can define a list of allowed email domains in the Global Settings. Secrets can only be shared with users whose email addresses belong to these domains. For security purposes, when working with email-based sharing, only users whose email addresses you’ve specified can access the item using the shared link. By default, sharing is allowed with all domains.
 
 ## Sharing Secrets from the Akeyless Console
 
@@ -64,7 +64,7 @@ Where:
 * `action`: The action to perform on the item, you may choose `share` to share an item, `stop` to stop sharing an item, or `describe` to see with what addresses it was already shared, this parameter is mandatory.
 * `share-type`: The share type set to `token`, by default set to `email`.
 
-You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#p-stylecolorblueshare-itemp)
+You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#share-item)
 
 ## Access Shared Secret
 
@@ -74,7 +74,7 @@ Secrets that were shared by way of **Email** can be accessed directly from any b
 akeyless unwrap-token --shared-token <shared token>
 ```
 
-You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#p-stylecolorblueunwrap-tokenp)
+You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#unwrap-token)
 
 ## Managing Shared Items
 

@@ -42,7 +42,7 @@ Before beginning the implementation of the solution, it's essential to have the 
 
 To implement the integration of Akeyless with ServiceNow for managing access requests and utilizing event forwarding, follow these detailed steps:
 
-**[Create a Gateway in Akeyless](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system-1):** The initial step involves setting up an Akeyless Gateway. This is a crucial step as having a gateway is mandatory to utilize the event forwarder functionality. The gateway serves as a bridge, facilitating secure communication between Akeyless and other systems or applications.
+**[Create a Gateway in Akeyless](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system-1):** The initial step involves setting up an Akeyless Gateway. This is a crucial step as having a gateway is mandatory to use the event forwarder functionality. The gateway serves as a bridge, facilitating secure communication between Akeyless and other systems or applications.
 
 * [To begin constructing the Gateway, we must first set up Docker.](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system)
 

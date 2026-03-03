@@ -30,14 +30,14 @@ By default, Secrets are not encrypted at rest and are open to attack, either by 
 
 Kubernetes external KMS plugin can be deployed using a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) or a standalone Docker container both methods require direct access to the Kubernetes master nodes on the control plane where the `kube-apiserver` is running:
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > `kube-apiserver` communicates with the plugin through a Unix socket,hence a volume must be mounted accordingly where the plugin will create the socket on, and the `kube-apiserver` will send and received requests through it.
 
 ## Akeyless Environment Variables
 
 | Name | Value | Default |
-|---|---|---|
+| --- | --- | --- |
 | `AKEYLESS_URL` | URL of the Akeyless REST API Gateway (port 8081) | [https://api.akeyless.io](https://api.akeyless.io) |
 | `AKEYLESS_UNIX_SOCKET` | Path to listen on Unix socket | `/tmp/akeyless_kms_plugin.sock` |
 | `AKEYLESS_KEY_ENCRYPTION_KEY` | The key used for encryption (decryption is handled automatically) | N/A |

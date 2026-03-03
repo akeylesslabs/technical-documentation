@@ -30,18 +30,18 @@ For more information, refer to the [Ansible Galaxy documentation](https://galaxy
 
 This plugin supports the following Authentication Methods:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [Email](https://docs.akeyless.io/docs/email)
-* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
-* [OCI IAM](https://docs.akeyless.io/docs/oci-iam)
-* [LDAP](https://docs.akeyless.io/docs/ldap)
-* [JWT](https://docs.akeyless.io/docs/oauth20jwt)
-* [OIDC](https://docs.akeyless.io/docs/openid)
-* [SAML](https://docs.akeyless.io/docs/saml)
-* [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+* [Email](https://docs.akeyless.io/docs/auth-with-email)
+* [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [OCI IAM](https://docs.akeyless.io/docs/auth-with-oci)
+* [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
+* [JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
+* [OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
+* [SAML](https://docs.akeyless.io/docs/auth-with-saml)
+* [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
 
 To set the Authentication Method, add the following `login` section to your [Ansible Playbook](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html):
 
@@ -150,7 +150,7 @@ Where:
 
 * `access_type`: The type of the Auth Method being used.
 
-* `cloud_id`: The `cloud_id`, can be retrieved by running: `akeyless get-cloud-identity`
+* `cloud_id`: The `cloud_id` can be retrieved by running `akeyless get-cloud-identity`.
 
 * `akeyless_gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 

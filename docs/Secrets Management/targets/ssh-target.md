@@ -41,7 +41,7 @@ Where:
 
 * `ssh-password`: The SSH password.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluesshp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#ssh) section.
 
 ## Create an SSH Target in the Console
 

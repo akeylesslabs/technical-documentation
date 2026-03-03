@@ -14,11 +14,11 @@ next:
 
 ### Empowering Seamless Password Management With Akeyless Browser Extension
 
-In today's digital landscape, managing an ever-growing array of passwords and sensitive information can be a daunting task. Introducing the Akeyless browser extension, your gateway to streamlined password management and enhanced security. This powerful tool seamlessly integrates with your Akeyless account, enabling you to access, utilize, and securely store your credentials with unparalleled ease.
+In today's digital landscape, managing an ever-growing array of passwords and sensitive information can be a daunting task. Introducing the Akeyless browser extension, your gateway to streamlined password management and enhanced security. This powerful tool seamlessly integrates with your Akeyless account, enabling you to access, use, and securely store your credentials with unparalleled ease.
 
 ### Unleash the Convenience of On-the-Go Access
 
-Whether you're working remotely or simply away from your primary device, the Akeyless browser extension ensures you're never without your crucial password information. With a few clicks, you can access and utilize select items from your Akeyless account, empowering you to stay productive and connected wherever you go.
+Whether you're working remotely or simply away from your primary device, the Akeyless browser extension ensures you're never without your crucial password information. With a few clicks, you can access and use select items from your Akeyless account, empowering you to stay productive and connected wherever you go.
 
 ### Securely Inject Passwords Into Remote Access Sessions
 

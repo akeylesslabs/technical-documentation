@@ -114,7 +114,7 @@ with the relevant flags according to the `access-type` being used.
 
 ### API Key
 
-Create a new [API Key](https://docs.akeyless.io/docs/api-key) Auth Method
+Create a new [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method
 
 #### Usage
 
@@ -150,7 +150,7 @@ akeyless auth-method create api-key --name <Auth method name>
 
 ### `aws-iam`
 
-Create a new Auth Method that will be able to authenticate using AWS IAM credentials
+Create a new Auth Method that can authenticate using AWS IAM credentials
 
 #### Usage
 
@@ -209,7 +209,7 @@ akeyless auth-method create aws-iam \
 
 ### `azure-ad`
 
-Create a new Auth Method that will be able to authenticate using Azure Active Directory credentials
+Create a new Auth Method that can authenticate using Azure Active Directory credentials
 
 #### Usage
 
@@ -273,7 +273,7 @@ akeyless auth-method create azure-ad \
 
 ### `cert`
 
-Create a new Auth Method that will be able to authenticate using a client certificate
+Create a new Auth Method that can authenticate using a client certificate
 
 #### Usage
 
@@ -332,7 +332,7 @@ akeyless auth-method create cert \
 
 ### `email`
 
-Create a new Auth Method that will be able to authenticate using an email address
+Create a new Auth Method that can authenticate using an email address
 
 #### Usage
 
@@ -372,7 +372,7 @@ akeyless auth-method create email \
 
 ### `gcp`
 
-Create a new Auth Method that will be able to authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
+Create a new Auth Method that can authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
 
 #### Usage
 
@@ -418,21 +418,21 @@ akeyless auth-method create gcp \
 
 `--service-account-creds-data`: Service Account credentials data, Base64-encoded
 
-`--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects in order to authenticate. For multiple values repeat this flag
+`--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects to authenticate. For multiple values repeat this flag
 
-`--bound-service-accounts`: A list of Service Accounts. Clients must belong to any of the provided service accounts in order to authenticate. For multiple values repeat this flag
+`--bound-service-accounts`: A list of Service Accounts. Clients must belong to any of the provided service accounts to authenticate. For multiple values repeat this flag
 
-`--bound-zones`: GCE only. A list of zones. GCE instances must belong to any of the provided zones in order to authenticate. For multiple values repeat this flag
+`--bound-zones`: GCE only. A list of zones. GCE instances must belong to any of the provided zones to authenticate. For multiple values repeat this flag
 
-`--bound-regions`: GCE only. A list of regions. GCE instances must belong to any of the provided regions in order to authenticate. For multiple values repeat this flag
+`--bound-regions`: GCE only. A list of regions. GCE instances must belong to any of the provided regions to authenticate. For multiple values repeat this flag
 
-`--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data` becomes mandatory.
+`--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data` becomes mandatory.
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
 ### `oauth2`
 
-Create a new Auth Method that will be able to authenticate using OAuth2
+Create a new Auth Method that can authenticate using OAuth2
 
 #### Usage
 
@@ -473,7 +473,7 @@ akeyless auth-method create oauth2 \
 
 `--jwks-json-data`: The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. Base64-encoded string
 
-`-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or UPNfor example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
+`-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or UPN for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
 `--bound-clients-ids`: The clients ids that the access is restricted to
 
@@ -578,15 +578,15 @@ akeyless auth-method create oidc \
 
 `--require-scopes`: required scopes that the OIDC method will request from the OIDC Provider and the user must approve
 
-`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, azures` Application ID URI)
+`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, Azure's Application ID URI)
 
-`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider`s Application
+`--audience`: Audience claim to be used as part of the authentication flow. If set, it must match the one configured on the Identity Provider's Application
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
 ### `saml`
 
-Create a new Auth Method that will be able to authenticate using SAML
+Create a new Auth Method that can authenticate using SAML
 
 #### Usage
 
@@ -708,14 +708,14 @@ akeyless auth-method update api-key --name <Auth method>
 
 #### `aws-iam`
 
-Update a new Auth Method that will be able to authenticate using AWS IAM credentials
+Update a new Auth Method that can authenticate using AWS IAM credentials
 
 ##### Usage
 
 ```shell
 akeyless auth-method update aws-iam \
 --name <Auth method name> \
---bound-aws-account-id <Accessble AWS account`s IDs> \
+--bound-aws-account-id <Accessible AWS account IDs> \
 --new-name <Auth method new name> 
 ```
 
@@ -762,7 +762,7 @@ akeyless auth-method update aws-iam \
 
 #### `azure-ad`
 
-Update a new Auth Method that will be able to authenticate using Azure Active Directory credentials
+Update a new Auth Method that can authenticate using Azure Active Directory credentials
 
 ##### Usage
 
@@ -825,7 +825,7 @@ akeyless auth-method update azure-ad \
 
 #### `cert`
 
-Update a new Auth Method that will be able to authenticate using a client certificate.
+Update a new Auth Method that can authenticate using a client certificate.
 
 ##### Usage
 
@@ -884,7 +884,7 @@ akeyless auth-method update cert \
 
 #### `gcp`
 
-Update a new Auth Method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials
+Update a new Auth Method that can authenticate using GCP IAM Service Account credentials or GCE instance credentials
 
 ##### Usage
 
@@ -930,19 +930,19 @@ akeyless auth-method update gcp \
 
 `--service-account-creds-data`: Service Account credentials data, Base64-encoded
 
-`--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects in order to authenticate. For multiple values repeat this flag.
+`--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects to authenticate. For multiple values repeat this flag.
 
-`--bound-service-accounts`: A list of Service Accounts. Clients must belong to any of the provided service accounts in order to authenticate. For multiple values repeat this flag.
+`--bound-service-accounts`: A list of Service Accounts. Clients must belong to any of the provided service accounts to authenticate. For multiple values repeat this flag.
 
-`--bound-zones`: GCE only. A list of zones. GCE instances must belong to any of the provided zones in order to authenticate. For multiple values repeat this flag.
+`--bound-zones`: GCE only. A list of zones. GCE instances must belong to any of the provided zones to authenticate. For multiple values repeat this flag.
 
-`--bound-regions`: GCE only. A list of regions. GCE instances must belong to any of the provided regions in order to authenticate. For multiple values repeat this flag.
+`--bound-regions`: GCE only. A list of regions. GCE instances must belong to any of the provided regions to authenticate. For multiple values repeat this flag.
 
-`--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data` becomes mandatory.
+`--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data` becomes mandatory.
 
 #### `oauth2`
 
-Update a new Auth Method that will be able to authenticate using OAuth2
+Update a new Auth Method that can authenticate using OAuth2
 
 ##### Usage
 
@@ -1000,7 +1000,7 @@ Update an Oracle Auth Method that will be used in the account using OCI principl
 ##### Usage
 
 ```shell
-akeyless auth-method update oci \ 
+akeyless auth-method update oci \
 --name <Auth Method name> \
 --new-name <Auth Method new name> \
 --tenant-ocid <Oracle Cloud tenant ID> \
@@ -1013,7 +1013,7 @@ akeyless auth-method update oci \
 
 `-t, --tenant-ocid`: **Required**, The Oracle Cloud tenant ID
 
-`-g, --group-oicd`: **Required**, A list of required groups OCIDs
+`-g, --group-ocid`: **Required**, A list of required groups OCIDs
 
 `--new-name`: Auth Method new name
 
@@ -1039,7 +1039,7 @@ akeyless auth-method update oci \
 
 #### `oidc`
 
-Update a new Auth Method that will be able to authenticate using OIDC
+Update a new Auth Method that can authenticate using OIDC
 
 ##### Usage
 
@@ -1089,15 +1089,15 @@ akeyless auth-method update oidc \
 `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-oidc` to enable OIDC by way of Akeyless Console and `http://127.0.0.1:*` to enable OIDC by way of the Akeyless CLI)
 
 `--required-scopes`: required scopes that the OIDC method will request from the OIDC Provider and the user must approve
-`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, azures` Application ID URI)
+`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, Azure's Application ID URI)
 
-`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider`s Application
+`--audience`: Audience claim to be used as part of the authentication flow. If set, it must match the one configured on the Identity Provider's Application
 
 `-d, --delimiters`          A list of additional sub-claims delimiters
 
 #### `saml`
 
-Update a new Auth Method that will be able to authenticate using SAML
+Update a new Auth Method that can authenticate using SAML
 
 ##### Usage
 
@@ -1146,7 +1146,7 @@ akeyless auth-method update saml \
 
 ## `validate-token`
 
-Checks the provided validating a token, and if valid prints its expiration time (Time-To-Live)validity and its TTL
+Validates the provided token and, if valid, prints its expiration time (Time-To-Live).
 
 ### Usage
 
@@ -1183,7 +1183,7 @@ akeyless auth-method list \
 
 #### Flags
 
-`-t, --type`: The Auth Method types list of the requested method. In case it is empty, all types of Auth Method will be returned. options: [`api_key`, `azure_ad`, `oauth2/jwt`, `saml2`, `ldap`, `aws_iam`, `oidc`, `universal_identity`, `gcp`, `k8s`, `cert`]
+`-t, --type`: The Auth Method types list of the requested method. If it is empty, all Auth Method types are returned. options: [`api_key`, `azure_ad`, `oauth2/jwt`, `saml2`, `ldap`, `aws_iam`, `oidc`, `universal_identity`, `gcp`, `k8s`, `cert`]
 
 `--filter`: Filter by Auth Method name or part of it
 

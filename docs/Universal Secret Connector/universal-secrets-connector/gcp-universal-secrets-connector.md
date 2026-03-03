@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page discusses the creation of GCP [Universal Secrets Connectors](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, as they have varying parameters.
+This page discusses the creation of GCP [Universal Secrets Connectors](https://docs.akeyless.io/docs/universal-secrets-connector). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, as they have varying parameters.
 
 ## Prerequisites
 
@@ -35,7 +35,9 @@ The main parameters are:
 
 * `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+* `gcp-sm-regions`: Optional, comma-separated list of GCP Secret Manager regions used when listing regional secrets (maximum 12).
+
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create-usc).
 
 ### Listing USC Secrets
 
@@ -44,6 +46,16 @@ To list the secrets from your USC, use the following command:
 ```shell
 akeyless usc list --usc-name <usc name>
 ```
+
+This command lists global secrets by default.
+
+To list regional secrets for a GCP USC, use:
+
+```shell
+akeyless usc list --usc-name <usc name> --object-type regional-secrets
+```
+
+Regional listing uses the regions configured on the USC item (`--gcp-sm-regions` in `create-usc` or `update-item`).
 
 The output should look as follows:
 
@@ -75,7 +87,7 @@ The main parameters are:
 
 * `secret-id`: The ID of the secret you would like to fetch.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#get).
 
 The output should look as follows:
 
@@ -105,7 +117,9 @@ The main parameters are:
 
 * `value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
+
+For GCP USC, you can create a regional secret by adding `--region <gcp-region>`. If omitted, the secret is created as global.
 
 ### Updating an Existing USC Secret
 
@@ -115,7 +129,7 @@ To update an existing secret in your USC, use the following command:
 akeyless usc update --usc-name <USC name> --secret-id <secret id> --value <new secret value>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#update).
 
 ### Deleting an Existing USC Secret
 
@@ -125,7 +139,7 @@ To delete an existing secret in your USC, use the following command:
 akeyless usc delete --usc-name <USC name> --secret-id <secret id>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).
 
 ## Creating a Universal Secrets Connector from the Console
 
@@ -137,25 +151,25 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 4. Define the remaining settings as follows:
 
-   * **Description:** Optional, enter a description of the Universal Secrets Connector.
+    * **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-   * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+    * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-   * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
+    * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
 
-   * **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/cloud-targets#gcp).
+    * **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/cloud-targets#gcp).
 
-   * **Project ID:** Optional, The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) .
+    * **Project ID:** Optional. The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
-   * **Region** Optional, Choose the regions where this Universal Secrets Connector can manage secrets. You can select up to 12 regions.
+    * **Region:** Optional. Choose the regions where this Universal Secrets Connector can manage secrets. You can select up to 12 regions.
 
-   * **Gateway:** Select the desired corresponding Gateway.
+    * **Gateway:** Select the desired corresponding Gateway.
 
-5. Click **Finish**
+5. Click **Finish**.
 
 ## GCP Universal Secrets Details
 
-Once connected to a Target, you will be able to access a Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
+Once connected to a Target, you can access a Universal Secrets Connector in your Akeyless Console page, which allows you to manage your Universal Secrets and display the following information about the secret:
 
 * **Name:** Secret name
 

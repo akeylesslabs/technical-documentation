@@ -87,15 +87,15 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 4. If you are locked out of a session, click on the "Unlock" button at the top of your screen and you will be given the option to reconnect to your session. **IMPORTANT** This option is only supported with the installation of our [Remote Access (SRA) Web Extension](https://chromewebstore.google.com/search/Akeyless%20SRA) on your browser.
 
-> 📘 Session In Use Indicator
+> ℹ️ **Note (Session In Use Indicator):**
 >
-> For RDP sessions using a **Rotated Secret** or **Static Secret**, there will be a text indicator showing "In use" next to any sessions that are currently occupied by another user.
+> For RDP sessions using a **Rotated Secret** or **Static Secret**, the **In use** indicator is tracked **per host**. A session marked **In use** on one host does not mark the same secret as **In use** on other hosts.
 >
 > To enable this feature, the Auth Method used for the Gateway-SRA privileged Access-ID requires an Access Role with the _Update_ permission on the relevant items' path
 
 ## Inject a Fixed User Password Automatically
 
-While working with fixed users, Secure Remote Access can automatically inject your **own** password if stored under your **[personal folder](https://docs.akeyless.io/docs/password-manager#personal-folder)**.
+While working with fixed users, Secure Remote Access can automatically inject your **own** password if stored under your **[personal folder](https://docs.akeyless.io/docs/password-manager-overview)**.
 
 Create a new [Static Secret](https://docs.akeyless.io/docs/static-secrets) under your **personal** folder with the exact full name of the relevant [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
@@ -105,7 +105,5 @@ Based on your permissions, you will have the ability to upload files from your l
 
 To download files from a remote server, simply drag the desired files into the `Download` folder inside the mounted virtual disk named `file-share on Guacamole RDP` located under `This PC`, and a download process will start immediately where the file will be put into your local machine's Download folder. To upload files, use the **Upload** button on top of your session actions bar menu. The files you upload will be located in the same shared drive.
 
-> 📘 Info
->
-> **Mounted Folder**
+> ℹ️ **Info (Mounted Folder):**
 > Notice that upload stores (temporarily) the file on the Secure Remote Access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.

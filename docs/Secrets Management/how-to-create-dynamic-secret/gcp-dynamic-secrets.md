@@ -73,7 +73,7 @@ iam.serviceAccountKeys.list
 
 ## Create a Dynamic GCP Secret with the CLI
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/gcp-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gcp-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -83,7 +83,7 @@ To create a dynamic GCP secret with the CLI using an existing [GCP Targets](http
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gcp-sa-email <service account email>
 --gcp-cred-type <token|key> \
 --gcp-token-scopes <Token Scopes> \
@@ -93,7 +93,7 @@ akeyless dynamic-secret create gcp \
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --service-account-type dynamic \
 --role-binding <Path to JSON roles file> \
 --gcp-cred-type <token|key> \
@@ -104,7 +104,7 @@ akeyless dynamic-secret create gcp \
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --access-type[=sa] external \
 --role-name <role1, role2> \
 --fixed-user-claim-keyname[=ext_email] <Sub-Claim Name>
@@ -115,7 +115,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gcp-sa-email <service account email>
 --gcp-cred-type <token|key> \
 --gcp-token-scopes <Token Scopes> \
@@ -132,7 +132,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `service-account-type`: `Fixed`, `Dynamic`type. By default set to **Fixed**.
+* `service-account-type`: `Fixed`, `Dynamic` type. By default set to **Fixed**.
 
 * `role-binding`: A path to a JSON file that holds the relevant resource with roles to bind for the created Service Account. Relevant only for **Dynamic** type.
 
@@ -158,7 +158,7 @@ If you don't have a [GCP Target](https://docs.akeyless.io/docs/gcp-targets) yet,
 
 * `gcp-key-file-path`: Path to file with the Base64-encoded privileged service account private key.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegcpp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#gcp) section.
 
 ## Fetch a Dynamic GCP Secret Value with the CLI
 
@@ -170,7 +170,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic GCP Secret in the Akeyless Console
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/gcp-dynamic-secrets#create-a-dynamic-gcp-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -190,16 +190,16 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
         * Check the **Explicitly specify target properties** to provide details of the GCP target in the next step.
 
-    * **Fixed SA:** A fixed Service Account. with **Service Account Email** to create JIT Keys/Tokens for.
+    * **Fixed SA:** A fixed Service Account with **Service Account Email** to create JIT Keys/Tokens for.
 
     * **Dynamic SA:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
-        * **Project ID:** Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used . (Relevant only for **Dynamic SA** mode).
+        * **Project ID:** Optional. The GCP Project ID to create the Just In Time Service Account. By default, the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used. (Relevant only for **Dynamic SA** mode).
 
     * **Fixed:** Assigns a role to a user based on the user's sub-claim.
 
-    * **Access Token:** Select this radio button to create a GCP access token as a dynamic secret.
+    * **Access Token:** Select this option to create a GCP access token as a dynamic secret.
 
-    * **Service Account Key:** Select this radio button to create a GCP service account key as a dynamic secret.
+    * **Service Account Key:** Select this option to create a GCP service account key as a dynamic secret.
 
     * **Token Scopes:** Provide a comma-separated list of [GCP access token scopes](https://developers.google.com/identity/protocols/oauth2/scopes). (If **Access Token** is selected.)
 
@@ -219,7 +219,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide the connection string to your GCP:
 
@@ -235,4 +235,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

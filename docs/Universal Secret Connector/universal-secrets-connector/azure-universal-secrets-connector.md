@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page discusses the creation of Azure [Universal Secrets Connectors](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, which has varying parameters.
+This page discusses the creation of Azure [Universal Secrets Connectors](https://docs.akeyless.io/docs/universal-secrets-connector). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, which has varying parameters.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ The main parameters are:
 
 * `azure-kv-name`: The name of an existing Azure Key Vault.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create-usc).
 
 ### Listing USC Objects
 
@@ -85,7 +85,7 @@ The main parameters are:
 
 * `object-type[=secret]` Either secret or certificate, the default is set to secret.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#get).
 
 The output should look as follows:
 
@@ -117,7 +117,7 @@ The main parameters are:
 
 * `object-type[=secret]`: Either `secret` or `certificate`, when set to `certificate` - Provide a Base64-encoded certificate file that includes the private key.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
 
 ### Updating an Existing USC Secret
 
@@ -127,7 +127,7 @@ To update an existing secret in your USC, use the following command:
 akeyless usc update --usc-name <usc name> --secret-name <new secret name> --value <secret value>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#update).
 
 ### Deleting an Existing USC Secret
 
@@ -137,7 +137,7 @@ To delete an existing secret in your USC, use the following command:
 akeyless usc delete --usc-name <usc name> --secret-name < secret name>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).
 
 ## Creating a Universal Secrets Connector from the Console
 
@@ -165,7 +165,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 ## Azure Universal Secrets Details
 
-Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
+Once connected to a Target, you can access the Universal Secrets Connector in your Akeyless Console page, which allows you to manage your Universal Secrets and display the following information about the secret:
 
 * **Name:** Secret name
 
@@ -179,7 +179,7 @@ More information and secret value can be viewed by selecting a specific secret, 
 
 ## Azure Universal Certificates Details
 
-Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Certificates, as well as display the following information about the Certificates:
+Once connected to a Target, you can access the Universal Secrets Connector in your Akeyless Console page, which allows you to manage your Universal Certificates and display the following information about the certificates:
 
 * **Name:** Certificate name
 

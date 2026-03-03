@@ -24,33 +24,33 @@ Akeyless log auditing is important for cybersecurity because it provides records
 
 ## Viewing Logs in the Console
 
-When using the console, you will be able to navigate to the **Audit Logs** tab to view logs in the following format:
+When using the console, you can navigate to the **Audit Logs** tab to view logs in the following format:
 
 ![Screenshot of Audit Logs in the Akeyless Platform Console](https://files.readme.io/800a8f4-Screenshot_at_Nov_10_13-44-36.png)
 
 These logs show you the time of the described action, what it was, whether it was successful or unsuccessful (status codes in the four hundreds means error), the client performing it, what IP it was performed from, and additional parameter tags such as access type or product type.
 
-You will be able to filter your logs based on any of these rubrics or tags inside the Akeyless SaaS platform in order to get insights or clarifications.
+You can filter your logs based on any of these rubrics or tags inside the Akeyless SaaS platform to get insights or clarifications.
 
 ## Reading the Raw Logs
 
 Another way to view your logs is to forward them in their raw form to tools such as Splunk, Logz.io, and so on.
-The logs will show up as a line of text, from which you will be able to read the following information:
+The logs will show up as a line of text, from which you can read the following information:
 
-| Log Line             | Description                                                                                                                                                                               |
-| :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Timestamp`          | The log will start with a timestamp string in the format of Date `T` Time Timezone.                                                                                                       |
-| `account_id`         | Account ID.                                                                                                                                                                               |
-| `access_id`          | Access ID.                                                                                                                                                                                |
-| `action`             | The type of action performed, for example, list items, create item, get item, and so on. A list of common log items can be found [here](https://docs.akeyless.io/docs/log-actions)                                        |
-| `item_type`          | If the action was item specific, like create item, the item type will be listed here.                                                                                                     |
-| `status`             | Standard HTTP status code of the following types, Informational responses (100–199), Successful responses (200–299), Redirection messages (300–399), or Client error responses (400–499). |
-| `remote_addr`        | The IP address from which the action was performed.                                                                                                                                       |
-| `duration`           | The duration of the action in milliseconds.                                                                                                                                               |
-| `request_parameters` | More details about the action, for example, the name and details of a dynamic secret if one was fetched.                                                                                  |
-| `unique_id`          | Identifier for the specific user ID under the account (mostly relevant for human-to-machine auth methods).                                                                                |
-| `access_type`        | [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type from which the action was performed.                                                                                  |
-| `product`            | Which Akeyless product does this log concern. For example, currently this could be **Secrets Management**, **Secure Remote Access**, or **Password Management**.                          |
+| Log Line | Description |
+| --- | --- |
+| `Timestamp` | The log will start with a timestamp string in the format of Date `T` Time Timezone. |
+| `account_id` | Account ID. |
+| `access_id` | Access ID. |
+| `action` | The type of action performed, for example, list items, create item, get item, and so on. A list of common log items can be found [here](https://docs.akeyless.io/docs/log-actions) |
+| `item_type` | If the action was item specific, like create item, the item type will be listed here. |
+| `status` | Standard HTTP status code of the following types, Informational responses (100–199), Successful responses (200–299), Redirection messages (300–399), or Client error responses (400–499). |
+| `remote_addr` | The IP address from which the action was performed. |
+| `duration` | The duration of the action in milliseconds. |
+| `request_parameters` | More details about the action, for example, the name and details of a dynamic secret if one was fetched. |
+| `unique_id` | Identifier for the specific user ID under the account (mostly relevant for human-to-machine auth methods). |
+| `access_type` | [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type from which the action was performed. |
+| `product` | Which Akeyless product does this log concern. For example, currently this could be **Secrets Management**, **Secure Remote Access**, or **Password Management**. |
 
 ## Tutorial
 

@@ -56,9 +56,9 @@ You can create dynamic access credentials for AWS in two modes:
 
 This role will grant the dynamic secret permissions to manage the lifecycle of the temporary IAM users' Access Keys, including creation and deletion. It will also support the setup of a temporary user with console login, adding users to groups, and utilizing AWS tags as well.
 
-_Note:_ the `tmp.*` is the default template prefix of the temporary users Akeyless will create. In case you are working with [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating), make sure to adjust the allowed resource accordingly.
+_Note:_ `tmp.*` is the default template prefix of the temporary users Akeyless creates. If you are working with a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating), make sure to adjust the allowed resource accordingly.
 
-* If you are using `assumed_role` mode, grant the user **AssumeRole** permissions to the requested IAM roles. For more information, see the <a href="https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/" target="_blank">AWS Assume Role</a> documentation. The required policy for the user should include the following permissions:
+* If you are using `assumed_role` mode, grant the user **AssumeRole** permissions to the requested IAM roles. For more information, see the [AWS Assume Role](https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/) documentation. The required policy for the user should include the following permissions:
 
 ```json
 {
@@ -79,7 +79,7 @@ _Note:_ Make sure that the target AWS role that will be part of the roles that t
 
 ## Create a Dynamic AWS Secret with the CLI
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/aws-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/aws-targets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -89,7 +89,7 @@ To create a dynamic AWS secret with the CLI using an existing [AWS Target](https
 akeyless dynamic-secret create aws \
 --name <secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --aws-access-mode <iam_user|assumed_role> \
 --aws-user-policies <Policy ARN> \
 --aws-user-groups <UserGroup name> \
@@ -101,7 +101,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create aws \
 --name <secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --aws-access-mode <iam_user|assumed_role> \
 --aws-user-policies <Policy ARN> \
 --aws-user-groups <UserGroup name> \
@@ -139,7 +139,7 @@ If you don't have an [AWS Target](https://docs.akeyless.io/docs/aws-targets) yet
 
 * `aws-region`: The AWS region that the temporary credentials are permitted to access.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueawsp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#aws) section.
 
 ## Fetch a Dynamic AWS Secret Value with the CLI
 
@@ -151,7 +151,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic AWS Secret in the Akeyless Console
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/aws-producer#create-a-dynamic-aws-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -167,7 +167,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Target mode:** In this section, you can either select an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) or specify details of the target AWS account explicitly.
 
-        * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) .
+        * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets).
 
         * Check the **Explicitly specify target properties** to provide details of the target AWS account in the next step.
 
@@ -185,7 +185,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **User Console Access:** Check to enable access to the AWS management console. (The returned object will include a username and password to connect to the AWS Management Console).
 
-    * **Session Tags:** Key-value pair attributes that you pass when you assume an IAM role or federate a user in AWS STS, additionally can be used with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) templates,for example`Key=MyTag,Value={{username}}` where `username` is the sub-claim name. Relevant only for **Assume Role** mode.
+    * **Session Tags:** Key-value pair attributes that you pass when you assume an IAM role or federate a user in AWS STS. Additionally, they can be used with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) templates, for example `Key=MyTag,Value={{username}}`, where `username` is the sub-claim name. Relevant only for **Assume Role** mode.
 
     * **Transitive Tag Keys:** STS Transitive [session tag](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role) keys, relevant only for **Assume Role** mode.
 
@@ -193,7 +193,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-    * **Temporary Password Length** Set the length of the temporary password. Relevant only for **IAM User** access mode.
+    * **Temporary Password Length:** Set the length of the temporary password. Relevant only for **IAM User** access mode.
 
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
@@ -221,7 +221,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.
 
 ## Tutorial
 

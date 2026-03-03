@@ -20,19 +20,17 @@ This page describes how to run an Akeyless Serverless Gateway on AWS using Hashi
 
 * Network port `8000` on the cluster must be open _only for internal network access_. This allows access to the following service endpoints:
 
-| Service                                                                        | Endpoint   |
-| :----------------------------------------------------------------------------- | :--------- |
+| Service | Endpoint |
+| --- | --- |
 | [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
-| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
-| Akeyless V1 REST API                                                           | `/api/v1`  |
-| Akeyless V2 REST API                                                           | `/api/v2`  |
-| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
+| Akeyless V1 REST API | `/api/v1` |
+| Akeyless V2 REST API | `/api/v2` |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
 
 For example, to get to the `/api/v2` service, use this endpoint: `https://<your_serverless_gateway_url>.com/api/v2`
 
-<Callout icon="❗️" theme="error">
-  _**Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services._
-</Callout>
+> ⚠️ **Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services.
 
 ## Pre-Installation Configuration
 
@@ -50,10 +48,10 @@ Set your Akeyless Gateway with a default [Authentication Method](https://docs.ak
 
 The following Authentication Methods are supported for serverless mode:
 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [API Key](https://docs.akeyless.io/docs/api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-When using [AWS IAM](https://docs.akeyless.io/docs/aws-iam) as the `admin_access_id` of the Gateway, make sure to also set a list of users that are able to manage your Akeyless Gateway configuration using the `allowed_access_permissions` variable. For example:
+When using [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) as the `admin_access_id` of the Gateway, make sure to also set a list of users that are able to manage your Akeyless Gateway configuration using the `allowed_access_permissions` variable. For example:
 
 ```shell AWS_IAM
 variable "admin_access_id_type" {
@@ -107,7 +105,7 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), and so on.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 ### Customer Fragment
 
@@ -160,7 +158,7 @@ To configure your Akeyless Serverless Gateway:
 1. On your browser, navigate to the URL in the first output above labeled: `akeyless_serverless_gateway_url`.
 2. Enter your credentials to log in.
 
-> 📘 Akeyless Gateway URL
+> ℹ️ **Note (Akeyless Gateway URL):**
 >
 > The default value of the `akeyless_serverless_gateway_url` ends with `/default/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
 >
@@ -172,7 +170,7 @@ _Note:_ After installing the **Serverless Gateway,** it becomes accessible as a 
 
 ### AWS Configuration
 
-While the `lammbda_env_vars.tf` file contains the basic configuration required for deploying the **Serverless Gateway**, You can also configure the `variables.tf` file to match your **AWS account** needs. Below are examples of configurable settings:
+While the `lambda_env_vars.tf` file contains the basic configuration required for deploying the **Serverless Gateway**, you can also configure the `variables.tf` file to match your **AWS account** needs. Below are examples of configurable settings:
 
 * `aws_profile` - Set the **AWS Profile** for authentication, the default value is `default`
 
@@ -200,7 +198,7 @@ The **Serverless Gateway** will boot with the version you chose.
 
 The Akeyless Serverless Gateway does not support:
 
-* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) and [LDAP](https://docs.akeyless.io/docs/ldap) Authentication Methods
+* [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) and [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Authentication Methods
 * [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway status change

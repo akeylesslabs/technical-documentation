@@ -5,6 +5,10 @@
 customRules:
   - ./custom-rules.js
 
+# Excluded files
+ignores:
+  - docs/Contributing Guides/technical-documentation-style-guide/index.md
+
 config:
   # =========================
   # Akeyless Custom Rules
@@ -95,7 +99,22 @@ config:
   #   - severity: error|warning|info
   AKY010: true
 
-  # AKY011: Skipped
+  # AKY011: Disallow ReadMe proprietary <Callout> tags
+  #
+  # Purpose:
+  #   Enforces the callout standard to use markdown blockquote callouts
+  #   (for example, `> ⚠️ **Warning:**`) instead of `<Callout ...>` tags.
+  #
+  # Behavior:
+  #   - Detection-only rule (no auto-replacement).
+  #   - Recommended as warning to alert authors during linting.
+  #
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - ignore_code: true|false
+  AKY011:
+    severity: warning
+    ignore_code: true
 
   # AKY012: Enforce SI unit formatting (space + casing)
   # Knobs:
@@ -310,6 +329,20 @@ config:
         replacement: "high-level"
         example_from: "This interface provides a bird's eye view of your items."
         example_to: "This interface provides a high-level view of your items."
+
+  # AKY018: Require canonical Markdown table separator rows
+  #
+  # Purpose:
+  #   Enforces a single table style for readability and consistency.
+  #
+  # Canonical separator row format:
+  #   | --- | --- |
+  #
+  # Flags examples such as:
+  #   |---|---|
+  #   | :--- | :--- |
+  #   | ---- | ---: |
+  AKY018: true
 
   # =========================
   # Core markdownlint Rules
@@ -612,6 +645,9 @@ config:
       # ReadMe Proprietary
       - "HTMLBlock"
       - "Image"
+      # Keep "Callout" allowed here so MD033 does not hard-fail.
+      # AKY011 is the enforcement mechanism and is intentionally warning-level,
+      # so authors receive an alert without automatic replacement.
       - "Callout"
       - "Anchor"
       - "Embed"

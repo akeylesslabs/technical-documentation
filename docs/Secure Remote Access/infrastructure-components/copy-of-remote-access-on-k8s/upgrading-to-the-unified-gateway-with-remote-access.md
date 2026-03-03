@@ -12,7 +12,7 @@ next:
 ---
 The unified version of the Akeyless Gateway introduces significant improvements in deployment, configuration, and capabilities, intended to simplify Gateway and Remote Access deployment and operation and extend functionality.
 
-> 📘 Helm Chart
+> ℹ️ **Note (Helm Chart):**
 >
 > With this new version comes a new Helm chart for Kubernetes deployments. [Review the Helm Chart changes](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-gateway/values.yaml).
 
@@ -53,23 +53,23 @@ The unified deployment of Gateway and Remote Access offers multiple configuratio
 4. **Unification of endpoints (ports)**
    The unified Gateway with Remote Access has simplified access to the various components by creating internal mapping of the endpoints. All endpoints can be accessed through the Gateway as follows:
 
-| Service                                                                                      | Old Port | New Port/Endpoint                   |
+| Service | Old Port | New Port/Endpoint |
 | --- | --- | --- |
-| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) |     8000 | 8000                                |
-| Akeyless Gateway Console                                                                     |     1888 | `<gateway-url>:8000/console`        |
-| Remote Access Portal                                                                         |        - | `<gateway-url>:8000/sra/portal`     |
-| Remote Access Web Client                                                                     |     8888 | `<gateway-url>:8000/sra/web-client` |
-| Remote Access SSH Config                                                                     |     9900 | `<gateway-url>:8000/sra/ssh-config` |
-| HashiCorp Vault Proxy                                                                        |     8200 | `<gateway-url>:8000/hvp`            |
-| Akeyless V1 REST API                                                                         |     8080 | `<gateway-url>:8000/api/v1`         |
-| Akeyless V2 REST API                                                                         |     8081 | `<gateway-url>:8000/api/v2`         |
-| KMIP Server                                                                                  |     5696 | 5696                                |
-| gRPC                                                                                         |     8085 | 8085                                |
+| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 | 8000 |
+| Akeyless Gateway Console | 1888 | `<gateway-url>:8000/console` |
+| Remote Access Portal | - | `<gateway-url>:8000/sra/portal` |
+| Remote Access Web Client | 8888 | `<gateway-url>:8000/sra/web-client` |
+| Remote Access SSH Config | 9900 | `<gateway-url>:8000/sra/ssh-config` |
+| HashiCorp Vault Proxy | 8200 | `<gateway-url>:8000/hvp` |
+| Akeyless V1 REST API | 8080 | `<gateway-url>:8000/api/v1` |
+| Akeyless V2 REST API | 8081 | `<gateway-url>:8000/api/v2` |
+| KMIP Server | 5696 | 5696 |
+| gRPC | 8085 | 8085 |
 
 ## Additional Notes
 
 ### Zero Trust Web Access Solution
 
-The unification of the Zero Trust Web Access (ZTWA) component with the Gateway is part of our roadmap. You will be able to continue working with the unified Gateway and ZTWA solution without any impact on operations.
+The unification of the Zero Trust Web Access (ZTWA) component with the Gateway is part of our roadmap. You can continue working with the unified Gateway and ZTWA solution without any impact on operations.
 
 With this timeline, an organization can adopt a unified version of SRA now with a clear understanding that enhanced web access functionality will be available in the near term.

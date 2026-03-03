@@ -10,11 +10,9 @@ metadata:
 next:
   description: ''
 ---
-<Callout icon="📘" theme="info">
-  **Note:** Venafi recently became CyberArk Machine Identity Security.
-</Callout>
+> ℹ️ **Note:** Venafi recently became CyberArk Machine Identity Security.
 
-To work with the Venafi Cloud platform, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer.
+To work with the Venafi Cloud platform in CyberArk Machine Identity Security, you can choose either to work with CyberArk Machine Identity Security as your certificate issuer or to work with Akeyless as your issuer.
 
 ## Prerequisites
 
@@ -31,7 +29,7 @@ The following command creates a Venafi **Dynamic Secret** using Venafi as the **
 ```shell
 akeyless dynamic-secret create venafi \
   --name my-venafi-dynamic-secret \
-  --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+  --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
   --venafi-api-key <YOUR VENAFI API KEY> \
   --venafi-zone <YOUR VENAFI ZONE>
 ```
@@ -82,7 +80,7 @@ Create the Venafi **Dynamic Secret** in Akeyless Gateway:
 ```shell
 akeyless dynamic-secret create venafi \
   --name my-venafi-dynamic-secret \
-  --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+  --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
   --venafi-api-key <YOUR VENAFI API KEY> \
   --venafi-zone <YOUR VENAFI ZONE> \
   --allowed-domains '[*]' \
@@ -147,4 +145,4 @@ In the response you’ll see the relevant information and artifacts for the requ
 
 Depending on your flow you may also see the `certificate chain`, `issuing ca`, `ca chain`, and `private key`.
 
-The artifacts `certificate`, `certificate chain`, and `private key`can also be found as Static Secrets under the Artifacts Folder defined in the Dynamic Secret's settings.
+The artifacts `certificate`, `certificate chain`, and `private key` can also be found as Static Secrets under the Artifacts Folder defined in the Dynamic Secret's settings.

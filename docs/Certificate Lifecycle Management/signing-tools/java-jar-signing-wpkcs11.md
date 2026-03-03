@@ -21,10 +21,10 @@ It covers both compilation steps and signing workflows for JAR and Android APK f
 
 In your Akeyless account, create the following items under Secret Management:
 
-| **Item Type** | **Path**        | **Description**         |
-| ------------- | --------------- | ----------------------- |
-| Key           | `/jarsign/key`  | Private key for signing |
-| Certificate   | `/jarsign/cert` | Associated certificate  |
+| **Item Type** | **Path** | **Description** |
+| --- | --- | --- |
+| Key | `/jarsign/key` | Private key for signing |
+| Certificate | `/jarsign/cert` | Associated certificate |
 
 Copy both items into the same local directory (For example, /work).
 
