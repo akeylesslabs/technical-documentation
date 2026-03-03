@@ -1,0 +1,9 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: akeyless-quickstart
+  region: us-west-2
+
+autoModeConfig:
+  enabled: true

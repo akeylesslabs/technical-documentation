@@ -28,7 +28,7 @@ helm show values akeyless/akeyless-gateway > values.yaml
 
 ## Step 2: Configure Gateway Identity (IRSA)
 
-Use IAM Roles for Service Accounts (IRSA) by annotating the Gateway Kubernetes ServiceAccount:
+Use IAM Roles for Service Accounts (IRSA) by annotating the Gateway Kubernetes ServiceAccount in `values.yaml`:
 
 ```yaml values.yaml
 globalConfig:
