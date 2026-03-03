@@ -20,7 +20,7 @@ You can use Akeyless Dynamic Secrets to generate access credentials for Snowflak
 
 ## Create a Snowflake Dynamic Secret with the CLI
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/snowflake-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -30,7 +30,7 @@ To create a dynamic Snowflake secret with the CLI using the existing [Snowflake 
 akeyless dynamic-secret create snowflake \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \ 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
 --password-length 16
@@ -41,7 +41,7 @@ Or using an inline connection strings/RSA private key:
 ```shell Inline Login
 akeyless dynamic-secret create snowflake \
 --name <Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
 --account <Snowflake account name> \
@@ -50,9 +50,9 @@ akeyless dynamic-secret create snowflake \
 --db-name <Database to which the generated credentials are restricted>
 ```
 ```shell RSA Private Key Login
-akeyless dynamic-secret create akeyless dynamic-secret get-valuesnowflake \
+akeyless dynamic-secret create snowflake \
 --name <Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
 --snowflake-api-private-key RSA Private key (base64-encoded)\
@@ -98,7 +98,7 @@ another alternative to the Snowflake login is to use a private RSA key:
 
 * `snowflake-api-private-key-passphrase`: The passphrase needed to use the key.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluesnowflakep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#snowflake) section.
 
 ## Fetch a Dynamic Snowflake Secret Value with the CLI
 
@@ -110,7 +110,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic Snowflake Secret in the Akeyless Console
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/snowflake-dynamic-secrets?isFramePreview=true#fetch-a-dynamic-snowflake-secret-value-from-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -123,7 +123,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining parameters as follows:
 
     * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-    * **Target mode:** In this section, you can either select an existing Snowflake Target or specify details of the target Snowflake account explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
+    * **Target mode:** In this section, you can either select an existing Snowflake Target or specify details of the target Snowflake account explicitly (for example, if you are not authorized to create and access Targets in the Akeyless Console).
 
         * Use the **Choose an existing target** drop-down list to select the existing Snowflake Target.
 
@@ -136,7 +136,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Algorithm**: The RSA key algorithm, (relevant only for **Key** Authentication Mode).
     * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
@@ -161,4 +161,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

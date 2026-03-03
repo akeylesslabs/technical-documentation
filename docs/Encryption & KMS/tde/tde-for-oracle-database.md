@@ -16,7 +16,7 @@ Transparent Data Encryption (TDE) is a security feature provided by Oracle Datab
 
 ## Oracle Database Integration Configuration
 
-To ensure compatibility, Oracle Database must be on an supported version. The supported Oracle Database versions for PKCS#11 integration with Transparent Data Encryption (TDE) are as follows:
+To ensure compatibility, Oracle Database must be on a supported version. The supported Oracle Database versions for PKCS#11 integration with Transparent Data Encryption (TDE) are as follows:
 
 * 11g Release 2 (11.2)
 * 12c: Including both 12c Release 1 (12.1) and 12c Release 2 (12.2)
@@ -83,7 +83,7 @@ mkdir /logs && \
 chown -R oracle:dba /logs
 ```
 
-With a privilege user permission on your Database server, create the following file:
+With a privileged user on your database server, create the following file:
 
 ```shell
 touch /var/akeyless/conf/pkcs11.conf
@@ -117,7 +117,7 @@ Optional:
 
 * `customer_fragment_id` - Relevant Customer Fragment ID for [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge).
 
-* `split_level` - Defines the requested split level. By default, split level set with `2`.
+* `split_level` - Defines the requested split level. By default, the split level is set to `2`.
 
 * `[syslog]` Section can be added, to set the destination Syslog server settings:
     * `network` - Either **TCP** or **UDP**
@@ -131,7 +131,7 @@ chown -R oracle:dba /var/akeyless/conf/pkcs11.conf
 
 Edit the `sqlnet.ora` file under `$ORACLE_HOME/network/admin/sqlnet.ora` where `$ORACLE_HOME` is your Oracle user home directory.
 
-For Docker setup, the file location is `/u01/app/oracle/product/12.2.0/dbhome_1/admin/ORCLCDB/sqlnet.ora`
+For Docker setup, the file location is `/u01/app/oracle/product/12.2.0/dbhome_1/admin/ORCLCDB/sqlnet.ora`.
 
 Add the following line to set your Oracle wallet:
 
@@ -139,9 +139,9 @@ Add the following line to set your Oracle wallet:
 ENCRYPTION_WALLET_LOCATION=(SOURCE=(METHOD=HSM))
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
-> Starting from Oracle version 18C/19C, before running the commands below, you need to first complete the steps below to set the keystore
+> Starting from Oracle version 18c/19c, before running the commands below, you need to complete the steps below to set the keystore.
 
 1. Create a directory, called `wallet`, in the `$ORACLE_BASE/admin/db_unique_name` directory.
 
@@ -213,20 +213,20 @@ To migrate a database with an existing file-based wallet, follow these steps:
 
 Ensure to replace `<old file based tde password>` with the appropriate password.
 
-## Testing Data Encrypt
+## Testing Data Encryption
 
 Once TDE is configured on the Oracle Database, you can start encrypting your data. There are two main options for encryption:
 
 1. Encrypting Individual Columns: You can choose to encrypt specific columns within a table to secure sensitive information selectively.
 2. Encrypting Entire Tablespaces: This involves encrypting the entire tablespace, which Oracle suggests as the preferred method due to its enhanced performance.
 
-## Testing Encrypting Individual Column
+## Testing Individual Column Encryption
 
 ### Connect to SQL\_Plus as a Non-Sysadmin User
 
 To begin, connect to the Oracle Database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tables and manage encryption.
 
-```sql bash
+```shell
 sqlplus your_username@your_database
 ```
 
@@ -262,7 +262,7 @@ This command inserts a record into the employee table, where the salary value of
 
 ### List Encrypted Columns in the Database
 
-To verify which columns in your database are encrypted, you can query the DBA\_ENCRYPTED\_COLUMNS view. This view provides details about the encrypted columns, including the encryption algorithm used, whether salt is applied, and the integrity algorithm
+To verify which columns in your database are encrypted, you can query the DBA\_ENCRYPTED\_COLUMNS view. This view provides details about the encrypted columns, including the encryption algorithm used, whether salt is applied, and the integrity algorithm.
 
 ```sql
 SELECT * FROM dba_encrypted_columns;
@@ -279,7 +279,9 @@ OE     EMPLOYEE   SALARY      AES 192 bits   YES  SHA-1
 In this example:
 
 The SALARY column in the EMPLOYEE table is encrypted using the AES 192 bits algorithm.
-SALT is applied, and the integrity algorithm used is SHA-1.For more details about encryption options, such as how to specify different encryption algorithms or disable the use of salt, you can refer to the [Oracle documentation on Transparent Data Encryption (TDE)](https://docs.oracle.com/database/121/TDPSG/GUID-61259237-5514-4531-AFB4-CF716F93F1E5.htm#TDPSG44324). This documentation provides comprehensive guidelines on using TDE to secure sensitive data at rest within your Oracle Database.
+SALT is applied, and the integrity algorithm used is SHA-1.
+
+For more details about encryption options, such as how to specify different encryption algorithms or disable the use of salt, refer to the [Oracle documentation on Transparent Data Encryption (TDE)](https://docs.oracle.com/database/121/TDPSG/GUID-61259237-5514-4531-AFB4-CF716F93F1E5.htm#TDPSG44324). This documentation provides comprehensive guidelines on using TDE to secure sensitive data at rest within your Oracle Database.
 
 ## Testing Tablespace Encryption
 
@@ -287,7 +289,7 @@ SALT is applied, and the integrity algorithm used is SHA-1.For more details abou
 
 Start by connecting to your Oracle Database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tablespaces.
 
-```sql bash
+```shell
 sqlplus your_username@your_database
 ```
 
@@ -399,20 +401,19 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 2. Choose a secure location on your database server to store the keystore files. For example:
 
-    ```sql bash
+    ```shell
     mkdir -p /u01/app/oracle/admin/ORCL/wallet
     ```
 
 3. Use the following command to create the keystore. Replace `/u01/app/oracle/admin/ORCL/wallet` with your chosen directory path.
 
-    ```sql bash
+    ```sql
     ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/u01/app/oracle/admin/ORCL/wallet' IDENTIFIED BY "YourWalletPassword";
-    r -p /u01/app/oracle/admin/ORCL/wallet
     ```
 
 4. Before proceeding, you need to open the newly created keystore:
 
-    ```sql bash
+    ```sql
     ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "YourWalletPassword";
     ```
 
@@ -455,7 +456,7 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 11. Restart the Oracle Database to confirm that the auto-login feature is working as expected. Upon restart, the wallet should open automatically, and all encrypted columns and tablespaces should remain accessible.
 
-    ```sql bash
+    ```sql
     shutdown immediate;
     startup;
     ```

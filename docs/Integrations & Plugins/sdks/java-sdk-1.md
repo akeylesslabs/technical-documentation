@@ -42,13 +42,13 @@ Then, add the following dependency to your project's `pom.xml` file:
 </dependency>
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > Don't forget to modify the value of the `<version>` element in the `pom.xml` file to specify the dependency version you want to include.
 
 ### Build from Source
 
-Clone the <a href="https://github.com/akeylesslabs/akeyless-java" target="_blank">SDK Repository</a> and execute:
+Clone the [SDK Repository](https://github.com/akeylesslabs/akeyless-java) and execute:
 
 ```shell
 mvn clean package
@@ -86,7 +86,7 @@ The Akeyless **Java** SDK supports multiple [Authentication Methods](https://doc
 
 ### API Key
 
-To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
+To use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) for authentication set the following:
 
 ```java
 Configure body = new Configure();

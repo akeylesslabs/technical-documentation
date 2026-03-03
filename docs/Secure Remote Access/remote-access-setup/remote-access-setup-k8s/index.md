@@ -26,9 +26,9 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service                  | Endpoint                            |
-| :----------------------- | :---------------------------------- |
-| Remote Access Portal     | `<gateway-url>:8000/sra/portal`     |
+| Service | Endpoint |
+| --- | --- |
+| Remote Access Portal | `<gateway-url>:8000/sra/portal` |
 | Remote Access Web Client | `<gateway-url>:8000/sra/web-client` |
 | Remote Access SSH Config | `<gateway-url>:8000/sra/ssh-config` |
 
@@ -44,9 +44,9 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
 The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods in a Kubernetes Deployment based on real-time resource usage (like `CPU` or `memory`) to maintain optimal performance and efficiency.
 
-Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the sshConfig`StatefulSet`(HPA can not support multiple pods without defining a shared persistent storage volume).
+Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the `sshConfig` `StatefulSet` (HPA cannot support multiple pods without defining a shared persistent storage volume).
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
@@ -75,14 +75,16 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
     akeyless get-rsa-public --name /path/to/SSHSignerKey --json --jq-expression='.ssh' 
     ```
 
-2. Enable **Remote Access** on your Gateway values file, and add the public key of your SSH Cert Issuer using the `CAPublicKey` as follow:
+2. Enable **Remote Access** on your Gateway values file, and add the public key of your SSH Cert Issuer using `CAPublicKey` as follows. You can provide one or more CA public keys:
 
     ```yaml values.yaml
     sra:
     enabled: true
 
     sshConfig:
-    CAPublicKey: 
+        CAPublicKey: |
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAPzDVmeABzsGd0lEl9m2fdgmCzOLVmEGcLxNkn...
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDz0v4zyj4d1m7K9w7j2qQ5B1v8bH0ArK...
     ```
 
 ## Upgrade Gateway

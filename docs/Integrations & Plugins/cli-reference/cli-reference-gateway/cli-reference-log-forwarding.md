@@ -14,7 +14,7 @@ This section outlines the CLI commands relevant to the Gateway Log-Forwarding.
 
 <CLIGeneralFlags />
 
-> 👍 Tip
+> ✅ **Tip:**
 >
 > Flags with a default value of `use-existing` indicate that the field's value will remain unchanged unless explicitly modified.
 
@@ -59,7 +59,7 @@ akeyless gateway update log-forwarding aws-s3 \
 --enable 'true'|'false' \
 --output-format 'text'|'json' \
 --pull-interval '10' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --log-folder <AWS Folder> \
 --bucket-name <Bucket Name> \
 --auth-type [access_key/cloud_id/assume_role] \
@@ -104,7 +104,7 @@ akeyless gateway update log-forwarding azure-analytics \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
 --pull-interval '10' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --workspace-id <Azure workspace id> \
 --workspace-key <Azure workspace key>
 ```
@@ -134,7 +134,7 @@ akeyless gateway update log-forwarding datadog \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
 --pull-interval '10' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --host <datadog host> \
 --api-key <Datadog api key> \
 --log-source <Datadog log source> \
@@ -173,17 +173,17 @@ akeyless gateway update log-forwarding elasticsearch \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
 --pull-interval '10' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --index <Elasticsearch index> \
 --server-type [nodes/cloud] \
 --nodes <Elasticsearch nodes> \
 --cloud-id <Elasticsearch cloud id> \
 --auth-type <Elasticsearch auth type> \
 --api-key <Elasticsearch api key> \
---user-name <Elasticsearch user name> \                            
---password <Elasticsearch password> \                              
---enable-tls <enable tls> \                             
---certificate-file <path/to/certificate> \                      
+--user-name <Elasticsearch user name> \
+--password <Elasticsearch password> \
+--enable-tls <enable tls> \
+--certificate-file <path/to/certificate> \
 --tls-certificate <Elasticsearch tls certificate>        
 ```
 
@@ -230,7 +230,7 @@ akeyless gateway update log-forwarding google-chronicle \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
 --pull-interval '10' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gcp-key-file-path <path/to/sa/private-key> \
 --gcp-key <Base64-encoded service account private key text> \
 --customer-id <customer id> \
@@ -269,7 +269,7 @@ akeyless gateway update log-forwarding logstash \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
 --pull-interval '10' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --dns <Logstash dns> \
 --protocol [tcp / udp] \
 --enable-tls <enabe-tls> \
@@ -308,7 +308,7 @@ akeyless gateway update log-forwarding logz-io \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
 --pull-interval '10' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --logz-io-token <Logz-io token> \
 --protocol [tcp/https]
 ```
@@ -338,14 +338,14 @@ akeyless gateway update log-forwarding splunk \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
 --pull-interval '10' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---splunk-url <URL>
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--splunk-url <URL> \
 --splunk-token <splunk-token> \
 --source <Splunk source> \
---source-type <Splunk source type>
---index <Splunk index> \ 
---enable-tls <enable tls> \                             
---certificate-file <path/to/certificate> \                      
+--source-type <Splunk source type> \
+--index <Splunk index> \
+--enable-tls <enable tls> \
+--certificate-file <path/to/certificate> \
 --tls-certificate <Elasticsearch tls certificate>
 ```
 
@@ -385,8 +385,8 @@ Updates Log Forwarding config for standard output
 akeyless gateway update log-forwarding stdout \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
---pull-interval '10' \ \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--pull-interval '10' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ##### Flags
@@ -409,8 +409,8 @@ Updates Log Forwarding config for SumoLogic
 akeyless gateway update log-forwarding sumologic \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
---pull-interval '10' \ \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--pull-interval '10' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --endpoint <endpoint URL> \
 --sumologic-tags <Sumo Logic tags> \
 --host <Sumo Logic host>
@@ -442,14 +442,14 @@ Updates Log Forwarding config for Syslog
 akeyless gateway update log-forwarding syslog \
 --enable 'true'/'false' \
 --output-format 'text'/'json' \
---pull-interval '10' \ \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--pull-interval '10' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --network [tcp/udp] \
 --host <host> \
 --target-tag <Syslog target tag> \
 --formatter [text/cef] \
---enable-tls <enable tls> \                             
---certificate-file <path/to/certificate> \                      
+--enable-tls <enable tls> \
+--certificate-file <path/to/certificate> \
 --tls-certificate <Elasticsearch tls certificate>
 ```
 
@@ -483,5 +483,5 @@ Command to get log forwarding configuration
 
 ```shell
 akeyless gateway get log-forwarding \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```

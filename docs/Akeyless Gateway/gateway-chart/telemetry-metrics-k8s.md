@@ -18,20 +18,20 @@ The metrics visualization uses a pre-made/custom dashboard (Grafana Marketplace 
 
 The following Metrics are currently available:
 
-| Metric                                           | Description                                                                                                        |
-| :----------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
-| `akeyless.gw.system.cpu.*`                       | CPU utilization metrics                                                                                            |
-| `akeyless.gw.system.disk.*`                      | Disk I/O metrics                                                                                                   |
-| `akeyless.gw.system.load.*`                      | CPU load metrics                                                                                                   |
-| `akeyless.gw.system.memory.*`                    | Memory utilization metrics                                                                                         |
-| `akeyless.gw.system.network.*`                   | Network interface I/O metrics and TCP connection metrics                                                           |
-| `akeyless.gw.system.saas.connection_status`      | Monitor the connection of the Gateway with all Akeyless SaaS services.                                             |
-| `akeyless.gw.quota.current_transactions_number`  | The current total transaction count in the account                                                                 |
-| `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity (`AdminAccessID`)                                          |
-| `akeyless.gw.quota.total_transactions_limit`     | Total transaction limit per hour in the account                                                                    |
-| `akeyless.gw.system.http_response_status_code`   | Status of HTTP response for any request that originates from the Gateway API. (that is performed against the Gateway) |
-| `akeyless.gw.system.request_count`               | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status)        |
-| `akeyless.gw.system.healthcheck.status`          | Monitors container health check status                                                                             |
+| Metric | Description |
+| --- | --- |
+| `akeyless.gw.system.cpu.*` | CPU utilization metrics |
+| `akeyless.gw.system.disk.*` | Disk I/O metrics |
+| `akeyless.gw.system.load.*` | CPU load metrics |
+| `akeyless.gw.system.memory.*` | Memory utilization metrics |
+| `akeyless.gw.system.network.*` | Network interface I/O metrics and TCP connection metrics |
+| `akeyless.gw.system.saas.connection_status` | Monitor the connection of the Gateway with all Akeyless SaaS services. |
+| `akeyless.gw.quota.current_transactions_number` | The current total transaction count in the account |
+| `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity (`AdminAccessID`) |
+| `akeyless.gw.quota.total_transactions_limit` | Total transaction limit per hour in the account |
+| `akeyless.gw.system.http_response_status_code` | Status of HTTP response for any request that originates from the Gateway API. (that is performed against the Gateway) |
+| `akeyless.gw.system.request_count` | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status) |
+| `akeyless.gw.system.healthcheck.status` | Monitors container health check status |
 
 ## Datadog
 
@@ -200,7 +200,7 @@ To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_AP
 
 **Application Logs** from all instances of this gateway will be forwarded in this format: `<date> <time> <gw-clustername-instance-id> <log>`.
 
-After starting the Docker container, you can utilize [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
+After starting the Docker container, you can use [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
 
 * In **Grafana**, navigate to Data Sources and add a new [Loki Data Source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/)
 

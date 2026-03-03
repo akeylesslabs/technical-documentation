@@ -10,39 +10,39 @@ metadata:
 next:
   description: ''
 ---
-The Desktop Application is designed to work across Windows and macOS, It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software.
+The Desktop Application is designed to work across Windows and macOS. It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software.
 
-Who Should benefit from using this application?
+Who benefits from using this application?
 
 * IT Administrators and DevOps Teams
 * Security Professionals
 * Developers and Engineers
 
-> 📘 Note
+> ℹ️ **Note:**
 >
-> The Desktop App is currently in its Beta phase
+> The Desktop Application is currently in beta.
 
 ## Prerequisites
 
-* **Windows** or **macOS Ventura** / **Monterey** / **Big Sur** Operating System.
+* **Windows** or **macOS Ventura** / **Monterey** / **Big Sur** operating system.
 
 ### Permissions
 
-The Desktop Application creates a tunnel to the designated resource and injects the password securely. To support this to support this process, any user working with the Desktop Application must have [Read permission](https://docs.akeyless.io/docs/rbac#permissions-for-items-access-roles-auth-methods-and-targets) on the Secret Item.
+The Desktop Application creates a tunnel to the designated resource and injects the password securely. To support this process, any user working with the Desktop Application must have [read permission](https://docs.akeyless.io/docs/rbac#permissions-for-items-access-roles-auth-methods-and-targets) on the Secret Item.
 
 ## Installation Guide
 
-Download the respective Desktop Application installation file from [here](https://download.akeyless.io/Akeyless_Artifacts/)
+Download the relevant Desktop Application installer from <https://download.akeyless.io/Akeyless_Artifacts/>.
 
 ### Windows Installation
 
-1. Open Windows command line as an Administrator and generate Private and Public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This will create an `.ssh` folder with the respective `id_rsa` and `id_rsa.pub` files.
+1. Open Windows Command Prompt as an administrator and generate private and public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This creates an `.ssh` folder with the `id_rsa` and `id_rsa.pub` files.
 
 2. Run the `.exe` file and follow the setup wizard.
 
-3. Grant necessary permissions if prompted
+3. Grant necessary permissions if prompted.
 
-    The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\Akeyless-desktop`
+    The Desktop Application installs at `C:/Users/<username>/AppData/Roaming/Akeyless-desktop`.
 
 4. Open the app and sign in with your Akeyless credentials.
 
@@ -54,76 +54,75 @@ Download the respective Desktop Application installation file from [here](https:
 
 3. Grant required permissions in **System Preferences** → **Security & Privacy**.
 
-    The Desktop Application will be installed at: `\Users\<username>\Library\Application Support\Akeyless-Desktop`
+    The Desktop Application installs at `~/Library/Application Support/Akeyless-Desktop`.
 
 4. Open the app and sign in with your Akeyless credentials.
 
-> 📘 Installation Folder
+> ℹ️ **Note (Installation Folder):**
 >
 > The installation folder contains the following:
 >
-> 1. **`config.json`** - the configuration file (includes the basic configuration parameters required to launch the desktop application). This file can be deployed by the Admin across the organization
-> 2. **Logs** - can be found at \Akeyless-desktop\logs
+> 1. **`config.json`** - The configuration file (includes the basic configuration parameters required to launch the Desktop Application). This file can be deployed by an admin across the organization.
+> 2. **Logs** - Located at `Akeyless-desktop/logs`.
 
-## How It Works?
+## How It Works
 
 1. The Desktop Application retrieves connection details from the target item (For example, `MY-MSSQL-connection`) and initiates a connection.
 
-2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window
+2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window.
 
-    > 🚧 Important
+    > ⚠️ **Warning (Important):**
     >
     > 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
-    > 2. You will also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable` `true` flag to your CLI command
-    > 3. Ensure that `akeyless` user is added to the list of `Allowed User(s)` in the SSH-CERT-Issuer item. Otherwise, the desktop application won't be able to establish connection.
+    > 2. You also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable true` flag to your CLI command.
+    > 3. Ensure that the `akeyless` user is added to the list of `Allowed User(s)` in the SSH Cert Issuer item. Otherwise, the desktop application will not be able to establish a connection.
 
 3. Upon successfully connecting to the remote target, the Desktop Application launches the default application configured for this resource type.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
-> Applications such **Azure Data Studio**, **WindowsApp**, **DBeaver**, **PuTTY**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
+> Applications such as **Azure Data Studio**, **Windows App**, **DBeaver**, **PuTTY**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
 
 ## Configuration & First-Time Setup
 
-1. Log in to the Desktop Application (using SAML, OIDC, Certificate, Access Key, and so on). You should be able to see a list of the resources you can connect to, upon your permissions. If you wish to add / remove targets from the list, you should update your permissions accordingly.
+1. Log in to the Desktop Application (using SAML, OIDC, Certificate, Access Key, and so on). You should see a list of the resources you can connect to based on your permissions. If you want to add or remove targets from the list, update your permissions accordingly.
+2. **Application Mapping** - To connect to remote resources, users should map them to applications. When using a mapped application, the desktop application launches the native application and securely initiates the connection.
+3. Listed below are the native clients that are supported by the Desktop Application:
 
-2. **Application Mapping** - In order to connect to remote resources, the user should map them to applications. When using mapped application, the Desktop application launches the native application and securely initiates the connection.
-   1. Listed Below are the native clients that supported by the Desktop Application:
+    | Operating System | Resource | Application Type | Comments |
+    | --- | --- | --- | --- |
+    | **Windows** | MSSQL Server | Azure Data Studio |  |
+    |  | RDP | Remote Desktop |  |
+    |  | Postgres DB | DBeaver |  |
+    |  | SSH Cert Issuer | PuTTY | WinSCP is a prerequisite for PuTTY. |
+    |  | SSH username and password | PuTTY | Specify port `2022`. |
+    |  | SSH File Transfer | WinSCP | Note: File transfers for certificate-based targets have a known limitation and are currently not supported. |
+    |  | PowerShell | PuTTY | PS tag should be configured on the secret item. |
+    |  | Direct Connection / Secure Remote Access | Default Browser |  |
+    | **macOS** | MSSQL Server | Azure Data Studio |  |
+    |  | Postgres DB | DBeaver |  |
+    |  | RDP | Windows App |  |
+    |  | SSH Cert Issuer | Terminal |  |
+    |  | SSH username and password | Terminal |  |
+    |  | Direct Connection / Secure Remote Access | Default Browser |  |
+    |  | SSH File Transfer (SFTP) | Terminal |  |
 
-        | Operating System | Resource                                 | Application Type  | Comments                                                                                                   |
-        |---|---|---|---|
-        | **Windows** | MSSQL Server | Azure Data Studio | |
-        |  | RDP | Remote Desktop | |
-        |  | Postgres DB | DBeaver | |
-        |  | SSH Cert Issuer | PuTTY | WinSCP is a prerequisite for PuTTY. |
-        |  | SSH username and password | PuTTY | Specify port `2022`. |
-        |  | SSH File Transfer | WinSCP | Note: File transfers for certificate-based targets have a known limitation and are currently not supported. |
-        |  | PowerShell | PuTTY | PS tag should be configured on the secret item. |
-        |  | Direct Connection / Secure Remote Access | Default Browser | |
-        | **macOS** | MSSQL Server | Azure Data Studio | |
-        |  | Postgres DB | DBeaver | |
-        |  | RDP | Windows App | |
-        |  | SSH Cert Issuer | Terminal | |
-        |  | SSH username and password | Terminal | |
-        |  | Direct Connection / Secure Remote Access | Default Browser | |
-        |  | SSH File Transfer (SFTP) | Terminal | |
-
-    > 🚧 Multiple Hosts / Linked Targets
+    > ⚠️ **Warning (Multiple hosts / linked targets):**
     >
-    > The Desktop Application supports the use of multiple hosts / linked targets. You can easily add / remove hosts you wish to connect to and select on `Confirm`.
+    > The Desktop Application supports multiple hosts / linked targets. You can add or remove hosts you want to connect to, and then select **Confirm**.
     >
-    > > Note: Removing host from the list only removes it from the list of hosts in the desktop application.
+    > Removing a host from the list only removes it from the Desktop Application host list.
 
-3. Configure the **Defaults Configuration** - When connecting to a remote target, the Desktop Application fetches the required parameters from the resource item (the target you wish to connect to). If this information is not accessible to the desktop application, it will use the information configured in the Advanced Configuration.
+4. Configure the **Defaults Configuration** - When connecting to a remote target, the Desktop Application fetches the required parameters from the resource item (the target you want to connect to). If this information is not accessible to the Desktop Application, it uses the information configured in Advanced Configuration.
 
-   1. **Web Application Dispatcher** and **Web Proxy URL** - Should be provided if working with Zero trust Web Access solution (ZTWA)
-   2. **Secure SSH Access Address** (recommended) - This is the path and port for SSH deployment (`my.SSH.address`)
-   3. **SSH Certificate Issuer** (recommended) - This is the name of the SSH Certificate Issuer the Akeyless CLI will use to initiate the connection
-   4. **Control API Port** - the control API port (specify 8000 for unified Gateway, or 9900 if not)
-   5. **Control API Path** - the SRA control API path (for example: `/sra/ssh-config`)
+    * **Web Application Dispatcher** and **Web Proxy URL** - Should be provided if working with the Zero Trust Web Access solution (ZTWA).
+    * **Secure SSH Access Address** (recommended) - This is the path and port for SSH deployment (`my.SSH.address`).
+    * **SSH Certificate Issuer** (recommended) - This is the name of the SSH Certificate Issuer that the Akeyless CLI uses to initiate the connection.
+    * **Control API Port** - The control API port (specify `8000` for a unified Gateway, or `9900` otherwise).
+    * **Control API Path** - The SRA control API path (for example, `/sra/ssh-config`).
 
-> 📘 Connection Failures
+> ℹ️ **Note (Connection Failures):**
 >
 > If the desktop application fails to connect to the resource, it will display a message prompting you to verify your configuration.
 >
-> Please note that the Desktop log contains additional information that may help during an investigation.
+> The Desktop log contains additional information that can help during an investigation.

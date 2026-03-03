@@ -20,7 +20,7 @@ Access Roles can be configured to grant permissions on Secrets, Encryption Keys,
 
 To set permission for a user to work with any item in the Platform, an appropriate Access Role must be assigned to the Authentication Method that represents this user. By default, users don't have any permissions in Akeyless unless explicitly granted.
 
-To associate an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/api-key):
+To associate an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/auth-with-api-key):
 
 ```shell
 akeyless auth-method create api-key --name client1
@@ -59,7 +59,7 @@ Despite the fact that users do not have access to items unless granted explicitl
 akeyless set-role-rule --role-name role1 --path /path/to/folder/topSecret --capability deny
 ```
 
-Add **client1** to the **role1**, so client1 will be able to access all items under **/path/to/folder/** apart from **/path/to/folder/topSecret**:
+Add **client1** to **role1**, so client1 can access all items under **/path/to/folder/** apart from **/path/to/folder/topSecret**:
 
 ```shell
 akeyless assoc-role-am --role-name role1 --am-name client1
@@ -71,7 +71,7 @@ Akeyless has six main permission types for Items, Access Roles, Auth Methods, an
 
 The built-in admin role has full access to all parts of the accounts.
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > It is considered a best practice **not** to use an API Key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
@@ -86,9 +86,7 @@ The existing permissions for Items, Access Roles, Auth Methods, and Targets are 
 * Delete: Allows a user to delete existing secrets and items in an authorized path.
 * Deny: Allows a user to deny any permission to other users in their authorized path.
 
-> 👍 Note
->
-> **Permission Hierarchy**
+> ℹ️ **Note (Permission Hierarchy):**
 >
 > Some Akeyless permissions include others in them. For example, `list` is included under all other permissions, and `deny` has a complete override over any other permission.
 
@@ -115,7 +113,7 @@ The existing permissions for Secure Remote Access are as follows:
 
 With Administrative Rules, you can choose whether users have access only to the resources they own (**Own**), access to items users have `list` permission for (**Scoped**), or access to all resources (**All**).
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > The **Own** option is only relevant for **Audit Logs** and **Analytics**.
 
@@ -154,9 +152,7 @@ You can set the allowed Forwarder names in two ways:
 * **Explicit name**: Specify an exact Event Forwarders name that users can manage, for example: `Demo-Event-Forwarder`: allows users to create or manage an Event Forwarder with this exact name.
 * **Template-based name**: Use templates to define allowed names dynamically, based on user claims. For example: `{{username\}}-*`: uses the value of the username claim. If the claim value is `bob`, the user will be allowed to create or use Event Forwarders with names like `bob-*`.
 
-<Callout icon="📘" theme="info">
-  _Gateway Access Permissions:_ Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/)
-</Callout>
+> ℹ️ **Note (Gateway access permissions):** Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/).
 
 ## Access Roles Syntax
 
@@ -219,8 +215,8 @@ Where the relevant Akeyless paths, for example, `secret/foo` and `secret/bar` co
 ## View As
 
 To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.  
-Click on your account logo on the top right corner of your console, and select **Impersonate As**.  
-On the dialog, choose from the drop-down menu and existing [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
+Click your account logo in the top-right corner of your console, and select **Impersonate As**.  
+In the dialog, choose from the drop-down menu an existing [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
 
 ## Tutorial
 

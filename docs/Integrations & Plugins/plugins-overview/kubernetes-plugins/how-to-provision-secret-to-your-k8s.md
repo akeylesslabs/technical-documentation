@@ -29,7 +29,7 @@ For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/do
 
 ![Illustration for: Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible segregation using Kubernetes policies together…](https://files.readme.io/dd531a9-Akeyless_Rebranded_Infographics_1.png)
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > The documentation, configuration and examples for the plugin are also applicable to **Red Hat OpenShift** environment.
 
@@ -59,9 +59,9 @@ Alternatively, a secret can contain `JSON` structured data, for example:
 akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234","aws_key_id":"abcd"}'
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
-> The following example uses a pre-defined [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) called **K8s_Auth** in **K8s** folder that is `K8s/K8s_Auth`
+> The following example uses a pre-defined [Kubernetes Auth](https://docs.akeyless.io/docs/auth-with-kubernetes) called **K8s_Auth** in **K8s** folder that is `K8s/K8s_Auth`
 
 ### Create an Access Role
 
@@ -103,9 +103,9 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
     * Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`. To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
 
-    * `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the Docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
+    * `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the Docker entrypoint, can be used at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
 
-    * Optional `AKEYLESS_IGNORE_CACHE`: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
+    * Optional `AKEYLESS_IGNORE_CACHE`: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be used at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
 
     * Optional `INIT_RUN_AS_USER`: To apply a [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to your init container, set the following environment variable, `INIT_RUN_AS_USER: "id=65534"`.
 
@@ -402,7 +402,7 @@ This will create an environment variable per **each** key that exists within the
 
 To create the environment variables without the prefix you can use the `parse_json_without_prefix` flag instead.
 
-> 📘 Note
+> ℹ️ **Note:**
 >
 > The `parse_json_secret` flag is designed to handle flat JSON structures with single string-values (it does not support nested JSONs, nor array values).
 
@@ -473,9 +473,9 @@ this secret can be set globally on the deployment using this variable `AKEYLESS_
 
 Once this secret is provided the manual command is not required, and the Injector will override the entrypoint automatically.
 
-In AWS and GCP environments the node IAM role on EKS and GKE respectively can be utilized automatically to fetch private images from AWS ECR and GCP GAR respectively, hence no secret reference is required.
+In AWS and GCP environments the node IAM role on EKS and GKE respectively can be used automatically to fetch private images from AWS ECR and GCP GAR respectively, hence no secret reference is required.
 
-> 👍 Public Container Registry
+> ℹ️ **Note (Public Container Registry):**
 >
 > For public container registry no secret is required, the Injector will try to override the entrypoint automatically.
 
@@ -626,7 +626,7 @@ kubectl apply -f Akeyless_sidecar.yaml
 The following table lists the available annotations:
 
 | Annotation | Options | Description |
-|---|---|---|
+| --- | --- | --- |
 | `akeyless/enabled: "true"` | `"true"` or `"false"` | Enable the Kubernetes plugin. |
 | `akeyless/side_car_enabled: "true"` | `"true"` or `"false"` | Set the Kubernetes plugin to work in sidecar mode. |
 | `akeyless/disable_restart_rollout: "true"` | `"true"` or `"false"` | Disable the restart-rollout on a specific deployment. |
@@ -687,12 +687,12 @@ Now, [inject a secret](https://docs.akeyless.io/docs/how-to-provision-secret-to-
 
 Once done, the following metrics will be shown:
 
-| Metric                                               | Description                                                               |
-| :--------------------------------------------------- | :------------------------------------------------------------------------ |
-| `akeyless_injector_system_http_response_status_code` | Tracks HTTP response status codes for the injectors                       |
-| `akeyless_injector_system_request_count`             | Counts the number of requests processed by the injectors                  |
-| `container_cpu_usage_seconds_total`                  | Total CPU time consumed by a container in seconds. requires Node Exporter |
-| `container_memory_usage_bytes`                       | Current memory usage of a container in bytes. requires Node Exporter      |
+| Metric | Description |
+| --- | --- |
+| `akeyless_injector_system_http_response_status_code` | Tracks HTTP response status codes for the injectors |
+| `akeyless_injector_system_request_count` | Counts the number of requests processed by the injectors |
+| `container_cpu_usage_seconds_total` | Total CPU time consumed by a container in seconds. requires Node Exporter |
+| `container_memory_usage_bytes` | Current memory usage of a container in bytes. requires Node Exporter |
 
 These metrics are available for any pod matching the name pattern `injector-akeyless-secrets-injection`. If your injector pods have a different name, update the label selector pod=`~"injector-akeyless-secrets-injection.*"` accordingly.
 

@@ -36,7 +36,7 @@ In the first field labeled 'Password Name,' enter a unique and easily recognizab
 
 Optionally, you can specify the 'Location' of the password by utilizing the drop-down button located on the right area of the 'Location' field.
 
-If the desired folder does not exist, you will be able to create a new folder within the password location window, select the "Create New Folder" button to create a new folder.
+If the desired folder does not exist, you can create a new folder within the password location window. Select the "Create New Folder" button.
 
 ### Step 4: Enhance Security and Add Context
 
@@ -51,7 +51,7 @@ In the 'Username' field, enter the username or login ID associated with the pass
 In the 'Password' field, you have two options:
 
 1. Manually type in the desired password.
-2. Utilize the password generation feature by tapping on the icon located at the end of the 'Password' field.
+2. Use the password generation feature by tapping on the icon located at the end of the 'Password' field.
    1. You can also adjust the password parameters, such as length and character types, using the provided options with the password generation settings provided below the password field.
    2. Once satisfied, tap on the icon again to generate a strong and secure password according to your specifications.
 

@@ -24,7 +24,7 @@ When a client requests a dynamic secret value, the Akeyless Platform, through yo
 
 ## Create a Dynamic RDP Secret with the CLI
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -34,7 +34,7 @@ To create a dynamic RDP secret with the CLI using an existing [RDP Target](https
 akeyless dynamic-secret create rdp \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rdp-user-groups <Group Name> \
 --password-length 16
 ```
@@ -42,9 +42,9 @@ akeyless dynamic-secret create rdp \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuerdp \
+akeyless dynamic-secret create rdp \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rdp-user-groups <Group Name> \
 --rdp-host-name <RDP Host name> \
 --rdp-host-port <RDP port> \
@@ -80,7 +80,7 @@ Or you can use the command with your Remote Desktop target server connection set
 
 * `rdp-admin-pwd`: A password of the Admin user.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluerdpp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#rdp) section.
 
 ## Fetch a Dynamic RDP Secret Value with the CLI
 
@@ -92,7 +92,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic RDP Secret in the Akeyless Console
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/rdp-dynamic-secrets#create-a-dynamic-rdp-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -117,7 +117,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Sub Claim Name:** From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_username`
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
     * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
-    * **Temporary Password Length** Set the length of the temporary password
+    * **Temporary Password Length:** Set the length of the temporary password.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).

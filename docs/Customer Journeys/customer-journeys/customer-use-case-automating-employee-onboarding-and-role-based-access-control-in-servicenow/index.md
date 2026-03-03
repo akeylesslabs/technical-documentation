@@ -21,7 +21,7 @@ A rapidly growing company requires an efficient and secure system to manage new 
 * A valid Akeyless account with administrative privileges to generate API keys and manage Access Roles.
 * API keys, allowing ServiceNow to securely communicate with Akeyless services.
 
-For detailed instructions on configuring your Akeyless API keys, please refer to our [Akeyless API Key Configuration Guide](https://docs.akeyless.io/docs/api-key).
+For detailed instructions on configuring your Akeyless API keys, please refer to our [Akeyless API Key Configuration Guide](https://docs.akeyless.io/docs/auth-with-api-key).
 
 ## ServiceNow Requirements
 

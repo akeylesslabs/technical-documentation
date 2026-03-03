@@ -79,12 +79,11 @@ access_id = ""
 access_key = "*****************************"
 ```
 
-> ❗️ Notes  
-> Update `base_item_path` to match your Akeyless path.
-> Fill in your actual `access_id` and `access_key`.
-> The certificate will be automatically stored in Akeyless at the path specified in `signing_cert_item`.
+> ℹ️ **Note:**
 >
->
+> * Update `base_item_path` to match your Akeyless path.
+> * Fill in your actual `access_id` and `access_key`.
+> * The certificate is automatically stored in Akeyless at the path specified in `signing_cert_item`.
 
 ## Part 2: Akeyless KSP – Full Uninstall and Install
 

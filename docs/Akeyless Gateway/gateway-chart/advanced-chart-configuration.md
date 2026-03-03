@@ -30,7 +30,7 @@ initialClusterDisplayName:
 
 env:
   - name: CLUSTER_URL
-    value: 'https://<Your-Akeyless-GW-URL:8000>'
+    value: 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ## Encryption Key
@@ -39,13 +39,13 @@ To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-
 
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > This key can be determined on cluster deployment only, and **cannot** be modified afterward.
 
 ### Customer Fragment
 
-If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a <Anchor label="Kubernetes Secret" target="_blank" href="https://kubernetes.io/docs/concepts/configuration/secret/">Kubernetes Secret</Anchor> with a Base64-encoded JSON that includes your **Customer Fragment**.
+If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a Base64-encoded JSON that includes your **Customer Fragment**.
 
 ```shell values.yaml
 kubectl create secret generic customer-fragment \
@@ -63,8 +63,8 @@ customerFragmentsExistingSecret: customer-fragment
 
 ## TLS Configuration
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
-Please note that when you're enabling TLS, you must provide a TLS Certificate and a corresponding TLS Private Key.
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted in transit.
+Note that when you enable TLS, you must provide a TLS certificate and a corresponding TLS private key.
 
 To configure the TLS settings, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your **TLS Certificate** in a Base64-encoded format where the `key` of the secret has to be `tls-certificate`:
 
@@ -102,7 +102,7 @@ Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-ce
 
 ## OIDC Configuration
 
-To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (`port 8000`) with the following URI suffix `/api/oidc-callback` (for example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
+To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (if your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (`port 8000`) with the following URI suffix `/api/oidc-callback` (for example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
 ```yaml values.yaml
 globalConfig:
@@ -115,7 +115,7 @@ Once the Gateway is running, you can set the matching AccessID as your OIDC defa
 
 ## Cache Configuration
 
-To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly by way of **API**.
+To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly with the API.
 
 To set an internal TLS between the Gateway and cache service, set the `enableTls: true` option:
 
@@ -183,7 +183,7 @@ To control the cache settings, you can [configure the cache](https://docs.akeyle
 
 While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a  with the `ReadWriteOnce` access mode.
 
-> 📘 Note
+> ℹ️ **Note:**
 >
 > This feature is available only from GW version `4.34.0` and higher. To use Cache HA, **existing** GW Helm deployments must be fully uninstalled before proceeding with the Cache HA setup.
 
@@ -281,11 +281,29 @@ Additionally, you can add topology spread constraint settings to control how pod
 
 To control the cache settings, you should [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache#/) using the Gateway Configuration Manager.
 
+### Cluster Cache Encryption Key & Offline Scale-Out
+
+Kubernetes Secret–based encryption keys for Cluster Cache are used **only when offline scale-out mode is enabled**.
+
+```yaml values.yaml
+globalConfig:
+  clusterCache:
+    enableScaleOutOnDisconnectedMode: false  # default
+```
+
+Accepted Values:
+
+* `false` (default): The Gateway does not read or generate a Kubernetes Secret for the cluster cache encryption key. The Kubernetes Secret–based encryption key flow is disabled, even if cache is enabled.
+* `true`: The Gateway will read or generate a Kubernetes Secret to support offline scale-out.
+    * If encryptionKeyExistingSecret is set, the Gateway uses that Secret.
+    * If not set, the Helm chart generates a new encryption key and stores it in a Kubernetes Secret.
+    * **RBAC Requirement:** When `enableScaleOutOnDisconnectedMode: true`, the Gateway ServiceAccount must have permission to get Kubernetes Secrets in the namespace. Missing permissions will cause Gateway startup to fail with a forbidden: cannot get resource "secrets" error.
+
 ## Working With Kubernetes Secrets
 
 To provide the settings of your Gateway deployment directly from your local Kubernetes secrets store, you can set the following settings
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > Providing any of those settings using an existing Kubernetes Secret, make sure that the corresponding parameters are left empty in your `values.yaml` file.
 

@@ -42,7 +42,7 @@ Where:
 
 * `eks-cluster-ca-cert`: The Amazon EKS cluster Base64-encoded certificate.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueeksp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#eks) section.
 
 ### Create an Amazon EKS Target in the Console
 
@@ -112,13 +112,13 @@ Where:
 
 * `gke-account-key`: The **Private key** generated for this GKE service account (the value of the "private_key" field from the service-account's downloaded key `JSON` file. **Make sure** to replace all its escaped new-lines, `\\n`, with actual new lines).
 
-> 👍 Tip
+> ✅ **Tip:**
 >
 > Use this command to extract the private key value from your file:
 >
 > `jq -r '.private_key | gsub("\\\\n"; "\\n")' /path/to/your/file.json`
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluegkep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#gke) section.
 
 ### Create a GKE Target in the Console
 
@@ -160,7 +160,7 @@ You can define a generic Kubernetes target to be used with [Generic Kubernetes D
 
 In both cases of **Bearer Token** and **GW Service Account**, the Service Account **must** have a **Kubernetes Role** with permissions as described in the [Generic Kubernetes](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) guide.
 
-> 📘 Note
+> ℹ️ **Note:**
 >
 > Kubernetes Client Certificate is not supported by Amazon EKS
 
@@ -210,7 +210,7 @@ akeyless target create k8s \
  --k8s-cluster-endpoint <Kubernetes Cluster endpoint> 
 ```
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluek8sp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#k8s) section.
 
 ### Create a Generic Kubernetes Target in the Console
 

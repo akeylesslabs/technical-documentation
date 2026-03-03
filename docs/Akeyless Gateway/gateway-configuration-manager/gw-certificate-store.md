@@ -12,9 +12,9 @@ next:
 ---
 You can upload private CA certificates into the gateway to enable secure connections with trusted API endpoints, ensuring reliable communication by verifying authenticity. This requires [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) version `4.29.0` or later.
 
-> 🚧 Note
+> ℹ️ **Note:**
 >
-> After uploading a private CA to certificate store, some services may require a restart or reconnection to fully recognize and utilize the new certificate authority.
+> After uploading a private CA to certificate store, some services may require a restart or reconnection to fully recognize and use the new certificate authority.
 
 ## Manage Certificates Using the CLI
 
@@ -23,7 +23,7 @@ To upload certificates to your gateway using the CLI, run the following command:
 ```shell
 akeyless gateway update certificate-store \
 --name <Certificate Display name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --certificate-path <path/to/certificate/file> \
 --certificate-data <certificate data in base64 format>
 ```
@@ -33,7 +33,7 @@ To delete certificates from your gateway using the CLI, run the following comman
 ```shell
 akeyless gateway delete certificate-store \
 --name <Certificate Display name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 Where:

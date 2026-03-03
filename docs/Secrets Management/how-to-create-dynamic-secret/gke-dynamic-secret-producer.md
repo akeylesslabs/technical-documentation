@@ -22,7 +22,7 @@ To use a dynamic GKE secret, your GCP administrator needs to create a GCP IAM se
 
 ## Create a Dynamic GKE Secret with the CLI
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/kubernetes-targets#gke). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gke-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -32,15 +32,15 @@ To create a dynamic GKE secret with the CLI using an existing [GKE Target](https
 akeyless dynamic-secret create gke \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuegke \
+akeyless dynamic-secret create gke \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gke-account-email <GKE service account email> \
 --gke-account-key <GKE service account Key>
 --gke-cluster-endpoint <GKE cluster endpoint URL> \
@@ -70,7 +70,7 @@ If you don't have a [GKE Target](https://docs.akeyless.io/docs/kubernetes-target
 
 * `gke-account-key`: GKE service account key.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegkep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#gke) section.
 
 For guidelines on how to get the GKE service account name and key, see the [API server authentication](https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication#environments-without-gcloud) guide.
 
@@ -149,7 +149,7 @@ akeyless dynamic-secret get-value --name <Path to the dynamic secret>
 
 Then you need to replace under the **kubeconfig** `< Dynamic Secret Value goes here >` with the response token exactly as you received it.
 
-> 📘 Notes
+> ℹ️ **Note:**
 >
 > To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 >

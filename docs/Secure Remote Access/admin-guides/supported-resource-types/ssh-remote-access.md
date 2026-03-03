@@ -16,7 +16,7 @@ Akeyless SSH Secure Remote Access enables traffic connections to servers that ar
 
 In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates).
 
-> 👍 Legacy Mode
+> ℹ️ **Note (Legacy Mode):**
 >
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
 > For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
@@ -41,7 +41,7 @@ akeyless update-ssh-cert-issuer \
 --secure-access-enable true \
 --secure-access-api <ssh-sra service control API endpoint URL> \
 --secure-access-ssh  <ssh-sra service server IP and Port> \
---secure-access-ssh-creds-user <SSH username> \ 
+--secure-access-ssh-creds-user <SSH username> \
 --host-provider[=explicit] \
 --secure-access-host <remote host> 
 ```
@@ -52,7 +52,7 @@ where:
 
 * `secure-access-ssh`: Secure Access SSH server. For example, `my.sra-server:22`.
 
-* `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users`list, **Just In Time** users can be authorized by configuring `allowed_users` with `session_*`.
+* `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users` list.  Starting with Gateway **v4.45.0**, Secure Remote Access (SRA) works out of the box with any **SSH Cert Issuer** where SRA is enabled. If you’re using an older Gateway version, make sure the SSH Cert Issuer `allowed_users` includes `session_*`, so just in time users are authorized.
 
 * `host-provider`: Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
 
@@ -66,17 +66,17 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
-    * Choose the right mode to work with either:
+   * Choose the right mode to work with either:
 
-        * `Explicit Hosts`: The hostnames (or IP addresses) of your SSH target servers.
+     * `Explicit Hosts`: The hostnames (or IP addresses) of your SSH target servers.
 
-        * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
+     * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
 
-    * `Secure Access API`: Secure Access SSH control API endpoint. For example, `https://my.sra-server:9900`.
+   * `Secure Access API`: Secure Access SSH control API endpoint. For example, `https://my.sra-server:9900`.
 
-    * `Secure Access SSH`: Secure Access SSH server. For example, `my.sra-server:22`.
+   * `Secure Access SSH`: Secure Access SSH server. For example, `my.sra-server:22`.
 
-    * `Username`: SSH username to connect to the target server, based on the 'Allowed Users' list.
+   * `Username`: SSH username to connect to the target server, based on the 'Allowed Users' list.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
@@ -84,10 +84,10 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
 Akeyless enables CLI access from any Unix terminal.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > Starting from Windows 10, Microsoft supports the native feature "Windows subsystem for Linux."
-> This feature enables users to utilize their Windows OS environment as a Unix-like system.
+> This feature enables users to use their Windows OS environment as a Unix-like system.
 >
 > To work with `Akeyless connect` command from Windows machine, place the `.akeyless-connect.rc` script on your home directory.
 
@@ -95,43 +95,43 @@ Akeyless enables CLI access from any Unix terminal.
 
 2. Create your `~/.akeyless-connect.rc`:
 
-    ```shell
-    IDENTITY_FILE=""
-    CERT_ISSUER_NAME=""
-    AKEYLESS_PROFILE="default"
-    AKEYLESS_GW_REST_API=""
+   ```shell
+   IDENTITY_FILE=""
+   CERT_ISSUER_NAME=""
+   AKEYLESS_PROFILE="default"
+   AKEYLESS_GW_REST_API=""
 
-    # Following are used for control service, to configure the temporary session:
-    # ${SRA-CTRL-PROTO}://"${SRA_API_PREFIX}${SRA_HOST}${SRA-CTRL-PATH}":"${SRA-CTRL-PORT}
-    #
-    SRA_API_PREFIX=""
-    SRA-CTRL-PATH=""
-    SRA-CTRL-PROTO=http
-    SRA-CTRL-PORT=9900
-    SRA_SSH_PORT=22
+   # Following are used for control service, to configure the temporary session:
+   # ${SRA-CTRL-PROTO}://"${SRA_API_PREFIX}${SRA_HOST}${SRA-CTRL-PATH}":"${SRA-CTRL-PORT}
+   #
+   SRA_API_PREFIX=""
+   SRA-CTRL-PATH=""
+   SRA-CTRL-PROTO=http
+   SRA-CTRL-PORT=9900
+   SRA_SSH_PORT=22
 
-    # Allow caching of temp session creds
-    SESSION_CACHING=no
+   # Allow caching of temp session creds
+   SESSION_CACHING=no
 
-    # Display connection stages
-    DISPLAY_STAGES=yes
-    ```
+   # Display connection stages
+   DISPLAY_STAGES=yes
+   ```
 
-    Where:
+   Where:
 
-    * `IDENTITY_FILE`: The path to the `ssh-key` to be signed and used for Zero Trust session (if empty, a default of `ssh-key` is used).
+   * `IDENTITY_FILE`: The path to the `ssh-key` to be signed and used for Zero Trust session (if empty, a default of `ssh-key` is used).
 
-    * `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
+   * `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
 
-    * `AKEYLESS_PROFILE`: Akeyless CLI profile to be used.
+   * `AKEYLESS_PROFILE`: Akeyless CLI profile to be used.
 
-    * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
+   * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
 
 3. Use `akeyless connect` command to perform SSH authentication to the target server by way of Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
 
-    ```shell General template
-    akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
-    ```
+   ```shell General template
+   akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
+   ```
 
 ## Legacy SSH Versions
 
@@ -149,11 +149,11 @@ This workaround explicitly enables legacy SSH key types that are deprecated and 
 
 ## Legacy Mode
 
-To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion by way of SSH certificate, and the Akeyless SRA bastion will utilize your SSH keys\password to connect to your legacy server.
+To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion by way of SSH certificate, and the Akeyless SRA bastion will use your SSH keys\password to connect to your legacy server.
 
 To work with SSH keys, you will have to create a Static Secret in an Akeyless account to store your SSH private key or SSH password. The secret value should be either your SSH password or your SSH private key.
 
-> 🚧 Note
+> ℹ️ **Note:**
 >
 > SSH password authentication brings with it risks. Please make sure you are connecting to the correct target server.
 
@@ -191,7 +191,7 @@ We support upload and download of files in SSH sessions through the Zero Trust W
 
 To upload a file, click on `Upload` button at the top and choose the file to upload from your local machine. The uploaded file will be placed in the user's $HOME directory on the remote machine.
 
-> 📘 Temporary files
+> ℹ️ **Note (Temporary files):**
 >
 > Files are created as temporary items inside the SSH server during the upload process, and are deleted upon completion.
 
@@ -202,6 +202,6 @@ To download a file:
 * First, copy the file to the download directory `/akl-downloads` which is already created in the user's $HOME directory on the remote machine (For example, `cp file-to-download.json /akl-downloads`).
 * Then, click on the `Download` button at the top which will open a menu with all files located in that directory. Click on a file to start the download to your local machine. Note that larger files will only appear upon completion.
 
-> 🚧 File size and free space
+> ℹ️ **Note (File size and free space):**
 >
-> In case there is a size limit issue on the SRA SSH server, (exceeding over 90% of space) a file will be created in the `akl-downloads` folder saying `NOT_ENOUGH_FREE_SPACE` and the user won't be able to download it.
+> If there is a size limit issue on the SRA SSH server (exceeding 90% of space), a file named `NOT_ENOUGH_FREE_SPACE` is created in the `akl-downloads` folder, and the user will not be able to download it.

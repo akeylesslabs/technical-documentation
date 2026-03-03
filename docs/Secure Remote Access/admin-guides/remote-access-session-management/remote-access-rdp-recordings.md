@@ -51,7 +51,7 @@ The final file name indicates which operations were applied:
 
 #### How Encoding Runs
 
-Encoding is executed by way of a **[decrypt file command](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluedecrypt-filep)**.
+Encoding is executed by way of a **[decrypt file command](https://docs.akeyless.io/docs/cli-reference-encryption-keys#decrypt-file)**.
 
 #### Where to Configure
 

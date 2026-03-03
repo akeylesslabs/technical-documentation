@@ -18,7 +18,7 @@ In the rapidly evolving digital era, managing a diverse array of passwords and s
 
 ### Unleash the Convenience of On-the-Go Access
 
-The Akeyless mobile app redefines convenience, ensuring that your essential passwords are always at your fingertips, irrespective of your location. Whether you're navigating the bustling streets of a city, relaxing at a café, or working remotely from a tranquil beach, this app keeps you connected to your most critical information. With just a few intuitive taps, you gain the ability to access, manage, and utilize select items from your Akeyless account. This feature empowers you with the freedom to remain productive and connected, seamlessly bridging the gap between your digital life and your on-the-go lifestyle.
+The Akeyless mobile app redefines convenience, ensuring that your essential passwords are always at your fingertips, irrespective of your location. Whether you're navigating the bustling streets of a city, relaxing at a café, or working remotely from a tranquil beach, this app keeps you connected to your most critical information. With just a few intuitive taps, you gain the ability to access, manage, and use select items from your Akeyless account. This feature empowers you with the freedom to remain productive and connected, seamlessly bridging the gap between your digital life and your on-the-go lifestyle.
 
 ### Experience the Power of Akeyless Mobile App
 

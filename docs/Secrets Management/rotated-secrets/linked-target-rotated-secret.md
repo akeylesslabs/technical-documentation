@@ -20,9 +20,9 @@ When using **Target** as the **Rotator Type** the **Parent** credentials will be
 
 When a new server is created in your environment, simply add the relevant hostname to your [Linked Target](https://docs.akeyless.io/docs/linked-target) to gain automated rotation for any new server.
 
-> 📘 Info
+> ℹ️ **Info:**
 >
-> Only Windows/SSH Target are currently supported for Rotated Secrets with Linked Target. In case one of the hosts in a Linked Target item is accessible over a different port from the one that is configured in the Parent Target, make sure to specify the port as part of the host in the Linked Target. For example: `server01.com:443`.
+> Only Windows/SSH Target are currently supported for Rotated Secrets with Linked Target. If one of the hosts in a Linked Target item is accessible over a different port from the one configured in the Parent Target, make sure to specify the port as part of the host in the Linked Target. For example: `server01.com:443`.
 
 ## Rotator Type Password
 
@@ -30,7 +30,7 @@ To rotate **Local users**, for example, `ubuntu` or `administrator`, across your
 
 ```shell Windows Target
 akeyless create-windows-target \
---name <WindowsTargetName> \ 
+--name <WindowsTargetName> \
 --hostname <Windows Hostname\IP> \
 --username <Domain@WindowsUsername> \
 --password <Password>
@@ -45,7 +45,7 @@ akeyless create-ssh-target \
 --ssh-password <SSH password>
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > The **Parent** Target `hostname` will be the first host whose **Local user's** password will be rotated.
 >
@@ -65,7 +65,7 @@ Create a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) with `r
 ```shell Windows
 akeyless rotated-secret create windows \
 --name <Rotated secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <LinkedTargetName> \
 --authentication-credentials <use-target-creds> \
 --rotator-type password \
@@ -79,7 +79,7 @@ akeyless rotated-secret create windows \
 ```shell SSH
 akeyless rotated-secret create ssh \
 --name <Rotated secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <LinkedTargetName> \
 --authentication-credentials <use-target-creds> \
 --rotator-type password \
@@ -101,7 +101,7 @@ Create an [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://d
 
 ```shell Windows Target
 akeyless create-windows-target \
---name <WindowsTargetName> \ 
+--name <WindowsTargetName> \
 --hostname <Windows Hostname\IP> \
 --username <Windows Local Username> \
 --password <Password>
@@ -128,7 +128,7 @@ Create a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) with `r
 
 ```shell
 akeyless create-rotated-secret --name <secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <ParentTargetName> \
 --authentication-credentials <use-target-creds> \
 --rotator-type target \
@@ -139,7 +139,7 @@ akeyless create-rotated-secret --name <secret name> \
 
 The rotation will generate a new password for the **Parent** Target and will use it for all hosts for the same **Local** user.
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > Working with `--rotator-type target` supports only Rotated Secret for the **Parent** Target which will trigger rotation on **all** associated **Linked Targets** hosts.
 
@@ -187,8 +187,8 @@ akeyless get-rotated-secret-value -n <Rotated secret name> --host server02.examp
 
 ## Rotation Policy
 
-Rotation across multiple hosts will work on a best-effort approach to rotate at least one host from the given hosts' list. After successful rotation across all hosts, the rotation status will be `RotationSucceeded`. Upon a failure in one or more hosts, the rotation status will be `RotationPartialSucceeded`. In case of failure on all hosts, the rotation status will be `RotationFailed`. Each of those results will trigger events in the [Event Center](https://docs.akeyless.io/docs/event-center).
+Rotation across multiple hosts will work on a best-effort approach to rotate at least one host from the given hosts' list. After successful rotation across all hosts, the rotation status will be `RotationSucceeded`. Upon a failure in one or more hosts, the rotation status will be `RotationPartialSucceeded`. If rotation fails on all hosts, the rotation status will be `RotationFailed`. Each of those results will trigger events in the [Event Center](https://docs.akeyless.io/docs/event-center).
 
-In case of failure on one or more hosts, the Rotated Secret item will keep the old password on the hosts which ended with an error, when working with `rotator type target` the old password will be saved as an old version in the **Parent** Target.
+If rotation fails on one or more hosts, the Rotated Secret item keeps the old password on the hosts that ended with an error. When working with `rotator type target`, the old password is saved as an old version in the **Parent** Target.
 
-The Akeyless best practice flow is to generate different passwords for each **Local** user. You can set an identical password for **all** users by using the flag`same-password true`.
+The Akeyless best practice flow is to generate different passwords for each **Local** user. You can set an identical password for **all** users by using the flag `same-password true`.

@@ -12,7 +12,7 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
 ---
-Azure AD Authentication method enables authentication to Akeyless. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure AD for the configured tenant.
+The Azure AD authentication method enables authentication to Akeyless. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by Azure AD for the configured tenant.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ Depending on the Azure Identity type, enable the relevant [identity type](https:
 ## Create an Azure AD Authentication Method with the CLI
 
 Let's create a new Azure AD authentication method using the Akeyless CLI.
-(You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/azure-ad#create-an-azure-active-directory-authentication-method-in-the-akeyless-console).)
+(You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-azure#create-an-azure-ad-authentication-method-in-the-akeyless-console).)
 
 To create an Azure AD authentication method with the CLI, run the following command:
 
@@ -37,7 +37,7 @@ Where:
 
 * `bound-tenant-id`: A comma-separated list of Azure tenant IDs that are allowed to authenticate to Akeyless using this authentication method.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueazure-adp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create) section.
 
 ## Configure Akeyless CLI With the Azure AD Authentication Method
 
@@ -58,9 +58,9 @@ akeyless get-cloud-identity --cloud-provider azure_ad
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-    * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+    * **Allowed Trusted Gateway IPs:** Comma-separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
     * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
@@ -80,13 +80,11 @@ akeyless get-cloud-identity --cloud-provider azure_ad
 
     * **Bound Resource Groups:** Enter a comma-separated list of Resource Groups for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 
-    * **Bound Resource Providers:** Enter a comma-separated list of resource providers for which access is allowed (For example, `Microsoft.Compute`, `Microsoft.ManagedIdentity`, and so on). This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Resource Providers:** Enter a comma-separated list of resource providers for which access is allowed (for example, `Microsoft.Compute`, `Microsoft.ManagedIdentity`, and so on). This parameter is optional. Leave it empty for unrestricted access.
 
-    * **Bound Resource Types:** Enter a comma-separated list of resource types for which access is allowed (For example, `virtualMachines`, `userAssignedIdentities`, and so on). This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Resource Types:** Enter a comma-separated list of resource types for which access is allowed (for example, `virtualMachines`, `userAssignedIdentities`, and so on). This parameter is optional. Leave it empty for unrestricted access.
 
-    * **Bound Resource Names:** Enter a comma-separated list of resource names for which access is allowed (For example, a virtual machine name, scale set name, and so on). This parameter is optional. Leave it empty for unrestricted access.
-
-    * **Bound Resource Groups:** Enter a comma-separated list of Resource Groups for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Resource Names:** Enter a comma-separated list of resource names for which access is allowed (for example, a virtual machine name, scale set name, and so on). This parameter is optional. Leave it empty for unrestricted access.
 
     * **Bound Resource IDs:** Enter a comma-separated list of Resource IDs for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 

@@ -20,7 +20,7 @@ While the process has an initiation phase where the Admin creates the original a
 
 ## Create a Universal Identity Authentication Method with the CLI
 
-Let's create a new Universal Identity authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/universal-identity#create-a-iniversal-identity-authentication-method-in-the-akeyless-console).)
+Let's create a new Universal Identity authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-universal-identity#create-a-universal-identity-authentication-method-in-the-console).)
 
 To create a new Universal Identity authentication method with the CLI, run the following command:
 
@@ -35,7 +35,7 @@ Where:
 
 * **ttl:** (Optional) The root token time-to-live in minutes. The TTL is renewed with every rotation. The default value is 60 minutes.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#create) section.
 
 ### Generate a Token
 
@@ -47,7 +47,7 @@ akeyless uid-generate-token --auth-method-name <UID Name>
 
 ### Using Universal Identity Tokens
 
-In order to use a Universal Identity token, it must be associated with a Role.
+To use a Universal Identity token, it must be associated with a Role.
 
 To use it with the Akeyless CLI, add it to your Akeyless commands in one of the following ways:
 
@@ -69,7 +69,7 @@ To disable the permissions of a certain token, use the following command:
 akeyless uid-revoke-token --revoke-token <u-XXXX> --revoke-type revokeSelf --auth-method-name <UID Name>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#p-stylecolorblueuid-revoke-tokenp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#uid-revoke-token) section.
 
 ### Rotate a Token
 
@@ -88,14 +88,15 @@ curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 
 Frequent key rotation is a best practice. You may create an automated script that will rotate your token in pre-scheduled intervals.
 
-While you can write your own script, we have a compatible one-minute interval token rotation script in the <a href="https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/" target="_blank">Akeyless Downloads</a> folder.
+While you can write your own script, we have a compatible one-minute interval token rotation script in the [Akeyless Downloads](https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/) folder.
 This script is Linux/macOS compatible, and has the following flow:
 
-1. Write the token to a path
-2. Take the token from path to perform commands
-3. Rotate token
-4. Replace the token in path
-   After downloading the `.sh` file, execute it and select `init` and insert the token you generated to start the process. From this point on the script can be run automatically to rotate the token by itself.
+1. Write the token to a path.
+2. Take the token from the path to perform commands.
+3. Rotate the token.
+4. Replace the token in the path.
+
+After downloading the `.sh` file, execute it, select `init`, and insert the token you generated to start the process. From this point on, the script can run automatically to rotate the token.
 
 If you wish to write your own script, here are some useful parts you might want to include:
 
@@ -131,7 +132,7 @@ You will get the following result with the child token:
 "Child Token: u-XXXXXXXX2"
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#p-stylecolorblueuid-create-child-tokenp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#uid-create-child-token) section.
 
 ### Get the Token Tree
 
@@ -167,7 +168,7 @@ Universal Identity Details:
 
 ## Create a Universal Identity Authentication Method in the Console
 
-1. Log in to the Akeyless Console and go to **Users & Auth Methods** > **⊕ New** > **Akeyless (Universal Identity)** .
+1. Log in to the Akeyless Console and go to **Users & Auth Methods** > **⊕ New** > **Akeyless (Universal Identity)**.
 
 2. Define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
@@ -175,14 +176,14 @@ Universal Identity Details:
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).
     If empty, the Gateway's IP will be used in the logs.
 
     * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI` , `SDK`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`.
 
     * Check **Deny Rotate** if you want to forbid token rotation.
 
@@ -194,29 +195,30 @@ Universal Identity Details:
 
 ### Generate a Token
 
-To generate a token in the Console,
+To generate a token in the Console:
 
-1. Open the corresponding authentication method
-2. Go to **UID Tree** tab and then click**Generate**.
+1. Open the corresponding authentication method.
+2. Go to **UID Tree** tab and then click **Generate**.
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
-> If a UID token already exists, generating a new UID token will reset the existing token
+> If a UID token already exists, generating a new UID token resets the existing token.
 
 ### Revoke a Token
 
-To revoke a token in the Console,
+To revoke a token in the Console:
 
-1. Open the corresponding authentication method
+1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab.
 3. Right-click the node and click **Revoke token**.
-4. Select **Revoke self** if you want to revoke the selected node only or select **Revoke self and children** if you want to revoke the selected node and its children node.5. Click **Save**.
+4. Select **Revoke self** if you want to revoke the selected node only, or select **Revoke self and children** if you want to revoke the selected node and its child nodes.
+5. Click **Save**.
 
 ### Create a Child Token
 
-To create a child token in the Console,
+To create a child token in the Console:
 
-1. Open the corresponding authentication method,
+1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab.
 3. Right-click the root node and click **Create child token**.
 4. Define the parameters as follows:
@@ -231,17 +233,17 @@ To create a child token in the Console,
 
 ### Get the Token Tree
 
-To get the token tree in the Console,
+To get the token tree in the Console:
 
-1. Open the corresponding authentication method,
+1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab.
 
-> 📘 Note
+> ℹ️ **Note:**
 >
-> When your Token Tree becomes complex, you can use your mouse and **zoom in** to see specific Token better or **zoom out** to see the whole Token Tree
+> When your Token Tree becomes complex, you can use your mouse to **zoom in** to see a specific token better, or **zoom out** to see the whole Token Tree.
 
 ## Best Practices
 
 A UID token is initially used to authenticate a client with Akeyless. The UID token includes essential authentication information, ensuring that the client's identity has been verified.
 
-Once authenticated, the best practice is to exchange the UID token for a **t-token** (Temporary Token). The **t-token** is a short-lived token used for subsequent API requests enabling better performance using the token for subsequent requests minimizes the need for repeated authentication processes, while using a shorter lifespan token reduces the opportunity for potential misuse.
+Once authenticated, the best practice is to exchange the UID token for a **t-token** (temporary token). The **t-token** is a short-lived token used for subsequent API requests. Using it for subsequent requests minimizes repeated authentication processes and reduces the opportunity for potential misuse.

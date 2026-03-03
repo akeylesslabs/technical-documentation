@@ -14,7 +14,7 @@ To forward your Akeyless Audit Logs directly from your Gateway, you can set the 
 
 By default, the log format of all of the commands below is `text` and the pull interval is set to `10` seconds.
 
-> 📘 Authorized Users
+> ℹ️ **Note (Authorized Users):**
 >
 > Only users with [access permission](https://docs.akeyless.io/docs/gateway-access-permissions) on the gateway to manage log forwarding will authorize to set log forwards using the CLI.
 
@@ -26,13 +26,13 @@ akeyless gateway update log-forwarding syslog \
 --host <syslog host> 
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
-> The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
+> The output message format conforms to Syslog format and assumes the Syslog server does not add its own formatting to the message.
 
 Default format: `<date > <time> <host name> <log level> <message>`.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluesyslogp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#syslog) section.
 
 ## Splunk
 
@@ -48,7 +48,7 @@ akeyless gateway update log-forwarding splunk \
 --index <index>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluesplunkp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#splunk) section.
 
 ## ELK - Logstash
 
@@ -59,7 +59,7 @@ akeyless gateway update log-forwarding logstash \
 --protocol tcp
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluelogstashp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#logstash) section.
 
 ## ELK - Elasticsearch
 
@@ -69,7 +69,7 @@ akeyless gateway update log-forwarding elasticsearch \
 --index <index> \
 --server-type <cloud> \
 --cloud-id <your cloud-id> \
---auth-type <api_key \
+--auth-type <api_key> \
 --api-key <your api_key> 
 ```
 
@@ -86,13 +86,13 @@ akeyless gateway update log-forwarding logz-io \
 --protocol <tcp>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluelogz-iop) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#logz-io) section.
 
 ## AWS S3
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
-> Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
+> Logs are uploaded to your S3 bucket at 10-minute intervals. Keep in mind that if your pod scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
 
 The following permissions are required to forward the Audit Logs to an S3 bucket:
 
@@ -123,7 +123,7 @@ akeyless gateway update log-forwarding aws-s3 \
 --role-arn <aws role-arn>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorblueaws-s3p) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#aws-s3) section.
 
 ## Azure Log Analytics
 
@@ -136,7 +136,7 @@ akeyless gateway update log-forwarding azure-analytics \
 --workspace-key <azure workspace-key> 
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorblueazure-analyticsp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#azure-analytics) section.
 
 ## stdout
 
@@ -144,10 +144,10 @@ Setting log forwarding to stdout:
 
 ```shell
 akeyless gateway update log-forwarding stdout \
---gateway-url 'https://Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://Your-Akeyless-GW-URL:8000' 
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluestdoutp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#stdout) section.
 
 ## Datadog
 
@@ -163,7 +163,7 @@ akeyless gateway update log-forwarding datadog \
 --log-service <datadog log service>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluedatadogp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#datadog) section.
 
 ## Sumo Logic
 
@@ -177,7 +177,7 @@ akeyless gateway update log-forwarding sumologic \
 --host <Sumo Logic host>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluesumologicp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#sumologic) section.
 
 ## Google Chronicle
 
@@ -192,4 +192,4 @@ akeyless gateway update log-forwarding google-chronicle \
 --log-type <log type>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluegoogle-chroniclep) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#google-chronicle) section.

@@ -29,14 +29,14 @@ Create a new Email Event Forwarder
 ```shell
 akeyless event-forwarder create email \
 --name <Event Forwarder name> \
---email-to <comma separated email addresses> \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--email-to <comma-separated email addresses> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL:8000>
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
 --event-types <event type> \
---include-error <true / false>
+--include-error <true / false> \
 --runner-type[=immediate] <immediate / periodic> \
 --every <1-24 hours>
 ```
@@ -53,7 +53,7 @@ akeyless event-forwarder create email \
 
 `--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`/*
 
-`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URLs,: `https://<Your-Akeyless-GW-URL:8000`
+`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL>:8000`
 
 `--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
 
@@ -80,12 +80,12 @@ Create a new Service Now Event Forwarder
 ```shell
 akeyless event-forwarder create servicenow \
 --name <Event Forwarder name> \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
---host <Workstation Host>
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--host <Workstation Host> \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL:8000>
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
 --event-types <event type>
 ```
 
@@ -101,7 +101,7 @@ akeyless event-forwarder create servicenow \
 
 `--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
 
-`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URLs,: `https://<Your-Akeyless-GW-URL:8000`
+`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL>:8000`
 
 `--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
 
@@ -140,13 +140,13 @@ Create a new Slack Event Forwarder
 ```shell
 akeyless event-forwarder create slack \
 --name <Event Forwarder name> \
---url <Slack Webhook URL>
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--url <Slack Webhook URL> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL:8000>
---event-types <event type>
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
+--event-types <event type> \
 --runner-type[=immediate] <immediate / periodic> \
 --every <1-24 hours>
 ```
@@ -165,7 +165,7 @@ akeyless event-forwarder create slack \
 
 `--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
 
-`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URLs,: `https://<Your-Akeyless-GW-URL:8000`
+`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL>:8000`
 
 `--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
 
@@ -173,7 +173,7 @@ akeyless event-forwarder create slack \
 
 `--every`: Rate of periodic runner repetition in hours
 
-`-u, --gateway-url[=https://<Your-Akeyless-GW-URL:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--description`: Description of the object
 
@@ -186,13 +186,13 @@ Create a new Webhook Event Forwarder
 ```shell
 akeyless event-forwarder create webhook \
 --name <Event Forwarder name> \
---url <Webhook URL>
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--url <Webhook URL> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL:8000>
---event-types <event type>
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
+--event-types <event type> \
 --runner-type[=immediate] <immediate / periodic> \
 --every <1-24 hours>
 ```
@@ -209,7 +209,7 @@ akeyless event-forwarder create webhook \
 
 `--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
 
-`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URLs,: `https://<Your-Akeyless-GW-URL:8000`
+`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL>:8000`
 
 `--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
 
@@ -239,7 +239,7 @@ akeyless event-forwarder create webhook \
 
 `--private-key-data`: `Base64-encoded PEM RSA Private Key`, relevant for `certificate` auth-type
 
-`-u, --gateway-url[=https://<Your-Akeyless-GW-URL:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--description`: Description of the object
 
@@ -252,13 +252,13 @@ Create a new teams Event Forwarder
 ```shell
 akeyless event-forwarder create teams \
 --name <Event Forwarder name> \
---url <teams Webhook URL>
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--url <Teams Webhook URL> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL:8000>
---event-types <event type>
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
+--event-types <event type> \
 --runner-type[=immediate] <immediate / periodic> \
 --every <1-24 hours>
 ```
@@ -269,7 +269,7 @@ akeyless event-forwarder create teams \
 
 `--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
 
-`url`: **Required**, Slack Webhook URL
+`url`: **Required**, Teams Webhook URL
 
 `--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/*
 
@@ -277,7 +277,7 @@ akeyless event-forwarder create teams \
 
 `--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
 
-`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URLs,: `https://<Your-Akeyless-GW-URL:8000`
+`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL>:8000`
 
 `--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
 
@@ -285,7 +285,7 @@ akeyless event-forwarder create teams \
 
 `--every`: Rate of periodic runner repetition in hours
 
-`-u, --gateway-url[=https://<Your-Akeyless-GW-URL:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--description`: Description of the object
 

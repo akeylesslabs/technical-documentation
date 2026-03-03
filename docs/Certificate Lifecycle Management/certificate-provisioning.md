@@ -16,7 +16,7 @@ Any [stored](https://docs.akeyless.io/docs/certificate-storage) certificate can 
 
 Setting up certificate provisioning requires **Target** permissions on the Gateway.
 
-> 👍 Provisioning Permissions on Target
+> ℹ️ **Note (Provisioning Permissions on Target):**
 >
 > To prevent partial files, the Gateway first saves new items (certificates, keys, and so on) in a temporary folder on your server, then atomically renames them into the final paths you specify. Ensure the temporary folder is writable by the user defined in the Target.
 
@@ -28,8 +28,8 @@ Run the following CLI command to provision a certificate:
 akeyless assoc-target-item \
 --name <Certificate name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---certificate-path <Where to save the certificate> \ 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--certificate-path <Where to save the certificate> \
 --post-provision-command <"echo Akeyless">
 ```
 
@@ -45,7 +45,7 @@ Where:
 
 * `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning, for example, restarting a service.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueassoc-target-itemp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#assoc-target-item) section.
 
 ## Provisioning a Certificate Using the Akeyless Console
 

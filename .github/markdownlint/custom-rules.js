@@ -147,6 +147,53 @@ function removeBoldSpans(text) {
     .replace(/__[^_]+__/g, "");
 }
 
+function stripBlockQuotePrefix(line) {
+  let text = String(line || "");
+  let prev = null;
+  while (text !== prev) {
+    prev = text;
+    text = text.replace(/^\s*>\s?/, "");
+  }
+  return text;
+}
+
+function splitTableCellsLoose(line) {
+  let text = stripBlockQuotePrefix(line).trim();
+  if (!text || text.indexOf("|") === -1) return null;
+
+  if (text.startsWith("|")) text = text.slice(1);
+  if (text.endsWith("|")) text = text.slice(0, -1);
+
+  const cells = [];
+  let current = "";
+  let escaped = false;
+
+  for (const ch of text) {
+    if (escaped) {
+      current += ch;
+      escaped = false;
+      continue;
+    }
+
+    if (ch === "\\") {
+      current += ch;
+      escaped = true;
+      continue;
+    }
+
+    if (ch === "|") {
+      cells.push(current.trim());
+      current = "";
+      continue;
+    }
+
+    current += ch;
+  }
+
+  cells.push(current.trim());
+  return cells;
+}
+
 module.exports = [
   /**
    * AKY001: Disallow H1 (# / Setext H1)
@@ -708,8 +755,54 @@ module.exports = [
   },
 
   /**
-   * AKY011: Skipped
+   * AKY011: Disallow ReadMe proprietary <Callout> tags.
+   *
+   * Purpose:
+   * - Enforces the repository standard to use markdown blockquote callouts
+   *   (for example, "> ⚠️ **Warning:**") instead of proprietary ReadMe tags.
+   *
+   * Behavior:
+   * - Detection-only rule (no auto-fix).
+   * - Flags both opening and closing Callout tags:
+   *     <Callout ...>
+   *     </Callout>
+   * - Ignores fenced/indented code blocks and inline code spans by default.
+   *
+   * Options (in .markdownlint-cli2.yaml):
+   *   AKY011:
+   *     severity: error|warning|info   # Recommended: warning
+   *     ignore_code: true|false        # Default: true
    */
+  {
+    names: ["AKY011", "no-readme-callout-tag"],
+    description: "Disallow ReadMe proprietary <Callout> tags; use markdown blockquote callouts instead",
+    tags: ["callouts", "readme", "style"],
+    function: function (params, onError) {
+      const cfg = params.config || {};
+      const ignoreCode = cfg.ignore_code !== false; // default true
+
+      const codeLines = ignoreCode ? getCodeBlockLineSet(params.tokens) : new Set();
+      const lines = params.lines || [];
+      const calloutTagPattern = /<\s*\/?\s*Callout\b/i;
+
+      for (let i = 0; i < lines.length; i++) {
+        const ln = i + 1;
+        if (ignoreCode && codeLines.has(ln)) continue;
+
+        const raw = lines[i] || "";
+        const text = ignoreCode ? stripInlineCode(raw) : raw;
+
+        if (calloutTagPattern.test(text)) {
+          report(
+            onError,
+            ln,
+            "Use markdown blockquote callouts (for example, '> ⚠️ **Warning:**') instead of ReadMe <Callout> tags.",
+            raw.trim()
+          );
+        }
+      }
+    }
+  },
 
   /**
    * AKY012: Enforce SI unit formatting:
@@ -1138,6 +1231,53 @@ module.exports = [
           if (child.type === "link_open") {
             continue;
           }
+        }
+      }
+    }
+  },
+
+  /**
+   * AKY018: Enforce canonical Markdown table separator format
+   *
+   * Canonical format required for separator rows:
+   *   | --- | --- |
+   *
+   * This catches inconsistent separator styles such as:
+   *   |---|---|
+   *   | :--- | :--- |
+   *   | ---- | ---: |
+   */
+  {
+    names: ["AKY018", "canonical-table-separator"],
+    description: "Require Markdown table separator rows to use canonical '| --- |' style without alignment colons",
+    tags: ["tables", "style", "consistency"],
+    function: function (params, onError) {
+      const lines = params.lines || [];
+      const codeLines = getCodeBlockLineSet(params.tokens);
+
+      for (let i = 0; i < lines.length; i++) {
+        const lineNumber = i + 1;
+        if (codeLines.has(lineNumber)) continue;
+
+        const raw = lines[i];
+        const normalized = stripBlockQuotePrefix(raw).trim();
+        if (!normalized || normalized.indexOf("|") === -1) continue;
+
+        const cells = splitTableCellsLoose(normalized);
+        if (!Array.isArray(cells) || cells.length < 2) continue;
+
+        // Identify delimiter rows like --- / :---: / ---:
+        const isDelimiterRow = cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+        if (!isDelimiterRow) continue;
+
+        const expected = `| ${new Array(cells.length).fill("---").join(" | ")} |`;
+        if (normalized !== expected) {
+          report(
+            onError,
+            lineNumber,
+            "Use canonical table separator row format '| --- |' without alignment colons.",
+            normalized
+          );
         }
       }
     }

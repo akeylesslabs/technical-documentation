@@ -20,10 +20,10 @@ Each pipeline step runs in isolation, so secrets don’t carry over automaticall
 
 ## Supported Authentication Methods
 
-* [OAuth 2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt)
-* [API Key](https://docs.akeyless.io/docs/api-key)
+* [OAuth 2.0/JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > It is best practice to use environment variables instead of writing the actual variable values inside the pipeline.
 >
@@ -37,7 +37,7 @@ The section below will demonstrate how to work with items from your Akeyless acc
 
 ### Working With Secrets
 
-In order to fetch a secret from your Akeyless account, set the following configuration:
+To fetch a secret from your Akeyless account, set the following configuration:
 
 ```yaml Static
 pipelines:
@@ -120,7 +120,7 @@ pipelines:
 
 ### Working With Certificates
 
-In order to fetch a certificate from your Akeyless account, set the following configuration:
+To fetch a certificate from your Akeyless account, set the following configuration:
 
 ```yaml PKI Certificate
 pipelines:

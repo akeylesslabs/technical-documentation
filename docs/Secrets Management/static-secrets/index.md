@@ -22,7 +22,7 @@ The typical process for working with Static Secrets includes:
 
 2. [Add a Static Secret to an Access Role](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role): Allow clients to access the Static Secret by adding it to a role with the appropriate permissions.
 
-3. [Retrieve a Static Secret Value](https://docs.akeyless.io/docs/retrievestatic): Get the value of a Static Secret when needed.
+3. [Retrieve a Static Secret Value](https://docs.akeyless.io/docs/retrieve-secret): Get the value of a Static Secret when needed.
 
 4. [Sharing Static Secrets](https://docs.akeyless.io/docs/sharing-static-secrets): Temporarily share with external users who are not part of your organization or do not have general access permissions.
 

@@ -72,7 +72,7 @@ Creates a new AWS rotated secret item
 akeyless rotated-secret create aws \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/api-key> 
 ```
 
@@ -108,7 +108,7 @@ akeyless rotated-secret create aws \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older AWS Access Key will be rotated. When there is only one Access Key, a new version will be created - to maintain 2 values at the same time, following AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
@@ -138,7 +138,7 @@ Creates a new Azure rotated secret item
 akeyless rotated-secret create azure \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target|api-key|azure-storage-account|password> 
 ```
 
@@ -200,7 +200,7 @@ Creates a new Cassandra rotated secret item
  akeyless rotated-secret create cassandra \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password> 
 ```
 
@@ -246,7 +246,7 @@ Creates a new custom rotated secret item
 akeyless rotated-secret create custom \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -299,7 +299,7 @@ akeyless rotated-secret create custom \
 
 `--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -325,7 +325,7 @@ Creates a new Docker Hub rotated secret item
 akeyless rotated-secret create dockerhub \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -362,7 +362,7 @@ Creates a new GCP rotated secret item
 akeyless rotated-secret create gcp \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/service-account-rotator>
 ```
 
@@ -396,7 +396,7 @@ akeyless rotated-secret create gcp \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older service account key will be rotated. When there is only one key, a new version will be created to maintain 2 values at the same time.
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
@@ -420,7 +420,7 @@ Creates a new SAP HANA database rotated secret item
 akeyless rotated-secret create hanadb \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -464,7 +464,7 @@ Creates a new LDAP rotated secret item
 akeyless rotated-secret create ldap \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/ldap>
 ```
 
@@ -514,7 +514,7 @@ akeyless rotated-secret create ldap \
 
 `--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--target`: A list of linked targets to be associated, Relevant only for **Secure Remote Access** for **SSH cert issuer** and **LDAP rotated secret**, To specify multiple targets use argument multiple times
 
@@ -532,7 +532,7 @@ Creates a new MongoDB rotated secret item
 akeyless rotated-secret create mongodb \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -568,7 +568,7 @@ akeyless rotated-secret create mongodb \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -590,7 +590,7 @@ Creates a new MSSQL rotated secret item
 akeyless rotated-secret create mssql \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -626,7 +626,7 @@ akeyless rotated-secret create mssql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -650,7 +650,7 @@ Creates a new MySQL rotated secret item
 akeyless rotated-secret create mysql \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -686,7 +686,7 @@ akeyless rotated-secret create mysql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -710,7 +710,7 @@ akeyless rotated-secret create openai \
 --target-name <Target Name> \
 --api-key-id <admin-api-key-id> \
 --api-key <admin-api-key> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/api-key>
 ```
 
@@ -750,7 +750,7 @@ Creates a new OracleDB rotated secret item
 akeyless rotated-secret create oracledb \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -786,7 +786,7 @@ akeyless rotated-secret create oracledb \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -806,7 +806,7 @@ Creates a new PostgreSQL rotated secret item
 akeyless rotated-secret create postgresql \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -842,7 +842,7 @@ akeyless rotated-secret create postgresql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -866,7 +866,7 @@ Creates a new Redis rotated secret item
 akeyless rotated-secret create redis \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -912,7 +912,7 @@ Creates a new Amazon Redshift rotated secret item
 akeyless rotated-secret create redshift \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -948,7 +948,7 @@ akeyless rotated-secret create redshift \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -966,7 +966,7 @@ Creates a new Snowflake rotated secret item
 akeyless rotated-secret create snowflake \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -1016,7 +1016,7 @@ Creates a new Splunk rotated secret item
 akeyless rotated-secret create splunk \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password/token/hec-token> \
 ```
 
@@ -1070,7 +1070,7 @@ Creates a new SSH rotated secret item
 akeyless rotated-secret create ssh \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -1112,7 +1112,7 @@ akeyless rotated-secret create ssh \
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1136,7 +1136,7 @@ Creates a new Windows rotated secret item
 akeyless rotated-secret create windows \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -1174,7 +1174,7 @@ akeyless rotated-secret create windows \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1237,7 +1237,7 @@ Commands to update a Rotated Secret
 ```shell
 akeyless rotated-secret update aws \
 --name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --new-name <New Item name>
 ```
 
@@ -1271,7 +1271,7 @@ akeyless rotated-secret update aws \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older AWS Access Key will be rotated. When there is only one Access Key, a new version will be created - to maintain 2 values at the same time, following AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
@@ -1301,7 +1301,7 @@ akeyless rotated-secret update aws \
 akeyless rotated-secret update azure \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -1332,7 +1332,7 @@ akeyless rotated-secret update azure \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created - to maintain 2 values at the same time. Relevant only for **Client Secret**.
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
@@ -1358,7 +1358,7 @@ akeyless rotated-secret update azure \
  akeyless rotated-secret update cassandra \
 --name <Rotated Secret name> \
 --new-name <New-Item name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -1403,7 +1403,7 @@ akeyless rotated-secret update azure \
 akeyless rotated-secret update custom \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -1456,7 +1456,7 @@ akeyless rotated-secret update custom \
 
 `--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1484,7 +1484,7 @@ akeyless rotated-secret update custom \
 akeyless rotated-secret update dockerhub \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -1523,7 +1523,7 @@ akeyless rotated-secret update dockerhub \
 akeyless rotated-secret update gcp \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1556,7 +1556,7 @@ akeyless rotated-secret update gcp \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older service account key will be rotated. When there is only one key, a new version will be created to maintain 2 values at the same time.
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
@@ -1582,7 +1582,7 @@ akeyless rotated-secret update gcp \
 akeyless rotated-secret update hanadb \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1625,7 +1625,7 @@ akeyless rotated-secret update hanadb \
 akeyless rotated-secret update ldap \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1672,7 +1672,7 @@ akeyless rotated-secret update ldap \
 
 `--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--target`: A list of linked targets to be associated, Relevant only for **Secure Remote Access** for **SSH cert issuer** and **LDAP rotated secret**, To specify multiple targets use argument multiple times
 
@@ -1684,7 +1684,7 @@ akeyless rotated-secret update ldap \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `monogodb`
+### `mongodb`
 
 #### Usage
 
@@ -1692,7 +1692,7 @@ akeyless rotated-secret update ldap \
 akeyless rotated-secret update mongodb \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1725,7 +1725,7 @@ akeyless rotated-secret update mongodb \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -1749,7 +1749,7 @@ akeyless rotated-secret update mongodb \
 akeyless rotated-secret update mssql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1782,7 +1782,7 @@ akeyless rotated-secret update mssql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -1806,7 +1806,7 @@ akeyless rotated-secret update mssql \
 akeyless rotated-secret update mysql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -1839,7 +1839,7 @@ akeyless rotated-secret update mysql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -1867,7 +1867,7 @@ akeyless rotated-secret update openai \
 --new-name <New Item name>
 --api-key-id <admin-api-key-id> \
 --api-key <admin-api-key> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1902,7 +1902,7 @@ akeyless rotated-secret update openai \
 akeyless rotated-secret update oracledb \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1935,7 +1935,7 @@ akeyless rotated-secret update oracledb \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -1959,7 +1959,7 @@ akeyless rotated-secret update oracledb \
 akeyless rotated-secret update postgresql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1992,7 +1992,7 @@ akeyless rotated-secret update postgresql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -2018,7 +2018,7 @@ akeyless rotated-secret update postgresql \
 akeyless rotated-secret update redis \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -2063,7 +2063,7 @@ akeyless rotated-secret update redis \
 akeyless rotated-secret update redshift \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -2096,7 +2096,7 @@ akeyless rotated-secret update redshift \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -2116,7 +2116,7 @@ akeyless rotated-secret update redshift \
 akeyless rotated-secret update snowflake \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -2168,7 +2168,7 @@ Updates a new Splunk rotated secret item
 akeyless rotated-secret update splunk \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password/token/hec-token> \
 ```
 
@@ -2222,7 +2222,7 @@ akeyless rotated-secret update splunk \
 akeyless rotated-secret update ssh \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -2261,7 +2261,7 @@ akeyless rotated-secret update ssh \
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -2287,7 +2287,7 @@ akeyless rotated-secret update ssh \
 akeyless rotated-secret update windows \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -2322,7 +2322,7 @@ akeyless rotated-secret update windows \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -2362,7 +2362,7 @@ akeyless rotated-secret get-value \
 
 ```shell
 akeyless rotated-secret list \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ## Synchronization
@@ -2377,7 +2377,7 @@ akeyless rotated-secret sync \
 --usc-name <USC Name> \
 --remote-secret-name <Remote secret Name> \
 --namespace <Namespace Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -2406,7 +2406,7 @@ akeyless rotated-secret delete-sync \
 --usc-name <USC Name> \
 --remote-secret-name <Remote secret Name> \
 --delete-from-usc[=false] [true / false]
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags

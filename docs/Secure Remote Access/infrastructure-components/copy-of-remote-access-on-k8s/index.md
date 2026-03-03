@@ -7,7 +7,7 @@ metadata:
 ---
 Akeyless Secure Remote Access offers robust security for accessing your resources by leveraging a range of just-in-time credentials, including Dynamic Secrets, Rotated Secrets, and SSH certificates.
 
-> 📘 New Chart
+> ℹ️ **Note (New Chart):**
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Secure Remote Access.
 >
@@ -33,12 +33,10 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 
 ### Network Configuration
 
-<Callout icon="🌐" theme="default">
-  #### Network Configuration
-
-* When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in NGINX, you can use: `nginx.ingress.kubernetes.io/affinity: "cookie"`.
-* Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions documentation for more details.
-</Callout>
+> ℹ️ **Note (Sticky session requirements):**
+>
+> * When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in NGINX, you can use: `nginx.ingress.kubernetes.io/affinity: "cookie"`.
+> * Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions documentation for more details.
 
 * When using SSH sessions behind a load balancer, such as ELB, sessions may be closed due to idle connection timeouts. We recommend increasing the idle timeout to a higher value or setting it to unlimited.
 * For AWS ELB, adjust the idle timeout settings as per AWS ELB Idle Timeout documentation.
@@ -51,13 +49,13 @@ The `values.yaml` file used to deploy the [Gateway](https://docs.akeyless.io/doc
 
 Remote Access can only be used with the following Authentication Methods:
 
-[SAML](https://docs.akeyless.io/docs/saml)
+[SAML](https://docs.akeyless.io/docs/auth-with-saml)
 
-[OIDC](https://docs.akeyless.io/docs/openid)
+[OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
 
-[Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)
+[Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
-[LDAP](https://docs.akeyless.io/docs/ldap)
+[LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
 
 To enable only specific users to use Remote Access, make sure to add the relevant `authorizedAccessIDs` in the `Global` section. A comma-separated list can be used for multiple IDs. While this is not mandatory, it is a good security practice to limit user access. If not configured, a Warning message will appear.
 
@@ -136,7 +134,7 @@ sshConfig:
       # CAPublicKey: |
 ```
 
-> 📘 Info
+> ℹ️ **Info:**
 >
 > If you don't have an SSH certificate yet, please follow this guide on creating an SSH Cert issuer with Akeyless and set your `CAPublicKey` in the `values` file.
 >

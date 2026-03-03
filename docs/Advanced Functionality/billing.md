@@ -18,11 +18,11 @@ Akeyless is priced monthly, based on the package you select. The package types a
 
 The three packages are tiered, meaning the higher up you go, the more features and options you open. There are a few important features to note when selecting a package:
 
-* **Clients**: An Akeyless Client is a unique identity, such as an application, user, or machine, which consumes secrets and/or authenticates itself through the Akeyless Secret Orchestration. If you wish to try out the system and see if it fits your organization, you might not need many clients, however, if you scale up, you will eventually need to use more. Please note that registration and reception of the same uniquely identified client are counted as one client per month.
+* **Clients**: An Akeyless Client is a unique identity, such as an application, user, or machine, that consumes secrets and/or authenticates itself through the Akeyless Secret Orchestration. If you wish to try out the system and see if it fits your organization, you might not need many clients. However, if you scale up, you will eventually need to use more. Note that registration and reception of the same uniquely identified client are counted as one client per month.
 
-* **Support**: The free tier is not eligible for special customer support, and our team might take some time to respond to tickets. The Team tier is eligible for our Silver-level support, which offers more thorough support, And the Enterprise tier offers 24/7 support and preferred status.
+* **Support**: The free tier is not eligible for special customer support, and our team might take some time to respond to tickets. The Team tier is eligible for our Silver-level support, which offers more thorough support, and the Enterprise tier offers 24/7 support and preferred status.
 
-* **Customizability**: The higher up the ties you go, the more you will be able to customize and narrow down the access and permissions of different entities in your system to allow maximum efficiency with minimum redundancy. If you wish to have accurately and cleanly defined roles, you may want to consider the Team or Enterprise tier.
+* **Customizability**: The higher up the tiers you go, the more you can customize and narrow down the access and permissions of different entities in your system to allow maximum efficiency with minimum redundancy. If you want accurately and clearly defined roles, you may want to consider the Team or Enterprise tier.
 
 * **Gateways**: The Akeyless Gateway adds extra protection between your private network and the cloud, acting as a SaaS extension of our core services, the stateless Gateway ensures service continuity and recovery. There is no need to alter any network infrastructure to work with your internal organizational resources. Lower-tier accounts can create a single gateway. While a single gateway might be enough for smaller organizations, we recommend considering creating a cluster of gateways when scaling up.
 
@@ -49,4 +49,4 @@ If you are already on the Teams tier, you will instead see this screen:
 
 ![Illustration for: Updating an Existing Payed Account If you are already on the Teams tier, you will instead see this screen.](https://files.readme.io/9ce22e9-bill3.jpg)
 
-In which you will be able to update your credit information or cancel your plan.
+There, you can update your credit information or cancel your plan.

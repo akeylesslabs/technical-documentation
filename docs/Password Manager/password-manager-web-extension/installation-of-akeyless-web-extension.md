@@ -14,7 +14,7 @@ next:
 
 The Akeyless browser extension seamlessly integrates with your favorite web browsers, including Firefox, Google Chrome, and Microsoft Edge. The installation process is straightforward and consistent across all supported browsers, ensuring a smooth and hassle-free experience.
 
-> 📘 Installing Akeyless Extensions with SRA Support
+> ℹ️ **Note (Installing Akeyless Extensions with SRA Support):**
 >
 > * To install the web extension for Akeyless Password Manager, please search for "**Akeyless Password Manager**" in your browser's extension store.
 > * If you require the web extension that supports SRA, search for "**Akeyless Password Manager**" instead.
@@ -31,7 +31,7 @@ To embark on a journey of effortless password management on Firefox, follow thes
 4. Grant Permissions: Review the permissions requested by the extension and click on the "Add" button to proceed.
 5. Pin Extension for Quick Access: For convenient access, right-click on the Akeyless icon in the toolbar and select "Pin" to keep it permanently visible.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > **After installing or updating the Akeyless Password Manager extension on the Firefox browser**, please follow these steps to ensure all functionalities work as expected:
 >
@@ -68,14 +68,14 @@ Experience the transformative power of Akeyless on Microsoft Edge by following t
 
 ## Authentication Methods Support
 
-Once you've installed the Akeyless browser extension. Simply locate the distinctive "K" icon in your browser's toolbar and initiate the login process. To securely access your Akeyless account, you can utilize one of the following authentication methods:
+Once you've installed the Akeyless browser extension. Simply locate the distinctive "K" icon in your browser's toolbar and initiate the login process. To securely access your Akeyless account, you can use one of the following authentication methods:
 
 * Email and Password: Enter your registered email address and password to gain access.
-* Access-ID and Access-Key: Utilize your unique Access-ID and Access-Key combination for secure login.
+* Access-ID and Access-Key: Use your unique Access-ID and Access-Key combination for secure login.
 * SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
 * OIDC: Employ your preferred OIDC (OpenID Connect) identity provider for a seamless login experience.
 * GitHub: Integrate your GitHub account for convenient access.
-* Google: Utilize your Google account for effortless login.
+* Google: Use your Google account for effortless login.
 * Code-ID: Enter the unique code ID provided by your IT administrator. This code serves as your primary identifier and ensures that only authorized individuals can initiate the login process.
 * LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
     * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url-1) by way of advanced settings then login with Email option as a login type.

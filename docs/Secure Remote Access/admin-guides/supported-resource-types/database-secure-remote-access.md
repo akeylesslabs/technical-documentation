@@ -14,7 +14,7 @@ next:
 ---
 You can enable Secure Remote Access to a database using a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) item that generates temporary credentials for that database or using a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets). Users can then access the database from the Secure Remote Access Portal either over the web (using Adminer) or using the native database CLI.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > Use the `akeyless connect` command from Akeyless CLI to access databases from any Unix terminal to work with your database native CLI.
 
@@ -93,7 +93,7 @@ Let's set up remote access to a database from the Akeyless Console. If you'd pre
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
-> 📘 Custom Delay
+> ℹ️ **Note (Custom Delay):**
 >
 > You can specify a custom delay, measured in seconds \[0 - 120], before a newly generated dynamic secret becomes usable. This additional wait time helps target systems complete their sync process with the updated credentials
 
@@ -117,6 +117,6 @@ Let's set up remote access to a database from the Akeyless Console. If you'd pre
 akeyless connect -t <mysql-server>:3306 -g <your-gateway-ip[:port]> -n "Path/to/Secret"
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > Make sure your **Access ID** is specified in the `Allowed Access IDs` field of your SRA settings, to get access. **Access IDs** that are not listed, will not be authorized to get access.

@@ -13,7 +13,7 @@ next:
 Consul Template is a key tool for generating configurations and managing infrastructure. Consul Template is a standalone application that renders data from Consul onto the file system.
 The integration with Akeyless allows users seamlessly to integrate secret data into the configurations.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
@@ -27,7 +27,7 @@ The integration with Akeyless allows users seamlessly to integrate secret data i
 
 2. You'll need to configure the authentication token that Consul Template would use to fetch secrets from Akeyless Platform. Set your Akeyless token in a file `~/.vault-token`
 
-    You can either use Akeyless [API Key](https://docs.akeyless.io/docs/api-key) in the following format as your **Token**:
+    You can either use Akeyless [API Key](https://docs.akeyless.io/docs/auth-with-api-key) in the following format as your **Token**:
         * A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter: `< Access ID >..< Access Key >`, For example:`p-xxxxx..accessKey`
 
     Alternatively, to extract your authorization tokens directly using the [Akeyless CLI](https://docs.akeyless.io/docs/cli) `auth` command:
@@ -69,6 +69,6 @@ The integration with Akeyless allows users seamlessly to integrate secret data i
         your_secret_value: 1234
     ```
 
-> 📘 Info
+> ℹ️ **Info:**
 >
 > **Configuring Consul Template with Akeyless Gateway** - For Zero-Knowledge Encryption please configure [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) and set `VAULT_ADDR` to your private Akeyless Gateway: `export VAULT_ADDR=https://Your-Akeyless-Gateway:8200`.

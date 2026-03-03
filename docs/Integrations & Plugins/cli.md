@@ -120,7 +120,7 @@ Would you like to configure a profile? (Y/n) Y
 Profile Name: (Default: default)
 ```
 
-Choose an <Anchor label="Authentication Method" target="_blank" href="https://docs.akeyless.io/docs/access-and-authentication-methods">Authentication Method</Anchor> from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/api-key) method. Set the relevant **Access ID** and **Access Key**:
+Choose an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/auth-with-api-key) method. Set the relevant **Access ID** and **Access Key**:
 
 ```shell
 Access ID: '<Access-ID>' 
@@ -144,7 +144,7 @@ Please run the following command to start using Akeyless CLI:
 
 The CLI will try to locate the user profile file (based on shell, that is `.bash_profile`, `.zprofile`, `.profile`, and so on), and export the `USER_HOME_DIR/.akeyless/bin/` to user `$PATH`.
 
-Try running the `create-secret`command to test your installation:
+Try running the `create-secret` command to test your installation:
 
 ```shell
 akeyless create-secret --name MySecret1 --value MySecretPassword
@@ -152,7 +152,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Windows
 
-> 📘 Note
+> ℹ️ **Note:**
 >
 > PowerShell ISE does not support interactive input mode. Please work with the PowerShell cmdlet to set up the Akeyless CLI.
 
@@ -171,16 +171,16 @@ Would you like to add 'C:\Users\username\.akeyless\bin' To user PATH environment
 #after user inputs 'Y'
 Run the following command to start using Akeyless CLI:
 set "PATH=%PATH%;C:\Users\username\.akeyless\bin" (Update PATH for current session)
-setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permenantly)
+setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permanently)
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > The CLI updates the path env for the **current user only**. This change only takes effect after the user logs off and logs back on.
 
-Copy and run the relevant command for your purpose (`permanent` or `current session`), after that, The CLI should be ready to use.
+Copy and run the relevant command for your purpose (`permanent` or `current session`). After that, the CLI should be ready to use.
 
-Try running the `create-secret`command to test your installation:
+Try running the `create-secret` command to test your installation:
 
 ```shell
 akeyless create-secret --name MySecret1 --value MySecretPassword
@@ -188,7 +188,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Non-Interactive Mode
 
-To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
+To initiate the CLI non-interactively, run `./akeyless --init`. This command works only the first time you run the CLI in that environment.
 If you're working with a different tenant environment than the default, that is `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
 For example, to work with the `eu` tenant you would run:
 
@@ -200,20 +200,20 @@ For example, to work with the `eu` tenant you would run:
 
 The CLI supports various types of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
-1. [API Key](https://docs.akeyless.io/docs/api-key) (`access_key`)
-2. [AWS IAM](https://docs.akeyless.io/docs/aws-iam) (`aws_iam`)
-3. [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) (`azure_ad`)
-4. [SAML](https://docs.akeyless.io/docs/saml) (`saml`)
+1. [API Key](https://docs.akeyless.io/docs/auth-with-api-key) (`access_key`)
+2. [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) (`aws_iam`)
+3. [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) (`azure_ad`)
+4. [SAML](https://docs.akeyless.io/docs/auth-with-saml) (`saml`)
 5. Password (`email/password`)
-6. [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) (`certificate`)
-7. [OIDC](https://docs.akeyless.io/docs/openid) (`oidc`)
-8. [K8s](https://docs.akeyless.io/docs/kubernetes-auth) (`k8s`)
-9. [GCP](https://docs.akeyless.io/docs/gcp-auth-method) (`GCP`)
-10. [OCI](https://docs.akeyless.io/docs/oci-iam) (`oci`)
+6. [Certificate](https://docs.akeyless.io/docs/auth-with-certificate) (`certificate`)
+7. [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) (`oidc`)
+8. [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes) (`k8s`)
+9. [GCP](https://docs.akeyless.io/docs/auth-with-gcp) (`GCP`)
+10. [OCI](https://docs.akeyless.io/docs/auth-with-oci) (`oci`)
 
 For security reasons, if the correct credentials are not entered, the Akeyless CLI will not provide an error message immediately. Instead, you will receive an error message when attempting to run commands.
 
-To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
+To initiate the CLI non-interactively, run `./akeyless --init`. This command works only the first time you run the CLI in that environment.
 If you're working with a different tenant environment than the default, that is `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
 For example, to work with the `eu` tenant you would run:
 
@@ -229,7 +229,7 @@ Akeyless CLI supports profiles that can be set with different authentication met
 akeyless configure --profile <new profile name> --access-id <Access id> --access-key <Access key> --access-type access_key
 ```
 
-While the default method is an [API Key](https://docs.akeyless.io/docs/api-key), if you wish to use a different authentication method, please consult the [CLI reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueconfigurep) for this command.
+While the default method is an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), if you wish to use a different authentication method, please consult the [CLI reference](https://docs.akeyless.io/docs/cli-reference#configure) for this command.
 
 To view the profile settings file, go to the `.akeyless` folder under your `home` directory, the profiles folder contains a `toml` file for each profile.
 
@@ -245,11 +245,11 @@ When creating a profile with the CLI, the profile contains only the Authenticati
 
 However, you can configure additional parameters as defaults in your profile. Once set, these default parameters will automatically be used for your commands unless you choose to override them explicitly.
 
-The following parameters can be added to a profile, for example, on the`deafult` profile:
+The following parameters can be added to a profile, for example, on the `default` profile:
 
 ```toml default.toml
 ["default"]
-  gateway_url = 'https://<Your-Akeyless-GW-URL:8000>'
+  gateway_url = 'https://<Your-Akeyless-GW-URL>:8000'
   default_location_prefix = 'non-production' 
   cert_issuer_name = '/cert/IssuerName'
   cert_username = 'ubuntu'
@@ -276,13 +276,13 @@ Where:
 To re-route the entire traffic directly by way of your [Gateway](https://docs.akeyless.io/docs/api-gw) for closed environments, create an environment variable `AKEYLESS_GATEWAY_URL` to point your CLI to interact with the relevant Gateway:
 
 ```shell Linux
-export AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8000/api/v1> 
+export AKEYLESS_GATEWAY_URL=https://Your_GW_URL:8000/api/v1 
 ```
 ```shell Windows
-set AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8080>
+set AKEYLESS_GATEWAY_URL=https://Your_GW_URL:8080
 ```
 
-In case your Gateway uses a self-signed certificate not trusted by your machine, set the environment variable `AKEYLESS_TRUSTED_TLS_CERTIFICATE_FILE` with the location of your `PEM` file.
+If your Gateway uses a self-signed certificate that is not trusted by your machine, set the environment variable `AKEYLESS_TRUSTED_TLS_CERTIFICATE_FILE` with the location of your `PEM` file.
 
 ## Working With Zero-Knowledge Encryption
 

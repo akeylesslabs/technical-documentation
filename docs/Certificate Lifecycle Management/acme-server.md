@@ -83,7 +83,7 @@ Run the following command to create a **PKI Cert Issuer** with **ACME Server**:
 akeyless create-pki-cert-issuer \
 --name /ACME/Server/ACMEIssuer \
 --signer-key-name /ACME/Server/SignerKey \
---gw-cluster-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gw-cluster-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --destination-path /ACME/Server/Certificates \
 --ttl 90d \
 --allowed-domains acme.com \
@@ -108,7 +108,7 @@ Where:
 
 Upon successful creation, the generated **ACME Server** URL will use the following format:
 
-`https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory`
+`https://<Your-Akeyless-GW-URL>:8000/acme/<issuer-display-id>/directory`
 
 To extract the `issuer-display-id` with the CLI, run the following command:
 
@@ -153,10 +153,10 @@ This external account binding token will be used to register an **ACME client** 
 In the following example, we will request a certificate from the **ACME server**, using **Certbot**:
 
 ```shell Windows
-certbot certonly --standalone --server https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir C:\Users\<username>\certbot\conf --work-dir C:\Users\<username>\certbot\work --logs-dir C:\Users\<username>\certbot\logs
+certbot certonly --standalone --server https://<Your-Akeyless-GW-URL>:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir C:\Users\<username>\certbot\conf --work-dir C:\Users\<username>\certbot\work --logs-dir C:\Users\<username>\certbot\logs
 ```
 ```shell Linux
-certbot certonly --standalone --server https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir /home/ubuntu/certbot/conf --work-dir /home/ubuntu/certbot/work --logs-dir /home/ubuntu/certbot/logs
+certbot certonly --standalone --server https://<Your-Akeyless-GW-URL>:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir /home/ubuntu/certbot/conf --work-dir /home/ubuntu/certbot/work --logs-dir /home/ubuntu/certbot/logs
 ```
 
 Where:

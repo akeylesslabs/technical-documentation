@@ -19,7 +19,7 @@ next:
       type: link
       url: https://helm.sh/docs/
 ---
-This Quickstart helps you prepare a local Kubernetes environment using **Docker Desktop** so that you can deploy the Akeyless Gateway with the main Akeyless Gateway with Kubernetes Quickstart.
+This Quickstart helps you prepare a local Kubernetes environment using **Docker Desktop** so that you can deploy the Akeyless Gateway with the [Akeyless Gateway with Kubernetes Quickstart](https://docs.akeyless.io/docs/gateway-k8s-quickstart).
 
 By the end of this guide, you will have:
 
@@ -35,7 +35,7 @@ This environment is intended for **development and testing only**, not productio
 
 You will need:
 
-* Docker Desktop installed (<Anchor label="Windows" target="_blank" href="https://docs.docker.com/desktop/setup/install/windows-install/">Windows</Anchor>, <Anchor label="macOS" target="_blank" href="https://docs.docker.com/desktop/setup/install/mac-install/">macOS</Anchor>, or <Anchor label="Linux" target="_blank" href="https://docs.docker.com/desktop/setup/install/linux/">Linux</Anchor>)
+* Docker Desktop installed ([Windows](https://docs.docker.com/desktop/setup/install/windows-install/), [macOS](https://docs.docker.com/desktop/setup/install/mac-install/), or [Linux](https://docs.docker.com/desktop/setup/install/linux/))
 * Permissions to change Docker Desktop settings
 * Internet access from your machine
 
@@ -51,7 +51,7 @@ Adjust these in **Settings → Resources**.
 ## Step 2: Enable Kubernetes in Docker Desktop
 
 1. Open **Docker Desktop**.
-2. Open Docker Desktop's setting, select the **Kubernetes** options, and **Enable Kubernetes**. This guide was tested with the `Kubeadm` setting.
+2. Open Docker Desktop settings, select the **Kubernetes** options, and **Enable Kubernetes**. This guide was tested with the `Kubeadm` setting.
 3. Apply the change and allow Docker Desktop to install or restart Kubernetes if prompted.
 4. Wait until Docker Desktop shows that **Kubernetes** is running.
 
@@ -101,7 +101,7 @@ Adjust these in **Settings → Resources**.
 
 ## Step 4: Install and Verify Helm
 
-1. <Anchor label="Install Helm following official documentation." target="_blank" href="https://helm.sh/docs/intro/install/">Install Helm following official documentation.</Anchor>
+1. [Install Helm following official documentation.](https://helm.sh/docs/intro/install/)
 
 2. Verify Helm:
 
@@ -159,13 +159,10 @@ Adjust these in **Settings → Resources**.
 
     ```
 
-    <Callout icon="📘" theme="info">
-    The sample output above shows a valid HTTP response with a 200 response code and several HTTP headers. Any 200 or 300 status codes are fine. Failing outputs could be:
-
-    * `curl: (6) Could not resolve host: console.akeyless.io`
-    * `curl: (7) Failed to connect to console.akeyless.io port 443: Connection timed out`
-    * `curl: (60) SSL certificate problem`
-    </Callout>
+    > ℹ️ **Note:** The sample output above shows a valid HTTP response with a 200 response code and several HTTP headers. Any 200 or 300 status codes are fine. Failing outputs could be:
+    > * `curl: (6) Could not resolve host: console.akeyless.io`
+    > * `curl: (7) Failed to connect to console.akeyless.io port 443: Connection timed out`
+    > * `curl: (60) SSL certificate problem`
 
 3. Delete the pod as it is no longer useful:
 
@@ -204,7 +201,7 @@ apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io create
 
 ## Step 7: Verify the Metrics Server
 
-1. Check the Metric Server deployment object:
+1. Check the Metrics Server deployment object:
 
     ```shell
     kubectl get deployment metrics-server -n kube-system
@@ -219,16 +216,11 @@ apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io create
     metrics-server   1/1     1            1           2m
     ```
 
-    <Callout icon="📘" theme="info">
-    `kubectl` supports a built-in watch function with `-w` flag if you want to avoid entering the command repeatedly.
-    </Callout>
+    Note: `kubectl` supports a built-in watch function with the `-w` flag if you want to avoid entering the command repeatedly.
 
-    <Callout icon="❗️" theme="error">
-    **If your Metrics Server fails to become ready**:
-
-    1. Check the logs for the Metrics Server pod with `kubectl logs -n kube-system $(kubectl get pods -n kube-system -l k8s-app=metrics-server -o jsonpath='{.items[0].metadata.name}')`. This command looks up the pod name and checks its logs.
-    2. If you see an error similar to `x509: cannot validate certificate for <IP> because it does not contain any IP SANs` in the Metrics Server logs, this is not uncommon. It happens frequently in small-scale development environments. A fast fix for this is to edit the deployment and add `--kubelet-insecure-tls` to the Metrics Server container arguments. This is acceptable for local development clusters such as Docker Desktop, _but should not be used in production_. This can be done in one line with: `kubectl patch deployment metrics-server -n kube-system --type='json' -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'`.
-    </Callout>
+    > ⚠️ **Warning (If your Metrics Server fails to become ready):**
+    > 1. Check the logs for the Metrics Server pod with `kubectl logs -n kube-system $(kubectl get pods -n kube-system -l k8s-app=metrics-server -o jsonpath='{.items[0].metadata.name}')`. This command looks up the pod name and checks its logs.
+    > 2. If you see an error similar to `x509: cannot validate certificate for <IP> because it does not contain any IP SANs` in the Metrics Server logs, this is not uncommon. It happens frequently in small-scale development environments. A fast fix is to edit the deployment and add `--kubelet-insecure-tls` to the Metrics Server container arguments. This is acceptable for local development clusters such as Docker Desktop, _but should not be used in production_. This can be done in one line with: `kubectl patch deployment metrics-server -n kube-system --type='json' -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'`.
 
 2. Check some Metrics for your cluster to test functionality. Here is a command to check the Metrics for your cluster's nodes:
 

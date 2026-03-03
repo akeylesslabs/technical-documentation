@@ -24,9 +24,7 @@ Before creating a dynamic RabbitMQ secret, ensure that the RabbitMQ user has suf
 
 ## Create a Dynamic RabbitMQ Secret with the CLI
 
-<Callout icon="📘">
-  We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rabbitmq-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
-</Callout>
+> ℹ️ **Note:** We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rabbitmq-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic RabbitMQ secret with the CLI using an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets), run the following command:
 
@@ -34,7 +32,7 @@ To create a dynamic RabbitMQ secret with the CLI using an existing [RabbitMQ Tar
 akeyless dynamic-secret create rabbitmq \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rabbitmq-user-conf-permission <User configuration permission> \
 --rabbitmq-user-write-permission <User write permission> \
 --rabbitmq-user-read-permission <User read permission> \
@@ -44,10 +42,10 @@ akeyless dynamic-secret create rabbitmq \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuerabbitmq \
+akeyless dynamic-secret create rabbitmq \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rabbitmq-user-conf-permission <User configuration permission> \
 --rabbitmq-user-write-permission <User write permission> \
 --rabbitmq-user-read-permission <User read permission> \
@@ -82,7 +80,7 @@ If you don't have [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targe
 
 * `rabbitmq-admin-pwd`: Admin password for the RabbitMQ server.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluerabbitmqp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#rabbitmq) section.
 
 ## Fetch a Dynamic RabbitMQ Secret Value with the CLI
 
@@ -94,7 +92,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic RabbitMQ Secret in the Akeyless Console
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/rabbitmq-producer#/create-a-dynamic-rabbitmq-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -128,7 +126,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a key). When TTL expires, the key becomes obsolete.
 
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
 
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 

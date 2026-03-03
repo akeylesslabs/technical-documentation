@@ -38,7 +38,7 @@ To create a dynamic secret, you must configure the required account and access c
 * [Ping Dynamic Secrets](https://docs.akeyless.io/docs/ping-dynamic-secrets)
 * [Custom Dynamic Secrets](https://docs.akeyless.io/docs/custom-producer)
 
-> 📘 Info
+> ℹ️ **Info:**
 >
 > The configuration required to produce Dynamic Secrets is part of your private network, and are stored on the Akeyless Gateway.
 
@@ -46,4 +46,4 @@ Get the value of a dynamic secret when you need it.
 
 ## Tutorial
 
-Check out our tutorial video on [Creating and Using Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets) .
+Check out our tutorial video on [Creating and Using Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets).

@@ -109,7 +109,7 @@ jobs:
         run: echo "${{ env.app_secret }}"
 ```
 
-> 📘
+> ℹ️ **Note:**
 >
 > If you are working with your own Akeyless Gateway, set the value of the `url` field as your Akeyless Gateway URL of your Gateway HashiCorp Vault Proxy endpoint `https://Your-Gateway-URL:8000/hvp` (or using your gateway url at port 8200)
 
@@ -117,7 +117,7 @@ Note that the token used to authenticate is set to the **VAULT\_TOKEN** secret y
 
 where **secret/data** is a required prefix, followed by the secret path. In this example, the secret `actions` in the Akeyless Platform is stored in the `/ci/Gitsecret/` folder. Therefore, the secret path is `/ci/Gitsecret/actions`, the selector is `ci/Gitsecret/actions`, and `action` is an environment variable that can be used in the workflow.
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > The selector format must not start with the `/` prefix.
 

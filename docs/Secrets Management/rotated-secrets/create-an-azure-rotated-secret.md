@@ -22,11 +22,11 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 
 ### Azure permissions description
 
-| Action                          | Permissions \ Role                                             |
-| :------------------------------ | :------------------------------------------------------------- |
-| To`Rotate` Application Secret   | `Application.ReadWrite.OwnedBy` or `Application.ReadWrite.All` |
-| To`Reset password`for user      | `User-PasswordProfile.ReadWrite.All`                           |
-| To`Rotate storage account keys` | `Storage Account Key Operator Service Role`                    |
+| Action | Permissions \ Role |
+| --- | --- |
+| To `Rotate` Application Secret | `Application.ReadWrite.OwnedBy` or `Application.ReadWrite.All` |
+| To `Reset password` for user | `User-PasswordProfile.ReadWrite.All` |
+| To `Rotate storage account keys` | `Storage Account Key Operator Service Role` |
 
 Where:
 
@@ -47,7 +47,7 @@ To create a Rotated Azure Secret using the Akeyless CLI, run the following comma
 ```shell
 akeyless rotated-secret create azure \
 --name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <target name to associate> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --rotator-type <azure-storage-account|api-key|target|password> \
@@ -68,7 +68,7 @@ Where:
     * `use-user-creds` - Use credentials defined on the Rotated Secret item.
     * `use-target-creds` - Use credentials of the privileged Azure App defined inside the [Azure Target](https://docs.akeyless.io/docs/azure-targets) item.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > Select `use-target-creds` if the Rotated Secret target App is not authorized to change its own client secret, and the privileged [Azure Target](https://docs.akeyless.io/docs/azure-targets) App is required to change the client secret on behalf of the Rotated Secret target App.
 
@@ -95,13 +95,15 @@ Where:
 * `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created - to maintain 2 values at the same time. Relevant only for **Client Secret**.
 
 * `auto-rotate`: Enable auto-rotation if you need to update the secret regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
-    * `grace-rotation-interval` and `grace-rotation-hour` relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
+    * `grace-rotation-interval` and `grace-rotation-hour` are relevant only when `grace-rotation` is **enabled**.
+    * `grace-rotation-interval` must be lower than `rotation-interval`.
+    * When `grace-rotation-timing` is `before`, `rotation-interval` must be higher than `2 × grace-rotation-interval` with at least one day.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorblueazurep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#azure) section.
 
 ## Create a Rotated Azure Secret in the Akeyless Console
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-azure-rotated-secret#create-a-rotated-azure-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -163,7 +165,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Graceful Rotation Interval (in days):** Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
 
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
     * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 

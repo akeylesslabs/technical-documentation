@@ -66,9 +66,9 @@ For example, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/late
 ### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.
-For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the `sshConfig` StatefulSet (HPA can not support multiple pods without defining a shared persistent storage volume).
+For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the `sshConfig` StatefulSet (HPA cannot support multiple pods without defining a shared persistent storage volume).
 
-> 🚧 Warning
+> ⚠️ **Warning:**
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
@@ -101,7 +101,7 @@ apiGatewayURL: https://rest.akeyless.io
 
 The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions to fetch the relevant secret on behalf of your users. Set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
 
-> 📘 Update permissions
+> ℹ️ **Note (Update permissions):**
 >
 > The requirement for "update" permissions is to allow SRA to display information about sessions.
 
@@ -115,7 +115,7 @@ privilegedAccess:
   allowedAccessIDs: []
 ```
 
-To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates) set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
+To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates), set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates). You can configure one or more CA public keys.
 
 ```yaml
 #############################################
@@ -125,10 +125,12 @@ sshConfig:
 # Enable akeyless-ssh-bastion. Valid values: true/false.
   enabled: true
   config:
-    CAPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCu8RWf5bFDlLhPljsYEKFQAt6cFLdAVOy..."
+    CAPublicKey: |
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCu8RWf5bFDlLhPljsYEKFQAt6cFLdAVOy...
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzJ0V0h6uH7w3h0fYH0Yh4d3b0bGm9A0...
 ```
 
-> 📘 Info
+> ℹ️ **Info:**
 >
 > If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless Platform and set your CA Public key in the chart `values`.
 >
@@ -138,17 +140,17 @@ sshConfig:
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
 
-* [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method)
+* [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp)
 
-* [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
+* [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
 
 ### API Key Authentication
 
-To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `accessID` and the matching `accessKey` with a list of `allowedAccessIDs` that will be authorized to request access:
+To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/auth-with-api-key), set the `accessID` and the matching `accessKey` with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -160,7 +162,7 @@ privilegedAccess:
 
 ### CSP IAM Authentication
 
-While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
+While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
 
 ### AWS IAM
 
@@ -170,7 +172,7 @@ AWS IAM can be used in the following approaches:
 
 * Service Account IAM Role
 
-While working with an IAM Role associated with the instance itself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID` as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
+While working with an IAM Role associated with the instance itself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -204,7 +206,7 @@ privilegedAccess:
 
 Google Kubernetes Engine (GKE) can run Akeyless Bastion in its secured and managed Kubernetes Service in standard or autopilot mode.
 
-Deploying Akeyless Bastion by way of the Helm chart using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP Workload Identity mechanism.
+Deploying Akeyless Bastion by way of the Helm chart using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/auth-with-gcp) can be done using the GCP Workload Identity mechanism.
 
 Workload Identity allows workloads in your GKE clusters to impersonate Identity and Access Management (IAM) Service Accounts to access Google Cloud services. Workload Identity is enabled by default on Autopilot clusters.
 
@@ -212,13 +214,13 @@ Follow the [GKE workload identities guide](https://cloud.google.com/kubernetes-e
 
 Create a Kubernetes ServiceAccount for Akeyless Bastion to use. You can also use the default Kubernetes ServiceAccount in the default or any existing Namespace.
 
-Use the existing IAM service account as provided in your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) Auth Method.
+Use the existing IAM service account as provided in your [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp) Auth Method.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
 >
-> To work with the GKE Workload Identity with `bounded rules`, please configure **only** the `Bound Service Accounts` field in your [GCP Auth Method](https://docs.akeyless.io/docs/gcp-auth-method).
+> To work with the GKE Workload Identity with `bounded rules`, please configure **only** the `Bound Service Accounts` field in your [GCP Auth Method](https://docs.akeyless.io/docs/auth-with-gcp).
 
 Allow the Kubernetes ServiceAccount to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes ServiceAccount to act as the IAM service account.
 
@@ -245,7 +247,7 @@ kubectl annotate serviceaccount KSA_NAME \
 
 Set the relevant Kubernetes `serviceAccountName` or leave it empty to use the `default` Kubernetes ServiceAccount, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes ServiceAccount.
 
-And set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID` as your `adminAccessId` and at least one another `Access ID` in the `allowedAccessIDs` list.
+And set your [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp) `Access ID` as your `adminAccessId` and at least one another `Access ID` in the `allowedAccessIDs` list.
 
 ```yaml values.yaml
 privilegedAccess:
@@ -266,7 +268,7 @@ privilegedAccess:
 
 Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
-Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your `accessID` with the matching service principal `azureobjectID`, with a list of `allowedAccessIDs` that will be authorized to request access:
+Set your [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) `Access ID` as your `accessID` with the matching service principal `azureobjectID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -284,7 +286,7 @@ helm install <RELEASE NAME> akeyless/akeyless-sra -f values.yaml
 
 Verify that both `ssh-sra-akeyless` and `web-sra-akeyless` pods are up and running.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > Akeyless supports session termination, which can be configured as part of this chart deployment.
 > To enable session termination, please set your Gateway URL or your Okta\Keycloak `apiURL` and `apiToken` under `sessionTermination` section.

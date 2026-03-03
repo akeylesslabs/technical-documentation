@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page discusses the creation of HashiCorp Vault [Universal Secrets Connector](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different Secret service, please go to the matching doc, as they have varying parameters.
+This page discusses the creation of HashiCorp Vault [Universal Secrets Connector](https://docs.akeyless.io/docs/universal-secrets-connector). If you wish to create a Universal Secrets Connector for a different Secret service, please go to the matching doc, as they have varying parameters.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ The main parameters are:
 
 * `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create-usc).
 
 ### Listing USC Secrets
 
@@ -77,7 +77,7 @@ The main parameters are:
 
 * `secret-id`: The name or ID of the secret you would like to fetch.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#get).
 
 The output should look as follows:
 
@@ -107,7 +107,7 @@ The main parameters are:
 
 * `value`: The value of the secret you would like to create. Plaintext or Base64 encoded - `Key = Value` format
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
 
 ### Updating an Existing USC Secret
 
@@ -117,7 +117,7 @@ To update an existing secret in your USC, use the following command:
 akeyless usc update --usc-name <usc name> --secret-id <secret id or name> --value <new secret value>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#update).
 
 ### Deleting an Existing USC Secret
 
@@ -127,7 +127,7 @@ To delete an existing secret in your USC, use the following command:
 akeyless usc delete --usc-name <usc name> --secret-id <secret id or name>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).
 
 ## Creating a Universal Secrets Connector from the Console
 
@@ -153,7 +153,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 ## HashiCorp Vault Universal Secrets Details
 
-Once connected to a Target, you will be able to access a Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
+Once connected to a Target, you can access a Universal Secrets Connector in your Akeyless Console page, which allows you to manage your Universal Secrets and display the following information about the secret:
 
 * **Name:** Secret name
 

@@ -19,7 +19,7 @@ To set up a **Slack** Event Forwarder, use the following command:
 ```shell
 akeyless event-forwarder create slack \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --url <slack URL> \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*> \
@@ -42,7 +42,7 @@ The main parameters for the command are as follows:
 
 * `auth-methods-event-source-locations` **Auth Methods** event sources to forward events about, for example: `/API-Keys/*`
 
-* `gateways-event-source-locations`: **Gateways** event sources to forward events about, for example, the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL:8000`
+* `gateways-event-source-locations`: **Gateways** event sources to forward events about, for example, the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL>:8000`
 
 * `event-types`: A comma-separated list of types of events to notify about, A list of all the event types can be found here
 
@@ -50,7 +50,7 @@ The main parameters for the command are as follows:
 
 * `every`: Rate of periodic runner repetition in hours
 
-You can find the complete list of parameters for this command in the [CLI Reference - Slack Event Forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-slackp)
+You can find the complete list of parameters for this command in the [CLI Reference - Slack Event Forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#event-forwarder-create-slack)
 
 ## Create a Slack Event Forwarder Using the Console
 

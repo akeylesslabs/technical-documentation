@@ -24,11 +24,9 @@ $ akeyless update-secret-val --name <secret name> --value <new secret value>
 The value of secret <secret name> was successfully updated.
 ```
 
-When you update a static secret, by default the latest version is updated. To keep the previous version of the secret stored in Akeyless, run the `--keep-prev-version=true`option.
+When you update a static secret, by default the latest version is updated. To keep the previous version of the secret stored in Akeyless, run the `--keep-prev-version=true` option.
 
-> 🚧 Warning
->
-> **Metadata changes**
+> ⚠️ **Warning (Metadata changes):**
 >
 > Changing the metadata of a secret does not change its version. To change the version and store the previous version, you must explicitly run `--keep-prev-version=true`.
 
@@ -174,4 +172,4 @@ To restore a specific secret version, from the list of secret versions, click th
 
 ## Change Event
 
-To get an event when a static secret value is changed, click on the action menu (top right corner)on the item itself, and turn on the **Change Event**. Any time the secret value is changed it will trigger an [Event](https://docs.akeyless.io/docs/event-center).
+To get an event when a static secret value is changed, click the action menu (top-right corner) on the item itself, and turn on **Change Event**. Any time the secret value is changed, it triggers an [Event](https://docs.akeyless.io/docs/event-center).

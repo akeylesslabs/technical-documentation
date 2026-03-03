@@ -12,7 +12,7 @@ next:
 ---
 Akeyless enables you to proactively revoke certificates before their scheduled expiration date and seamlessly add them to a **Certificate Revocation List (CRL)**, ensuring enhanced security and trust in your certificate management process. Each [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) generates a consistent **Certificate Revocation List (CRL)** for all its issued certificates. In addition, Akeyless supports the **Online Certificate Status Protocol (OCSP)**, providing real-time certificate status verification to further strengthen your PKI security and streamline revocation checking.
 
-> 📘 Note
+> ℹ️ **Note:**
 >
 > Your PKI Issuer **Signer Key** must be set with the `keyusage:critical,cRLSign` extension to maintain a **CRL** and support self-signed certificate revocation.
 
@@ -33,7 +33,7 @@ Where:
 
 Upon successful revocation, the certificate status will change from **Valid** to **Revoked**.
 
-You can find the complete list of parameters for this command in the [CLI-Reference-Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluerevoke-certificatep) section.
+You can find the complete list of parameters for this command in the [CLI-Reference-Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#revoke-certificate) section.
 
 ## Revoke a Certificate Using the Akeyless Console
 
@@ -48,10 +48,10 @@ Once the certificate is revoked, it is added to the **Certificate Revocation Lis
 
 **Public CRL** at: `https://vault.akeyless.io/crl/<account-id>/<cert-issuer-display-id>`.
 
-**Private CRL** endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at `https://<gatewayURL:8000>/crl/<cert-issuer-display-id>`.
+**Private CRL** endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at `https://<gatewayURL>:8000/crl/<cert-issuer-display-id>`.
 
 **Public OCSP** at: `https://vault.akeyless.io/ocsp/<account-id>/<cert-issuer-display-id>`.
 
-**Private OCSP** endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at `https://<gatewayURL:8000>/ocsp/<cert-issuer-display-id>`.
+**Private OCSP** endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at `https://<gatewayURL>:8000/ocsp/<cert-issuer-display-id>`.
 
 To view any existing **Certificate Revocation List** information on a **Certificate Item** click the **View Certificate Details** and scroll down to **CRL Distribution points**, where the **CRL Endpoints** will be listed.

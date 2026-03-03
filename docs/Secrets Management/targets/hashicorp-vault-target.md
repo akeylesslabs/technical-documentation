@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define a HashiCorp Vault target to be used with [HashiCorp Vault Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector-copy)
+You can define a HashiCorp Vault target to be used with [HashiCorp Vault Universal Secrets Connector](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
 
 ## Create a HashiCorp Vault Target with the CLI
 
@@ -19,7 +19,7 @@ To create an **HashiCorp Vault** target with the CLI, run the following command:
 ```shell
 akeyless target create hashi-vault \
 --name <target name> \
---hashi-url 'https://<your-vault-api-url:8200>' \
+--hashi-url 'https://<your-vault-api-url>:8200' \
 --vault-token <Access Token> \
 --namespace <Namespace Name>
 ```
@@ -34,7 +34,7 @@ Where:
 
 * `namespace`: List of vault namespaces. To specify multiple namespaces use the argument multiple times: `--namespace ns1` `--namespace ns2`
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluehashi-vaultp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#hashi-vault) section.
 
 ## Create a HashiCorp Vault Target in the Console
 

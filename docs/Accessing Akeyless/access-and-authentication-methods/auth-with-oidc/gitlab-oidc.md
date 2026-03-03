@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To use GitLabs as an IdP to authenticate the Akeyless Platform by way of OIDC, follow the steps below.
+To use GitLab as an IdP to authenticate the Akeyless Platform by way of OIDC, follow the steps below.
 
 ## Create an Application
 
@@ -20,27 +20,27 @@ To use GitLabs as an IdP to authenticate the Akeyless Platform by way of OIDC, f
 
     ![Illustration for: Redirecting the URI, selecting the "openid", “profile” and "email" scope.](https://files.readme.io/0f670ff-image-20210825-084902.png)
 
-3. Once the Application has been created, you need to obtain the **Client ID**, and **Client secret**:
+3. Once the application has been created, you need to obtain the **Client ID** and **Client secret**:
 
     ![Illustration for: Once the Application has been created, you need to obtain the Client ID and Client secret.](https://files.readme.io/c2aeb6f-image-20210825-084833.png)
 
-4. In order to bind the GitLab Client ID with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
+4. To bind the GitLab Client ID with your Akeyless account, create an OIDC Authentication Method using either CLI or UI, as described below.
 
 ## Create an OIDC Authentication Method with the CLI
 
 ```shell
-akeyless auth-method create oidc --name 'my Gitlab app' --issuer https://gitlab.com --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (For example, 'email' or 'username'')}
+akeyless auth-method create oidc --name 'my GitLab app' --issuer https://gitlab.com --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (for example, 'email' or 'username')}
 ```
 
-## Login With OIDC with the CLI
+## Log in With OIDC Using the CLI
 
-1. You should configure a new profile with your Access-ID from the previous step and OIDC type (if no profile name is provided the default will be configured):
+1. Configure a new profile with your Access ID from the previous step and OIDC type (if no profile name is provided, the default will be configured):
 
     ```shell
     akeyless configure --access-id <your-access-id> --access-type oidc --profile 'gitlab-oidc'
     ```
 
-2. Now, you can run any Akeyless CLI command and be authenticated with Google:
+2. Now, you can run any Akeyless CLI command and be authenticated with GitLab:
 
     ```shell
     akeyless list-items --profile gitlab-oidc

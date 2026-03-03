@@ -30,9 +30,9 @@ You can sign the certificate with your own private key or generate a new one in 
 
 ### Creating a Key
 
-In order to configure a CA, you will first need an RSA key to match. You can either use an existing key or create a new one. Once you are logged in to your Akeyless account on the desired server, proceed to one of the following:
+To configure a CA, you first need a matching RSA key. You can either use an existing key or create a new one. Once you are logged in to your Akeyless account on the desired server, proceed to one of the following:
 
-In case you want to use an existing key, upload your CA (RSA private key) for signing the client SSH certificate, using the following command:
+If you want to use an existing key, upload your CA (RSA private key) for signing the client SSH certificate using the following command:
 
 ```shell your-RSA-key-name
 akeyless upload-rsa --name your-RSA-key-name --alg RSA2048 --rsa-key-file-path Path-to-RSA.pem
@@ -144,7 +144,7 @@ The following command will create a new SSH Cert Issuer in the Akeyless Platform
 akeyless create-ssh-cert-issuer --name /prod/ssh-cert-issuer --signer-key-name /your-RSA-key-name --allowed-users 'ubuntu,root' --ttl 300
 ```
 
-> 👍 Akeyless Secure Remote Access
+> ℹ️ **Note (Akeyless Secure Remote Access):**
 >
 > While working with Secure Remote Access Bastion, make sure to set `allowed_users` with `session_*` to ensure JIT users will be authorized for access.
 >
@@ -164,9 +164,9 @@ After setting up a key and a certificate issuer, the following command will gene
 akeyless get-ssh-certificate --cert-username ubuntu --cert-issuer-name /prod/ssh-cert-issuer --public-key-file-path ~/.ssh/id_rsa.pub
 ```
 
-> 📘 Tip
+> ✅ **Tip:**
 >
-> The command `get-ssh-certificate` returns a certificate that is signed by the private CA key and uses the client’s public key that will be used to connect to the target server. The client's public key is not the same as the CA’s public key. It is a local public key that should be located in the command’s path together with the client’s private key. After you run the command, the signed certificate will be placed in the same path, so you will be able to connect to the target server using the client’s private/public keys which are located on the same path.
+> The command `get-ssh-certificate` returns a certificate that is signed by the private CA key and uses the client’s public key that will be used to connect to the target server. The client's public key is not the same as the CA’s public key. It is a local public key that should be located in the command’s path together with the client’s private key. After you run the command, the signed certificate will be placed in the same path, so you can connect to the target server using the client’s private/public keys in that path.
 
 The outcome of this command will be creating a new file beside the public key by adding a suffix to its name with `-cert.pub`, for example, `~/.ssh/id_rsa-cert.pub`. This is a well-known convention that OpenSSH uses during authentication.
 
@@ -196,7 +196,7 @@ This guide includes the steps needed for the necessary prerequisites. If you wan
 
     * **Type:** The encryption algorithm used for the key.
 
-    * **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
+    * **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#gen-customer-fragment).
 
 4. Go to the folder in Akeyless where you saved the desired key, select it, and tap **get public RSA key**.
 
@@ -226,7 +226,7 @@ You should now have a working certificate issuer.
 
 ### Issuing a Certificate
 
-In order to issue an SSH certificate using an existing CI through the console, go through the following steps:
+To issue an SSH certificate using an existing CI through the console, go through the following steps:
 
 1. Go to the folder in which your certificate issuer is located and select it.
 
@@ -244,4 +244,4 @@ In order to issue an SSH certificate using an existing CI through the console, g
 
 ## Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/using-ssh-certificates-to-access-remote-machines" target="_blank" style="color: #00e">Using SSH Certificates to Access Remote Machines</a>.
+Check out our tutorial video on [Using SSH Certificates to Access Remote Machines](https://tutorials.akeyless.io/docs/using-ssh-certificates-to-access-remote-machines).

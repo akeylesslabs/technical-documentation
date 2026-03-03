@@ -26,7 +26,7 @@ To create a Rotated GCP Secret using the Akeyless CLI, run the following command
 ```shell
 akeyless rotated-secret create gcp \
 --name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <target name to associate> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --rotator-type <service-account-rotator|target> \
@@ -48,7 +48,7 @@ Where:
     * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
     * `use-target-creds` - Use the credentials defined on the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) item.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > Select `use-target-creds` if the Rotated Secret Service Account is not authorized to change their Key, and a privileged user, like the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) service account, is required to change the Service Account Key on behalf of the Rotated Secret service account.
 
@@ -61,13 +61,15 @@ Where:
 * `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older service account key will be rotated. When there is only one key, a new version will be created to maintain 2 values at the same time.
 
 * `auto-rotate`: Enable auto-rotation if you need to update the Service Account Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
-    * `grace-rotation-interval` and `grace-rotation-hour` relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
+    * `grace-rotation-interval` and `grace-rotation-hour` are relevant only when `grace-rotation` is **enabled**.
+    * `grace-rotation-interval` must be lower than `rotation-interval`.
+    * When `grace-rotation-timing` is `before`, `rotation-interval` must be higher than `2 × grace-rotation-interval` with at least one day.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluegcpp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#gcp) section.
 
 ## Create a Rotated GCP Secret in the Akeyless Console
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -94,7 +96,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
         > Select **Target credentials** if the Rotated Secret Service Account is not authorized to change their own Key, and a privileged user, like the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) Service Account, is required to change the Key on behalf of the Rotated Secret user.
 
     * **SA Credentials:** Relevant only for Service Account Rotator Type, provide the exact Key to rotate.
-    * **SA Details:** Relevant only for Service Account Rotator Type, provide the Service Account details in order to rotate the Service Account Key, **SA Email**, and **SA Key ID**. **Note** When **Key ID** is not provided, upon successful creation, a new Key will be automatically created for the relevant Service Account, and upon deletion of the Rotated Secret, the Service Account Key will be deleted from GCP as well.
+    * **SA Details:** Relevant only for Service Account Rotator Type, provide the Service Account details to rotate the Service Account Key, **SA Email**, and **SA Key ID**. **Note** When **Key ID** is not provided, upon successful creation, a new Key will be automatically created for the relevant Service Account, and upon deletion of the Rotated Secret, the Service Account Key will be deleted from GCP as well.
     * **Gateway:** Select the Gateway through which the secret will be rotated.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment.
     * **Graceful Rotation:** When enabled, a graceful mode of rotation will be conducted, where only the older Service Account Key will be rotated. When there is only one Key, a new version will be created to maintain 2 keys at the same time.
@@ -102,6 +104,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
     * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic Access Key rotations when **Auto Rotate** is enabled.
     * **Rotation hour (local time zone):** Defines the time when the Access Key should be rotated if **Auto Rotate** is enabled.
     * **Graceful Rotation Interval (in days):** Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

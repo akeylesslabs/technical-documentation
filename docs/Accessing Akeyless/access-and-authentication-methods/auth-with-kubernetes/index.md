@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The Kubernetes (K8s) Auth Method uses Kubernetes JWTs in order to authenticate the Kubernetes application (For example, a pod). Throughout the process, this Kubernetes JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
+The Kubernetes (K8s) Auth Method uses Kubernetes JWTs to authenticate the Kubernetes application (for example, a pod). Throughout the process, this Kubernetes JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
 
-![Illustration for: The Kubernetes (K8s) Auth Method uses Kubernetes JWTs in order to authenticate the Kubernetes application (For example, a pod). Throughout the process, this Kubernetes JWT is…](https://files.readme.io/ecfb4eb-Akeyless_Rebranded_Infographics.png)
+![Illustration for: The Kubernetes (K8s) Auth Method uses Kubernetes JWTs to authenticate the Kubernetes application (for example, a pod). Throughout the process, this Kubernetes JWT is…](https://files.readme.io/ecfb4eb-Akeyless_Rebranded_Infographics.png)
 
 ## Prerequisites
 
@@ -20,9 +20,7 @@ The Kubernetes (K8s) Auth Method uses Kubernetes JWTs in order to authenticate t
 
 * Kubernetes v1.21 or later.
 
-> 📘 Info
->
-> **Required Gateway Access Permissions**
+> ℹ️ **Info (Required Gateway Access Permissions):**
 >
 > To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the Kubernetes Auth
 
@@ -34,13 +32,13 @@ Akeyless supports several authentication strategies to interact with the Kuberne
 * A [dedicated ServiceAccount](https://docs.akeyless.io/docs/dedicated-k8s-auth-service-accounts)
 * A [client certificate](https://docs.akeyless.io/docs/k8s-auth-client-certificate)
 
-> 📘 Info
+> ℹ️ **Info:**
 >
 > ServiceAccount approaches work based on Kubernetes bearer tokens, whereas Certificate-based Authentication works based on a certificate and private key
 
 ## Using Akeyless Gateway ServiceAccount
 
-In order to work with your Gateway Service Account the following Kubernetes Role should be assigned to the Service Account that runs your Gateway, Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment:
+To work with your Gateway Service Account, the following Kubernetes Role should be assigned to the Service Account that runs your Gateway. Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment:
 
 ```yaml Gateway SA Kubernetes Role
 cat << EOF > akl_gw_sa_token_reviewer.yaml 
@@ -88,9 +86,9 @@ Upon successful creation, the response:
 }
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
-> Save returned private key and `AccessID` for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`
+> Save the returned private key and `AccessID` in environment variables `$PRV_KEY` and `$ACCESS_ID` for the next steps.
 
 #### Create Kubernetes Gateway Auth Config Using Gateway ServiceAccount
 
@@ -98,7 +96,7 @@ Use the Akeyless CLI to create the Kubernetes auth config:
 
 ```shell
 akeyless gateway-create-k8s-auth-config --name k8s-conf \
---gateway-url <https://Your-Akeyless-GW-URL>:8000 \
+--gateway-url 'https://Your-Akeyless-GW-URL:8000' \
 --access-id $ACCESS_ID \
 --signing-key $PRV_KEY \
 --use-gw-service-account
@@ -110,7 +108,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
 * `signing-key`: The private key (The key that was created when the Kubernetes Auth Method was created).
 
@@ -155,7 +153,7 @@ Where:
 
 Where:
 
-* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
 * `access-type`: the access type - `k8s`
 
@@ -170,9 +168,9 @@ Authentication succeeded.
 Token: t-bb7b...3564a7c9
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
-> Delete the private key and Access ID which you stored as an environment variables `$PRV_KEY` and `$ACCESS_ID`
+> Delete the private key and Access ID that you stored in environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
 ## Available Claims for Kubernetes Auth
 
@@ -208,7 +206,7 @@ minikube start \
     --extra-config=kubelet.authentication-token-webhook=true
 ```
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > This example uses `api` as the service account issuer name, for your service accounts API audience.
 

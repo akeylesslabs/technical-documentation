@@ -56,6 +56,6 @@ next:
 
 * Chrome: [Install from Google Play](https://play.google.com/store/apps/details?id=com.android.chrome)
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > The Google Chrome browser is equipped with Autofill capabilities; however, users may occasionally encounter inconsistencies in its performance. In certain instances, it may be necessary to close and subsequently reopen the Chrome browser to achieve the desired Autofill functionality. To ensure an optimal user experience, we advise considering the use of one of the mobile browsers highlighted previously. These alternatives have been identified for their robust and reliable Autofill support, catering to the needs of users seeking seamless digital interactions.

@@ -54,7 +54,7 @@ Embark on your Akeyless journey by creating your [Akeyless account](https://docs
 
 ## Fortify Your Akeyless Ecosystem With Enforced Security Policies
 
-Safeguard your organization's sensitive data by enforcing robust security policies within Akeyless. Dictate password strength requirements, manage two-factor [authentication](https://docs.akeyless.io/docs/understanding-authentication) protocols, define [access restrictions](https://docs.akeyless.io/docs/rbac), [monitor usage](https://docs.akeyless.io/docs/audit-logs), and mandate regular updates across all devices.
+Safeguard your organization's sensitive data by enforcing robust security policies within Akeyless. Dictate password strength requirements, manage two-factor [authentication](https://docs.akeyless.io/docs/auth-overview) protocols, define [access restrictions](https://docs.akeyless.io/docs/rbac), [monitor usage](https://docs.akeyless.io/docs/audit-logs), and mandate regular updates across all devices.
 
 ## Granular Control Over Akeyless Access
 

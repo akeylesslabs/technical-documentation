@@ -14,9 +14,9 @@ A Linked Target is an item that represents a collection of hosts that are consid
 
 ![Illustration for: A Linked Target is an item that represents a collection of hosts that are considered equivalent for access control while sharing privileged credentials.](https://files.readme.io/83762de-Linked-Target.png)
 
-For example, a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) that is used for [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) can be created with a Linked Target that uses the privileged credentials which are stored within a standard [Target](https://docs.akeyless.io/docs/targets), where users that are sharing the same access level can use a single Dynamic Secret item to generate JIT credentials to establish a remote session using Akeyless [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) solutions to different endpoints while ensuring the privileged credentials are rotated periodically.
+For example, a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) that is used for [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) can be created with a Linked Target that uses the privileged credentials which are stored within a standard [Target](https://docs.akeyless.io/docs/targets), where users that are sharing the same access level can use a single Dynamic Secret item to generate JIT credentials to establish a remote session using Akeyless [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) solutions to different endpoints while ensuring the privileged credentials are rotated periodically.
 
-Linked Targets can inherit credentials from a designated Parent Target, thus giving the hosts of the Linked Target the option to authenticate with any service tied to their Parent Target. Based on the Parent Target type, the Linked Target item can be used for the relevant Dynamic Secret type. Otherwise, when no Parent Target is selected, the Linked Target object can hold a collection of hosts, that might be used for [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) cases like SSH and more.
+Linked Targets can inherit credentials from a designated Parent Target, thus giving the hosts of the Linked Target the option to authenticate with any service tied to their Parent Target. Based on the Parent Target type, the Linked Target item can be used for the relevant Dynamic Secret type. Otherwise, when no Parent Target is selected, the Linked Target object can hold a collection of hosts, that might be used for [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) cases like SSH and more.
 
 ## Working With Linked Targets with the CLI
 
@@ -41,9 +41,9 @@ Where:
 
 * `hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon `;` (for example, `server-dev.com;My Dev server,server-prod.com;My Prod server description`).
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluelinkedp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#linked) section.
 
-> 👍 Note
+> ℹ️ **Note:**
 >
 > All Linked Target hosts will be added to the Secure Remote Access hosts lists automatically
 
@@ -73,7 +73,7 @@ To create a Linked Target follow these steps:
 4. Fill in these parameters:
 
     * **Parent Target**: Select an existing target from which to inherit credentials.
-    * **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname in order to open another row. After finishing, select **Confirm**.
+    * **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname to open another row. After finishing, select **Confirm**.
 
 5. Click **Finish**.
 
@@ -83,6 +83,6 @@ To change any information find the Linked target in your **Targets** tab and sel
 
 ### Parent-less Linked Target
 
-While the main advantage of a Linked Target item is the ability to share and utilize the same privileged credentials from its Parent Target, a Linked Target item without a Parent will represent a collection of hosts for easier and more convenient management of SSH certificates by using parent-less Linked Targets for [SSH Cert Issuers](https://docs.akeyless.io/docs/ssh-certificates) with multiple hosts, eliminating the need to manage all those hosts across different items inside the Akeyless Platform.
+While the main advantage of a Linked Target item is the ability to share and use the same privileged credentials from its Parent Target, a Linked Target item without a Parent will represent a collection of hosts for easier and more convenient management of SSH certificates by using parent-less Linked Targets for [SSH Cert Issuers](https://docs.akeyless.io/docs/ssh-certificates) with multiple hosts, eliminating the need to manage all those hosts across different items inside the Akeyless Platform.
 
 To use a parent-less Linked Target, simply add hosts leaving the Parent Target set to "None".
