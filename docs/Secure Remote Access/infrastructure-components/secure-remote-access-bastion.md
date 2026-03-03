@@ -115,7 +115,7 @@ privilegedAccess:
   allowedAccessIDs: []
 ```
 
-To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates) set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
+To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates), set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates). You can configure one or more CA public keys.
 
 ```yaml
 #############################################
@@ -125,7 +125,9 @@ sshConfig:
 # Enable akeyless-ssh-bastion. Valid values: true/false.
   enabled: true
   config:
-    CAPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCu8RWf5bFDlLhPljsYEKFQAt6cFLdAVOy..."
+    CAPublicKey: |
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCu8RWf5bFDlLhPljsYEKFQAt6cFLdAVOy...
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzJ0V0h6uH7w3h0fYH0Yh4d3b0bGm9A0...
 ```
 
 > ℹ️ **Info:**
