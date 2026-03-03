@@ -91,9 +91,9 @@ TLSConf:
    -----END RSA PRIVATE KEY-----
 ```
 
-### TLS 1.3 and PQC on EKS, GKE, and AKS
+### TLS 1.3 and PQC on Any Cloud Platform
 
-The same TLS and PQC settings apply to all managed Kubernetes platforms, including EKS, GKE, and AKS.
+The same TLS and PQC settings apply across all cloud platforms where Akeyless Gateway runs on Kubernetes, including managed and self-managed clusters.
 
 To enable hybrid post-quantum key exchange on the Gateway pod, set both TLS 1.3 and the Go runtime flag:
 
