@@ -21,6 +21,7 @@ The Session Overview page displays detailed information for each session. The fo
 * **Gateway Name**: The name of the gateway through which the session is managed.
 * **Resource Type**: The type of resource accessed during the session. Examples include: SSH, RDP, Databases, Kubernetes (K8s) and more.
 * **Secret Name**: The identifier for the secret used during the session.
+* **Session ID**: The unique Secure Remote Access session identifier.
 * **Status**: The current state of the session (For example, active, closed, or terminated).
 * **Duration**: The length of time the session has been active.
 
@@ -40,7 +41,7 @@ Users can filter the session list based on the following criteria to quickly loc
 
 ## Audit Logging
 
-Every session update is captured in the Audit Log. This ensures that any changes (such as status updates or modifications) are recorded for compliance and troubleshooting purposes.
+Every session update is captured in the Audit Log, including the Secure Remote Access Session ID. This ensures that any changes (such as status updates or modifications) are recorded for compliance and troubleshooting purposes.
 
 ## Permissions
 

@@ -75,14 +75,16 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
     akeyless get-rsa-public --name /path/to/SSHSignerKey --json --jq-expression='.ssh' 
     ```
 
-2. Enable **Remote Access** on your Gateway values file, and add the public key of your SSH Cert Issuer using the `CAPublicKey` as follow:
+2. Enable **Remote Access** on your Gateway values file, and add the public key of your SSH Cert Issuer using `CAPublicKey` as follows. You can provide one or more CA public keys:
 
     ```yaml values.yaml
     sra:
     enabled: true
 
     sshConfig:
-    CAPublicKey: 
+        CAPublicKey: |
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAPzDVmeABzsGd0lEl9m2fdgmCzOLVmEGcLxNkn...
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDz0v4zyj4d1m7K9w7j2qQ5B1v8bH0ArK...
     ```
 
 ## Upgrade Gateway
