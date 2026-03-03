@@ -30,6 +30,8 @@ The following Authentication Methods are supported:
 >
 > In this guide, we will use an `API Key` Authentication Method for simplicity
 
+<ApiKeyWarning />
+
 Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) using the CLI:
 
 ```shell
