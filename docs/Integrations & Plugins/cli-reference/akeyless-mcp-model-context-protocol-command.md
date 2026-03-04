@@ -38,10 +38,10 @@ Model Context Protocol (MCP) is an open standard that allows AI assistants to se
 
 ```shell
 # Start MCP server with access key authentication
-akeyless mcp --access-id <your-access-id> --access-key <your-access-key> --access-type access_key --gateway-url https://api.akeyless.io
+akeyless mcp --access-id <your-access-id> --access-key <your-access-key> --access-type access_key --gateway-url https://<your-gateway-url>:8000/api/v2
 
 # Start MCP server with SAML authentication
-akeyless mcp --access-id <your-access-id> --access-type saml --gateway-url https://api.akeyless.io
+akeyless mcp --access-id <your-access-id> --access-type saml --gateway-url https://<your-gateway-url>:8000/api/v2
 ```
 
 ### Supported Authentication Methods
@@ -78,15 +78,15 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
       "mcp.servers": {
         "akeyless": {
           "command": "akeyless",
-          "args": ["mcp", "--profile", "your-profile-name", "--gateway-url", "https://api.akeyless.io"]
+          "args": ["mcp", "--profile", "your-profile-name", "--gateway-url", "https://<your-gateway-url>:8000/api/v2"]
         },
         "akeyless-saml": {
           "command": "akeyless",
-          "args": ["mcp", "--access-id", "your-access-id", "--access-type", "saml", "--gateway-url", "https://api.akeyless.io"]
+          "args": ["mcp", "--access-id", "your-access-id", "--access-type", "saml", "--gateway-url", "https://<your-gateway-url>:8000/api/v2"]
         },
         "akeyless-oidc": {
           "command": "akeyless",
-          "args": ["mcp", "--access-id", "your-access-id", "--access-type", "oidc", "--gateway-url", "https://api.akeyless.io"]
+          "args": ["mcp", "--access-id", "your-access-id", "--access-type", "oidc", "--gateway-url", "https://<your-gateway-url>:8000/api/v2"]
         }
       }
     }
@@ -116,13 +116,13 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
     mcpServers:
       akeyless:
         command: akeyless
-        args: ["mcp", "--profile", "your-profile-name", "--gateway-url", "https://api.akeyless.io"]
+        args: ["mcp", "--profile", "your-profile-name", "--gateway-url", "https://<your-gateway-url>:8000/api/v2"]
       akeyless-saml:
         command: akeyless
-        args: ["mcp", "--access-id", "your-access-id", "--access-type", "saml", "--gateway-url", "https://api.akeyless.io"]
+        args: ["mcp", "--access-id", "your-access-id", "--access-type", "saml", "--gateway-url", "https://<your-gateway-url>:8000/api/v2"]
       akeyless-oidc:
         command: akeyless
-        args: ["mcp", "--access-id", "your-access-id", "--access-type", "oidc", "--gateway-url", "https://api.akeyless.io"]
+        args: ["mcp", "--access-id", "your-access-id", "--access-type", "oidc", "--gateway-url", "https://<your-gateway-url>:8000/api/v2"]
     ```
 
 3. Start Copilot with MCP
@@ -140,7 +140,7 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
 
 ```shell
 # Start MCP server
-akeyless mcp --profile production --gateway-url https://api.akeyless.io
+akeyless mcp --profile production --gateway-url https://<your-gateway-url>:8000/api/v2
 
 # In Cursor/Copilot
 # "Create a secret called 'database-password' with value 'secure123'"
@@ -158,8 +158,8 @@ akeyless mcp --profile production --gateway-url https://api.akeyless.io
 
 ```shell
 # Production
-akeyless mcp --profile prod --gateway-url https://api.akeyless.io
+akeyless mcp --profile prod --gateway-url https://<your-gateway-url>:8000/api/v2
 
 # Development / Testing
-akeyless mcp --profile dev --gateway-url http://localhost:8080/v2
+akeyless mcp --profile dev --gateway-url https://<your-gateway-url>:8000/api/v2
 ```
