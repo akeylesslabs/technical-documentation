@@ -49,9 +49,9 @@ globalConfig:
 
 > ℹ️ **Note:** The sample ARNs on this page use the standard AWS partition (`arn:aws`). For other partitions, use the partition-specific prefix (for example, `arn:aws-us-gov` or `arn:aws-cn`).
 
-## Step 3: Configure Ingress for ALB and ACM
+## Step 3: Choose an Access Path
 
-### Option 3A: Ingress with HTTPS using ACM
+### Option A: ALB with HTTPS (ACM)
 
 ```yaml values.yaml
 gateway:
@@ -73,39 +73,35 @@ gateway:
 
 When ALB handles TLS termination with `alb.ingress.kubernetes.io/certificate-arn` and HTTPS listen ports, keep `gateway.ingress.tls: false`.
 
-### Option 3B: Ingress with HTTP
+### Option B: ALB with HTTP
 
-1. Configure `values.yaml`.
+Configure `values.yaml`:
 
-    ```yaml values.yaml
-    gateway:
-    ingress:
-        enabled: true
-        annotations:
-        kubernetes.io/ingress.class: "alb"
-        alb.ingress.kubernetes.io/scheme: "internet-facing"
-        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
-        alb.ingress.kubernetes.io/target-type: ip
-        rules:
-        - servicePort: gateway
-        path: "/*"
-        pathType: ImplementationSpecific
-        tls: false
+```yaml values.yaml
+gateway:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: "alb"
+      alb.ingress.kubernetes.io/scheme: "internet-facing"
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
+      alb.ingress.kubernetes.io/target-type: ip
+    rules:
+      - servicePort: gateway
+    path: "/*"
+    pathType: ImplementationSpecific
+    tls: false
+```
 
-    # After deploy, get the ALB DNS name:
-    # kubectl get ingress -n akeyless
-    ```
+### Option C: No ALB (port-forward)
 
-2. Use kubectl to port-forward _after Step 4_.
+Do not configure `gateway.ingress` in `values.yaml`. After Step 4, run:
 
-    ```shell Port-forward (no ingress)
-    kubectl -n akeyless port-forward svc/gateway-akeyless-gateway 8000:8000
+```shell
+kubectl -n akeyless port-forward svc/gateway-akeyless-gateway 8000:8000
+```
 
-    # Then access:
-    # http://localhost:8000/console
-    ```
-
-    > ℹ️ **Note:** You may need to change the port that kubectl will use for the port forward if port 8000 is already used.
+Then access `http://localhost:8000/console`.
 
 ## Step 4: Install the Gateway
 
@@ -113,30 +109,40 @@ When ALB handles TLS termination with `alb.ingress.kubernetes.io/certificate-arn
 helm install gateway akeyless/akeyless-gateway -f values.yaml -n akeyless --create-namespace
 ```
 
-## Step 5: Configure DNS
+## Step 5: Configure Access Endpoint
 
-Point `gateway.yourdomain.com` to the ALB DNS name created by the ingress resource.
+Then continue based on the option you used in Step 3:
 
-```shell
-kubectl get ingress -n akeyless
-```
+* **Option A (HTTPS + ACM):**
 
-## Step 6: Validate Deployment
+    * Get the ALB DNS name:
 
-```shell
-curl -vk https://gateway.yourdomain.com/console
-```
+      ```shell
+      kubectl get ingress -n akeyless -o jsonpath='{.items[0].status.loadBalancer.ingress[0].hostname}'
+      ```
 
-Expected result: the Gateway login page or a valid response from the Gateway endpoint.
+    * Point `gateway.yourdomain.com` to the ALB DNS name in your DNS configuration (like Amazon Route 53).
+    * Use `https://gateway.yourdomain.com/console`.
 
-Validation criteria:
+* **Option B (HTTP):**
 
-* The ingress address resolves for `gateway.yourdomain.com`.
-* `https://gateway.yourdomain.com/console` is reachable.
+    * Get the ALB DNS name:
 
-## Step 7: Access the Gateway
+      ```shell
+      kubectl get ingress -n akeyless -o jsonpath='{.items[0].status.loadBalancer.ingress[0].hostname}'
+      ```
 
-* Gateway endpoint: `https://gateway.yourdomain.com/console`
+    * Use the ALB DNS name directly over HTTP: `http://<alb-dns-name>/console`.
+
+* **Option C (no ALB):**
+
+    * Use `http://localhost:8000/console` while `kubectl port-forward` is running.
+
+## Step 6: Access the Gateway
+
+* Option A endpoint: `https://gateway.yourdomain.com/console`
+* Option B endpoint: `http://<alb-dns-name>/console`
+* Option C endpoint: `http://localhost:8000/console`
 
 ### Troubleshooting
 
