@@ -47,6 +47,8 @@ globalConfig:
       eks.amazonaws.com/role-arn: arn:aws:iam::<aws-account-id>:role/<gateway-role-name>
 ```
 
+> ℹ️ **Note:** The sample ARNs on this page use the standard AWS partition (`arn:aws`). For other partitions, use the partition-specific prefix (for example, `arn:aws-us-gov` or `arn:aws-cn`).
+
 ## Step 3: Configure Ingress for ALB and ACM
 
 ```yaml values.yaml
