@@ -71,7 +71,7 @@ If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains 
         "--access-id", "your-access-id",
         "--access-key", "your-access-key",
         "--access-type", "access_key",
-        "--gateway-url", "https://api.akeyless.io"
+        "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
       ],
       "env": {}
     }
@@ -170,7 +170,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
     "--access-id", "p-xxxxxxxxxxxxx",
     "--access-key", "your-access-key",
     "--access-type", "access_key",
-    "--gateway-url", "https://api.akeyless.io"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -184,7 +184,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
     "--access-type", "cert",
     "--cert-file-name", "/path/to/cert.pem",
     "--key-file-name", "/path/to/key.pem",
-    "--gateway-url", "https://api.akeyless.io"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -197,7 +197,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
     "mcp",
     "--access-type", "aws_iam",
     "--cloud-id", "your-aws-role-arn",
-    "--gateway-url", "https://api.akeyless.io"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -207,7 +207,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
     "mcp",
     "--access-type", "azure_ad",
     "--cloud-id", "your-azure-client-id",
-    "--gateway-url", "https://api.akeyless.io"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -217,7 +217,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
     "mcp",
     "--access-type", "gcp",
     "--cloud-id", "your-gcp-service-account",
-    "--gateway-url", "https://api.akeyless.io"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -231,7 +231,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
     "--access-type", "k8s",
     "--k8s-auth-config-name", "your-config-object",
     "--k8s-service-account-token", "your-service-account-token",
-    "--gateway-url", "https://api.akeyless.io"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -246,7 +246,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
     "--ldap-proxy-url", "ldap://your-ldap-server",
     "--username", "your-username",
     "--password", "your-password",
-    "--gateway-url", "https://api.akeyless.io"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -259,7 +259,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
     "mcp",
     "--access-type", "oidc",
     "--jwt", "your-jwt-token",
-    "--gateway-url", "https://your-gateway.com"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -273,7 +273,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
     "--admin-email", "user@example.com",
     "--admin-password", "your-password",
     "--access-type", "password",
-    "--gateway-url", "https://api.akeyless.io"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -285,7 +285,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
   "args": [
     "mcp",
     "--access-type", "saml",
-    "--gateway-url", "https://your-gateway.com"
+    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
   ]
 }
 ```
@@ -348,7 +348,7 @@ akeyless auth --access-id "your-access-id" --access-key "your-access-key"
 
 ```shell
 # Test connectivity
-curl -I https://api.akeyless.io
+curl -I https://<your-gateway-url>:8000/api/v2
 ```
 ```text Sample Output
 HTTP/2 405 
