@@ -52,7 +52,7 @@ where:
 
 * `secure-access-ssh`: Secure Access SSH server. For example, `my.sra-server:22`.
 
-* `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users` list.  Starting with Gateway **v4.45.0**, Secure Remote Access (SRA) works out of the box with any **SSH Cert Issuer** where SRA is enabled. If you’re using an older Gateway version, make sure the SSH Cert Issuer `allowed_users` includes `session_*`, so just in time users are authorized.
+* `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users` list. Starting with Gateway **v4.45.0**, Secure Remote Access (SRA) works out of the box with any **SSH Cert Issuer** where SRA is enabled. If you’re using an older Gateway version, make sure the SSH Cert Issuer `allowed_users` includes `session_*`, so just in time users are authorized.
 
 * `host-provider`: Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
 
