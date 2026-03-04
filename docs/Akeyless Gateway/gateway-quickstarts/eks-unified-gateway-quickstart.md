@@ -51,6 +51,8 @@ globalConfig:
 
 ## Step 3: Configure Ingress for ALB and ACM
 
+### Option 3A: Ingress with HTTPS using ACM
+
 ```yaml values.yaml
 gateway:
   ingress:
@@ -69,7 +71,41 @@ gateway:
     tls: false
 ```
 
-  When ALB handles TLS termination with `alb.ingress.kubernetes.io/certificate-arn` and HTTPS listen ports, keep `gateway.ingress.tls: false`.
+When ALB handles TLS termination with `alb.ingress.kubernetes.io/certificate-arn` and HTTPS listen ports, keep `gateway.ingress.tls: false`.
+
+### Option 3B: Ingress with HTTP
+
+1. Configure `values.yaml`.
+
+    ```yaml values.yaml
+    gateway:
+    ingress:
+        enabled: true
+        annotations:
+        kubernetes.io/ingress.class: "alb"
+        alb.ingress.kubernetes.io/scheme: "internet-facing"
+        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
+        alb.ingress.kubernetes.io/target-type: ip
+        rules:
+        - servicePort: gateway
+        path: "/*"
+        pathType: ImplementationSpecific
+        tls: false
+
+    # After deploy, get the ALB DNS name:
+    # kubectl get ingress -n akeyless
+    ```
+
+2. Use kubectl to port-forward _after Step 4_.
+
+    ```shell Port-forward (no ingress)
+    kubectl -n akeyless port-forward svc/gateway-akeyless-gateway 8000:8000
+
+    # Then access:
+    # http://localhost:8000/console
+    ```
+
+    > ℹ️ **Note:** You may need to change the port that kubectl will use for the port forward if port 8000 is already used.
 
 ## Step 4: Install the Gateway
 
