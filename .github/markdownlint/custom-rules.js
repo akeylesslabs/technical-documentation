@@ -57,11 +57,12 @@ function isHeadingLine(line) {
   return false;
 }
 
-function report(onError, lineNumber, detail, context) {
+function report(onError, lineNumber, detail, context, fixInfo) {
   onError({
     lineNumber,
     detail,
-    context: context || undefined
+    context: context || undefined,
+    fixInfo: fixInfo || undefined
   });
 }
 
@@ -192,6 +193,25 @@ function splitTableCellsLoose(line) {
 
   cells.push(current.trim());
   return cells;
+}
+
+function collapseExtraSpacesOutsideInlineCode(line) {
+  const text = String(line || "");
+  const inlineCodeRegex = /`[^`]*`/g;
+  const proseDoubleSpaceRegex = /([\p{L}\p{N}][.!?;:,)]?) {2,}(?=[\p{L}\p{N}])/gu;
+  let result = "";
+  let cursor = 0;
+  let match;
+
+  while ((match = inlineCodeRegex.exec(text)) !== null) {
+    const before = text.slice(cursor, match.index);
+    result += before.replace(proseDoubleSpaceRegex, "$1 ");
+    result += match[0];
+    cursor = inlineCodeRegex.lastIndex;
+  }
+
+  result += text.slice(cursor).replace(proseDoubleSpaceRegex, "$1 ");
+  return result;
 }
 
 module.exports = [
@@ -1279,6 +1299,49 @@ module.exports = [
             normalized
           );
         }
+      }
+    }
+  },
+
+  /**
+   * AKY019: Collapse repeated spaces in prose outside code
+   *
+   * Behavior:
+   * - Auto-fixes repeated spaces between non-space characters.
+   * - Ignores fenced/indented code blocks.
+   * - Ignores inline code spans (`...`).
+   */
+  {
+    names: ["AKY019", "no-extra-double-spaces"],
+    description: "Disallow repeated spaces in prose outside code blocks and inline code spans",
+    tags: ["whitespace", "style", "autofix"],
+    function: function (params, onError) {
+      const lines = params.lines || [];
+      const codeLines = getCodeBlockLineSet(params.tokens);
+
+      for (let i = 0; i < lines.length; i++) {
+        const lineNumber = i + 1;
+        if (codeLines.has(lineNumber)) continue;
+
+        const maybeTableCells = splitTableCellsLoose(lines[i]);
+        if (Array.isArray(maybeTableCells) && maybeTableCells.length >= 2) continue;
+
+        const originalLine = lines[i];
+        const fixedLine = collapseExtraSpacesOutsideInlineCode(originalLine);
+
+        if (fixedLine === originalLine) continue;
+
+        report(
+          onError,
+          lineNumber,
+          "Collapse repeated spaces to a single space outside code spans.",
+          originalLine.trim(),
+          {
+            editColumn: 1,
+            deleteCount: originalLine.length,
+            insertText: fixedLine
+          }
+        );
       }
     }
   }
