@@ -28,4 +28,4 @@ The following configuration features are available:
 
 * Integrate external hardware key management in [HSM Integration](https://docs.akeyless.io/docs/hsm-integration).
 
-* Configure migration automation in [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration).
+* Configure migration workflows in [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration).
