@@ -26,7 +26,7 @@ Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tre
 
 Use this page for shared Helm setup and installation, then apply provider-specific delta steps:
 
-| Platform | Use this when | Provider delta guide |
+| Platform | Use this when | Provider guide |
 | --- | --- | --- |
 | Amazon EKS | The cluster runs in Amazon EKS and uses AWS IAM or IRSA for workload identity. | [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-deploy-amazon-eks) |
 | Azure Kubernetes Service (AKS) | The cluster runs in AKS and uses Microsoft Entra workload identity. | [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-kubernetes-service) |
