@@ -1,8 +1,8 @@
 ---
 title: Implementing Zero Knowledge
 excerpt: ''
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
@@ -14,6 +14,10 @@ next:
       slug: configure-the-gateway-cache
       title: Gateway Cache
 ---
+> ℹ️ **Note:**
+>
+> This page has moved. Use <https://docs.akeyless.io/docs/gateway-zero-knowledge>.
+
 ## Introduction
 
 To implement [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge), you must set up a [Gateway](https://docs.akeyless.io/docs/api-gw).

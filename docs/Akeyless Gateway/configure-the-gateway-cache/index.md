@@ -1,8 +1,8 @@
 ---
 title: Gateway Cache
 excerpt: ''
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+> ℹ️ **Note:**
+>
+> This page has moved. Use <https://docs.akeyless.io/docs/gateway-caching>.
+
 Upon network outage, the Gateway cache can still handle requests for Secrets retrievals (read-only). The cache will start working only after the Gateway is successfully operated. Only users already authenticated can get service from the Gateway cache, where the following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) can keep authenticating on offline modes: **K8s**, **email**, **API Key**, **LDAP**, **Certificate** and **JWT**.
 
 > ℹ️ **Note (Offline Authentication Cache):**

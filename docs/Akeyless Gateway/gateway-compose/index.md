@@ -1,8 +1,8 @@
 ---
 title: Docker Compose
 excerpt: Installation
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+> ℹ️ **Note:**
+>
+> This page has moved. Use <https://docs.akeyless.io/docs/gateway-installation-quickstart-docker-compose>.
+
 Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/compose/), in which, the configuration process takes place before the actual installation.
 
 ## Prerequisites

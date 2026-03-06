@@ -1,8 +1,8 @@
 ---
 title: Gateway Configuration Manager
 excerpt: ''
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
@@ -23,6 +23,10 @@ next:
       slug: configure-the-gateway-cache
       title: Gateway Cache
 ---
+> ℹ️ **Note:**
+>
+> This page has moved. Use <https://docs.akeyless.io/docs/configure-gateway>.
+
 The Gateway Configuration Manager is available by way of the main console under **Gateways -> Your-Gateway -> Manage Gateway**
 
 > ℹ️ **Note:**

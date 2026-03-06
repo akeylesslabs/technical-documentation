@@ -1,7 +1,7 @@
 ---
 title: Gateway on Kubernetes (Legacy)
 excerpt: ''
-deprecated: false
+deprecated: true
 hidden: true
 metadata:
   title: ''
@@ -17,6 +17,10 @@ next:
       slug: configuring-tls
       title: Configuring TLS
 ---
+> ℹ️ **Note:**
+>
+> This page has moved. Use <https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment>.
+
 > ℹ️ **Note (Gateway New Chart):**
 >
 > The Gateway new chart docs is now available [here](https://docs.akeyless.io/docs/gateway-chart).

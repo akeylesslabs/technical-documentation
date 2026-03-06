@@ -1,8 +1,8 @@
 ---
 title: Gateway on Kubernetes
 excerpt: ''
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+> ℹ️ **Note:**
+>
+> This page has moved. Use <https://docs.akeyless.io/docs/gateway-installation-quickstart-kubernetes-helm>.
+
 Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway) to bootstrap the Akeyless Gateway deployment.
 
 > ℹ️ **Note (New Chart):**

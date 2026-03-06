@@ -1,8 +1,8 @@
 ---
 title: Overview
 excerpt: Akeyless Gateway Overview
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
@@ -16,6 +16,10 @@ next:
       title: Gateway on Kubernetes
       type: basic
 ---
+> ℹ️ **Note:**
+>
+> This page has moved. Use <https://docs.akeyless.io/docs/gateway-overview>.
+
 Akeyless offers a unique Gateway, which adds an extra level of protection between your **private network** and the cloud.
 
 Acting as a SaaS extension of our core services, our **stateless** Gateway enables transparent internal operation with a robust out-of-the-box mechanism to ensure service continuity and recovery while you are not required to change any network infrastructure to work with your internal resources.

@@ -1,8 +1,8 @@
 ---
 title: Gateway on Azure Container App
 excerpt: ''
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+> ℹ️ **Note:**
+>
+> This page has moved. Use <https://docs.akeyless.io/docs/gateway-installation-quickstart-azure-container-app>.
+
 This page describes how to run [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) on [Azure Container Apps](https://azure.microsoft.com/en-us/products/container-apps). The latest Docker image can be found at the [Akeyless Docker Hub](https://hub.docker.com/r/akeyless/gateway/tags) using the following image tag: `akeyless/gateway:latest-container-app`.
 
 ## Prerequisites
