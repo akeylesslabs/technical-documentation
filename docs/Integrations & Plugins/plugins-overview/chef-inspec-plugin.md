@@ -20,29 +20,29 @@ An [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates)
 
 1. Issue an SSH Certificate from Akeyless:
 
-    ```shell
-    akeyless get-ssh-certificate -s <target_username> -c ssh-cert-issuer-name -p <path_to_public_ssh_key> && echo
-    ```
+   ```shell
+   akeyless get-ssh-certificate -s <target_username> -c ssh-cert-issuer-name -p <path_to_public_ssh_key> && echo
+   ```
 
 2. Test SSH connection
 
-    ```shell
-    ssh <target_username>@<target_ssh_server>
-    ```
+   ```shell
+   ssh <target_username>@<target_ssh_server>
+   ```
 
 3. Setup `ssh-agent` and add SSH key public key to the agent:
 
-    ```shell
-    eval `ssh-agent`
-    ssh-add <path_to_public_ssh_key>
-    ```
+   ```shell
+   eval `ssh-agent`
+   ssh-add <path_to_public_ssh_key>
+   ```
 
 4. Test Chef InSpec
 
-    ```ruby
-    inspec shell -c 'package("git").installed?' -t <target_username>@<target_ssh_server>
-    inspec shell -c 'package("git").version' -t <target_username>@<target_ssh_server>
-    ```
+   ```ruby
+   inspec shell -c 'package("git").installed?' -t <target_username>@<target_ssh_server>
+   inspec shell -c 'package("git").version' -t <target_username>@<target_ssh_server>
+   ```
 
 ## Example
 
@@ -59,4 +59,7 @@ inspec shell -c 'package("git").installed?' -t ssh://ubuntu@172.17.0.1
 inspec shell -c 'package("git").version' -t ssh://ubuntu@172.17.0.1
 ```
 
-<Embed url="https://raw.githubusercontent.com/akeylesslabs/technical-documentation/v1.0/media/chef-inspec-integration.mp4" title="AKEYLESS Vault Chef InSpec integration.mp4" href="https://raw.githubusercontent.com/akeylesslabs/technical-documentation/v1.0/media/chef-inspec-integration.mp4" typeOfEmbed="video" />
+<video controls preload="metadata" width="100%">
+  <source src="https://raw.githubusercontent.com/akeylesslabs/technical-documentation/v1.0/media/chef-inspec-integration.mp4" type="video/mp4" />
+  Your browser does not support the video tag. Use this direct link: https://raw.githubusercontent.com/akeylesslabs/technical-documentation/v1.0/media/chef-inspec-integration.mp4
+</video>
