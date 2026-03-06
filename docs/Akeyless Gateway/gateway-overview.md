@@ -26,9 +26,9 @@ Our unique approach enables a variety of capabilities relying on our [DFC Encryp
 
 You can deploy Akeyless Gateway in several operating models, depending on your infrastructure and scaling requirements:
 
-* [Standalone Docker](https://docs.akeyless.io/docs/gateway-installation-quickstart-standalone-docker)
-* [Docker Compose](https://docs.akeyless.io/docs/gateway-installation-quickstart-docker-compose)
-* [Kubernetes with Helm](https://docs.akeyless.io/docs/gateway-installation-quickstart-kubernetes-helm)
+* [Standalone Docker](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker)
+* [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose)
+* [Kubernetes with Helm](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
 * [Cloud-managed Kubernetes platforms](https://docs.akeyless.io/docs/gateway-cloud-platform-deployments)
 * [Serverless deployments](https://docs.akeyless.io/docs/gateway-cloud-serverless-deployments)
 
