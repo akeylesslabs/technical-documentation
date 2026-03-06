@@ -60,8 +60,4 @@ Across AWS and Azure serverless deployments, the operational model remains consi
 * Log forwarding and telemetry integration.
 * Zero-Knowledge and encryption-related configuration.
 
-After deployment, continue with:
-
-* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication)
-* [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding)
-* [Telemetry and Monitoring](https://docs.akeyless.io/docs/monitor-akeyless)
+After deployment, continue with [Configure Gateway](https://docs.akeyless.io/docs/configure-gateway).
