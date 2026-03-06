@@ -18,4 +18,4 @@ Primary checks:
 
 For cache-specific troubleshooting details, see:
 
-* <https://docs.akeyless.io/docs/qa-on-gateway-caching>
+* <https://docs.akeyless.io/docs/gateway-caching-qa>
