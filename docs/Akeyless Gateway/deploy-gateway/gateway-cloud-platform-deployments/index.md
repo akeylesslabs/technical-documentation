@@ -8,11 +8,14 @@ metadata:
   description: ''
   robots: index
 next:
-  description: 'Choose a cloud-managed Kubernetes deployment guide:'
+  description: 'Choose a cloud platform deployment guide:'
   pages:
     - type: basic
       title: Amazon EKS
       slug: gateway-deploy-amazon-eks
+    - type: basic
+      title: Azure Container App
+      slug: gateway-deploy-azure-container-app
     - type: basic
       title: Azure Kubernetes Service
       slug: gateway-deploy-azure-kubernetes-service
@@ -20,15 +23,15 @@ next:
       title: Google Kubernetes Engine
       slug: gateway-deploy-google-kubernetes-engine
 ---
-This page groups cloud-managed Kubernetes deployment patterns for the Akeyless Gateway.
+This page groups cloud platform deployment patterns for the Akeyless Gateway.
 
-Use this section when your organization runs Kubernetes on a cloud provider and wants a Gateway deployment aligned with cloud-native identity and platform controls.
+Use this section when your organization deploys Gateway on cloud-managed compute platforms and wants deployment guidance aligned with provider-native identity and platform controls.
 
 ## When to Use Cloud Platform Deployments
 
 Cloud platform deployment patterns are a good fit when you need:
 
-* Managed Kubernetes control planes.
+* Managed cloud runtime environments.
 * Cloud-native workload identity integration.
 * Standardized platform operations across cloud environments.
 
@@ -49,17 +52,18 @@ Reference:
 
 ## Platform Guides
 
-Choose the guide that matches your cluster platform:
+Choose the guide that matches your platform:
 
 | Platform Guide | Typical Identity Integration |
 | --- | --- |
 | [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-k8s#aws-iam) | AWS IAM roles |
+| [Azure Container App Deployment](https://docs.akeyless.io/docs/gateway-on-azure-container-app) | Azure managed identity |
 | [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-k8s#azure-active-directory) | Azure AD workload identity |
 | [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-k8s#gcp) | GCP workload identity |
 
 ## What Stays the Same Across Platforms
 
-Across EKS, AKS, and GKE, the core Gateway model is consistent:
+Across EKS, AKS, GKE, and Azure Container Apps, the core Gateway model is consistent:
 
 * Gateway authentication and access permissions.
 * TLS and certificate configuration.
