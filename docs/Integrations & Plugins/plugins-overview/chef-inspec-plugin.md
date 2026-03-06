@@ -59,4 +59,4 @@ inspec shell -c 'package("git").installed?' -t ssh://ubuntu@172.17.0.1
 inspec shell -c 'package("git").version' -t ssh://ubuntu@172.17.0.1
 ```
 
-<Embed url="../../../media/chef-inspec-integration.mp4" title="AKEYLESS Vault Chef InSpec integration.mp4" href="../../../media/chef-inspec-integration.mp4" typeOfEmbed="video" />
+<Embed url="https://raw.githubusercontent.com/akeylesslabs/technical-documentation/DOCS-55-docs-integrations-plugins-plugins-overview-chef/media/chef-inspec-integration.mp4" title="AKEYLESS Vault Chef InSpec integration.mp4" href="https://raw.githubusercontent.com/akeylesslabs/technical-documentation/DOCS-55-docs-integrations-plugins-plugins-overview-chef/media/chef-inspec-integration.mp4" typeOfEmbed="video" />
