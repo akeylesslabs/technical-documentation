@@ -1,5 +1,5 @@
 ---
-title: Gateway Deployment Best Practices
+title: Gateway Best Practices
 excerpt: ''
 deprecated: false
 hidden: false
