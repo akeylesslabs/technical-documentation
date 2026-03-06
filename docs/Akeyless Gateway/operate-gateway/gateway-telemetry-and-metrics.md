@@ -110,6 +110,65 @@ Import the Akeyless GW dashboard for your Grafana instance using [this](https://
 
 ![A sample screenshot of a Grafana dashboard showing metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
 
+## Using Kubernetes Secret
+
+For Kubernetes-based deployments, you can store telemetry configuration in a Kubernetes secret and reference it from your Helm values.
+
+Create an OpenTelemetry config file. For example:
+
+```yaml Datadog
+exporters:
+  datadog:
+    api:
+      key: <api-key>
+service:
+  pipelines:
+    metrics:
+      exporters: [datadog]
+```
+```yaml Prometheus
+exporters:
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+service:
+  pipelines:
+    metrics:
+      exporters: [prometheus]
+```
+
+Encode the file to Base64:
+
+```shell
+base64 --input=config-secret.yaml
+```
+
+Create a Kubernetes secret with the encoded value under `otel-config.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gw-metrics-secret
+  namespace: <your-namespace>
+type: Opaque
+data:
+  otel-config.yaml: <base64-kubernetes-secret-value>
+```
+
+Apply the secret in the target namespace:
+
+```shell
+kubectl apply -f secret.yaml -n <your-namespace>
+```
+
+Reference this secret from Helm values:
+
+```yaml
+metrics:
+  enabled: true
+  existingSecretName: "gw-metrics-secret"
+```
+
 ## Gateway Application Log Forwarding
 
 To collect the Gateway application logs with the metrics you can set an additional `exporter` endpoint and `service`, for example:

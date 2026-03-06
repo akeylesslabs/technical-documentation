@@ -24,6 +24,8 @@ The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` proto
 
 * An `AES` encryption key that supports the `hmac 256` mechanism ( **Relevant for Customer Fragment**)
 
+* [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (for Kubernetes deployments)
+
 ## HSM Configuration
 
 To configure the Gateway for your **HSM**, specify the **HSM token** using one of the following parameters during deployment: `HSM_SLOT`, `HSM_TOKEN_LABEL`, or `HSM_TOKEN_SERIAL`. Only one parameter is required.  
@@ -54,6 +56,49 @@ Where:
 * `HSM_USE_RAND` - Boolean flag, setting this to `true` will direct the Gateway to get the entropy randomness of the pseudo-random numbers from the **HSM**.
 
 * `PKCS11_LIB_PATH` - The path to a `PKCS#11` library file which should be mounted to the container filesystem. Must be a fixed path and imported along with the entire folder, since it contains configuration information. In our example, the source folder `/opt/cloudhsm` is mounted completely with all subdirectories.
+
+## Kubernetes Deployment Settings
+
+For Kubernetes deployments, you can configure HSM integration directly in the Helm `values.yaml` file.
+
+To set the HSM PIN in Kubernetes, create a secret where the secret key is named `pin`:
+
+```shell
+kubectl create secret generic hsm-pin \
+  --from-literal=pin=<hsm-pin>
+```
+
+You can then reference that secret and configure persistence in `values.yaml`:
+
+```yaml
+hsm:
+  enabled: true
+  pinExistingSecret: "hsm-pin"
+  pkcs11LibPath: "/opt/cloudhsm/lib/libcloudhsm_pkcs11.so"
+  slot: "<slot-number>"
+  # tokenLabel: "<token-label>"
+  # tokenSerial: "<token-serial>"
+  # useRand: false
+
+persistence:
+  enabled: true
+  accessMode: "ReadWriteMany"
+  # existingClaim: ""
+  # storageClass: ""
+  size: 100Mi
+```
+
+Where:
+
+* `pinExistingSecret` - The Kubernetes secret name that includes the `pin` key.
+
+* `pkcs11LibPath` - The `PKCS#11` library path mounted in the Gateway container.
+
+* `slot`, `tokenLabel`, `tokenSerial` - HSM token identification options. Set one of these values.
+
+* `useRand` - Boolean flag. If set to `true`, Gateway uses the HSM as an entropy source.
+
+* `persistence` - Persistent storage settings for mounting HSM client libraries and related files in Kubernetes.
 
 ## Customer Fragments
 
