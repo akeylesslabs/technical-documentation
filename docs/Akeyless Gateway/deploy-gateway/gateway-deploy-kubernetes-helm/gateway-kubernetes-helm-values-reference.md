@@ -10,7 +10,18 @@ metadata:
 next:
   description: ''
 ---
-## Cluster Name & URL
+Use this page to find Helm settings by deployment goal:
+
+| Goal | Section |
+| --- | --- |
+| Set cluster identity and login behavior | [Identity and Access Settings](#identity-and-access-settings) |
+| Configure transport security and trust | [Security Settings](#security-settings) |
+| Configure cache behavior and high availability | [Cache Settings](#cache-settings) |
+| Configure deployment runtime options | [Operational Settings](#operational-settings) |
+
+## Identity and Access Settings
+
+### Cluster Name & URL
 
 Each Gateway cluster is uniquely identified by combining the **Gateway Access ID** Authentication Method and the **Cluster Name**.
 
@@ -33,7 +44,7 @@ env:
     value: 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
-## Encryption Key
+### Encryption Key
 
 To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) to encrypt your Gateway configuration, you can provide the full path to your key using the following setting `configProtectionKeyName`.
 
@@ -43,7 +54,7 @@ By default, the Gateway configuration is encrypted with your account's default e
 >
 > This key can be determined on cluster deployment only, and **cannot** be modified afterward.
 
-### Customer Fragment
+#### Customer Fragment
 
 If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a Base64-encoded JSON that includes your **Customer Fragment**.
 
@@ -61,7 +72,9 @@ Add the secret to the `values.yaml` file:
 customerFragmentsExistingSecret: customer-fragment
 ```
 
-## TLS Configuration
+## Security Settings
+
+### TLS Configuration
 
 We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted in transit.
 Note that when you enable TLS, you must provide a TLS certificate and a corresponding TLS private key.
@@ -100,7 +113,7 @@ TLSConf:
 
 Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-certificate) using the web interface of the Gateway Configuration Manager.
 
-## OIDC Configuration
+### OIDC Configuration
 
 To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (if your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (`port 8000`) with the following URI suffix `/api/oidc-callback` (for example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
@@ -113,7 +126,9 @@ globalConfig:
 
 Once the Gateway is running, you can set the matching AccessID as your OIDC default login using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager)
 
-## Cache Configuration
+## Cache Settings
+
+### Cache Configuration
 
 To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly with the API.
 
@@ -179,7 +194,7 @@ To set a persistence volume you can set this with your [StorageClass](https://ku
 
 To control the cache settings, you can [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the Gateway Configuration Manager.
 
-### High Availability Cache
+#### High Availability Cache
 
 While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a with the `ReadWriteOnce` access mode.
 
@@ -281,7 +296,7 @@ Additionally, you can add topology spread constraint settings to control how pod
 
 To control the cache settings, you should [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache#/) using the Gateway Configuration Manager.
 
-### Cluster Cache Encryption Key & Offline Scale-Out
+#### Cluster Cache Encryption Key and Offline Scale-Out
 
 Kubernetes Secret–based encryption keys for Cluster Cache are used **only when offline scale-out mode is enabled**.
 
@@ -299,7 +314,9 @@ Accepted Values:
     * If not set, the Helm chart generates a new encryption key and stores it in a Kubernetes Secret.
     * **RBAC Requirement:** When `enableScaleOutOnDisconnectedMode: true`, the Gateway ServiceAccount must have permission to get Kubernetes Secrets in the namespace. Missing permissions will cause Gateway startup to fail with a forbidden: cannot get resource "secrets" error.
 
-## Working With Kubernetes Secrets
+## Operational Settings
+
+### Working with Kubernetes Secrets
 
 To provide the settings of your Gateway deployment directly from your local Kubernetes secrets store, you can set the following settings
 
@@ -318,7 +335,7 @@ encryptionKeyExistingSecret:
 
 More options for using K8s Secrets can be found directly within the chart values file.
 
-## Fixed Artifact Repository
+### Fixed Artifact Repository
 
 In some environments where an IP address must be whitelisted, to pull Akeyless official artifacts as part of your Gateway deployment, uncomment the `fixedArtifactRepository: "artifacts.site2.akeyless.io"` setting in your chart:
 
@@ -343,7 +360,7 @@ image:
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
 
-## Rate Limit
+### Rate Limit
 
 To set a local rate limit on your Gateway instance you can add the `GW_RATE_LIMIT` environment variable where the value will set the maximum calls per minute. When a client reaches that threshold, this will be logged and any additional requests during that minute will be discarded on the Gateway:
 
@@ -353,7 +370,7 @@ env:
     value: 4000
 ```
 
-## Custom CA
+### Custom CA
 
 The Gateway application supports uploading Self-Signed and Private Certificates to establish trust between Akeyless and the relevant endpoint. However, for some cases, a custom Certificate Authority for closed environments might be required to ensure the related service is trusted **before** the Gateway application starts, for example, a proxy server in front of the public Internet.
 
