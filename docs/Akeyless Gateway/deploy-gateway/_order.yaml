@@ -4,9 +4,4 @@
 - gateway-deploy-kubernetes-helm
 - gateway-kubernetes-helm-values-reference
 - gateway-cloud-platform-deployments
-- gateway-deploy-amazon-eks
-- gateway-deploy-azure-kubernetes-service
-- gateway-deploy-google-kubernetes-engine
 - gateway-cloud-serverless-deployments
-- gateway-deploy-serverless-aws
-- gateway-deploy-serverless-azure
