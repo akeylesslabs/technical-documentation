@@ -38,9 +38,14 @@ Choose one deployment model based on your platform and operating model:
 * Deploy Gateway in a trusted, dedicated environment. A dedicated runtime reduces lateral movement risk from unrelated workloads.
 * Restrict and audit access to the hosting environment, orchestration platform, and deployment pipelines.
 * Allow outbound HTTPS (`443`) from Gateway to the required Akeyless SaaS endpoints, as documented in [Akeyless SaaS core service connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity), [US SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-us), and [EU SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-eu).
-* Open `8000` only for internal client access.
+* Expose inbound ports according to the selected deployment model. For most Gateway deployments, `8000` is used for internal client access, but exact ingress requirements can differ by runtime and feature set.
+* Validate deployment-specific inbound port requirements in:
+    * [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart)
+    * [Install and Configure the Gateway](https://docs.akeyless.io/docs/install-and-configure-the-gateway)
+    * [Gateway with Docker Compose](https://docs.akeyless.io/docs/gateway-compose)
+    * [Gateway on Azure Container Apps](https://docs.akeyless.io/docs/gateway-on-azure-container-app)
 * Configure TLS at the ingress or load balancer layer at minimum. End-to-end TLS is recommended for strict environments.
-* Plan for additional egress requirements when using dynamic and rotated secrets against private targets.
+* Plan for additional egress requirements when connecting Gateway to private targets and integrations, including dynamic secrets, rotated secrets, Secure Remote Access (SRA), and certificate workflows.
 * Additional ports can be required in future deployments based on runtime features and target integration patterns.
 
 ### Image and versioning guidance
@@ -48,6 +53,7 @@ Choose one deployment model based on your platform and operating model:
 * If direct pulls from external repositories are restricted, use the Gateway image from Docker Hub: [akeyless/gateway](https://hub.docker.com/r/akeyless/gateway).
 * Use explicit image or package versions that match GA releases published in the [Akeyless changelog](https://changelog.akeyless.io/).
 * The Gateway container image is compatible with non-root runtime policies, including OpenShift-style controls.
+* Validate effective runtime user and group settings in your deployment policy. In Kubernetes, explicitly set `runAsNonRoot`, `runAsUser`, `runAsGroup`, and `fsGroup` according to your platform requirements.
 
 ## Platform-specific operational guidance
 
@@ -132,6 +138,23 @@ For on-premises deployments, use one of the following methods:
 * For Universal Secrets Connector (USC):
     * Grant `read` access to the target used by USC.
     * If secret sync is enabled, grant `read` and `list` permissions to the relevant secret paths.
+
+### Permission baseline by use case
+
+Use these minimum permission patterns as a starting point, and scope them to exact paths and targets per environment:
+
+* Core Gateway identity:
+    * Baseline permissions required for the deployed Gateway capabilities only.
+    * Reference: [RBAC](https://docs.akeyless.io/docs/rbac)
+* Audit forwarding Gateway:
+    * Audit Log permission with scope `all` on the dedicated forwarding Gateway.
+    * References: [Log forwarding configuration](https://docs.akeyless.io/docs/log-forwarding-configuration), [Audit Logs](https://docs.akeyless.io/docs/audit-logs)
+* USC-enabled Gateway:
+    * `read` on the USC target and `read` or `list` on synced secret paths.
+    * Reference: [Universal Secret Connector](https://docs.akeyless.io/docs/universal-secrets-connector)
+* Gateway administrative users:
+    * Assign only required Gateway access permissions per admin group.
+    * Reference: [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions)
 
 ## Gateway administrators
 
