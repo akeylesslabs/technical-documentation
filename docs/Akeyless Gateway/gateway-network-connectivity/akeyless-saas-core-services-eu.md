@@ -1,5 +1,6 @@
 ---
 title: EU SaaS Core Services
+excerpt: ''
 deprecated: false
 hidden: false
 link:

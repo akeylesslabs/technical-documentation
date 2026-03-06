@@ -1,5 +1,6 @@
 ---
 title: Gateway Network Connectivity
+excerpt: ''
 deprecated: false
 hidden: false
 link:
