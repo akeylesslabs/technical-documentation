@@ -1,7 +1,7 @@
 ---
 title: Akeyless SaaS Core Services
-deprecated: true
-hidden: true
+deprecated: false
+hidden: false
 link:
   new_tab: false
 metadata:
@@ -9,10 +9,6 @@ metadata:
   description: ''
   robots: index
 ---
-> ℹ️ **Note:**
->
-> This page has moved. Use <https://docs.akeyless.io/docs/gateway-network-connectivity>.
-
 The Akeyless Gateway is a stateless Docker container, provided as a standalone or as a cluster. To function correctly, it requires public network connectivity to the Akeyless SaaS core services (see the table below).
 
 A basic Gateway deployment requires a server with a Docker Engine installed. You may download the latest Docker Engine on [Docker website](https://docs.docker.com/get-docker/). You'll need public network access enabled on port 443 to pull a Docker image from the `hub.docker.com`.
