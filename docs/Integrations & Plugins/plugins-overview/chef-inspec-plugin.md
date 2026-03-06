@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Chef InSpec is an open-source framework for testing and auditing your applications and infrastructure. Chef InSpec works by comparing the actual state of your system with the desired state that you express in easy-to-read and easy-to-write Chef InSpec code. Chef InSpec detects violations and displays findings in the form of a report, but puts you in control of remediation.
+Chef InSpec is an open-source framework for testing and auditing your applications and infrastructure. Chef InSpec works by comparing the actual state of your system against the desired state you express in easy-to-read, easy-to-write Chef InSpec code. Chef InSpec detects violations and displays findings in a report, but puts you in control of remediation.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ An [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates)
    ssh <target_username>@<target_ssh_server>
    ```
 
-3. Setup `ssh-agent` and add SSH key public key to the agent:
+3. Set up `ssh-agent` and add the SSH key public key to the agent:
 
    ```shell
    eval `ssh-agent`
