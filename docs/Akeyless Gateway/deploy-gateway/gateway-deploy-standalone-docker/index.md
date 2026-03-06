@@ -11,8 +11,11 @@ next:
   description: ''
   pages:
     - type: basic
+      slug: gateway-docker-advanced-configuration
+      title: Gateway Docker Advanced Configuration
+    - type: basic
       slug: gateway-deploy-docker-compose
-      title: Advanced Configuration
+      title: Docker Compose Deployment
     - type: basic
       slug: gateway-deploy-kubernetes-helm
       title: Kubernetes with Helm Deployment

@@ -1,7 +1,5 @@
 - gateway-deploy-standalone-docker
 - gateway-deploy-docker-compose
-- gateway-docker-advanced-configuration
 - gateway-deploy-kubernetes-helm
-- gateway-kubernetes-helm-values-reference
 - gateway-cloud-platform-deployments
 - gateway-cloud-serverless-deployments

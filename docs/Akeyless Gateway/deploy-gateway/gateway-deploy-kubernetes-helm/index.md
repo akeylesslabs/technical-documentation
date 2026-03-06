@@ -9,6 +9,10 @@ metadata:
   robots: index
 next:
   description: ''
+  pages:
+    - type: basic
+      slug: gateway-kubernetes-helm-values-reference
+      title: Helm Values Reference
 ---
 Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway) to bootstrap the Akeyless Gateway deployment.
 
