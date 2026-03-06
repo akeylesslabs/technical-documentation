@@ -56,7 +56,7 @@ To upgrade your current Gateway version, simply restart the container using the 
 
 > ℹ️ **Note:** In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
 
-For further installation options, visit the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration) page.
+For further installation options, visit the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) page.
 
 ### Initial Configuration
 
