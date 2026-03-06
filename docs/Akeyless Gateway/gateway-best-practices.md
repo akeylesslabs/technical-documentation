@@ -27,7 +27,6 @@ Use this path for production deployments:
 Choose one deployment model based on your platform and operating model:
 
 * Kubernetes with Helm: [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart)
-* Kubernetes (legacy chart flow): [Gateway on K8s (Legacy)](https://docs.akeyless.io/docs/gateway-k8s)
 * Docker deployment: [Install and Configure the Gateway](https://docs.akeyless.io/docs/install-and-configure-the-gateway)
 * Docker Compose deployment: [Gateway with Docker Compose](https://docs.akeyless.io/docs/gateway-compose)
 * Serverless deployment: [Serverless Gateway](https://docs.akeyless.io/docs/serverless-gateway)
