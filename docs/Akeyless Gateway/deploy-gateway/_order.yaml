@@ -1,5 +1,6 @@
 - gateway-installation-quickstart-standalone-docker
 - gateway-installation-quickstart-docker-compose
+- gateway-docker-advanced-configuration
 - gateway-installation-quickstart-kubernetes-helm
 - gateway-kubernetes-helm-values-reference
 - gateway-cloud-platform-deployments
