@@ -16,33 +16,49 @@ next:
       title: Configure Gateway
       type: basic
 ---
-Akeyless offers a unique Gateway, which adds an extra level of protection between your **private network** and the cloud.
+Akeyless Gateway is a customer-hosted runtime component that sits between internal workloads and the Akeyless SaaS.
 
-Acting as a SaaS extension of our core services, our **stateless** Gateway enables transparent internal operation with a robust mechanism to ensure service continuity and recovery while you are not required to change any network infrastructure to work with your internal resources.
+In practice, the Gateway is a stateless service that receives requests from applications, authenticates and authorizes those requests, brokers access to Akeyless services, and enforces local controls such as TLS settings, caching, and forwarding rules.
 
-Our unique approach enables a variety of capabilities relying on our [DFC Encryption Technology](https://docs.akeyless.io/docs/dfc-overview). You can securely use [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [KMIP Server](https://docs.akeyless.io/docs/kmip-server), and more [Advanced Data Protection](https://docs.akeyless.io/docs/classic-keys) capabilities without exposing internal resources to the public network.
+This allows internal systems to consume Akeyless capabilities such as [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [KMIP Server](https://docs.akeyless.io/docs/kmip-server), and [Classic Keys](https://docs.akeyless.io/docs/classic-keys) without directly exposing internal resources to the public network.
+
+## What the Gateway Does
+
+The Gateway provides a local control plane and data path for secrets and encryption operations.
+
+Key responsibilities include:
+
+* Brokering requests from workloads to Akeyless APIs.
+* Enforcing local authentication and access behavior.
+* Managing local cache behavior for resilience during SaaS connectivity issues.
+* Applying local transport security and certificate trust settings.
+* Forwarding logs and telemetry into enterprise observability systems.
+
+## How It Fits in Your Architecture
+
+At a high level, workloads call the Gateway, and the Gateway communicates with Akeyless SaaS services over outbound connectivity.
+
+For SaaS service endpoint and connectivity requirements, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity).
 
 ## Deployment Models
 
 You can deploy Akeyless Gateway in several operating models, depending on your infrastructure and scaling requirements:
 
-* [Standalone Docker](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker)
-* [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose)
-* [Kubernetes with Helm](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
-* [Cloud-managed Kubernetes platforms](https://docs.akeyless.io/docs/gateway-cloud-platform-deployments)
-* [Serverless deployments](https://docs.akeyless.io/docs/gateway-cloud-serverless-deployments)
-
-For deployment planning and comparison details, see [Choose a Deployment Model](https://docs.akeyless.io/docs/deploy-gateway).
+* [Standalone Docker](https://docs.akeyless.io/docs/install-and-configure-the-gateway)
+* [Docker Compose](https://docs.akeyless.io/docs/gateway-compose)
+* [Kubernetes with Helm](https://docs.akeyless.io/docs/gateway-chart)
+* [Cloud-managed Kubernetes platforms](https://docs.akeyless.io/docs/gateway-k8s)
+* [Serverless deployments](https://docs.akeyless.io/docs/serverless-gateway)
 
 With this Gateway, Akeyless offers:
 
-* Live fallback for network connectivity issues: [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
+* Live fallback for network connectivity issues: [Gateway Network Connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity)
 
-* Service continuity through local in-memory caching and offline access patterns: [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching)
+* Service continuity through local in-memory caching and offline access patterns: [Gateway Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
 
-* Log forwarding to an existing SIEM server: [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
+* Log forwarding to an existing SIEM server: [Gateway Log Forwarding](https://docs.akeyless.io/docs/log-forwarding)
 
-* Zero-Knowledge encryption support: [Gateway Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge)
+* Zero-Knowledge encryption support: [Gateway Zero Knowledge](https://docs.akeyless.io/docs/zero-knowledge)
 
 ![Akeyless Gateway Architecture](https://files.readme.io/eaaa39e-Gateway_2.png)
 
