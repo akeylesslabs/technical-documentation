@@ -33,7 +33,7 @@ The following metrics are currently available:
 | `akeyless.gw.system.request_count` | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status |
 | `akeyless.gw.system.healthcheck.status` | Monitors container health check status |
 
-In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/gateway-log-forwarding) the Gateway application logs using **OTel**.
+In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/log-forwarding) the Gateway application logs using **OTel**.
 
 ## Datadog
 
