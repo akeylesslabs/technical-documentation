@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page provides recommended practices for deploying Akeyless Gateway across cloud and on-premises platforms.
+This page provides recommended practices for the Akeyless Gateway across cloud and on-premises platforms.
 
 ## Recommended deployment path
 
