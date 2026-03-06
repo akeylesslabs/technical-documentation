@@ -75,6 +75,109 @@ Apply these controls according to the selected platform:
     * Use workload identity where available instead of static long-lived secrets.
     * Enforce least-privilege egress and private networking controls.
 
+## Resource planning for Kubernetes proactive cache
+
+These recommendations apply to Kubernetes deployments where Gateway proactive cache is enabled.
+
+> ℹ️ **Note (Scope):**
+>
+> The sizing guidance in this section is focused on secret retrieval, caching, and delivery workloads. Large-scale encryption and decryption workloads require separate capacity planning with higher CPU allocation.
+
+For baseline Kubernetes controls, see [Platform-specific operational guidance](https://docs.akeyless.io/docs/gateway-best-practices#platform-specific-operational-guidance).
+
+### Cache architecture and behavior
+
+* Cluster cache allows Gateway pods to share cached data through Redis.
+* Proactive cache pre-fetches and refreshes eligible secrets to reduce read latency.
+* Startup and refresh behavior can temporarily increase CPU and memory consumption during warm-up windows.
+* For detailed cache behavior and failure modes, see [QA on Gateway Caching](https://docs.akeyless.io/docs/qa-on-gateway-caching).
+
+### Kubernetes cache-related configuration
+
+The following settings have direct resource impact in proactive cache environments:
+
+* `PREFER_CLUSTER_CACHE_FIRST`: Prioritizes cluster cache over local in-memory cache.
+* `CACHE_MAX_ITEMS`: Controls maximum number of proactive cache items in Gateway in-memory cache.
+* `IGNORE_REDIS_HEALTH`: Keeps `/health` returning `200 OK` even when Redis is unavailable.
+
+### Baseline sizing guidelines by item count
+
+The following baselines were collected from real Kubernetes environments and should be used as a starting point. Adjust based on observed traffic, item size distribution, and growth rate.
+
+Applicable baseline: Gateway `4.46.0` and later.
+
+#### How to use the sizing baselines
+
+Use the tables as directional capacity-planning input, not as guaranteed performance targets.
+
+* Treat each row as an initial sizing profile, then validate in your own environment.
+* Size for steady-state plus burst behavior, cache warm-up, and maintenance windows.
+* Recalculate limits and replica count as item count and request rate grow.
+* Validate with load testing before production rollout and after major configuration changes.
+
+#### Gateway pod sizing
+
+> ℹ️ **Note:**
+>
+> The values below are reference baselines, not SLA commitments. Workload shape, secret size distribution, and integration mix can change resource requirements.
+
+| Items | Pods | CPU Limit | CPU Request | Memory Limit | Memory Request |
+| --- | --- | --- | --- | --- | --- |
+| 1K | 2 | 0.5 | 0.5 | 512Mi | 128Mi |
+| 10K | 2-3 | 1.0 | 0.5 | 768Mi | 192Mi |
+| 20K | 3 | 1.2 | 0.5 | 1Gi | 256Mi |
+| 30K | 3-4 | 1.5 | 0.5 | 1Gi | 256Mi |
+| 50K | 4 | 1.5 | 1.0 | 1.25Gi | 320Mi |
+| 100K | 4-5 | 2.0 | 1.0 | 1.5Gi | 384Mi |
+| 500K | 6-8 | 2.5 | 1.0 | 2.5Gi | 640Mi |
+| 1M | 8-10 | 3.0 | 1.0 | 3.5Gi | 896Mi |
+| 2M | 10-12 | 3.5 | 1.5 | 5Gi | 1.25Gi |
+
+#### Cache pod sizing
+
+> ℹ️ **Note:**
+>
+> Cache pod sizing depends on cached item characteristics, auth and RBAC matrix size, and active client footprint. Validate with runtime telemetry.
+
+| Items | CPU Limit | CPU Request | Memory Limit | Memory Request |
+| --- | --- | --- | --- | --- |
+| 1K | 0.5 | 0.5 | 32Mi | 16Mi |
+| 10K | 0.5 | 0.5 | 64Mi | 32Mi |
+| 20K | 0.5 | 0.5 | 96Mi | 64Mi |
+| 30K | 0.5 | 0.5 | 128Mi | 96Mi |
+| 50K | 0.5 | 0.5 | 192Mi | 128Mi |
+| 100K | 0.5 | 0.5 | 256Mi | 192Mi |
+| 500K | 1.0 | 1.0 | 1Gi | 640Mi |
+| 1M | 1.0 | 1.0 | 1.5Gi | 1Gi |
+| 2M | 1.0 | 1.0 | 2.5Gi | 2Gi |
+
+### Operational recommendations
+
+* Run at least 2 Gateway pods for availability. For most production environments with proactive cache, 3-4 pods is a practical baseline.
+* Keep memory and CPU headroom above observed peaks to absorb cache warm-up, burst traffic, and maintenance operations.
+* A practical starting buffer is 125%-150% of observed peak utilization.
+* Set alerts before hard limits are reached:
+    * 70% utilization: trend review and scaling plan.
+    * 80% utilization: alert and capacity action window.
+    * 90% utilization: immediate resource or replica increase.
+
+### Key metrics to monitor for resource planning
+
+In addition to the observability metrics listed below, monitor:
+
+* Memory utilization against limits for Gateway and cache pods.
+* OOMKill events and restart rates.
+* CPU usage and throttling rates.
+* Gateway request rates, response latency, and error trends.
+* Cache growth trends correlated with item count growth.
+
+For full monitoring guidance and alerting context, see [Gateway observability](https://docs.akeyless.io/docs/gateway-best-practices#gateway-observability).
+
+For telemetry implementation details and metric export options, see:
+
+* [Telemetry metrics on Kubernetes](https://docs.akeyless.io/docs/telemetry-metrics-k8s)
+* [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics)
+
 ## Gateway application settings
 
 * A Gateway cluster identity is defined by the combination of Gateway authentication method `Access ID` and `clusterName`.
@@ -90,10 +193,9 @@ Apply these controls according to the selected platform:
 Account tenancy and SaaS environment selection affect multiple Gateway deployment decisions.
 
 * Network egress allow-lists must match the Akeyless SaaS endpoints of your account environment or region, as described in [Akeyless SaaS core service connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity), [US SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-us), and [EU SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-eu).
-* Gateway identity and cluster registration are tenant-scoped. The combination of `Access ID` and `clusterName` must be planned per account and environment.
-* Authentication methods and trust relationships (for example, cloud IAM and workload identity) must be configured in the same tenant boundary used by your Gateway.
-* Access roles, audit scope (`own` or `all`), and USC permissions (`read` and `list`) are enforced per tenant and should be reviewed per environment.
-* Audit forwarding, eventing, and alert routing should be separated per tenant or environment to avoid cross-environment operational ambiguity.
+* Keep identity and cluster naming tenant-aligned for each environment. For details, see [Gateway application settings](https://docs.akeyless.io/docs/gateway-best-practices#gateway-application-settings).
+* Keep trust relationships and permissions tenant-scoped. For details, see [Gateway authentication method](https://docs.akeyless.io/docs/gateway-best-practices#gateway-authentication-method) and [Gateway access role](https://docs.akeyless.io/docs/gateway-best-practices#gateway-access-role).
+* Keep monitoring, audit forwarding, and alert routing separated by tenant or environment. For details, see [Gateway observability](https://docs.akeyless.io/docs/gateway-best-practices#gateway-observability).
 
 ## Gateway authentication method
 
