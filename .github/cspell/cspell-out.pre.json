@@ -1,34 +1,13 @@
 {
-    "issues": [
-        {
-            "text": "Fizcko",
-            "offset": 921,
-            "line": {
-                "text": "* [Vault Interaction (Fizcko)](https://marketplace.visualstudio.com/items?itemName=Fizcko.azure-devops-vault-interaction)\n",
-                "offset": 899
-            },
-            "length": 6,
-            "isFlagged": false,
-            "isFound": false,
-            "row": 35,
-            "col": 23,
-            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/plugins-overview/azure-plugins/azure-devops-plugin.md",
-            "context": {
-                "text": "* [Vault Interaction (Fizcko)](https://marketplace.visualstudio.com/items?itemName=Fizcko.azure-devops-vault-interaction)\n",
-                "offset": 899
-            }
-        }
-    ],
+    "issues": [],
     "info": [],
     "debug": [],
     "error": [],
     "progress": [],
     "result": {
         "files": 481,
-        "filesWithIssues": [
-            "docs/Integrations & Plugins/plugins-overview/azure-plugins/azure-devops-plugin.md"
-        ],
-        "issues": 1,
+        "filesWithIssues": [],
+        "issues": 0,
         "errors": 0,
         "cachedFiles": 0,
         "skippedFiles": 0

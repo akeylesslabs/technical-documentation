@@ -32,7 +32,7 @@ The Desktop Application creates a tunnel to the designated resource and securely
 
 ## Installation Guide
 
-Download the relevant Desktop Application installer from (https://download.akeyless.io/Akeyless_Artifacts/).
+Download the relevant Desktop Application installer from (<https://download.akeyless.io/Akeyless_Artifacts/>).
 
 ### Windows Installation
 
@@ -63,7 +63,8 @@ Download the relevant Desktop Application installer from (https://download.akeyl
 > The installation folder contains the following:
 >
 1. **`config.json`** - The configuration file (contains the basic parameters required to launch the Desktop Application). This file can be deployed by an admin across the organization.
-> 2. **Logs** - Located at `Akeyless-desktop/logs`.
+>
+> 1. **Logs** - Located at `Akeyless-desktop/logs`.
 
 ## How It Works
 
