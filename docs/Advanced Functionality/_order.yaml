@@ -2,6 +2,7 @@
 - analytics
 - audit-logs
 - automatic-migration
+- copy-of-automatic-migration
 - akeyless-agent
 - best-practices
 - aws-best-practices
@@ -18,4 +19,3 @@
 - oidc-app-provider
 - request-access
 - security-appendices
-- copy-of-automatic-migration
