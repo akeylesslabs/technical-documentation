@@ -406,7 +406,6 @@
 /assoc-role-am -> /reference/assoc-role-am
 /reference/assocroleam -> /reference/assoc-role-am
 /reference/assoc-role-auth-method -> /reference/assoc-role-am
-
 /esm-get -> /reference/esmget
 /update-salesforce-target -> /reference/updatesalesforcetarget
 /gateway-migrate-personal-items -> /reference/gatewaymigratepersonalitems
@@ -553,3 +552,21 @@
 /docs/how-to-generate-access-id-and-access-key -> /docs/api-key
 /docs/web-access-on-k8s-advanced-configuration -> /docs/sra-web-access-on-k8s-adv-config
 /docs/remote-access-system-requirements -> /docs/remote-access-overview
+/docs/ansible-awx-plugin-secret-fetch-via-playbook-1 -> /docs/ansible-awx-plugin
+/docs/configure-1 -> /docs/configure-ldap-gateway-url-1
+/docs/customer-journey-scenarios-real-world-use-case-flows -> /docs/customer-journeys
+/docs/customer-use-case-access-request-via-sn -> /docs/access-requests-with-sn
+/docs/email -> /docs/auth-with-email
+/docs/api-key -> /docs/auth-with-api-key
+/docs/aws-iam -> /docs/auth-with-aws
+/docs/azure-ad -> /docs/auth-with-azure
+/docs/certificate-based-authentication -> /docs/auth-with-certificate
+/docs/gcp-auth-method -> /docs/auth-with-gcp
+/docs/kerberos -> /docs/auth-with-kerberos
+/docs/kubernetes-auth -> /docs/auth-with-kubernetes
+/docs/ldap -> /docs/auth-with-ldap
+/docs/oauth20jwt -> /docs/auth-with-oauth-jwt
+/docs/oci-iam -> /docs/auth-with-oci
+/docs/openid -> /docs/auth-with-oidc
+/docs/saml -> /docs/auth-with-saml
+/docs/universal-identity -> /docs/auth-with-universal-identity
