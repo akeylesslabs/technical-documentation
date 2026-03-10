@@ -99,13 +99,13 @@ Download the relevant Desktop Application installer from (<https://download.akey
     |  | SSH username and password | PuTTY | Specify port `2022`. |
     |  | SSH File Transfer | WinSCP | Note: File transfers for certificate-based targets have a known limitation and are currently not supported. |
     |  | PowerShell | PuTTY | PS tag should be configured on the secret item. |
-    |  | Direct Connection & Secure Remote Access | Default Browser |  |
+    |  | Direct Connection and Secure Remote Access | Default Browser |  |
     | **macOS** | MSSQL Server | Azure Data Studio |  |
     |  | Postgres DB | DBeaver |  |
     |  | RDP | Windows App |  |
     |  | SSH Cert Issuer | Terminal |  |
     |  | SSH username and password | Terminal |  |
-    |  | Direct Connection & Secure Remote Access | Default Browser |  |
+    |  | Direct Connection and Secure Remote Access | Default Browser |  |
     |  | SSH File Transfer (SFTP) | Terminal |  |
 
     > ⚠️ **Warning (Multiple hosts and linked targets):**
