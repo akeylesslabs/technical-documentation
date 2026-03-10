@@ -1,0 +1,114 @@
+{
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "mdFile",
+      "type": "promptString",
+      "description": "Markdown file path (for example: docs/Akeyless Gateway/gateway-network-connectivity/index.md)",
+      "default": "docs/Akeyless Gateway/gateway-network-connectivity/index.md"
+    }
+  ],
+  "tasks": [
+    {
+      "label": "Docs: Markdownlint Fix (file)",
+      "type": "shell",
+      "command": "npx",
+      "args": [
+        "markdownlint-cli2",
+        "--fix",
+        "--config",
+        ".github/markdownlint/.markdownlint-cli2.yaml",
+        "${input:mdFile}"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: Markdownlint Verify (file)",
+      "type": "shell",
+      "command": "npx",
+      "args": [
+        "markdownlint-cli2",
+        "--config",
+        ".github/markdownlint/.markdownlint-cli2.yaml",
+        "${input:mdFile}"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: CSpell (file)",
+      "type": "shell",
+      "command": "npx",
+      "args": [
+        "cspell",
+        "--config",
+        "cspell.config.yaml",
+        "--no-progress",
+        "${input:mdFile}"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: Lychee (file)",
+      "type": "shell",
+      "command": "lychee",
+      "args": [
+        "--verbose",
+        "--no-progress",
+        "--exclude-file",
+        ".github/lychee/.lycheeignore",
+        "--exclude-path",
+        ".github",
+        "--exclude-link-local",
+        "--exclude-loopback",
+        "--include-mail",
+        "${input:mdFile}"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: Link Check (token-aware)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".github/scripts/run-link-check-local.ps1"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: Link Check (token-aware, file)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".github/scripts/run-link-check-local.ps1",
+        "${input:mdFile}"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: Validate Edited File (full)",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Docs: Markdownlint Fix (file)",
+        "Docs: Markdownlint Verify (file)",
+        "Docs: CSpell (file)",
+        "Docs: Lychee (file)"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}
