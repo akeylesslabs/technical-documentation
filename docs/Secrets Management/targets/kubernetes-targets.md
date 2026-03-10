@@ -201,7 +201,7 @@ Where:
 
 * `k8s-client-key`: Kubernetes client private key (PEM format) in Base64, relevant only for `k8s-auth-type=certificate`
 
-Or using your [Gateway](https://docs.akeyless.io/docs/gateway-k8s) **Service Account**:
+Or using your [Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) **Service Account**:
 
 ```shell Gateway Service Account
 akeyless target create k8s \

@@ -10,19 +10,19 @@ metadata:
 next:
   description: ''
 ---
-The Kubernetes (K8s) Auth Method uses Kubernetes JWTs to authenticate the Kubernetes application (for example, a pod). Throughout the process, this Kubernetes JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
+The Kubernetes (K8s) Auth Method uses Kubernetes JWTs to authenticate the Kubernetes application (for example, a pod). Throughout the process, this Kubernetes JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
 
 ![Illustration for: The Kubernetes (K8s) Auth Method uses Kubernetes JWTs to authenticate the Kubernetes application (for example, a pod). Throughout the process, this Kubernetes JWT is…](https://files.readme.io/ecfb4eb-Akeyless_Rebranded_Infographics.png)
 
 ## Prerequisites
 
-* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the Kubernetes cluster.
+* [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with network access to the Kubernetes cluster.
 
 * Kubernetes v1.21 or later.
 
 > ℹ️ **Info (Required Gateway Access Permissions):**
 >
-> To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the Kubernetes Auth
+> To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) on your Gateway to manage the Kubernetes Auth
 
 ## Authentication Strategies
 
@@ -71,7 +71,7 @@ kubectl apply -f akl_gw_sa_token_reviewer.yaml
 
 ### Create Kubernetes Auth Method
 
-Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method, The result contains an `Access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
+Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method, The result contains an `Access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Gateway](https://docs.akeyless.io/docs/gateway-overview):
 
 ```shell
 akeyless auth-method create k8s -n my-k8s-auth-method --json
@@ -159,7 +159,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `k8s-auth-config-name`: The K8s auth config name in your [Gateway](https://docs.akeyless.io/docs/api-gw).
+* `k8s-auth-config-name`: The K8s auth config name in your [Gateway](https://docs.akeyless.io/docs/gateway-overview).
 
 Upon successful authentication, the response will be:
 

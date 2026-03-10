@@ -30,7 +30,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 | Service | Port |
 | --- | --- |
-| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 |
+| [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) | 8000 |
 | SSH Access | 22 |
 
 > ℹ️ **Note (First things first):**
@@ -144,7 +144,7 @@ akeylessGatewayAuth:
 
 `gatewayAccessType`: This is already set to `access_key` for API Key authentication.
 
-`gatewayCredentialsExistingSecret`: The value is already set to `akeyless-auth`. A Kubernetes Secret is **required** for the deployment. To create this, follow the steps described in [API Key Authentication in the Akeyless Gateway chart](https://docs.akeyless.io/docs/gateway-chart#api-key-authentication).
+`gatewayCredentialsExistingSecret`: The value is already set to `akeyless-auth`. A Kubernetes Secret is **required** for the deployment. To create this, follow the steps described in [API Key Authentication in the Akeyless Gateway chart](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#api-key-authentication).
 
 #### Gateway Section
 

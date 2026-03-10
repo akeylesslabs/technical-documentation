@@ -14,7 +14,7 @@ This page discusses the creation of Azure [Universal Secrets Connectors](https:/
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with **Read** permission on the target associated with the **USC**.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
 * Azure [Registered Application](https://learn.microsoft.com/en-us/security/zero-trust/develop/app-registration) with the [Key Vault Secrets Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role assigned. If you wish to work with Certificates, assign the [Certificate Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role.
 
 ## Working With Universal Secrets Connector from the Console

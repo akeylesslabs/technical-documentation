@@ -34,7 +34,7 @@ Akeyless supports centralized log management by allowing Audit Logs to be forwar
 
 A full list of the log servers to which logs can be forwarded can be found in this [guide](https://docs.akeyless.io/docs/gw-docker-log-forwarding).
 
-Setting the [Gateway](https://docs.akeyless.io/docs/api-gw) to forward the **Audit Logs** can be configured either during deployment or after the Gateway is deployed.
+Setting the [Gateway](https://docs.akeyless.io/docs/gateway-overview) to forward the **Audit Logs** can be configured either during deployment or after the Gateway is deployed.
 
 > ℹ️ **Note (Authorized Users):**
 >
