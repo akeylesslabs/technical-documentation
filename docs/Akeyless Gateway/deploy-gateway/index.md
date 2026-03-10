@@ -22,14 +22,14 @@ Akeyless Gateway supports self-managed runtime options, cloud-managed Kubernetes
 
 | Option | Type |
 | --- | --- |
-| [Standalone Docker Deployment](https://docs.akeyless.io/docs/install-and-configure-the-gateway) | Self-managed runtime |
-| [Docker Compose Deployment](https://docs.akeyless.io/docs/gateway-compose) | Self-managed runtime |
-| [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-chart) | Self-managed runtime |
-| [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-k8s#aws-iam) | Cloud-managed Kubernetes platform |
-| [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-k8s#azure-active-directory) | Cloud-managed Kubernetes platform |
-| [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-k8s#gcp) | Cloud-managed Kubernetes platform |
-| [AWS Serverless Deployment](https://docs.akeyless.io/docs/serverless-aws) | Cloud-managed serverless platform |
-| [Azure Serverless Deployment](https://docs.akeyless.io/docs/azure-serverless) | Cloud-managed serverless platform |
+| [Standalone Docker Deployment](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker) | Self-managed runtime |
+| [Docker Compose Deployment](https://docs.akeyless.io/docs/gateway-deploy-docker-compose) | Self-managed runtime |
+| [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) | Self-managed runtime |
+| [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-deploy-amazon-eks) | Cloud-managed Kubernetes platform |
+| [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-kubernetes-service) | Cloud-managed Kubernetes platform |
+| [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-deploy-google-kubernetes-engine) | Cloud-managed Kubernetes platform |
+| [AWS Serverless Deployment](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws) | Cloud-managed serverless platform |
+| [Azure Serverless Deployment](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure) | Cloud-managed serverless platform |
 
 ## Advantages and Disadvantages by Model
 
@@ -88,3 +88,9 @@ _Disadvantages:_
 * Service limitations compared to full Gateway deployments.
 * Platform-specific architecture and dependencies.
 * Operational behavior differs from long-running cluster/container deployments.
+
+## After Deployment
+
+* Configure runtime settings in [Configure Gateway](https://docs.akeyless.io/docs/configure-gateway).
+* Plan observability and incident response in [Operate Gateway](https://docs.akeyless.io/docs/operate-gateway).
+* Validate required egress paths in [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
