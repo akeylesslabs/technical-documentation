@@ -51,6 +51,7 @@ Use this style guide as permanent context for all documentation work in this rep
 * Never rename Markdown files without explicit user permission. Filename changes usually require redirect updates, and redirects must be planned and validated as part of the same change.
 * Preserve navigation structures and ordering files (for example, `_order.yaml`) when adding or updating pages.
 * `_order.yaml` controls the visible navigation order for pages and folders in its directory. When adding, removing, or renaming pages, update the corresponding `_order.yaml` entry set to keep navigation deterministic and complete.
+* When any file under `.github/workflows/` is added, removed, renamed, or materially changed, update `docs/Contributing Guides/workflows-reference.md` in the same change to keep the workflow inventory accurate.
 * Use descriptive headings and maintain proper heading hierarchy (`##`, `###`, and deeper levels).
 * Use absolute URLs for documentation links; do not use relative links.
 
