@@ -80,7 +80,7 @@ akeyless dynamic-secret update ping
 
 > ⚠️ **Warning:**
 >
-> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration):
+> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration):
 >
 > `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
 
@@ -149,7 +149,7 @@ The output should look as follows:
 
 > ⚠️ **Warning:**
 >
-> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration):
+> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration):
 >
 > `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
 

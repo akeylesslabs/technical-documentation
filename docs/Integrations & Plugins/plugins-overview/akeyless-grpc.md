@@ -16,7 +16,7 @@ To work with **gRPC** clients make sure your [Gateway](https://docs.akeyless.io/
 
 > ℹ️ **Note (Enabling gRPC):**
 >
-> gRPC is not enabled by default on Gateway, make sure to [enable](https://docs.akeyless.io/docs/advance-gw-docker-configuration#grpc) this as part of your Gateway deployment.
+> gRPC is not enabled by default on Gateway, make sure to [enable](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#grpc) this as part of your Gateway deployment.
 
 The following clients' libraries are currently supported:
 
