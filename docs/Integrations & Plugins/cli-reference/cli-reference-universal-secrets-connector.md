@@ -129,7 +129,7 @@ usc delete \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or Kubernetes targets) to get from the Universal Secrets Connector
+`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or Kubernetes targets) to delete from the Universal Secrets Connector
 
 `namespace`: The namespace (relevant for HashiCorp Vault target)
 
