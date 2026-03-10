@@ -24,7 +24,7 @@ jobs:
           TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
 
           # Safely replace all (doc:slug) links with full URLs
-          find . -type f -name "*.md" -print0 | \
+          find . -path './.github' -prune -o -type f -name "*.md" -print0 | \
             xargs -0 sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g'
 
           # Show the changes this run
@@ -53,6 +53,8 @@ jobs:
             args: >
             --verbose
             --no-progress
+            --max-retries 4
+            --retry-wait-time 5
             --exclude-file ".github/lychee/.lycheeignore"
             --exclude-path ".github"
             --exclude-link-local
@@ -185,6 +187,8 @@ jobs:
           args: >
             --verbose
             --no-progress
+            --max-retries 4
+            --retry-wait-time 5
             --exclude-file ".github/lychee/.lycheeignore"
             --exclude-path ".github"
             --exclude-link-local
