@@ -148,7 +148,18 @@ For on-premises deployments, use one of the following methods:
 
 ### Permission baseline by use case
 
-Use these minimum permission patterns as a starting point, and scope them to exact paths and targets per environment:
+Use this matrix as a working baseline for permission planning. Keep scopes limited to required paths and targets per environment.
+
+| Use case | Object type | Create | Read | Update | Delete | List | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Caching | Items |  | ✔️ |  |  | ✔️ | Read and list on cached paths only. |
+| Dynamic or rotated secrets | Items |  | ✔️ | ✔️ |  | ✔️ | Required for rotation status and value updates. |
+| Automatic migration | Items | ✔️ | ✔️ | ✔️ |  | ✔️ | Migration creates and updates destination items. |
+| Caching | Access Roles |  |  |  |  | ✔️ | List only for role resolution. |
+| Caching | Auth Methods |  |  |  |  | ✔️ | List only for auth method discovery. |
+| Dynamic or rotated secrets | Targets |  | ✔️ | ✔️ |  | ✔️ | Read, update, and list on relevant targets only. |
+
+Current guidance snapshots:
 
 * Core Gateway identity:
     * Baseline permissions required for the deployed Gateway capabilities only.
