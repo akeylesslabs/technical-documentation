@@ -39,7 +39,7 @@ jobs:
         run: |
           set -e
           TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          find . -type f -name "*.md" -print0 | \
+          find . -path './.github' -prune -o -type f -name "*.md" -print0 | \
             xargs -0 sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g'
 
           COUNT=$(grep -roF "(https://docs.akeyless.io/docs/" . --include="*.md" | wc -l)
@@ -50,10 +50,14 @@ jobs:
         id: lychee_discovery
         uses: lycheeverse/lychee-action@v2.0.2
         continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: >
             --verbose
             --no-progress
+            --max-retries 4
+            --retry-wait-time 5
             --exclude-file ".github/lychee/.lycheeignore"
             --exclude-path ".github"
             --exclude-link-local
@@ -74,7 +78,7 @@ jobs:
           import urllib.request
 
           root = pathlib.Path('.')
-          md_files = list(root.rglob('*.md'))
+          md_files = [p for p in root.rglob('*.md') if '.github' not in p.parts]
           docs_url_pattern = re.compile(r"https://docs\.akeyless\.io/docs/[^\s\)\]>\"']+")
 
           discovery_path = pathlib.Path('.github/lychee/lychee-discovery.md')
@@ -167,10 +171,14 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2.0.2
         continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: >
             --verbose
             --no-progress
+            --max-retries 4
+            --retry-wait-time 5
             --exclude-file ".github/lychee/.lycheeignore"
             --exclude-path ".github"
             --exclude-link-local
@@ -209,8 +217,8 @@ jobs:
       - name: Run CSpell (pre-fix)
         continue-on-error: true
         run: |
-          cspell "**/*.md" --config ./cspell.config.yaml --no-progress > .github/cspell/cspell-out.pre.txt || true
-          cspell "**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress > .github/cspell/cspell-out.pre.txt || true
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
             --reporter @cspell/cspell-json-reporter > .github/cspell/cspell-out.pre.json || true
 
       - name: Autofix misspellings (conservative)
@@ -224,8 +232,8 @@ jobs:
       - name: Run CSpell (post-fix)
         continue-on-error: true
         run: |
-          cspell "**/*.md" --config ./cspell.config.yaml --no-progress > .github/cspell/cspell-out.txt || true
-          cspell "**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress > .github/cspell/cspell-out.txt || true
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
             --reporter @cspell/cspell-json-reporter > .github/cspell/cspell-out.json || true
 
       - name: Capture CSpell summary
