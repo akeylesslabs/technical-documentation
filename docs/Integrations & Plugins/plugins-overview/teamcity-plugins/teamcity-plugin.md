@@ -65,11 +65,13 @@ Repository: [akeyless-community/teamcity-akeyless-plugin](https://github.com/ake
 * AWS IAM
 * Azure AD
 * GCP
-* Certificate
+* Certificate (Certificate Data or Certificate File Path)
 
 ## Use Secrets in Build Parameters
 
 Use the `akeyless:` prefix for remote secret parameters.
+
+The same parameter structure is used for static, dynamic, and rotated secrets.
 
 Example:
 
