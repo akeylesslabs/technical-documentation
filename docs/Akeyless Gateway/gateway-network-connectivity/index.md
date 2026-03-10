@@ -1,6 +1,6 @@
 ---
-title: Akeyless SaaS Core Services
-excerpt: ''
+title: Gateway Network Connectivity
+excerpt: 'Akeyless SaaS Core Services'
 deprecated: false
 hidden: false
 link:
