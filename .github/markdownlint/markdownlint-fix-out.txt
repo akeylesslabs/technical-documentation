@@ -1,4 +1,8 @@
 markdownlint-cli2 v0.21.0 (markdownlint v0.40.0)
 Finding: docs/**/*.md docs/**/*.md !docs/Contributing Guides/technical-documentation-style-guide/index.md
 Linting: 480 file(s)
-Summary: 0 error(s)
+Summary: 4 error(s)
+docs/Integrations & Plugins/plugins-overview/chef-inspec-plugin.md:62:1 error MD033/no-inline-html Inline HTML [Element: video]
+docs/Integrations & Plugins/plugins-overview/chef-inspec-plugin.md:63:3 error MD033/no-inline-html Inline HTML [Element: source]
+docs/Secure Remote Access/user-guides/remote-access-desktop-application-beta.md:102 error AKY009/no-ampersand-in-prose Disallow '&' in prose; configurable ignores for headings, code, bold spans, and URLs [Avoid using '&' in prose; rewrite using 'and' (ampersands may be allowed in suppressed contexts).] [Context: "|  | Direct Connection & Secure Remote Access | Default Browser |  |"]
+docs/Secure Remote Access/user-guides/remote-access-desktop-application-beta.md:108 error AKY009/no-ampersand-in-prose Disallow '&' in prose; configurable ignores for headings, code, bold spans, and URLs [Avoid using '&' in prose; rewrite using 'and' (ampersands may be allowed in suppressed contexts).] [Context: "|  | Direct Connection & Secure Remote Access | Default Browser |  |"]

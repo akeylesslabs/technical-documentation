@@ -1,12 +1,8 @@
 {
   "source_mode": "fallback-markdown-scan",
-  "total_urls_scanned": 557,
-  "redirect_mappings_found": 3,
-  "files_updated": 1,
-  "links_updated": 3,
-  "redirect_mappings": {
-    "https://docs.akeyless.io/docs/kerberos": "https://docs.akeyless.io/docs/auth-with-kerberos",
-    "https://docs.akeyless.io/docs/kubernetes-auth": "https://docs.akeyless.io/docs/auth-with-kubernetes",
-    "https://docs.akeyless.io/docs/ldap": "https://docs.akeyless.io/docs/auth-with-ldap"
-  }
+  "total_urls_scanned": 554,
+  "redirect_mappings_found": 0,
+  "files_updated": 0,
+  "links_updated": 0,
+  "redirect_mappings": {}
 }

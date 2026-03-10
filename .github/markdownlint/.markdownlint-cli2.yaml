@@ -7,6 +7,7 @@ customRules:
 
 # Excluded files
 ignores:
+  - .github/**/*.md
   - docs/Contributing Guides/technical-documentation-style-guide/index.md
 
 config:
@@ -642,17 +643,10 @@ config:
     allowed_elements:
       - "details"
       - "summary"
-      - "a"
-      - "p"
+      - "video"
+      - "source"
       - "svg"
       - "path"
-      # Table Elements
-      - "table"
-      - "thead"
-      - "th"
-      - "tbody"
-      - "tr"
-      - "td"
       # ReadMe Proprietary
       - "HTMLBlock"
       - "Image"
