@@ -283,3 +283,9 @@ env:
 ## Metric Tag Configuration
 
 You can add tags to metrics using OpenTelemetry semantic conventions. For mapping details, see [Datadog OpenTelemetry semantic mapping](https://docs.datadoghq.com/opentelemetry/mapping/semantic_mapping/?tab=datadogexporter#metrics-attribute-mapping).
+
+## Related Pages
+
+* [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
+* [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
+* [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
