@@ -30,7 +30,7 @@ The following metrics are currently available:
 | `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity (`ADMIN_ACCESS_ID`) |
 | `akeyless.gw.quota.total_transactions_limit` | Total transaction limit per hour in the account |
 | `akeyless.gw.system.http_response_status_code` | Status of HTTP response for any request that originates from the Gateway API. |
-| `akeyless.gw.system.request_count` | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status |
+| `akeyless.gw.system.request_count` | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status) |
 | `akeyless.gw.system.healthcheck.status` | Monitors container health check status |
 
 ## Health and Connection Status Values
@@ -44,6 +44,27 @@ Use the values below when building dashboards and alerts:
 
 * `1` = healthy/connected
 * `0` = unhealthy/not connected
+
+### What Each Metric Checks
+
+* `akeyless.gw.system.saas.connection_status`: Checks connectivity from each Gateway pod to Akeyless SaaS backend services.
+* `akeyless.gw.system.healthcheck.status`: Checks connectivity from each Gateway pod to the local cache service (Redis/Supersonic cache).
+
+These are per-pod metrics. They are not replica counters.
+
+### Replica Scaling Behavior
+
+When you scale from 2 replicas to 1 replica, a healthy remaining pod still reports `1`.
+
+The removed pod stops exposing metrics, so its time series becomes stale. This behavior does not mean the metric is stuck.
+
+For replica-count alerts, use Kubernetes metrics such as `kube_deployment_status_replicas_available`.
+
+### HTTP Response Metric Behavior
+
+`akeyless.gw.system.http_response_status_code` is a counter with status-code labels.
+
+Use `rate()` or `increase()` in PromQL for alerting and dashboard calculations, rather than using raw counter values.
 
 In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/gw-docker-log-forwarding) the Gateway application logs using **OTel**.
 
