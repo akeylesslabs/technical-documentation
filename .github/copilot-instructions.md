@@ -66,7 +66,11 @@ Use this style guide as permanent context for all documentation work in this rep
       Code 2.
       ```
 * Run validation only against edited Markdown pages, not the full repository, unless explicitly requested.
-* When any Markdown file is edited, run markdownlint CLI against each edited file before finalizing:
+* For local validation in VS Code, use workspace tasks in `.vscode/tasks.json` as the default path instead of running validator commands/scripts directly:
+
+    * `Docs: Validate Edited File (full)` to run markdownlint (`--fix` and verify), cspell, and lychee for one file.
+    * `Docs: Link Check (token-aware)` or `Docs: Link Check (token-aware, file)` for token-aware lychee checks that reduce GitHub rate-limit noise.
+* Use direct CLI commands only as a fallback when tasks cannot be run. When needed, run markdownlint against each edited file before finalizing:
 
     * `npx markdownlint-cli2 --fix --config .github/markdownlint/.markdownlint-cli2.yaml "<edited-file>.md"`
     * Then verify with: `npx markdownlint-cli2 --config .github/markdownlint/.markdownlint-cli2.yaml "<edited-file>.md"`
