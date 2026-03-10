@@ -14,7 +14,7 @@ To create a Gemini target with the CLI, run the following command:
 ```shell
 akeyless target create gemini \
 --name <target name> \
---api-key < Gemini API key> \
+--api-key <Gemini API key> \
 --gemini-url <Gemini API base URL>
 ```
 
@@ -24,7 +24,9 @@ Where:
 
 * `api-key`: The Gemini API Key.
 
-* `gemini-url`: The Gemini API base URL, for using the AI Insights, set: `https://generativelanguage.googleapis.com/v1beta/openai/`
+* `gemini-url`: The Gemini API base URL. Default: `https://generativelanguage.googleapis.com`
+
+   For AI Insights, you can also use the OpenAI-compatible Gemini endpoint: `https://generativelanguage.googleapis.com/v1beta/openai`
 
 ## Create a Gemini Target in the Console
 
@@ -37,6 +39,8 @@ Where:
 
 4. Define the remaining parameters as follows:
 
-   * **API Key:** The Gemini API Key.
+    * **API Key:** The Gemini API Key.
 
-   * **Gemini URL:** The endpoint for the Gemini API - `https://generativelanguage.googleapis.com/v1beta/openai/`
+    * **Gemini URL:** The endpoint for the Gemini API. Default: `https://generativelanguage.googleapis.com`
+
+       For AI Insights, you can also use the OpenAI-compatible Gemini endpoint: `https://generativelanguage.googleapis.com/v1beta/openai`
