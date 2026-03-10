@@ -187,15 +187,6 @@ For telemetry implementation details and metric export options, see:
 * Evaluate [Gateway cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) modes for continuity and latency requirements.
 * Review advanced deployment options for your selected runtime before production rollout.
 
-## Tenancy considerations
-
-Account tenancy and SaaS environment selection affect multiple Gateway deployment decisions.
-
-* Network egress allow-lists must match the Akeyless SaaS endpoints of your account environment or region, as described in [Akeyless SaaS core service connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity), [US SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-us), and [EU SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-eu).
-* Keep identity and cluster naming tenant-aligned for each environment. For details, see [Gateway application settings](https://docs.akeyless.io/docs/gateway-best-practices#gateway-application-settings).
-* Keep trust relationships and permissions tenant-scoped. For details, see [Gateway authentication method](https://docs.akeyless.io/docs/gateway-best-practices#gateway-authentication-method) and [Gateway access role](https://docs.akeyless.io/docs/gateway-best-practices#gateway-access-role).
-* Keep monitoring, audit forwarding, and alert routing separated by tenant or environment. For details, see [Gateway observability](https://docs.akeyless.io/docs/gateway-best-practices#gateway-observability).
-
 ## Gateway authentication method
 
 Gateway requires an identity to communicate with the Akeyless identity security platform for non-interactive operations, such as secret rotation and revocation workflows.
