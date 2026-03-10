@@ -51,6 +51,7 @@ Use this style guide as permanent context for all documentation work in this rep
 * Never rename Markdown files without explicit user permission. Filename changes usually require redirect updates, and redirects must be planned and validated as part of the same change.
 * Preserve navigation structures and ordering files (for example, `_order.yaml`) when adding or updating pages.
 * `_order.yaml` controls the visible navigation order for pages and folders in its directory. When adding, removing, or renaming pages, update the corresponding `_order.yaml` entry set to keep navigation deterministic and complete.
+* When any file under `.github/workflows/` is added, removed, renamed, or materially changed, update `docs/Contributing Guides/workflows-reference.md` in the same change to keep the workflow inventory accurate.
 * Use descriptive headings and maintain proper heading hierarchy (`##`, `###`, and deeper levels).
 * Use absolute URLs for documentation links; do not use relative links.
 
@@ -66,7 +67,11 @@ Use this style guide as permanent context for all documentation work in this rep
       Code 2.
       ```
 * Run validation only against edited Markdown pages, not the full repository, unless explicitly requested.
-* When any Markdown file is edited, run markdownlint CLI against each edited file before finalizing:
+* For local validation in VS Code, use workspace tasks in `.vscode/tasks.json` as the default path instead of running validator commands/scripts directly:
+
+    * `Docs: Validate Edited File (full)` to run markdownlint (`--fix` and verify), cspell, and lychee for one file.
+    * `Docs: Link Check (token-aware)` or `Docs: Link Check (token-aware, file)` for token-aware lychee checks that reduce GitHub rate-limit noise.
+* Use direct CLI commands only as a fallback when tasks cannot be run. When needed, run markdownlint against each edited file before finalizing:
 
     * `npx markdownlint-cli2 --fix --config .github/markdownlint/.markdownlint-cli2.yaml "<edited-file>.md"`
     * Then verify with: `npx markdownlint-cli2 --config .github/markdownlint/.markdownlint-cli2.yaml "<edited-file>.md"`
