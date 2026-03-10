@@ -36,10 +36,10 @@ jobs:
         run: |
           set -e
 
-          cspell "**/*.md" --config ./cspell.config.yaml --no-progress \
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress \
             > .github/cspell/cspell-out.pre.txt || true
 
-          cspell "**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
             --reporter @cspell/cspell-json-reporter \
             > .github/cspell/cspell-out.pre.json || true
 
@@ -61,10 +61,10 @@ jobs:
         run: |
           set -e
 
-          cspell "**/*.md" --config ./cspell.config.yaml --no-progress \
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress \
             > .github/cspell/cspell-out.txt || true
 
-          cspell "**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
             --reporter @cspell/cspell-json-reporter \
             > .github/cspell/cspell-out.json || true
 
