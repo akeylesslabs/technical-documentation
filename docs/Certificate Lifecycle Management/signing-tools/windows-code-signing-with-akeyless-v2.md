@@ -9,9 +9,39 @@ This guide provides step-by-step instructions to set up code signing using Akeyl
 
 ## Prerequisites
 
-* Akeyless CLI installed and authenticated.
+* A Windows environment with `signtool` and `certutil` installed and available in `PATH`.
+* A DLL artifact file to sign.
+* Akeyless CLI installed and authenticated, with permission to create keys in your target folder.
+* An API Key auth method for the SignTool plugin, with read permissions on your target folder.
 * Administrator privileges on the Windows machine.
-* Replace placeholder paths (`/YourCompany/)` with your organization-specific paths.
+* Replace placeholder paths (for example, `/YourCompany/`) with your organization-specific paths.
+
+### Expected Flow
+
+* Use Akeyless CLI to generate a Certificate Signing Request (CSR) from a newly generated DFC (RSA) key.
+* Issue the certificate from your CA with code-signing constraints.
+* Use the issued certificate that is generated and stored by Akeyless under your issuer destination path, then sync it to the Windows Certificate Store through the Akeyless KSP helper.
+
+### Suggested Environment Variables
+
+```powershell
+$env:msi = "C:\Path\To\AkeylessKspInstaller.msi"
+$env:prov = "Akeyless KSP"
+$env:helper = "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"
+$env:AKEYLESS_SQLCRYPT_CONFIG_PATH = "C:\Akeyless\conf\sqlcrypt.conf"
+$env:configFile = $env:AKEYLESS_SQLCRYPT_CONFIG_PATH
+$env:logInstall = "C:\Akeyless\logs\AkeylessKspInstall.log"
+$env:logUninst = "C:\Akeyless\logs\AkeylessKspUninstall.log"
+$env:file = "C:\Temp\test_app.dll"
+$env:DLL_Signer_key = "/YourCompany/code-signing/root-key"
+$env:Cert_Signer_Key = "/YourCompany/code-signing/signing-key"
+$env:PKI_DLL_Issuer = "/YourCompany/code-signing/pki-issuer"
+$env:Cert_destination_path = "/YourCompany/code-signing"
+$env:Root_Key_Cert_Path = ".\\root-ca.pem"
+$env:Common_Name = "code.sign.example.com"
+$env:CSR_File = ".\\signing.csr"
+$env:CERT_File = ".\\signing.pem"
+```
 
 ## Part 1: Create Secrets and Issue Code-Signing Certificate
 
@@ -24,12 +54,13 @@ akeyless create-dfc-key \
   --profile default \
   --name /YourCompany/code-signing/root-key \
   --alg RSA2048 \
-  --split-level 2 \
+  --split-level 3 \
+  --certificate-common-name code.sign.example.com \
   --certificate-ttl 30 \
   --generate-self-signed-certificate true
 ```
 
-* [https://docs.akeyless.io/reference/createdfckey](https://docs.akeyless.io/reference/createdfckey)
+[Read more about the create-dfc-key command.](https://docs.akeyless.io/reference/createdfckey)
 
 ### Create 4096-bit Key and Generate CSR
 
@@ -46,7 +77,7 @@ akeyless generate-csr \
   --common-name code.sign.example.com | Out-File -Encoding ascii signing.csr
 ```
 
-* [https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-signing-request](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-signing-request)
+[Read more about Creating a Certificate Signing Request](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-signing-request)
 
 ### Create PKI Certificate Issuer
 
@@ -59,11 +90,13 @@ akeyless create-pki-cert-issuer \
   --allowed-domains code.sign.example.com \
   --signer-key-name /YourCompany/code-signing/root-key \
   --code-signing-flag \
+  --key-usage DigitalSignature \
+  --critical-key-usage true \
   --ttl 600d \
   --destination-path /YourCompany/code-signing
 ```
 
-* [https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-issuer)
+[Read more about Creating a Certificate Issuer.](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-issuer)
 
 ### Issue the 4096-bit Certificate
 
@@ -73,12 +106,12 @@ Sign the CSR generated in step 2.
 akeyless get-pki-certificate \
   --profile default \
   --cert-issuer-name /YourCompany/code-signing/pki-issuer \
+  --extended-key-usage codesigning \
   --csr-file-path signing.csr \
-  -e codesigning \
   > signing.pem
 ```
 
-* [https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#issuing-a-certificate](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#issuing-a-certificate)
+[Read more about Issuing a Certificate.](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#issuing-a-certificate)
 
 ## Part 2: Akeyless KSP Installation and Configuration
 
@@ -86,21 +119,25 @@ akeyless get-pki-certificate \
 
 Create a file named `sqlcrypt.conf` in a persistent location (`C:\Akeyless\conf\sqlcrypt.conf`).
 
-```shell
-akeyless_url = "https://gw-aws.lm.cs.akeyless.fans/api/v2"
+```shell sqlcrypt.conf
+akeyless_url = "https://<your-akeyless-gateway-url>/api/v2"
 base_item_path = "/YourCompany/"
-log_path = ""
+log_level = "debug"
 use_classic_keys = false
 
 [ksp]
 signing_key_item = "/YourCompany/code-signing/signing-key"
-signing_cert_item = "/YourCompany/code-signing/signing-cert"
+signing_cert_item = "/YourCompany/code-signing/code.sign.example.com"
 
 [auth]
 access_type = "access_key"
 access_id = "YOUR_ACCESS_ID"
 access_key = "YOUR_ACCESS_KEY"
 ```
+
+Set `signing_cert_item` to the generated certificate item path.
+By default, Akeyless stores issued certificates as:
+`<destination-path>/<common-name>` (or `<destination-path>/<serial-number>` if Common Name is empty).
 
 ### Set Environment Variable (Mandatory)
 
@@ -140,7 +177,7 @@ Start-Process -FilePath "msiexec.exe" -Verb RunAs -Wait -ArgumentList @(
 $LASTEXITCODE
 ```
 
-Reboot the machine now to register the provider.
+Reboot the machine now to register the provider. **Important:** After reboot, session-level PowerShell environment variables may no longer be set. Re-define them before continuing.
 
 ### Verify Installation
 
@@ -159,6 +196,9 @@ The helper tool downloads the certificate from Akeyless and binds it to the KSP 
 
 ```shell
 $helper = "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"
+& $helper --config-path $env:AKEYLESS_SQLCRYPT_CONFIG_PATH sync-cert --dry-run
+
+# If dry-run looks correct, sync to LocalMachine\My
 & $helper --config-path $env:AKEYLESS_SQLCRYPT_CONFIG_PATH sync-cert --store-scope machine --store-name My
 ```
 
@@ -167,7 +207,12 @@ $helper = "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"
 Ensure the certificate is present and linked to "Akeyless KSP".
 
 ```shell
-$thumb = (Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.Subject -like "*code.sign.example.com*" }).Thumbprint
+$thumb = (
+  Get-ChildItem Cert:\LocalMachine\My |
+  Where-Object { $_.Subject -like "*code.sign.example.com*" -and $_.HasPrivateKey } |
+  Sort-Object NotAfter |
+  Select-Object -Last 1 -ExpandProperty Thumbprint
+)
 certutil -store -v My $thumb | findstr /i "Provider Container"
 # Expected Output: Provider = Akeyless KSP
 ```
@@ -181,34 +226,35 @@ signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 /tr "http://timestamp.
 
 ### Establish Trust (Import Root CA)
 
-```shell
-$file = "C:\Temp\test_app.dll"
-signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 /tr "http://timestamp.digicert.com" /td SHA256 $file
-```
-
 If `signtool verify` fails because the chain is untrusted, you must import the Root CA used in Part 1.
 
-Step A: Retrieve the Root CA Get the public certificate of the root key you created earlier.
+Step A: Retrieve the Root CA certificate.
 
 ```shell
-akeyless get-certificate-value \
-  --name /YourCompany/code-signing/root-key \
-  --certificate-file-output root-ca.pem
+$rootCertRaw = (akeyless describe-item --name /YourCompany/code-signing/root-key --json | ConvertFrom-Json).certificates
+try {
+  [System.IO.File]::WriteAllBytes(".\root-ca.pem", [System.Convert]::FromBase64String($rootCertRaw))
+} catch {
+  $rootCertRaw | Out-File -Encoding ascii .\root-ca.pem
+}
 ```
 
-* [https://docs.akeyless.io/docs/auth-with-certificate?isFramePreview=true](https://docs.akeyless.io/docs/auth-with-certificate?isFramePreview=true)
-
-Step B: Import into Trusted Root Store Run this in Elevated PowerShell on the signing machine (or any machine verifying the signature).
+Optional validation:
 
 ```shell
-Import-Certificate -FilePath .\root-ca.pem -CertStoreLocation Cert:\LocalMachine\Root
+certutil -dump .\root-ca.pem
 ```
 
-* [https://learn.microsoft.com/en-us/powershell/module/pki/import-certificate?view=windowsserver2025-ps](https://learn.microsoft.com/en-us/powershell/module/pki/import-certificate?view=windowsserver2025-ps)
+Step B: Import into Trusted Root Store.
+
+```shell
+certutil -addstore -f "Root" .\root-ca.pem
+```
 
 Step C: Verify Chain
 
 ```shell
+Get-AuthenticodeSignature $file
 signtool verify /pa /v $file
 ```
 
@@ -225,7 +271,12 @@ New-Item -ItemType Directory -Force -Path $logDir | Out-Null
 $logUninst = Join-Path $logDir "AkeylessKspUninstall.log"
 
 # Find Product Code
-$app = Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" | 
+$uninstRoots = @(
+  "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
+  "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
+)
+
+$app = Get-ChildItem $uninstRoots | 
        ForEach-Object { Get-ItemProperty $_.PSPath } | 
        Where-Object { $_.DisplayName -like "Akeyless KSP*" } | Select-Object -First 1
 

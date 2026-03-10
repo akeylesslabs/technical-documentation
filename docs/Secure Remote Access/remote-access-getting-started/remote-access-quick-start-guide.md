@@ -39,9 +39,9 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 ## Create Your Authentication Method
 
-> ℹ️ **Note (Authentication):**
->
-> For the purposes of this guide, we are using an API Key. However, for security reasons, it is advised to use a more secure [authentication method](https://docs.akeyless.io/docs/access-and-authentication-methods).
+For this guide, API key authentication is used for simplicity.
+
+<ApiKeyWarning />
 
 To create your API Key follow the below CLI commands:
 
@@ -164,14 +164,16 @@ sra:
     replicaCount: 1
 
     config:
-      CAPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAPzDVmeABzsGd0lEl9m2fdgmCzOLVmEGcLxNkn..."
+         CAPublicKey: |
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAPzDVmeABzsGd0lEl9m2fdgmCzOLVmEGcLxNkn...
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD9SkmW9Ay7YwWQk9o3r6a4qQ7pI2Yw1M...
 ```
 
 To configure Remote Access, follow these steps:
 
 `sra`: Set the `enabled` field to `true`. Note that the Remote Access deployment creates two more pods in the cluster, one for Web and one for SSH.
 
-`CAPublicKey`: For this to work properly, you are also required to provide the matching public key of the key you used to create the SSH Certificate Issuer in Akeyless. More info can be found [here](https://docs.akeyless.io/docs/ssh-certificates). Add the `ssh-rsa` value.
+`CAPublicKey`: For this to work properly, you are also required to provide the matching public key of the key you used to create the SSH Certificate Issuer in Akeyless. You can provide one or more CA public keys. More info can be found [here](https://docs.akeyless.io/docs/ssh-certificates). Add each `ssh-rsa` value on a new line.
 
 ## Deployment
 

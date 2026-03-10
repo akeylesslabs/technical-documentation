@@ -1,5 +1,8 @@
 name: CLI Command Heading Case
 
+permissions:
+  contents: read
+
 on:
   pull_request:
     paths:
