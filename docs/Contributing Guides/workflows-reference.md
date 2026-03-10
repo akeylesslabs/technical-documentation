@@ -2,7 +2,7 @@
 title: GitHub Workflows Reference
 excerpt: ''
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
