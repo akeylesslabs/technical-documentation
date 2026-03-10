@@ -10,11 +10,9 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** or **Prometheus**. You can find a full list of supported endpoints on the official page of the Open Telemetry [project](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
+Akeyless Gateway telemetry metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** and **Prometheus**. You can find a full list of supported exporters on the [OpenTelemetry Collector Contrib exporter page](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
 
-The Telemetry Metrics are based on time series telemetry data metrics from the application and the runtime environment, storing them in a unique database or index, and analyzing data trends over time.
-
-The metrics visualization uses a pre-made or custom dashboard (Grafana Marketplace dashboard, Datadog integration dashboard, and so on).
+Telemetry metrics are time-series signals from the Gateway application and runtime environment, used for dashboards, alerting, and trend analysis.
 
 The following metrics are currently available:
 
@@ -25,53 +23,66 @@ The following metrics are currently available:
 | `akeyless.gw.system.load.*` | CPU load metrics |
 | `akeyless.gw.system.memory.*` | Memory utilization metrics |
 | `akeyless.gw.system.network.*` | Network interface I/O metrics and TCP connection metrics |
-| `akeyless.gw.system.saas.connection_status` | Monitor the connection of the Gateway with all Akeyless SaaS services. |
-| `akeyless.gw.quota.current_transactions_number` | The current total transaction count in the account |
-| `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity (`ADMIN_ACCESS_ID`) |
+| `akeyless.gw.system.saas.connection_status` | Monitor Gateway connectivity to Akeyless SaaS services. |
+| `akeyless.gw.quota.current_transactions_number` | Current total transaction count in the account |
+| `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity |
 | `akeyless.gw.quota.total_transactions_limit` | Total transaction limit per hour in the account |
-| `akeyless.gw.system.http_response_status_code` | Status of HTTP response for any request that originates from the Gateway API. |
-| `akeyless.gw.system.request_count` | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status |
-| `akeyless.gw.system.healthcheck.status` | Monitors container health check status |
+| `akeyless.gw.system.http_response_status_code` | HTTP response status codes for requests served by the Gateway API |
+| `akeyless.gw.system.request_count` | Total requests issued directly against the Gateway API |
+| `akeyless.gw.system.healthcheck.status` | Container health check status |
 
-In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/log-forwarding) the Gateway application logs using **OTel**.
+## Health and Connection Status Values
 
-## Datadog
+The following metrics are numeric status metrics:
 
-To enable Telemetry Metrics on your Gateway for Datadog, set the `ENABLE_METRICS=true` variable and mount the Telemetry config file, such as `otel-config.yaml`, as described below:
+* `akeyless.gw.system.healthcheck.status`
+* `akeyless.gw.system.saas.connection_status`
+
+Use the values below when building dashboards and alerts:
+
+* `1` = healthy/connected
+* `0` = unhealthy/not connected
+
+In addition to these metrics, Gateway application logs can be forwarded through OpenTelemetry.
+
+## Datadog (Docker)
+
+To enable telemetry metrics on Docker for Datadog, set `ENABLE_METRICS=true` and mount an OpenTelemetry config file such as `otel-config.yaml`.
 
 ```yaml otel-config.yaml
 exporters:
   datadog:
     api:
       key: "<Datadog API key>"
-      site: datadoghq.eu # optional. default to Datadog US site when missing site
+      site: datadoghq.eu # optional. defaults to Datadog US when omitted
 service:
   pipelines:
     metrics:
       exporters: [datadog]
 ```
 
-Set the relevant `API Key` of your **Datadog** server, and set the relevant site. If your Datadog server is running in the `EU` site, add site: `datadoghq.eu`. By default it is set to the `US` site.
-
 ```shell
-docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 \
+  -e GATEWAY_ACCESS_ID="Access-id" \
+  -e GATEWAY_ACCESS_KEY="Access-key" \
+  -e ENABLE_METRICS="true" \
+  -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml \
+  --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-Alternatively, you can use an environment variable `METRICS_CONFIG_BASE64` to provide those settings in Base64, for example: `base64 -w 0 otel-config.yaml`.
+Alternatively, use `METRICS_CONFIG_BASE64` with a Base64-encoded OpenTelemetry config.
 
 ### Dashboard Setup
 
-Akeyless is an official Datadog Partner and our dashboard can be found inside the Datadog app.
+Akeyless is an official Datadog Partner and the dashboard is available in Datadog Integrations.
 
-* Go directly to your Datadog account and click on **Integrations** --> **Integrations**. Then choose **Akeyless Gateway** from the list of Integrations and click the **Install Integration** button.
+* In Datadog, go to **Integrations** and install **Akeyless Gateway**.
+* Go to **Dashboards** and open the **Akeyless GW** dashboard.
+* Use **Metrics Explorer** and filter by `akeyless.gw` for additional metrics.
 
-* Once installed, go to **Dashboards** --> **Dashboard List** and choose the **Akeyless GW** Dashboard that was installed.
+## Prometheus (Docker)
 
-* If your Gateway metrics are up and running properly, you will see your Gateway metrics in the **Akeyless GW** dashboard. You can also go to the **Metrics Explorer** to see more metrics to add to the Dashboard by filtering for `akeyless.gw`.
-
-## Prometheus
-
-To enable Telemetry Metrics on your Gateway for Prometheus, set the `ENABLE_METRICS=true` variable, expose the port `8889` (or any other port) for Prometheus scraping, and mount the Telemetry config file, that is, `otel-config.yaml` for the **Prometheus Exporter** as described below:
+To enable telemetry metrics on Docker for Prometheus, set `ENABLE_METRICS=true`, expose port `8889` (or another exporter port), and mount `otel-config.yaml`.
 
 ```yaml Prometheus Exporter
 exporters:
@@ -83,66 +94,140 @@ service:
       exporters: [prometheus]
 ```
 
-Add a scraping target for the Akeyless Gateway container in the **Prometheus** config file and restart your Prometheus server.
+Add a scraping target for the Gateway container in Prometheus:
 
 ```yaml Prometheus Scraping
 scrape_configs:
   - job_name: 'akeyless'
     scrape_interval: 10s
     static_configs:
-    # docker for linux
-      - targets: ['localhost:8889'] # for docker on macOS use['host.docker.internal:8889']
+      # docker on linux
+      - targets: ['localhost:8889']
+      # docker on macOS
+      # - targets: ['host.docker.internal:8889']
 ```
 
-Run the Gateway installation command:
+Run the Gateway container with metrics enabled:
 
 ```shell
-docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 \
+  -e GATEWAY_ACCESS_ID="Access-id" \
+  -e GATEWAY_ACCESS_KEY="Access-key" \
+  -e ENABLE_METRICS="true" \
+  -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml \
+  --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-Once done, check your Prometheus server for the ingested metrics.
+When scraped directly by Prometheus, metric names use underscores. For example:
+
+* `akeyless_gw_system_healthcheck_status`
+* `akeyless_gw_system_saas_connection_status`
+
+In OpenTelemetry-transformed backends, these metrics can appear as dotted names (for example, `akeyless.gw.system.healthcheck.status`).
 
 ### Grafana Dashboard
 
-You can visualize Akeyless metrics in the Grafana Dashboard when using Prometheus as a data source.
+You can visualize Akeyless metrics in Grafana when using Prometheus as a data source.
 
-Import the Akeyless GW dashboard for your Grafana instance using [this](https://grafana.com/grafana/dashboards/16927) link.
+Import the Akeyless GW dashboard using [Grafana dashboard 16927](https://grafana.com/grafana/dashboards/16927).
 
 ![A sample screenshot of a Grafana dashboard showing metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
 
-## Using Kubernetes Secret
+## Gateway Application Log Forwarding (Docker)
 
-For Kubernetes-based deployments, you can store telemetry configuration in a Kubernetes secret and reference it from your Helm values.
+To collect Gateway application logs together with metrics, add an additional logs pipeline in `otel-config.yaml`.
 
-Create an OpenTelemetry config file. For example:
-
-```yaml Datadog
-exporters:
-  datadog:
-    api:
-      key: <api-key>
-service:
-  pipelines:
-    metrics:
-      exporters: [datadog]
-```
-```yaml Prometheus
+```yaml otel-config.yaml
 exporters:
   prometheus:
     endpoint: "0.0.0.0:8889"
+  loki:
+    endpoint: "http://loki:3100/loki/api/v1/push"
 service:
   pipelines:
     metrics:
       exporters: [prometheus]
+    logs:
+      receivers: [filelog]
+      processors: [batch]
+      exporters: [loki]
 ```
 
-Encode the file to Base64:
+Enable log forwarding and mount the same telemetry config:
 
 ```shell
-base64 --input=config-secret.yaml
+docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 \
+  -e GATEWAY_ACCESS_ID="Access-id" \
+  -e GATEWAY_ACCESS_KEY="Access-key" \
+  -e ENABLE_METRICS="true" \
+  -e FORWARD_GW_APP_LOG="true" \
+  -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml \
+  --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-Create a Kubernetes secret with the encoded value under `otel-config.yaml`:
+Application logs from all instances of this Gateway are forwarded in this format:
+`<date> <time> <gw-clustername-instance-id> <log>`.
+
+For Loki-based analysis, add a [Loki data source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/) in Grafana and query logs from **Explore**.
+
+## Datadog (Kubernetes)
+
+To enable telemetry metrics on Kubernetes for Datadog, configure the chart `values.yaml` under `metrics`.
+
+```yaml values.yaml
+metrics:
+  enabled: true
+  config: |
+    exporters:
+      datadog:
+        api:
+          key: "<Datadog API key>"
+          site: <Datadog site>
+    service:
+      pipelines:
+        metrics:
+          exporters: [datadog]
+```
+
+If your Datadog account is in the EU site, use `datadoghq.eu`.
+
+## Prometheus (Kubernetes)
+
+To enable telemetry metrics on Kubernetes for Prometheus, expose a Prometheus exporter endpoint (for example, `8889`) and configure chart metrics.
+
+```yaml values.yaml
+service:
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8889"
+
+metrics:
+  enabled: true
+  config: |
+    exporters:
+      prometheus:
+        endpoint: "0.0.0.0:8889"
+    service:
+      pipelines:
+        metrics:
+          exporters: [prometheus]
+```
+
+Add a scrape target in Prometheus:
+
+```yaml
+scrape_configs:
+  - job_name: 'akeyless'
+    scrape_interval: 10s
+    static_configs:
+      - targets: ['localhost:8889']
+```
+
+## Using Kubernetes Secret for Telemetry Config
+
+You can store OpenTelemetry configuration in a Kubernetes secret and reference it from Helm values.
+
+Create an OpenTelemetry config file (for example, Datadog or Prometheus exporter settings), encode it to Base64, and create the secret:
 
 ```yaml
 apiVersion: v1
@@ -152,7 +237,7 @@ metadata:
   namespace: <your-namespace>
 type: Opaque
 data:
-  otel-config.yaml: <base64-kubernetes-secret-value>
+  otel-config.yaml: <base64-encoded-otel-config>
 ```
 
 Apply the secret in the target namespace:
@@ -161,58 +246,40 @@ Apply the secret in the target namespace:
 kubectl apply -f secret.yaml -n <your-namespace>
 ```
 
-Reference this secret from Helm values:
+Reference the secret from Helm values:
 
-```yaml
+```yaml values.yaml
 metrics:
   enabled: true
   existingSecretName: "gw-metrics-secret"
 ```
 
-## Gateway Application Log Forwarding
+## Gateway Application Log Forwarding (Kubernetes)
 
-To collect the Gateway application logs with the metrics you can set an additional `exporter` endpoint and `service`, for example:
+To collect Gateway application logs with metrics on Kubernetes, add a logs pipeline and set `FORWARD_GW_APP_LOG=true` in chart values.
 
-Edit the `otel-config.yaml` file as described below:
-
-```yaml otel-config.yaml
-exporters:
-  prometheus:
-    endpoint: "0.0.0.0:8889"
-  loki:
-    endpoint: "http://loki:3100/loki/api/v1/push"
-    
-service:
-  pipelines:
-    metrics:
-      exporters: [prometheus]
-      
-    logs:
-      receivers: [filelog]
-      processors: [batch]
-      exporters: [loki]
+```yaml values.yaml
+metrics:
+  enabled: true
+  config: |
+    exporters:
+      prometheus:
+        endpoint: "0.0.0.0:8889"
+      loki:
+        endpoint: "http://loki:3100/loki/api/v1/push"
+    service:
+      pipelines:
+        metrics:
+          exporters: [prometheus]
+        logs:
+          receivers: [filelog]
+          processors: [batch]
+          exporters: [loki]
+env:
+  - name: FORWARD_GW_APP_LOG
+    value: "true"
 ```
-
-Where the new **Loki** `endpoint` is set with a new `service` for logs, using `filelog` as the `receiver` and `loki` as the `exporter`. Note, that this example uses local [Loki](https://grafana.com/docs/loki/latest/setup/install/docker/) on Docker.
-
-To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_APP_LOG="true"` environment variable and mount the Telemetry config file:
-
-```shell
-docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -e FORWARD_GW_APP_LOG="true" -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
-```
-
-**Application Logs** from all instances of this gateway will be forwarded using this format: `<date> <time> <gw-clustername-instance-id> <log>`.
-
-After starting the container, you can use [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
-
-* In Grafana, navigate to Data Sources and add a new [Loki Data Source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/)
-
-* Once the data source is configured, go to the Explore section
-
-* In the Label Filter, select **Exporter** and [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/exporter/) to filter the logs accordingly
-
-This will enable you to monitor and analyze your application logs seamlessly.
 
 ## Metric Tag Configuration
 
-You can also add tags to metrics using OpenTelemetry semantic conventions, more information can be found [here](https://docs.datadoghq.com/opentelemetry/mapping/semantic_mapping/?tab=datadogexporter#metrics-attribute-mapping).
+You can add tags to metrics using OpenTelemetry semantic conventions. For mapping details, see [Datadog OpenTelemetry semantic mapping](https://docs.datadoghq.com/opentelemetry/mapping/semantic_mapping/?tab=datadogexporter#metrics-attribute-mapping).
