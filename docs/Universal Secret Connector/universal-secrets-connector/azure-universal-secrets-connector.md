@@ -26,7 +26,7 @@ This section will discuss the different commands necessary to handle USCs. While
 To create a USC, use the following command:
 
 ```shell
-akeyless create-usc --usc-name <name> --target-to-associate <target name> --azure-kv-name <key vault name>
+akeyless create-usc --name <name> --target-to-associate <target name> --azure-kv-name <key vault name>
 ```
 
 The main parameters are:
@@ -124,6 +124,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 To update an existing secret in your USC, use the following command:
 
 ```shell
+akeyless usc update --usc-name <usc name> --secret-id <secret id or name> --value <secret value>
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#update).
