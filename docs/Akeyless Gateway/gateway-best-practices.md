@@ -154,7 +154,8 @@ Use these minimum permission patterns as a starting point, and scope them to exa
     * Baseline permissions required for the deployed Gateway capabilities only.
     * Reference: [RBAC](https://docs.akeyless.io/docs/rbac)
 * Audit forwarding Gateway:
-    * Audit Log permission with scope `all` on the dedicated forwarding Gateway.
+    * Option 1: Use one dedicated forwarding Gateway with Audit Log permission scope `all`.
+    * Option 2: Use multiple forwarding Gateways with scoped Audit Log permissions, where scopes are mutually exclusive.
     * References: [Log forwarding configuration](https://docs.akeyless.io/docs/log-forwarding-configuration), [Audit Logs](https://docs.akeyless.io/docs/audit-logs)
 * USC-enabled Gateway:
     * `read` on the USC target and `read` or `list` on synced secret paths.
@@ -291,7 +292,7 @@ For telemetry implementation details and metric export options, see:
 * Monitor Gateway logs and forwarding health:
     * Collect standard output logs through the platform logging pipeline.
     * Configure [Log forwarding configuration](https://docs.akeyless.io/docs/log-forwarding-configuration) and [Audit Logs](https://docs.akeyless.io/docs/audit-logs) forwarding to your SIEM.
-    * For larger environments, run log forwarding on one dedicated Gateway deployment.
+    * For larger environments, use either one dedicated Gateway with `all` audit scope, or multiple Gateways with mutually exclusive scoped audit permissions.
 * Monitor control-plane and automation signals surfaced by Gateway runtime behavior:
     * Leader-only workflows: log forwarding runs only on the log-forwarding leader, and periodic security-health updates run only on the rotator leader.
     * Universal Secrets Connector (USC) sync status: alert on repeated sync failures and persistent USC `last error` updates.
