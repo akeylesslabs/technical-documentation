@@ -124,7 +124,6 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 To update an existing secret in your USC, use the following command:
 
 ```shell
-akeyless usc update --usc-name <usc name> --secret-name <new secret name> --value <secret value>
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#update).
