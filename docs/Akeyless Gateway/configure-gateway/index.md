@@ -14,18 +14,23 @@ Configuration is typically done after deployment and adjusted over time as secur
 
 The following configuration features are available:
 
-* Configure identity and authorization controls in [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication).
+* Configure identity and authorization controls in [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
-* Configure HTTPS behavior and certificate usage in [TLS Settings](https://docs.akeyless.io/docs/configuring-tls).
+* Configure HTTPS behavior and certificate usage in [TLS Settings](https://docs.akeyless.io/docs/gateway-tls-settings).
 
-* Manage trusted private CAs in [Certificate Store](https://docs.akeyless.io/docs/certificate-store).
+* Manage trusted private CAs in [Certificate Store](https://docs.akeyless.io/docs/gateway-certificate-store).
 
-* Configure encryption posture with customer fragments in [Zero Knowledge](https://docs.akeyless.io/docs/zero-knowledge).
+* Configure encryption posture with customer fragments in [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
-* Define cache and offline behavior in [Gateway Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache).
+* Define cache and offline behavior in [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
 
-* Route audit and operational logs in [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding).
+* Route audit and operational logs in [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding).
 
-* Integrate external hardware key management in [HSM Integration](https://docs.akeyless.io/docs/hsm-integration).
+* Integrate external hardware key management in [HSM Integration](https://docs.akeyless.io/docs/gateway-hsm-integration).
 
-* Configure migration workflows in [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration).
+* Configure migration workflows in [Automatic Migration](https://docs.akeyless.io/docs/gateway-automatic-migration).
+
+## Next Steps
+
+* Set up monitoring and dashboards in [Telemetry and Metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics).
+* Prepare incident playbooks with [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway).

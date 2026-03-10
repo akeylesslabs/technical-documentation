@@ -475,7 +475,7 @@ Now, we will use the roles that were created to manage the destination AWS accou
 >
 > The following Actions will take place from the Gateway that has the IAM-User from the source account assigned.
 >
-> Make sure you have an [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with the IAM Role from the source account attached.
+> Make sure you have an [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with the IAM Role from the source account attached.
 
 Connect to your Gateway - `https://public-ip>:8000`, this will automatically update the URL of your Gateway in Akeyless.
 

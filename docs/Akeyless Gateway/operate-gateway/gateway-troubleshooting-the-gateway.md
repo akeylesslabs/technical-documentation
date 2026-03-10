@@ -32,7 +32,7 @@ Check:
 
 Reference:
 
-* [Gateway Network Connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity)
+* [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
 
 ## 2. Authentication and Permissions
 
@@ -47,7 +47,7 @@ Check:
 
 Reference:
 
-* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication)
+* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access)
 
 ## 3. TLS and Certificate Trust
 
@@ -61,8 +61,8 @@ Check:
 
 References:
 
-* [TLS Certificate](https://docs.akeyless.io/docs/tls-certificate)
-* [Certificate Store](https://docs.akeyless.io/docs/gw-certificate-store)
+* [TLS Certificate](https://docs.akeyless.io/docs/gateway-tls-settings)
+* [Certificate Store](https://docs.akeyless.io/docs/gateway-certificate-store)
 
 ## 4. Cache and Offline Behavior
 
@@ -76,7 +76,7 @@ Check:
 
 Reference:
 
-* [Gateway Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
+* [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching)
 
 ## 5. Logging and Telemetry
 
@@ -90,8 +90,8 @@ Check:
 
 References:
 
-* [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding)
-* [Telemetry and Metrics](https://docs.akeyless.io/docs/monitor-akeyless)
+* [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
+* [Telemetry and Metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics)
 
 ## Symptom-Based Quick Checks
 
@@ -127,9 +127,9 @@ References:
 
 References:
 
-* [Install and Configure the Gateway](https://docs.akeyless.io/docs/install-and-configure-the-gateway)
-* [Gateway Chart](https://docs.akeyless.io/docs/gateway-chart)
-* [Serverless Gateway](https://docs.akeyless.io/docs/serverless-gateway)
+* [Standalone Docker Deployment](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker)
+* [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
+* [Cloud-Managed Serverless Platforms](https://docs.akeyless.io/docs/gateway-cloud-serverless-deployments)
 
 ## Before Escalation
 

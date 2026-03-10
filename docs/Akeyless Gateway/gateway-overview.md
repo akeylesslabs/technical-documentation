@@ -38,25 +38,31 @@ Key responsibilities include:
 
 At a high level, workloads call the Gateway, and the Gateway communicates with Akeyless SaaS services over outbound connectivity.
 
-For SaaS service endpoint and connectivity requirements, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity).
+For SaaS service endpoint and connectivity requirements, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
 
 ## Deployment Models
 
 You can deploy Akeyless Gateway in several operating models, depending on your infrastructure and scaling requirements:
 
-* [Self-managed runtime options](https://docs.akeyless.io/docs/install-and-configure-the-gateway)
-* [Cloud-managed Kubernetes platforms](https://docs.akeyless.io/docs/gateway-k8s)
-* [Cloud-managed serverless platforms](https://docs.akeyless.io/docs/serverless-gateway)
+* [Self-managed runtime options](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker)
+* [Cloud-managed Kubernetes platforms](https://docs.akeyless.io/docs/gateway-cloud-platform-deployments)
+* [Cloud-managed serverless platforms](https://docs.akeyless.io/docs/gateway-cloud-serverless-deployments)
 
 With this Gateway, Akeyless offers:
 
-* Live fallback for network connectivity issues: [Gateway Network Connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity)
+* Live fallback for network connectivity issues: [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
 
-* Service continuity through local in-memory caching and offline access patterns: [Gateway Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
+* Service continuity through local in-memory caching and offline access patterns: [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching)
 
-* Log forwarding to an existing SIEM server: [Gateway Log Forwarding](https://docs.akeyless.io/docs/log-forwarding)
+* Log forwarding to an existing SIEM server: [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
 
-* Zero-Knowledge encryption support: [Gateway Zero Knowledge](https://docs.akeyless.io/docs/zero-knowledge)
+* Zero-Knowledge encryption support: [Gateway Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge)
+
+## Gateway Lifecycle Navigation
+
+* Start deployment planning in [Choose a Deployment Model](https://docs.akeyless.io/docs/deploy-gateway).
+* Configure runtime behavior in [Configure Gateway](https://docs.akeyless.io/docs/configure-gateway).
+* Operate and monitor in [Operate Gateway](https://docs.akeyless.io/docs/operate-gateway).
 
 ![Akeyless Gateway Architecture](https://files.readme.io/eaaa39e-Gateway_2.png)
 

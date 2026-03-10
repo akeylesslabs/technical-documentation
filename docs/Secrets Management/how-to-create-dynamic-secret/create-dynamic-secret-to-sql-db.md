@@ -34,7 +34,7 @@ You can create Dynamic Secrets for a wide range of databases, including:
 
 With Dynamic Secrets, you can control and manage which databases, tables, schema, and what set of permissions to issue for each type of application access, as well as completely manage the lifecycle of those temporary credentials which are created just in time-based on short-lived TTL with flexible revocation statements.
 
-When a client requests a dynamic secret value, the Akeyless Platform connects to the database through the [Gateway](https://docs.akeyless.io/docs/api-gw) within your internal network and generates a temporary set of restricted access credentials.
+When a client requests a dynamic secret value, the Akeyless Platform connects to the database through the [Gateway](https://docs.akeyless.io/docs/gateway-overview) within your internal network and generates a temporary set of restricted access credentials.
 
 > ℹ️ **Note:**
 >

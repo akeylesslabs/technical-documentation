@@ -31,7 +31,7 @@ Note that this guide assumes you already have a gateway, and will only refer to 
 
 * [Docker Compose](https://docs.docker.com/compose/) (version `1.29` or higher).
 
-* Akeyless Gateway deployed on [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
+* Akeyless Gateway deployed on [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#/).
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_ username` allowed.
 
@@ -41,7 +41,7 @@ The Docker Compose file defines the following services:
 
 | Service | Description | Ports |
 | --- | --- | --- |
-| [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-compose#/) | Central access control and authentication gateway | 8000 (API), 8080 (Health) |
+| [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#/) | Central access control and authentication gateway | 8000 (API), 8080 (Health) |
 | SRA Web | Web-based Zero Trust portal for remote access | As specified in YAML |
 | SRA SSH Proxy | Secure SSH-based remote access | 2222 (SSH), 9900 (Internal) |
 

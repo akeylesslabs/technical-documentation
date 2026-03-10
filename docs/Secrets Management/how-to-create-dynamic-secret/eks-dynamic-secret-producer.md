@@ -14,7 +14,7 @@ You can create a dynamic Amazon Elastic Kubernetes Service (EKS) secret to allow
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 
 * AWS IAM principal (role or user)
 
