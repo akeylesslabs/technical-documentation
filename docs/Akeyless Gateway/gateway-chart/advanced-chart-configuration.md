@@ -181,7 +181,7 @@ To control the cache settings, you can [configure the cache](https://docs.akeyle
 
 ### High Availability Cache
 
-While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a  with the `ReadWriteOnce` access mode.
+While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a with the `ReadWriteOnce` access mode, using this configuration requires running `helm dependency update`.
 
 > ℹ️ **Note:**
 >
@@ -295,9 +295,9 @@ Accepted Values:
 
 * `false` (default): The Gateway does not read or generate a Kubernetes Secret for the cluster cache encryption key. The Kubernetes Secret–based encryption key flow is disabled, even if cache is enabled.
 * `true`: The Gateway will read or generate a Kubernetes Secret to support offline scale-out.
-    * If encryptionKeyExistingSecret is set, the Gateway uses that Secret.
-    * If not set, the Helm chart generates a new encryption key and stores it in a Kubernetes Secret.
-    * **RBAC Requirement:** When `enableScaleOutOnDisconnectedMode: true`, the Gateway ServiceAccount must have permission to get Kubernetes Secrets in the namespace. Missing permissions will cause Gateway startup to fail with a forbidden: cannot get resource "secrets" error.
+  * If encryptionKeyExistingSecret is set, the Gateway uses that Secret.
+  * If not set, the Helm chart generates a new encryption key and stores it in a Kubernetes Secret.
+  * **RBAC Requirement:** When `enableScaleOutOnDisconnectedMode: true`, the Gateway ServiceAccount must have permission to get Kubernetes Secrets in the namespace. Missing permissions will cause Gateway startup to fail with a forbidden: cannot get resource "secrets" error.
 
 ## Working With Kubernetes Secrets
 

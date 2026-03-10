@@ -60,7 +60,7 @@ target_logstash_dns="localhost:8911"
 target_logstash_protocol="tcp"
 ```
 
-Configure your Logstash to use the same port and protocol.  Add the following to the `logstash.conf` file `input \{ tcp \{ port => 8911 codec => json } }`
+Configure your Logstash to use the same port and protocol. Add the following to the `logstash.conf` file `input \{ tcp \{ port => 8911 codec => json } }`
 
 ## ELK Elasticsearch
 

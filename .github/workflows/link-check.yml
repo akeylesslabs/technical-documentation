@@ -8,6 +8,8 @@ on:
 jobs:
   link-check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
 
@@ -24,7 +26,7 @@ jobs:
           TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
 
           # Safely replace all (doc:slug) links with full URLs
-          find . -type f -name "*.md" -print0 | \
+          find . -path './.github' -prune -o -type f -name "*.md" -print0 | \
             xargs -0 sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g'
 
           # Show the changes this run
@@ -47,12 +49,16 @@ jobs:
           id: lychee_discovery
           uses: lycheeverse/lychee-action@v2.0.2
           continue-on-error: true
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           with:
             # Explicitly load repo ignore list; default discovery can be inconsistent
             # depending on the action working directory and invocation context.
             args: >
             --verbose
             --no-progress
+            --max-retries 4
+            --retry-wait-time 5
             --exclude-file ".github/lychee/.lycheeignore"
             --exclude-path ".github"
             --exclude-link-local
@@ -179,12 +185,16 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2.0.2
         continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # Explicitly load repo ignore list; default discovery can be inconsistent
           # depending on the action working directory and invocation context.
           args: >
             --verbose
             --no-progress
+            --max-retries 4
+            --retry-wait-time 5
             --exclude-file ".github/lychee/.lycheeignore"
             --exclude-path ".github"
             --exclude-link-local

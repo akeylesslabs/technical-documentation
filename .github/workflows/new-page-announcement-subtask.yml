@@ -1,0 +1,218 @@
+name: New Page Announcement Subtask
+
+on:
+  pull_request:
+    branches:
+      - v1.0
+    types:
+      - closed
+
+permissions:
+  contents: read
+
+jobs:
+  create-jira-subtask:
+    if: ${{ github.event.pull_request.merged == true }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect newly added docs pages
+        id: docs_changes
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+
+          git fetch --no-tags origin "pull/${PR_NUMBER}/head:pr-${PR_NUMBER}-head"
+
+          ADDED_DOC_FILES=$(git diff --name-status "${BASE_SHA}" "pr-${PR_NUMBER}-head" \
+            | awk '$1 == "A" && $2 ~ /^docs\/.*\.md$/ {print $2}')
+
+          if [ -z "${ADDED_DOC_FILES}" ]; then
+            echo "has_new_docs_pages=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          {
+            echo "has_new_docs_pages=true"
+            echo "added_docs_files<<EOF"
+            echo "${ADDED_DOC_FILES}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Detect Jira issue key from branch name
+        id: jira_key
+        if: steps.docs_changes.outputs.has_new_docs_pages == 'true'
+        env:
+          SOURCE_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -euo pipefail
+
+          RAW_KEY=$(echo "${SOURCE_BRANCH}" | grep -oiE '[A-Za-z][A-Za-z0-9]+-[0-9]+' | head -n1 || true)
+          JIRA_KEY=$(echo "${RAW_KEY}" | tr '[:lower:]' '[:upper:]')
+
+          if [ -z "${JIRA_KEY}" ]; then
+            echo "No Jira issue key detected from branch name: ${SOURCE_BRANCH}"
+            echo "has_jira_key=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "has_jira_key=true" >> "$GITHUB_OUTPUT"
+          echo "jira_key=${JIRA_KEY}" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve parent task when source issue is a subtask
+        id: parent_issue
+        if: steps.jira_key.outputs.has_jira_key == 'true'
+        env:
+          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
+          SOURCE_JIRA_KEY: ${{ steps.jira_key.outputs.jira_key }}
+        run: |
+          set -euo pipefail
+
+          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "${JIRA_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w 0)"
+
+          ISSUE_RESPONSE=$(curl -sS \
+            -H "${AUTH_HEADER}" \
+            -H "Content-Type: application/json" \
+            "${JIRA_BASE_URL}/rest/api/3/issue/${SOURCE_JIRA_KEY}?fields=issuetype,parent,summary")
+
+          if [ "$(echo "${ISSUE_RESPONSE}" | jq -r '.errorMessages | length // 0')" != "0" ]; then
+            echo "Could not fetch Jira issue ${SOURCE_JIRA_KEY}."
+            echo "${ISSUE_RESPONSE}"
+            exit 1
+          fi
+
+          IS_SUBTASK=$(echo "${ISSUE_RESPONSE}" | jq -r '.fields.issuetype.subtask // false')
+
+          if [ "${IS_SUBTASK}" = "true" ] && [ "$(echo "${ISSUE_RESPONSE}" | jq -r '.fields.parent.key // empty')" != "" ]; then
+            TARGET_PARENT_KEY=$(echo "${ISSUE_RESPONSE}" | jq -r '.fields.parent.key')
+          else
+            TARGET_PARENT_KEY="${SOURCE_JIRA_KEY}"
+          fi
+
+          echo "target_parent_key=${TARGET_PARENT_KEY}" >> "$GITHUB_OUTPUT"
+
+      - name: Create Jira announcement subtask
+        if: steps.jira_key.outputs.has_jira_key == 'true'
+        env:
+          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
+          TARGET_PARENT_KEY: ${{ steps.parent_issue.outputs.target_parent_key }}
+          SOURCE_JIRA_KEY: ${{ steps.jira_key.outputs.jira_key }}
+          ADDED_DOCS_FILES: ${{ steps.docs_changes.outputs.added_docs_files }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          MERGED_BY: ${{ github.event.pull_request.merged_by.login }}
+          SOURCE_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -euo pipefail
+
+          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "${JIRA_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w 0)"
+
+          PAGE_BULLETS=$(printf "%s\n" "${ADDED_DOCS_FILES}" | sed '/^\s*$/d' | sed 's#^#- #' )
+
+          SLACK_DRAFT=$(cat <<EOF
+          :mega: New documentation page published
+
+          Jira source task: ${SOURCE_JIRA_KEY}
+          PR: ${PR_URL}
+          Merged by: @${MERGED_BY}
+
+          New page(s):
+          ${PAGE_BULLETS}
+          EOF
+          )
+
+          ADF_DESC=$(jq -n \
+            --arg source "${SOURCE_JIRA_KEY}" \
+            --arg parent "${TARGET_PARENT_KEY}" \
+            --arg prurl "${PR_URL}" \
+            --arg prnum "${PR_NUMBER}" \
+            --arg branch "${SOURCE_BRANCH}" \
+            --arg files "${ADDED_DOCS_FILES}" \
+            --arg slack "${SLACK_DRAFT}" \
+            'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
+             def linkPara($label; $url):
+               {type:"paragraph", content:[
+                 {type:"text", text:$label},
+                 {type:"text", text:$url, marks:[{type:"link", attrs:{href:$url}}]}
+               ]};
+             def codeBlock($t): {type:"codeBlock", attrs:{language:""}, content:[{type:"text", text:$t}]};
+             {
+               type:"doc", version:1,
+               content:[
+                 para("Create and post a Slack announcement for newly added documentation pages."),
+                 para("Source Jira task: " + $source),
+                 para("Parent task used for this subtask: " + $parent),
+                 para("Source branch: " + $branch),
+                 para("PR #" + $prnum),
+                 linkPara("PR link: "; $prurl),
+                 para("New docs pages (docs/ only, added files only):"),
+                 codeBlock($files),
+                 para("Predrafted Slack message:"),
+                 codeBlock($slack)
+               ]
+             }')
+
+          SUMMARY="Slack announcement for new docs page(s) from PR #${PR_NUMBER}"
+
+          create_subtask() {
+            local issue_type_name="$1"
+
+            PAYLOAD=$(jq -n \
+              --arg summary "${SUMMARY}" \
+              --arg parent_key "${TARGET_PARENT_KEY}" \
+              --arg issue_type_name "${issue_type_name}" \
+              --argjson adf "${ADF_DESC}" \
+              '{
+                fields: {
+                  summary: $summary,
+                  parent: { key: $parent_key },
+                  issuetype: { name: $issue_type_name },
+                  description: $adf,
+                  labels: ["docs", "announcement", "automation"]
+                }
+              }')
+
+            curl -sS -X POST \
+              -H "${AUTH_HEADER}" \
+              -H "Content-Type: application/json" \
+              --data "${PAYLOAD}" \
+              "${JIRA_BASE_URL}/rest/api/3/issue"
+          }
+
+          RESPONSE=$(create_subtask "Sub-task")
+          CREATED_KEY=$(echo "${RESPONSE}" | jq -r '.key // empty')
+
+          if [ -z "${CREATED_KEY}" ]; then
+            RESPONSE=$(create_subtask "Subtask")
+            CREATED_KEY=$(echo "${RESPONSE}" | jq -r '.key // empty')
+          fi
+
+          if [ -z "${CREATED_KEY}" ]; then
+            echo "Failed to create Jira subtask."
+            echo "${RESPONSE}"
+            exit 1
+          fi
+
+          echo "Created Jira subtask: ${CREATED_KEY}"
+
+      - name: Skip reason when not applicable
+        if: steps.docs_changes.outputs.has_new_docs_pages != 'true' || steps.jira_key.outputs.has_jira_key != 'true'
+        run: |
+          if [ "${{ steps.docs_changes.outputs.has_new_docs_pages }}" != "true" ]; then
+            echo "No newly added docs pages found under docs/."
+          fi
+          if [ "${{ steps.docs_changes.outputs.has_new_docs_pages }}" = "true" ] && [ "${{ steps.jira_key.outputs.has_jira_key }}" != "true" ]; then
+            echo "A docs page was added, but no Jira key was detected in source branch name."
+          fi

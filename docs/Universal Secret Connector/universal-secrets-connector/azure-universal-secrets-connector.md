@@ -131,10 +131,18 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 ### Deleting an Existing USC Secret
 
+Azure Key Vault uses soft-delete by default. To permanently delete a secret, use the `--force-delete` flag.
+
 To delete an existing secret in your USC, use the following command:
 
 ```shell
-akeyless usc delete --usc-name <usc name> --secret-name < secret name>
+akeyless usc delete --usc-name <usc name> --secret-id <secret id or name>
+```
+
+To force permanent deletion from the Azure Key Vault soft-deleted list, use:
+
+```shell
+akeyless usc delete --usc-name <usc name> --secret-id <secret id or name> --force-delete
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).

@@ -1,2 +1,0 @@
-docs/Accessing Akeyless/access-and-authentication-methods/auth-with-email.md:23:186 - Unknown word (additonal) fix: (additional)
-docs/Encryption & KMS/fips.md:17:86 - Unknown word (specficially) fix: (specifically)
