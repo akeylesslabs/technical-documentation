@@ -204,7 +204,7 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 ## Configuration Checklist
 
 * [ ] Enable AI Insights
-* [ ] Create OpenAI target
+* [ ] Create OpenAI or Gemini target
 * [ ] Store target ID
 * [ ] Configure gateway
 * [ ] Verify the Gateway configuration
