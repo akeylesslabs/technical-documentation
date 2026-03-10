@@ -101,11 +101,11 @@ ESO’s Akeyless provider supports the following **access types**:
 * `gcp`
 
 > ℹ️ **Note:** For AKS Workload Identity, use the Azure AD Authentication Method (`accessType: azure_ad`).
-> When using `accessType: azure_ad`, ESO relies on the identity of the Kubernetes `ServiceAccount` that runs the `ExternalSecret`. Identity is not selected through the `SecretStore`. For full guidance, see <https://docs.akeyless.io/docs/eso-and-aks-workload-identity>.
+> When using `accessType: azure_ad`, ESO relies on the identity of the Kubernetes `ServiceAccount` that runs the `ExternalSecret`. Identity is not selected through the `SecretStore`. For full guidance, see (https://docs.akeyless.io/docs/eso-and-aks-workload-identity).
 >
 > ⚠️ **Warning:** OIDC is not supported as an **access type** at this time.
 
-Each Authentication Method in Akeyless exposes an **Access ID**, and for some methods an additional parameter (`accessTypeParam`) such as:
+Each Authentication Method in Akeyless exposes an **Access ID**, and for some methods, an additional parameter (`accessTypeParam`) such as:
 
 * **API Key** → `accessTypeParam`: Akeyless Access Key
 * **Kubernetes Auth** → `accessTypeParam`: Kubernetes Auth config name

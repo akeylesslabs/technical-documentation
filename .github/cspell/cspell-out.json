@@ -1,61 +1,21 @@
 {
     "issues": [
         {
-            "text": "additonal",
-            "offset": 985,
+            "text": "Fizcko",
+            "offset": 921,
             "line": {
-                "text": "Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additonal email-based Authentication Method for an existing account.\n",
-                "offset": 800
+                "text": "* [Vault Interaction (Fizcko)](https://marketplace.visualstudio.com/items?itemName=Fizcko.azure-devops-vault-interaction)\n",
+                "offset": 899
             },
-            "length": 9,
+            "length": 6,
             "isFlagged": false,
             "isFound": false,
-            "suggestions": [
-                "additional"
-            ],
-            "suggestionsEx": [
-                {
-                    "word": "additional",
-                    "isPreferred": true
-                }
-            ],
-            "row": 23,
-            "col": 186,
-            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Accessing%20Akeyless/access-and-authentication-methods/auth-with-email.md",
-            "hasPreferredSuggestions": true,
-            "hasSimpleSuggestions": true,
+            "row": 35,
+            "col": 23,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/plugins-overview/azure-plugins/azure-devops-plugin.md",
             "context": {
-                "text": "Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additonal email-based Authentication Method for an existing account.\n",
-                "offset": 800
-            }
-        },
-        {
-            "text": "specficially",
-            "offset": 1025,
-            "line": {
-                "text": "![Embedded is the NIST page for the Cryptographic Module Validation Program program, specficially for the Akeyless FIPS Cryptographic Module](https://files.readme.io/42b0a02-fips-validated-certification-logo-300x300-1.png)\n",
-                "offset": 940
-            },
-            "length": 12,
-            "isFlagged": false,
-            "isFound": false,
-            "suggestions": [
-                "specifically"
-            ],
-            "suggestionsEx": [
-                {
-                    "word": "specifically",
-                    "isPreferred": true
-                }
-            ],
-            "row": 17,
-            "col": 86,
-            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Encryption%20&%20KMS/fips.md",
-            "hasPreferredSuggestions": true,
-            "hasSimpleSuggestions": true,
-            "context": {
-                "text": "![Embedded is the NIST page for the Cryptographic Module Validation Program program, specficially for the Akeyless FIPS Cryptographic Module](https://files.readme.io/42b0a02-fips-validated-certification-logo-300x300-1.png)\n",
-                "offset": 940
+                "text": "* [Vault Interaction (Fizcko)](https://marketplace.visualstudio.com/items?itemName=Fizcko.azure-devops-vault-interaction)\n",
+                "offset": 899
             }
         }
     ],
@@ -64,12 +24,11 @@
     "error": [],
     "progress": [],
     "result": {
-        "files": 479,
+        "files": 481,
         "filesWithIssues": [
-            "docs/Accessing Akeyless/access-and-authentication-methods/auth-with-email.md",
-            "docs/Encryption & KMS/fips.md"
+            "docs/Integrations & Plugins/plugins-overview/azure-plugins/azure-devops-plugin.md"
         ],
-        "issues": 2,
+        "issues": 1,
         "errors": 0,
         "cachedFiles": 0,
         "skippedFiles": 0
