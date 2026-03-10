@@ -1,8 +1,4 @@
 markdownlint-cli2 v0.21.0 (markdownlint v0.40.0)
-Finding: docs/**/*.md docs/**/*.md
-Linting: 479 file(s)
-Summary: 4 error(s)
-docs/Accessing Akeyless/access-and-authentication-methods/auth-with-email.md:33:86 error MD051/link-fragments Link fragments should be valid [Context: "[Two-Factor Authentication](#two-factor-authentication)"]
-docs/Advanced Functionality/aws-best-practices/deploy-a-gateway-using-cloudformation.md:559 error AKY006/no-latin-abbreviations Disallow Latin abbreviations and phrases (e.g., i.e., e.g., ad hoc) in prose [Avoid Latin abbreviations/phrases; rewrite using plain language.] [Context: "pm"]
-docs/Contributing Guides/technical-documentation-style-guide/index.md:27 error AKY006/no-latin-abbreviations Disallow Latin abbreviations and phrases (e.g., i.e., e.g., ad hoc) in prose [Avoid Latin abbreviations/phrases; rewrite using plain language.] [Context: "e.g"]
-docs/Contributing Guides/technical-documentation-style-guide/index.md:54 error AKY006/no-latin-abbreviations Disallow Latin abbreviations and phrases (e.g., i.e., e.g., ad hoc) in prose [Avoid Latin abbreviations/phrases; rewrite using plain language.] [Context: "etc"]
+Finding: docs/**/*.md docs/**/*.md !docs/Contributing Guides/technical-documentation-style-guide/index.md
+Linting: 480 file(s)
+Summary: 0 error(s)
