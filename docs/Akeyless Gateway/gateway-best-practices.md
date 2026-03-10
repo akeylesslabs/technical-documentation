@@ -74,6 +74,102 @@ Apply these controls according to the selected platform:
     * Use workload identity where available instead of static long-lived secrets.
     * Enforce least-privilege egress and private networking controls.
 
+## Gateway application settings
+
+* A Gateway cluster identity is defined by the combination of Gateway authentication method `Access ID` and `clusterName`.
+* Changing either value creates a new logical Gateway cluster. Set a descriptive `clusterName` from day one.
+* All instances in the same Gateway cluster are expected to share equivalent client-facing access and target-facing network reachability.
+* Use a customer fragment for data fragment cryptography (DFC) and zero-knowledge workflows when required.
+* Use HSM integration where hardware-backed key protection is required.
+* Evaluate [Gateway cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) modes for continuity and latency requirements.
+* Review advanced deployment options for your selected runtime before production rollout.
+
+## Caching strategy considerations
+
+Caching is optional and should be enabled based on business continuity, performance, and risk requirements.
+
+* Consider enabling Gateway caching to improve resilience during temporary SaaS connectivity interruptions and to reduce latency for repeated reads.
+* Consider enabling proactive cache when read performance and reduced first-read latency are priorities.
+* Consider cluster cache when running multiple Gateway instances that should share cache state.
+* Evaluate security and operational tradeoffs before enabling caching:
+    * Operational benefits: improved continuity, lower read latency, and reduced repeated upstream calls.
+    * Operational costs: additional configuration, lifecycle management, monitoring, and capacity planning.
+    * Security considerations: cache persistence policy, encryption controls, and data retention boundaries.
+* Scope cache behavior to your environment and workload profile, then validate with telemetry and failure testing.
+
+For implementation details and behavior, see:
+
+* [Configure the Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache)
+* [QA on Gateway Caching](https://docs.akeyless.io/docs/qa-on-gateway-caching)
+
+## Gateway authentication method
+
+Gateway requires an identity to communicate with the Akeyless identity security platform for non-interactive operations, such as secret rotation and revocation workflows.
+
+> ℹ️ **Note:**
+>
+> Gateway runtime identity does not override end-user RBAC. End-user permissions are evaluated independently.
+
+### Cloud deployments
+
+* For managed cloud platforms, prefer cloud-native IAM authentication.
+* For Kubernetes deployments, follow the cloud IAM flow in [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart), including provider-specific workload identity setup.
+* In managed Kubernetes services, implementation details can differ when workload identities are enabled or disabled.
+* Configure workload identity integration according to platform-specific guidance.
+
+### On-premises deployments
+
+For on-premises deployments, use one of the following methods:
+
+* API key authentication:
+    * Suitable for initial rollout and controlled environments.
+    * Restrict client source networks with allowed IP ranges.
+    * Set key expiry and automate rotation through operational workflows.
+* Universal Identity:
+    * Uses short-lived tokens and periodic rotation.
+    * Configure TTL to balance resiliency and security.
+    * Use a Redis-backed shared token flow across Gateway pods, with in-memory token handling for normal operation.
+    * Keep token persistence enabled in each Gateway pod, and use persistent storage where possible to improve recovery after infrastructure failures.
+    * If the token expires or is lost, restore the token and reset the Gateway identity flow. This can be automated.
+    * Use persistent storage and automation to reduce manual recovery during infrastructure outages.
+* Certificate-based authentication:
+    * Store PEM certificate and private key in platform secrets storage.
+    * Register the root certificate authority (CA) in the corresponding certificate auth method.
+    * Use certificate claims to strengthen RBAC, and monitor certificate expiration and renewal.
+
+## Gateway access role
+
+* Associate the Gateway authentication method with a dedicated access role that grants least privilege.
+* For audit forwarding use cases, configure audit permissions explicitly with the required scope (`own` or `all`).
+* For centralized SIEM forwarding, set Audit Log permission to `all` on one dedicated log-forwarding Gateway deployment.
+* For Universal Secrets Connector (USC):
+    * Grant `read` access to the target used by USC.
+    * If secret sync is enabled, grant `read` and `list` permissions to the relevant secret paths.
+
+### Permission baseline by use case
+
+Use these minimum permission patterns as a starting point, and scope them to exact paths and targets per environment:
+
+* Core Gateway identity:
+    * Baseline permissions required for the deployed Gateway capabilities only.
+    * Reference: [RBAC](https://docs.akeyless.io/docs/rbac)
+* Audit forwarding Gateway:
+    * Audit Log permission with scope `all` on the dedicated forwarding Gateway.
+    * References: [Log forwarding configuration](https://docs.akeyless.io/docs/log-forwarding-configuration), [Audit Logs](https://docs.akeyless.io/docs/audit-logs)
+* USC-enabled Gateway:
+    * `read` on the USC target and `read` or `list` on synced secret paths.
+    * Reference: [Universal Secret Connector](https://docs.akeyless.io/docs/universal-secrets-connector)
+* Gateway administrative users:
+    * Assign only required Gateway access permissions per admin group.
+    * Reference: [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions)
+
+## Gateway administrators
+
+* Define a controlled list of human Access IDs (for example, SAML or OIDC) that can administer Gateway configuration.
+* Configure administrator sub-claims and only the Gateway access permissions required for each admin group.
+* Use separate admin groups for operations, security, and read-only review when possible.
+* Review the permissions matrix in [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions).
+
 ## Resource planning for Kubernetes proactive cache
 
 These recommendations apply to Kubernetes deployments where Gateway proactive cache is enabled.
@@ -176,84 +272,6 @@ For telemetry implementation details and metric export options, see:
 
 * [Telemetry metrics on Kubernetes](https://docs.akeyless.io/docs/telemetry-metrics-k8s)
 * [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics)
-
-## Gateway application settings
-
-* A Gateway cluster identity is defined by the combination of Gateway authentication method `Access ID` and `clusterName`.
-* Changing either value creates a new logical Gateway cluster. Set a descriptive `clusterName` from day one.
-* All instances in the same Gateway cluster are expected to share equivalent client-facing access and target-facing network reachability.
-* Use a customer fragment for data fragment cryptography (DFC) and zero-knowledge workflows when required.
-* Use HSM integration where hardware-backed key protection is required.
-* Evaluate [Gateway cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) modes for continuity and latency requirements.
-* Review advanced deployment options for your selected runtime before production rollout.
-
-## Gateway authentication method
-
-Gateway requires an identity to communicate with the Akeyless identity security platform for non-interactive operations, such as secret rotation and revocation workflows.
-
-> ℹ️ **Note:**
->
-> Gateway runtime identity does not override end-user RBAC. End-user permissions are evaluated independently.
-
-### Cloud deployments
-
-* For managed cloud platforms, prefer cloud-native IAM authentication.
-* For Kubernetes deployments, follow the cloud IAM flow in [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart), including provider-specific workload identity setup.
-* In managed Kubernetes services, implementation details can differ when workload identities are enabled or disabled.
-* Configure workload identity integration according to platform-specific guidance.
-
-### On-premises deployments
-
-For on-premises deployments, use one of the following methods:
-
-* API key authentication:
-    * Suitable for initial rollout and controlled environments.
-    * Restrict client source networks with allowed IP ranges.
-    * Set key expiry and automate rotation through operational workflows.
-* Universal Identity:
-    * Uses short-lived tokens and periodic rotation.
-    * Configure TTL to balance resiliency and security.
-    * Use a Redis-backed shared token flow across Gateway pods, with in-memory token handling for normal operation.
-    * Keep token persistence enabled in each Gateway pod, and use persistent storage where possible to improve recovery after infrastructure failures.
-    * If the token expires or is lost, restore the token and reset the Gateway identity flow. This can be automated.
-    * Use persistent storage and automation to reduce manual recovery during infrastructure outages.
-* Certificate-based authentication:
-    * Store PEM certificate and private key in platform secrets storage.
-    * Register the root certificate authority (CA) in the corresponding certificate auth method.
-    * Use certificate claims to strengthen RBAC, and monitor certificate expiration and renewal.
-
-## Gateway access role
-
-* Associate the Gateway authentication method with a dedicated access role that grants least privilege.
-* For audit forwarding use cases, configure audit permissions explicitly with the required scope (`own` or `all`).
-* For centralized SIEM forwarding, set Audit Log permission to `all` on one dedicated log-forwarding Gateway deployment.
-* For Universal Secrets Connector (USC):
-    * Grant `read` access to the target used by USC.
-    * If secret sync is enabled, grant `read` and `list` permissions to the relevant secret paths.
-
-### Permission baseline by use case
-
-Use these minimum permission patterns as a starting point, and scope them to exact paths and targets per environment:
-
-* Core Gateway identity:
-    * Baseline permissions required for the deployed Gateway capabilities only.
-    * Reference: [RBAC](https://docs.akeyless.io/docs/rbac)
-* Audit forwarding Gateway:
-    * Audit Log permission with scope `all` on the dedicated forwarding Gateway.
-    * References: [Log forwarding configuration](https://docs.akeyless.io/docs/log-forwarding-configuration), [Audit Logs](https://docs.akeyless.io/docs/audit-logs)
-* USC-enabled Gateway:
-    * `read` on the USC target and `read` or `list` on synced secret paths.
-    * Reference: [Universal Secret Connector](https://docs.akeyless.io/docs/universal-secrets-connector)
-* Gateway administrative users:
-    * Assign only required Gateway access permissions per admin group.
-    * Reference: [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions)
-
-## Gateway administrators
-
-* Define a controlled list of human Access IDs (for example, SAML or OIDC) that can administer Gateway configuration.
-* Configure administrator sub-claims and only the Gateway access permissions required for each admin group.
-* Use separate admin groups for operations, security, and read-only review when possible.
-* Review the permissions matrix in [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions).
 
 ## Gateway observability
 
