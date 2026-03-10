@@ -44,11 +44,9 @@ For SaaS service endpoint and connectivity requirements, see [Gateway Network Co
 
 You can deploy Akeyless Gateway in several operating models, depending on your infrastructure and scaling requirements:
 
-* [Standalone Docker](https://docs.akeyless.io/docs/install-and-configure-the-gateway)
-* [Docker Compose](https://docs.akeyless.io/docs/gateway-compose)
-* [Kubernetes with Helm](https://docs.akeyless.io/docs/gateway-chart)
+* [Self-managed runtime options](https://docs.akeyless.io/docs/install-and-configure-the-gateway)
 * [Cloud-managed Kubernetes platforms](https://docs.akeyless.io/docs/gateway-k8s)
-* [Serverless deployments](https://docs.akeyless.io/docs/serverless-gateway)
+* [Cloud-managed serverless platforms](https://docs.akeyless.io/docs/serverless-gateway)
 
 With this Gateway, Akeyless offers:
 

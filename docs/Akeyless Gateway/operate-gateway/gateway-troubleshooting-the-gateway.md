@@ -121,9 +121,9 @@ References:
 
 ## Deployment-Specific Checks
 
-* Docker deployments: validate environment variables, mounts, and container restart history.
-* Kubernetes deployments: validate pod health, service account permissions, secrets, and Helm values.
-* Serverless deployments: validate platform identity, runtime environment variables, and provider-level networking.
+* Self-managed runtime options: validate environment variables, mounts, container restart history, and (when applicable) self-managed Kubernetes runtime configuration.
+* Cloud-managed Kubernetes platforms: validate pod health, service account permissions, secrets, and Helm values.
+* Cloud-managed serverless platforms: validate platform identity, runtime environment variables, and provider-level networking.
 
 References:
 

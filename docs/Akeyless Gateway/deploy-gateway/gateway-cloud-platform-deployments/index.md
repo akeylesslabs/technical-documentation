@@ -1,5 +1,5 @@
 ---
-title: Cloud Platform Deployments
+title: Cloud-Managed Platform Deployments
 excerpt: ''
 deprecated: false
 hidden: false
@@ -8,7 +8,7 @@ metadata:
   description: ''
   robots: index
 next:
-  description: 'Choose a cloud platform deployment guide:'
+  description: 'Choose a cloud-managed platform deployment guide:'
   pages:
     - type: basic
       title: Amazon EKS
@@ -23,13 +23,13 @@ next:
       title: Google Kubernetes Engine
       slug: gateway-deploy-google-kubernetes-engine
 ---
-This page groups cloud platform deployment patterns for the Akeyless Gateway.
+This page groups cloud-managed platform deployment patterns for the Akeyless Gateway.
 
 Use this section when your organization deploys Gateway on cloud-managed compute platforms and wants deployment guidance aligned with provider-native identity and platform controls.
 
-## When to Use Cloud Platform Deployments
+## When to Use Cloud-Managed Platform Deployments
 
-Cloud platform deployment patterns are a good fit when you need:
+Cloud-managed platform deployment patterns are a good fit when you need:
 
 * Managed cloud runtime environments.
 * Cloud-native workload identity integration.

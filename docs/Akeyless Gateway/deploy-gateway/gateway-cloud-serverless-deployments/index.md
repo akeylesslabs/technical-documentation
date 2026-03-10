@@ -1,5 +1,5 @@
 ---
-title: Cloud Serverless Deployments
+title: Cloud-Managed Serverless Platforms
 excerpt: ''
 deprecated: false
 hidden: false
@@ -21,9 +21,9 @@ The **Serverless Gateway** is a deployment model for teams that want Akeyless Ga
 
 In this model, cloud-managed serverless services handle runtime scaling, while you configure identity, networking, and Gateway settings for your environment.
 
-## When to Use Serverless Deployments
+## When to Use Cloud-Managed Serverless Platforms
 
-Use serverless deployment patterns when you need:
+Use cloud-managed serverless platform patterns when you need:
 
 * Elastic scaling with low infrastructure management overhead.
 * Fast environment provisioning for cloud-native teams.
@@ -53,7 +53,7 @@ Reference:
 
 ## What Stays the Same Across Providers
 
-Across AWS and Azure serverless deployments, the operational model remains consistent:
+Across AWS and Azure cloud-managed serverless platforms, the operational model remains consistent:
 
 * Gateway authentication and access permissions.
 * TLS and certificate trust configuration.

@@ -12,28 +12,28 @@ Use this section to select a deployment model that matches your infrastructure, 
 
 ## Deployment Models at a Glance
 
-Akeyless Gateway supports local container deployments, Kubernetes-based deployments, and serverless patterns.
+Akeyless Gateway supports self-managed runtime options, cloud-managed Kubernetes platforms, and cloud-managed serverless platforms.
 
-* **Container-based deployments** are fastest to start with and work well for single environment or smaller scale footprints.
-* **Kubernetes-based deployments** are best when you need high availability, policy-driven operations, and platform standardization.
-* **Serverless deployments** are best when your priority is minimizing infrastructure operations and scaling elastically with traffic.
+* **Self-managed runtime options** are fastest to start with and work well for local environments, virtual machines, cloud compute instances (for example, Amazon EC2 and Google Compute Engine), and self-managed Kubernetes.
+* **Cloud-managed Kubernetes platforms** are best when you need high availability, policy-driven operations, and managed control-plane capabilities.
+* **Cloud-managed serverless platforms** are best when your priority is minimizing infrastructure operations and scaling elastically with traffic.
 
 ## Deployment Options
 
 | Option | Type |
 | --- | --- |
-| [Standalone Docker Deployment](https://docs.akeyless.io/docs/install-and-configure-the-gateway) | Container |
-| [Docker Compose Deployment](https://docs.akeyless.io/docs/gateway-compose) | Container |
-| [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-chart) | Kubernetes |
-| [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-k8s#aws-iam) | Kubernetes (AWS) |
-| [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-k8s#azure-active-directory) | Kubernetes (Azure) |
-| [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-k8s#gcp) | Kubernetes (GCP) |
-| [AWS Serverless Deployment](https://docs.akeyless.io/docs/serverless-aws) | Serverless (AWS) |
-| [Azure Serverless Deployment](https://docs.akeyless.io/docs/azure-serverless) | Serverless (Azure) |
+| [Standalone Docker Deployment](https://docs.akeyless.io/docs/install-and-configure-the-gateway) | Self-managed runtime |
+| [Docker Compose Deployment](https://docs.akeyless.io/docs/gateway-compose) | Self-managed runtime |
+| [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-chart) | Self-managed runtime |
+| [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-k8s#aws-iam) | Cloud-managed Kubernetes platform |
+| [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-k8s#azure-active-directory) | Cloud-managed Kubernetes platform |
+| [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-k8s#gcp) | Cloud-managed Kubernetes platform |
+| [AWS Serverless Deployment](https://docs.akeyless.io/docs/serverless-aws) | Cloud-managed serverless platform |
+| [Azure Serverless Deployment](https://docs.akeyless.io/docs/azure-serverless) | Cloud-managed serverless platform |
 
 ## Advantages and Disadvantages by Model
 
-### Standalone Docker and Docker Compose
+### Self-Managed Runtime Options
 
 _Advantages:_
 
@@ -44,10 +44,10 @@ _Advantages:_
 _Disadvantages:_
 
 * Limited native high availability.
-* Manual operational workflows compared to Kubernetes.
+* Manual operational workflows compared to managed platforms.
 * Less suitable for large, multi-team platforms.
 
-### Kubernetes with Helm
+### Self-Managed Kubernetes with Helm
 
 _Advantages:_
 
@@ -57,11 +57,11 @@ _Advantages:_
 
 _Disadvantages:_
 
-* Higher operational complexity.
+* Higher operational complexity than managed Kubernetes platforms.
 * Requires Kubernetes and Helm expertise.
 * Initial setup is longer than container-only deployment.
 
-### Cloud Platform-Specific Kubernetes Variants (EKS, AKS, GKE)
+### Cloud-Managed Kubernetes Platforms
 
 _Advantages:_
 
@@ -75,7 +75,7 @@ _Disadvantages:_
 * Additional cloud-service configuration overhead.
 * Portability can require extra planning.
 
-### Serverless Deployments
+### Cloud-Managed Serverless Platforms
 
 _Advantages:_
 
