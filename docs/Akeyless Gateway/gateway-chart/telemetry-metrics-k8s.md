@@ -33,6 +33,18 @@ The following Metrics are currently available:
 | `akeyless.gw.system.request_count` | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status) |
 | `akeyless.gw.system.healthcheck.status` | Monitors container health check status |
 
+## Health and Connection Status Values
+
+The following metrics are numeric status metrics:
+
+* `akeyless.gw.system.healthcheck.status`
+* `akeyless.gw.system.saas.connection_status`
+
+Use the values below when building dashboards and alerts:
+
+* `1` = healthy/connected
+* `0` = unhealthy/not connected
+
 ## Datadog
 
 To enable Telemetry Metrics on your Gateway for Datadog, edit the chart `values.yaml` file under the `metrics` section and set your metrics backend configuration:
@@ -100,6 +112,13 @@ scrape_configs:
 ```
 
 Once done, check your Prometheus server for the ingested metrics.
+
+When scraped directly by Prometheus, metric names use underscores. For example:
+
+* `akeyless_gw_system_healthcheck_status`
+* `akeyless_gw_system_saas_connection_status`
+
+In OpenTelemetry-transformed backends, these metrics can appear as dotted names (for example, `akeyless.gw.system.healthcheck.status`).
 
 ### Grafana Dashboard
 
