@@ -47,11 +47,11 @@ akeyless create-usc --name <name> --target-to-associate <target name> --azure-kv
 
 The main parameters are:
 
-* `name`: Name for the Universal Secrets Connector. You may specify the location by adding a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
+* `--name`: Name for the Universal Secrets Connector. You may specify the location by adding a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
 
-* `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
+* `--target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
-* `azure-kv-name`: The name of an existing Azure Key Vault.
+* `--azure-kv-name`: The name of an existing Azure Key Vault.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create-usc).
 
@@ -95,11 +95,9 @@ akeyless usc get --usc-name <usc name> --secret-id <secret id or name>
 
 The main parameters are:
 
-* `usc-name`: Name of the Universal Secrets Connector.
-
 * `secret-id`: The name or ID of the secret you would like to fetch.
 
-* `object-type[=secret]` Either secret or certificate, the default is set to secret.
+* `--secret-id`: The name or ID of the secret you would like to fetch.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#get).
 
@@ -125,13 +123,13 @@ akeyless usc create --usc-name <usc name> --secret-name <new secret name> --valu
 
 The main parameters are:
 
-* `usc-name`: Name of the Universal Secrets Connector.
+* `--usc-name`: Name of the Universal Secrets Connector.
 
-* `secret-name`: The name of the secret you would like to create.
+* `--secret-name`: The name of the secret you would like to create.
 
-* `value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
+* `--value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
 
-* `object-type[=secret]`: Either `secret` or `certificate`, when set to `certificate` - Provide a Base64-encoded certificate file that includes the private key.
+* `--object-type[=secret]`: Either `secret` or `certificate`, when set to `certificate` - Provide a Base64-encoded certificate file that includes the private key.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
 
