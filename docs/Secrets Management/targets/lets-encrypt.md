@@ -13,7 +13,10 @@ With a public CA, Akeyless cannot access the private key that signs certificates
 
 The Let’s Encrypt integration uses an [ACME Client (v2)](https://datatracker.ietf.org/doc/html/rfc8555).
 
-To prove you own the domain, **Let’s Encrypt** requires an **ACME challenge**.  Currently You can complete this challenge using  [DNS validation](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge). With **DNS validation**, you prove domain ownership by adding a **DNS record**. This requires the domain to be managed in a supported DNS provider’s hosted zone (for example **AWS Route 53**, **GCP Cloud DNS**, or **Azure DNS**).
+To prove you own the domain, **Let’s Encrypt** requires an **ACME challenge**, which can be complete using [DNS](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge) or [HTTP](https://letsencrypt.org/docs/challenge-types/#http-01-challenge) validation.
+
+* **DNS validation** -  Ownership is proven by adding a **DNS record**. This requires the domain to be managed in a supported DNS provider’s hosted zone (for example **AWS Route 53**, **GCP Cloud DNS**, or **Azure DNS**).
+* **HTTP validation** - Ownership is proven by hosting a challenge file at a specific HTTP endpoint under the `/.well-known/...` path. The certificate authority verifies ownership by sending an HTTP request to that **URL** and confirming that the expected value is returned.
 
 ## Create a Let's Encrypt Target with the CLI
 
@@ -23,7 +26,7 @@ To create a Let's Encrypt target with the CLI, run the following command:
 akeyless target create lets-encrypt \
 --name <Target Name> \
 --lets-encrypt-url[=production] <[production]/[staging]> \
---acme-challenge dns \
+--acme-challenge[=http] <[http]/[dns] \
 --dns-target-creds <[AWS/Azure/GCP] target name, relevant only when --acme-challenge=dns> \
 --hosted-zone <AWS Route 53 hosted zone identifier, relevant only when --acme-challenge=dns and the DNS credentials target is AWS> 
 ```
@@ -34,7 +37,7 @@ Where:
 
 * `lets-encrypt-url`: Either **Production** - `https://acme-v02.api.letsencrypt.org/directory` (default) or **Staging** - `https://acme-staging-v02.api.letsencrypt.org/directory`.
 
-* `acme-challenge`: **DNS**.
+* `acme-challenge[=http]`: Either **HTTP** or **DNS**
 
 * `dns-target-creds`: The name of the `AWS`/`Azure`/`GCP` target that holds the connection details to the DNS provider endpoint where the **ACME DNS-01 challenge TXT record** will be created and deleted.
 
@@ -55,14 +58,11 @@ Where:
 
    * **Email**:
 
-   * **Challenge Type**:  **DNS** **.
+   * **Challenge Type**:  **HTTP** ** or **DNS**
 
      * **DNS Provider**: Either **AWS**, **GCP** or **Azure** (relevant only if **Challenge Type** is **DNS**).
-
      * **Target**: Select a target that contains the DNS provider credentials.
-
      * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
-
      * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
 5. Click Finish.
