@@ -25,7 +25,7 @@ Benefits:
 
 Interaction with the Akeyless vault proxy can be done against our public endpoint: `https://hvp.akeyless.io`
 
-Or directly through your [Gateway](https://docs.akeyless.io/docs/api-gw) on port `8200`.
+Or directly through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) on port `8200`.
 
 ## Usage
 

@@ -16,7 +16,7 @@ To work with Venafi TPP in CyberArk Machine Identity Security, you can choose ei
 
 ## Prerequisites
 
-* Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw).
+* Akeyless [Gateway](https://docs.akeyless.io/docs/gateway-overview).
 
 * Venafi TPP.
 

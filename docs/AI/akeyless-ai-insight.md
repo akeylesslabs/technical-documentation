@@ -17,7 +17,7 @@ Akeyless AI Insights enables natural-language interaction with the Akeyless Plat
 * OpenAI (GPT models)
 * Gemini (Gemini models)
 
-In this guide, we will use **OpenAI** as the LLM provider.
+This guide uses **OpenAI** examples. You can also use **Gemini** by creating a Gemini target and setting a compatible model.
 
 ## Prerequisites
 
@@ -55,9 +55,13 @@ AI Insights can also be enabled at the account level using the Web UI.
 >
 > `akeyless update-account-settings --enable-ai-insights false`
 
-### Step 2: Create an OpenAI Target
+### Step 2: Create an LLM Target
 
-This section describes how to create an OpenAI target for use with AI Insights.
+Create either an OpenAI target or a Gemini target for use with AI Insights.
+
+For Gemini target setup details, see [Gemini Target](https://docs.akeyless.io/docs/gemini-target).
+
+The following OpenAI examples are provided as a reference workflow.
 
 #### Command Syntax
 
@@ -191,7 +195,7 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 | AI Insights disabled | Enable AI Insights at the account level |
 | Gateway disabled | Update gateway configuration |
 | Invalid model | Ensure the model value uses the `gpt-` prefix |
-| Invalid target | Ensure the target is an OpenAI target |
+| Invalid target | Ensure the target is a supported LLM target (OpenAI or Gemini) |
 | Target not found | Validate the target name and ID |
 | Authentication failure | Re-authenticate by running `akeyless auth` |
 | Gateway unreachable | Check that port 8000 is open and firewall rules allow access |
@@ -200,7 +204,7 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 ## Configuration Checklist
 
 * [ ] Enable AI Insights
-* [ ] Create OpenAI target
+* [ ] Create OpenAI or Gemini target
 * [ ] Store target ID
 * [ ] Configure gateway
 * [ ] Verify the Gateway configuration

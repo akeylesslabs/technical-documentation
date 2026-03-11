@@ -55,7 +55,7 @@ The unified deployment of Gateway and Remote Access offers multiple configuratio
 
 | Service | Old Port | New Port/Endpoint |
 | --- | --- | --- |
-| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 | 8000 |
+| [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) | 8000 | 8000 |
 | Akeyless Gateway Console | 1888 | `<gateway-url>:8000/console` |
 | Remote Access Portal | - | `<gateway-url>:8000/sra/portal` |
 | Remote Access Web Client | 8888 | `<gateway-url>:8000/sra/web-client` |

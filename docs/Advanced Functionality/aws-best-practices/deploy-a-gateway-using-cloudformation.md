@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This guide explains how to automate the integration with Akeyless using an [Amazon CloudFormation](https://aws.amazon.com/cloudformation/) template. The template provisions an Amazon EC2 instance with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw), creates an AWS IAM Role with permissions to manage IAM users and secrets, and can generate both an [AWS Target](https://docs.akeyless.io/docs/aws-targets) and a [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) in Akeyless. The entire setup, from infrastructure deployment to integration configuration, is handled end to end.
+This guide explains how to automate the integration with Akeyless using an [Amazon CloudFormation](https://aws.amazon.com/cloudformation/) template. The template provisions an Amazon EC2 instance with the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview), creates an AWS IAM Role with permissions to manage IAM users and secrets, and can generate both an [AWS Target](https://docs.akeyless.io/docs/aws-targets) and a [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) in Akeyless. The entire setup, from infrastructure deployment to integration configuration, is handled end to end.
 
 ## General Configuration
 
@@ -69,7 +69,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
 2. Select **Upload a template file**, then upload the `yaml` file containing the CloudFormation template.
 
-    Set the `AccessId` with your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Auth Method's `Access ID`, where you can define a list of users who can manage your Gateway settings by way of the `AllowedAccessID` setting with any other `Access ID`. In our example, we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) we created earlier; alternatively, you can use your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) as described [here](https://docs.akeyless.io/docs/gateway-k8s#access-permissions).
+    Set the `AccessId` with your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Auth Method's `Access ID`, where you can define a list of users who can manage your Gateway settings by way of the `AllowedAccessID` setting with any other `Access ID`. In our example, we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) we created earlier; alternatively, you can use your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) as described [here](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
     ```yaml Gateway
     AWSTemplateFormatVersion: '2010-09-09'
@@ -558,7 +558,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
     * Launch an [EC2 instance](https://aws.amazon.com/ec2/) with Docker installed and ready to run containers.
 
-    * Deploy the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) inside a Docker container on the **EC2 instance** for secure, high-availability access to Akeyless Vault services.
+    * Deploy the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) inside a Docker container on the **EC2 instance** for secure, high-availability access to Akeyless Vault services.
 
     * Create an IAM Role with scoped permissions for managing secrets and IAM users through AWS.
 
