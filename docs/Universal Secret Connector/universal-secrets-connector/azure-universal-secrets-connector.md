@@ -163,6 +163,80 @@ akeyless usc delete --usc-name <usc name> --secret-id <secret id or name> --forc
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).
 
+## Validation Checklist
+
+After setup, validate with these checks:
+
+1. List objects:
+
+    ```shell
+    akeyless usc list --usc-name <usc name>
+    ```
+
+1. Read an existing secret:
+
+    ```shell
+    akeyless usc get --usc-name <usc name> --secret-id <secret id or name>
+    ```
+
+1. Create a test secret:
+
+    ```shell
+    akeyless usc create --usc-name <usc name> --secret-name <test secret name> --value <test value>
+    ```
+
+1. Update the test secret:
+
+    ```shell
+    akeyless usc update --usc-name <usc name> --secret-id <test secret name> --value <new value>
+    ```
+
+1. Delete the test secret:
+
+    ```shell
+    akeyless usc delete --usc-name <usc name> --secret-id <test secret name>
+    ```
+
+### Logging and auditing
+
+Use logs to validate traceability of secret access operations:
+
+* Azure Key Vault audit logs.
+* Akeyless audit logs.
+
+## Troubleshooting
+
+Use this section when setup or validation fails.
+
+### Authorization failed during list, get, create, update, or delete
+
+Possible cause: the service principal is missing a Key Vault role, or the role was assigned at the wrong scope.
+
+Resolution:
+
+1. Verify **Key Vault Secrets Officer** is assigned to the app registration service principal.
+2. Confirm assignment scope is the target Key Vault.
+3. Wait for role propagation, then retry.
+
+### Authentication failed for the target
+
+Possible cause: incorrect tenant ID, client ID, or client secret.
+
+Resolution:
+
+1. Re-check tenant ID and client ID from the app overview.
+2. Create a new client secret if the previous secret is expired or unavailable.
+3. Update the Akeyless Azure target with the corrected values.
+
+### Certificate operations fail but secret operations succeed
+
+Possible cause: Key Vault certificates role is not assigned.
+
+Resolution:
+
+1. Assign **Key Vault Certificates Officer** to the same service principal.
+2. Retry certificate list or update operations.
+
 ## Creating a Universal Secrets Connector from the Console
 
 1. Log in to the Akeyless Console, and go to **Items > New > Universal Secrets Connector**.
