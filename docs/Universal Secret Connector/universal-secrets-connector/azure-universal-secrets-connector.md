@@ -14,6 +14,22 @@ This page explains how to create an Azure [Universal Secrets Connector](https://
 
 ## Prerequisites
 
+### Azure requirements
+
+* Azure subscription access.
+* Existing Azure Key Vault.
+* Permission to:
+    * Create app registrations.
+    * Assign RBAC roles to Azure resources.
+
+### Akeyless requirements
+
+* Active Akeyless account.
+* Permission to configure Universal Secrets Connector.
+* Network connectivity between the USC runtime environment and:
+    * Akeyless platform.
+    * Azure Key Vault API endpoints.
+
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
 * Azure [Registered Application](https://learn.microsoft.com/en-us/security/zero-trust/develop/app-registration) with the [Key Vault Secrets Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role assigned. If you wish to work with Certificates, assign the [Certificate Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role.
 
