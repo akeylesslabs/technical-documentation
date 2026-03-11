@@ -208,6 +208,7 @@ akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert
 > ℹ️ **Info:**
 >
 > For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert-issuer-name` for the **other** cert-issuer. This will enable access through SRA based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
+
 > ℹ️ **Info (Extract From Mode):**
 >
 > If the SSH certificate issuer is configured with externally provided usernames and a claim key name, Akeyless Connect supports **Extract From** mode. In this mode, the username is extracted from JWT sub-claims by the bastion.
