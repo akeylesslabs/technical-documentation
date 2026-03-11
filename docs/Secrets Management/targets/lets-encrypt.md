@@ -57,9 +57,9 @@ Where:
 4. Define the remaining parameters as follows:
    * **Server URL**: Either [Production](https://acme-v02.api.letsencrypt.org/directory) or [Staging](https://acme-staging-v02.api.letsencrypt.org/directory).
 
-   * **Email**:
+   * **Email**: Email address for the Let's Encrypt account.
 
-   * **Challenge Type**:  **HTTP** ** or **DNS**
+   * **Challenge Type**:  **DNS** or **HTTP**
 
      * **DNS Provider**: Either **AWS**, **GCP** or **Azure** (relevant only if **Challenge Type** is **DNS**).
      * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
