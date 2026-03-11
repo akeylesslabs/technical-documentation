@@ -9,7 +9,7 @@ You can create a Splunk Rotated Secret for common Splunk credentials. You can co
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview).
 * [Splunk Target](https://docs.akeyless.io/docs/splunk-target) which holds a **Username** and **Password** or a **token** to authenticate.
 
 ## Create a Rotated Splunk Secret with the CLI
@@ -39,7 +39,7 @@ To set credential source, token ownership fields, HEC fields, and rotation sched
 
 > ℹ️ **Note:**
 >
-> To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/gateway-overview) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > Splunk**.
 

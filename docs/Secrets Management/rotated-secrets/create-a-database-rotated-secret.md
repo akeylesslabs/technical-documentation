@@ -34,7 +34,7 @@ You can create a Rotated Secret for a database user. Currently, Akeyless Rotated
 
 > ⚠️ **Warning:** Before you get started, ensure creating a [Database Target](https://docs.akeyless.io/docs/database-targets) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.
 
-When a client requests a Rotated Secret value, the Akeyless Platform connects to the database server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target database.
+When a client requests a Rotated Secret value, the Akeyless Platform connects to the database server through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) to rotate the user password on your target database.
 
 ## Create a Rotated Database Secret with the CLI
 
@@ -85,7 +85,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > ℹ️ **Note:**
 >
-> To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-a-database-rotated-secret#create-a-rotated-database-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-a-database-rotated-secret#create-a-rotated-database-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/gateway-overview) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > Database Type**.
 

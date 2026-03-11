@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-You can define a dynamic LDAP secret to dynamically generate LDAP access credentials. When a client requests the dynamic secret value, the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) connects to your LDAP server and generates a temporary set of restricted access credentials.
+You can define a dynamic LDAP secret to dynamically generate LDAP access credentials. When a client requests the dynamic secret value, the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) connects to your LDAP server and generates a temporary set of restricted access credentials.
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the LDAP server.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with network access to the LDAP server.
 
 * LDAP server with a privileged LDAP User.
 

@@ -18,7 +18,7 @@ The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://doc
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) to interact with the Public Certificate Authority.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) to interact with the Public Certificate Authority.
 * Target of the public CA.
 
 ### PKI Cert Issuer With a Target

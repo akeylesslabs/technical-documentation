@@ -9,7 +9,7 @@ Certificate Discovery helps you continuously locate and inventory certificates a
 
 When a certificate is found, Akeyless automatically creates a corresponding certificate record with all available metadata, including where it was discovered (target and endpoint details) and the certificate’s key attributes. You can also predefined expiration event settings so newly discovered certificates are immediately tracked and monitored without manual onboarding.
 
-> ✅ **Tip:** This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or later.
+> ✅ **Tip:** This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/gateway-overview) running version `4.46.0` or later.
 
 ## Running a Certificate Discovery with the CLI
 
