@@ -12,7 +12,7 @@ next:
 ---
 ## Introduction
 
-Automatic migration allows importing Static Secrets into Akeyless from other identity security platforms. This feature is available as part of the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) functionality. Additionally, it is possible to configure migration by way of the Console, where each Gateway has its dedicated directory for managing the migration process.
+Automatic migration allows importing Static Secrets into Akeyless from other identity security platforms. This feature is available as part of the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) functionality. Additionally, it is possible to configure migration by way of the Console, where each Gateway has its dedicated directory for managing the migration process.
 
 ## Supported Platforms
 
@@ -21,6 +21,7 @@ Currently, you can import Static Secrets from the following platforms:
 * [1Password](https://docs.akeyless.io/docs/automatic-migration#1password) - Deprecated from Gateway version `4.35.1`
 * [AWS Secrets Manager](https://docs.akeyless.io/docs/automatic-migration#aws-secrets-manager)
 * [Azure Key Vault](https://docs.akeyless.io/docs/automatic-migration#azure-key-vault)
+* [Conjur Secrets Manager](https://docs.akeyless.io/docs/automatic-migration#conjur-secrets-manager)
 * [CSV import](https://docs.akeyless.io/docs/automatic-migration#csv-import), Relevant for Firefox, Chrome and LastPass
 * [GCP Secrets Manager](https://docs.akeyless.io/docs/automatic-migration#gcp-secrets-manager)
 * [HashiCorp Vault](https://docs.akeyless.io/docs/automatic-migration#hashicorp-vault)
@@ -67,6 +68,10 @@ To import secrets from AWS Secrets Manager, you need to provide access credentia
 ## Azure Key Vault
 
 To import secrets from Azure Key Vault, you need to create an [Azure AD app with a service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). Access credentials and the unique Key Vault name must be provided in the configuration dialog.
+
+## Conjur Secrets Manager
+
+To import secrets from Conjur Secrets Manager, you need to provide access credentials of a user with sufficient permissions to get all secrets. The required configuration includes, Conjur Account, Username and an API Key.
 
 ## CSV Import
 

@@ -14,7 +14,7 @@ You can create an Artifactory dynamic secret to allow users to dynamically recei
 
 For more information on how to use access tokens in Artifactory, see the [JFrog Artifactory documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens).
 
-When a client requests a dynamic secret value, the Akeyless Platform connects to the Artifactory through your [Gateway](https://docs.akeyless.io/docs/api-gw) and generates a temporary access token.
+When a client requests a dynamic secret value, the Akeyless Platform connects to the Artifactory through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) and generates a temporary access token.
 
 ## Create a Dynamic Artifactory Secret with the CLI
 
@@ -83,7 +83,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 > ℹ️ **Note:**
 >
-> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#/create-a-dynamic-artifactory-secret-in-the-akeyless-console), you need to configure the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#/create-a-dynamic-artifactory-secret-in-the-akeyless-console), you need to configure the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 

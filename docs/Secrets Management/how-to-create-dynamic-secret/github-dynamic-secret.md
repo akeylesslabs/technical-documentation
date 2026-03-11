@@ -14,7 +14,7 @@ You can define a GitHub Dynamic Secret to generate just-in-time installation acc
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 
 * A GitHub application with permissions you would like to grant to the temporary tokens. Then, you need to install this app and select the repositories you want to allow access to.
 

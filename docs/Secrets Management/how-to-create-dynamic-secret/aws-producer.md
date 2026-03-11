@@ -19,7 +19,7 @@ You can create dynamic access credentials for AWS in two modes:
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 * An [AWS Target](https://docs.akeyless.io/docs/aws-targets)
 * If you are using `iam_user` mode, the minimum required policy for the user should include the following permissions:
 

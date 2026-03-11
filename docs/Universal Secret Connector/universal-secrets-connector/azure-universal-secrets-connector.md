@@ -14,7 +14,7 @@ This page discusses the creation of Azure [Universal Secrets Connectors](https:/
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with **Read** permission on the target associated with the **USC**.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
 * Azure [Registered Application](https://learn.microsoft.com/en-us/security/zero-trust/develop/app-registration) with the [Key Vault Secrets Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role assigned. If you wish to work with Certificates, assign the [Certificate Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role.
 
 ## Working With Universal Secrets Connector from the Console
@@ -131,10 +131,18 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 ### Deleting an Existing USC Secret
 
+Azure Key Vault uses soft-delete by default. To permanently delete a secret, use the `--force-delete` flag.
+
 To delete an existing secret in your USC, use the following command:
 
 ```shell
-akeyless usc delete --usc-name <usc name> --secret-name < secret name>
+akeyless usc delete --usc-name <usc name> --secret-id <secret id or name>
+```
+
+To force permanent deletion from the Azure Key Vault soft-deleted list, use:
+
+```shell
+akeyless usc delete --usc-name <usc name> --secret-id <secret id or name> --force-delete
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).
