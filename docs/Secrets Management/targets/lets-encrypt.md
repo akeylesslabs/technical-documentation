@@ -16,6 +16,7 @@ The Let’s Encrypt integration uses an [ACME Client (v2)](https://datatracker.i
 To prove you own the domain, **Let’s Encrypt** requires an **ACME challenge**, which can be complete using [DNS](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge) or [HTTP](https://letsencrypt.org/docs/challenge-types/#http-01-challenge) validation.
 
 * **DNS validation** -  Ownership is proven by adding a **DNS record**. This requires the domain to be managed in a supported DNS provider’s hosted zone (for example **AWS Route 53**, **GCP Cloud DNS**, or **Azure DNS**).
+
 * **HTTP validation** - Ownership is proven by hosting a challenge file at a specific HTTP endpoint under the `/.well-known/...` path. The certificate authority verifies ownership by sending an HTTP request to that **URL** and confirming that the expected value is returned.
 
 ## Create a Let's Encrypt Target with the CLI
