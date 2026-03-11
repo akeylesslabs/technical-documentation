@@ -95,7 +95,7 @@ akeyless usc get --usc-name <usc name> --secret-id <secret id or name>
 
 The main parameters are:
 
-* `secret-id`: The name or ID of the secret you would like to fetch.
+* `--usc-name`: Name of the Universal Secrets Connector.
 
 * `--secret-id`: The name or ID of the secret you would like to fetch.
 
