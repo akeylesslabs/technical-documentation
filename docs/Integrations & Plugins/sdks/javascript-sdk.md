@@ -34,7 +34,7 @@ client.basePath = 'https://api.akeyless.io';
 const api = new akeyless.V2Api(client);
 ```
 
-To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set the `client.basePath` with your Gateway API endpoint on port `8081`.
+To work with Your [Gateway](https://docs.akeyless.io/docs/gateway-overview) set the `client.basePath` with your Gateway API endpoint on port `8081`.
 
 ## Authentication
 

@@ -12,7 +12,7 @@ next:
 ---
 ## Prerequisites
 
-* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.40.0` or later
+* [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.40.0` or later
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Read` permission for **Items**
 * **Certificate Item** stored in Akeyless Platform containing the `certificate` and `private_key` in `pem` format.
 

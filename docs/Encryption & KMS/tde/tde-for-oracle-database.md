@@ -105,7 +105,7 @@ access_key="<Access Key>"
 
 Where:
 
-* `akeyless_url` is your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) URL on API port `8081`.
+* `akeyless_url` is your [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) URL on API port `8081`.
 
 * `base_item_path` - The destination path, to save all your TDE encryption keys inside the Akeyless Platform. Ensure your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) has permission to create and manage items under the desired path.
 
