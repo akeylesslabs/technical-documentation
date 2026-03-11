@@ -17,7 +17,7 @@ To prove you own the domain, **Let’s Encrypt** requires an **ACME challenge**,
 
 * **DNS validation** -  Ownership is proven by adding a **DNS record**. This requires the domain to be managed in a supported DNS provider’s hosted zone (for example **AWS Route 53**, **GCP Cloud DNS**, or **Azure DNS**).
 
-* **HTTP validation** - Ownership is proven by hosting a challenge file at a specific HTTP endpoint under the `/.well-known/...` path. The certificate authority verifies ownership by sending an HTTP request to that **URL** and confirming that the expected value is returned.
+* **HTTP validation** - Ownership is proven by hosting a challenge file at a specific HTTP endpoint under the `http://<YOUR_DOMAIN>/.well-known/acme-challenge/` path. The certificate authority verifies ownership by sending an HTTP request to that **URL** and confirming that the expected value is returned.
 
 ## Create a Let's Encrypt Target with the CLI
 
@@ -62,7 +62,7 @@ Where:
    * **Challenge Type**:  **HTTP** ** or **DNS**
 
      * **DNS Provider**: Either **AWS**, **GCP** or **Azure** (relevant only if **Challenge Type** is **DNS**).
-     * **Target**: Select a target that contains the DNS provider credentials.
+     * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
      * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
      * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
