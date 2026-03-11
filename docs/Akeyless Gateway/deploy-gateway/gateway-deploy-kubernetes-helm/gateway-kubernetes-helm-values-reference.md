@@ -113,6 +113,32 @@ TLSConf:
 
 Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-certificate) using the web interface of the Gateway Configuration Manager.
 
+### TLS 1.3 and PQC on Any Cloud Platform
+
+The same TLS and PQC settings apply across all cloud platforms where Akeyless Gateway runs on Kubernetes, including managed and self-managed clusters.
+
+To enable hybrid post-quantum key exchange on the Gateway pod, set TLS 1.3 and add the Go runtime flag in `globalConfig.env`:
+
+```yaml values.yaml
+TLSConf:
+  enabled: true
+  minimumTlsVersion: TLSv1.3
+
+globalConfig:
+  env:
+    - name: GODEBUG
+      value: tlsmlkem=1
+```
+
+Apply the updated chart values and restart/upgrade the Gateway release so the pod loads the new runtime flag.
+
+To verify PQC support, open the Gateway endpoint over HTTPS in Chrome, check the connection security details, and confirm the negotiated key exchange includes `X25519MLKEM768`.
+
+`X25519MLKEM768` confirms a hybrid key exchange:
+
+* `X25519` (classical elliptic-curve cryptography)
+* `MLKEM-768` (post-quantum cryptography)
+
 ### OIDC Configuration
 
 To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (if your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (`port 8000`) with the following URI suffix `/api/oidc-callback` (for example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).

@@ -21,7 +21,11 @@ To prove domain ownership, Let's Encrypt requires an ACME challenge. Let's Encry
 * `http` (default)
 * `dns`
 
-With DNS validation, domain ownership is verified by creating a DNS TXT record. This requires a supported DNS provider target such as AWS Route 53, GCP Cloud DNS, or Azure DNS.
+To prove domain ownership, the Akeyless integration supports the following validation methods:
+
+* **DNS validation**: Ownership is proven by adding a DNS TXT record. This requires the domain to be managed in a supported DNS provider's hosted zone (for example, AWS Route 53, GCP Cloud DNS, or Azure DNS).
+
+* **HTTP validation**: Ownership is proven by hosting a challenge file at `http://<YOUR_DOMAIN>/.well-known/acme-challenge/` and returning the expected value during validation.
 
 ## Create a Let's Encrypt Target with the CLI
 
@@ -102,7 +106,6 @@ Where:
      * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
      * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
-
      * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
      * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
