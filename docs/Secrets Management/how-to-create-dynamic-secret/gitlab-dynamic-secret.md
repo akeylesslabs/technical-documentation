@@ -19,7 +19,7 @@ There are two modes for this Dynamic Secret:
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 * **Access Token** - Access Token that will be used for authentication with GitLab
 
 ## Create a Dynamic GitLab Secret with the CLI

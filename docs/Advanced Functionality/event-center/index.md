@@ -99,7 +99,7 @@ Event Forwarders can only be managed by **Admins** or by users with explicit [pe
 
 > ℹ️ **Note:**
 >
-> Event Forwarders require a running [Gateway](https://docs.akeyless.io/docs/api-gw). Both **Admins** and authorized users need to have [Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions) on at least one [Gateway](https://docs.akeyless.io/docs/api-gw) to create and manage Event Forwarders.
+> Event Forwarders require a running [Gateway](https://docs.akeyless.io/docs/gateway-overview). Both **Admins** and authorized users need to have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) on at least one [Gateway](https://docs.akeyless.io/docs/gateway-overview) to create and manage Event Forwarders.
 
 ### Forwarded Events Format
 

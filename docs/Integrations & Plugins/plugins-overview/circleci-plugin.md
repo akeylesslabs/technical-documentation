@@ -73,7 +73,7 @@ akeyless set-role-rule --role-name /Dev/CI/CircleCIRole \
 
 ## CircleCI Global Configuration
 
-Instead of checking your Auth Method `access Id`, or your [Gateway](https://docs.akeyless.io/docs/api-gw) `URL` into version control, we can store them securely in CircleCI environment variables.
+Instead of checking your Auth Method `access Id`, or your [Gateway](https://docs.akeyless.io/docs/gateway-overview) `URL` into version control, we can store them securely in CircleCI environment variables.
 
 Go to **Project Settings** > **Environment variables** > **Add Environment Variable**
 

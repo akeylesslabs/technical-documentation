@@ -14,7 +14,7 @@ next:
 
 The ACME protocol defines an external account binding (**EAB**), allowing clients to securely interact with the **ACME Server** for certificate management.
 
-Akeyless supports creating a [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) that deploys an **ACME Server** on the [Gateway](https://docs.akeyless.io/docs/api-gw), with **EAB** support for secure registration. This setup allows external ACME clients (like [CertBot](https://certbot.eff.org/instructions?ws=other\&os=windows)) to automate the management of TLS certificates within the organization’s security framework.
+Akeyless supports creating a [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) that deploys an **ACME Server** on the [Gateway](https://docs.akeyless.io/docs/gateway-overview), with **EAB** support for secure registration. This setup allows external ACME clients (like [CertBot](https://certbot.eff.org/instructions?ws=other\&os=windows)) to automate the management of TLS certificates within the organization’s security framework.
 
 Before proceeding, ensure you have permission to manage **ACME** on your Gateway.
 
