@@ -105,7 +105,7 @@ access_key="<Access Key>"
 
 Where:
 
-* `akeyless_url` is your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) URL on API port `8081`.
+* `akeyless_url` is your [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) URL on API port `8081`.
 
 * `base_item_path` - The destination path, to save all your TDE encryption keys inside the Akeyless Platform. Ensure your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) has permission to create and manage items under the desired path.
 
@@ -483,7 +483,7 @@ For additional details on Oracle TDE and auto-login keystore, please refer to th
 
 ## TDE Key Rotation
 
-[Oracle - Setting or Rotating the TDE Master Encryption Key in the Keystore](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/asoag/managing-keystore-and-tde-master-encryption-key.html#GUID-FDA3856D-5B88-42FD-A666-BC965C92689C)  and [Frequently Asked Questions About Transparent Data Encryption](https://docs.oracle.com/en/database/oracle/oracle-database/26/dbtde/faq-tde.html) provides instructions on how to perform key rotations, including the necessary SQL commands and best practices to ensure a smooth transition to a new key.
+[Oracle - Setting or Rotating the TDE Master Encryption Key in the Keystore](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/asoag/managing-keystore-and-tde-master-encryption-key.html#GUID-FDA3856D-5B88-42FD-A666-BC965C92689C) and [Frequently Asked Questions About Transparent Data Encryption](https://docs.oracle.com/en/database/oracle/oracle-database/26/dbtde/faq-tde.html) provides instructions on how to perform key rotations, including the necessary SQL commands and best practices to ensure a smooth transition to a new key.
 
 ## Restoring RMAN Backup With New TDE Key
 

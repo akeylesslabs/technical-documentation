@@ -14,6 +14,21 @@ The Akeyless official [plugin for Ansible](https://galaxy.ansible.com/ui/repo/pu
 
 You can manage secrets and certificates with either [Modules](https://docs.ansible.com/ansible/latest/plugins/module.html) or [Lookup](https://docs.ansible.com/ansible/latest/plugins/lookup.html) plugins. In this guide, we will use Modules for simplicity. More information about the Lookup plugin can be found [here](https://docs.ansible.com/ansible/latest/plugins/lookup.html)
 
+## Prerequisites
+
+Before using the Akeyless Ansible plugin, ensure the following prerequisites are met:
+
+* Python 3 installed on the Ansible control node.
+* Ansible installed.
+* The Akeyless Python package installed:
+
+    ```shell
+    pip install akeyless
+    ```
+
+* Access to an Akeyless Authentication Method (for example, API Key, AWS IAM, Azure AD, or OIDC) with a valid `access_id` and required credentials.
+* Network access from the Ansible control node to `https://api.akeyless.io` (or to your Akeyless Gateway endpoint if applicable).
+
 ## Installation
 
 To install the Akeyless Ansible plugin, use one of the following methods:

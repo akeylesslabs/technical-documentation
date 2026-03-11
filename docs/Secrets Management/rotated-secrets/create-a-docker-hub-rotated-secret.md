@@ -52,7 +52,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > ℹ️ **Note:**
 >
-> To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-a-docker-hub-rotated-secret#create-a-rotated-docker-hub-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-a-docker-hub-rotated-secret#create-a-rotated-docker-hub-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/gateway-overview) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > Docker**.
 

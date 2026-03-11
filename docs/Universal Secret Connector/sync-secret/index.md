@@ -16,7 +16,7 @@ The Akeyless [Universal Secret Connector](https://docs.akeyless.io/docs/universa
 
 * Universal Secret Connector Item.
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with **Read** permission on the associated USC and its target.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the associated USC and its target.
 
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with **Read** and **Update** permission on the [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) item, and **Read** permission on the associated USC.
 

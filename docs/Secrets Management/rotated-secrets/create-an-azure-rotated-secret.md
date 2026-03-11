@@ -14,7 +14,7 @@ You can create Rotated Secrets for Azure Apps and Azure Storage Account. Before 
 
 The target must include the Azure tenant ID and client ID, as well as a client secret for a privileged App authorized to rotate credentials.
 
-When a client requests a Rotated Secret value, the Akeyless Platform connects to the Azure App through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the Key of the target Azure App.
+When a client requests a Rotated Secret value, the Akeyless Platform connects to the Azure App through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) to rotate the Key of the target Azure App.
 
 ## Prerequisites
 
@@ -105,7 +105,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > ℹ️ **Note:**
 >
-> To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-azure-rotated-secret#create-a-rotated-azure-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-azure-rotated-secret#create-a-rotated-azure-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/gateway-overview) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > Azure**.
 

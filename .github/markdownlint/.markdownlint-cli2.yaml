@@ -7,6 +7,7 @@ customRules:
 
 # Excluded files
 ignores:
+  - .github/**/*.md
   - docs/Contributing Guides/technical-documentation-style-guide/index.md
 
 config:
@@ -344,6 +345,17 @@ config:
   #   | ---- | ---: |
   AKY018: true
 
+  # AKY019: Remove unnecessary repeated spaces outside code
+  #
+  # Purpose:
+  #   Auto-fixes repeated spaces in prose by collapsing them to a single space.
+  #
+  # Behavior:
+  #   - Ignores fenced and indented code blocks.
+  #   - Ignores inline code spans.
+  #   - Applies fixes when markdownlint runs with --fix.
+  AKY019: true
+
   # =========================
   # Core markdownlint Rules
   # =========================
@@ -631,17 +643,10 @@ config:
     allowed_elements:
       - "details"
       - "summary"
-      - "a"
-      - "p"
+      - "video"
+      - "source"
       - "svg"
       - "path"
-      # Table Elements
-      - "table"
-      - "thead"
-      - "th"
-      - "tbody"
-      - "tr"
-      - "td"
       # ReadMe Proprietary
       - "HTMLBlock"
       - "Image"

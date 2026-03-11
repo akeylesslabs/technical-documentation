@@ -26,7 +26,7 @@ To use Akeyless Connect you need:
 
 * A [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 
-* OpenSSH v7.9  and OpenSSL 1.1.1 or higher on target servers.
+* OpenSSH v7.9 and OpenSSL 1.1.1 or higher on target servers.
 
 > ℹ️ **Note:**
 >

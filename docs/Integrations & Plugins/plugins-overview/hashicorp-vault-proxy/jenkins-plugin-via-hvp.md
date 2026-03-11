@@ -42,7 +42,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
     > 📘 Info
     >
-    > If you are using a customer [key fragment](https://docs.akeyless.io/docs/dfc-overview) with your Akeyless Platform, set your Vault URL with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) on port `8200`.
+    > If you are using a customer [key fragment](https://docs.akeyless.io/docs/dfc-overview) with your Akeyless Platform, set your Vault URL with the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) on port `8200`.
 
     ![Illustration for: > If you are using a customer key fragment with your Akeyless Platform, set your Vault URL with the Akeyless Gateway on port 8200.](https://files.readme.io/a390eba-Screenshot_at_Feb_24_17-42-02.png)
 

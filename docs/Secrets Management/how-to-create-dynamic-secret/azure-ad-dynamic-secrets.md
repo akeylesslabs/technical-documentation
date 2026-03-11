@@ -18,7 +18,7 @@ You can define an Azure AD dynamic secret to dynamically generate access credent
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 
 * Azure AD Service Account
 

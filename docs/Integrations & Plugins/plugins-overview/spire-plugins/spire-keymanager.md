@@ -12,8 +12,8 @@ next:
 ---
 ## Prerequisites
 
-* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.35.0` or later
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `create` and `read` permissions for **Items**, as well as [Gateway Access Permission](https://docs.akeyless.io/docs/gateway-access-permissions) to manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
+* [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.35.0` or later
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `create` and `read` permissions for **Items**, as well as [Gateway Access Permission](https://docs.akeyless.io/docs/gateway-authentication-and-access) to manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
 
 ## Authentication
 

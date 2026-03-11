@@ -5,6 +5,9 @@ name: CLI Command Path Check (Manual)
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   command-path-check:
     runs-on: ubuntu-latest
