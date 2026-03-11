@@ -326,10 +326,10 @@ After TLS is configured and the Gateway is available over HTTPS, validate the ne
 
 #### PQC Verification
 
-The key element to verify is `X25519MLKEM768`, which represents a hybrid key exchange:
+`X25519MLKEM768` confirms a hybrid key exchange:
 
-* `X25519` – classical elliptic-curve cryptography
-* `MLKEM-768` – post-quantum cryptography
+* `X25519` (classical elliptic-curve cryptography)
+* `MLKEM-768` (post-quantum cryptography)
 
 This confirms the connection is using **TLS 1.3 with hybrid post-quantum key exchange**.
 
