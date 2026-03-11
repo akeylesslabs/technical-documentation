@@ -16,18 +16,32 @@ This page discusses creating and using a GCP-based authentication method in Akey
 
 The Google Cloud Platform (GCP) authentication method enables GCP entities to authenticate to Akeyless. Akeyless treats Google Cloud as a trusted third party and verifies entities requesting authentication against Google Cloud APIs. It supports both Google Cloud Identity and Access Management (IAM) service accounts and Google Compute Engine (GCE) instances for workload authentication.
 
-> TODO(DOCS-98): Confirm product guidance for direct interactive Console sign-in with GCP auth. This behavior is not explicitly documented in CLI source.
-
 ## Creating a GCP Authentication Method
 
 This action is distinct from creating a new Akeyless account: it creates an additional GCP-based authentication method for an existing account.
 
 Required GCP settings:
 
+* **GCP Type:** Select either **IAM** or **GCE**. These options are mutually exclusive.
 * Configure at least one of the following:
-    * **Bound Projects** (`--bound-projects`)
+    * **Bound Projects**
     * **Service Account Credentials** (`--service-account-creds-file` or `--service-account-creds-data`)
-* If you use **Bound Labels** (`--bound-labels`), service account credentials are required.
+* **Audience:** Required. This value is used to validate the `aud` claim in the GCP identity token and helps ensure the token was minted for this authentication flow. The default prefilled value is `akeyless.io`.
+
+### Decision Guide
+
+Use this guidance to select the right GCP authentication settings for your workload.
+
+#### Choosing GCP Type: IAM or GCE
+
+* Choose **IAM** when authentication should be based on service account identity (for example, CI/CD workloads, GKE workloads, or other services that authenticate as a service account principal).
+* Choose **GCE** when authentication should be scoped to Compute Engine instance context, and you plan to use instance-oriented constraints such as **Bound Zones**, **Bound Regions**, or **Bound Labels**.
+
+#### Choosing Identity Source: Bound Projects or Service Account Credentials
+
+* Choose **Bound Projects** when project-level scoping is sufficient and you prefer simpler setup without supplying credential material.
+* Choose **Service Account Credentials** when you need explicit validation using a service account JSON key, or when your policy requires stronger identity verification than project-only scoping.
+* You can configure both for layered controls, but at least one is required.
 
 ### Creating a GCP Authentication Method with the Console
 
@@ -35,34 +49,13 @@ To create a new GCP-based authentication method with the Console:
 
 1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
 2. Select **+ New**. This opens the **Create Authentication Method** form.
-3. On the **Type** selection screen, select **GCP**, then **Next ->**.
-4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next ->**.
-5. Configure GCP-specific fields as needed. For field details, see [GCP-Specific Optional Features](#gcp-specific-optional-features), then select **Finish**.
-
-### GCP Console Field Reference
-
-In the Console form, define fields as follows:
-
-* **Expiration Date:** Optional. Set an access expiration date, or leave empty for no expiration.
-* **Allowed Client IPs:** Optional. Comma-separated CIDR blocks from which clients can issue calls.
-* **Allowed Trusted Gateway IPs:** Optional. Comma-separated CIDR blocks. If set, Gateway IPs in these ranges are trusted to forward the original client IP.
-* **Audit Log Sub Claims:** Optional. Comma-separated sub-claim keys to include in audit logs.
-* **Allowed Client Type:** Optional. Client type authorized to use this method (for example, `CLI`, `SDK`, `Gateway Admin`).
-* **GCP Type:** Required. `IAM` or `GCE`.
-* **Bound Projects:** Optional unless no service account credentials are provided. Comma-separated project IDs.
-* **Audience:** Optional. JWT audience claim to verify. Default is `akeyless.io`.
-* **Service Account Credentials:** Optional if bound projects are provided. Provide Base64-encoded credentials or upload JSON.
-* **Bound Service Accounts:** Optional. Relevant for IAM.
-* **Bound Zones:** Optional. Relevant for GCE.
-* **Bound Regions:** Optional. Relevant for GCE.
-* **Bound Labels:** Optional. Relevant for GCE. Use `key:value` format.
-* **Unique Identifier:** Optional. Sub-claim key used to distinguish identities.
-
-> TODO(DOCS-98): Re-validate Console labels/field names against current UI. CLI/source confirms server behavior, but Console copy can change independently.
+3. On the **Type** selection screen, select **GCP**, then **Next →**.
+4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
+5. In the **GCP Type** field, select either **IAM** or **GCE** (mutually exclusive), then configure required and optional fields. For field details, see [GCP-Specific Optional Features](#gcp-specific-optional-features), then select **Finish**.
 
 ### Creating a GCP Authentication Method with the CLI
 
-To create a GCP-based authentication method with the CLI:
+To create a GCP-based authentication method with the CLI using bound projects:
 
 ```shell
 akeyless auth-method create gcp \
@@ -72,12 +65,23 @@ akeyless auth-method create gcp \
   --audience akeyless.io
 ```
 
+Or, use service account credentials instead of bound projects:
+
+```shell
+akeyless auth-method create gcp \
+  --name <GCP Auth Method Name> \
+  --type <iam|gce> \
+  --service-account-creds-file <Path to Service Account JSON> \
+  --audience akeyless.io
+```
+
 Where:
 
 * `--name`: Authentication Method name. You can include a folder-like path by using `/` separators.
-* `--type`: Authentication type (`iam` or `gce`).
-* `--bound-projects`: One or more GCP project IDs. Repeat the flag for multiple values.
-* `--audience`: JWT audience to verify. Default is `akeyless.io`.
+* `--type`: Authentication type. Set to `iam` or `gce`.
+* `--bound-projects`: One or more GCP project IDs. Repeat the flag for multiple values. Required if service account credentials are not provided.
+* `--service-account-creds-file` or `--service-account-creds-data`: Service account credentials. Required if bound projects are not provided.
+* `--audience`: JWT audience value to validate against the token `aud` claim. Use this to scope tokens to the intended relying party and reduce token replay across unintended services. The default value is `akeyless.io`.
 
 Read about more parameters available when creating a GCP-based authentication method: [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create).
 
@@ -118,14 +122,17 @@ For optional features that apply across Authentication Methods, see [Common Opti
 
 ### GCP-Specific Optional Features
 
-* **GCP Type:** Choose `iam` or `gce`.
-* **Audience:** Set the audience claim expected in the JWT. If not set, Akeyless uses `akeyless.io`.
-* **Service Account Credentials:** Set `--service-account-creds-file` or `--service-account-creds-data` (base64-encoded JSON).
-* **Bound Service Accounts:** Limit IAM authentication to one or more specific service accounts.
-* **Bound Zones:** Limit GCE authentication to instances in specific zones.
-* **Bound Regions:** Limit GCE authentication to instances in specific regions.
-* **Bound Labels:** Limit GCE authentication to instances that match specific labels.
-* **Unique Identifier:** Set a sub-claim key used to uniquely identify authenticated GCP principals.
+Use this reference when creating or editing a GCP authentication method with the Console.
+
+* **GCP Type (Required):** Select either `IAM` or `GCE`. These options are mutually exclusive.
+* **Bound Projects:** Enter one or more project IDs. Required if **Service Account Credentials** is not provided.
+* **Service Account Credentials:** Provide Base64-encoded credentials data or upload a JSON credentials file. Required if **Bound Projects** is not provided.
+* **Audience (Required):** Enter the expected JWT audience value. Akeyless validates this value against the token `aud` claim to confirm the token was intended for this authentication flow. The default prefilled value is `akeyless.io`.
+* **Bound Service Accounts (Optional):** Available for both `IAM` and `GCE`.
+* **Unique Identifier (Optional):** Available for both `IAM` and `GCE`.
+* **Bound Zones (Optional):** Available for `GCE`.
+* **Bound Regions (Optional):** Available for `GCE`.
+* **Bound Labels (Optional):** Available for `GCE`. Use `key:value` format.
 
 ## GKE Workload Identity Considerations
 
