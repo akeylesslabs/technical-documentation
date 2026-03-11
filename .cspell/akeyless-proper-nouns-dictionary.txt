@@ -2,6 +2,7 @@ Akeyless
 KMIP
 Gbps
 Sectigo
+Conjur
 Venafi
 SIEM
 SPIFFE

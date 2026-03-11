@@ -84,13 +84,13 @@ akeyless gateway-create-migration \
 
 `--k8s-token`: Kubernetes Bearer Token with sufficient permission to list and get secrets in the Namespace(s) you selected (relevant only for Kubernetes migration with Token Authentication method)
 
-`--conjur-url`: conjur server base URL (relevant only for conjur migration)
+`--conjur-url`: Conjur server base URL (relevant only for Conjur migration)
 
-`--conjur-account`: conjur account name set on your conjur server (relevant only for conjur migration)
+`--conjur-account`: Conjur account name set on your Conjur server (relevant only for Conjur migration)
 
-`--conjur-username`: conjur username used to authenticate (relevant only for conjur migration)
+`--conjur-username`: Conjur username used to authenticate (relevant only for Conjur migration)
 
-`--conjur-api-key`: conjur API key for the specified user (relevant only for conjur migration)
+`--conjur-api-key`: Conjur API key for the specified user (relevant only for Conjur migration)
 
 `--ad-target-name`: Active Directory LDAP Target Name. Server type should be Active Directory (Relevant only for Active Directory migration)
 
@@ -307,13 +307,13 @@ akeyless gateway-update-migration \
 
 `--k8s-token`: Kubernetes Bearer Token with sufficient permission to list and get secrets in the Namespace(s) you selected (relevant only for Kubernetes migration with Token Authentication Method)
 
-`--conjur-url`: conjur server base URL (relevant only for conjur migration)
+`--conjur-url`: Conjur server base URL (relevant only for Conjur migration)
 
-`--conjur-account`: conjur account name set on your conjur server (relevant only for conjur migration)
+`--conjur-account`: Conjur account name set on your Conjur server (relevant only for Conjur migration)
 
-`--conjur-username`: conjur username used to authenticate (relevant only for conjur migration)
+`--conjur-username`: Conjur username used to authenticate (relevant only for Conjur migration)
 
-`--conjur-api-key`: conjur API key for the specified user (relevant only for conjur migration)
+`--conjur-api-key`: Conjur API key for the specified user (relevant only for Conjur migration)
 
 `--ad-target-name`: Active Directory LDAP Target Name. Server type should be Active Directory (Relevant only for Active Directory migration)
 
