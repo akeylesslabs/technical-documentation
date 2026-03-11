@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page discusses the creation of Azure [Universal Secrets Connectors](https://docs.akeyless.io/docs/universal-secrets-connector). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, which has varying parameters.
+This page explains how to create an Azure [Universal Secrets Connector](https://docs.akeyless.io/docs/universal-secrets-connector). For other cloud providers, use the matching Universal Secrets Connector documentation, because required parameters vary by provider.
 
 ## Prerequisites
 
