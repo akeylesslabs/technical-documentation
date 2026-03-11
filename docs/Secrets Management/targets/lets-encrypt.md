@@ -59,7 +59,7 @@ Where:
 
    * **Email**: Email address for the Let's Encrypt account.
 
-   * **Challenge Type**:  **HTTP** ** or **DNS**
+   * **Challenge Type**:  **HTTP** or **DNS**
 
      * **DNS Provider**: Either **AWS**, **GCP** or **Azure** (relevant only if **Challenge Type** is **DNS**).
      * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
