@@ -12,11 +12,11 @@ next:
 ---
 You can create a Rotated Secret for an AWS user. Before you get started, ensure you create an [AWS Target](https://docs.akeyless.io/docs/aws-targets) that includes the AWS region, as well as a role for a privileged user authorized to rotate credentials.
 
-When a client requests a Rotated Secret value, the Akeyless Platform connects to the AWS Cloud through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target AWS account.
+When a client requests a Rotated Secret value, the Akeyless Platform connects to the AWS Cloud through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) to rotate the user password on your target AWS account.
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 * [AWS Target](https://docs.akeyless.io/docs/aws-targets) which holds an AWS IAM principal with the following IAM permissions:
 
 ```json
@@ -96,7 +96,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > ℹ️ **Note:**
 >
-> To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/gateway-overview) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > AWS**.
 

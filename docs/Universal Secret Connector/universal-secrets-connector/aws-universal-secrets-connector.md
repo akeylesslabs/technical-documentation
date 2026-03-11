@@ -24,7 +24,7 @@ The **USC** solution works in a governance loop model, supporting and reflecting
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with **Read** permission on the target associated with the **USC**.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
 * [AWS Target](https://docs.akeyless.io/docs/aws-targets) which holds an AWS IAM Principal with the following permissions:
 
 ```json

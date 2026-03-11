@@ -14,9 +14,9 @@ next:
       slug: kmip-for-vsphere
       title: KMIP for Vsphere
 ---
-The [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) built-in Key Management Interoperability Protocol (KMIP) server handles the lifecycle of KMIP-managed objects.
+The [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) built-in Key Management Interoperability Protocol (KMIP) server handles the lifecycle of KMIP-managed objects.
 
-Cryptographic objects managed by the Akeyless KMIP server are stored under the `/kmip/default/` path, hence your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) authentication method must have sufficient privileges, including `create`, `list`, `delete` and `read` rules, under the `/kmip/default/*` path. This path can be changed during the KMIP server setup.
+Cryptographic objects managed by the Akeyless KMIP server are stored under the `/kmip/default/` path, hence your [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) authentication method must have sufficient privileges, including `create`, `list`, `delete` and `read` rules, under the `/kmip/default/*` path. This path can be changed during the KMIP server setup.
 
 > ℹ️ **Note:**
 >

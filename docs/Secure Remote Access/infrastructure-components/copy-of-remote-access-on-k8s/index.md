@@ -13,13 +13,13 @@ Akeyless Secure Remote Access offers robust security for accessing your resource
 >
 > [Review the documentation for the legacy chart](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 
-Remote Access is enabled through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-chart) Helm chart deployment. Usually this is added after the Gateway is deployed, but it can be deployed as part of the Gateway deployment. This document will show how to upgrade your deployment to add Remote Access capabilities.
+Remote Access is enabled through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) Helm chart deployment. Usually this is added after the Gateway is deployed, but it can be deployed as part of the Gateway deployment. This document will show how to upgrade your deployment to add Remote Access capabilities.
 
 The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `web-sra`.
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-chart)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
 
 * Helm Installed
 
@@ -43,7 +43,7 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 
 ## Deploying Remote Access
 
-The `values.yaml` file used to deploy the [Gateway](https://docs.akeyless.io/docs/gateway-chart) holds the Remote Access default values.
+The `values.yaml` file used to deploy the [Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) holds the Remote Access default values.
 
 ## Configuration
 
