@@ -113,3 +113,38 @@ Where:
    * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
 
 5. Click Finish.
+
+## Issue Certificates With HTTP Challenge
+
+When the Let's Encrypt target is configured with `--acme-challenge=http`, certificate issuance is a two-phase flow:
+
+1. Request the certificate:
+
+```shell
+akeyless get-pki-certificate \
+--cert-issuer-name <PKI Issuer Name> \
+--csr-file-path <path/to/request.csr>
+```
+
+1. Deploy the challenge file to the URL path returned in `http_challenge_info.file_path` using the value in `http_challenge_info.file_content`.
+
+1. Finalize validation and issuance:
+
+```shell
+akeyless validate-certificate-challenge \
+--cert-display-id <Certificate Display ID> \
+--timeout 120
+```
+
+1. Retrieve the issued certificate value:
+
+```shell
+akeyless get-certificate-value \
+--cert-issuer-name <PKI Issuer Name> \
+--display-id <Certificate Display ID>
+```
+
+> ℹ️ **Note:**
+>
+> `validate-certificate-challenge` is required for HTTP challenge flows. DNS challenge flows do not require this additional validation command.
+> For a PKI issuer that uses a Let's Encrypt target, requested TTL values in certificate requests can be between 30 and 90 days. The issued Let's Encrypt certificate validity is fixed at 90 days.
