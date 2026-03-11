@@ -51,6 +51,8 @@ akeyless configure
 
 `--azure-ad-object-id`: Azure Active Directory ObjectId (relevant only for access-type=azure_ad)
 
+`--azure-cloud[=AzureCloud]`: Azure cloud environment to use. Values: `AzureCloud` (default), `AzureUSGovernment`, `AzureChinaCloud` (relevant only for `access-type=azure_ad`)
+
 `--gcp-audience`: GCP audience to use in signed JWT (relevant only for access-type=gcp)
 
 `--gateway-url`: Gateway URL for the Kubernetes authenticated (relevant only for `access-type=k8s`)
@@ -179,7 +181,7 @@ List of all accessible items
 
 ### `list-sra-bastions`
 
-List of all Secure Remote Access (SRA) Bastions in the account
+Lists all Secure Remote Access (SRA) bastions in the account
 
 #### Flags
 

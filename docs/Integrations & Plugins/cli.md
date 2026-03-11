@@ -128,6 +128,10 @@ access-key '<Access-Key>'
 'Profile default successfully configured'
 ```
 
+> ℹ️ **Note:**
+>
+> During first-time setup, the CLI prompts for an Akeyless URL only when the configured Access ID is in legacy form (without an environment tag).
+
 Continue with installing the Akeyless CLI, depending on your operating system
 
 ### Linux \ Mac
