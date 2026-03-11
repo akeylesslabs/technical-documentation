@@ -113,6 +113,21 @@ globalConfig:
 
 Once the Gateway is running, you can set the matching AccessID as your OIDC default login using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager)
 
+## Kubernetes Auth Client Identity
+
+For Kubernetes auth methods, the client identity is derived from the Kubernetes claim set. In high-density namespaces, many workloads can be evaluated as the same client identity, which can increase the chance of rate-limit events.
+
+To reduce this risk, add `AKEYLESS_K8S_APP_UID_AS_CLIENT=true` to the Gateway chart under `globalConfig.env`:
+
+```yaml values.yaml
+globalConfig:
+  env:
+    - name: AKEYLESS_K8S_APP_UID_AS_CLIENT
+      value: "true"
+```
+
+When enabled, the Kubernetes auth client unique identity includes an additional app-level suffix derived from the pod naming pattern, which helps split traffic across distinct client identities.
+
 ## Cache Configuration
 
 To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly with the API.
@@ -348,9 +363,10 @@ fixedArtifactRepository: "artifacts.site2.akeyless.io"
 To set a local rate limit on your Gateway instance you can add the `GW_RATE_LIMIT` environment variable where the value will set the maximum calls per minute. When a client reaches that threshold, this will be logged and any additional requests during that minute will be discarded on the Gateway:
 
 ```yaml YAML
-env:
-  - name: GW_RATE_LIMIT
-    value: 4000
+globalConfig:
+  env:
+    - name: GW_RATE_LIMIT
+      value: 4000
 ```
 
 ## Custom CA
