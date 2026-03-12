@@ -71,7 +71,39 @@ To import secrets from Azure Key Vault, you need to create an [Azure AD app with
 
 ## Conjur Secrets Manager
 
-To import secrets from Conjur Secrets Manager, you need to provide access credentials of a user with sufficient permissions to get all secrets. The required configuration includes, Conjur Account, Username and an API Key.
+To import secrets from Conjur Secrets Manager, you need to provide access credentials of a user with sufficient permissions to get all secrets. The required configuration includes the Conjur URL, Conjur Account, Username, and API Key.
+
+You can create a Conjur migration using the Console, the CLI, or the API.
+
+```shell
+akeyless gateway-create-migration \
+--type conjur \
+--name <migration-name> \
+--target-location <destination-path-in-akeyless> \
+--conjur-url 'https://<Your-Conjur-URL>' \
+--conjur-account <conjur-account> \
+--conjur-username <conjur-username> \
+--conjur-api-key <conjur-api-key> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+Where:
+
+* `name`: A unique name for the migration object.
+
+* `target-location`: The destination folder path in Akeyless where the migrated secrets will be created.
+
+* `conjur-url`: The URL of your Conjur instance.
+
+* `conjur-account`: The Conjur account name.
+
+* `conjur-username`: The Conjur username with permissions to read secrets.
+
+* `conjur-api-key`: The API key for the Conjur user.
+
+* `gateway-url`: Akeyless Gateway URL (port `8000` or `8081`).
+
+To update an existing Conjur migration, use `akeyless gateway-migration-update --type conjur` with the same flags.
 
 ## CSV Import
 
