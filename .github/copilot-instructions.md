@@ -106,3 +106,11 @@ Before finalizing documentation changes, ensure:
 * Prefer consistency with existing documentation patterns over introducing new formats.
 * When users propose broad conventions (for example, all-file changes or repository-wide automation), suggest updating both this file and `docs/Contributing Guides/technical-documentation-style-guide/index.md` where relevant.
 * Flag potential factual uncertainty instead of guessing product behavior.
+
+## Local Personal Overlay
+
+Personal prompt packs and user-specific workflows should be stored in a local-only file:
+
+* `.github/copilot-instructions.local.md`
+
+Keep this file untracked for personal use. Do not commit personal workflow content to this repository's tracked instructions.
