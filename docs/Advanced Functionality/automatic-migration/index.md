@@ -101,7 +101,7 @@ Where:
 
 * `conjur-api-key`: The API key for the Conjur user.
 
-* `gateway-url`: Akeyless Gateway URL (port `8000` or `8081`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 To update an existing Conjur migration, use `akeyless gateway-migration-update --type conjur` with the same flags.
 

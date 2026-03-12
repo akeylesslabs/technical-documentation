@@ -34,7 +34,7 @@ The main parameters for the command are as follows:
 
 * `name`: **Event Forwarder** name
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `override-url` Override Akeyless default URL inside the email with your Gateway Console endpoint `https://<Your-Akeyless-GW-URL>:8000/console`. (or use your gateway URL at port `18888`)
 
