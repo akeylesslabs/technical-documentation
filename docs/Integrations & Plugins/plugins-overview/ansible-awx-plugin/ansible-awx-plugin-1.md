@@ -16,6 +16,8 @@ There are two main parameters used to configure the connection to Akeyless - the
 
 The lookup plugin uses these by way of the environment variables `VAULT_ADDR` and `VAULT_TOKEN`.
 
+In this workflow, token-based authentication is the primary method for AWX.
+
 > ℹ️ **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
@@ -48,6 +50,16 @@ Alternatively, to extract your authorization tokens directly using the [Akeyless
 ```shell
 VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type="Auth Method type" --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}')
 ```
+
+If your environment uses certificate authentication, you can generate `VAULT_TOKEN` with certificate preflight authentication:
+
+```shell
+VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type cert --cert-file-name ./server-cert.pem --key-file-name ./server-key.pem --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}')
+```
+
+> ℹ️ **Note (Certificate Authentication):**
+>
+> The AWX Vault Secret Lookup integration still consumes `VAULT_TOKEN`. Certificate support is available for the preflight token generation step.
 
 ![Illustration for: Alternatively, extract your authorization tokens directly using the Akeyless CLI auth command as part of your workflow variables.](https://files.readme.io/9e55048-ansible1.png)
 
