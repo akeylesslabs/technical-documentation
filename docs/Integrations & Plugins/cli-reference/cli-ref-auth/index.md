@@ -54,6 +54,8 @@ with the relevant flags according to the `access-type` being used.
 
 `--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for `access-type=gcp`)
 
+`--azure-cloud[=AzureCloud]`: Azure cloud environment to use. Values: `AzureCloud` (default), `AzureUSGovernment`, `AzureChinaCloud` (relevant only for `access-type=azure_ad`)
+
 `--gateway-url`: Gateway URL for the Kubernetes authenticated (relevant only for `access-type=k8s`)
 
 `--k8s-auth-config-name`: The Kubernetes Auth config name (relevant only for `access-type=k8s`)
@@ -327,6 +329,8 @@ akeyless auth-method create cert \
 `--bound-extensions`: A list of extensions formatted as `oid:value`. Expects the extension value to be some type of ASN1 encoded string. All values much match. Supports globbing on `value`
 
 `--revoked-cert-ids`: A list of revoked cert ids
+
+`--require-crl-dp`: Require certificate CRL distribution points (CDP) and enforce CRL validation during authentication
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
@@ -653,6 +657,8 @@ akeyless get-cloud-identity \
 `--cloud-provider`: Cloud provider (`azure_ad`/`aws_iam`/`gcp`)
 
 `--azure_ad_object_id`: Azure Active Directory ObjectId (relevant only for `access-type=azure_ad`)
+
+`--azure-cloud[=AzureCloud]`: Azure cloud environment to use. Values: `AzureCloud` (default), `AzureUSGovernment`, `AzureChinaCloud` (relevant only for `access-type=azure_ad`)
 
 `--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for `access-type=gcp`)
 
