@@ -600,3 +600,5 @@
 - targetcreateletsencrypt
 - targetcreatesplunk
 - targetupdateletsencrypt
+- validatecertificatechallenge
+- vaultaddress

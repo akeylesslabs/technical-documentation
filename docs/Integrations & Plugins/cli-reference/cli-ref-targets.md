@@ -152,7 +152,8 @@ akeyless target create azure \
 --name <Target name> \
 --client-id <Azure client/application id> \
 --client-secret <Azure client secret> \
---tenant-id <Azure tenant id> 
+--tenant-id <Azure tenant id> \
+--azure-cloud[=AzureCloud] <AzureCloud/AzureUSGovernment/AzureChinaCloud>
 ```
 
 ##### Flags
@@ -164,6 +165,8 @@ akeyless target create azure \
 `--tenant-id`: Azure tenant ID
 
 `--client-secret`: **Required**, Azure client secret
+
+`--azure-cloud[=AzureCloud]`: Azure cloud environment to use. Values: `AzureCloud` (default), `AzureUSGovernment`, `AzureChinaCloud`
 
 `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
@@ -1378,6 +1381,7 @@ akeyless target update azure \
 --client-id <Azure client/application id> \
 --tenant-id <Azure tenant id> \
 --client-secret <Azure client secret> \
+--azure-cloud[=AzureCloud] <AzureCloud/AzureUSGovernment/AzureChinaCloud> \
 --use-gw-cloud-identity <Use the GWs Cloud IAM> \
 --subscription-id <Azure Subscription Id> \
 --key <Key name>
@@ -1398,6 +1402,8 @@ akeyless target update azure \
 `--tenant-id`: Azure tenant ID
 
 `--client-secret`: Azure client secret
+
+`--azure-cloud[=AzureCloud]`: Azure cloud environment to use. Values: `AzureCloud` (default), `AzureUSGovernment`, `AzureChinaCloud`
 
 `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
@@ -1981,7 +1987,7 @@ akeyless target update ldap \
 
 ### `lets-encrypt`
 
-Updates a new Let's Encrypt target in the current account
+Updates an existing Let's Encrypt target in the current account
 
 #### Usage
 
