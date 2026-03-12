@@ -79,7 +79,17 @@ jobs:
 
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "${JIRA_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w 0)"
 
-          ISSUE_RESPONSE=$(curl -sS \
+          # Use bounded retries/timeouts so Jira calls fail fast instead of hanging.
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
+
+          ISSUE_RESPONSE=$(curl -sS "${JIRA_CURL_OPTS[@]}" \
             -H "${AUTH_HEADER}" \
             -H "Content-Type: application/json" \
             "${JIRA_BASE_URL}/rest/api/3/issue/${SOURCE_JIRA_KEY}?fields=issuetype,parent,summary")
@@ -118,6 +128,15 @@ jobs:
           set -euo pipefail
 
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "${JIRA_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w 0)"
+
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
 
           PAGE_BULLETS=$(printf "%s\n" "${ADDED_DOCS_FILES}" | sed '/^\s*$/d' | sed 's#^#- #' )
 
@@ -184,7 +203,7 @@ jobs:
                 }
               }')
 
-            curl -sS -X POST \
+            curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
               -H "${AUTH_HEADER}" \
               -H "Content-Type: application/json" \
               --data "${PAYLOAD}" \
