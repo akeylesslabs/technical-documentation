@@ -355,7 +355,7 @@ The variables `MIN_TLS_VERSION=TLSv1.3` and `GODEBUG=tlsmlkem=1` enable hybrid P
 
 ### Cache Configuration
 
-You can enable **Local In-Memory** caching of secrets and the periodic backup of cached secrets
+Use these environment variables to enable cache features for Docker deployments. For behavior details, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="60" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="5" -e PROACTIVE_CACHE_DUMP_INTERVAL="1" --name akeyless-gw akeyless/base:latest-akeyless
@@ -366,13 +366,18 @@ docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-
 
 In the example above,
 
-* `CACHE_TTL` variable allows setting the time (in minutes) during which a secret should be kept in the cache.
+* `CACHE_ENABLE` enables cache.
+  Default: `false`.
+* `PROACTIVE_CACHE_ENABLE` enables proactive synchronization.
+  Default: `false`.
+* `CACHE_TTL` sets cache TTL and participates in proactive full-fetch cadence.
+  Default: `60` minutes.
+* `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME` sets proactive modified-secrets fetch interval.
+  Default: `5` minutes.
+* `PROACTIVE_CACHE_DUMP_INTERVAL` sets backup interval when backup flows are enabled.
+  Default: `1` minute.
 
-* `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME` variable instructs the system to update secrets in the cache if they are older than the specified value.
-
-* `PROACTIVE_CACHE_DUMP_INTERVAL` variable allows setting the time (in minutes) between the two consecutive backups.
-
-It is also possible to [configure caching](https://docs.akeyless.io/docs/configure-the-gateway-cache) in the Gateway Configuration Manager after the Gateway is installed.
+It is also possible to configure caching in the Gateway Console after the Gateway is deployed.
 
 ## Access Scope and Defaults
 
