@@ -53,11 +53,11 @@ To use the Akeyless ServiceNow App, an Access Role must be created. [This guide 
 
 Please configure the following permissions:
 
-* Create/Read/Update role under /Access Requests/*
+* Create/Read/Update role under `/Access Requests/*`
 
 ![Illustration for: To use the Akeyless ServiceNow App, an Access Role must be created. This guide (Role-Based Access Control (RBAC)) outlines the steps for creating an Access Role in…](https://files.readme.io/a2c79e6-image-20230206-103449.png)
 
-* List/Read for Auth methods under path
+* List/Read for Auth methods under `/*`
 
 ![Illustration for: Please configure the following permissions: Create/Read/Update role under /Access Requests/ List/Read for Auth methods under path](https://files.readme.io/004d7ba-image-20230205-095303.png)
 
