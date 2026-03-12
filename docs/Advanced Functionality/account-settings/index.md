@@ -83,6 +83,10 @@ Users can choose which types of Encryption Keys can be used as a Protection Key 
 
 Users can choose a default Encryption Key to protect all of their items. If you choose to enable _Exclusively use default key_, this will lock the Encryption Key making it the only option to be used for all items.
 
+#### Encryption Key Policies
+
+Encryption Key Policies allow admins to enforce encryption key controls by path, including allowed algorithms, allowed protection key types or names, object type scope, and maximum rotation interval. For details, see [Encryption Key Policies](https://docs.akeyless.io/docs/encryption-key-policy).
+
 #### Request Access
 
 This allows users to request temporary access or to elevate their current permissions for specific items using a built-in approval workflow which requires approval from the system admin. See the [Request Access](https://docs.akeyless.io/docs/request-access) page for more info.
@@ -105,7 +109,7 @@ Item Sharing is enabled by default on an account level. Users can also set the d
 
 #### OIDC Provider Settings
 
-This setting is enabled by default. Users can also edit the Signing Algorithm, Rotation TTL, Validation TTL, ID Token TTL, and Access Token TTL. For more information, see the docs on using the [OIDC Identity Provider](docs:oidc-app-provider).
+This setting is enabled by default. Users can also edit the Signing Algorithm, Rotation TTL, Validation TTL, ID Token TTL, and Access Token TTL. For more information, see [Akeyless as an OpenID Connect (OIDC) Identity Provider](https://docs.akeyless.io/docs/oidc-app-provider).
 
 #### Item Naming Conventions
 
@@ -143,10 +147,9 @@ Set a global event for Auth methods that have not been used or changed within th
 
 #### Allowed Client Types
 
-Set the Allowed Client Types for this account, the available client types are: **CLI, Web UI, Extension, Mobile, Gateway Admin and SDK**. 
+Set the Allowed Client Types for this account, the available client types are: **CLI, Web UI, Extension, Mobile, Gateway Admin and SDK**.
 
 #### Choose default Auth method
 
-Choose a default auth method that will be used when generating links for items in the account. Relevant only for [SAML](https://docs.akeyless.io/docs/auth-with-saml) and [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication methods. 
+Choose a default auth method that will be used when generating links for items in the account. Relevant only for [SAML](https://docs.akeyless.io/docs/auth-with-saml) and [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication methods.
 
-<br />
