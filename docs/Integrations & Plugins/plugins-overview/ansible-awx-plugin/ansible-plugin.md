@@ -26,7 +26,7 @@ Before using the Akeyless Ansible plugin, ensure the following prerequisites are
     pip install akeyless
     ```
 
-* Access to an Akeyless Authentication Method (for example, API Key, AWS IAM, Azure AD, or OIDC) with a valid `access_id` and required credentials.
+* Access to an Akeyless Authentication Method (for example, API Key, AWS IAM, Azure AD, OIDC, or Certificate) with a valid `access_id` and required credentials.
 * Network access from the Ansible control node to `https://api.akeyless.io` (or to your Akeyless Gateway endpoint if applicable).
 
 ## Installation
@@ -40,6 +40,10 @@ ansible-galaxy collection install akeyless.secrets_management
 ```
 
 For more information, refer to the [Ansible Galaxy documentation](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
+
+> ℹ️ **Note (Version Scope):**
+>
+> The certificate authentication examples on this page are based on `akeyless.secrets_management` collection version `1.0.0`, where `access_type: cert`, `cert_data`, and `key_data` are available in the code.
 
 ## Authentication
 
@@ -56,6 +60,7 @@ This plugin supports the following Authentication Methods:
 * [JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
 * [OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
 * [SAML](https://docs.akeyless.io/docs/auth-with-saml)
+* [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
 * [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
 
 To set the Authentication Method, add the following `login` section to your [Ansible Playbook](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html):
@@ -148,6 +153,14 @@ login:
         use_remote_browser: 'true | false'
         akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
 ```
+```yaml Certificate
+login:
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'cert'
+  cert_data: '{{ lookup("file", "./tls/server-cert.pem") | b64encode }}'
+  key_data: '{{ lookup("file", "./tls/server-key.pem") | b64encode }}'
+```
 ```yaml Universal Identity
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -166,6 +179,10 @@ Where:
 * `access_type`: The type of the Auth Method being used.
 
 * `cloud_id`: The `cloud_id` can be retrieved by running `akeyless get-cloud-identity`.
+
+* `cert_data`: Client certificate content encoded in `base64` (required when `access_type` is `cert`).
+
+* `key_data`: Private key content encoded in `base64` (required when `access_type` is `cert`).
 
 * `akeyless_gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 

@@ -53,6 +53,8 @@ Where:
 
 * `certificate-file-name`: A path to the **Client** certificate.
 
+* `require-crl-dp`: Optional. Requires CRL Distribution Points (CDP) in client certificates and enforces CRL validation during authentication.
+
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create) section.
 
 ### Authenticate With the Certificate-based Authentication Method
