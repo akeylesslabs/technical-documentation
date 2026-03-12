@@ -33,6 +33,8 @@ next:
 
 * **Use your own Customer Fragment to[enable Zero-Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge)**
 
+* **Clarify Gateway reachability for Customer Fragment deployments** - Any client that can reach a Gateway with the relevant Customer Fragment, and is authorized to use that Gateway, can use that Gateway for decryption. To reduce exposure across environments, isolate Gateway network paths and restrict which Access IDs each Gateway serves. For more information, see [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge#network-reachability-model).
+
 * **Configure your[default encryption key](https://docs.akeyless.io/docs/implement-zero-knowledge#set-up-a-default-encryption-key)**
 
 ## Management

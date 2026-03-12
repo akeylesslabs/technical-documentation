@@ -63,6 +63,21 @@ Run the following command to create the Gateway with the mounted fragment:
 docker run -d -p 8000:8000 -p 5696:5696 -v /path/of/customer_fragments.json:/home/akeyless/.akeyless/customer_fragments.json -e ADMIN_ACCESS_ID="identity-access-id" -e ADMIN_ACCESS_KEY="identity-access-key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
+## Network Reachability Model
+
+A Customer Fragment determines whether a Gateway can perform cryptographic operations for keys and items associated with that fragment. It does not create a network boundary by itself.
+
+If a client can reach a Gateway over the network, and that Gateway has the required Customer Fragment and is allowed to serve that caller, the client can decrypt or otherwise use the protected item through that Gateway. This behavior is expected and does not indicate a misconfiguration.
+
+To reduce exposure across environments:
+
+* Place each Gateway on the private network for the environment it serves.
+* Limit which clients and services can reach each Gateway.
+* Restrict which Access IDs each Gateway can serve. For more information, see [Restrict Gateway Access](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#restrict-gateway-access).
+* Use different Gateways and Customer Fragments for separate trust boundaries when isolation is required.
+
+For additional hardening guidance, see [Akeyless Gateway Best Practices](https://docs.akeyless.io/docs/gateway-best-practices).
+
 ## Create a Zero-Knowledge DFC Encryption Key
 
 Once the **Customer Fragment** is mounted in the Gateway, it can be used to secure your DFC Encryption Keys for full Zero Knowledge Encryption.
