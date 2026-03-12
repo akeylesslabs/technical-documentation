@@ -56,24 +56,34 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 4. Define the remaining parameters as follows:
 
-    * Choose your preferred authentication mode by selecting one of the options:
-    * Check the **Use Credentials** radio button to authenticate with the Azure AD admin user credentials.
-    * Check the **Use Gateway's Cloud Identity** option to authenticate with the Gateway's Cloud IAM.
+   * Choose your preferred authentication mode by selecting one of the options:
 
-    > 👍 Note
-    >
-    > **Use Gateway's Cloud Identity** is relevant for cases where your Gateway uses Azure service principal to authenticate against Akeyless. For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) for Azure AD, the target can be used for the temporary Azure service principals creation.
+   * Check the **Use Credentials** radio button to authenticate with the Azure AD admin user credentials.
 
-    * If you selected the **Use Credentials**, provide the following:
-    * **Client ID (Application ID):** Application ID of the admin user that will be used to authenticate Akeyless with Azure AD.
-    * **Tenant ID:** Your Azure Tenant ID.
-    * **Client Secret:** Client Secret of the admin user that will be used to authenticate Akeyless with Azure AD.
+   * Check the **Use Gateway's Cloud Identity** option to authenticate with the Gateway's Cloud IAM.
 
-    * If you selected the **Use Gateway's Cloud Identity**, skip to the next step.  
+   > 👍 Note
+   >
+   > **Use Gateway's Cloud Identity** is relevant for cases where your Gateway uses Azure service principal to authenticate against Akeyless. For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) for Azure AD, the target can be used for the temporary Azure service principals creation.
 
-    * If you wish the target to reference to a specific Storage Account, click **Next** and add the following parameters:
-    * **Subscription ID:** Azure Subscription ID (If this target is for the Azure Storage Account).
-    * **Resource Group Name:** Resource Group name in your Azure Subscription.
-    * **Resource Name:** Name of the relevant Resource.
+   * If you selected the **Use Credentials**, provide the following:
+
+   * **Client ID (Application ID):** Application ID of the admin user that will be used to authenticate Akeyless with Azure AD.
+
+   * **Tenant ID:** Your Azure Tenant ID.
+
+   * **Client Secret:** Client Secret of the admin user that will be used to authenticate Akeyless with Azure AD.
+
+   * If you selected the **Use Gateway's Cloud Identity**, skip to the next step.
+
+   * If you wish the target to reference to a specific Storage Account, click **Next** and add the following parameters:
+
+   * **Subscription ID:** Azure Subscription ID (If this target is for the Azure Storage Account).
+
+   * **Azure Cloud Environment:** Azure Cloud Environment to use, either **Azure Cloud**, **Azure US Government** or **Azure China Cloud**.
+
+   * **Resource Group Name:** Resource Group name in your Azure Subscription.
+
+   * **Resource Name:** Name of the relevant Resource.
 
 5. Click **Finish**.

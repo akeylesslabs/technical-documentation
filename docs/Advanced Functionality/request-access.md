@@ -22,6 +22,16 @@ While default access can be assigned by way of [Role-Based Access Control (RBAC)
 >
 > Upon approval of an Access Request a temporary Access Role will be created with details about the request ID under a dedicated folder `/Access Requests/<Requestor AccessID>/<ID>`, and will be deleted automatically within an hour.
 
+## Required RBAC Permissions for Request Access Approval
+
+For Request Access approval flows on **items and targets**, configure all of the following permissions:
+
+* **Role rule**: `Create`, `Read`, and `Update` under `/Access Requests/*`
+* **Auth method rule**: `List` and `Read` under `/*`
+* **Item/Target rule**: The requested capabilities (`Read`, `Update`, and/or `Delete`) on the relevant item or target path
+
+These permissions are required for current product behavior and allow approvers to process requests from the [Event Center](https://docs.akeyless.io/docs/event-center).
+
 ## Requesting Access with the CLI
 
 To request access to an item, use the following command:

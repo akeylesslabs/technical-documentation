@@ -63,6 +63,7 @@ With this Gateway, Akeyless offers:
 * Start deployment planning in [Choose a Deployment Model](https://docs.akeyless.io/docs/deploy-gateway).
 * Configure runtime behavior in [Configure Gateway](https://docs.akeyless.io/docs/configure-gateway).
 * Operate and monitor in [Operate Gateway](https://docs.akeyless.io/docs/operate-gateway).
+* Review [Gateway Best Practices](https://docs.akeyless.io/docs/gateway-best-practices) for security, management, and high availability guidance.
 
 ![Akeyless Gateway Architecture](https://files.readme.io/eaaa39e-Gateway_2.png)
 
