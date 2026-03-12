@@ -380,6 +380,34 @@ akeyless get-pki-certificate \
 
 `-o, --outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location as the provided public key with the -cert extension
 
+> ℹ️ **Note (Let's Encrypt HTTP Challenge):**
+>
+> When the PKI issuer uses a Let's Encrypt target with `http` challenge type, this command returns HTTP challenge details and a certificate display ID. After deploying the challenge file, run `validate-certificate-challenge` to finalize issuance.
+
+### `validate-certificate-challenge`
+
+Validates HTTP-01 challenge and finalizes certificate issuance (Phase 2)
+
+#### Usage
+
+```shell
+akeyless validate-certificate-challenge \
+--cert-display-id <Certificate Display ID> \
+--timeout <120>
+```
+
+#### Flags
+
+`-d, --cert-display-id`: Certificate display ID from Phase 1 (`get-pki-certificate`)
+
+`-n, --name`: Certificate name (alternative to `--cert-display-id`)
+
+`--timeout[=120]`: Validation timeout in seconds
+
+> ℹ️ **Note:**
+>
+> Provide exactly one of `--name` or `--cert-display-id`.
+
 ### `get-cert-challenge`
 
 Get a challenge for certificate authentication
