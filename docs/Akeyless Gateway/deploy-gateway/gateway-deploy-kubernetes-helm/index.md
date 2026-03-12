@@ -430,7 +430,7 @@ Full list of available permissions:
 | `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings |
 | `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings |
 | `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
-| `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings |
+| `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/gateway-caching) settings |
 | `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
 | `ladp_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
 | `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
