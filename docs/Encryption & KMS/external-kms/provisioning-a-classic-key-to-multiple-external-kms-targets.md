@@ -122,6 +122,8 @@ You can repeat this process multiple times, each time adding another external ta
 
 ## Considerations
 
+This workflow has the following constraints and behaviors:
+
 * Provisioning fields vary by target type.
 * The same Classic Key can be attached to multiple external KMS targets.
 * Each target attachment can use a different external key name.
