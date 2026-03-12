@@ -143,10 +143,10 @@ Set a global event for Auth methods that have not been used or changed within th
 
 #### Allowed Client Types
 
-Set the Allowed Client Types for this account, the available client types are: **CLI, Web UI, Extension, Mobile, Gateway Admin and SDK**. 
+Set the Allowed Client Types for this account, the available client types are: **CLI, Web UI, Extension, Mobile, Gateway Admin and SDK**.
 
 #### Choose default Auth method
 
-Choose a default auth method that will be used when generating links for items in the account. Relevant only for [SAML](https://docs.akeyless.io/docs/auth-with-saml) and [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication methods. 
+Choose a default auth method that will be used when generating links for items in the account. Relevant only for [SAML](https://docs.akeyless.io/docs/auth-with-saml) and [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication methods.
 
 <br />
