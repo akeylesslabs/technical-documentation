@@ -106,3 +106,38 @@ Before finalizing documentation changes, ensure:
 * Prefer consistency with existing documentation patterns over introducing new formats.
 * When users propose broad conventions (for example, all-file changes or repository-wide automation), suggest updating both this file and `docs/Contributing Guides/technical-documentation-style-guide/index.md` where relevant.
 * Flag potential factual uncertainty instead of guessing product behavior.
+
+## Workspace Repository Index (Local)
+
+Local workspace snapshot of repositories and their primary purpose areas.
+
+* `technical-documentation`: Product and integration documentation source.
+* `akeyless-main-repo`: Core Akeyless platform/CLI implementation repository.
+* `akeyless-action`: GitHub Action integration for Akeyless secret retrieval.
+* `akeyless-azure-devops-extension`: Azure DevOps extension integration.
+* `akeyless-extension-azdo`: Azure DevOps extension/task assets.
+* `teamcity-akeyless-plugin`: TeamCity plugin integration.
+* `jenkins-akeyless-plugin`: Jenkins plugin integration.
+* `N8N_PlugIn`: n8n integration plugin.
+* `terraform-provider-akeyless`: Terraform provider for Akeyless resources.
+* `ansible_collections`: Ansible collection and related automation assets.
+* `akeyless-serverless-gateway`: Serverless gateway deployment assets.
+* `zero-trust-bastion`: Zero Trust bastion components.
+* `docker-compose`: Docker Compose deployment examples and env templates.
+* `akeyless-helm-charts`: Akeyless Helm charts for Kubernetes deployments.
+* `akeyless-csi-provider`: Kubernetes Secrets Store CSI provider integration.
+* `custom-producer`: Custom dynamic/rotated secret producer examples.
+* `akeyless-go`, `akeyless-java`, `akeyless-javascript`, `akeyless-python`, `akeyless-ruby`, `akeyless-csharp-netcore`: Official language SDK repositories.
+* `akeyless-go-cloud-id`, `akeyless-js-cloud-id`, `akeyless-netcore-cloud-id`, `akeyless-python-cloud-id`: Cloud ID helper libraries for SDK authentication.
+* `akeyless-grpc-go`, `akeyless-grpc-java`, `akeyless-grpc-dotnet`, `akeyless-grpc-php`, `akeyless-grpc-python`, `akeyless-grpc-rust`: Akeyless gRPC client repositories.
+* `frontend-react`: Frontend React application workspace.
+* `homebrew-tap`: Homebrew tap packaging repository.
+
+Kubernetes and ecosystem dependencies tracked in this workspace:
+
+* `kubernetes`, `helm`: Upstream Kubernetes and Helm projects for behavior/reference validation.
+* `metrics-server`, `prometheus-adapter`, `prometheus-client_golang`, `prometheus-helm-charts`, `go-grpc-prometheus`: Metrics and observability-related dependencies.
+* `external-secrets`, `kubernetes-external-secrets`, `secrets-store-csi-driver`: Kubernetes secret delivery and CSI ecosystem projects.
+* `spire`, `go-spiffe`: SPIFFE/SPIRE identity ecosystem dependencies.
+* `opentelemetry-collector-contrib`: OpenTelemetry collector components and exporters.
+* `awx`, `dandy-charts`: Kubernetes-adjacent automation/chart ecosystem repositories.
