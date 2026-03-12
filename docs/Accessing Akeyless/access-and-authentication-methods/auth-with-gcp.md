@@ -22,11 +22,13 @@ This action is distinct from creating a new Akeyless account: it creates an addi
 
 Required GCP settings:
 
-* **GCP Type:** Select either **IAM** or **GCE**. These options are mutually exclusive.
+* **GCP Type:** Select either **IAM** or **GCE**. These options are mutually exclusive and determine which GCP identity context Akeyless validates during authentication:
+    * `IAM`: Validates service account identity.
+    * `GCE`: Validates instance-based identity and supports instance-scoping fields such as zones, regions, and labels.
 * Configure at least one of the following:
-    * **Bound Projects**
-    * **Service Account Credentials** (`--service-account-creds-file` or `--service-account-creds-data`)
-* **Audience:** Required. This value is used to validate the `aud` claim in the GCP identity token and helps ensure the token was minted for this authentication flow. The default prefilled value is `akeyless.io`.
+    * **Bound Projects:** One or more allowed GCP project IDs. This limits authentication to identities associated with those projects.
+    * **Service Account Credentials** (`--service-account-creds-file` or `--service-account-creds-data`): Service account JSON credentials used by Akeyless for credential-based validation.
+* **Audience:** Required. This is the expected JWT audience value. Akeyless validates it against the token `aud` claim to confirm the token was minted for this authentication flow. The default prefilled value is `akeyless.io`.
 
 ### Decision Guide
 
@@ -40,8 +42,21 @@ Use this guidance to select the right GCP authentication settings for your workl
 #### Choosing Identity Source: Bound Projects or Service Account Credentials
 
 * Choose **Bound Projects** when project-level scoping is sufficient and you prefer simpler setup without supplying credential material.
-* Choose **Service Account Credentials** when you need explicit validation using a service account JSON key, or when your policy requires stronger identity verification than project-only scoping.
+* Choose **Service Account Credentials** when you need explicit validation using a service account JSON key, or when your policy requires credential-based validation in addition to project scoping.
 * You can configure both for layered controls, but at least one is required.
+
+### Service Account Credential Permission Requirements
+
+If you provide service account credentials, the authentication implementation validates this permission set:
+
+```shell
+iam.serviceAccounts.get
+iam.serviceAccountKeys.get
+compute.instances.get
+compute.instanceGroups.list
+```
+
+These permissions are validated through Google Cloud Resource Manager `testIamPermissions` in the service account validation path.
 
 ### Creating a GCP Authentication Method with the Console
 
@@ -51,7 +66,7 @@ To create a new GCP-based authentication method with the Console:
 2. Select **+ New**. This opens the **Create Authentication Method** form.
 3. On the **Type** selection screen, select **GCP**, then **Next →**.
 4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
-5. In the **GCP Type** field, select either **IAM** or **GCE** (mutually exclusive), then configure required and optional fields. For field details, see [GCP-Specific Optional Features](#gcp-specific-optional-features), then select **Finish**.
+5. In the **GCP Type** field, select either **IAM** or **GCE** (mutually exclusive), then configure required and optional fields. Use the required settings listed in this section and see [GCP-Specific Optional Features](#gcp-specific-optional-features) for optional fields, then select **Finish**.
 
 ### Creating a GCP Authentication Method with the CLI
 
@@ -122,12 +137,8 @@ For optional features that apply across Authentication Methods, see [Common Opti
 
 ### GCP-Specific Optional Features
 
-Use this reference when creating or editing a GCP authentication method with the Console.
+Use this reference for optional settings when creating or editing a GCP authentication method with the Console.
 
-* **GCP Type (Required):** Select either `IAM` or `GCE`. These options are mutually exclusive.
-* **Bound Projects:** Enter one or more project IDs. Required if **Service Account Credentials** is not provided.
-* **Service Account Credentials:** Provide Base64-encoded credentials data or upload a JSON credentials file. Required if **Bound Projects** is not provided.
-* **Audience (Required):** Enter the expected JWT audience value. Akeyless validates this value against the token `aud` claim to confirm the token was intended for this authentication flow. The default prefilled value is `akeyless.io`.
 * **Bound Service Accounts (Optional):** Available for both `IAM` and `GCE`.
 * **Unique Identifier (Optional):** Available for both `IAM` and `GCE`.
 * **Bound Zones (Optional):** Available for `GCE`.
@@ -141,21 +152,6 @@ When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster w
 To use GKE Workload Identity with bounded rules, configure only **Bound Service Accounts**.
 
 For setup guidance, follow the [GKE Workload Identity guide](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity).
-
-## Prerequisites
-
-If you provide service account credentials, the authentication implementation validates this permission set:
-
-```shell
-iam.serviceAccounts.get
-iam.serviceAccountKeys.get
-compute.instances.get
-compute.instanceGroups.list
-```
-
-These permissions are validated through Google Cloud Resource Manager `testIamPermissions` in the service account validation path.
-
-> TODO(DOCS-98): Confirm whether additional permissions are required in production flows beyond the validation checks in `gcp_auth`.
 
 ## Related Pages
 
