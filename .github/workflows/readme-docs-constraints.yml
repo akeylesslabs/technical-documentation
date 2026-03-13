@@ -1,0 +1,159 @@
+name: ReadMe Docs Constraints
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - edited
+      - ready_for_review
+    paths:
+      - "docs/**/*.md"
+      - ".github/scripts/check_readme_docs_constraints.py"
+      - ".github/workflows/readme-docs-constraints.yml"
+  workflow_dispatch:
+
+jobs:
+  validate-readme-docs-constraints:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Collect changed PR files
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const files = await github.paginate(
+              github.rest.pulls.listFiles,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.issue.number,
+                per_page: 100,
+              }
+            );
+
+            fs.mkdirSync('.github/automation-reports', { recursive: true });
+            fs.writeFileSync(
+              '.github/automation-reports/readme-constraints-pr-files.json',
+              JSON.stringify(
+                files.map((file) => ({
+                  filename: file.filename,
+                  status: file.status,
+                  previous_filename: file.previous_filename || '',
+                })),
+                null,
+                2
+              )
+            );
+
+      - name: Create fallback changed files list for manual runs
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p .github/automation-reports
+          echo '[]' > .github/automation-reports/readme-constraints-pr-files.json
+
+      - name: Validate ReadMe docs constraints
+        id: validate
+        run: |
+          python .github/scripts/check_readme_docs_constraints.py \
+            --docs-root docs \
+            --changed-files-json .github/automation-reports/readme-constraints-pr-files.json \
+            --max-depth 3 \
+            --out-json .github/automation-reports/readme-constraints-report.json \
+            --out-md .github/automation-reports/readme-constraints-report.md
+
+      - name: Add or update PR comment on failure
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- readme-docs-constraints-comment -->';
+            const report = fs.readFileSync('.github/automation-reports/readme-constraints-report.md', 'utf8');
+
+            const body = `${marker}
+            ### ReadMe docs constraints failed
+
+            This pull request cannot be merged until the violations below are resolved.
+
+            ${report}
+            `;
+
+            const comments = await github.paginate(
+              github.rest.issues.listComments,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                per_page: 100,
+              }
+            );
+
+            const existing = comments.find((comment) => comment.body && comment.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
+
+      - name: Remove stale PR comment when passing
+        if: success() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = '<!-- readme-docs-constraints-comment -->';
+            const comments = await github.paginate(
+              github.rest.issues.listComments,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                per_page: 100,
+              }
+            );
+
+            const existing = comments.find((comment) => comment.body && comment.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.deleteComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+              });
+            }
+
+      - name: Upload constraint reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: readme-docs-constraints-report
+          path: |
+            .github/automation-reports/readme-constraints-pr-files.json
+            .github/automation-reports/readme-constraints-report.json
+            .github/automation-reports/readme-constraints-report.md

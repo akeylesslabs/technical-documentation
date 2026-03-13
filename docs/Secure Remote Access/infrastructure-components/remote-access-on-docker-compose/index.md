@@ -92,13 +92,13 @@ To deploy a gateway with the SRA utility, run the following steps:
 
 ## Installation
 
-To install the Gateway with the SRA utility, run this command from the directory where your **Gateway** and **SRA** configuration files are located.
+To deploy the Gateway with the SRA utility, run this command from the directory where your **Gateway** and **SRA** configuration files are located.
 
 ```shell
 docker compose --profile sra up -d
 ```
 
-To verify the installation, run:
+To verify the deployment, run:
 
 ```shell
 docker ps

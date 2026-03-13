@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-To install and configure a standalone instance of Akeyless Gateway using Docker, follow these steps. It's important to note that all of these actions can be conveniently performed using Docker Desktop, a user-friendly interface for managing Docker applications.
+To deploy and configure a standalone instance of Akeyless Gateway using Docker, follow these steps. It's important to note that all of these actions can be conveniently performed using Docker Desktop, a user-friendly interface for managing Docker applications.
 
 ## Installation Steps
 
 * Run Akeyless Gateway Container:
     * Open a terminal or command prompt on your machine.
-    * Execute the following Docker command to install and run a standalone instance of the Akeyless Gateway:
+    * Execute the following Docker command to deploy and run a standalone instance of the Akeyless Gateway:
     * This command downloads the Akeyless Gateway image from the Docker repository (if not already present) and runs it as a container named `akeyless-gateway`. It maps multiple ports to ensure full functionality of the Akeyless Gateway, including the management interface and various service endpoints.
 
 ```shell
