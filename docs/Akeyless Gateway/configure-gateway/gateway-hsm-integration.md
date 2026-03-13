@@ -125,4 +125,4 @@ Where:
 
 * `hsm-key-label`: The label of the key inside the **HSM**.
 
-Save the output in a new file called `customer_fragments.json` in a directory of your choice. Once you have your `customer_fragments.json` file saved, you'll need to provide a path to the file containing your fragment as part of the Gateway installation command, as described in [this](https://docs.akeyless.io/docs/zero-knowledge) guide.
+Save the output in a new file called `customer_fragments.json` in a directory of your choice. Once you have your `customer_fragments.json` file saved, you'll need to provide a path to the file containing your fragment as part of the Gateway deployment command, as described in [this](https://docs.akeyless.io/docs/zero-knowledge) guide.
