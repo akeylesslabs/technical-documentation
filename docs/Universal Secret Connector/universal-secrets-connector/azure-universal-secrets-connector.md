@@ -26,10 +26,7 @@ This page explains how to create an Azure [Universal Secrets Connector](https://
 
 * Active Akeyless account.
 * Permission to configure Universal Secrets Connector.
-* Network connectivity between the USC runtime environment and:
-    * Akeyless platform.
-    * Azure Key Vault API endpoints.
-
+* Network connectivity between the Akeyless Gateway and Azure Key Vault API endpoints
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
 * Azure [Registered Application](https://learn.microsoft.com/en-us/security/zero-trust/develop/app-registration) with the [Key Vault Secrets Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role assigned at the Key Vault scope. If you wish to work with certificates, assign the [Key Vault Certificates Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-certificates-officer) role.
 
@@ -98,22 +95,7 @@ After Azure-side setup is complete:
 
 1. Create the Azure target in Akeyless.
 2. Create the Azure USC and associate it to that target.
-3. Define secret path mappings as needed.
-4. Deploy the USC runtime in the environment.
-
-    Typical deployment options:
-
-    * Kubernetes container.
-    * Docker container.
-    * VM-based runtime.
-
-    After deployment, the connector can:
-
-    * Authenticate to Azure by using the service principal.
-    * Connect to the Akeyless platform.
-    * Begin managing configured secret paths.
-
-5. Continue with the validation checklist in this page.
+3. Continue with the validation checklist in this page.
 
 ## Required Azure Values
 
