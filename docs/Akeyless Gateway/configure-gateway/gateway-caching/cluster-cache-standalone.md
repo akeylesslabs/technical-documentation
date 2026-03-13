@@ -69,6 +69,21 @@ By default, Redis durability flags are not forced in chart templates. You can pa
 
 For Kubernetes storage behavior details, see [Persistent Volumes and Claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) and [StorageClasses](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
+## When to Use
+
+Use standalone cluster cache when:
+
+* You run multiple Gateway pods and want shared cache state.
+* You want lower operational complexity than HA Sentinel.
+* A single Redis instance is acceptable for your availability target.
+
+## When Not to Use
+
+Do not use standalone cluster cache when:
+
+* You require Redis high availability across node failures.
+* You need Sentinel-managed failover behavior.
+
 ## Configuring Cluster Cache (Standalone)
 
 Use the following deployment-specific options to configure standalone cluster cache:
@@ -110,18 +125,3 @@ For the full key reference, see [Helm Values Reference](https://docs.akeyless.io
 * `globalConfig.clusterCache.persistence.storageClass`: Sets the Kubernetes [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the PVC.
 * `globalConfig.clusterCache.persistence.size`: Sets the requested PVC size. See [Kubernetes Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory).
 * `globalConfig.clusterCache.extraArgs`: Passes Redis runtime arguments to the standalone cache container. For supported options, see [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/) and [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/).
-
-## When to Use
-
-Use standalone cluster cache when:
-
-* You run multiple Gateway pods and want shared cache state.
-* You want lower operational complexity than HA Sentinel.
-* A single Redis instance is acceptable for your availability target.
-
-## When Not to Use
-
-Do not use standalone cluster cache when:
-
-* You require Redis high availability across node failures.
-* You need Sentinel-managed failover behavior.
