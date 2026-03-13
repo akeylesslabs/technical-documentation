@@ -12,7 +12,21 @@ next:
 ---
 Proactive caching preloads and refreshes cache entries in the background to reduce first-read latency.
 
-## Core Behavior
+## Configuring Proactive Caching
+
+Use the following deployment-specific options to configure proactive caching:
+
+| Deployment option | How to configure |
+| --- | --- |
+| Gateway Console | In the Gateway UI, go to **Manage Gateway** > **Caching Configuration** and enable proactive caching options. |
+| [Kubernetes (Helm)](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) | Set proactive cache keys under `globalConfig.env` in `values.yaml` (for example `PROACTIVE_CACHE_ENABLE`, `NEW_PROACTIVE_CACHE_ENABLE`) and [apply a Helm upgrade](https://helm.sh/docs/helm/helm_upgrade/). |
+| [Standalone Docker](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker) | Set proactive cache environment variables (for example `PROACTIVE_CACHE_ENABLE`, `NEW_PROACTIVE_CACHE_ENABLE`, `PROACTIVE_CACHE_WORKERS`) in container runtime configuration. |
+| [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose) | Set the same proactive cache environment variables in the compose service definition and redeploy. |
+| [Serverless AWS](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws) and [Serverless Azure](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure) | Set proactive cache environment variables in the serverless deployment configuration and redeploy. |
+
+For deployment-specific examples, see [Helm Values Reference](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference), [Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration), [Docker Compose Deployment](https://docs.akeyless.io/docs/gateway-deploy-docker-compose), [Serverless AWS Deployment](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws), and [Serverless Azure Deployment](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure).
+
+## Sync Behavior
 
 Proactive cache runs only when both cache and proactive cache are enabled.
 
@@ -23,6 +37,27 @@ Proactive cache runs only when both cache and proactive cache are enabled.
 5. Zombie cleanup: During full fetch, items missing from current inventory are removed from cache.
 
 If SaaS connectivity is unavailable, proactive jobs stop pulling from SaaS and resume when connectivity returns.
+
+### Proactive Caching Environment Variables
+
+* `PROACTIVE_CACHE_ENABLE`: Enables or disables proactive caching.
+* `NEW_PROACTIVE_CACHE_ENABLE`: Enables the newer proactive caching implementation.
+* `PROACTIVE_CACHE_WORKERS`: Sets the worker count for the new proactive cache implementation.
+* `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME`: Sets the modified-secrets fetch interval in minutes.
+* `CACHE_TTL`: Influences cache time-to-live and full-fetch cadence in current implementation.
+
+Helm equivalent (`values.yaml`):
+
+```yaml values.yaml
+globalConfig:
+  env:
+    - name: PROACTIVE_CACHE_ENABLE
+      value: "true"
+    - name: NEW_PROACTIVE_CACHE_ENABLE
+      value: "true"
+    - name: PROACTIVE_CACHE_WORKERS
+      value: "3"
+```
 
 ## Access ID Used by Proactive Cache
 
@@ -43,7 +78,7 @@ The new implementation:
 * Uses `Retry-After` or `will be released in <duration>` when available.
 * Retries up to `PROACTIVE_CACHE_WORKERS × 10` attempts.
 
-## 429 and Rate-Limit Guidance
+## Rate-Limit Behavior
 
 429 responses can occur when startup warm-up fan-out exhausts the per-access-ID limit window.
 
@@ -55,4 +90,6 @@ To reduce risk:
 * Restrict admin access ID visibility using RBAC so fewer items are warmed.
 * Enable or restart proactive cache during low-traffic windows.
 
-For read-path semantics and `ignore-cache`, see [Runtime Caching](https://docs.akeyless.io/docs/runtime-caching).
+`--ignore-cache` attempts to bypass cache and read directly from SaaS; for full behavior details, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
+
+For Redis topology choices, see [Cluster Cache (Standalone)](https://docs.akeyless.io/docs/cluster-cache-standalone) and [Cluster Cache High Availability (HA)](https://docs.akeyless.io/docs/cluster-cache-ha).
