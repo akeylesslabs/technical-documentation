@@ -17,7 +17,7 @@ Runtime caching controls how the Akeyless Gateway serves and refreshes cached se
 When runtime caching is enabled, secret retrieval follows this flow:
 
 1. The request reaches the Gateway and a cache lookup begins.
-2. If [cluster cache](https://docs.akeyless.io/docs/cluster-cache-standalone) is enabled, lookup order is controlled by `PREFER_CLUSTER_CACHE_FIRST`.
+2. If cluster cache is enabled ([Cluster Cache (Standalone)](https://docs.akeyless.io/docs/cluster-cache-standalone) or [Cluster Cache High Availability (HA)](https://docs.akeyless.io/docs/cluster-cache-ha)), lookup order is controlled by `PREFER_CLUSTER_CACHE_FIRST`.
 3. If a valid cached value is found, the Gateway returns it immediately to the caller.
 4. After a cache hit, the Gateway can refresh from SaaS in the background to keep cache entries current.
 5. If no cached value exists, the Gateway reads from SaaS, stores the value in cache, and then returns it to the caller.
@@ -53,6 +53,22 @@ Current implementation pattern:
 
 As a result, stale reads can occur temporarily between a successful write and the next cache refresh.
 
+## When to Use
+
+Use runtime caching when:
+
+* You want lower read latency for repeated secret retrieval requests.
+* You want Gateway to continue serving cached values during temporary SaaS interruptions.
+* You need a baseline caching mode that can be combined with proactive caching or cluster cache.
+
+## When Not to Use
+
+Do not rely on runtime caching alone when:
+
+* You require strict read-after-write consistency for every request.
+* You need shared cache state across multiple Gateway pods without local cache divergence.
+* Your workload requires every read to fetch directly from SaaS.
+
 ## Configuring Runtime Caching
 
 Use the following deployment-specific options to configure runtime caching:
@@ -81,9 +97,7 @@ globalConfig:
 ### Runtime Caching Environment Variables
 
 * `CACHE_ENABLE`: Enables or disables the Gateway cache subsystem. This controls runtime caching behavior and is a prerequisite for proactive cache activity.
-* `PREFER_CLUSTER_CACHE_FIRST`: Controls cache lookup order when cluster cache is enabled.
-    * `false` (default): local in-memory cache first, then Redis cluster cache.
-    * `true`: Redis cluster cache first, then local in-memory cache.
+* `PREFER_CLUSTER_CACHE_FIRST`: Controls cache lookup order when cluster cache is enabled. For value behavior, see [Local Cache and Cluster Cache Read Preference](https://docs.akeyless.io/docs/runtime-caching#local-cache-and-cluster-cache-read-preference).
 * `IGNORE_REDIS_HEALTH`: Controls whether Redis connectivity affects the `/health` handler result. This does not change runtime cache read or write behavior directly, but it does affect how orchestration and load balancers treat Gateway availability when Redis is degraded.
     * `false` (default): Redis connectivity failures can fail `/health`.
     * `true`: Redis connectivity is ignored by `/health` checks.
