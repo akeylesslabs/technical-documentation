@@ -40,7 +40,7 @@ Akeyless Secure Remote Access provides a robust set of features designed to supp
 1. Just-in-Time Access: With SRA, just-in-time secrets can be created and injected into a remote resource, such as a database, on the fly.
 2. Rotated Secret Access: Privileged secrets can be used to access remote resources with the ability to automatically rotate the credentials once the session ends.
 3. Support for Various Protocols: Akeyless supports a variety of protocols, including SSH, RDP, SQL, kubectl, and more.
-4. Request for Access: Admins have the ability to enable an option for users to request access for a specific resource on-demand.
+4. Request for Access: Admins have the ability to enable an option for users to [request access](https://docs.akeyless.io/docs/request-access) for a specific resource on-demand, using a built-in approval workflow.
 5. Audit and Session Management: Akeyless provides full session management with auditing and recording capabilities to keep you compliant. Session recordings and transcripts can be automatically exported to remote storage systems for long-term retention.
 6. Granular RBAC: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need (Users are restricted from accessing anything beyond their defined scope). Users only need SRA permissions to initiate connections—without requiring any _Read_ access to the underlying secrets.
 7. Native SSO integrations: SRA supports authentication by way of SSO protocols such as OIDC, SAML, and LDAP.

@@ -164,6 +164,14 @@ jobs:
           SUMMARY="Spell check ${TS} – $GITHUB_REPOSITORY@$BRANCH_NAME"
 
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
 
           ADF_DESC=$(jq -n \
             --arg run     "$RUN_URL" \
@@ -243,7 +251,7 @@ jobs:
               }
             }')
 
-          RESP=$(curl -sS -X POST \
+          RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
             -H "$AUTH_HEADER" \
             -H "Content-Type: application/json" \
             --data "$PAYLOAD" \
@@ -273,12 +281,20 @@ jobs:
         run: |
           set -e
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
 
           attach_file () {
             local fpath="$1"
             if [ -f "$fpath" ]; then
               echo "Attaching $fpath to $ISSUE_KEY"
-              curl -sS -X POST \
+              curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
                 -H "$AUTH_HEADER" \
                 -H "X-Atlassian-Token: no-check" \
                 -F "file=@${fpath}" \

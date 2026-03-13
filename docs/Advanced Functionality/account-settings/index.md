@@ -140,3 +140,13 @@ Comma-separated CIDR blocks. If specified, the Gateway using this IP range will 
 #### Usage Events
 
 Set a global event for Auth methods that have not been used or changed within the usage interval, the minimum is 90 days. The usage interval counter will start from the moment this feature is enabled.
+
+#### Allowed Client Types
+
+Set the Allowed Client Types for this account, the available client types are: **CLI, Web UI, Extension, Mobile, Gateway Admin and SDK**.
+
+#### Choose default Auth method
+
+Choose a default auth method that will be used when generating links for items in the account. Relevant only for [SAML](https://docs.akeyless.io/docs/auth-with-saml) and [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication methods.
+
+<br />

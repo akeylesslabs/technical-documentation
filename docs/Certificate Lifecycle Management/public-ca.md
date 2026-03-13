@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.globalsign.com/), [Venafi (now part of CyberArk)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/), [GoDaddy](https://www.godaddy.com/) and [Sectigo](https://www.sectigo.com/) as a Public CAs.
+Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.globalsign.com/), [Venafi (now part of CyberArk)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/), [GoDaddy](https://www.godaddy.com/), [Sectigo](https://www.sectigo.com/), and [Let's Encrypt](https://letsencrypt.org/) as Public CAs.
 
 The public certificate authority will sign and issue the certificate, while Akeyless will store and manage the certificate lifecycle.
 
@@ -113,6 +113,10 @@ akeyless get-certificate-value \
 
 You can find the complete list of parameters for this command in the [CLI Reference - certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-certificate-value) section.
 
-Once the certificate issue request is processed, a validation email will be sent to the email address listed in the Target, and it will be processed automatically by the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
+Once the certificate issue request is processed, the selected public CA target validation flow is triggered and handled through the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
+
+> ℹ️ **Note (Validation Method):**
+>
+> Validation depends on the selected public CA target. Some targets use email-based validation, while the [Let's Encrypt Target](https://docs.akeyless.io/docs/lets-encrypt) uses ACME challenge validation (`http` or `dns`).
 
 The issued [Certificate item](https://docs.akeyless.io/docs/certificate-storage) should be created under the `destination-path` storage folder inside Akeyless.
