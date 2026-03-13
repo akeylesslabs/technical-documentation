@@ -10,35 +10,18 @@ metadata:
 next:
   description: ''
 ---
-Standalone cluster cache provides a shared Redis-backed cache across Gateway pods. Compared to [local in-memory cache](https://docs.akeyless.io/docs/runtime-caching) only, this improves cache consistency across pods.
+Standalone cluster cache provides a shared Redis-backed cache across Gateway pods. This improves cross-pod cache consistency compared to [local in-memory cache](https://docs.akeyless.io/docs/runtime-caching).
 
 > ℹ️ **Note:**
 > Standalone cluster cache uses a single Redis topology with lower operational overhead.
 > If you need Redis failover and higher cache service resilience, use [Cluster Cache High Availability (HA)](https://docs.akeyless.io/docs/cluster-cache-ha).
-
-## When to Use
-
-Use standalone cluster cache when:
-
-* You run multiple Gateway pods and want shared cache state.
-* You want lower operational complexity than HA Sentinel.
-* A single Redis instance is acceptable for your availability target.
-
-## When Not to Use
-
-Do not use standalone cluster cache when:
-
-* You require Redis high availability across node failures.
-* You need Sentinel-managed failover behavior.
 
 ## Read Behavior
 
 When standalone cluster cache is enabled, runtime reads follow this flow:
 
 1. Gateway receives a read request and starts a cache lookup.
-2. Read order is controlled by `PREFER_CLUSTER_CACHE_FIRST`:
-    * `false` (default): check local in-memory cache first, then standalone Redis cache.
-    * `true`: check standalone Redis cache first, then local in-memory cache.
+2. Read order is controlled by `PREFER_CLUSTER_CACHE_FIRST`.
 3. If a valid cached value is found, Gateway returns it.
 4. If no cached value is found, Gateway fetches from SaaS, stores the result in cache, and returns it.
 5. If SaaS is unreachable and the value is not already cached, the request fails.
@@ -120,12 +103,25 @@ For the full key reference, see [Helm Values Reference](https://docs.akeyless.io
 ### Cluster Cache (Standalone) Values
 
 * `globalConfig.clusterCache.enabled`: Enables standalone cluster cache.
-* `PREFER_CLUSTER_CACHE_FIRST` (under `globalConfig.env`): Controls read order between local in-memory cache and standalone Redis cache.
-    * `false` (default): local in-memory cache first, then standalone Redis cache.
-    * `true`: standalone Redis cache first, then local in-memory cache.
+* `PREFER_CLUSTER_CACHE_FIRST` (under `globalConfig.env`): Controls read order between local in-memory cache and standalone Redis cache. For value behavior, see [Local Cache and Cluster Cache Read Preference](https://docs.akeyless.io/docs/cluster-cache-standalone#local-cache-and-cluster-cache-read-preference).
 * `globalConfig.clusterCache.persistence.enabled`: Enables Redis data persistence for standalone cluster cache so cached data can survive pod restarts, container restarts, and pod rescheduling events.
 * `globalConfig.clusterCache.persistence.existingClaim`: Uses an existing [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) instead of creating a new one.
 * `globalConfig.clusterCache.persistence.accessMode`: Sets the PVC access mode (for example, `ReadWriteOnce`). See [Access Modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
 * `globalConfig.clusterCache.persistence.storageClass`: Sets the Kubernetes [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the PVC.
 * `globalConfig.clusterCache.persistence.size`: Sets the requested PVC size. See [Kubernetes Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory).
 * `globalConfig.clusterCache.extraArgs`: Passes Redis runtime arguments to the standalone cache container. For supported options, see [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/) and [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/).
+
+## When to Use
+
+Use standalone cluster cache when:
+
+* You run multiple Gateway pods and want shared cache state.
+* You want lower operational complexity than HA Sentinel.
+* A single Redis instance is acceptable for your availability target.
+
+## When Not to Use
+
+Do not use standalone cluster cache when:
+
+* You require Redis high availability across node failures.
+* You need Sentinel-managed failover behavior.
