@@ -26,21 +26,13 @@ When standalone cluster cache is enabled, runtime reads follow this flow:
 4. If no cached value is found, Gateway fetches from SaaS, stores the result in cache, and returns it.
 5. If SaaS is unreachable and the value is not already cached, the request fails.
 
+`--ignore-cache` attempts to bypass cache and read directly from SaaS; for full behavior details, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
+
 ### Local Cache and Cluster Cache Read Preference
 
 When standalone cluster cache is enabled, `PREFER_CLUSTER_CACHE_FIRST` controls read preference between the local in-memory cache and the standalone Redis cache.
 
 When `PREFER_CLUSTER_CACHE_FIRST=false` (the default local-first mode), Gateway compares local and Redis `lastModified` metadata and refreshes local entries when Redis is newer.
-
-### ignore-cache Behavior
-
-The `ignore-cache` flag is intended to bypass cache and fetch directly from SaaS.
-
-```shell
-akeyless get-secret-value -n /mysecret --ignore-cache true
-```
-
-In disconnected mode (when SaaS is unreachable), runtime still checks cache first even when `ignore-cache=true`. If the value is not cached, the request fails.
 
 ## Write and Update Behavior
 
