@@ -181,7 +181,7 @@ Full list of available permissions:
 | `rotate_secret_value` | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item |
 | `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings |
 | `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
-| `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/gateway-caching) settings |
+| `caching` | Management of [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) settings |
 | `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
 | `ldap_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
 | `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
@@ -355,7 +355,9 @@ The variables `MIN_TLS_VERSION=TLSv1.3` and `GODEBUG=tlsmlkem=1` enable hybrid P
 
 ### Cache Configuration
 
-Use these environment variables to enable cache features for Docker deployments. For behavior details, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
+Use these environment variables to enable runtime and proactive cache features for Docker deployments.
+
+For behavior and topology semantics, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="60" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="5" -e PROACTIVE_CACHE_DUMP_INTERVAL="1" --name akeyless-gw akeyless/base:latest-akeyless
@@ -364,20 +366,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e
 docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="number-of-minutes" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="number-of-minutes" -e PROACTIVE_CACHE_DUMP_INTERVAL="number-of-minutes" --name akeyless-gw akeyless/base
 ```
 
-In the example above,
-
-* `CACHE_ENABLE` enables cache.
-  Default: `false`.
-* `PROACTIVE_CACHE_ENABLE` enables proactive synchronization.
-  Default: `false`.
-* `CACHE_TTL` sets cache TTL and participates in proactive full-fetch cadence.
-  Default: `60` minutes.
-* `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME` sets proactive modified-secrets fetch interval.
-  Default: `5` minutes.
-* `PROACTIVE_CACHE_DUMP_INTERVAL` sets backup interval when backup flows are enabled.
-  Default: `1` minute.
-
-It is also possible to configure caching in the Gateway Console after the Gateway is deployed.
+It is also possible to configure runtime and proactive caching in the Gateway Console after the Gateway is deployed.
 
 ## Access Scope and Defaults
 

@@ -273,7 +273,7 @@ To configure your Akeyless Gateway:
 
 * [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
 * [LDAP Authentication](https://docs.akeyless.io/docs/auth-with-ldap)
-* [Caching](https://docs.akeyless.io/docs/gateway-caching)
+* [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) (runtime and proactive caching options are covered in this section)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway Status Change
 * [TLS Configuration](https://docs.akeyless.io/docs/tls-certificate).

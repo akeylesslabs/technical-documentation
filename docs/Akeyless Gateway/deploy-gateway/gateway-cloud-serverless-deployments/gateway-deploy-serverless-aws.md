@@ -199,7 +199,7 @@ The **Serverless Gateway** will boot with the version you chose.
 The Akeyless Serverless Gateway does not support:
 
 * [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) and [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Authentication Methods
-* [Caching](https://docs.akeyless.io/docs/gateway-caching)
+* [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) (runtime and proactive caching options are covered in this section)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway status change
 * [TLS Configuration](https://docs.akeyless.io/docs/tls-certificate)

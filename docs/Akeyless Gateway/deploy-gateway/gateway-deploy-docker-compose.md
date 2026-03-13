@@ -160,7 +160,7 @@ Full list of available permissions:
 | `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
 | `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings |
 | `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
-| `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/gateway-caching) settings |
+| `caching` | Management of [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) settings |
 | `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
 | `ldap_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
 | `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
