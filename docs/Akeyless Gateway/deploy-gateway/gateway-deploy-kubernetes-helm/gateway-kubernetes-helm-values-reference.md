@@ -33,7 +33,7 @@ To do that, you can set the `clusterName="meaningful-cluster-name"` field as par
 
 In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL` under the `env` section as an environment variable.
 
-You can also provide a custom display name for the Gateway Instance using the `initialClusterDisplayName` variable, which is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
+You can also provide a custom display name for the Gateway Instance using the `initialClusterDisplayName` variable, which is arbitrary. This name can be changed in the Akeyless Console after the Gateway is deployed.
 
 ```yaml values.yaml
 clusterName: <meaningful-cluster-name>
