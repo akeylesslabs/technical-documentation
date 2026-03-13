@@ -42,3 +42,13 @@ To manage cache runtime settings from Gateway Configuration Manager:
 4. Save changes.
 
 For Kubernetes deployment keys (`globalConfig.clusterCache`, `cacheHA`, and persistence options), see [Helm Values Reference](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference).
+
+## ignore-cache Behavior
+
+The `ignore-cache` flag is intended to bypass cache and fetch directly from SaaS.
+
+```shell
+akeyless get-secret-value -n /mysecret --ignore-cache true
+```
+
+In disconnected mode (when SaaS is unreachable), runtime still checks cache first even when `ignore-cache=true`. If the value is not cached, the request fails.
