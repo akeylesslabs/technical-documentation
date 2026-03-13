@@ -58,6 +58,10 @@ akeyless create-ssh-cert-issuer \
 
 `--secure-access-host`: Target servers for connections. For multiple values repeat this flag.
 
+`--external-username[=false]`: Use externally provided username mode for Secure Remote Access.
+
+`--fixed-user-claim-keyname[=ext_username]`: For externally provided users, the IdP claim key name to extract the username from. Relevant only when `--external-username=true`.
+
 `--secure-access-use-internal-bastion`: Use internal SSH Bastion - Relevant only for Secure Remote Access Deployment, mostly when using Dockers. Set the relevant IP address of the SSH Bastion for internal communication between ZT and SSH bastions.
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
@@ -139,6 +143,10 @@ akeyless update-ssh-cert-issuer \
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list
 
 `--secure-access-host`: Target servers for connections. For multiple values repeat this flag
+
+`--external-username[=false]`: Use externally provided username mode for Secure Remote Access.
+
+`--fixed-user-claim-keyname[=ext_username]`: For externally provided users, the IdP claim key name to extract the username from. Relevant only when `--external-username=true`.
 
 `--secure-access-use-internal-bastion`: Use internal SSH Bastion
 
@@ -380,6 +388,27 @@ akeyless get-pki-certificate \
 
 `-o, --outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location as the provided public key with the -cert extension
 
+### `validate-certificate-challenge`
+
+Validates an ACME HTTP-01 challenge and finalizes certificate issuance (Phase 2)
+
+#### Usage
+
+```shell
+akeyless validate-certificate-challenge \
+--name <Certificate name> \
+--cert-display-id <Certificate display ID from get-pki-certificate> \
+--timeout[=120] <Validation timeout in seconds>
+```
+
+#### Flags
+
+`-n, --name`: Certificate name (alternative to `--cert-display-id`)
+
+`-d, --cert-display-id`: Certificate display ID from `get-pki-certificate` (alternative to `--name`)
+
+`--timeout[=120]`: Validation timeout in seconds
+
 ### `get-cert-challenge`
 
 Get a challenge for certificate authentication
@@ -416,7 +445,7 @@ akeyless renew-certificate \
 
 ### `update-pki-cert-issuer`
 
-Updates a new PKI certificate issuer
+Updates a PKI certificate issuer
 
 #### Usage
 
