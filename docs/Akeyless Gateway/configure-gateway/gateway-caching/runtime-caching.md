@@ -25,7 +25,7 @@ When runtime caching is enabled, secret retrieval follows this flow:
 
 ### Local Cache and Cluster Cache Read Preference
 
-When cluster cache is enabled, `PREFER_CLUSTER_CACHE_FIRST` controls read preference.
+When cluster cache is enabled, `PREFER_CLUSTER_CACHE_FIRST` controls read preference between the local in-memory cache and the Redis cache.
 
 When `PREFER_CLUSTER_CACHE_FIRST=false` (the default local-first mode), the Gateway also compares local and Redis `lastModified` metadata and refreshes local entries when Redis is newer.
 
