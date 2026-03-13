@@ -154,88 +154,83 @@ Once the Gateway is running, you can set the matching AccessID as your OIDC defa
 
 ## Cache Settings
 
-### Cache Configuration
+This section covers Helm cache deployment options. For cache behavior, terminology, outage semantics, and request flow details, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
 
-To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly with the API.
+### Cluster Cache (Standalone)
 
-To set an internal TLS between the Gateway and cache service, set the `enableTls: true` option:
+Use standalone cluster cache when Gateway pods need a shared Redis cache service.
 
-```yaml
+```yaml values.yaml
+globalConfig:
   clusterCache:
     enabled: true
     enableTls: false
 ```
 
-To set the cache on your gateway with a default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64-encoded:
-
-```shell
-kubectl create secret generic cache-configuration \
-  --from-literal=cluster-cache-encryption-key=<base64-encoded-cluster-cache-encryption-key>
-```
-
-And add to the `values.yaml` file the Kubernetes Secret name:
+To enable durable storage for standalone cluster cache, configure persistence:
 
 ```yaml values.yaml
-  clusterCache:
-    encryptionKeyExistingSecret: "cache-configuration"
-    enableTls: false
-```
-
-To force the Cache to write only to memory without writing to the file system, you can use `extraArgs`:
-
-```yaml values.yaml
+globalConfig:
   clusterCache:
     enabled: true
+    persistence:
+      enabled: true
+      existingClaim: ""
+      accessMode: "ReadWriteOnce"
+      storageClass: ""
+      size: 10Gi
+```
+
+If `globalConfig.clusterCache.persistence.enabled` is `false`, the standalone cache does not mount a PersistentVolumeClaim at `/data`.
+
+Optional Redis runtime flags can be passed through `globalConfig.clusterCache.extraArgs`. This key is a direct pass-through to the `redis-server` command arguments for the standalone cluster cache pod.
+
+* Supported options are Redis server command-line flags, documented by Redis:
+    * [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/)
+    * [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
+* There are no Akeyless-specific `extraArgs` keys. Akeyless does not parse custom keys under this field.
+
+Example (`values.yaml`):
+
+```yaml values.yaml
+globalConfig:
+  clusterCache:
     extraArgs:
-     - --save
-     - ""
-     - --appendonly
-     - "no"
+      - --save
+      - ""
+      - --appendonly
+      - "no"
 ```
 
-To set a persistence volume you can set this with your [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, or using `emptyDir`:
+In this example, Redis snapshotting and AOF persistence are disabled by explicit Redis flags.
 
-```yaml values.yaml with storageClass
-  clusterCache:
+### Cluster Cache HA (`cacheHA`)
+
+Enable `cacheHA` for a high-availability [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) topology. When `cacheHA.enabled=true`, this mode replaces the default standalone cache service.
+
+```yaml values.yaml
+cacheHA:
+  enabled: true
+  nameOverride: cluster-cache-ha
+  replicas: 3
+  auth: true
+  authKey: redis-password
+  existingSecret: "{{ .Release.Name }}-cluster-cache-ha"
+```
+
+Cache HA persistence is controlled separately:
+
+```yaml values.yaml
+cacheHA:
+  persistentVolume:
     enabled: true
-    persistence:
-      enabled: false
-       existingClaim: ""
-       accessMode: "ReadWriteOnce"
-       storageClass: ""
-       size: 10Gi
-```
-```yaml values.yaml with empty dir
-  clusterCache:
-    enabled: true
-    persistence:
-     extraVolumes:
-       - name: cache-data
-         emptyDir: {}
-
-     extraVolumesMounts:
-       - name: cache-data
-         mountPath: /data
+    storageClass: ~
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
 ```
 
-To control the cache settings, you can [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the Gateway Configuration Manager.
-
-#### High Availability Cache
-
-While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a with the `ReadWriteOnce` access mode, using this configuration requires running `helm dependency update`.
-
-> ℹ️ **Note:**
->
-> This feature is available only from GW version `4.34.0` and higher. To use Cache HA, **existing** GW Helm deployments must be fully uninstalled before proceeding with the Cache HA setup.
-
-To set the default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64-encoded:
-
-```yaml
-kubectl create secret generic cache-configuration \
-  --from-literal=cluster-cache-encryption-key=<base64-encoded-cluster-cache-encryption-key>
-```
-
-Set your [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, for example:
+Set the appropriate [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to the environment, for example:
 
 ```yaml AWS
 apiVersion: storage.k8s.io/v1
@@ -290,37 +285,26 @@ parameters:
   encrypted: "true"
 ```
 
-Edit the following section in your `values.yaml` file:
+If you enable `cacheHA`, set or review the following keys to configure authentication and pod placement behavior:
 
-```yaml
+```yaml values.yaml
 cacheHA:
-  enabled: false
-  nameOverride: cluster-cache-ha
-  replicas: 3
-  
+  enabled: true
   auth: true
   authKey: redis-password
   existingSecret: "{{ .Release.Name }}-cluster-cache-ha"
-  
-  tls:
-    secretName: "{{ .Release.Name }}-cluster-cache-ha-tls"
-    certFile: tls.crt
-    keyFile: tls.key
-    caCertFile: ca.crt
-    certValidityDays: 1825
-    
   hardAntiAffinity: false
 ```
 
-To set **Authentication**, `auth` must be set to `true`, which requires a password stored in a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) specified by `existingSecret` for the secret name and `authKey` for the key containing the password. In our example: `redis-password`.
+To configure cache authentication, set `auth: true` and store the password in a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) referenced by `existingSecret` and `authKey`.
 
 When **TLS** is enabled, the Gateway deployment automatically generates a Kubernetes Secret containing the TLS certificate and key.
 
-For production environment, set the `hardAntiAffinity` option to ensure that Gateway pods are scheduled on different nodes.
+For production environments, set `hardAntiAffinity` to schedule cache HA pods on different nodes.
 
 Additionally, you can add topology spread constraint settings to control how pods are spread across your cluster in the event of failures. The full configuration settings can be found in this [link](https://github.com/DandyDeveloper/charts/blob/master/charts/redis-ha/values.yaml).
 
-To control the cache settings, you should [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache#/) using the Gateway Configuration Manager.
+For cache runtime behavior, terminology, `ignore-cache`, and outage semantics, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
 
 #### Cluster Cache Encryption Key and Offline Scale-Out
 
