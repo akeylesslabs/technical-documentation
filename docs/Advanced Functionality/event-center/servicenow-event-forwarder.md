@@ -53,7 +53,7 @@ The main parameters for the command are as follows:
 
 * `name`: **Event Forwarder** name
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`)
+* `gateway-url`: Akeyless Gateway URL (port `8000`)
 
 * `host`: **ServiceNow** endpoint URL
 

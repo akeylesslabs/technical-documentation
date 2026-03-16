@@ -92,7 +92,7 @@ Where:
 
 * `target-name`: A name of the target that enables connection to the Google Workspace. The name can include the path to the virtual folder where this target resides.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `access-mode`: Adding a user to an existing group or assigning an admin role to a user [`group` / `role`].
 
