@@ -39,7 +39,7 @@ Note: When using Self Signed Certificate, please mount the matching certificate 
 
 ## Set Up Automatic Migration for Active Directory
 
-To create the migration from your Active Directory, login to your Gateway on port `8000`, navigate to the **Automatic Migration -> Active Directory -> Add**, and set the following:
+To create the migration from your Active Directory, log in to your **Gateway Console**, navigate to **Automatic Migration > Active Directory > Add**, and set the following:
 
 * **Name:** A unique name for the migration object.
 

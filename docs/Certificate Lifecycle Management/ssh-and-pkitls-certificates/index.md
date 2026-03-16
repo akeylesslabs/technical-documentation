@@ -146,7 +146,7 @@ Where:
 
 * `common-name`: Certificate common name.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`). to generate the classic key/dfc key, relevant only when using `generate-key` option.
+* `gateway-url`: Akeyless Gateway URL (port `8000`). to generate the classic key/dfc key, relevant only when using `generate-key` option.
 
 > ℹ️ **Note:**
 >

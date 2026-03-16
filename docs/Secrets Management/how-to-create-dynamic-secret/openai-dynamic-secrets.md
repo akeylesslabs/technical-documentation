@@ -45,7 +45,7 @@ Where:
 
 * `project-id`: The project in OpenAI where the API Ket will be created in.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 ### Inline Connection String
 

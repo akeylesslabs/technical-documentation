@@ -40,7 +40,7 @@ Where:
 
 * `name`: The Certificate Display name.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `certificate`: Path to a file that contains the certificate. Supported formats are: `pem`, `cer`, `crt`, `pfx`, `p12`.
 
