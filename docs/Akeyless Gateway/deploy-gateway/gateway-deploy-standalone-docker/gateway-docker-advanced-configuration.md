@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The structure of the Gateway installation command when using environment variables should be as follows:
+The structure of the Gateway deployment command when using environment variables should be as follows:
 
 ```shell
 docker run -d -p 8000:8000  -p 5696:5696 -e ENV_VARIABLE_1="value1" -e ENV_VARIABLE_2="value2" -v /HOST/PATH/TO/FILE:/GATEWAY/PATH/TO/FILE --name akeyless-gw akeyless/base:latest-akeyless
@@ -205,7 +205,7 @@ It means that changing the Gateway **Access ID** or the **Cluster Name** of your
 
 That is why we recommend setting up a meaningful Cluster Name for your Gateway instance from the very beginning. By default, your cluster name is _defaultCluster_.
 
-To do that, you can set the `CLUSTER_NAME="meaningful-cluster-name"` variable. In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL` variable as part of the Gateway Installation command.
+To do that, you can set the `CLUSTER_NAME="meaningful-cluster-name"` variable. In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL` variable as part of the Gateway deployment command.
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless
@@ -214,7 +214,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="your-access-id" -e ADMIN_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-You can also provide a custom display name for the Gateway Instance using the `INITIAL_DISPLAY_NAME` variable, but this is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
+You can also provide a custom display name for the Gateway Instance using the `INITIAL_DISPLAY_NAME` variable, but this is arbitrary. This name can be changed in the Akeyless Console after the Gateway is deployed.
 
 ### Encryption Key
 
@@ -258,7 +258,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e CUSTOMER_FRAGMENTS="$CUSTOMER_FRAGMEN
 
 ### Version Selection
 
-To work with a specific Gateway version use the `VERSION` variable to install a specific version of the Akeyless Gateway.
+To work with a specific Gateway version, use the `VERSION` variable to deploy a specific version of the Akeyless Gateway.
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e VERSION="gw-app-version" --name akeyless-gw akeyless/base:latest-akeyless
@@ -302,7 +302,7 @@ With the following parameters, you can mount the TLS certificate and the TLS pri
 
 * `-v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key`
 
-It is also possible to [Set up TLS](https://docs.akeyless.io/docs/tls-certificate) in the Gateway Configuration Manager after the Gateway is installed.
+It is also possible to [Set up TLS](https://docs.akeyless.io/docs/tls-certificate) in the Gateway Configuration Manager after the Gateway is deployed.
 
 ### TLS and PQC Verification on Gateway
 
@@ -372,7 +372,7 @@ In the example above,
 
 * `PROACTIVE_CACHE_DUMP_INTERVAL` variable allows setting the time (in minutes) between the two consecutive backups.
 
-It is also possible to [configure caching](https://docs.akeyless.io/docs/configure-the-gateway-cache) in the Gateway Configuration Manager after the Gateway is installed.
+It is also possible to [configure caching](https://docs.akeyless.io/docs/configure-the-gateway-cache) in the Gateway Configuration Manager after the Gateway is deployed.
 
 ## Access Scope and Defaults
 

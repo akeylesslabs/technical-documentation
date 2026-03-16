@@ -81,7 +81,7 @@ Create a new secret in an existing USC
 #### Usage
 
 ```shell
-usc create \
+akeyless usc create \
 --usc-name <usc name> \
 --secret-name <Secret name> \
 --value <secret value>
@@ -118,7 +118,7 @@ Delete a secret from an Universal Secrets Connector
 #### Usage
 
 ```shell
-usc delete \
+akeyless usc delete \
 --usc-name <usc name> \
 --secret-id <Secret name or id>
 ```
@@ -142,7 +142,7 @@ Gets the value and internal details of a secret from an Universal Secrets Connec
 #### Usage
 
 ```shell
-usc get \
+akeyless usc get \
 --usc-name <usc name> \
 --secret-id <Secret name or id>
 ```
@@ -206,7 +206,7 @@ Update an existing secret within the Universal Secrets Connector
 #### Usage
 
 ```shell
-usc update \
+akeyless usc update \
 --usc-name <usc name> \
 --secret-id <Secret name or id> \
 --value <secret value>

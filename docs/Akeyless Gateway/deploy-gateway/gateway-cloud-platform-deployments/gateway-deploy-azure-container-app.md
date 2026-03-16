@@ -55,7 +55,7 @@ az containerapp env create \
   --location eastus
 ```
 
-With the configuration complete, we can now proceed to install the Gateway.
+With the configuration complete, we can now proceed to deploy the Gateway.
 
 ## Container App Creation
 
