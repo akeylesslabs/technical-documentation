@@ -196,6 +196,117 @@ config:
         example_from: "from the CLI"
         example_to: "with the CLI"
 
+      # Gateway lifecycle terminology
+      - term: "Gateway is installed"
+        replacement: "Gateway is deployed"
+        example_from: "The Gateway is installed."
+        example_to: "The Gateway is deployed."
+
+      - term: "Gateway was installed"
+        replacement: "Gateway was deployed"
+        example_from: "The Gateway was installed without a default Authentication Method."
+        example_to: "The Gateway was deployed without a default Authentication Method."
+
+      - term: "after the Gateway is installed"
+        replacement: "after the Gateway is deployed"
+        example_from: "You can configure caching after the Gateway is installed."
+        example_to: "You can configure caching after the Gateway is deployed."
+
+      - term: "install the Gateway"
+        replacement: "deploy the Gateway"
+        example_from: "Run the following command to install the Gateway."
+        example_to: "Run the following command to deploy the Gateway."
+
+      - term: "installing the Gateway"
+        replacement: "deploying the Gateway"
+        example_from: "Before installing the Gateway, validate prerequisites."
+        example_to: "Before deploying the Gateway, validate prerequisites."
+
+      - term: "Gateway has been installed"
+        replacement: "Gateway has been deployed"
+        example_from: "The Gateway has been installed and is ready to use."
+        example_to: "The Gateway has been deployed and is ready to use."
+
+      - term: "after the Gateway has been installed"
+        replacement: "after the Gateway has been deployed"
+        example_from: "Continue with this step after the Gateway has been installed."
+        example_to: "Continue with this step after the Gateway has been deployed."
+
+      - term: "once the Gateway has been installed"
+        replacement: "once the Gateway has been deployed"
+        example_from: "Once the Gateway has been installed, enable caching."
+        example_to: "Once the Gateway has been deployed, enable caching."
+
+      - term: "when the Gateway has been installed"
+        replacement: "when the Gateway has been deployed"
+        example_from: "When the Gateway has been installed, proceed to configuration."
+        example_to: "When the Gateway has been deployed, proceed to configuration."
+
+      - term: "after installing the Gateway"
+        replacement: "after deploying the Gateway"
+        example_from: "After installing the Gateway, verify the container status."
+        example_to: "After deploying the Gateway, verify the container status."
+
+      - term: "once installed, the Gateway"
+        replacement: "once deployed, the Gateway"
+        example_from: "Once installed, the Gateway can serve requests."
+        example_to: "Once deployed, the Gateway can serve requests."
+
+      - term: "Gateway had been installed"
+        replacement: "Gateway had been deployed"
+        example_from: "The Gateway had been installed before adding Remote Access components."
+        example_to: "The Gateway had been deployed before adding Remote Access components."
+
+      - term: "Install the Akeyless Gateway"
+        replacement: "Deploy the Akeyless Gateway"
+        example_from: "Install the Akeyless Gateway using Helm."
+        example_to: "Deploy the Akeyless Gateway using Helm."
+
+      - term: "install the Akeyless Gateway"
+        replacement: "deploy the Akeyless Gateway"
+        example_from: "Run this command to install the Akeyless Gateway."
+        example_to: "Run this command to deploy the Akeyless Gateway."
+
+      - term: "installing the Akeyless Gateway"
+        replacement: "deploying the Akeyless Gateway"
+        example_from: "The guide walks through installing the Akeyless Gateway."
+        example_to: "The guide walks through deploying the Akeyless Gateway."
+
+      - term: "Akeyless Gateway has been installed"
+        replacement: "Akeyless Gateway has been deployed"
+        example_from: "The Akeyless Gateway has been installed in the cluster."
+        example_to: "The Akeyless Gateway has been deployed in the cluster."
+
+      - term: "after the Akeyless Gateway has been installed"
+        replacement: "after the Akeyless Gateway has been deployed"
+        example_from: "Apply this update after the Akeyless Gateway has been installed."
+        example_to: "Apply this update after the Akeyless Gateway has been deployed."
+
+      - term: "once the Akeyless Gateway has been installed"
+        replacement: "once the Akeyless Gateway has been deployed"
+        example_from: "Once the Akeyless Gateway has been installed, open the console."
+        example_to: "Once the Akeyless Gateway has been deployed, open the console."
+
+      - term: "when the Akeyless Gateway has been installed"
+        replacement: "when the Akeyless Gateway has been deployed"
+        example_from: "When the Akeyless Gateway has been installed, continue to setup."
+        example_to: "When the Akeyless Gateway has been deployed, continue to setup."
+
+      - term: "after installing the Akeyless Gateway"
+        replacement: "after deploying the Akeyless Gateway"
+        example_from: "After installing the Akeyless Gateway, validate connectivity."
+        example_to: "After deploying the Akeyless Gateway, validate connectivity."
+
+      - term: "Akeyless Gateway was installed"
+        replacement: "Akeyless Gateway was deployed"
+        example_from: "The Akeyless Gateway was installed with default settings."
+        example_to: "The Akeyless Gateway was deployed with default settings."
+
+      - term: "Gateway installation command"
+        replacement: "Gateway deployment command"
+        example_from: "Use this Gateway installation command with environment variables."
+        example_to: "Use this Gateway deployment command with environment variables."
+
       # Acronyms to not use
       - term: "PM"
         replacement: "Akeyless Password Manager"
