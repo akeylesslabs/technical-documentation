@@ -140,9 +140,9 @@ At the prompt `Would you like to add AKEYLESS-CLI to PATH (...)? (Y/n)` line, ty
 
 You are now ready to use the CLI.
 
-## Install Akeyless Gateway
+## Deploy Akeyless Gateway
 
-Run the following to install Akeyless Gateway:
+Run the following to deploy Akeyless Gateway:
 
 ```shell Docker
 docker run -d -p 8000:8000 \
