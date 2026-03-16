@@ -42,9 +42,9 @@ next:
 >
 > Make sure that this server is not globally open to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
-## Installation
+## Deployment
 
-To install a standalone instance of Akeyless Gateway, run the following command:
+To deploy a standalone instance of Akeyless Gateway, run the following command:
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 --name akeyless-gateway akeyless/base:latest-akeyless
@@ -54,9 +54,9 @@ After executing the above command, a new container named `akeyless-gateway` shou
 
 To upgrade your current Gateway version, simply restart the container using the `docker restart <container name>` command.
 
-> ℹ️ **Note:** In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
+> ℹ️ **Note:** In this example, the Gateway was deployed without a default Authentication Method as part of the deployment. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
 
-For further installation options, visit the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) page.
+For further deployment options, visit the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) page.
 
 ### Initial Configuration
 

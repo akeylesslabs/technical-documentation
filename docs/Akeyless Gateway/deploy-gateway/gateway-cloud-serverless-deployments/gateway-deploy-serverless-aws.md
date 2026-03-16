@@ -138,7 +138,7 @@ terraform init
 terraform apply
 ```
 
-Upon successful installation of the **Akeyless Serverless Gateway**, the following output will be generated:
+Upon successful deployment of the **Akeyless Serverless Gateway**, the following output will be generated:
 
 ```shell
 Outputs:
@@ -149,7 +149,7 @@ aws_lambda_function = "arn:aws:lambda:<region>:<aws-acct-id>:function:<your-serv
 repository_url = "<aws-acct-id>.dkr.ecr.<region>.amazonaws.com/<your>-serverless-gateway-repo-for-lambda"
 ```
 
-_Note:_ If the Akeyless Serverless Gateway settings need to be updated after installation, edit the relevant values in the [Terraform files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway) and run `terraform apply`.
+_Note:_ If the Akeyless Serverless Gateway settings need to be updated after deployment, edit the relevant values in the [Terraform files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway) and run `terraform apply`.
 
 ## Additional Gateway Configuration
 
@@ -166,7 +166,7 @@ To configure your Akeyless Serverless Gateway:
 
 For more information in regards to the **Serverless Gateway**, refer to the [Serverless Gateway repository](https://github.com/akeyless-community/akeyless-serverless-gateway)
 
-_Note:_ After installing the **Serverless Gateway,** it becomes accessible as a **Lambda Function** within your **AWS account**. This enables you to access comprehensive information, monitor its performance, and gain a complete overview of its functionality, while it's possible to edit the Gateway directly from the **Lambda function**, any changes made will be overwritten during the next `terraform apply` command.
+_Note:_ After deploying the **Serverless Gateway,** it becomes accessible as a **Lambda Function** within your **AWS account**. This enables you to access comprehensive information, monitor its performance, and gain a complete overview of its functionality, while it's possible to edit the Gateway directly from the **Lambda function**, any changes made will be overwritten during the next `terraform apply` command.
 
 ### AWS Configuration
 

@@ -457,7 +457,7 @@ TLSConf:
 
 ## Installation
 
-1. To install the Gateway using the edited `values.yaml` file, run the following command:
+1. To deploy the Gateway using the edited `values.yaml` file, run the following command:
 
     ```shell
     helm install gw akeyless/akeyless-gateway -f values.yaml

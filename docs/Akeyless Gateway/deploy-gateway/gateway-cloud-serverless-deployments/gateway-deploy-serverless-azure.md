@@ -245,7 +245,7 @@ Deploy the Gateway using the **Resource Group** that was created:
 az deployment group create -g <resource_group> -f main.bicep -p params.bicepparam --query "properties.outputs.functionAppURL.value"
 ```
 
-Alternatively, the `/akeyless-serverless-gateway/bicep/Azure/serverless-gateway/Mainfile` file can be configured to create the resource group and to install the serverless Gateway by setting the following:
+Alternatively, the `/akeyless-serverless-gateway/bicep/Azure/serverless-gateway/Mainfile` file can be configured to create the resource group and to deploy the serverless Gateway by setting the following:
 
 ```shell
 RESOURCE_GROUP = akeyless-serverless-gateway
@@ -254,7 +254,7 @@ BICEP_MAIN = main.bicep
 BICEP_PARAMS = params.bicepparam
 ```
 
-Upon successfully installing the **Serverless Gateway**, the Gateway console URL will be printed.
+Upon successful deployment of the **Serverless Gateway**, the Gateway console URL will be printed.
 
 > ℹ️ **Note (Gateway URL):**
 >
