@@ -51,7 +51,7 @@ Where:
 
 * `target-name`: A name of the target that enables connection to the Docker repository. The name can include the path to the virtual folder where this target resides.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `dockerhub-token-scopes`: A comma-separated list of scopes that could be assigned to the temporary access token. Available options are `repo:admin`, `repo:write`, `repo:read`, `repo:public_read`.
 

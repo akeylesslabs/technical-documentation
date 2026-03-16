@@ -14,7 +14,7 @@ In a SaaS environment managing sensitive assets such as credentials, certificate
 
 Continuous monitoring also helps meet regulatory standards, supports investigations, and ensures the system can grow smoothly as needed.
 
-This guide outlines the monitoring features offered by Akeyless, including [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics), [Audit Logs](https://docs.akeyless.io/docs/audit-logs), [Log Forwarding](https://docs.akeyless.io/docs/gw-docker-log-forwarding), [Analytics](https://docs.akeyless.io/docs/analytics), and [Event Monitoring](https://docs.akeyless.io/docs/event-center).
+This guide outlines the monitoring features offered by Akeyless, including [Telemetry metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics), [Audit Logs](https://docs.akeyless.io/docs/audit-logs), [Log Forwarding](https://docs.akeyless.io/docs/gw-docker-log-forwarding), [Analytics](https://docs.akeyless.io/docs/analytics), and [Event Monitoring](https://docs.akeyless.io/docs/event-center).
 
 ## Audit Logs
 
@@ -51,7 +51,7 @@ Akeyless provides detailed telemetry metrics to offer insights into the health a
 
 Telemetry metrics work with leading monitoring tools, including **Prometheus**, **Grafana**, and **Datadog**. By exporting metrics to these systems, you can set up dashboards and alerts to support active monitoring and quick responses. In addition to those metrics, you can also forward the Gateway application logs as well.
 
-Refer to the [Telemetry Metrics](https://docs.akeyless.io/docs/telemetry-metrics) official docs for the Gateway full metrics list and to the [Kubernetes Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) official doc for Kubernetes Injector metrics.
+Refer to the [Telemetry Metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics) official docs for the Gateway full metrics list and to the [Kubernetes Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) official doc for Kubernetes Injector metrics.
 
 ## Event Center
 
