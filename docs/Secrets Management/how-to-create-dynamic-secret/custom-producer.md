@@ -200,7 +200,7 @@ akeyless dynamic-secret create \
 Where:
 
 * `name`: Unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the dynamic secret, using `/` separators. If the folder does not exist, Akeyless creates it together with the dynamic secret.
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 * `create-sync-url`: URL of an endpoint that implements the `POST /sync/create` operation.
 * `revoke-sync-url`: URL of an endpoint that implements the `POST /sync/revoke` operation.
 * `rotate-sync-url`: URL of an endpoint that implements the `POST /sync/rotate` operation.

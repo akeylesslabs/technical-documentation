@@ -54,7 +54,7 @@ Where:
 
 * `target-name`: A name of the [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke) that enables connection to the GKE cluster.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 ### Inline Connection Strings
 

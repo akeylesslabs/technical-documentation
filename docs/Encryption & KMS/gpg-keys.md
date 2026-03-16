@@ -35,7 +35,7 @@ Where:
 * `name`: The name of the Classic Key. The name can include the path to the virtual folder where you want to create the new key, using the slash `/` separators. If the folder does not exist, it will be created together with the key.
 * `alg`: The type of key to be created.
 * `gpg-alg`: Relevant only if GPG key type selected; options: [`RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`, `X25519`]
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 Other parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-classic-key).
 
