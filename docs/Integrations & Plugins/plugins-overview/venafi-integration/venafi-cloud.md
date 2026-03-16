@@ -38,7 +38,7 @@ Where:
 
 `name`: Dynamic secret name.
 
-`gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+`gateway-url`: Akeyless Gateway URL (port `8000`).
 
 `venafi-api-key`: Venafi API Key.
 
@@ -94,7 +94,7 @@ Where:
 
 `name`: Dynamic secret name.
 
-`gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+`gateway-url`: Akeyless Gateway URL (port `8000`).
 
 `venafi-api-key`: Venafi-API-Key.
 

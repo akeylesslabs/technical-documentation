@@ -196,7 +196,7 @@ Where:
 
 * `name`: The config name (will be used during the authentication process).
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
@@ -262,7 +262,7 @@ Where:
 
 * `access-type`: The Auth Method access type, `k8s`.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `k8s-auth-config-name`: The Kubernetes auth config name in your [Gateway](https://docs.akeyless.io/docs/gateway-overview).
 

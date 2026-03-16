@@ -184,7 +184,7 @@ Where:
 
 * `key_data`: Private key content encoded in `base64` (required when `access_type` is `cert`).
 
-* `akeyless_gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `akeyless_gateway_url`: Akeyless Gateway URL (port `8000`).
 
 ## Usage
 

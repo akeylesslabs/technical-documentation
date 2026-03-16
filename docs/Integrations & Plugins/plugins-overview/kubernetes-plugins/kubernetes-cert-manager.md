@@ -117,7 +117,7 @@ Where:
 
 * `path` - The path to the [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) in Akeyless, where `/pki/sign/` is a **mandatory** prefix. In our example, the PKI Issuer name is `Pki_Cert_Issuer` which is located under `/dev/` folder
 * `server` - The URL of the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) HashiCorp Vault Proxy endpoint `https://Your_Akeyless_GW_URL:8000/hvp` (or using your gateway URL at port 8200)
-* `role` - `<Access-ID..K8s Auth Config Name>` in Base64-encoded format. Note the Kubernetes Auth config name can be found in the Gateway config-manager (port 8000), under the "Kubernetes Auth" menu.
+* `role` - `<Access-ID..K8s Auth Config Name>` in Base64-encoded format. Note the Kubernetes Auth config name can be found in the Gateway Console (port `8000`), under the **Kubernetes Auth** menu.
 
 > ℹ️ **Info:**
 >
