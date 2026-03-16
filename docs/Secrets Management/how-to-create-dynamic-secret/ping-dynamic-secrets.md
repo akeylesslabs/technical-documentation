@@ -38,7 +38,7 @@ Where:
 
 * `target-name`: A name of the target that enables connection to the Ping server. The name can include the path to the virtual folder where this target resides.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `ping-client-authentication-type`: OAuth Client Authentication Type, this can be either `CLIENT_SECRET`, `PRIVATE_KEY_JWT` or `CLIENT_TLS_CERTIFICATE`, with `CLIENT_SECRET` being the default. Each of these selections has its own set of related parameters, which are elaborated upon in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/ping).
 

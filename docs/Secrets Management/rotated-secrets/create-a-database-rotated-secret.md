@@ -59,7 +59,7 @@ Where:
 
 * `name`: A unique name of the Rotated Secret. The name can include the path to the virtual folder where you want to create the new Rotated Secret, using slash `/` separators. If the folder does not exist, it will be created together with the Rotated Secret.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `target-name`: The name of the [Database Target](https://docs.akeyless.io/docs/database-targets) with which the Rotated Secret should be associated.
 
