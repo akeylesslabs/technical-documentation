@@ -55,7 +55,7 @@ Save the output in a new file called `customer_fragments.json` in a directory of
 
 ## Deploy a Gateway With Mounted Fragments
 
-Once you have your `customer_fragments.json` file saved, you'll need to provide a path to the file containing your fragment as part of the Gateway installation command each time you want to update your Gateway instance.
+Once you have your `customer_fragments.json` file saved, you'll need to provide a path to the file containing your fragment as part of the Gateway deployment command each time you want to update your Gateway instance.
 
 Run the following command to create the Gateway with the mounted fragment:
 

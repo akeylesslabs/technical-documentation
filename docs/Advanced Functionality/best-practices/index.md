@@ -20,6 +20,8 @@ next:
       slug: web-access-bastion-best-practices
       title: Web Access Bastion Best Practices
 ---
+For Gateway-related guidance, see [Gateway Best Practices](https://docs.akeyless.io/docs/gateway-best-practices).
+
 In this article, we are going to map some of Akeyless's best practices related to both performance and security.
 
 ## Glossary

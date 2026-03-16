@@ -104,9 +104,9 @@ kubectl create secret generic access-key --namespace akeyless --from-literal=gat
 
 2. Save the file.
 
-## Step 6: Install the Gateway
+## Step 6: Deploy the Gateway
 
-Run the following command to install the Akeyless Gateway Helm chart using the `values.yaml` file that you edited:
+Run the following command to deploy the Akeyless Gateway Helm chart using the `values.yaml` file that you edited:
 
 ```shell
 helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml --version "1.13.1"
