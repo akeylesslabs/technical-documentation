@@ -263,7 +263,7 @@ The following parameters can be added to a profile, for example, on the `default
 
 Where:
 
-* `gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway_url`: Akeyless Gateway URL (port `8000`).
 
 * `default_location_prefix`: A global default prefix for the `name` flag, relevant for all types of objects in the account. In the example above, all commands will be performed on `/non-production` folder.
 

@@ -53,7 +53,7 @@ To create a Classic Key with the CLI, use this command with the following parame
 
 * `name`: The name of the Classic Key. The name can include the path to the virtual folder in which you want to create the new key, using the slash `/` separators. If the folder does not exist, it will be created together with the key.
 * `alg`: The type of key to be created.
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 ```shell
 akeyless create-classic-key --name classickey --alg RSA2048 --gateway-url https://<Your-Gateway-URL>:8000

@@ -85,7 +85,7 @@ Where:
 
 * `name`: A unique name of the KMIP client. The name can include the path to the virtual folder where you want to create the new client, using slash `/` separators. If the folder does not exist, it will be created together with the client.
 
-* `gateway-url[=http://localhost:8000]`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL (port `8000`).
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-create-client) section.
 
@@ -141,7 +141,7 @@ Where:
 
 * `client-id`: KMIP client ID (either name or ID is required).
 
-* `gateway-url[=http://localhost:8000]`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL (port `8000`).
 
 This command grants our MongoDB KMIP client the ability to create and retrieve objects under the `/kmip/default/` path.
 

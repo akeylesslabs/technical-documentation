@@ -277,7 +277,7 @@ Where:
 
 * `target-name`: A name of the target that enables connection to the Kubernetes cluster. The name can include the path to the virtual folder where this target resides.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `k8s-service-account-type`: This is the parameter that will define if you are working with a Fixed SA or a Dynamic SA. The default is `fixed`.
 

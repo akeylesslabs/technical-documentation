@@ -96,7 +96,7 @@ Where:
 
 * `signer-key-name`: The **Signer Key** that was created earlier which will sign the certificates.
 
-* `gw-cluster-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gw-cluster-url`: Akeyless Gateway Console URL (port `8000`).
 
 * `destination-path`: A path in Akeyless to save generated certificates.
 
