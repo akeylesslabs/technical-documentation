@@ -42,7 +42,7 @@ Where:
 
 * `ca-target`: The name of an existing CA target to attach this PKI Certificate Issuer.
 
-* `gw-cluster-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gw-cluster-url`: Akeyless Gateway URL (port `8000`).
 
 * `ttl`: The maximum requested Time To Live for an issued certificate by default in seconds, supported formats are `s`, `m`, `h`, `d`.
 
@@ -81,7 +81,7 @@ Where:
 
 * `common-name`: Certificate common name.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`). to generate the classic key, relevant only when using `generate-key` option.
+* `gateway-url`: Akeyless Gateway URL (port `8000`). to generate the classic key, relevant only when using `generate-key` option.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#generate-csr) section.
 

@@ -41,7 +41,7 @@ Where:
 
 `name`: A unique name of the Dynamic Secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using the slash/separators. If the folder does not exist, it will be created together with the Dynamic Secret.
 
-`gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+`gateway-url`: Akeyless Gateway URL (port `8000`).
 
 `venafi-use-tpp`: Required when working with TPP.
 
@@ -106,7 +106,7 @@ Where:
 
 `name`: A unique name of the Dynamic Secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using the slash/separators. If the folder does not exist, it will be created together with the Dynamic Secret.
 
-`gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+`gateway-url`: Akeyless Gateway URL (port `8000`).
 
 `sign-using-akeyless-pki`: Creating certificates using Akeyless PKI.
 

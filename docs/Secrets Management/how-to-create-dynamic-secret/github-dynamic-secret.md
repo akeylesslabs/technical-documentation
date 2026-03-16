@@ -54,7 +54,7 @@ Where:
 
 * `target-name`: A name of the target that enables connection to the GitHub repository. The name can include the path to the virtual folder where this target resides.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 * `installation-id`: The GitHub installation ID.
 
