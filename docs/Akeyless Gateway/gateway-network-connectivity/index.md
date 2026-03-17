@@ -48,6 +48,8 @@ The following table describes the main functionality of Akeyless microservices i
 > ℹ️ **Note:**
 >
 > When using proxy services, you can use `https://sqs.us-east-2.amazonaws.com` instead of classic MQ services. If you are not working with a proxy service and still want to use SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
+>
+> The artifacts endpoint `https://artifacts.site2.akeyless.io` is the documented default repository endpoint in current Gateway chart and CLI references.
 
 ## Gateway Inbound Ports
 
@@ -101,6 +103,14 @@ If you set `httpProxySettings.http_proxy` or `httpProxySettings.https_proxy` in 
 ## DNS and Endpoint Resolution
 
 Gateway hosts and pods must be able to resolve all required service hostnames listed on this page.
+For external DNS calls from Gateway, `GET` requests are routed to `-ro` hostnames while non-`GET` requests stay on primary hostnames.
+
+If an endpoint is already set to a `-ro` hostname, the suffix is not added again.
+
+If internal DNS is configured, `-ro` rewriting is skipped.
+
+When `AKEYLESS_URL` and `akeyless_url` are not explicitly set, Gateway falls back to a URL built from protocol and `akeyless_server_dns` (`<protocol>://<akeyless_server_dns>`).
+
 
 ## Working Without MQ Connection
 
