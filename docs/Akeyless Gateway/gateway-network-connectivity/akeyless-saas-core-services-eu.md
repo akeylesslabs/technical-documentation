@@ -18,7 +18,7 @@ The table below outlines the primary functionalities of Akeyless microservices i
 | Audit | `https://audit.eu.akeyless.io`, `https://audit-ro.eu.akeyless.io` | 15.197.166.202, 3.33.166.129, 13.248.216.215, 76.223.80.182 | 443 | Audit Log main service, enables log forwarding from Gateway and Bastion |
 | Auth | `https://auth.eu.akeyless.io`, `https://auth-ro.eu.akeyless.io` | 3.33.166.129, 15.197.166.202, 13.248.216.215, 76.223.80.182 | 443 | Akeyless Authentication service |
 | BIS | `https://bis.eu.akeyless.io`, `https://bis-ro.eu.akeyless.io` | 15.197.166.202, 3.33.166.129 | 443 | Billing Infrastructure Service (BIS) |
-| Certificate Auth | `https://auth-cert.eu.akeyless.io` | 18.158.96.32, 3.68.125.9, 52.28.6.110 | 443 | Relevant only for Certificate-Based Authentication |
+| Certificate Auth | `https://auth-cert.eu.akeyless.io` | 18.158.96.32, 3.68.125.9, 52.28.6.110 | 443 | Relevant only for certificate-based authentication |
 | Gator | `https://gator.eu.akeyless.io`, `https://gator-ro.eu.akeyless.io` | 3.33.166.129, 15.197.166.202, 76.223.80.182, 13.248.216.215 | 443 | Main service to sync gateway instances and connections with Akeyless SaaS |
 | KFM | `https://kfm1.eu.akeyless.io`, `https://kfm1-ro.eu.akeyless.io`, `https://kfm2.eu.akeyless.io`, `https://kfm2-ro.eu.akeyless.io`, `https://kfm3.eu.akeyless.io`, `https://kfm3-ro.eu.akeyless.io`, `https://kfm4.eu.akeyless.io`, `https://kfm4-ro.eu.akeyless.io` | 3.33.166.129, 15.197.166.202, 76.223.80.182, 13.248.216.215 | 443 | Key Fragments Services, enabling full DFC encryption |
 | Logs | `tcp://log.eu.akeyless.io:9997`, `tcp://log.eu.akeyless.io:9443` | 3.124.145.245 | 9997, 9443 | Gateway logs, mainly used during failure scenarios |
