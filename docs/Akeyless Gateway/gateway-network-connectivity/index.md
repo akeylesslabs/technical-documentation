@@ -111,7 +111,6 @@ If internal DNS is configured, `-ro` rewriting is skipped.
 
 When `AKEYLESS_URL` and `akeyless_url` are not explicitly set, Gateway falls back to a URL built from protocol and `akeyless_server_dns` (`<protocol>://<akeyless_server_dns>`).
 
-
 ## Working Without MQ Connection
 
 If your organization's policies restrict non-web ports, it's important to understand the potential implications of blocking the MQ connection for your Akeyless setup:
