@@ -43,6 +43,27 @@ Use the values below when building dashboards and alerts:
 * `1` = healthy/connected
 * `0` = unhealthy/not connected
 
+### What Each Metric Checks
+
+* `akeyless.gw.system.saas.connection_status`: Checks connectivity from each Gateway pod to Akeyless SaaS backend services.
+* `akeyless.gw.system.healthcheck.status`: Checks connectivity from each Gateway pod to the local cache service (Redis/Supersonic cache).
+
+These are per-pod metrics. They are not replica counters.
+
+### Replica Scaling Behavior
+
+When you scale from 2 replicas to 1 replica, a healthy remaining pod still reports `1`.
+
+The removed pod stops exposing metrics, so its time series becomes stale. This behavior does not mean the metric is stuck.
+
+For replica-count alerts, use Kubernetes metrics such as `kube_deployment_status_replicas_available`.
+
+### HTTP Response Metric Behavior
+
+`akeyless.gw.system.http_response_status_code` is a counter with status-code labels.
+
+Use `rate()` or `increase()` in PromQL for alerting and dashboard calculations, rather than using raw counter values.
+
 In addition to these metrics, Gateway application logs can be forwarded through OpenTelemetry.
 
 ## Datadog (Docker)

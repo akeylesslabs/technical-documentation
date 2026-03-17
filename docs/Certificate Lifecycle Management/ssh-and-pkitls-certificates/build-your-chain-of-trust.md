@@ -59,7 +59,7 @@ Where:
 
 * `ttl`: The maximum requested Time To Live for the issued certificate by default in seconds, supported formats are `s`, `m`, `h`, `d`.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 Running the command above will create a **Certificate Chain** under **/My-First-Chain** folder, where certificates for `example.com` domain can be issued with a `TTL` of 10 days.
 
