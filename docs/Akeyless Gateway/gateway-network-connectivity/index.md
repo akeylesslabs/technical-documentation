@@ -49,6 +49,22 @@ The following table describes the main functionality of Akeyless microservices i
 >
 > When using proxy services, you can use `https://sqs.us-east-2.amazonaws.com` instead of classic MQ services. If you are not working with a proxy service and still want to use SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
 
+## Gateway Inbound Ports
+
+The table below describes common inbound ports on the Gateway service itself.
+
+| Port | Name | Purpose | Required |
+| --- | --- | --- | --- |
+| 18888 | Web UI | Gateway Web UI | Optional |
+| 8000 | Configure App (deprecated) | Redirects to Console app (DOCS-309, Gateway v4.47.0) | Optional |
+| 8080 | Legacy API | Akeyless REST API v1 | Optional |
+| 8081 | API | Akeyless REST API v2 | Optional |
+| 8200 | HashiCorp Vault Proxy | HashiCorp Vault Proxy endpoint | Optional |
+| 5696 | KMIP | KMIP service endpoint | Optional |
+
+> ℹ️ **Note:**
+> The Helm chart values include a `grpc` service port (`8085`). Validate deployment-level listener configuration for your release before exposing this port.
+
 ## Proxy Settings and Queue Transport
 
 The Gateway supports outbound proxy settings through the following environment variables:
@@ -57,13 +73,30 @@ The Gateway supports outbound proxy settings through the following environment v
 * `HTTPS_PROXY`
 * `NO_PROXY`
 
-By default, Gateway queue transport uses the configured `queue_type` value.
-
-The `queue_type` value is read from the Gateway configuration file at `/var/akeyless/conf/api-proxy/api-proxy.conf`.
-
 When `HTTP_PROXY` or `HTTPS_PROXY` is set, Gateway queue transport is switched to SQS mode.
 
 If no proxy is configured and you still want to use SQS queue transport, set `SQS_NO_PROXY="true"`.
+
+### Helm Configuration for Queue and Proxy Settings
+
+When deploying with Helm, set `SQS_NO_PROXY` using `env` in your Gateway values file:
+
+```yaml values.yaml
+env:
+  - name: SQS_NO_PROXY
+    value: "true"
+```
+
+To configure outbound proxy variables with Helm, set `httpProxySettings` in your values file:
+
+```yaml values.yaml
+httpProxySettings:
+  http_proxy: "http://proxy.example.internal:3128"
+  https_proxy: "http://proxy.example.internal:3128"
+  no_proxy: "localhost,127.0.0.1,.svc,.cluster.local"
+```
+
+If you set `httpProxySettings.http_proxy` or `httpProxySettings.https_proxy` in Helm values, Gateway queue transport is also switched to SQS mode.
 
 ## DNS and Endpoint Resolution
 
