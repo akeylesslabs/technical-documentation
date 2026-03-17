@@ -32,5 +32,3 @@ The following table describes the main functionality of Akeyless microservices i
 | Akeyless Binaries | `https://akeylessservices.s3.us-east-2.amazonaws.com` | N/A | 443 | S3 bucket to download and update Akeyless official binaries (for example, `Gateway`) |
 
 > ℹ️ **Note:** For SQS-based queue transport, the current documented fallback endpoint is `https://sqs.us-east-2.amazonaws.com`.
-
-* **TODO (Platform Team):** Confirm and provide source of truth for the public HashiCorp Vault Proxy US endpoint port (`https://hvp.us.akeyless.io`, currently listed as `443`).
