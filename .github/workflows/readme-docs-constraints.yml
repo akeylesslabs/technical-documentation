@@ -34,7 +34,7 @@ jobs:
 
       - name: Collect changed PR files
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -80,7 +80,7 @@ jobs:
 
       - name: Add or update PR comment on failure
         if: failure() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -125,7 +125,7 @@ jobs:
 
       - name: Remove stale PR comment when passing
         if: success() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const marker = '<!-- readme-docs-constraints-comment -->';
