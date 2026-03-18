@@ -15,7 +15,7 @@ Policies are applied at the folder level and can automatically inherit to all su
 
 > ✅ **Tip:** This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/gateway-overview) running version `4.46.0` or later.
 
-## Setting an Encryption Key Policy with the CLI
+## Set an Encryption Key Policy with the CLI
 
 To set an encryption key policy using the CLI, run the following command:
 
@@ -25,25 +25,32 @@ akeyless policy create keys \
 --max-rotation-interval-days 15 \
 --allowed-algorithms RSA2048 \
 --allowed-key-types dfc \
---allowed-key-names my-dfc-key \
 --object-types items
 ```
 
 Where:
 
-* `path`: **Mandatory**, The path the policy refers to.
+* `path`: **Required.** The path the policy refers to.
 
-* `max-rotation-interval-days`: The max value for rotation interval in the specified path.
+* `max-rotation-interval-days`: The maximum value for the automatic rotation interval in the specified path.
 
-* `allowed-algorithms`: Allowed key algorithms (`RSA2048`,`AES128GCM`).
+* `allowed-algorithms`: Allowed key algorithms (`RSA2048`, `AES128GCM`).
 
 * `allowed-key-types`: Allowed key protection types (`dfc`, `classic-key`).
 
-* `allowed-key-names`: Allowed protection key names.
+* `allowed-key-names`: Allowed protection key names. To enforce the account default protection key, use `default-account-key`.
 
-* `object-types`: The object types this policy will apply to [`items`, `targets`].
+* `object-types`: The object types this policy applies to (`items`, `targets`). If not provided, it defaults to both `items` and `targets`.
 
-## Setting an Encryption Key Policy with the Console
+> ❗ **Important:**
+>
+> `allowed-key-types` and `allowed-key-names` are mutually exclusive. Use only one of these flags in a command.
+
+> ℹ️ **Note:**
+>
+> `max-rotation-interval-days` is not allowed when `object-types` is set to `targets` only.
+
+## Set an Encryption Key Policy with the Console
 
 1. Log in to the Akeyless Console, and go to **Account Settings** > **Key Management**.
 2. In the **Key Management Policies** section, press **Add**.
@@ -54,3 +61,16 @@ Where:
     * **Algorithm Key Types**: The allowed algorithm key types in the specified path.
     * **Protection Key Type**: **DFC**, **Classic**, or both (if **Exclusively use default key** is checked, **Classic** is irrelevant and grayed out).
     * **Protection Key Name**: The allowed protection key in the specified path (if **Exclusively use default key** is checked, this option is irrelevant and grayed out).
+
+## Update an Existing Policy with the CLI
+
+  To update an existing policy, run:
+
+  ```shell
+  akeyless policy update keys \
+  --id p-1234567890 \
+  --allowed-algorithms RSA2048 \
+  --object-types items
+  ```
+
+  Use the same constraints described above for `allowed-key-types`, `allowed-key-names`, and `max-rotation-interval-days`.
