@@ -28,13 +28,13 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
       - name: Collect changed PR files
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -80,7 +80,7 @@ jobs:
 
       - name: Add or update PR comment
         if: always() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -97,16 +97,6 @@ jobs:
             const reportJson = JSON.parse(fs.readFileSync(reportJsonPath, 'utf8'));
             const failed = Boolean(reportJson.failed);
 
-            const heading = failed
-              ? '### ReadMe docs constraints failed'
-              : '### ReadMe docs constraints passed';
-
-            const summary = failed
-              ? 'This pull request cannot be merged until the violations below are resolved.'
-              : 'The latest workflow run found no ReadMe docs constraints violations.';
-
-            const body = `${marker}\n${heading}\n\n${summary}\n\n${report}\n`;
-
             const comments = await github.paginate(
               github.rest.issues.listComments,
               {
@@ -118,6 +108,24 @@ jobs:
             );
 
             const existing = comments.find((comment) => comment.body && comment.body.includes(marker));
+
+            if (!failed) {
+              if (existing) {
+                await github.rest.issues.deleteComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existing.id,
+                });
+                core.info('Removed stale ReadMe constraints comment because no violations were detected.');
+              } else {
+                core.info('No ReadMe constraints violations detected; no PR comment to add.');
+              }
+              return;
+            }
+
+            const heading = '### ReadMe docs constraints failed';
+            const summary = 'This pull request cannot be merged until the violations below are resolved.';
+            const body = `${marker}\n${heading}\n\n${summary}\n\n${report}\n`;
 
             if (existing) {
               await github.rest.issues.updateComment({
@@ -137,7 +145,7 @@ jobs:
 
       - name: Upload constraint reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: readme-docs-constraints-report
           path: |

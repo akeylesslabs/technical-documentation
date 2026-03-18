@@ -686,3 +686,4 @@
 /v2/docs/serverless-gateway/serverless-aws -> /docs/gateway-deploy-serverless-aws
 /docs/serverless-gateway/azure-serverless -> /docs/gateway-deploy-serverless-azure
 /v2/docs/serverless-gateway/azure-serverless -> /docs/gateway-deploy-serverless-azure
+/docs/teamcity-plugin -> /docs/teamcity-plugins
