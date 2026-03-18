@@ -12,6 +12,8 @@ next:
 ---
 The TeamCity Plugin integrates TeamCity with Akeyless so your builds can retrieve secrets directly from the Akeyless API without storing sensitive values in TeamCity.
 
+JetBrains Marketplace: [Akeyless Secrets Management](https://plugins.jetbrains.com/plugin/30559-akeyless-secrets-management)
+
 Repository: [akeyless-community/teamcity-akeyless-plugin](https://github.com/akeyless-community/teamcity-akeyless-plugin)
 
 ## Features
@@ -31,6 +33,8 @@ Repository: [akeyless-community/teamcity-akeyless-plugin](https://github.com/ake
 ## Install the Plugin
 
 ### Install from TeamCity Marketplace
+
+Marketplace page: [Akeyless Secrets Management](https://plugins.jetbrains.com/plugin/30559-akeyless-secrets-management)
 
 1. In TeamCity, go to **Administration > Plugins**.
 2. Select **Browse plugins repository**.
