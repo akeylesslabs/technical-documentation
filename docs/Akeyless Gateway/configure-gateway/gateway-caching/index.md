@@ -32,6 +32,10 @@ Use this starting decision flow:
 3. Add standalone cluster cache when running multiple Gateway pods that should share cache state.
 4. Use Cluster Cache High Availability (HA) when shared cache availability across failures is a requirement.
 
+For planning guidance and tradeoffs, see [Gateway Best Practices: Caching strategy considerations](https://docs.akeyless.io/docs/gateway-best-practices#caching-strategy-considerations).
+
+For Kubernetes proactive cache sizing guidance, see [Gateway Best Practices: Resource planning for Kubernetes proactive cache](https://docs.akeyless.io/docs/gateway-best-practices#resource-planning-for-kubernetes-proactive-cache).
+
 ## Configure in Gateway UI
 
 To manage cache runtime settings from Gateway Configuration Manager:
