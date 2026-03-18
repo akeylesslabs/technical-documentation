@@ -1427,5 +1427,59 @@ module.exports = [
         }
       }
     }
+  },
+
+  /**
+   * AKY021: Disallow angle-bracket URL autolinks (<http://...> / <https://...>)
+   *
+   * ReadMe.com renders Markdown as MDX. The CommonMark angle-bracket autolink
+   * syntax  <https://example.com>  is treated as a JSX element by the MDX parser
+   * and produces a hard error:
+   *   "Unexpected character `/` before local name"
+   *
+   * Fix: convert to a proper Markdown link — [url](url) or [descriptive text](url).
+   *
+   * This rule is auto-fixable: it replaces <url> with [url](url).
+   */
+  {
+    names: ["AKY021", "no-angle-bracket-url"],
+    description: "Disallow angle-bracket URL autolinks (<http://...>) — use [text](url) instead for MDX compatibility",
+    tags: ["links", "mdx", "style"],
+    fixable: true,
+    function: function (params, onError) {
+      const lines = params.lines || [];
+      const codeLines = getCodeBlockLineSet(params.tokens);
+      const angleUrlRe = /<(https?:\/\/[^>\s]+)>/g;
+
+      for (let i = 0; i < lines.length; i++) {
+        const lineNumber = i + 1;
+        if (codeLines.has(lineNumber)) continue;
+
+        const raw = String(lines[i] || "");
+        // Mask inline code spans with spaces to preserve column positions
+        const masked = raw.replace(/`[^`]*`/g, (m) => " ".repeat(m.length));
+
+        angleUrlRe.lastIndex = 0;
+        let match;
+        while ((match = angleUrlRe.exec(masked)) !== null) {
+          const fullMatch = match[0]; // <https://example.com>
+          const url = match[1];       // https://example.com
+          const col = match.index + 1;
+
+          report(
+            onError,
+            lineNumber,
+            `Angle-bracket URL autolinks are not MDX-compatible. Replace \`${fullMatch}\` with \`[${url}](${url})\`.`,
+            fullMatch,
+            {
+              lineNumber,
+              editColumn: col,
+              deleteCount: fullMatch.length,
+              insertText: `[${url}](${url})`
+            }
+          );
+        }
+      }
+    }
   }
 ]
