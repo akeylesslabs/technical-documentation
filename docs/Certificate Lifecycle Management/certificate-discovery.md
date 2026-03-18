@@ -11,6 +11,8 @@ When a certificate is found, Akeyless automatically creates a corresponding cert
 
 > ✅ **Tip:** This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/gateway-overview) running version `4.46.0` or later.
 
+Certificate Discovery visibility in the Akeyless Console depends on account permissions and enabled product capabilities.
+
 ## Running a Certificate Discovery with the CLI
 
 To run a certificate discovery using the CLI, run the following command:
@@ -32,6 +34,16 @@ Where:
 * `target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`.
+
+### UI and CLI field mapping
+
+Use the following mapping when translating Console fields to CLI flags:
+
+| Console field | CLI flag |
+| --- | --- |
+| Sources | `--hosts` |
+| Ports | `--port-ranges` |
+| Target Location | `--target-location` |
 
 ## Setting a Certificate Discovery in the Akeyless Console
 

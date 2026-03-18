@@ -102,6 +102,20 @@ def collect_duplicate_groups(docs_files: Iterable[str]) -> list[DuplicateGroup]:
     return groups
 
 
+def collect_index_parent_groups(docs_files: Iterable[str]) -> dict[str, list[str]]:
+    by_parent_name: dict[str, list[str]] = {}
+    for path in docs_files:
+        normalized = normalize_path(path)
+        parsed = Path(normalized)
+        if parsed.name.lower() != "index.md":
+            continue
+
+        parent_name = parsed.parent.name.lower()
+        by_parent_name.setdefault(parent_name, []).append(normalized)
+
+    return by_parent_name
+
+
 def main() -> int:
     args = parse_args()
     docs_root = Path(args.docs_root)
@@ -117,6 +131,7 @@ def main() -> int:
     changed_files = load_changed_files(changed_files_json)
     docs_files = collect_docs_files(docs_root)
     duplicate_groups = collect_duplicate_groups(docs_files)
+    index_parent_groups = collect_index_parent_groups(docs_files)
 
     duplicate_lookup = {group.basename: group.paths for group in duplicate_groups}
 
@@ -133,9 +148,20 @@ def main() -> int:
             continue
 
         basename = Path(filename).name.lower()
-        matching = duplicate_lookup.get(basename)
-        if matching:
-            duplicate_violations.append(DuplicateGroup(basename=basename, paths=matching))
+        if basename == "index.md":
+            parent_name = Path(filename).parent.name.lower()
+            matching_index_paths = sorted(index_parent_groups.get(parent_name, []))
+            if len(matching_index_paths) > 1:
+                duplicate_violations.append(
+                    DuplicateGroup(
+                        basename=f"index.md (parent: {parent_name})",
+                        paths=matching_index_paths,
+                    )
+                )
+        else:
+            matching = duplicate_lookup.get(basename)
+            if matching:
+                duplicate_violations.append(DuplicateGroup(basename=basename, paths=matching))
 
         depth = docs_depth(filename)
         if depth > args.max_depth:
