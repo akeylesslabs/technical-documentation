@@ -67,7 +67,7 @@ Before injecting secrets into containers, you must install and configure the **A
         # AKEYLESS_POD_ACCESS_PATH: "<location-to-access-secrets-per-pod-name>"
         # AKEYLESS_NAMESPACE_ACCESS_PATH: "<location-to-access-secrets-per-namespace>"
         # AKEYLESS_SECRET_DIR_NAME: "<path>"
-        AKEYLESS_API_KEY: "GCz5fLEgc0tJftA/7W1WnywbgorEc30V92xQ3dOGNME="
+        AKEYLESS_API_KEY: "<api_key>"
         # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
         # AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_conf_name"
         
