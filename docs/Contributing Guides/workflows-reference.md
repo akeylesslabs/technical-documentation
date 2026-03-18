@@ -16,7 +16,7 @@ This page documents all current GitHub Actions workflows in this repository and 
 
 | Workflow | File | Trigger | Primary Purpose |
 | --- | --- | --- | --- |
-| Automated Workflow Fixes | `.github/workflows/automated-workflow-fixes.yml` | Weekly schedule (`0 2 * * 1`) and manual dispatch | Runs consolidated weekly automation for link replacement and checking, markdown linting, spelling checks, CLI command path checks, report generation, branch commits, and Jira issue creation. |
+| Automated Workflow Fixes | `.github/workflows/automated-workflow-fixes.yml` | Weekly schedule (`0 2 * * 1`) and manual dispatch | Runs consolidated weekly automation for link replacement and checking, markdown linting, spelling checks, CLI command path checks, report generation, branch commits, and Jira issue creation. Captures CLI validator fallback output when JSON is missing and uses bounded retries/timeouts for Jira API writes and attachment uploads to reduce long-running hangs. |
 | CLI Command Heading Case | `.github/workflows/cli-command-heading-case.yml` | Pull requests that change CLI reference docs, the checker script, or this workflow; manual dispatch | Validates CLI command heading casing in `docs/Integrations & Plugins/cli-reference/**/*.md`. |
 | CLI Command Path Check (Manual) | `.github/workflows/cli-command-path-check.yml` | Manual dispatch | Runs CLI command path validation, writes report artifacts under `.github/cli-command-paths/`, commits report updates, and creates Jira issues when failures are found. Jira API writes and attachment uploads use bounded retries and timeouts to reduce long-running hangs. |
 | Link Checker (Manual) | `.github/workflows/link-check.yml` | Manual dispatch | Rewrites `doc:` links to absolute docs URLs, runs Lychee discovery and final link checks, normalizes redirected docs links, commits outputs, and creates Jira issues with attached artifacts. Jira API writes and attachment uploads use bounded retries and timeouts to reduce long-running hangs. |
@@ -24,6 +24,10 @@ This page documents all current GitHub Actions workflows in this repository and 
 | ReadMe Docs Constraints | `.github/workflows/readme-docs-constraints.yml` | Pull requests that change docs Markdown or constraint checker files; manual dispatch | Validates ReadMe compatibility constraints by blocking duplicate Markdown filenames and excessive docs nesting depth in added or renamed docs files. On failure, updates a PR comment with actionable violation details. |
 | New Page Announcement Subtask | `.github/workflows/new-page-announcement-subtask.yml` | Pull request closed on `v1.0` when merged | Detects newly added Markdown pages under `docs/`, ignores renames, derives the Jira key from branch name, resolves parent task logic for subtasks, and creates a Jira subtask with a pre-drafted Slack announcement. Jira API reads and writes use bounded retries and timeouts to reduce long-running hangs. |
 | Spell Checker (Manual) | `.github/workflows/spell-check.yml` | Manual dispatch | Runs CSpell pre-fix and post-fix checks for Markdown, applies conservative autofix, commits generated outputs, and creates Jira issues with attached reports when findings exist. Jira API writes and attachment uploads use bounded retries and timeouts to reduce long-running hangs. |
+
+## Dependabot
+
+Dependabot is configured in `.github/dependabot.yml` to run weekly on Mondays. It tracks the `github-actions` ecosystem and raises pull requests when `uses:` action references in `.github/workflows/` have newer versions available. This covers action version pins such as `actions/checkout@v4`, `actions/setup-node@v4`, and similar.
 
 ## Workflow Ownership and Maintenance
 

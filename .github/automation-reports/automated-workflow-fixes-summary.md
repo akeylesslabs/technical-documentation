@@ -1,9 +1,9 @@
 # Automated Workflow Fixes Summary
 
 ## Link Check
-- 2322 replacements across Markdown files
+- 2374 replacements across Markdown files
 - 0 links normalized across 0 markdown files
-- 26 links checked, 0 broken
+- 25 links checked, 0 broken
 
 ## Markdown Lint
 - markdownlint found violations after --fix
