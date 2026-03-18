@@ -1,5 +1,5 @@
 ---
-title: TeamCity Plugin
+title: TeamCity HCV Plugin
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+This page documents the HashiCorp Vault-compatible TeamCity integration path through the Akeyless HashiCorp Vault Proxy.
+
+For the native TeamCity plugin that integrates directly with the Akeyless API, see [TeamCity Plugin](https://docs.akeyless.io/docs/teamcity-plugin).
+
 When performing integration tests and deployments, build scripts need credentials to access external servers and services. The [TeamCity plugin](https://blog.jetbrains.com/teamcity/2017/09/vault/) allows connecting TeamCity to the Akeyless Platform, requesting new credentials when a build starts, passing them to the build script, and revoking them immediately when it finishes.
 
 > ℹ️ **Note:**
