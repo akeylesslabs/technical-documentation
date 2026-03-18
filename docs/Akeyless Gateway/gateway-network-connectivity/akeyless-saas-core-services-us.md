@@ -27,7 +27,7 @@ The following table describes the main functionality of Akeyless microservices i
 | KFM | `https://kfm1.us.akeyless.io`, `https://kfm1-ro.us.akeyless.io`, `https://kfm2.us.akeyless.io`, `https://kfm2-ro.us.akeyless.io`, `https://kfm3.us.akeyless.io`, `https://kfm3-ro.us.akeyless.io`, `https://kfm4.us.akeyless.io`, `https://kfm4-ro.us.akeyless.io` | 68.154.26.48, 4.242.224.82 | 443 | Key Fragments Services, enabling full DFC encryption |
 | Public Gateway | `https://rest.us.akeyless.io`, `https://api.us.akeyless.io` | 68.154.26.48, 4.242.224.82 | 443 | Optional Public Gateway REST API v1/v2 |
 | Public HashiCorp Vault Proxy | `https://hvp.us.akeyless.io` | 68.154.26.48 | 443 | Optional Public HashiCorp Vault Proxy endpoint |
-| Logs | `tcp://log.akeyless.io:9997`, `tcp://log.akeyless.io:9443` | N/A | 9997, 9443 | Gateway logs, mainly used during failure scenarios |
+| Logs | `tcp://log.akeyless.io:9443` | N/A | 9443 | Gateway logs over TLS-encrypted Splunk forwarding for US and global environments |
 | Akeyless CLI | `https://akeyless-cli.s3.us-east-2.amazonaws.com` | N/A | 443 | S3 bucket to download and update Akeyless CLI versions |
 | Akeyless Binaries | `https://akeylessservices.s3.us-east-2.amazonaws.com` | N/A | 443 | S3 bucket to download and update Akeyless official binaries (for example, `Gateway`) |
 
