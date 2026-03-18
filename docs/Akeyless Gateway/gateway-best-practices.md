@@ -258,6 +258,17 @@ Use the tables as directional capacity-planning input, not as guaranteed perform
 | 1M | 1.0 | 1.0 | 1.5Gi | 1Gi |
 | 2M | 1.0 | 1.0 | 2.5Gi | 2Gi |
 
+### Memory and CPU limit behavior
+
+Use the following operational model when setting limits:
+
+* Memory limits are enforced as hard limits. If container working-set memory exceeds the configured limit, Kubernetes can terminate the pod with `OOMKilled`. For behavior details, see [Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+* CPU limits do not terminate pods. When CPU usage exceeds the configured limit, Kubernetes throttles CPU allocation, which can increase request latency. For behavior details, see [Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+* For proactive cache environments, use an operational loop:
+    1. Capture baseline memory and CPU during steady state and immediately after proactive warm-up.
+    2. Alert on sustained memory growth, repeated CPU throttling, and pod restarts.
+    3. If warm-up pressure is sustained, first reduce `PROACTIVE_CACHE_WORKERS` and increase `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME`, then scale replicas or increase resource limits as needed.
+
 ### Operational recommendations
 
 * Run at least 2 Gateway pods for availability. For most production environments with proactive cache, 3-4 pods is a practical baseline.
