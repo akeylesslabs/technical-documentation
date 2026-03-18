@@ -25,6 +25,10 @@ This page documents all current GitHub Actions workflows in this repository and 
 | New Page Announcement Subtask | `.github/workflows/new-page-announcement-subtask.yml` | Pull request closed on `v1.0` when merged | Detects newly added Markdown pages under `docs/`, ignores renames, derives the Jira key from branch name, resolves parent task logic for subtasks, and creates a Jira subtask with a pre-drafted Slack announcement. Jira API reads and writes use bounded retries and timeouts to reduce long-running hangs. |
 | Spell Checker (Manual) | `.github/workflows/spell-check.yml` | Manual dispatch | Runs CSpell pre-fix and post-fix checks for Markdown, applies conservative autofix, commits generated outputs, and creates Jira issues with attached reports when findings exist. Jira API writes and attachment uploads use bounded retries and timeouts to reduce long-running hangs. |
 
+## Dependabot
+
+Dependabot is configured in `.github/dependabot.yml` to run weekly on Mondays. It tracks the `github-actions` ecosystem and raises pull requests when `uses:` action references in `.github/workflows/` have newer versions available. This covers action version pins such as `actions/checkout@v4`, `actions/setup-node@v4`, and similar.
+
 ## Workflow Ownership and Maintenance
 
 When a workflow is created, renamed, removed, or behavior changes materially, update this page in the same pull request.
