@@ -467,6 +467,37 @@ config:
   #   - Applies fixes when markdownlint runs with --fix.
   AKY019: true
 
+  # AKY020: Enforce emoji-prefixed blockquote callout titles
+  #
+  # Required format:
+  #   > [emoji] **Label:**
+  #   > [emoji] **Label (Context):**
+  #
+  # Supported label and emoji mapping:
+  #   - Note, Info: ℹ️
+  #   - Tip: ✅
+  #   - Warning: ⚠️
+  #   - Important: ❗
+  #   - Caution: 🚫
+  AKY020:
+    severity: warning
+
+  # AKY021: Disallow angle-bracket URL autolinks (<http://...> / <https://...>)
+  #
+  # Purpose:
+  #   ReadMe.com renders Markdown as MDX. The CommonMark angle-bracket autolink
+  #   syntax <https://example.com> is parsed as a JSX element by the MDX parser
+  #   and causes a hard parse error: "Unexpected character `/` before local name".
+  #
+  # Fix:
+  #   Replace <url> with a proper Markdown link: [url](url) or [descriptive text](url).
+  #
+  # Auto-fixable: yes — markdownlint --fix rewrites <url> as [url](url).
+  #
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY021: true
+
   # =========================
   # Core markdownlint Rules
   # =========================

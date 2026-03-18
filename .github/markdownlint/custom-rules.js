@@ -1344,5 +1344,142 @@ module.exports = [
         );
       }
     }
+  },
+
+  /**
+   * AKY020: Enforce emoji-prefixed blockquote callout titles
+   *
+   * Required format:
+   *   > [emoji] **Label:**
+   *   > [emoji] **Label (Context):**
+   *
+   * Supported labels and emoji mapping:
+   * - Note, Info => ℹ️
+   * - Tip => ✅
+   * - Warning => ⚠️
+   * - Important => ❗
+   * - Caution => 🚫
+   */
+  {
+    names: ["AKY020", "blockquote-callout-emoji-title"],
+    description: "Require blockquote callout titles to include the correct emoji before bold label",
+    tags: ["callouts", "style", "consistency"],
+    function: function (params, onError) {
+      const lines = params.lines || [];
+      const codeLines = getCodeBlockLineSet(params.tokens);
+
+      const labelSet = ["Note", "Info", "Tip", "Warning", "Important", "Caution"];
+      const labelPattern = labelSet.join("|");
+
+      const allowedTitle = new RegExp(
+        `^(ℹ️|✅|⚠️|❗|🚫)\\s+\\*\\*(?<label>${labelPattern})(?:\\s*\\([^)]*\\))?:\\*\\*(?:\\s+.*)?$`,
+        "u"
+      );
+
+      const calloutTitleCandidate = new RegExp(
+        `^(?:ℹ️|✅|⚠️|❗|🚫)?\\s*\\*\\*(?<label>${labelPattern})(?:\\s*\\([^)]*\\))?:\\*\\*`,
+        "u"
+      );
+
+      const expectedEmojiByLabel = {
+        Note: "ℹ️",
+        Info: "ℹ️",
+        Tip: "✅",
+        Warning: "⚠️",
+        Important: "❗",
+        Caution: "🚫"
+      };
+
+      for (let i = 0; i < lines.length; i++) {
+        const lineNumber = i + 1;
+        if (codeLines.has(lineNumber)) continue;
+
+        const raw = String(lines[i] || "");
+        if (!/^\s*>/.test(raw)) continue;
+
+        const text = stripBlockQuotePrefix(raw).trim();
+        if (!text) continue;
+
+        if (!calloutTitleCandidate.test(text)) continue;
+
+        const allowedMatch = text.match(allowedTitle);
+        if (!allowedMatch) {
+          report(
+            onError,
+            lineNumber,
+            "Include an emoji before callout titles (for example, '> ℹ️ **Note:**').",
+            text
+          );
+          continue;
+        }
+
+        const label = allowedMatch.groups && allowedMatch.groups.label ? allowedMatch.groups.label : "";
+        const actualEmoji = allowedMatch[1] || "";
+        const expectedEmoji = expectedEmojiByLabel[label];
+
+        if (expectedEmoji && actualEmoji !== expectedEmoji) {
+          report(
+            onError,
+            lineNumber,
+            `Use '${expectedEmoji}' with '**${label}:**' callouts.`,
+            text
+          );
+        }
+      }
+    }
+  },
+
+  /**
+   * AKY021: Disallow angle-bracket URL autolinks (<http://...> / <https://...>)
+   *
+   * ReadMe.com renders Markdown as MDX. The CommonMark angle-bracket autolink
+   * syntax  <https://example.com>  is treated as a JSX element by the MDX parser
+   * and produces a hard error:
+   *   "Unexpected character `/` before local name"
+   *
+   * Fix: convert to a proper Markdown link — [url](url) or [descriptive text](url).
+   *
+   * This rule is auto-fixable: it replaces <url> with [url](url).
+   */
+  {
+    names: ["AKY021", "no-angle-bracket-url"],
+    description: "Disallow angle-bracket URL autolinks (<http://...>) — use [text](url) instead for MDX compatibility",
+    tags: ["links", "mdx", "style"],
+    fixable: true,
+    function: function (params, onError) {
+      const lines = params.lines || [];
+      const codeLines = getCodeBlockLineSet(params.tokens);
+      const angleUrlRe = /<(https?:\/\/[^>\s]+)>/g;
+
+      for (let i = 0; i < lines.length; i++) {
+        const lineNumber = i + 1;
+        if (codeLines.has(lineNumber)) continue;
+
+        const raw = String(lines[i] || "");
+        // Mask inline code spans with spaces to preserve column positions
+        const masked = raw.replace(/`[^`]*`/g, (m) => " ".repeat(m.length));
+
+        angleUrlRe.lastIndex = 0;
+        let match;
+        while ((match = angleUrlRe.exec(masked)) !== null) {
+          const fullMatch = match[0]; // <https://example.com>
+          const url = match[1];       // https://example.com
+          const col = match.index + 1;
+
+          report(
+            onError,
+            lineNumber,
+            `Angle-bracket URL autolinks are not MDX-compatible. Replace \`${fullMatch}\` with \`[${url}](${url})\`.`,
+            fullMatch,
+            {
+              lineNumber,
+              editColumn: col,
+              deleteCount: fullMatch.length,
+              insertText: `[${url}](${url})`
+            }
+          );
+        }
+      }
+    }
   }
 ]
