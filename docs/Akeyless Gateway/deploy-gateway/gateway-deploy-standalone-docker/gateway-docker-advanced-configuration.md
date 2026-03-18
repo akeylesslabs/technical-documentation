@@ -357,14 +357,16 @@ The variables `MIN_TLS_VERSION=TLSv1.3` and `GODEBUG=tlsmlkem=1` enable hybrid P
 
 Use these environment variables to enable runtime and proactive cache features for Docker deployments.
 
-For behavior and topology semantics, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
+For behavior, topology semantics, and recommended proactive cache settings, see [Gateway Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache).
 
 ```shell
-docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="60" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="5" -e PROACTIVE_CACHE_DUMP_INTERVAL="1" --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e NEW_PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="60" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="5" -e PROACTIVE_CACHE_WORKERS="3" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 ```shell
-docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="number-of-minutes" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="number-of-minutes" -e PROACTIVE_CACHE_DUMP_INTERVAL="number-of-minutes" --name akeyless-gw akeyless/base
+docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e NEW_PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="number-of-minutes" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="number-of-minutes" -e PROACTIVE_CACHE_WORKERS="number-of-workers" --name akeyless-gw akeyless/base
 ```
+
+`PROACTIVE_CACHE_DUMP_INTERVAL` is still supported as the legacy secure backup interval for periodic cache backup, but the recommended proactive cache implementation is selected with `NEW_PROACTIVE_CACHE_ENABLE=true` and typically tuned with `PROACTIVE_CACHE_WORKERS` and `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME` instead.
 
 It is also possible to configure runtime and proactive caching in the Gateway Console after the Gateway is deployed.
 
