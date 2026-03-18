@@ -52,7 +52,7 @@ For Kubernetes deployment keys (`globalConfig.clusterCache`, `cacheHA`, and pers
 The `ignore-cache` flag is intended to bypass cache and fetch directly from SaaS.
 
 ```shell
-akeyless get-secret-value -n /mysecret --ignore-cache true
+akeyless get-secret-value --name /mysecret --ignore-cache true
 ```
 
 In disconnected mode (when SaaS is unreachable), runtime still checks cache first even when `ignore-cache=true`. If the value is not cached, the request fails.
