@@ -123,6 +123,8 @@ The legacy implementation is enabled when `CACHE_ENABLE=true` and `PROACTIVE_CAC
 
 The legacy implementation uses a fixed worker count with no 429 handling, which can cause repeated rate-limit failures during startup warm-up on large accounts. The new implementation adds backoff and retry logic, configurable concurrency, and is the only implementation that will receive improvements going forward.
 
+If you remain on the legacy implementation, `PROACTIVE_CACHE_DUMP_INTERVAL` controls the periodic secure cache backup interval. Most legacy tuning decisions should still start with `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME`, while `PROACTIVE_CACHE_DUMP_INTERVAL` is mainly relevant when you need to adjust backup cadence.
+
 To migrate:
 
 1. If on the `akeyless-api-gateway` chart, [migrate to the akeyless-gateway chart](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) first.
