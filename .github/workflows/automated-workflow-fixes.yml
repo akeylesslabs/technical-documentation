@@ -267,6 +267,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
+          : > .github/cli-command-paths/command-path-check.out.txt
           python .github/scripts/check_akeyless_command_paths.py \
             --docs-root docs \
             --out-json .github/cli-command-paths/command-path-check.json \
@@ -286,7 +287,12 @@ jobs:
             FAILURE_COUNT=1
             FILES_SCANNED=0
             CHECKED_PATHS=0
-            TOP5="validator did not produce json output"
+            if [ -s .github/cli-command-paths/command-path-check.out.txt ]; then
+              CLI_TAIL=$(tail -n 20 .github/cli-command-paths/command-path-check.out.txt)
+              TOP5="validator did not produce json output\n$CLI_TAIL"
+            else
+              TOP5="validator did not produce json output"
+            fi
           fi
 
           echo "CLI_PATH_SUMMARY=Scanned $FILES_SCANNED markdown files, checked $CHECKED_PATHS unique command paths, found $FAILURE_COUNT failures" >> $GITHUB_ENV
@@ -392,6 +398,14 @@ jobs:
           TS="$(date -u +'%Y-%m-%d %H:%M UTC')"
           SUMMARY="Automated Workflow Fixes ${TS} – $GITHUB_REPOSITORY@$BRANCH_NAME"
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
 
           ADF_DESC=$(jq -n \
             --arg run "$RUN_URL" \
@@ -450,7 +464,7 @@ jobs:
               }
             }')
 
-          RESP=$(curl -sS -X POST \
+          RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
             -H "$AUTH_HEADER" \
             -H "Content-Type: application/json" \
             --data "$PAYLOAD" \
@@ -480,11 +494,19 @@ jobs:
         run: |
           set -e
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
 
           attach_file () {
             local fpath="$1"
             if [ -f "$fpath" ]; then
-              curl -sS -X POST \
+              curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
                 -H "$AUTH_HEADER" \
                 -H "X-Atlassian-Token: no-check" \
                 -F "file=@${fpath}" \
@@ -498,3 +520,5 @@ jobs:
           attach_file ".github/markdownlint/markdownlint-fix-out.txt"
           attach_file ".github/cspell/cspell-out.json"
           attach_file ".github/cli-command-paths/command-path-check.json"
+          attach_file ".github/cli-command-paths/command-path-check.md"
+          attach_file ".github/cli-command-paths/command-path-check.out.txt"

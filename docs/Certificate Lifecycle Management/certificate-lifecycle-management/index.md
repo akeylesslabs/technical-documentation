@@ -25,6 +25,7 @@ Akeyless provides a centralized platform designed to streamline and automate eve
 * [Certificate issuance using a Private CA](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)
 * [Chain of Trust creation](https://docs.akeyless.io/docs/build-your-chain-of-trust)
 * [Certificate issuance using a Public CA](https://docs.akeyless.io/docs/public-ca)
+* [Certificate Discovery](https://docs.akeyless.io/docs/certificate-discovery)
 * [Certificate Storage](https://docs.akeyless.io/docs/certificate-storage)
 * [Certificate Provisioning](https://docs.akeyless.io/docs/certificate-provisioning)
 * [Certificate Renewal](https://docs.akeyless.io/docs/certificate-renewal)
