@@ -12,15 +12,15 @@ metadata:
 ---
 The Akeyless Gateway is a stateless Docker container, provided as a standalone or as a cluster. To function correctly, it requires public network connectivity to the Akeyless SaaS core services (see the table below).
 
-A basic Gateway deployment requires a server with a Docker Engine installed. You may download the latest Docker Engine on [Docker website](https://docs.docker.com/get-docker/).
+A basic Gateway deployment requires a server with Docker Engine installed. Download the latest Docker Engine from the [Docker website](https://docs.docker.com/get-docker/).
 
 For deployment instructions, see [Deploy Gateway](https://docs.akeyless.io/docs/deploy-gateway).
 
 > ℹ️ **Note (Tenant Environments):**
 >
-> Accounts that were created on specific environments should modify service endpoints according to the relevant environment. For example, `eu` uses `https://vault.eu.akeyless.io`.
+> Accounts created in a specific tenant environment must use the matching service endpoints. For example, the `eu` tenant uses `https://vault.eu.akeyless.io`.
 >
-> Available explicit tenants are: `us`, `eu`.
+> Available explicit tenants are `us` and `eu`.
 >
 > * [US SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-us)
 > * [EU SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-eu)
@@ -103,13 +103,13 @@ If you set `httpProxySettings.http_proxy` or `httpProxySettings.https_proxy` in 
 ## DNS and Endpoint Resolution
 
 Gateway hosts and pods must be able to resolve all required service hostnames listed on this page.
-For external DNS calls from Gateway, `GET` requests are routed to `-ro` hostnames while non-`GET` requests stay on primary hostnames.
+For Akeyless API host resolution, Gateway routes `GET` requests to `-ro` hostnames and keeps non-`GET` requests on primary hostnames.
 
-If an endpoint is already set to a `-ro` hostname, the suffix is not added again.
+If the configured API hostname already includes `-ro`, Gateway does not add the suffix again.
 
-If internal DNS is configured, `-ro` rewriting is skipped.
+If internal DNS is configured for Akeyless API communication, Gateway skips `-ro` hostname rewriting.
 
-When `AKEYLESS_URL` and `akeyless_url` are not explicitly set, Gateway falls back to a URL built from protocol and `akeyless_server_dns` (`<protocol>://<akeyless_server_dns>`).
+When `AKEYLESS_URL` and `akeyless_url` are not explicitly set, Gateway builds the fallback API URL from the configured protocol and `akeyless_server_dns` (`<protocol>://<akeyless_server_dns>`).
 
 ## Working Without MQ Connection
 
