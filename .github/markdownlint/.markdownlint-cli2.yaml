@@ -467,6 +467,21 @@ config:
   #   - Applies fixes when markdownlint runs with --fix.
   AKY019: true
 
+  # AKY020: Enforce emoji-prefixed blockquote callout titles
+  #
+  # Required format:
+  #   > [emoji] **Label:**
+  #   > [emoji] **Label (Context):**
+  #
+  # Supported label and emoji mapping:
+  #   - Note, Info: ℹ️
+  #   - Tip: ✅
+  #   - Warning: ⚠️
+  #   - Important: ❗
+  #   - Caution: 🚫
+  AKY020:
+    severity: warning
+
   # =========================
   # Core markdownlint Rules
   # =========================

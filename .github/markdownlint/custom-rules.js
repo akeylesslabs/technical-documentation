@@ -1344,5 +1344,88 @@ module.exports = [
         );
       }
     }
+  },
+
+  /**
+   * AKY020: Enforce emoji-prefixed blockquote callout titles
+   *
+   * Required format:
+   *   > [emoji] **Label:**
+   *   > [emoji] **Label (Context):**
+   *
+   * Supported labels and emoji mapping:
+   * - Note, Info => ℹ️
+   * - Tip => ✅
+   * - Warning => ⚠️
+   * - Important => ❗
+   * - Caution => 🚫
+   */
+  {
+    names: ["AKY020", "blockquote-callout-emoji-title"],
+    description: "Require blockquote callout titles to include the correct emoji before bold label",
+    tags: ["callouts", "style", "consistency"],
+    function: function (params, onError) {
+      const lines = params.lines || [];
+      const codeLines = getCodeBlockLineSet(params.tokens);
+
+      const labelSet = ["Note", "Info", "Tip", "Warning", "Important", "Caution"];
+      const labelPattern = labelSet.join("|");
+
+      const allowedTitle = new RegExp(
+        `^(ℹ️|✅|⚠️|❗|🚫)\\s+\\*\\*(?<label>${labelPattern})(?:\\s*\\([^)]*\\))?:\\*\\*(?:\\s+.*)?$`,
+        "u"
+      );
+
+      const calloutTitleCandidate = new RegExp(
+        `^(?:ℹ️|✅|⚠️|❗|🚫)?\\s*\\*\\*(?<label>${labelPattern})(?:\\s*\\([^)]*\\))?:\\*\\*`,
+        "u"
+      );
+
+      const expectedEmojiByLabel = {
+        Note: "ℹ️",
+        Info: "ℹ️",
+        Tip: "✅",
+        Warning: "⚠️",
+        Important: "❗",
+        Caution: "🚫"
+      };
+
+      for (let i = 0; i < lines.length; i++) {
+        const lineNumber = i + 1;
+        if (codeLines.has(lineNumber)) continue;
+
+        const raw = String(lines[i] || "");
+        if (!/^\s*>/.test(raw)) continue;
+
+        const text = stripBlockQuotePrefix(raw).trim();
+        if (!text) continue;
+
+        if (!calloutTitleCandidate.test(text)) continue;
+
+        const allowedMatch = text.match(allowedTitle);
+        if (!allowedMatch) {
+          report(
+            onError,
+            lineNumber,
+            "Include an emoji before callout titles (for example, '> ℹ️ **Note:**').",
+            text
+          );
+          continue;
+        }
+
+        const label = allowedMatch.groups && allowedMatch.groups.label ? allowedMatch.groups.label : "";
+        const actualEmoji = allowedMatch[1] || "";
+        const expectedEmoji = expectedEmojiByLabel[label];
+
+        if (expectedEmoji && actualEmoji !== expectedEmoji) {
+          report(
+            onError,
+            lineNumber,
+            `Use '${expectedEmoji}' with '**${label}:**' callouts.`,
+            text
+          );
+        }
+      }
+    }
   }
 ]
