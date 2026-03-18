@@ -32,7 +32,7 @@ The Desktop Application creates a tunnel to the designated resource and securely
 
 ## Installation Guide
 
-Download the relevant Desktop Application installer from (<https://download.akeyless.io/Akeyless_Artifacts/>).
+Download the relevant Desktop Application installer from ([https://download.akeyless.io/Akeyless_Artifacts/](https://download.akeyless.io/Akeyless_Artifacts/)).
 
 ### Windows Installation
 
