@@ -72,6 +72,10 @@ akeyless configure \
 
 For Azure US Government or Azure China, also set `--azure-cloud` to `AzureUSGovernment` or `AzureChinaCloud`.
 
+> ℹ️ **Note:**
+>
+> Identities that require `--azure-cloud` (for example, Azure US Government or Azure China) are not supported for use as a Gateway identity.
+
 To inspect the cloud identity token, run the [Akeyless get-cloud-identity command](https://docs.akeyless.io/docs/cli-ref-auth#get-cloud-identity):
 
 ```shell
