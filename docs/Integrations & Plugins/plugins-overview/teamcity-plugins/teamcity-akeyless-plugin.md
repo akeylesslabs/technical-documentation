@@ -1,14 +1,9 @@
 ---
 title: TeamCity Plugin
-excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
   robots: index
-next:
-  description: ''
 ---
 The TeamCity Plugin integrates TeamCity with Akeyless so your builds can retrieve secrets directly from the Akeyless API without storing sensitive values in TeamCity.
 
