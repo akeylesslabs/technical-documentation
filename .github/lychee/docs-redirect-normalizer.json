@@ -1,6 +1,6 @@
 {
-  "source_mode": "fallback-markdown-scan",
-  "total_urls_scanned": 554,
+  "source_mode": "lychee-discovery",
+  "total_urls_scanned": 1,
   "redirect_mappings_found": 0,
   "files_updated": 0,
   "links_updated": 0,
