@@ -78,6 +78,8 @@ docker run -d -p 8000:8000 -p 5696:5696 \
 
 After setting the primary identity, define who can manage Gateway settings with `allowedAccessPermissions`.
 
+Gateway access is permission-based. Access is granted from configured `allowedAccessPermissions` entries and their assigned permissions.
+
 ```yaml values.yaml
 globalConfig:
   allowedAccessPermissions:
@@ -107,6 +109,10 @@ globalConfig:
 
 Use the minimum permissions required for each operational role.
 
+> ℹ️ **Note:**
+>
+> In current Gateway behavior, `general` and `defaults` are treated as a compatible pair for effective access. If one is configured, the other is included in effective permission evaluation.
+
 | Permission | Typical use |
 | --- | --- |
 | `admin` | Full Gateway administration, including access permission management. |
@@ -118,6 +124,8 @@ Use the minimum permissions required for each operational role.
 | `caching` | Manage cache and offline behavior settings. |
 | `kmip` | Manage KMIP service configuration. |
 | `general` | Manage general Gateway settings, including URL and TLS behavior. |
+
+Administrative operations for Gateway Allowed Access management require `admin` permission.
 
 ## Recommended Access Pattern
 

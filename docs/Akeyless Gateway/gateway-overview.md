@@ -22,6 +22,8 @@ In practice, the Gateway is a stateless service that receives requests from appl
 
 This allows internal systems to consume Akeyless capabilities such as [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [KMIP Server](https://docs.akeyless.io/docs/kmip-server), and [Classic Keys](https://docs.akeyless.io/docs/classic-keys) without directly exposing internal resources to the public network.
 
+Gateway management access is configured explicitly through the default Gateway identity and `allowedAccessPermissions`. The Gateway enforces only the permissions configured for those identities.
+
 ## What the Gateway Does
 
 The Gateway provides a local control plane and data path for secrets and encryption operations.
