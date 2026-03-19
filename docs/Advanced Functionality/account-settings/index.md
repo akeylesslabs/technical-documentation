@@ -152,4 +152,3 @@ Set the Allowed Client Types for this account, the available client types are: *
 #### Choose default Auth method
 
 Choose a default auth method that will be used when generating links for items in the account. Relevant only for [SAML](https://docs.akeyless.io/docs/auth-with-saml) and [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication methods.
-
