@@ -283,6 +283,18 @@ jobs:
             FILES_SCANNED=$(jq -r '.files_scanned // 0' .github/cli-command-paths/command-path-check.json)
             CHECKED_PATHS=$(jq -r '.checked_command_paths // 0' .github/cli-command-paths/command-path-check.json)
             TOP5=$(jq -r '.failures[:5][] | "\(.file):\(.line) => \(.path)"' .github/cli-command-paths/command-path-check.json)
+            RUNTIME_ERROR=$(jq -r '.runtime_error // empty | split("\n") | map(select(length > 0)) | .[:8] | join(" | ")' .github/cli-command-paths/command-path-check.json)
+
+            if [ -n "$RUNTIME_ERROR" ]; then
+              if [ "$FAILURE_COUNT" = "0" ]; then
+                FAILURE_COUNT=1
+              fi
+              if [ -n "$TOP5" ]; then
+                TOP5="$TOP5\nruntime_error: $RUNTIME_ERROR"
+              else
+                TOP5="runtime_error: $RUNTIME_ERROR"
+              fi
+            fi
           else
             FAILURE_COUNT=1
             FILES_SCANNED=0
