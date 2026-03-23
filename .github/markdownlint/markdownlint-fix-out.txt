@@ -1,6 +1,10 @@
-markdownlint-cli2 v0.21.0 (markdownlint v0.40.0)
+markdownlint-cli2 v0.22.0 (markdownlint v0.40.0)
 Finding: docs/**/*.md docs/**/*.md !.github/**/*.md !docs/Contributing Guides/technical-documentation-style-guide/index.md
-Linting: 480 file(s)
-Summary: 2 error(s)
-docs/Advanced Functionality/account-settings/index.md:152:1 error MD033/no-inline-html Inline HTML [Element: br]
+Linting: 482 file(s)
+Summary: 6 error(s)
+docs/Accessing Akeyless/access-and-authentication-methods/auth-with-aws.md:83 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note (Least Privilege):**"]
+docs/Advanced Functionality/account-settings/encryption-key-policy.md:48 error MD028/no-blanks-blockquote Blank line inside blockquote
+docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md:1719 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note:** Venafi is now CyberArk Machine Identity Security. This CLI subcommand remains `venafi` for backward compatibility."]
+docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md:3225 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note:** Venafi is now CyberArk Machine Identity Security. This CLI subcommand remains `venafi` for backward compatibility."]
+docs/Secrets Management/targets/venafi-target.md:15 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, this integration still uses `venafi` naming for backward compatibility."]
 docs/Secure Remote Access/admin-guides/remote-access-akeyless-connect.md:211 error MD028/no-blanks-blockquote Blank line inside blockquote
