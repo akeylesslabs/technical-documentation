@@ -7,6 +7,7 @@ import json
 import re
 import shlex
 import subprocess
+import traceback
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -155,6 +156,7 @@ def write_reports(
     files_scanned: int,
     checked_paths: int,
     failures: list[dict],
+    runtime_error: str | None = None,
 ) -> None:
     out_json.parent.mkdir(parents=True, exist_ok=True)
 
@@ -163,6 +165,7 @@ def write_reports(
         "checked_command_paths": checked_paths,
         "failures": failures,
         "failure_count": len(failures),
+        "runtime_error": runtime_error,
     }
     out_json.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
@@ -174,6 +177,14 @@ def write_reports(
         f"- Failures: {len(failures)}",
         "",
     ]
+
+    if runtime_error:
+        lines.append("## Runtime error")
+        lines.append("")
+        lines.append("```")
+        lines.append(runtime_error)
+        lines.append("```")
+        lines.append("")
 
     if failures:
         lines.append("## Invalid command paths")
@@ -197,52 +208,71 @@ def main() -> int:
     docs_root = Path(args.docs_root)
     out_json = Path(args.out_json)
     out_md = Path(args.out_md)
-
-    if not docs_root.exists():
-        raise SystemExit(f"Docs root does not exist: {docs_root}")
-
-    if subprocess.run(["akeyless", "-h"], capture_output=True).returncode != 0:
-        raise SystemExit("`akeyless` CLI is not available in PATH.")
-
-    md_files = sorted(docs_root.rglob("*.md"))
-    occurrences: list[CommandOccurrence] = []
-    for md_file in md_files:
-        occurrences.extend(collect_commands(md_file))
-
-    unique_paths = sorted({occ.path_tokens for occ in occurrences})
-
-    validation_cache: dict[tuple[str, ...], tuple[bool, str]] = {}
-    for path_tokens in unique_paths:
-        validation_cache[path_tokens] = run_help(path_tokens)
-
+    files_scanned = 0
+    checked_paths = 0
     failures: list[dict] = []
-    for occ in occurrences:
-        is_valid, cli_output = validation_cache[occ.path_tokens]
-        if is_valid:
-            continue
-        failures.append(
-            {
-                "file": occ.file_path,
-                "line": occ.line_number,
-                "command": occ.command_line,
-                "path": " ".join(occ.path_tokens),
-                "cli_output": cli_output,
-            }
+
+    try:
+        if not docs_root.exists():
+            raise RuntimeError(f"Docs root does not exist: {docs_root}")
+
+        if subprocess.run(["akeyless", "-h"], capture_output=True).returncode != 0:
+            raise RuntimeError("`akeyless` CLI is not available in PATH.")
+
+        md_files = sorted(docs_root.rglob("*.md"))
+        files_scanned = len(md_files)
+
+        occurrences: list[CommandOccurrence] = []
+        for md_file in md_files:
+            occurrences.extend(collect_commands(md_file))
+
+        unique_paths = sorted({occ.path_tokens for occ in occurrences})
+        checked_paths = len(unique_paths)
+
+        validation_cache: dict[tuple[str, ...], tuple[bool, str]] = {}
+        for path_tokens in unique_paths:
+            validation_cache[path_tokens] = run_help(path_tokens)
+
+        for occ in occurrences:
+            is_valid, cli_output = validation_cache[occ.path_tokens]
+            if is_valid:
+                continue
+            failures.append(
+                {
+                    "file": occ.file_path,
+                    "line": occ.line_number,
+                    "command": occ.command_line,
+                    "path": " ".join(occ.path_tokens),
+                    "cli_output": cli_output,
+                }
+            )
+
+        write_reports(
+            out_json=out_json,
+            out_md=out_md,
+            files_scanned=files_scanned,
+            checked_paths=checked_paths,
+            failures=failures,
+            runtime_error=None,
         )
 
-    write_reports(
-        out_json=out_json,
-        out_md=out_md,
-        files_scanned=len(md_files),
-        checked_paths=len(unique_paths),
-        failures=failures,
-    )
+        print(
+            f"files_scanned={files_scanned} checked_command_paths={checked_paths} failures={len(failures)}"
+        )
 
-    print(
-        f"files_scanned={len(md_files)} checked_command_paths={len(unique_paths)} failures={len(failures)}"
-    )
-
-    return 1 if failures else 0
+        return 1 if failures else 0
+    except Exception as exc:
+        runtime_error = "".join(traceback.format_exception(exc)).strip()
+        write_reports(
+            out_json=out_json,
+            out_md=out_md,
+            files_scanned=files_scanned,
+            checked_paths=checked_paths,
+            failures=failures,
+            runtime_error=runtime_error,
+        )
+        print(f"runtime_error={exc}")
+        return 2
 
 
 if __name__ == "__main__":
