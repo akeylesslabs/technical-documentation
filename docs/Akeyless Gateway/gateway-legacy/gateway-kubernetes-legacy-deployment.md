@@ -21,6 +21,8 @@ next:
 >
 > The Gateway new chart docs is now available [here](https://docs.akeyless.io/docs/gateway-chart).
 
+This page applies only to the legacy `akeyless-api-gateway` Helm chart and the legacy `akeylessUserAuth` values schema.
+
 The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Helm package manager. Akeyless provides a [Helm Chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-api-gateway) to bootstrap deployment. In the case of a Kubernetes Deployment, configuration occurs before installation by modifying values in the Helm Chart.
 
 ## Prerequisites
@@ -73,7 +75,7 @@ The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Hel
 
 ## Authentication
 
-To set your Gateway with a default [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Gateway instance will have inside your Akeyless account.
+Set a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) for the Gateway to control the level of access the Gateway instance will have inside your Akeyless account.
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported for Kubernetes deployments:
 
@@ -242,7 +244,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ### Universal Identity
 
-Akeyless support [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) authentication method for on-premise Kubernetes cluster environments, eliminating the secret zero problems within your config files.
+Akeyless supports the [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) Authentication Method for on-premises Kubernetes cluster environments, eliminating the secret zero problem within configuration files.
 
 Set the `adminUIDInitToken` field with your initial root [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) token. Set the rotation interval and choose either to generate a child token for your pods using `uidCreateChildTokenPerPod` field.
 
@@ -293,7 +295,7 @@ For example:
 
 In this case, the above will create an **Access Permission** object named **Administrators**, associated with an Auth Method `p-yyyyyy` which for example is your [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) `Access ID`, where a user that at least matches one [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) attribute, will be authorized to access the Gateway with **Admin** permissions:
 
-In our example, `test01@testhost.com` and `test02@testhost` will be authorized, and any member of `group=Devops` will also be authorized.
+In our example, `test01@testhost.com` and `test02@testhost.com` will be authorized, and any member of `group=Devops` will also be authorized.
 
 In this case, the `Access ID` belongs to the authentication method created for a certain Identity Provider. **If you don't specify the sub-claims, every user authenticated by this IdP can log in to the Gateway with admin privileges.**
 
@@ -341,7 +343,7 @@ Full list of available permissions:
 | `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
 | `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings |
 | `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
-| `ladp_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
+| `ldap_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
 | `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
 | `kmip` | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
 | `general` | Management of Gateway General settings including `GatewayUrl`, `TLS` |
@@ -355,7 +357,7 @@ You may also edit this parameter on your console, by going to the Gateways tab a
 
 ### CBA
 
-To work with CBA flow for your Gateway-allowed users, In addition to the list of `allowedAccessPermissions` you provided, set your chart with the `enableSniProxy: true` setting under the `TLSConf` section as follow:
+To work with the CBA flow for Gateway-allowed users, in addition to the list of `allowedAccessPermissions` you provided, set the chart with the `enableSniProxy: true` setting under the `TLSConf` section as follows:
 
 ```yaml
 TLSConf:
