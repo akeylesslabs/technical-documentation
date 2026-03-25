@@ -50,9 +50,9 @@ Where:
 
 * `gateway-url`: Akeyless Gateway URL (port `8000`).
 
-* `certificate-path`: Path to a file that contains the certificate in PEM format.
+* `certificate-path`: Path to a file that contains an X.509 certificate. PEM format is supported directly, and DER-encoded certificate data is normalized to PEM.
 
-* `certificate-data`: Content of the certificate in a Base64 format.
+* `certificate-data`: Base64-encoded certificate content. PEM and DER certificate data are supported.
 
 * `expiration-event-in`: Number of days before certificate expiration to trigger an event. Use the flag multiple times for multiple thresholds, for example `--expiration-event-in 1 --expiration-event-in 5`. Related events are documented in [Event Center](https://docs.akeyless.io/docs/event-center).
 
