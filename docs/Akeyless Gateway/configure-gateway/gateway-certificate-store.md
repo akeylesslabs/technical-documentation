@@ -56,6 +56,10 @@ Where:
 
 * `expiration-event-in`: Number of days before certificate expiration to trigger an event. Use the flag multiple times for multiple thresholds, for example `--expiration-event-in 1 --expiration-event-in 5`. Related events are documented in [Event Center](https://docs.akeyless.io/docs/event-center).
 
+> ℹ️ **Note:**
+>
+> File extensions such as `.cer` and `.crt` can contain either PEM or DER certificate data. Gateway Certificate Store support is based on certificate encoding (PEM or DER), not on file extension.
+
 ## Manage Certificates Using the UI
 
 To upload certificates to your gateway using the UI, follow these steps:
