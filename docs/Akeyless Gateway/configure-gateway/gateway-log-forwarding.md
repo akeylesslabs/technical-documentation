@@ -30,7 +30,7 @@ You can export the Audit Logs from the Akeyless Gateway to any of the following 
 
 * [stdout](https://docs.akeyless.io/docs/log-forwarding#stdout)
 
-* [Sumo Logic](https://docs.akeyless.io/docs/log-forwarding-2#sumo-logic)
+* [Sumo Logic](https://docs.akeyless.io/docs/gateway-log-forwarding#sumo-logic)
 
 * [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
 
@@ -40,7 +40,7 @@ You can export the Audit Logs from the Akeyless Gateway to any of the following 
 
 ## Amazon S3
 
-When you export the Audit Logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under: `\{root_folder_name} / \{year} / \{month} / \{day}`
+When you export the Audit Logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under: `{root_folder_name}/{year}/{month}/{day}`
 
 > ℹ️ **Info:**
 >
@@ -58,7 +58,7 @@ This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file 
 
 4. Choose the log format - `Text` or `JSON`.
 
-5. Audit Log Server insert: `https://audit.akeyless.io/`.
+5. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
 6. From the **Log Service** dropdown list, select `Amazon S3`.
 
@@ -88,7 +88,7 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 4. Choose the log format - `Text` or `JSON`.
 
-5. Audit Log Server insert: `https://audit.akeyless.io/`.
+5. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
 6. From the **Log Service** dropdown list, select `Azure Log Analytics`.
 
@@ -106,7 +106,7 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 3. Choose the log format - `Text` or `JSON`.
 
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
+4. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
 5. From the **Log Service** dropdown list, select `Datadog`.
 
@@ -128,7 +128,7 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 3. Choose the log format - `Text` or `JSON`.
 
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
+4. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
 5. From the **Log Service** dropdown list, select `Elasticsearch`.
 
@@ -150,7 +150,7 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 3. Choose the log format - `Text` or `JSON`.
 
-4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
+4. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
 5. From the **Log Service** dropdown list, select `Google Chronicle`.
 
@@ -170,7 +170,7 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 3. Choose the log format - `Text` or `JSON`.
 
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
+4. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
 5. From the **Log Service** dropdown list, select `Logstash`.
 
@@ -201,7 +201,7 @@ input {
 
 3. Choose the log format - `Text` or `JSON`.
 
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
+4. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
 5. From the **Log Service** dropdown list, select `Logz.io`.
 
@@ -219,9 +219,9 @@ input {
 
 3. Choose the log format - `Text` or `JSON`.
 
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
+4. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
-5. Select' Splunk' from the **Log Service** dropdown list.
+5. From the **Log Service** dropdown list, select **Splunk**.
 
 6. Define the **Splunk Server URL**.
 
@@ -241,7 +241,7 @@ input {
 
 3. Choose the log format - `Text` or `JSON`.
 
-4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
+4. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
 5. From the **Log Service** dropdown list, select `Standard Output`.
 
@@ -253,7 +253,7 @@ input {
 
 3. Choose the log format - `Text` or `JSON`.
 
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
+4. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
 5. From the **Log Service** dropdown list, select `Sumo Logic`.
 
@@ -271,9 +271,9 @@ input {
 
 3. Choose the log format - `Text` or `JSON`.
 
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
+4. In **Audit Log Server**, enter `https://audit.akeyless.io/`.
 
-5. Select' Syslog' from the **Log Service** dropdown list.
+5. From the **Log Service** dropdown list, select **Syslog**.
 
 6. From the **Syslog Network** options, select the network protocol used by the Syslog server.
 

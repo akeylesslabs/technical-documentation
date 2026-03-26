@@ -302,7 +302,7 @@ With the following parameters, you can mount the TLS certificate and the TLS pri
 
 * `-v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key`
 
-It is also possible to [Set up TLS](https://docs.akeyless.io/docs/tls-certificate) in the Gateway Configuration Manager after the Gateway is deployed.
+It is also possible to [set up TLS](https://docs.akeyless.io/docs/gateway-tls-settings) in the Gateway Configuration Manager after the Gateway is deployed.
 
 ### TLS and PQC Verification on Gateway
 

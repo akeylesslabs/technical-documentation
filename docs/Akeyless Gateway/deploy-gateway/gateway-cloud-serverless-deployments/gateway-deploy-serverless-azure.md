@@ -276,7 +276,7 @@ To configure your Akeyless Gateway:
 * [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) (runtime and proactive caching options are covered in this section)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway Status Change
-* [TLS Configuration](https://docs.akeyless.io/docs/tls-certificate).
+* [TLS Configuration](https://docs.akeyless.io/docs/gateway-tls-settings).
 * To enable **CLI access** (for example, to create or retrieve a Dynamic Secret), set the `AKEYLESS_GATEWAY_URL` environment variable to the Gateway endpoint in the following format:
 
 ```shell
