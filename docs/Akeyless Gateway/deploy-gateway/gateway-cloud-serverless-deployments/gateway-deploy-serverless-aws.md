@@ -202,7 +202,7 @@ The Akeyless Serverless Gateway does not support:
 * [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway status change
-* [TLS Configuration](https://docs.akeyless.io/docs/tls-certificate)
+* [TLS Configuration](https://docs.akeyless.io/docs/gateway-tls-settings)
 * To enable **CLI access** (for example, to create or retrieve a Dynamic Secret), set the `AKEYLESS_GATEWAY_URL` environment variable to the Gateway endpoint in the following format:
 
 ```shell

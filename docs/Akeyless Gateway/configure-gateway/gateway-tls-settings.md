@@ -46,8 +46,13 @@ After deployment, verify that the browser connection details show `X25519MLKEM76
 Updating a TLS certificate can be accessed through the CLI by using the following command:
 
 ```shell
-akeyless gateway-update-tls-cert --gateway-url 'https://Your-Akeyless-Gateway-URL:8000' --cert-data <TLS Certificate(base64-encoded)>
+akeyless gateway-update-tls-cert \
+--cert-data <TLS Certificate (base64-encoded)> \
+--key-data <TLS Private Key (base64-encoded)> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
+
+This command requires both a TLS certificate and a matching TLS private key.
 
 The command's full parameters are:
 
