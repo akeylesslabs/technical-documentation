@@ -7,16 +7,16 @@ metadata:
 ---
 Locking [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), and [Targets](https://docs.akeyless.io/docs/targets) can be done by users with the `list` and `update` permissions for the item.
 
-When an item is locked, only the user who locked it and a user with an Admin role can access it. An admin can also remove the lock.
-
-The item can be locked with a TTL or without a TTL.
+When an item is locked, only the user who locked it, or a user with an **Admin** role can access it. An admin can also remove the lock.
 
 You can choose whether to set the lock for **Reading** the item or **Updating** the item.
+
+If an item is locked, and a user has `read` permission for the item, he will not be able to read the value of the secret. 
 
 # Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.48.0` or later.
-* User with `list` and `update` permissions on the item.
+* Only users with `list` and `update` permissions will be able to lock secrets.
 
 # Locking and item using the CLI
 
