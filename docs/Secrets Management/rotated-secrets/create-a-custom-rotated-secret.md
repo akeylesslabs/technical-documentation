@@ -99,6 +99,56 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#custom) section.
 
+## Use a Custom Rotated Secret with Secure Remote Access (SRA)
+
+Use this pattern when you want users to connect through Akeyless Secure Remote Access while the credential is still rotated by your custom rotator endpoint.
+
+### Prerequisites
+
+* SRA is deployed and reachable in your environment. See [Remote Access Setup Overview](https://docs.akeyless.io/docs/remote-access-setup-overview).
+* Users can access the SRA portal or client flow. See [Secure Remote Access Portal](https://docs.akeyless.io/docs/access-resources-remotely).
+* Your custom rotated secret is already working with a reachable Web Target and successful rotation flow.
+
+### Recommended Flow
+
+1. Create and validate the custom rotated secret first (without SRA settings).
+2. Enable SRA-related settings on the rotated secret item.
+3. Validate user connectivity through SRA and confirm rotation behavior after sessions, if configured.
+
+### Common SRA Flags for `rotated-secret create custom`
+
+The following flags are commonly used when enabling SRA for a custom rotated secret:
+
+* `--secure-access-enable`: Enables Secure Remote Access for the item.
+* `--rotate-after-disconnect`: Rotates the secret after an SRA session ends.
+* `--secure-access-bastion-issuer`: Sets the SSH certificate issuer path for bastion use cases.
+* `--secure-access-web`: Enables web SRA access for supported scenarios.
+* `--secure-access-web-browsing`: Enables isolated browser access by way of Akeyless Web Access Bastion.
+* `--secure-access-web-proxy`: Enables web proxy access by way of Akeyless Web Access Bastion.
+* `--secure-access-host`: Specifies target hosts for SRA connections.
+
+For exact syntax and parameter behavior, use [CLI Reference - Rotated Secrets (custom)](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#custom).
+
+### Example: Enable SRA on a Custom Rotated Secret
+
+```shell
+akeyless rotated-secret create custom \
+--name reporting-app-svc \
+--gateway-url 'https://gw.internal.example.com:8000' \
+--target-name my-rotator-target \
+--authentication-credentials use-user-creds \
+--password-length 16 \
+--rotator-type custom \
+--custom-payload '{"target_system":"reporting-app","account_id":"svc-reporting"}' \
+--auto-rotate true \
+--rotation-interval 30 \
+--secure-access-enable true \
+--rotate-after-disconnect true \
+--secure-access-host app01.internal.example.com
+```
+
+> ℹ️ **Note:** The `--sra-association` flag in target association workflows is documented as relevant to LDAP rotated secret associations. For custom rotated secrets, use the `custom` command SRA flags and validate behavior in your environment.
+
 ## Working Example: Rotate an On‑Premises Application Password by way of Web Target (Customer R/S)
 
 This section provides an end-to-end, working example of creating a customer **Rotated Secret (R/S)** using a **Web Target** and a customer-managed **rotator endpoint**.
@@ -118,7 +168,7 @@ This section provides an end-to-end, working example of creating a customer **Ro
 
 ### Prerequisite
 
-A rotator service must be created that the Akeyless Gateway can cell by HTTPS endpoint. The creation and maintenance of the rotator service is dependent on the application and your responsibility.
+A rotator service must be created that the Akeyless Gateway can call by HTTPS endpoint. The creation and maintenance of the rotator service is dependent on the application and your responsibility.
 
 ### Step 1: Create the Web Target (Example)
 
