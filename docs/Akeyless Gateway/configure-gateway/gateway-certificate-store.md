@@ -10,21 +10,29 @@ metadata:
 next:
   description: ''
 ---
-You can upload private CA certificates into the gateway to enable secure connections with trusted API endpoints, ensuring reliable communication by verifying authenticity. This requires [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.29.0` or later.
+Use Certificate Store to add private CA certificates to Akeyless Gateway so services can trust required endpoints. This requires [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.29.0` or later.
 
 > ℹ️ **Note:**
 >
-> After uploading a private CA to certificate store, some services may require a restart or reconnection to fully recognize and use the new certificate authority.
+> After uploading a private CA to Certificate Store, some services may require a restart or reconnection before the new certificate authority is recognized.
 
 ## Manage Certificates Using the CLI
 
-To upload certificates to your gateway using the CLI, run the following command:
+To upload a certificate file to your Gateway using the CLI, run the following command:
 
 ```shell
 akeyless gateway update certificate-store \
 --name <Certificate Display name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---certificate-path <path/to/certificate/file> \
+--certificate-path <path/to/certificate/file>
+```
+
+To upload Base64-encoded certificate data to your Gateway using the CLI, run the following command:
+
+```shell
+akeyless gateway update certificate-store \
+--name <Certificate Display name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --certificate-data <certificate data in base64 format>
 ```
 
@@ -42,9 +50,15 @@ Where:
 
 * `gateway-url`: Akeyless Gateway URL (port `8000`).
 
-* `certificate`: Path to a file that contains the certificate. Supported formats are: `pem`, `cer`, `crt`, `pfx`, `p12`.
+* `certificate-path`: Path to a file that contains an X.509 certificate. PEM format is supported directly, and DER-encoded certificate data is normalized to PEM.
 
-* `certificate-data`: Content of the certificate in a Base64 format.
+* `certificate-data`: Base64-encoded certificate content. PEM and DER certificate data are supported.
+
+* `expiration-event-in`: Number of days before certificate expiration to trigger an event. Use the flag multiple times for multiple thresholds, for example `--expiration-event-in 1 --expiration-event-in 5`. Related events are documented in [Event Center](https://docs.akeyless.io/docs/event-center).
+
+> ℹ️ **Note:**
+>
+> File extensions such as `.cer` and `.crt` can contain either PEM or DER certificate data. Gateway Certificate Store support is based on certificate encoding (PEM or DER), not on file extension.
 
 ## Manage Certificates Using the UI
 
