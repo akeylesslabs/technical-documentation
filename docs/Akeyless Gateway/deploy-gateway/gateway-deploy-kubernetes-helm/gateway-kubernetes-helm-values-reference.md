@@ -111,7 +111,7 @@ TLSConf:
   tlsPrivateKeySecretKeyName:  tlsPrivateKey
 ```
 
-Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-certificate) using the web interface of the Gateway Configuration Manager.
+Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/gateway-tls-settings) using the web interface of the Gateway Configuration Manager.
 
 ### TLS 1.3 and PQC on Any Cloud Platform
 
