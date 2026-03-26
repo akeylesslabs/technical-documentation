@@ -38,6 +38,8 @@ Supported authentication methods vary by deployment type. Common methods include
 
 Set a primary authentication method that the Gateway uses for control-plane operations.
 
+The primary Gateway identity must be associated with an RBAC policy that includes an Administrative rule scoped to Gateway management.
+
 ### Configure the Gateway Identity with Helm
 
 For Kubernetes Helm deployments, configure `globalConfig.gatewayAuth` in `values.yaml`:
@@ -79,6 +81,8 @@ docker run -d -p 8000:8000 -p 5696:5696 \
 After setting the primary identity, define who can manage Gateway settings with `allowedAccessPermissions`.
 
 Gateway access is permission-based. Access is granted from configured `allowedAccessPermissions` entries and their assigned permissions.
+
+This means your primary RBAC policy defines baseline administrative access, while `allowedAccessPermissions` delegates Gateway-scoped access to additional identities.
 
 ```yaml values.yaml
 globalConfig:

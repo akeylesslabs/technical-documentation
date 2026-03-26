@@ -50,6 +50,8 @@ Edit the `akeyless-serverless-gateway/bicep/Azure/serverless-gateway/params.bice
 
 Set your Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Gateway will have inside your Akeyless account.
 
+The default Gateway identity (`admin_access_id`) must be associated with an RBAC Administrative rule scoped to Gateway management.
+
 Gateway access is permission-based. Access to Gateway management operations is granted from configured `allowed_access_permissions` entries and their assigned permissions. Administrative operations for Gateway Access management require `admin` permission.
 
 The following Authentication Methods are supported for Azure Serverless:

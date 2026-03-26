@@ -46,6 +46,8 @@ Edit the `akeyless-serverless-gateway/terraform/AWS/serverless-gateway/lambda_en
 
 Set your Akeyless Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Akeyless Gateway will have to your Akeyless account.
 
+The default Gateway identity (`admin_access_id`) must be associated with an RBAC Administrative rule scoped to Gateway management.
+
 Gateway access is permission-based. Access to Gateway management operations is granted from configured `allowed_access_permissions` entries and their assigned permissions. Administrative operations for Gateway Access management require `admin` permission.
 
 The following Authentication Methods are supported for serverless mode:
