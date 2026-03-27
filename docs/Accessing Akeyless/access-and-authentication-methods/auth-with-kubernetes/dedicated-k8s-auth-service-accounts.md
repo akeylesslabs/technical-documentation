@@ -14,7 +14,7 @@ next:
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with network access to the Kubernetes (K8s) cluster.
 
-* Kubernetes v1.2` or later.
+* Kubernetes v1.21 or later.
 
 > ℹ️ **Info (Required Gateway Access Permissions):**
 >
