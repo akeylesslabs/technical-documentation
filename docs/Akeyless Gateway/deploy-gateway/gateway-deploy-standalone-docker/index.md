@@ -22,7 +22,7 @@ next:
 ---
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets).
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). For Gateway Console access, the admin role must include an RBAC Administrative rule scoped to Gateway management, with permission scope set to `scope` or `all`.
 
 > ℹ️ **Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), using the account owner's email and password with superuser privileges on the account.
 

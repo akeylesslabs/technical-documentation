@@ -66,7 +66,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 > ℹ️ **Note:**
 >
-> Your Gateway **Authentication Method** should have permission to create and manage both Items along with Targets items **only**.
+> Your Gateway primary authentication method must include an RBAC Administrative rule scoped to Gateway management, with permission scope set to `scope` or `all` for Gateway Console access.
 
 ### API Key Authentication
 
