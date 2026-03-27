@@ -17,7 +17,7 @@ This page discusses the creation of GCP [Universal Secrets Connectors](https://d
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
 * [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Secret Manager Admin](https://cloud.google.com/secret-manager/docs/access-control) role assigned, to allow selecting a KMS encryption key for the secret, add the following roles: [Cloud KMS Viewer](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.viewer) and [Cloud KMS CryptoKey Encrypter and Decrypter](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.cryptoKeyEncrypterDecrypter).
 
-## Working With Universal Secrets Connector from the Console
+## Working With Universal Secrets Connector from the CLI
 
 This section will discuss the different commands necessary to handle USCs. While the initial creation command is a regular Akeyless command, management of USCs is done through a set of sub-commands, which all have the prefix `usc` added to them, as will be shown later in this section. If the prefix is not added to these sub-commands, they will not work.
 
@@ -151,19 +151,19 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 4. Define the remaining settings as follows:
 
-    * **Description:** Optional, enter a description of the Universal Secrets Connector.
+   * **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-    * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+   * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-    * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
+   * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
 
-    * **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/cloud-targets#gcp).
+   * **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/cloud-targets#gcp).
 
-    * **Project ID:** Optional. The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
+   * **Project ID:** Optional. The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
-    * **Region:** Optional. Choose the regions where this Universal Secrets Connector can manage secrets. You can select up to 12 regions.
+   * **Region:** Optional. Choose the regions where this Universal Secrets Connector can manage secrets. You can select up to 12 regions.
 
-    * **Gateway:** Select the desired corresponding Gateway.
+   * **Gateway:** Select the desired corresponding Gateway.
 
 5. Click **Finish**.
 
