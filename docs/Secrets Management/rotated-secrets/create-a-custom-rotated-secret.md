@@ -86,7 +86,9 @@ Where:
 
 * `rotator-type`: The type of credentials to be rotated. For [Web Target](https://docs.akeyless.io/docs/web-targets), should be `custom`.
 
-* `custom-payload`: A secret payload to be sent with a rotation request.
+* `custom-payload`: A JSON string sent with every rotation request to your rotator endpoint. Include any static context your implementation needs, such as a username, system identifier, or application-specific metadata. Adapt field names to match your rotator endpoint's expected schema. For example:
+    * Password-only rotation (rotates the password for a known, fixed username): `{"username": "svc-reporting", "system": "my-app"}`
+    * Username and password rotation (passes the current password so the rotator can authenticate, then rotates both credentials): `{"username": "svc-reporting", "current_password": "<current-value>", "system": "my-app"}`
 
 * `custom-password-policy[=false]`: A boolean flag to set the policy for the rotated password, the endpoint must provide a new password according to the following settings:
     * `password-length`: Password length.
@@ -139,7 +141,7 @@ akeyless rotated-secret create custom \
 --authentication-credentials use-user-creds \
 --password-length 16 \
 --rotator-type custom \
---custom-payload '{"target_system":"reporting-app","account_id":"svc-reporting"}' \
+--custom-payload '{"username":"svc-reporting","system":"reporting-app"}' \
 --auto-rotate true \
 --rotation-interval 30 \
 --secure-access-enable true \
@@ -215,8 +217,9 @@ akeyless rotated-secret create custom \
 --password-length 16 \
 --rotator-type custom \
 --custom-payload '{
-  "target_system": "reporting-app",
-  "account_id": "svc-reporting"
+  "username": "svc-reporting",
+  "current_password": "<current-value>",
+  "system": "reporting-app"
 }' \
 --auto-rotate true \
 --rotation-interval 30
