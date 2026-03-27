@@ -111,13 +111,17 @@ Where:
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use the argument multiple times: --expiration-event-in 30 --expiration-event-in 60 to get events 60 and 30 days in advance.
 
+* `auto-renew`: Automatically renew certificates before expiration. Requires `destination-path` to be set.
+
+* `scheduled-renew`: Number of days before the certificate's expiration date to trigger automatic renewal. The countdown is based on the **certificate's actual expiry**, not the issuer `ttl`.
+
 * `allowed-extra-extensions`: A `json` string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"1.2.3":["test"]}'`.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
 > ℹ️ **Note:**
 >
-> Set the PKI Issuer item to automatically store and renew any issued certificate with default expiration events to gain full automation of your PKI environments.
+> Set `--auto-renew` and `--scheduled-renew` on the PKI Issuer to automatically renew any issued certificate before it expires. Renewal is scheduled based on the certificate's actual expiration date — not the issuer `ttl` — so the schedule remains accurate even when a signing CA issues certificates with a shorter validity than requested.
 
 ### Creating a Certificate Signing Request
 
