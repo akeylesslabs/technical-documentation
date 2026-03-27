@@ -373,6 +373,23 @@ image:
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
 
+> ℹ️ **Note:**
+>
+> In Unified Gateway Helm deployments, setting `repository: akeyless/base` with `tag: latest` resolves to `akeyless/base:latest-akeyless` at runtime (non-root image path).
+>
+> Legacy API Gateway deployments use `akeyless/base:latest`.
+
+```yaml
+# Example rendered container image for Unified Gateway
+image: akeyless/base:latest-akeyless
+```
+
+To verify the resolved image in your cluster:
+
+```shell
+kubectl get pod <gateway-pod> -n <namespace> -o jsonpath="{.spec.containers[*].image}"
+```
+
 You can explicitly provide the Kubernetes Secret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
 
 ```yaml
