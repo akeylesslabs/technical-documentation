@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-The [Google CA]([https://www.Google](https://cloud.google.com/security/products/certificate-authority-service?hl=en) CA.com/) Target enables the use of **Google CA** as a Public Certificate Authority (CA) with an Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
+The [Google CA](https://cloud.google.com/security/products/certificate-authority-service?hl=en) Target enables the use of **Google CA** as a Public Certificate Authority (CA) with an Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 
 With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless validates certificate issuance requests by connecting to **Google CA** through the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
 
