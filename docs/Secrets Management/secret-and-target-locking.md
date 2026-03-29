@@ -5,13 +5,13 @@ hidden: false
 metadata:
   robots: index
 ---
-Locking [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), and [Targets](https://docs.akeyless.io/docs/targets) can be done by users with the `list` and `update` permissions for the item.
+Locking [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), and [Targets](https://docs.akeyless.io/docs/targets) can be done by users that has `list` and `update` permissions for the item.
 
 When an item is locked, only the user who locked it, or a user with an **Admin** role can access it. An admin can also remove the lock.
 
 You can choose whether to set the lock for **Reading** the item or **Updating** the item.
 
-If an item is locked, and a user has `read` permission for the item, he will not be able to read the value of the secret. 
+If an item is locked, and a user has `read` permission for the item, he will not be able to read the value of the secret.
 
 # Prerequisites
 
