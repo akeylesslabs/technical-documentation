@@ -35,6 +35,7 @@ When working with [SSH Target](https://docs.akeyless.io/docs/ssh-target), the mi
 Note: When using Self Signed Certificate, please mount the matching certificate to the Akeyless Gateway server at `etc/ssl/certs`
 
 > ℹ️ **Note (Active Directory migration compatibility):**
+>
 > The OpenSSH server is available as a supported Feature-on-Demand in Windows Server 2022, Windows Server 2019, and Windows 10 (build 1809 and later)
 
 ## Set Up Automatic Migration for Active Directory
@@ -63,6 +64,8 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 * **Discover Local Users:** Enable/Disable discover local users from each domain server and migrate them as SSH Rotated Secrets. Default is false - Only domain users will be migrated.
 
 * **Discover IIS Applications:** Discover any existing IIS Application that runs with explicit user credentials, as part of the rotated secret those IIS Application will be reflected, and upon Rotation, the relevant IIS Application will be restarted with the latest password.
+
+* **AI Certificate Discovery:** Discover existing certificates across the environment using an AI-driven scanner as part of Active Directory Migration.
 
 > ℹ️ **Note:**
 >
