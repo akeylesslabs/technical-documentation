@@ -5,13 +5,13 @@ hidden: false
 metadata:
   robots: index
 ---
-Locking [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), and [Targets](https://docs.akeyless.io/docs/targets) can be done by users that has `list` and `update` permissions for the item.
+Locking [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), and [Targets](https://docs.akeyless.io/docs/targets) is available to users who have List and Update permissions for the item.
 
-When an item is locked, only the user who locked it, or a user with an **Admin** role can access it. An admin can also remove the lock.
+When an item is locked, only the user who locked it or a user with an **Admin** role can access it. Admins can also remove the lock.
 
-You can choose whether to set the lock for **Reading** the item or **Updating** the item.
+You can choose whether the lock applies to **reading** the item or **updating** it.
 
-If an item is locked, and a user has `read` permission for the item, he will not be able to read the value of the secret.
+If an item is locked for **reading**, users with read permission will still be able to see the item, but they will not be able to view the secret value.
 
 # Prerequisites
 
@@ -46,5 +46,9 @@ In order to lock an item using the Akeyless console, run the following steps:
 3. Choose if to lock the item for **Read** or **Update**.
 4. Set a TTL for the lock (Optional).
 5. Press **Lock Now**
+
+# SRA Locked Items
+
+You can also configure a secret to be locked automatically when an SRA session starts. When a user starts an SRA session with that secret, the secret is locked, preventing other users from using it until the lock is released.
 
 <br />
