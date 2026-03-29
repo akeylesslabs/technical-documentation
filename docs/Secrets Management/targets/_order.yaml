@@ -3,6 +3,7 @@
 - azure-targets
 - chef-infra-targets
 - database-targets
+- digicert-target
 - docker-hub-target
 - gcp-targets
 - gemini-target
@@ -28,4 +29,3 @@
 - web-targets
 - windows-target
 - zerossl-target
-- digicert-target
