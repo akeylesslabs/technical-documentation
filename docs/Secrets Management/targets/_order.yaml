@@ -13,6 +13,7 @@
 - globalsign-atlas
 - globalsign-target
 - godaddy-target
+- google-ca-target
 - hashicorp-vault-target
 - kubernetes-targets
 - ldap-target
@@ -29,4 +30,3 @@
 - web-targets
 - windows-target
 - zerossl-target
-- google-ca-target
