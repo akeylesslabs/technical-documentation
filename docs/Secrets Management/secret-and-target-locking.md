@@ -47,8 +47,6 @@ In order to lock an item using the Akeyless console, run the following steps:
 4. Set a TTL for the lock (Optional).
 5. Press **Lock Now**
 
-# SRA Locked Items
-
-You can also configure a secret to be locked automatically when an SRA session starts. When a user starts an SRA session with that secret, the secret is locked, preventing other users from using it until the lock is released.
+<br />
 
 <br />
