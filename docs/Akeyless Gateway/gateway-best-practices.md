@@ -26,23 +26,23 @@ Use this path for production deployments:
 
 Choose one deployment model based on your platform and operating model:
 
-* Kubernetes with Helm: [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart)
-* Docker deployment: [Install and Configure the Gateway](https://docs.akeyless.io/docs/install-and-configure-the-gateway)
-* Docker Compose deployment: [Gateway with Docker Compose](https://docs.akeyless.io/docs/gateway-compose)
-* Serverless deployment: [Serverless Gateway](https://docs.akeyless.io/docs/serverless-gateway)
-* Azure Container Apps: [Gateway on Azure Container Apps](https://docs.akeyless.io/docs/gateway-on-azure-container-app)
+* Kubernetes with Helm: [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
+* Docker deployment: [Install and Configure the Gateway](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker)
+* Docker Compose deployment: [Gateway with Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose)
+* Serverless deployment: [Serverless Gateway](https://docs.akeyless.io/docs/gateway-cloud-serverless-deployments)
+* Azure Container Apps: [Gateway on Azure Container Apps](https://docs.akeyless.io/docs/gateway-deploy-azure-container-app)
 
 ## Environment and network requirements
 
 * Deploy Gateway in a trusted, dedicated environment. A dedicated runtime reduces lateral movement risk from unrelated workloads.
 * Restrict and audit access to the hosting environment, orchestration platform, and deployment pipelines.
-* Allow outbound HTTPS (`443`) from Gateway to the required Akeyless SaaS endpoints, as documented in [Akeyless SaaS core service connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity), [US SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-us), and [EU SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-eu).
+* Allow outbound HTTPS (`443`) from Gateway to the required Akeyless SaaS endpoints, as documented in [Akeyless SaaS core service connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity), [US SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-us), and [EU SaaS Core Services](https://docs.akeyless.io/docs/akeyless-saas-core-services-eu).
 * Expose inbound ports according to the selected deployment model. For most Gateway deployments, `8000` is used for internal client access, but exact ingress requirements can differ by runtime and feature set.
 * Validate deployment-specific inbound port requirements in:
-    * [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart)
-    * [Install and Configure the Gateway](https://docs.akeyless.io/docs/install-and-configure-the-gateway)
-    * [Gateway with Docker Compose](https://docs.akeyless.io/docs/gateway-compose)
-    * [Gateway on Azure Container Apps](https://docs.akeyless.io/docs/gateway-on-azure-container-app)
+    * [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
+    * [Install and Configure the Gateway](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker)
+    * [Gateway with Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose)
+    * [Gateway on Azure Container Apps](https://docs.akeyless.io/docs/gateway-deploy-azure-container-app)
 * Configure TLS at the ingress or load balancer layer at minimum. End-to-end TLS is recommended for strict environments.
 * Plan for additional egress requirements when connecting Gateway to private targets and integrations, including dynamic secrets, rotated secrets, Secure Remote Access (SRA), and certificate workflows.
 * Additional ports can be required in future deployments based on runtime features and target integration patterns.
@@ -81,7 +81,7 @@ Apply these controls according to the selected platform:
 * All instances in the same Gateway cluster are expected to share equivalent client-facing access and target-facing network reachability.
 * Use a customer fragment for data fragment cryptography (DFC) and zero-knowledge workflows when required.
 * Use HSM integration where hardware-backed key protection is required.
-* Evaluate [Gateway cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) modes for continuity and latency requirements.
+* Evaluate [Gateway cache](https://docs.akeyless.io/docs/gateway-caching) modes for continuity and latency requirements.
 * Review advanced deployment options for your selected runtime before production rollout.
 
 ## Caching strategy considerations
@@ -99,8 +99,8 @@ Caching is optional and should be enabled based on business continuity, performa
 
 For implementation details and behavior, see:
 
-* [Configure the Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache)
-* [QA on Gateway Caching](https://docs.akeyless.io/docs/qa-on-gateway-caching)
+* [Configure the Gateway Cache](https://docs.akeyless.io/docs/gateway-caching)
+* [QA on Gateway Caching](https://docs.akeyless.io/docs/gateway-caching)
 
 ## Gateway authentication method
 
@@ -113,7 +113,7 @@ Gateway requires an identity to communicate with the Akeyless identity security 
 ### Cloud deployments
 
 * For managed cloud platforms, prefer cloud-native IAM authentication.
-* For Kubernetes deployments, follow the cloud IAM flow in [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart), including provider-specific workload identity setup.
+* For Kubernetes deployments, follow the cloud IAM flow in [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm), including provider-specific workload identity setup.
 * In managed Kubernetes services, implementation details can differ when workload identities are enabled or disabled.
 * Configure workload identity integration according to platform-specific guidance.
 
@@ -167,20 +167,20 @@ Current guidance snapshots:
 * Audit forwarding Gateway:
     * Option 1: Use one dedicated forwarding Gateway with Audit Log permission scope `all`.
     * Option 2: Use multiple forwarding Gateways with scoped Audit Log permissions, where scopes are mutually exclusive.
-    * References: [Log forwarding configuration](https://docs.akeyless.io/docs/log-forwarding-configuration), [Audit Logs](https://docs.akeyless.io/docs/audit-logs)
+    * References: [Log forwarding configuration](https://docs.akeyless.io/docs/gateway-log-forwarding), [Audit Logs](https://docs.akeyless.io/docs/audit-logs)
 * USC-enabled Gateway:
     * `read` on the USC target and `read` or `list` on synced secret paths.
     * Reference: [Universal Secret Connector](https://docs.akeyless.io/docs/universal-secrets-connector)
 * Gateway administrative users:
     * Assign only required Gateway access permissions per admin group.
-    * Reference: [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions)
+    * Reference: [Gateway access permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access)
 
 ## Gateway administrators
 
 * Define a controlled list of human Access IDs (for example, SAML or OIDC) that can administer Gateway configuration.
 * Configure administrator sub-claims and only the Gateway access permissions required for each admin group.
 * Use separate admin groups for operations, security, and read-only review when possible.
-* Review the permissions matrix in [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions).
+* Review the permissions matrix in [Gateway access permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
 ## Resource planning for Kubernetes proactive cache
 
@@ -197,7 +197,7 @@ For baseline Kubernetes controls, see [Platform-specific operational guidance](h
 * Cluster cache allows Gateway pods to share cached data through Redis.
 * Proactive cache pre-fetches and refreshes eligible secrets to reduce read latency.
 * Startup and refresh behavior can temporarily increase CPU and memory consumption during warm-up windows.
-* For detailed cache behavior and failure modes, see [QA on Gateway Caching](https://docs.akeyless.io/docs/qa-on-gateway-caching).
+* For detailed cache behavior and failure modes, see [QA on Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
 
 ### Kubernetes cache-related configuration
 
@@ -282,13 +282,13 @@ For full monitoring guidance and alerting context, see [Gateway observability](h
 
 For telemetry implementation details and metric export options, see:
 
-* [Telemetry metrics on Kubernetes](https://docs.akeyless.io/docs/telemetry-metrics-k8s)
-* [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics)
+* [Telemetry metrics on Kubernetes](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics)
+* [Telemetry metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics)
 
 ## Gateway observability
 
 * Monitor Gateway and host or cluster health continuously.
-* Consume Gateway metrics using [Kubernetes telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics-k8s) and [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics) for non-Kubernetes deployments.
+* Consume Gateway metrics using [Kubernetes telemetry metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics) and [Telemetry metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics) for non-Kubernetes deployments.
 * Prioritize baseline platform metrics documented in telemetry pages:
     * `akeyless.gw.system.cpu.*`
     * `akeyless.gw.system.memory.*`
@@ -299,10 +299,10 @@ For telemetry implementation details and metric export options, see:
     * `akeyless.gw.system.healthcheck.status`
 * Track connectivity and cache resilience behavior:
     * Alert on SaaS connectivity degradation (`akeyless.gw.system.saas.connection_status`).
-    * Monitor cache continuity and offline-mode behavior as documented in [Configure the Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache).
+    * Monitor cache continuity and offline-mode behavior as documented in [Configure the Gateway Cache](https://docs.akeyless.io/docs/gateway-caching).
 * Monitor Gateway logs and forwarding health:
     * Collect standard output logs through the platform logging pipeline.
-    * Configure [Log forwarding configuration](https://docs.akeyless.io/docs/log-forwarding-configuration) and [Audit Logs](https://docs.akeyless.io/docs/audit-logs) forwarding to your SIEM.
+    * Configure [Log forwarding configuration](https://docs.akeyless.io/docs/gateway-log-forwarding) and [Audit Logs](https://docs.akeyless.io/docs/audit-logs) forwarding to your SIEM.
     * For larger environments, use either one dedicated Gateway with `all` audit scope, or multiple Gateways with mutually exclusive scoped audit permissions.
 * Monitor control-plane and automation signals surfaced by Gateway runtime behavior:
     * Leader-only workflows: log forwarding runs only on the log-forwarding leader, and periodic security-health updates run only on the rotator leader.

@@ -56,7 +56,7 @@ By default, the Gateway configuration is encrypted with your account's default e
 
 #### Customer Fragment
 
-If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a Base64-encoded JSON that includes your **Customer Fragment**.
+If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge), create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a Base64-encoded JSON that includes your **Customer Fragment**.
 
 ```shell values.yaml
 kubectl create secret generic customer-fragment \
@@ -150,13 +150,13 @@ globalConfig:
       value: "true"
 ```
 
-Once the Gateway is running, you can set the matching AccessID as your OIDC default login using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager)
+Once the Gateway is running, you can set the matching AccessID as your OIDC default login using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway)
 
 ## Cache Settings
 
 ### Cache Configuration
 
-To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly with the API.
+To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/gateway-caching) using the console or directly with the API.
 
 To set an internal TLS between the Gateway and cache service, set the `enableTls: true` option:
 
@@ -218,7 +218,7 @@ To set a persistence volume you can set this with your [StorageClass](https://ku
          mountPath: /data
 ```
 
-To control the cache settings, you can [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the Gateway Configuration Manager.
+To control the cache settings, you can [configure the cache](https://docs.akeyless.io/docs/gateway-caching) using the Gateway Configuration Manager.
 
 #### High Availability Cache
 

@@ -115,7 +115,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
     * **Rotation Statement:** In this field you can provide a [Custom Rotation Statement](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#custom-rotation-statement).
     * **Password Length**: Set the user's password length.
     * **Gateway:** Select the Gateway through which the secret will be rotated.
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
     * **Auto rotate:** Determines if automatic rotation is enabled.
     * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic password rotations when **Auto Rotate** is enabled.
     * **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.

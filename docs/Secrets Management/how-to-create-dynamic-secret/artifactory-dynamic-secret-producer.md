@@ -102,7 +102,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     When TTL expires, the token becomes obsolete.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. Read more about [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. Read more about [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 5. If you selected the **Explicitly specify target properties** mode, click **Next**.
 

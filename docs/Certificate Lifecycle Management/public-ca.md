@@ -125,7 +125,7 @@ akeyless get-certificate-value \
 
 You can find the complete list of parameters for this command in the [CLI Reference - certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-certificate-value) section.
 
-Once the certificate issue request is processed, the selected public CA target validation flow is triggered and handled through the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
+Once the certificate issue request is processed, the selected public CA target validation flow is triggered and handled through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview).
 
 > ℹ️ **Note (Validation Method):**
 >

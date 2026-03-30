@@ -42,14 +42,14 @@ Before choosing AWS or Azure, validate the following:
 
 Reference:
 
-* [Gateway Network Connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity)
+* [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
 
 ## Platform Guides
 
 | Platform Guide | Runtime Model | Typical Identity Integration |
 | --- | --- | --- |
-| [AWS Serverless Deployment](https://docs.akeyless.io/docs/serverless-aws) | AWS Lambda and API Gateway | AWS IAM |
-| [Azure Serverless Deployment](https://docs.akeyless.io/docs/azure-serverless) | Azure Functions and API Management | Azure AD managed identity |
+| [AWS Serverless Deployment](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws) | AWS Lambda and API Gateway | AWS IAM |
+| [Azure Serverless Deployment](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure) | Azure Functions and API Management | Azure AD managed identity |
 
 ## What Stays the Same Across Providers
 
@@ -62,6 +62,6 @@ Across AWS and Azure cloud-managed serverless platforms, the operational model r
 
 After deployment, continue with:
 
-* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication)
-* [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding)
+* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access)
+* [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
 * [Telemetry and Monitoring](https://docs.akeyless.io/docs/monitor-akeyless)

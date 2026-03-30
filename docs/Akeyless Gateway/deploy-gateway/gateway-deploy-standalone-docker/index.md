@@ -32,7 +32,7 @@ next:
 
 | Service | Endpoint |
 | --- | --- |
-| [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
+| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway) | `/console` |
 | [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
 | Akeyless V1 REST API | `/api/v1` |
 | Akeyless V2 REST API | `/api/v2` |
@@ -56,7 +56,7 @@ To upgrade your current Gateway version, simply restart the container using the 
 
 > ℹ️ **Note:** In this example, the Gateway was deployed without a default Authentication Method as part of the deployment. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
 
-For further deployment options, visit the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) page.
+For further deployment options, visit the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration) page.
 
 ### Initial Configuration
 

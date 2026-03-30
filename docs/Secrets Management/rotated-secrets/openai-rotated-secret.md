@@ -82,7 +82,7 @@ Where:
 
     * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
     * **Auto rotate:** Determines if automatic rotation is enabled.
 
