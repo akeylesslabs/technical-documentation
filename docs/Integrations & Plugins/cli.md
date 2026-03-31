@@ -263,7 +263,7 @@ The following parameters can be added to a profile, for example, on the `default
 
 Where:
 
-* `gateway_url`: Akeyless Gateway URL (port `8000`).
+* `gateway_url`: Akeyless Gateway URL (port `8000`) for Gateway-dependent workflows, such as certain dynamic secret operations. For general CLI API calls through a non-public Gateway, use `AKEYLESS_GATEWAY_URL` instead.
 
 * `default_location_prefix`: A global default prefix for the `name` flag, relevant for all types of objects in the account. In the example above, all commands will be performed on `/non-production` folder.
 
@@ -277,14 +277,16 @@ Where:
 
 ## Working With the Gateway
 
-To re-route the entire traffic directly by way of your [Gateway](https://docs.akeyless.io/docs/gateway-overview) for closed environments, create an environment variable `AKEYLESS_GATEWAY_URL` to point your CLI to interact with the relevant Gateway:
+To route CLI API calls through a [Gateway](https://docs.akeyless.io/docs/gateway-overview) in a non-public, air-gapped, or network-isolated environment, set the `AKEYLESS_GATEWAY_URL` environment variable to the relevant Gateway API endpoint. For non-public Gateway API access, include `/api/v1` in the value:
 
 ```shell Linux
 export AKEYLESS_GATEWAY_URL=https://Your_GW_URL:8000/api/v1 
 ```
 ```shell Windows
-set AKEYLESS_GATEWAY_URL=https://Your_GW_URL:8080
+set AKEYLESS_GATEWAY_URL=https://Your_GW_URL:8000/api/v1
 ```
+
+For this scenario, the profile field `gateway_url` is not used for general CLI API calls.
 
 If your Gateway uses a self-signed certificate that is not trusted by your machine, set the environment variable `AKEYLESS_TRUSTED_TLS_CERTIFICATE_FILE` with the location of your `PEM` file.
 

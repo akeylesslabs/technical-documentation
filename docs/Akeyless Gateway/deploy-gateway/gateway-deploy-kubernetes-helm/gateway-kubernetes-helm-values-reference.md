@@ -345,15 +345,33 @@ encryptionKeyExistingSecret:
 
 More options for using K8s Secrets can be found directly within the chart values file.
 
+### Gateway Image Defaults and Override
+
+In the unified Gateway chart, the default Gateway deployment image is `gw`.
+
+To override the default and use the `base` image, set the Gateway image repository and tag explicitly:
+
+```yaml values.yaml
+gateway:
+  deployment:
+    image:
+      repository: akeyless/base
+      tag: latest # use latest-akeyless for non-root
+```
+
+When working with white-label environments, prefer Docker Hub repositories over `docker.registry-2.akeyless.io`.
+
 ### Fixed Artifact Repository
 
 In some environments where an IP address must be whitelisted, to pull Akeyless official artifacts as part of your Gateway deployment, uncomment the `fixedArtifactRepository: "artifacts.site2.akeyless.io"` setting in your chart:
 
-```yaml
-image:
-  repository: akeyless/base
-  pullPolicy: Always
-  tag: latest
+```yaml values.yaml
+gateway:
+  deployment:
+    image:
+      repository: akeyless/gw
+      pullPolicy: Always
+      tag: latest
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
 
@@ -376,13 +394,15 @@ kubectl get pod <gateway-pod> -n <namespace> -o jsonpath="{.spec.containers[*].i
 
 You can explicitly provide the Kubernetes Secret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
 
-```yaml
-image:
-  repository: akeyless/base
-  pullPolicy: Always
-  tag: latest
-  imagePullSecrets:
-    - name: regcred
+```yaml values.yaml
+gateway:
+  deployment:
+    image:
+      repository: akeyless/gw
+      pullPolicy: Always
+      tag: latest
+      imagePullSecrets:
+        - name: regcred
 
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
