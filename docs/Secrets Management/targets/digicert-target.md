@@ -11,7 +11,7 @@ With a public CA, Akeyless cannot access the private key that signs certificates
 
 The **DigiCert** integration uses an [ACME Client (v2)](https://datatracker.ietf.org/doc/html/rfc8555).
 
-To prove domain ownership, DigiCert requires an ACME challenge. Let's Encrypt documents `HTTP-01`, `DNS-01`, and `TLS-ALPN-01` challenge methods. For the Akeyless Let's Encrypt target, the supported challenge types are:
+To prove domain ownership, DigiCert requires an ACME challenge. For the Akeyless **Digicert** target, the supported challenge types are:
 
 * `http` (default)
 * `dns`
@@ -22,12 +22,12 @@ To prove domain ownership, the Akeyless integration supports the following valid
 
 * **HTTP validation**: Ownership is proven by hosting a challenge file at `http://<YOUR_DOMAIN>/.well-known/acme-challenge/` and returning the expected value during validation.
 
-## Create a Let's Encrypt Target with the CLI
+## Create a Digicert Target with the CLI
 
-To create a Let's Encrypt target with the CLI, use one of the following examples based on the challenge method and DNS provider:
+To create a Digicert target with the CLI, use one of the following examples based on the challenge method and DNS provider:
 
 ```shell DNS with AWS
-akeyless target create lets-encrypt \
+akeyless target create Digicert \
 --name <Target Name> \
 --email <ACME Account Email> \
 --acme-challenge dns \
@@ -35,7 +35,7 @@ akeyless target create lets-encrypt \
 --hosted-zone <Route53 Hosted Zone ID>
 ```
 ```shell DNS with GCP
-akeyless target create lets-encrypt \
+akeyless target create Digicert \
 --name <Target Name> \
 --email <ACME Account Email> \
 --acme-challenge dns \
@@ -43,7 +43,7 @@ akeyless target create lets-encrypt \
 --gcp-project <GCP Project ID>
 ```
 ```shell DNS with Azure
-akeyless target create lets-encrypt \
+akeyless target create Digicert \
 --name <Target Name> \
 --email <ACME Account Email> \
 --acme-challenge dns \
@@ -51,7 +51,7 @@ akeyless target create lets-encrypt \
 --resource-group <Azure Resource Group Name>
 ```
 ```shell HTTP
-akeyless target create lets-encrypt \
+akeyless target create Digicert \
 --name <Target Name> \
 --email <ACME Account Email> \
 --acme-challenge http
@@ -63,7 +63,7 @@ Where:
 
 * `email`: Email address used for ACME account registration.
 
-* `lets-encrypt-url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
+* `url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
 
 * `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly. Supported values are `http` (default) and `dns`.
 
@@ -81,9 +81,9 @@ Where:
 
 [View the complete list of parameters for this command.](https://docs.akeyless.io/docs/cli-ref-targets#lets-encrypt)
 
-## Create a Let's Encrypt Target in the Console
+## Create a Digicert Target in the Console
 
-1. Log in to the Akeyless Console, and go to **Targets** > **New** > **Certificate Automation (Let's Encrypt)**.
+1. Log in to the Akeyless Console, and go to **Targets** > **New** > **Certificate Automation (Digicert)**.
 
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
@@ -112,7 +112,7 @@ Where:
 
 ## Issue Certificates With HTTP Challenge
 
-When the Let's Encrypt target is configured with `--acme-challenge=http`, certificate issuance is a two-phase flow:
+When the Digicert target is configured with `--acme-challenge=http`, certificate issuance is a two-phase flow:
 
 1. Request the certificate:
 
@@ -143,4 +143,4 @@ akeyless get-certificate-value \
 > ℹ️ **Note:**
 >
 > `validate-certificate-challenge` is required for HTTP challenge flows. DNS challenge flows do not require this additional validation command.
-> For a PKI issuer that uses a Let's Encrypt target, requested TTL values in certificate requests can be between 30 and 90 days. The issued Let's Encrypt certificate validity is fixed at 90 days.
+> For a PKI issuer that uses a Digicert target, requested TTL values in certificate requests can be between 30 and 90 days. The issued Digicert certificate validity is fixed at 90 days.
