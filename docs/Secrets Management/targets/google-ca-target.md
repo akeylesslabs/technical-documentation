@@ -20,34 +20,37 @@ To prove domain ownership, the Akeyless integration supports DNS validation:
 To create a Google CA target with the CLI, use one of the following examples based on the challenge method and DNS provider:
 
 ```shell DNS with AWS
-akeyless target create Google CA \
+akeyless target create google-trust \
 --name <Target Name> \
+--google-trust-url <production / staging> \
 --email <ACME Account Email> \
+--eab-key-id <EAB Key ID> \
+--eab-hmac-key <EAB HMAC Key> \
 --acme-challenge dns \
 --dns-target-creds <AWS DNS Target Name> \
 --hosted-zone <Route53 Hosted Zone ID>
 ```
 ```shell DNS with GCP
-akeyless target create Google CA \
+akeyless target create google-trust \
 --name <Target Name> \
+--google-trust-url <production / staging>
 --email <ACME Account Email> \
+--eab-key-id <EAB Key ID> \
+--eab-hmac-key <EAB HMAC Key> \
 --acme-challenge dns \
 --dns-target-creds <GCP DNS Target Name> \
 --gcp-project <GCP Project ID>
 ```
 ```shell DNS with Azure
-akeyless target create Google CA \
+akeyless target create google-trust \
 --name <Target Name> \
+--google-trust-url <production / staging>
 --email <ACME Account Email> \
+--eab-key-id <EAB Key ID>
+--eab-hmac-key <EAB HMAC Key>
 --acme-challenge dns \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
-```
-```shell HTTP
-akeyless target create Google CA \
---name <Target Name> \
---email <ACME Account Email> \
---acme-challenge http
 ```
 
 Where:
@@ -56,7 +59,11 @@ Where:
 
 * `email`: Email address used for ACME account registration.
 
-* `url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
+* `eab-key-id`: External Account Binding Key ID from Google CA Services.
+
+* `eab-hmac-key`: External Account Binding Key ID from Google CA Services.
+
+* `--google-trust-url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
 
 * `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly. 
 
