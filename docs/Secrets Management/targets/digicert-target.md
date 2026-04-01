@@ -57,9 +57,13 @@ Where:
 
 * `name`: A unique name for the target. The name can include a path to a virtual folder by using slash `/` separators. If the folder does not exist, Akeyless creates it with the target.
 
+* `digicert-url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
+
 * `email`: Email address used for ACME account registration.
 
-* `url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
+* `eab-key-id`: External Account Binding Key ID from DigiCert Services.
+
+  `eab-hmac-key`: External Account Binding Key ID from DigiCert Services.
 
 * `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly. Supported values are `http` (default) and `dns`.
 
@@ -86,57 +90,22 @@ Where:
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. [Read more about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
-   * **Server URL**: Either [Production](https://acme-v02.api.letsencrypt.org/directory) or [Staging](https://acme-staging-v02.api.letsencrypt.org/directory).
+   * **Environment**: The ACME environment, **US Production** / **EU Production** / **US Demo** or **EU Demo**
 
    * **Email**: Email address used to register the ACME account.
 
-   * **Challenge Type**: Either **HTTP** or **DNS**.
+   * **DNS Provider**: Either **AWS**, **GCP**, or **Azure** (relevant only if **Challenge Type** is **DNS**).
 
-     * **DNS Provider**: Either **AWS**, **GCP**, or **Azure** (relevant only if **Challenge Type** is **DNS**).
+   * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
-     * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
+   * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
 
-     * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+   * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
-     * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
-
-     * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+   * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
    * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
 
 5. Click Finish.
 
-## Issue Certificates With HTTP Challenge
-
-When the Digicert target is configured with `--acme-challenge=http`, certificate issuance is a two-phase flow:
-
-1. Request the certificate:
-
-```shell
-akeyless get-pki-certificate \
---cert-issuer-name <PKI Issuer Name> \
---csr-file-path <path/to/request.csr>
-```
-
-1. Deploy the challenge file to the URL path returned in `http_challenge_info.file_path` using the value in `http_challenge_info.file_content`.
-
-2. Finalize validation and issuance:
-
-```shell
-akeyless validate-certificate-challenge \
---cert-display-id <Certificate Display ID> \
---timeout 120
-```
-
-1. Retrieve the issued certificate value:
-
-```shell
-akeyless get-certificate-value \
---cert-issuer-name <PKI Issuer Name> \
---display-id <Certificate Display ID>
-```
-
-> ℹ️ **Note:**
->
-> `validate-certificate-challenge` is required for HTTP challenge flows. DNS challenge flows do not require this additional validation command.
-> For a PKI issuer that uses a Digicert target, requested TTL values in certificate requests can be between 30 and 90 days. The issued Digicert certificate validity is fixed at 90 days.
+<br />
