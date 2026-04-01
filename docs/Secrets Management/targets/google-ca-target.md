@@ -11,16 +11,9 @@ With a public CA, Akeyless cannot access the private key that signs certificates
 
 The **Google CA** integration uses an [ACME Client (v2)](https://datatracker.ietf.org/doc/html/rfc8555).
 
-To prove domain ownership, Google CA requires an ACME challenge. for the Akeyless Google CA target, the supported challenge types are:
-
-* `http` (default)
-* `dns`
-
-To prove domain ownership, the Akeyless integration supports the following validation methods:
+To prove domain ownership, the Akeyless integration supports DNS validation:
 
 * **DNS validation**: Ownership is proven by adding a DNS TXT record. This requires the domain to be managed in a supported DNS provider's hosted zone (for example, AWS Route 53, GCP Cloud DNS, or Azure DNS).
-
-* **HTTP validation**: Ownership is proven by hosting a challenge file at `http://<YOUR_DOMAIN>/.well-known/acme-challenge/` and returning the expected value during validation.
 
 ## Create a Google CA Target with the CLI
 
@@ -65,7 +58,7 @@ Where:
 
 * `url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
 
-* `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly. Supported values are `http` (default) and `dns`.
+* `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly. 
 
 * `dns-target-creds`: Use this when `--acme-challenge=dns`. This is required for DNS validation. Supported target types are AWS, Azure, and GCP.
 
@@ -90,57 +83,26 @@ Where:
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. [Read more about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
-   * **Server URL**: Either [Production](https://acme-v02.api.letsencrypt.org/directory) or [Staging](https://acme-staging-v02.api.letsencrypt.org/directory).
-
    * **Email**: Email address used to register the ACME account.
 
-   * **Challenge Type**: Either **HTTP** or **DNS**.
+   * **URL**: Either [Production](https://acme-v02.api.letsencrypt.org/directory) or [Staging](https://acme-staging-v02.api.letsencrypt.org/directory).
 
-     * **DNS Provider**: Either **AWS**, **GCP**, or **Azure** (relevant only if **Challenge Type** is **DNS**).
+   * **EAB KID**: External Account Binding Key ID from Google CA Services.
 
-     * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
+   * **EAB HMAC Key**: External Account Binding HMAC Key from Google CA Services.
 
-     * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+   * **DNS Provider**: Either **AWS**, **GCP**, or **Azure** (relevant only if **Challenge Type** is **DNS**).
 
-     * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
+   * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
-     * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+   * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+
+   * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
+
+   * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
    * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
 
 5. Click Finish.
 
-## Issue Certificates With HTTP Challenge
-
-When the Google CA target is configured with `--acme-challenge=http`, certificate issuance is a two-phase flow:
-
-1. Request the certificate:
-
-```shell
-akeyless get-pki-certificate \
---cert-issuer-name <PKI Issuer Name> \
---csr-file-path <path/to/request.csr>
-```
-
-1. Deploy the challenge file to the URL path returned in `http_challenge_info.file_path` using the value in `http_challenge_info.file_content`.
-
-2. Finalize validation and issuance:
-
-```shell
-akeyless validate-certificate-challenge \
---cert-display-id <Certificate Display ID> \
---timeout 120
-```
-
-1. Retrieve the issued certificate value:
-
-```shell
-akeyless get-certificate-value \
---cert-issuer-name <PKI Issuer Name> \
---display-id <Certificate Display ID>
-```
-
-> ℹ️ **Note:**
->
-> `validate-certificate-challenge` is required for HTTP challenge flows. DNS challenge flows do not require this additional validation command.
-> For a PKI issuer that uses a Google CA target, requested TTL values in certificate requests can be between 30 and 90 days. The issued Google CA certificate validity is fixed at 90 days.
+<br />
