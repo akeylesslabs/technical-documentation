@@ -11,50 +11,46 @@ With a public CA, Akeyless cannot access the private key that signs certificates
 
 The **DigiCert** integration uses an [ACME Client (v2)](https://datatracker.ietf.org/doc/html/rfc8555).
 
-To prove domain ownership, DigiCert requires an ACME challenge. For the Akeyless **Digicert** target, the supported challenge types are:
-
-* `http` (default)
-* `dns`
-
-To prove domain ownership, the Akeyless integration supports the following validation methods:
+To prove domain ownership, the Akeyless integration supports DNS validation:
 
 * **DNS validation**: Ownership is proven by adding a DNS TXT record. This requires the domain to be managed in a supported DNS provider's hosted zone (for example, AWS Route 53, GCP Cloud DNS, or Azure DNS).
-
-* **HTTP validation**: Ownership is proven by hosting a challenge file at `http://<YOUR_DOMAIN>/.well-known/acme-challenge/` and returning the expected value during validation.
 
 ## Create a Digicert Target with the CLI
 
 To create a Digicert target with the CLI, use one of the following examples based on the challenge method and DNS provider:
 
 ```shell DNS with AWS
-akeyless target create Digicert \
+akeyless target create digicert \
 --name <Target Name> \
+--digicert-url <us-production / eu-production / us-demo / eu-demo> \
 --email <ACME Account Email> \
+--eab-key-id <EAB Key ID> \
+--eab-hmac-key <EAB HAMC Key> \
 --acme-challenge dns \
 --dns-target-creds <AWS DNS Target Name> \
 --hosted-zone <Route53 Hosted Zone ID>
 ```
 ```shell DNS with GCP
-akeyless target create Digicert \
+akeyless target create digicert \
 --name <Target Name> \
+--digicert-url <us-production / eu-production / us-demo / eu-demo> \
 --email <ACME Account Email> \
+--eab-key-id <EAB Key ID> \
+--eab-hmac-key <EAB HAMC Key> \
 --acme-challenge dns \
 --dns-target-creds <GCP DNS Target Name> \
 --gcp-project <GCP Project ID>
 ```
 ```shell DNS with Azure
-akeyless target create Digicert \
+akeyless target create digicert \
 --name <Target Name> \
+--digicert-url <us-production / eu-production / us-demo / eu-demo> \
 --email <ACME Account Email> \
+--eab-key-id <EAB Key ID> \
+--eab-hmac-key <EAB HAMC Key> \
 --acme-challenge dns \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
-```
-```shell HTTP
-akeyless target create Digicert \
---name <Target Name> \
---email <ACME Account Email> \
---acme-challenge http
 ```
 
 Where:
