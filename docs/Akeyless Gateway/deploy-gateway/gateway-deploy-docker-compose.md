@@ -66,7 +66,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 > ℹ️ **Note:**
 >
-> Your Gateway primary authentication method must include an RBAC Administrative rule scoped to Gateway management, with permission scope set to `scope` or `all` for Gateway Console access.
+> Your Gateway primary authentication method must include an RBAC Administrative rule scoped to Gateway management, with permission scope set to `scope` or `all` for Gateway Console (UI) access. CLI and API management can still be allowed when the role grants the required permissions.
 
 ### API Key Authentication
 

@@ -39,7 +39,7 @@ Supported authentication methods vary by deployment type. Common methods include
 Set a primary authentication method that the Gateway uses for control-plane operations.
 
 The primary Gateway identity must be associated with an RBAC policy that includes an Administrative rule scoped to Gateway management.
-For Gateway Console access, this Administrative rule permission scope must be set to `scope` or `all`.
+For Gateway Console (UI) access, this Administrative rule permission scope must be set to `scope` or `all`.
 
 ### Configure the Gateway Identity with Helm
 
@@ -84,7 +84,8 @@ After setting the primary identity, define who can manage Gateway settings with 
 Gateway access is permission-based. Access is granted from configured `allowedAccessPermissions` entries and their assigned permissions.
 
 This means your primary RBAC policy defines baseline administrative access, while `allowedAccessPermissions` delegates Gateway-scoped access to additional identities.
-If the Administrative rule permission scope is not set to `scope` or `all`, admin users will be blocked from Gateway Console access.
+If the Administrative rule permission scope is not set to `scope` or `all`, admin users will be blocked from Gateway Console (UI) access.
+CLI and API management operations can still be allowed when the role grants the required permissions.
 
 ```yaml values.yaml
 globalConfig:
