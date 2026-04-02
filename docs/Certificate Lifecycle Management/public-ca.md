@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.globalsign.com/), [Venafi (now part of CyberArk)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/), [GoDaddy](https://www.godaddy.com/), [Sectigo](https://www.sectigo.com/), and [Let's Encrypt](https://letsencrypt.org/) as Public CAs.
+Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.globalsign.com/), [Venafi (now part of CyberArk)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/), [GoDaddy](https://www.godaddy.com/), [Sectigo](https://www.sectigo.com/), [Google Trust Services (Google CA)](https://cloud.google.com/security/products/certificate-authority-service), [DigiCert](https://www.digicert.com/), and [Let's Encrypt](https://letsencrypt.org/) as Public CAs.
 
 The public certificate authority will sign and issue the certificate, while Akeyless will store and manage the certificate lifecycle.
 

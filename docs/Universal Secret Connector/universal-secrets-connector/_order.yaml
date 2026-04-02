@@ -3,3 +3,4 @@
 - gcp-universal-secrets-connector
 - hc-vault-universal-secrets-connector
 - kubernetes-universal-secrets-connector
+- github-universal-secret-connector
