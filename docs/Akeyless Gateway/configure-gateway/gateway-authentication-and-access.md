@@ -38,6 +38,9 @@ Supported authentication methods vary by deployment type. Common methods include
 
 Set a primary authentication method that the Gateway uses for control-plane operations.
 
+The primary Gateway identity must be associated with an RBAC policy that includes an Administrative rule scoped to Gateway management.
+For Gateway Console (UI) access, this Administrative rule permission scope must be set to `scope` or `all`.
+
 ### Configure the Gateway Identity with Helm
 
 For Kubernetes Helm deployments, configure `globalConfig.gatewayAuth` in `values.yaml`:
@@ -78,6 +81,12 @@ docker run -d -p 8000:8000 -p 5696:5696 \
 
 After setting the primary identity, define who can manage Gateway settings with `allowedAccessPermissions`.
 
+Gateway access is permission-based. Access is granted from configured `allowedAccessPermissions` entries and their assigned permissions.
+
+This means your primary RBAC policy defines baseline administrative access, while `allowedAccessPermissions` delegates Gateway-scoped access to additional identities.
+If the Administrative rule permission scope is not set to `scope` or `all`, admin users will be blocked from Gateway Console (UI) access.
+CLI and API management operations can still be allowed when the role grants the required permissions.
+
 ```yaml values.yaml
 globalConfig:
   allowedAccessPermissions:
@@ -107,6 +116,10 @@ globalConfig:
 
 Use the minimum permissions required for each operational role.
 
+> ℹ️ **Note:**
+>
+> In current Gateway behavior, `general` and `defaults` are treated as a compatible pair for effective access. If one is configured, the other is included in effective permission evaluation.
+
 | Permission | Typical use |
 | --- | --- |
 | `admin` | Full Gateway administration, including access permission management. |
@@ -118,6 +131,8 @@ Use the minimum permissions required for each operational role.
 | `caching` | Manage cache and offline behavior settings. |
 | `kmip` | Manage KMIP service configuration. |
 | `general` | Manage general Gateway settings, including URL and TLS behavior. |
+
+Administrative operations for Gateway Allowed Access management require `admin` permission.
 
 ## Recommended Access Pattern
 
@@ -132,8 +147,9 @@ After applying authentication and access configuration:
 
 1. Confirm the Gateway starts successfully.
 2. Confirm login works for intended admin users.
-3. Confirm non-admin users can only access the permitted configuration areas.
-4. Confirm unauthorized users are blocked.
+3. Confirm each admin role used for Gateway management has Administrative permission scope set to `scope` or `all`.
+4. Confirm non-admin users can only access the permitted configuration areas.
+5. Confirm unauthorized users are blocked.
 
 ## Related Pages
 
