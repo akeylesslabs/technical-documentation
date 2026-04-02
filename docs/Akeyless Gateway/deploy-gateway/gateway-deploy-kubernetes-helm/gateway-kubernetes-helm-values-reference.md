@@ -111,7 +111,7 @@ TLSConf:
   tlsPrivateKeySecretKeyName:  tlsPrivateKey
 ```
 
-Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-certificate) using the web interface of the Gateway Configuration Manager.
+Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/gateway-tls-settings) using the web interface of the Gateway Configuration Manager.
 
 ### TLS 1.3 and PQC on Any Cloud Platform
 
@@ -361,27 +361,64 @@ encryptionKeyExistingSecret:
 
 More options for using K8s Secrets can be found directly within the chart values file.
 
+### Gateway Image Defaults and Override
+
+In the unified Gateway chart, the default Gateway deployment image is `gw`.
+
+To override the default and use the `base` image, set the Gateway image repository and tag explicitly:
+
+```yaml values.yaml
+gateway:
+  deployment:
+    image:
+      repository: akeyless/base
+      tag: latest # use latest-akeyless for non-root
+```
+
+When working with white-label environments, prefer Docker Hub repositories over `docker.registry-2.akeyless.io`.
+
 ### Fixed Artifact Repository
 
 In some environments where an IP address must be whitelisted, to pull Akeyless official artifacts as part of your Gateway deployment, uncomment the `fixedArtifactRepository: "artifacts.site2.akeyless.io"` setting in your chart:
 
-```yaml
-image:
-  repository: akeyless/base
-  pullPolicy: Always
-  tag: latest
+```yaml values.yaml
+gateway:
+  deployment:
+    image:
+      repository: akeyless/gw
+      pullPolicy: Always
+      tag: latest
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
+```
+
+> ℹ️ **Note:**
+>
+> In Unified Gateway Helm deployments, setting `repository: akeyless/base` with `tag: latest` resolves to `akeyless/base:latest-akeyless` at runtime (non-root image path).
+>
+> Legacy API Gateway deployments use `akeyless/base:latest`.
+
+```yaml
+# Example rendered container image for Unified Gateway
+image: akeyless/base:latest-akeyless
+```
+
+To verify the resolved image in your cluster:
+
+```shell
+kubectl get pod <gateway-pod> -n <namespace> -o jsonpath="{.spec.containers[*].image}"
 ```
 
 You can explicitly provide the Kubernetes Secret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
 
-```yaml
-image:
-  repository: akeyless/base
-  pullPolicy: Always
-  tag: latest
-  imagePullSecrets:
-    - name: regcred
+```yaml values.yaml
+gateway:
+  deployment:
+    image:
+      repository: akeyless/gw
+      pullPolicy: Always
+      tag: latest
+      imagePullSecrets:
+        - name: regcred
 
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```

@@ -602,3 +602,11 @@
 - targetupdateletsencrypt
 - validatecertificatechallenge
 - vaultaddress
+- lockitem
+- locktarget
+- targetcreatedigicert
+- targetcreategoogletrust
+- targetupdatedigicert
+- targetupdategoogletrust
+- unlockitem
+- unlocktarget

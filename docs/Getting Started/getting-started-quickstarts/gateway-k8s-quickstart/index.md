@@ -78,6 +78,11 @@ helm show values akeyless/akeyless-gateway --version "1.13.1" > values.yaml
 
 There should be no command output.
 
+> ℹ️ **Note:**
+>
+> In the unified Gateway chart, the default deployment image is `gw`.
+> If a deployment must use `akeyless/base`, set an explicit image override in `values.yaml` as documented in [Gateway Kubernetes Helm Values Reference](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference#gateway-image-defaults-and-override).
+
 ## Step 4: Create Secret for Access Key
 
 1. Replace `<Access-Key>` in the command below with the Access Key value of your API Key.

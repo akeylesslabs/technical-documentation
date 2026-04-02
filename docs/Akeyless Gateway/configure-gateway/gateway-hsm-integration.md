@@ -12,7 +12,7 @@ next:
 ---
 In any encryption system, the ability to generate pseudo-random numbers is crucial, particularly for tasks like creating encryption keys. Akeyless addresses this need by offering a solution that not only generates pseudo-random numbers, but also enhances overall data security by leveraging **Hardware Security Modules (HSMs)** to generate and securely store these pseudo-random numbers for encryption keys, ensuring maximum data security.
 
-The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` protocol to provide a seamless solution. This integration can also be leveraged for the derivation of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) **Customer Fragments** from the **HSM** to the **Gateway**, using the [HKDF](https://en.wikipedia.org/wiki/HKDF) function.
+The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` protocol to provide a seamless solution. This integration can also be leveraged for the derivation of **Customer Fragments** from the **HSM** to the **Gateway**, using the [HKDF](https://en.wikipedia.org/wiki/HKDF) function. For related guidance, see [Zero Knowledge](https://docs.akeyless.io/docs/zero-knowledge) and [Gateway Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 > ℹ️ **Note (HSM Entropy):**
 >
@@ -68,7 +68,32 @@ kubectl create secret generic hsm-pin \
   --from-literal=pin=<hsm-pin>
 ```
 
-You can then reference that secret and configure persistence in `values.yaml`:
+You can then reference that secret and configure persistence in `values.yaml`.
+
+Use the values structure that matches your chart:
+
+### akeyless-gateway chart (`gateway.hsm`)
+
+```yaml
+gateway:
+  hsm:
+    enabled: true
+    pinExistingSecret: "hsm-pin"
+    pkcs11LibPath: "/opt/cloudhsm/lib/libcloudhsm_pkcs11.so"
+    slot: "<slot-number>"
+    # tokenLabel: "<token-label>"
+    # tokenSerial: "<token-serial>"
+    # useRand: false
+
+persistence:
+  enabled: true
+  accessMode: "ReadWriteMany"
+  # existingClaim: ""
+  # storageClass: ""
+  size: 100Mi
+```
+
+### akeyless-api-gateway chart (`hsm`)
 
 ```yaml
 hsm:
@@ -99,6 +124,8 @@ Where:
 * `useRand` - Boolean flag. If set to `true`, Gateway uses the HSM as an entropy source.
 
 * `persistence` - Persistent storage settings for mounting HSM client libraries and related files in Kubernetes.
+
+* `gateway.hsm` and `hsm` - Chart-specific value paths. Use the one that matches your deployed chart.
 
 ## Customer Fragments
 
