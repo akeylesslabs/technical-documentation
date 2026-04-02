@@ -14,7 +14,7 @@ Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.glob
 
 The public certificate authority will sign and issue the certificate, while Akeyless will store and manage the certificate lifecycle.
 
-The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate while providing real-time expiration notification inside the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
+The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate, and providing real-time expiration notifications in the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
 
 ## Prerequisites
 
@@ -62,9 +62,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > ℹ️ **Note (Allowed Domains):**
 >
-> Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix, it is recommended to check this in advance for future automated renewal.
-
-<!-- -->
+> Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix; it is recommended to check this in advance for future automated renewal.
 
 > ℹ️ **Note (Auto-Renew and Public CA Certificate Validity):**
 >
@@ -93,7 +91,7 @@ Where:
 
 * `common-name`: Certificate common name.
 
-* `gateway-url`: Akeyless Gateway URL (port `8000`). to generate the classic key, relevant only when using `generate-key` option.
+* `gateway-url`: Akeyless Gateway URL (port `8000`). to generate the classic key, relevant only when using the `generate-key` option.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#generate-csr) section.
 
