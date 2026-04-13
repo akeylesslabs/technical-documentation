@@ -14,7 +14,7 @@ In a SaaS environment managing sensitive assets such as credentials, certificate
 
 Continuous monitoring also helps meet regulatory standards, supports investigations, and ensures the system can grow smoothly as needed.
 
-This guide outlines the monitoring features offered by Akeyless, including [Telemetry metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics), [Audit Logs](https://docs.akeyless.io/docs/audit-logs), [Log Forwarding](https://docs.akeyless.io/docs/gw-docker-log-forwarding), [Analytics](https://docs.akeyless.io/docs/analytics), and [Event Monitoring](https://docs.akeyless.io/docs/event-center).
+This guide outlines the monitoring features offered by Akeyless, including [Telemetry metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics), [Audit Logs](https://docs.akeyless.io/docs/audit-logs), [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding), [Analytics](https://docs.akeyless.io/docs/analytics), and [Event Monitoring](https://docs.akeyless.io/docs/event-center).
 
 ## Audit Logs
 
@@ -32,7 +32,7 @@ Audit Logs can be exported to external platforms for further analysis and long-t
 
 Akeyless supports centralized log management by allowing Audit Logs to be forwarded from the Akeyless Gateway. Logs can be streamed or exported to external platforms for detailed analysis and monitoring.
 
-A full list of the log servers to which logs can be forwarded can be found in this [guide](https://docs.akeyless.io/docs/gw-docker-log-forwarding).
+A full list of the log servers to which logs can be forwarded can be found in this [guide](https://docs.akeyless.io/docs/gateway-log-forwarding).
 
 Setting the [Gateway](https://docs.akeyless.io/docs/gateway-overview) to forward the **Audit Logs** can be configured either during deployment or after the Gateway is deployed.
 

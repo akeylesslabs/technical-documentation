@@ -23,4 +23,4 @@ Therefore, to enable Zero-Knowledge Encryption, all you need is your own Custome
 ![Simplified scheme of key storage breakdown. The cloud platform key fragments are backed up by Akeyless, and the customer fragment is kept by the customer.](https://files.readme.io/8c54a7f-CFZK.png)
 
 > ℹ️ **Info (Implementing Zero Knowledge):**
-> To implement the Zero Knowledge Encryption solution on your gateway, refer to the [Implementing Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) guide.
+> To implement the Zero Knowledge Encryption solution on your gateway, refer to the [Implementing Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge) guide.

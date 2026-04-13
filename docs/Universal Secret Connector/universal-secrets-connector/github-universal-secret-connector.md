@@ -15,11 +15,11 @@ GitHub USC setup and management has 3 scopes:
 
 * **Organization**: Choose **Private**, **Public**, or **Selected**.
 
-  * **Private**: Manage secrets for **Private** repositories.
+    * **Private**: Manage secrets for **Private** repositories.
 
-  * **Public**: Manage secrets for **Public** repositories.
+    * **Public**: Manage secrets for **Public** repositories.
 
-  * **Selected**: Manage secrets for the repositories you choose.
+    * **Selected**: Manage secrets for the repositories you choose.
 
 * **Environment Repository**: Choose the Environment Repository where you want to manage secrets.
 

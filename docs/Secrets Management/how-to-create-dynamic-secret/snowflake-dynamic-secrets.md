@@ -139,7 +139,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Temporary Password Length:** Set the length of the temporary password.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 5. If you selected the **Explicitly specify target properties** option, click **Next**.
 
