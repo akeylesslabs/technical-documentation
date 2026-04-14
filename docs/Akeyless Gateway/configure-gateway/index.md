@@ -16,10 +16,13 @@ Configuration is typically done after deployment and adjusted over time as secur
 
 Use the Gateway Configuration Manager to access Gateway settings from the UI:
 
-1. Open the Gateway endpoint.
+1. Open the Gateway endpoint and sign in.
 2. Navigate to `<gateway-protocol>://<gateway-host>:8000/console`.
-  For example, `https://gateway.example.com:8000/console`.
-3. Sign in with an identity that is allowed to manage Gateway settings.
+   For example, `https://gateway.example.com:8000/console`.
+3. In the Console, open the **Gateway** tab and select the relevant Gateway.
+4. Select **Manage Gateway** to open and change Gateway settings.
+
+To see a Gateway in the **Gateway** list and use **Manage Gateway**, the user must have Gateway-scoped administrative permission (`scope` or `all`). Without this permission scope, the Gateway is not visible in the list, and the user cannot manage it.
 
 Use HTTPS for remote management whenever possible.
 

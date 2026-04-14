@@ -64,7 +64,7 @@ The table below describes common inbound ports on the Gateway service itself.
 | 8200 | HashiCorp Vault Proxy | HashiCorp Vault Proxy endpoint | Optional |
 | 5696 | KMIP | KMIP service endpoint | Optional |
 
-To access Gateway settings in the UI, use `<gateway-protocol>://<gateway-host>:8000/console`. In updated releases, Configure App on port `8000` is deprecated and can redirect to the Console app.
+Use `<gateway-protocol>://<gateway-host>/console` to open the Gateway Console UI entry point. To change Gateway settings, open the **Gateway** tab, select the relevant Gateway, and select **Manage Gateway**. The user must have Gateway-scoped administrative permission (`scope` or `all`) to see the Gateway in the list and manage it. In updated releases, Configure App on port `8000` is deprecated and can redirect to the Console app.
 
 > ℹ️ **Note:**
 > The Helm chart values include a `grpc` service port (`8085`). Validate deployment-level listener configuration for your release before exposing this port.
