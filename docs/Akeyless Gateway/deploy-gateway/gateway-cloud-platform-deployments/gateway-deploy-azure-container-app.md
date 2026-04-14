@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page describes how to run [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) on [Azure Container Apps](https://azure.microsoft.com/en-us/products/container-apps). The latest Docker image can be found at the [Akeyless Docker Hub](https://hub.docker.com/r/akeyless/gateway/tags) using the following image tag: `akeyless/gateway:latest-container-app`.
+This page describes how to run [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) on [Azure Container Apps](https://azure.microsoft.com/en-us/products/container-apps). The latest Docker image can be found at the [Akeyless Docker Hub](https://hub.docker.com/r/akeyless/gateway/tags) using the following image tag: `akeyless/gateway:latest-container-app`.
 
 ## Prerequisites
 
@@ -154,7 +154,7 @@ Where:
 
 * `gateway_access_type` - The Auth Method type for the Gateway (In our case - `azure`).
 
-* `allowed_access_permissions` - A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components.
+* `allowed_access_permissions` - A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) users will have on your Gateway components.
   **Required** when `admin_access_id_type` is `azure`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 * `akeyless_url` - `https://vault.akeyless.io`.
@@ -173,7 +173,7 @@ Where:
 
 Upon successful deployment, A new [Container APP](https://azure.microsoft.com/en-us/products/container-apps) will be created, which will hold the Gateway application.
 
-The Gateway is configured using environment variables. For additional available variables, refer to the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) guide.
+The Gateway is configured using environment variables. For additional available variables, refer to the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration) guide.
 
 ## Mount a Volume in Your Container App
 

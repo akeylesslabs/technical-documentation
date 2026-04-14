@@ -19,7 +19,7 @@ next:
 ---
 This page includes only Amazon EKS-specific delta steps.
 
-Review the [Kubernetes Helm deployment page](https://docs.akeyless.io/docs/gateway-chart) first, then apply the EKS changes in this guide.
+Review the [Kubernetes Helm deployment page](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) first, then apply the EKS changes in this guide.
 
 ## Scope
 
@@ -89,5 +89,5 @@ After deployment, validate that the Gateway pod uses AWS identity successfully:
 ## Related Tasks
 
 * For shared Helm install and upgrade commands, use the main Kubernetes Helm deployment page.
-* For advanced chart settings, use [Advanced Kubernetes Configuration](https://docs.akeyless.io/docs/advanced-k8s-gateway-configuration).
-* For TLS configuration, use [Configuring TLS](https://docs.akeyless.io/docs/configuring-tls).
+* For advanced chart settings, use [Advanced Kubernetes Configuration](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference).
+* For TLS configuration, use [Configuring TLS](https://docs.akeyless.io/docs/gateway-tls-settings).

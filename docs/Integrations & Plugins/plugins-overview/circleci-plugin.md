@@ -79,7 +79,7 @@ Go to **Project Settings** > **Environment variables** > **Add Environment Varia
 
 Create an environment variable in CircleCI called `ACCESS_ID` and store your Auth Method's `access-id` in it.
 
-While working with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) encryption based on your fragment, store your Akeyless Gateway Restful API URL (that is port `8080`) in an environment variable named `AKEYLESS_GATEWAY_URL`.
+While working with [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge) encryption based on your fragment, store your Akeyless Gateway Restful API URL (that is port `8080`) in an environment variable named `AKEYLESS_GATEWAY_URL`.
 
 > ℹ️ **Note:**
 >

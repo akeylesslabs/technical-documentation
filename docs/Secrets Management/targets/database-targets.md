@@ -165,7 +165,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (MySQL)**.
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 **DB Username:** Privilege database user name with sufficient rights to create users.
 
@@ -192,7 +192,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (PostgreSQL
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 **DB Username:** Privilege database user name with sufficient rights to create users.
 
@@ -215,7 +215,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (MSSQL)**.
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 Choose the desired mode of authenticating either **Use Credentials**, **Use Cloud Identity**, or **Target** to use a domain credentials from an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target)
 
@@ -248,7 +248,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (Redshift)*
 **Name:** A unique name for the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 **DB Username:** Privilege database user name with sufficient rights to create users.
 
@@ -271,7 +271,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (Oracle)**.
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 **Connect Using:** Select how to connect to Oracle DB either using **Explicit Credentials**, or using **Wallet**.
 
@@ -320,7 +320,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (MongoDB)**
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 Select **MongoDB** radio button.
 
@@ -345,7 +345,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (MongoDB)**
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 Select **MongoDB Atlas** radio button.
 
@@ -366,7 +366,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (Snowflake)
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 **Account Username:** Username for a Snowflake user administrator (with the `USERADMIN` role or higher).
 
@@ -396,7 +396,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (Cassandra)
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 **DB Username:** Privilege database user name with sufficient rights to create users.
 
@@ -417,7 +417,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (SAP HanaDB
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 **DB Username:** Privilege database user name with sufficient rights to create users.
 
@@ -440,7 +440,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (Redis)**.
 **Name:** A unique name for the target. The name can include the path to the virtual folder in which you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 **DB Username:** Privilege database user name with sufficient rights to create users.
 

@@ -7,7 +7,7 @@ metadata:
 ---
 The [Google CA](https://cloud.google.com/security/products/certificate-authority-service?hl=en) Target enables the use of **Google CA** as a Public Certificate Authority (CA) with an Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 
-With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless validates certificate issuance requests by connecting to **Google CA** through the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
+With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless validates certificate issuance requests by connecting to **Google CA** through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview).
 
 The **Google CA** integration uses an [ACME Client (v2)](https://datatracker.ietf.org/doc/html/rfc8555).
 
@@ -65,7 +65,7 @@ Where:
 
 * `--google-trust-url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
 
-* `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly. 
+* `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly.
 
 * `dns-target-creds`: Use this when `--acme-challenge=dns`. This is required for DNS validation. Supported target types are AWS, Azure, and GCP.
 
@@ -87,7 +87,7 @@ Where:
 
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. [Read more about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge).
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. [Read more about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 4. Define the remaining parameters as follows:
    * **Email**: Email address used to register the ACME account.

@@ -35,7 +35,7 @@ Cloud-managed Kubernetes platform deployment patterns are a good fit when you ne
 * Cloud-native workload identity integration.
 * Standardized platform operations across cloud environments.
 
-If you need provider-agnostic deployment guidance, use [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-chart) first, then apply provider-specific settings.
+If you need provider-agnostic deployment guidance, use [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) first, then apply provider-specific settings.
 
 ## Shared Prerequisites
 
@@ -48,7 +48,7 @@ Before selecting a platform-specific flow, validate the following:
 
 Reference:
 
-* [Gateway Network Connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity)
+* [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
 
 ## Platform Guides
 
@@ -57,7 +57,7 @@ Choose the guide that matches your platform:
 | Platform Guide | Typical Identity Integration |
 | --- | --- |
 | [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-k8s#aws-iam) | AWS IAM roles |
-| [Azure Container App Deployment](https://docs.akeyless.io/docs/gateway-on-azure-container-app) | Azure managed identity |
+| [Azure Container App Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-container-app) | Azure managed identity |
 | [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-k8s#azure-active-directory) | Azure AD workload identity |
 | [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-k8s#gcp) | GCP workload identity |
 
@@ -72,5 +72,5 @@ Across EKS, AKS, GKE, and Azure Container Apps, the core Gateway model is consis
 
 After deployment, continue with:
 
-* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication)
+* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access)
 * [Telemetry and Monitoring](https://docs.akeyless.io/docs/monitor-akeyless)

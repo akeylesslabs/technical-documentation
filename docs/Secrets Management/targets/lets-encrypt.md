@@ -12,7 +12,7 @@ next:
 ---
 The [Let's Encrypt](https://letsencrypt.org/) Target enables the use of **Let's Encrypt** as a Public Certificate Authority (CA) with an Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 
-With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless validates certificate issuance requests by connecting to **Let's Encrypt** through the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
+With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless validates certificate issuance requests by connecting to **Let's Encrypt** through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview).
 
 The Let's Encrypt integration uses an [ACME Client (v2)](https://datatracker.ietf.org/doc/html/rfc8555).
 
@@ -92,7 +92,7 @@ Where:
 
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. [Read more about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge).
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. [Read more about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 4. Define the remaining parameters as follows:
    * **Server URL**: Either [Production](https://acme-v02.api.letsencrypt.org/directory) or [Staging](https://acme-staging-v02.api.letsencrypt.org/directory).

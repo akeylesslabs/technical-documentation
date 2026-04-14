@@ -473,7 +473,7 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
     If you selected the **Explicitly specify target properties** mode, click **Next**. Otherwise, select **Finish**.
 

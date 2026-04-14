@@ -22,7 +22,7 @@ This page describes how to run an Akeyless Serverless Gateway on AWS using Hashi
 
 | Service | Endpoint |
 | --- | --- |
-| [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
+| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway) | `/console` |
 | [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
 | Akeyless V1 REST API | `/api/v1` |
 | Akeyless V2 REST API | `/api/v2` |
@@ -111,11 +111,11 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 ### Customer Fragment
 
-To work with [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge) edit the `customer_fragments` variable:
+To work with [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/gateway-zero-knowledge) edit the `customer_fragments` variable:
 
 ```shell
 variable "customer_fragments"{
@@ -205,7 +205,7 @@ The **Serverless Gateway** will boot with the version you chose.
 The Akeyless Serverless Gateway does not support:
 
 * [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) and [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Authentication Methods
-* [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
+* [Caching](https://docs.akeyless.io/docs/gateway-caching)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway status change
 * [TLS Configuration](https://docs.akeyless.io/docs/gateway-tls-settings)

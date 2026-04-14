@@ -1,10 +1,25 @@
 markdownlint-cli2 v0.22.0 (markdownlint v0.40.0)
 Finding: docs/**/*.md docs/**/*.md !.github/**/*.md !docs/Contributing Guides/technical-documentation-style-guide/index.md
-Linting: 482 file(s)
-Summary: 6 error(s)
+Linting: 486 file(s)
+Summary: 21 error(s)
 docs/Accessing Akeyless/access-and-authentication-methods/auth-with-aws.md:83 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note (Least Privilege):**"]
 docs/Advanced Functionality/account-settings/encryption-key-policy.md:48 error MD028/no-blanks-blockquote Blank line inside blockquote
+docs/Certificate Lifecycle Management/public-ca.md:66 error MD028/no-blanks-blockquote Blank line inside blockquote
 docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md:1719 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note:** Venafi is now CyberArk Machine Identity Security. This CLI subcommand remains `venafi` for backward compatibility."]
 docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md:3225 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note:** Venafi is now CyberArk Machine Identity Security. This CLI subcommand remains `venafi` for backward compatibility."]
+docs/Secrets Management/secret-and-target-locking.md:16 error AKY001/no-heading-1 Disallow use of level-1 headings (H1) [Level-1 headings (H1) are not allowed.]
+docs/Secrets Management/secret-and-target-locking.md:16 error AKY002/heading-hierarchy-starts-at-h2 Require headings to start at H2 and follow a logical hierarchy without skipping levels [First heading must be level 2 (##).] [Context: "Found: <h1>"]
+docs/Secrets Management/secret-and-target-locking.md:16 error MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "Prerequisites"]
+docs/Secrets Management/secret-and-target-locking.md:21 error AKY001/no-heading-1 Disallow use of level-1 headings (H1) [Level-1 headings (H1) are not allowed.]
+docs/Secrets Management/secret-and-target-locking.md:21 error MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "Locking and item using the CLI"]
+docs/Secrets Management/secret-and-target-locking.md:38 error AKY017/banned-terms Disallow banned terms and provide replacement guidance [Banned term "in the CLI" found. Preferred: "with the CLI". Example: "in the CLI" → "with the CLI".] [Context: "Text: You can find the complete list of parameters for this command in the CLI Reference."]
+docs/Secrets Management/secret-and-target-locking.md:40 error AKY001/no-heading-1 Disallow use of level-1 headings (H1) [Level-1 headings (H1) are not allowed.]
+docs/Secrets Management/secret-and-target-locking.md:40 error MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "Locking and item using the Ake..."]
+docs/Secrets Management/secret-and-target-locking.md:50:1 error MD033/no-inline-html Inline HTML [Element: br]
+docs/Secrets Management/secret-and-target-locking.md:52:1 error MD033/no-inline-html Inline HTML [Element: br]
+docs/Secrets Management/targets/digicert-target.md:111:1 error MD033/no-inline-html Inline HTML [Element: br]
+docs/Secrets Management/targets/google-ca-target.md:115:1 error MD033/no-inline-html Inline HTML [Element: br]
 docs/Secrets Management/targets/venafi-target.md:15 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, this integration still uses `venafi` naming for backward compatibility."]
-docs/Secure Remote Access/admin-guides/remote-access-akeyless-connect.md:211 error MD028/no-blanks-blockquote Blank line inside blockquote
+docs/Universal Secret Connector/universal-secrets-connector/gcp-universal-secrets-connector.md:20 error AKY017/banned-terms Disallow banned terms and provide replacement guidance [Banned term "from the CLI" found. Preferred: "with the CLI". Example: "from the CLI" → "with the CLI".] [Context: "Text: Working With Universal Secrets Connector from the CLI"]
+docs/Universal Secret Connector/universal-secrets-connector/github-universal-secret-connector.md:113:1 error MD033/no-inline-html Inline HTML [Element: br]
+docs/Universal Secret Connector/universal-secrets-connector/kubernetes-universal-secrets-connector.md:19 error AKY017/banned-terms Disallow banned terms and provide replacement guidance [Banned term "from the CLI" found. Preferred: "with the CLI". Example: "from the CLI" → "with the CLI".] [Context: "Text: Working With Universal Secrets Connector from the CLI"]

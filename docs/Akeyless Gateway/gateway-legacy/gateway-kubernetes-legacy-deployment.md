@@ -19,7 +19,7 @@ next:
 ---
 > ℹ️ **Note (Gateway New Chart):**
 >
-> The Gateway new chart docs is now available [here](https://docs.akeyless.io/docs/gateway-chart).
+> The Gateway new chart docs is now available [here](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm).
 
 This page applies only to the legacy `akeyless-api-gateway` Helm chart and the legacy `akeylessUserAuth` values schema.
 
@@ -35,7 +35,7 @@ The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Hel
 
 * Minimum 1 vCPU available with 2 GB RAM.
 
-* Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your cluster
+* Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/gateway-network-connectivity) from your cluster
 
 > ⚠️ **Warning:**
 >
@@ -45,7 +45,7 @@ The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Hel
 
 | Service | Port |
 | --- | --- |
-| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 |
+| [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) | 8000 |
 | Gateway Console | 18888 |
 | [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | 8200 |
 | Akeyless V1 REST API | 8080 |
@@ -303,7 +303,7 @@ To work with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) as an `a
 
 ### Access Permissions
 
-To delegate the exact permissions users will have on your Gateway components you can explicitly grant permissions, for example, to grant permissions to a user to manage only your Gateway [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings:
+To delegate the exact permissions users will have on your Gateway components you can explicitly grant permissions, for example, to grant permissions to a user to manage only your Gateway [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings:
 
 ```yaml values.yaml
   allowedAccessPermissions: 
@@ -326,7 +326,7 @@ To delegate the exact permissions users will have on your Gateway components you
         - log_forwarding
 ```
 
-In the above example, your Gateway **Admins** are `test01@testhost.com,test01@testhost.com` or any user which is part of your `Devops` group in your **IdP**, where `test03@testhost.com` have permission to manage **only** your Gateway [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings.
+In the above example, your Gateway **Admins** are `test01@testhost.com,test01@testhost.com` or any user which is part of your `Devops` group in your **IdP**, where `test03@testhost.com` have permission to manage **only** your Gateway [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings.
 
 Full list of available permissions:
 
@@ -339,9 +339,9 @@ Full list of available permissions:
 | `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) |
 | `rotated_secret` | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
 | `rotate_secret_value` | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item |
-| `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings |
+| `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings |
 | `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
-| `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings |
+| `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/gateway-caching) settings |
 | `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
 | `ldap_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
 | `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
