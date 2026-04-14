@@ -24,7 +24,7 @@ This allows internal systems to consume Akeyless capabilities such as [Dynamic S
 
 Gateway management access is configured explicitly through the default Gateway identity and `allowedAccessPermissions`. The primary Gateway identity must have an RBAC Administrative rule scoped to Gateway management with permission scope set to `scope` or `all` for Gateway Console (UI) access. CLI and API management can still be allowed when the role grants the required permissions.
 
-To open Gateway management in the UI, use `<gateway-protocol>://<gateway-host>/console`, then open the **Gateway** tab, select the relevant Gateway, and select **Manage Gateway**.
+To open Gateway management in the UI, use the Akeyless SaaS Console (`https://console.akeyless.io`) or `<gateway-protocol>://<gateway-host>/console`, then open the **Gateway** tab, select the relevant Gateway, and select **Manage Gateway**.
 
 Users who do not have Gateway-scoped administrative permission (`scope` or `all`) cannot see the Gateway in the **Gateway** list and cannot manage it from the UI.
 

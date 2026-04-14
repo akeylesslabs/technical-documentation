@@ -16,8 +16,8 @@ Configuration is typically done after deployment and adjusted over time as secur
 
 Use the Gateway Configuration Manager to access Gateway settings from the UI:
 
-1. Open the Gateway endpoint and sign in.
-2. Navigate to `<gateway-protocol>://<gateway-host>:8000/console`.
+1. Open the Akeyless SaaS Console at `https://console.akeyless.io` and sign in.
+2. Or, if needed, open the Gateway Console endpoint at `<gateway-protocol>://<gateway-host>:8000/console`.
    For example, `https://gateway.example.com:8000/console`.
 3. In the Console, open the **Gateway** tab and select the relevant Gateway.
 4. Select **Manage Gateway** to open and change Gateway settings.
