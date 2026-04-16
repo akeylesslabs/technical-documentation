@@ -22,7 +22,7 @@ The following metrics are currently available:
 | `akeyless.gw.system.disk.*` | Disk I/O metrics |
 | `akeyless.gw.system.load.*` | CPU load metrics |
 | `akeyless.gw.system.memory.*` | Memory utilization metrics |
-| `akeyless.gw.system.network.*` | Network interface I/O metrics and TCP connection metrics (not request-latency metrics) |
+| `akeyless.gw.system.network.*` | Network interface I/O metrics and TCP connection metrics |
 | `akeyless.gw.system.saas.connection_status` | Monitor Gateway connectivity to Akeyless SaaS services. |
 | `akeyless.gw.quota.current_transactions_number` | Current total transaction count in the account |
 | `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity |
@@ -31,9 +31,9 @@ The following metrics are currently available:
 | `akeyless.gw.system.request_count` | Total requests issued directly against the Gateway API |
 | `akeyless.gw.system.healthcheck.status` | Container health check status |
 
-The current Gateway telemetry set does not include a dedicated request-latency metric.
+For Gateway API traffic monitoring, use `akeyless.gw.system.request_count` together with `akeyless.gw.system.http_response_status_code`.
 
-`akeyless.gw.system.network.*` covers network interface and TCP connection behavior. It does not represent API request-response latency.
+`akeyless.gw.system.network.*` covers network interface and TCP connection behavior.
 
 ## Health and Connection Status Values
 
