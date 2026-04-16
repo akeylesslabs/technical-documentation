@@ -118,11 +118,22 @@ Where:
 
 When using `dns` challenge validation, the cloud target referenced by `dns-target-creds` must have permission to create and update ACME TXT records in the relevant DNS zone.
 
-High-level guidance by provider:
+Required permissions by provider:
 
-* **AWS Route 53**: Allow record change operations for the hosted zone used for validation.
-* **GCP Cloud DNS**: Grant Cloud DNS permissions for record set changes in the managed zone used for validation (for example, Cloud DNS admin role at the required scope).
-* **Azure DNS**: Grant a DNS role that can manage zone record sets (for example, DNS Zone Contributor at the required scope).
+* **AWS Route 53**
+    * **Required for DNS-01 record changes**: `route53:ChangeResourceRecordSets` on the target hosted zone.
+    * **Common read permissions** (if zone lookup or record inspection is needed): `route53:GetHostedZone`, `route53:ListHostedZonesByName`, and `route53:ListResourceRecordSets`.
+    * Reference: [Actions, resources, and condition keys for Amazon Route 53](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html) and [Permissions required to use the Route 53 API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/r53-api-permissions-ref.html)
+
+* **GCP Cloud DNS**
+    * **Required for DNS-01 record changes**: `dns.changes.create` and the relevant record set permission (`dns.resourceRecordSets.create`, `dns.resourceRecordSets.update`, and/or `dns.resourceRecordSets.delete`).
+    * **Common read permissions**: `dns.managedZones.get`, `dns.managedZones.list`, `dns.resourceRecordSets.get`, and `dns.resourceRecordSets.list`.
+    * Reference: [Access control with IAM](https://docs.cloud.google.com/dns/docs/access-control)
+
+* **Azure DNS**
+    * **Recommended built-in role**: **DNS Zone Contributor** at the DNS zone scope.
+    * This role includes `Microsoft.Network/dnsZones/*` (manage DNS zones and record sets).
+    * Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
 
 > ℹ️ **Note (Least Privilege):**
 >
