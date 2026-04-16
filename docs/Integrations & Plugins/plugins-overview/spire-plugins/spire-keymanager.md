@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+This guide covers the Akeyless SPIRE Key Manager plugin, which manages signing keys used for X.509 SPIFFE Verifiable Identity Documents (SVIDs) and JWT-SVIDs.
+
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.35.0` or later
@@ -155,8 +157,8 @@ bin/spire-server run -config conf/server/server.conf &
 
 With a successful server initialization, 2 **Classic keys** will be created in your Akeyless account and you can find them in the console in the `SPIRE/Keys` folder:
 
-* **JWT-Signer-A** - Uses **JSON Web Tokens (JWT)** signed by an identity provider for authentication and authorization of clients.
-* **X509-CA-A** - Relies on **X.509** certificates issued by a trusted Certificate Authority.
+* **JWT-Signer-A** - Used to sign JWT-SVIDs.
+* **X509-CA-A** - Used to sign X.509-SVIDs.
 
 > ℹ️ **Info (SPIFFE/SPIRE):**
 >

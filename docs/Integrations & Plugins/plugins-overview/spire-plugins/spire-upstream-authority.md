@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This guide covers how to configure the Akeyless SPIRE Upstream Authority plugin for both X.509 CA issuance and JWT-SVID key publication.
+This guide covers how to configure the Akeyless SPIRE Upstream Authority plugin for both X.509 SPIFFE Verifiable Identity Document (SVID) issuance and JWT-SVID key publication.
 
 ## Prerequisites
 

@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+This guide covers the Akeyless SPIRE Secret Manager plugin, which stores workload X.509 SPIFFE Verifiable Identity Documents (SVIDs) in Akeyless.
+
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.35.0` or later
@@ -112,7 +114,7 @@ Where:
 
 * `access_key` - Optional, the `AccessKey`. Relevant only for **API Key**
 
-* `target_folder` - A path to save all items inside Akeyless where the generated `SVIDs` will be stored
+* `target_folder` - A path to save all items inside Akeyless where the generated X.509-SVIDs will be stored
 
 For **Kubernetes**, **GCP** or **AzureAD** Auth Method set the following settings as well:
 
@@ -150,7 +152,7 @@ bin/spire-server entry create -parentID spiffe://example.org/myagent \
 -spiffeID spiffe://example.org/myservice -selector akeyless_secretsmanager:secretname:<Secret Name> -storeSVID
 ```
 
-Upon successful registration of the workload, a secret will be created in Akeyless in the `/SPIRE/SVID/` folder, which will contain the following information:
+Upon successful registration of the workload, a secret will be created in Akeyless in the `/SPIRE/SVID/` folder, which will contain the following X.509-SVID information:
 
 * SpiffeID
 * Certificate
