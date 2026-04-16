@@ -10,14 +10,19 @@ metadata:
 next:
   description: ''
 ---
+This guide covers how to configure the Akeyless SPIRE Upstream Authority plugin for both X.509 CA issuance and JWT-SVID key publication.
+
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.40.0` or later
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with the following permissions: `Create` and `List` for **Items**
+* A running SPIRE Server and SPIRE Agent deployment
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with:
+    * `Create` and `List` on relevant item paths for X.509 CA operations
+    * `Read` on the item used for JWT signing keys (for JWT-SVID support)
 
 ## Authentication
 
-The following Authentication Methods can be used:
+The following Authentication Methods are supported:
 
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 * [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
@@ -27,213 +32,156 @@ The following Authentication Methods can be used:
 
 > ℹ️ **Note:**
 >
-> In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For macOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
+> This guide uses API Key authentication for brevity. For production environments, use a cloud or workload-based Authentication Method where possible.
 
 <ApiKeyWarning />
 
-Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) using the CLI:
+Create an API Key Authentication Method:
 
 ```shell
 akeyless create-auth-method --name /Dev/Spire-Auth
 ```
 
-Create an [Access Role](https://docs.akeyless.io/docs/rbac):
+Create an access role:
 
 ```shell
 akeyless create-role --name /Dev/Spire-Role
 ```
 
-Associate your **API Key** Authentication Method to the Access Role that was created:
+Associate the Authentication Method to the role:
 
 ```shell
 akeyless assoc-role-am --role-name /Dev/Spire-Role \
 --am-name /Dev/Spire-Auth
 ```
 
-Set `Create, list` permissions for **Secret & Keys** for the Access Role:
+Set role permissions for the SPIRE item path:
 
 ```shell
 akeyless set-role-rule --role-name /Dev/Spire-Role \
 --path /SPIRE/SVID/'*' \
---capability create --capability list
+--capability create --capability list --capability read
 ```
 
 ### Grant Access Permissions on the Gateway
 
-Log into the console using a Gateway admin account, navigate to the **Gateways** tab, and choose the relevant **Gateway**.
+1. Sign in to the Akeyless Console with a Gateway admin account.
+2. Open **Gateways**, and select the target Gateway.
+3. Open **Access Permissions**, and select **New**.
+4. Select the Authentication Method, and grant:
+   * **Admin** permissions, or
+   * **Custom** permissions that include the required key and item operations.
 
-Click on **Access Permissions** and click on **New**:
+## Download the Plugin
 
-Give it a meaningful **Name**, choose the **Auth Method**, and click next.
-
-Set the relevant permissions for this **Auth Method**:
-
- **Admin** - grant full permissions on the **Gateway** or
-
-**Custom** - grant specific permissions for at least **Classic Keys**.
-
-## Configuration
-
-Run the following command to download and unpack pre-built `spire-server` and `spire-agent` executables and example configuration files in a SPIRE-1.7.0 directory.
-
-```shell
-curl -s -N -L https://github.com/spiffe/spire/releases/download/v1.7.0/spire-1.7.0-linux-amd64-glibc.tar.gz | tar xz
-```
-
-Next, create a **Classic Key** that will generate a self-signed certificate:
-
-```shell
-akeyless create-classic-key \
---name <Key Name> \
---alg <RSA2048 / RSA4096 / EC256 / EC384> \
---generate-self-signed-certificate <True> \
---gateway-url 'http://<Your-Akeyless-GW-URL>:8000' \
---certificate-ttl <TTL>
-```
-
-Where:
-
-* `name` - Name of the Classic Key.
-
-* `alg` - Type of Classic Key: Upstream Authority Plugin supports - `RSA2048`, `RSA4096`, `EC256`, or `EC384`
-
-* `generate-self-signed-certificate` - Whether to generate a self-signed certificate with the key
-
-* `gateway-url` - API Gateway URL
-
-* `--certificate-ttl` - TTL in days for the generated certificate
-
-Then, create a PKI Certificate Issuer:
-
-```shell
-akeyless create-pki-cert-issuer \
---name <Issuer name> \
---signer-key-name <Key Name> \
---ttl <TTL> \
---is-ca <Default=True> \
---allowed-uri-sans <URIs> \
---key-usage <certsign,crlsign> #can be one of them
-```
-
-Where:
-
-* `name` - Name of the PKI Certificate Issuer.
-
-* `signer-key-name` - A key to sign the certificate with (in our example, the key that was created in the previous step).
-
-* `ttl` - The maximum requested Time To Live for issued certificates, in seconds.
-
-* `is-ca` - Adds the basic constraints extension to the certificate.
-
-* `allowed-uri-sans` - A list of the allowed URIs that clients can request to be included in the certificate as part of the URI Subject Alternative Names.
-
-* `key-usage` - A comma-separated string or list of key usages. Needs to be either **certsign**, **crlsign** or both
-
-Once the Classic Key and the PKI Issuer are created, a certificate needs to be generated:
-
-> ℹ️ **Note (Certificate Signing Request):**
->
-> To generate a certificate using the PKI Cert Issuer, a Certificate Signing Request (CSR) is required.
->
-> If a CSR is provided along with a private key using the `--key-file-path` option, the provided key will be stored alongside the issued certificate.
-
-The following command will generate a certificate using the PKI Cert Issuer that was created earlier:
-
-```shell
-akeyless get-pki-certificate --cert-issuer-name <cert_issuer_name> --csr-file-path <csr_file_path> --key-file-path <key_file_path>
-```
-
-Where:
-
-* `cert-issuer-name` - **Required**, Name of the PKI Certificate Issuer that was created in the previous step.
-
-* `csr-file-path` - **Required**, Path to the CSR file.
-
-* `key-file-path` - Optional, Path to the Private key.
-
-**Note**: The output of the command above will print a chain of certificates. Save the last certificate as a file as it will be used in the next steps.
-
-Next, [download](https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/) the **AkeylessUpstreamAuthority** plugin, by running the following command:
+Download the latest Akeyless Upstream Authority plugin:
 
 ```shell AMD64
-curl -o AkeylessUpstreamAuthority https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-amd64-linux-v0.0.4
+curl -o AkeylessUpstreamAuthority https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream/spire-upstream-linux-amd64
 ```
 ```shell ARM64
-curl -o AkeylessUpstreamAuthority https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-arm64-linux-v0.0.4
+curl -o AkeylessUpstreamAuthority https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream/spire-upstream-linux-arm64
 ```
 
-Validate the **SHA256 CHECKSUM**:
+Download the checksum file and validate the binary:
 
 ```shell
-sha256sum AkeylessUpstreamAuthority
+curl -o spire-upstream.sha256 https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream/spire-upstream-linux-amd64-sha256sumfile
+sha256sum -c spire-upstream.sha256
 ```
 
-The `sha256sum` command generates a unique, fixed-size hash value (256 bits) for the **binary** file, ensuring that data remains unchanged.
+## Configure SPIRE Server
 
-Open your SPIRE Server Conf file which you will find in the `spire-` directory at `conf/server/server.conf`, and edit the **UpstreamAuthority** Plugin section as follows:
+Edit `conf/server/server.conf`, and configure the `UpstreamAuthority` block:
 
 ```shell
-UpstreamAuthority  "akeyless_upstream" {
-    plugin_cmd = "/path/to/plugin_cmd"
-    plugin_checksum = "sha256 of the plugin binary"
+UpstreamAuthority "akeyless_upstream" {
+    plugin_cmd = "/path/to/AkeylessUpstreamAuthority"
+    plugin_checksum = "sha256_of_plugin_binary"
     plugin_data {
-        akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL>:8000/api/v2'
-        access_id = "<Your_Access_ID>"
-        access_key = "<Your_Access_KEY>"
-        pki_cert_issuer_name = "<PKI_ISSUER_NAME>"
+        akeyless_gateway_url = "https://<your-gateway-url>:8000/api/v2"
+        access_id = "<your_access_id>"
+        access_key = "<your_access_key>"
+        pki_cert_issuer_name = "<pki_issuer_name>"
+        jwt_keys_secret_name = "<jwt_keys_secret_name>"
     }
-}  
+}
 ```
 
 Where:
 
-* `plugin_cmd` - The location of the binary file that was created.
+* `plugin_cmd` is the path to the plugin binary.
+* `plugin_checksum` is the SHA256 digest of that binary.
+* `akeyless_gateway_url` is the Akeyless Gateway API v2 endpoint.
+* `access_id` is the Authentication Method Access ID.
+* `access_key` is required for API Key authentication.
+* `pki_cert_issuer_name` is used for X.509 CA minting.
+* `jwt_keys_secret_name` points to the Akeyless item that stores JWT signing keys for JWT-SVID publication.
 
-* `plugin_checksum` - sha256 of the binary.
+For K8s, GCP, or Azure Authentication Methods, also set:
 
-* `akeyless_gateway_url` - Akeyless Gateway URL API v2 endpoint
-
-* `access_id` - The Auth Method **Access-ID**
-
-* `access_key` - Optional, The AccessKey. Relevant only for API Key.
-
-* `pki_cert_issuer_name` - Name of the PKI Certificate Issuer.
-
-For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
-
-* `k8s_auth_config_name` - Kubernetes Auth Config name as created under your Gateway
-
-* `gcp_audience` - The audience to verify the JWT received by the client. By default, `akeyless.io`
-
-* `azure_object_id` - Optional for Azure, objectID
+* `k8s_auth_config_name`
+* `gcp_audience` (default: `akeyless.io`)
+* `azure_object_id`
 
 > ⚠️ **Warning (TTL Configuration):**
 >
-> The requested TTL in `conf/server/server.conf` file should be lower than the TTL that is configured in the PKI Certificate Issuer.
+> Ensure the requested SPIRE TTL values are lower than the configured TTL values in the Akeyless PKI Certificate Issuer.
 
-## SPIRE Server Initialization
+## Prepare Akeyless Resources
 
-To initialize the server, run the following command:
+For X.509 CA minting, create a Classic Key and PKI Certificate Issuer.
+
+Create a Classic Key:
+
+```shell
+akeyless create-classic-key \
+--name /SPIRE/SVID/classic-key \
+--alg RSA2048 \
+--generate-self-signed-certificate true \
+--gateway-url "https://<your-gateway-url>:8000" \
+--certificate-ttl 7
+```
+
+Create a PKI Certificate Issuer:
+
+```shell
+akeyless create-pki-cert-issuer \
+--name /SPIRE/SVID/pki-issuer \
+--signer-key-name /SPIRE/SVID/classic-key \
+--ttl 604800 \
+--is-ca true \
+--allowed-uri-sans spiffe://example.org/* \
+--key-usage certsign,crlsign
+```
+
+For JWT-SVID support, prepare an Akeyless item that contains the JWT signing keys, and reference that item name in `jwt_keys_secret_name`.
+
+> ℹ️ **Info:**
+>
+> If the item referenced by `jwt_keys_secret_name` does not contain JWT keys, plugin initialization fails with a missing JWT keys error.
+
+## Initialize SPIRE Server and Agent
+
+Start SPIRE Server:
 
 ```shell
 bin/spire-server run -config conf/server/server.conf &
 ```
 
-Once the server is running, the Agent needs to be configured as well, in the `conf/agent/agent.conf` file. Open the Agent conf file and add the following line in the `agent` section in order set the path to the SPIRE server CA bundle:
+Set the trust bundle path in `conf/agent/agent.conf`:
 
 ```shell
-trust_bundle_path = "/Path/To/certificate/file" #The file that holds the certificate from the previous step
+trust_bundle_path = "/path/to/certificate/file"
 ```
 
-Once the `conf/agent/agent.conf` file is configured, we will start the agent:
+Generate an agent join token:
 
 ```shell
 bin/spire-server token generate -spiffeID spiffe://example.org/myagent
 ```
 
-The output of this command will print a token that will be used to start the Agent.
-
-## SPIRE Agent Initialization
+Start SPIRE Agent:
 
 ```shell
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
@@ -241,4 +189,4 @@ bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 
 > ℹ️ **Info (SPIFFE/SPIRE):**
 >
-> For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
+> For full SPIRE bootstrap and registration steps, see [Quickstart for Linux and macOS](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/).
