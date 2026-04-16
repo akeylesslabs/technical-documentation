@@ -169,14 +169,17 @@ Default mapping (can be overridden by way of `ext.cred.akeyless.map.*`):
 
 Per-Type mapping summary
 
+<!-- cspell:ignore certmgmt infoblox authprotocol authkey privprotocol privkey pswd -->
+
 * Windows, Basic, SSH Password, VMware, JDBC, JMS:
     * Uses JSON fields: username, password (or your overridden names)
 * SSH Private Key:
     * Uses JSON fields: username, private_key, passphrase
+    * The same mapping also applies to `sn_cfg_ansible`, `sn_disco_certmgmt_certificate_ca`, `cfg_chef_credentials`, `infoblox`, and `api_key`.
 * SNMPv3:
     * Uses JSON fields: username, auth_protocol, auth_key, privacy_protocol, privacy_key
-    * Mapped to ServiceNow fields: username, auth-protocol, auth-key, privacy-protocol, privacy-key
-* Any other type:
+    * Mapped to ServiceNow fields: `user`, `authprotocol`, `authkey`, `privprotocol`, `privkey`
+* Other unlisted types:
     * Best-effort: username and password if present
 
 Examples
@@ -226,7 +229,7 @@ Then a JSON like:
 }
 ```
 
-will map to ServiceNow username = alice, password = secret.
+will map to ServiceNow user = alice, pswd = secret.
 
 ## CloudID Notes (Aws_iam / Azure_ad / Gcp)
 
@@ -258,7 +261,7 @@ will map to ServiceNow username = alice, password = secret.
 
 You can run unit tests locally:
 
-```json
+```shell
 mvn test
 ```
 
