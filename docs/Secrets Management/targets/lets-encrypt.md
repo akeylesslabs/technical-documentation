@@ -114,6 +114,20 @@ Where:
 
 5. Click Finish.
 
+## DNS Provider Permissions for DNS-01
+
+When using `dns` challenge validation, the cloud target referenced by `dns-target-creds` must have permission to create and update ACME TXT records in the relevant DNS zone.
+
+High-level guidance by provider:
+
+* **AWS Route 53**: Allow record change operations for the hosted zone used for validation.
+* **GCP Cloud DNS**: Grant Cloud DNS permissions for record set changes in the managed zone used for validation (for example, Cloud DNS admin role at the required scope).
+* **Azure DNS**: Grant a DNS role that can manage zone record sets (for example, DNS Zone Contributor at the required scope).
+
+> ℹ️ **Note (Least Privilege):**
+>
+> Scope permissions to only the DNS zones and record operations required for certificate validation.
+
 ## Issue Certificates With HTTP Challenge
 
 When the Let's Encrypt target is configured with `--acme-challenge=http`, certificate issuance is a two-phase flow:
