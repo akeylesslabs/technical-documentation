@@ -80,7 +80,7 @@ akeyless auth \
   --access-type aws_iam
 ```
 
-> **Note (Least Privilege):**
+> ℹ️ **Note (Least Privilege):**
 >
 > AWS IAM authentication does not require privileged AWS permissions. Attach a minimally privileged IAM role to the resource that authenticates to Akeyless (for example, an EC2 instance, ECS task, or EKS pod).
 
@@ -114,6 +114,19 @@ aws ec2 modify-instance-metadata-options \
 ```
 
 This allows the metadata token to be accessed from nested network environments, such as containers, while still preserving IMDSv2 security protections.
+
+If changing the instance metadata service hop limit is not possible, configure the Gateway Helm chart to use static environment variables under `globalConfig.env`:
+
+```yaml
+globalConfig:
+  env:
+    - name: CLUSTER_URL
+      value: "https://gw.wz-aws.cs.akeyless.fans"
+    - name: ADMIN_ACCESS_ID_TYPE
+      value: "aws_iam"
+```
+
+Replace `CLUSTER_URL` with the Gateway URL for the relevant environment.
 
 ## Tutorial
 
