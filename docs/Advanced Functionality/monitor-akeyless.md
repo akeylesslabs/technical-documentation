@@ -45,9 +45,9 @@ Setting the [Gateway](https://docs.akeyless.io/docs/gateway-overview) to forward
 Akeyless provides detailed telemetry metrics to offer insights into the health and performance of Akeyless components. These metrics help you track and optimize key areas, such as:
 
 * **Request Rates**: Monitor the volume of requests handled by the Akeyless Gateway.
-* **Latency**: Measure response times to ensure performance goals are met.
-* **Error Rates**: Identify and fix issues by tracking errors.
+* **HTTP Response Status Trends**: Track API response status patterns to detect service issues.
 * **Resource Utilization**: Monitor CPU, memory, and other system resources.
+* **Network Activity**: Monitor interface I/O and TCP connection metrics.
 
 Telemetry metrics work with leading monitoring tools, including **Prometheus**, **Grafana**, and **Datadog**. By exporting metrics to these systems, you can set up dashboards and alerts to support active monitoring and quick responses. In addition to those metrics, you can also forward the Gateway application logs as well.
 
