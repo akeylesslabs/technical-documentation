@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This guide covers the Akeyless SPIRE Upstream Authority SM plugin, which uses a certificate item from Akeyless for SPIRE upstream X.509 SPIFFE Verifiable Identity Document (SVID) CA operations.
+This guide covers the Akeyless SPIRE Upstream Authority SM plugin, which uses a certificate item from Akeyless for SPIRE upstream X.509 CA operations used by SPIFFE Verifiable Identity Documents (SVIDs).
 
 ## Prerequisites
 

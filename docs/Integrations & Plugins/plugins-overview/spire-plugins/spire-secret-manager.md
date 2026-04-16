@@ -68,21 +68,21 @@ Run the following command to download and unpack pre-built `spire-server` and `s
 curl -s -N -L https://github.com/spiffe/spire/releases/download/v1.7.0/spire-1.7.0-linux-amd64-glibc.tar.gz | tar xz
 ```
 
-Next, download the latest **AkeylessSecretManager** plugin:
+Next, download the **AkeylessSecretManager** plugin:
 
 ```shell AMD64
-curl -o AkeylessSecretManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-secretsmanager/spire-secretsmanager-linux-amd64
+curl -o AkeylessSecretManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-sm-amd64-linux-v0.0.6
 chmod +x AkeylessSecretManager
 ```
 ```shell ARM64
-curl -o AkeylessSecretManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-secretsmanager/spire-secretsmanager-linux-arm64
+curl -o AkeylessSecretManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-sm-arm64-linux-v0.0.6
 chmod +x AkeylessSecretManager
 ```
 
 Download the checksum file and validate the binary:
 
 ```shell
-curl -o spire-secretsmanager.sha256 https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-secretsmanager/spire-secretsmanager-linux-amd64-sha256sumfile
+curl -o spire-secretsmanager.sha256 https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-sm-amd64-linux-v0.0.6.checksum
 sha256sum -c spire-secretsmanager.sha256
 ```
 
