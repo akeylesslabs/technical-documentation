@@ -108,18 +108,18 @@ Insert your parameters inside the `<parameters>` block:
     <parameter name="ext.cred.akeyless.access_id" value="AKEYLESS_ACCESS_ID" />
     <parameter name="ext.cred.akeyless.access_key" value="AKEYLESS_SECRET_KEY" secure="true" />
 
-  <!-- Universal Identity example -->
-  <!-- <parameter name="ext.cred.akeyless.access_type" value="uid" /> -->
-  <!-- <parameter name="ext.cred.akeyless.uid_token" value="UID_TOKEN" secure="true" /> -->
+    <!-- Universal Identity example -->
+    <!-- <parameter name="ext.cred.akeyless.access_type" value="uid" /> -->
+    <!-- <parameter name="ext.cred.akeyless.uid_token" value="UID_TOKEN" secure="true" /> -->
 
-  <!-- Certificate authentication with inline material -->
-  <!-- <parameter name="ext.cred.akeyless.access_type" value="certificate" /> -->
-  <!-- <parameter name="ext.cred.akeyless.cert_data" value="-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----" secure="true" /> -->
-  <!-- <parameter name="ext.cred.akeyless.key_data" value="-----BEGIN PRIVATE KEY-----...-----END PRIVATE KEY-----" secure="true" /> -->
+    <!-- Certificate authentication with inline material -->
+    <!-- <parameter name="ext.cred.akeyless.access_type" value="certificate" /> -->
+    <!-- <parameter name="ext.cred.akeyless.cert_data" value="-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----" secure="true" /> -->
+    <!-- <parameter name="ext.cred.akeyless.key_data" value="-----BEGIN PRIVATE KEY-----...-----END PRIVATE KEY-----" secure="true" /> -->
 
-  <!-- Certificate authentication with file-based material -->
-  <!-- <parameter name="ext.cred.akeyless.cert_file_name" value="/opt/agent/certs/client.crt" /> -->
-  <!-- <parameter name="ext.cred.akeyless.key_file_name" value="/opt/agent/certs/client.key" secure="true" /> -->
+    <!-- Certificate authentication with file-based material -->
+    <!-- <parameter name="ext.cred.akeyless.cert_file_name" value="/opt/agent/certs/client.crt" /> -->
+    <!-- <parameter name="ext.cred.akeyless.key_file_name" value="/opt/agent/certs/client.key" secure="true" /> -->
 
     <!-- Optional JSON mapping overrides -->
     <parameter name="ext.cred.akeyless.map.username" value="username" />
