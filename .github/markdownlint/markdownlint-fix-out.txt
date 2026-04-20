@@ -1,8 +1,7 @@
 markdownlint-cli2 v0.22.0 (markdownlint v0.40.0)
 Finding: docs/**/*.md docs/**/*.md !.github/**/*.md !docs/Contributing Guides/technical-documentation-style-guide/index.md
 Linting: 486 file(s)
-Summary: 21 error(s)
-docs/Accessing Akeyless/access-and-authentication-methods/auth-with-aws.md:83 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note (Least Privilege):**"]
+Summary: 23 error(s)
 docs/Advanced Functionality/account-settings/encryption-key-policy.md:48 error MD028/no-blanks-blockquote Blank line inside blockquote
 docs/Certificate Lifecycle Management/public-ca.md:66 error MD028/no-blanks-blockquote Blank line inside blockquote
 docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md:1719 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note:** Venafi is now CyberArk Machine Identity Security. This CLI subcommand remains `venafi` for backward compatibility."]
@@ -19,6 +18,9 @@ docs/Secrets Management/secret-and-target-locking.md:50:1 error MD033/no-inline-
 docs/Secrets Management/secret-and-target-locking.md:52:1 error MD033/no-inline-html Inline HTML [Element: br]
 docs/Secrets Management/targets/digicert-target.md:111:1 error MD033/no-inline-html Inline HTML [Element: br]
 docs/Secrets Management/targets/google-ca-target.md:115:1 error MD033/no-inline-html Inline HTML [Element: br]
+docs/Secrets Management/targets/lets-encrypt.md:108:1 error MD005/list-indent Inconsistent indentation for list items at the same level [Expected: 3; Actual: 4]
+docs/Secrets Management/targets/lets-encrypt.md:109:1 error MD005/list-indent Inconsistent indentation for list items at the same level [Expected: 3; Actual: 5]
+docs/Secrets Management/targets/lets-encrypt.md:111:1 error MD005/list-indent Inconsistent indentation for list items at the same level [Expected: 3; Actual: 5]
 docs/Secrets Management/targets/venafi-target.md:15 warning AKY020/blockquote-callout-emoji-title Require blockquote callout titles to include the correct emoji before bold label [Include an emoji before callout titles (for example, '> ℹ️ **Note:**').] [Context: "**Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, this integration still uses `venafi` naming for backward compatibility."]
 docs/Universal Secret Connector/universal-secrets-connector/gcp-universal-secrets-connector.md:20 error AKY017/banned-terms Disallow banned terms and provide replacement guidance [Banned term "from the CLI" found. Preferred: "with the CLI". Example: "from the CLI" → "with the CLI".] [Context: "Text: Working With Universal Secrets Connector from the CLI"]
 docs/Universal Secret Connector/universal-secrets-connector/github-universal-secret-connector.md:113:1 error MD033/no-inline-html Inline HTML [Element: br]

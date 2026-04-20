@@ -2,8 +2,8 @@
 
 ## Link Check
 - 2422 replacements across Markdown files
-- 175 links normalized across 79 markdown files
-- 71 links checked, 0 broken
+- 1 links normalized across 1 markdown files
+- 72 links checked, 0 broken
 
 ## Markdown Lint
 - markdownlint found violations after --fix
