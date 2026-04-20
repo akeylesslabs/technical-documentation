@@ -717,7 +717,7 @@ akeyless target create lets-encrypt \
 --acme-challenge[=http] <http/dns> \
 --email <Email address for ACME account registration> \
 --dns-target-creds <Target Name> \
---hosted-zone <AWS Route 53 hosted zone> \
+--hosted-zone <Amazon Route 53 hosted zone> \
 --resource-group <Azure resource group name> \
 --gcp-project <GCP project ID> \
 --timeout[=5m] <Certificate validation timeout> \
@@ -736,7 +736,7 @@ akeyless target create lets-encrypt \
 
 `--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`]). Relevant only when `--acme-challenge=dns`
 
-`--hosted-zone`: **AWS Route 53** hosted zone identifier. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is AWS
+`--hosted-zone`: **Amazon Route 53** hosted zone identifier. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is AWS
 
 `--resource-group`: **Azure resource group** name. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is Azure
 
@@ -1999,7 +1999,7 @@ akeyless target update lets-encrypt \
 --acme-challenge[=http] <http/dns> \
 --email <Email address for ACME account registration> \
 --dns-target-creds <Target Name> \
---hosted-zone <AWS Route 53 hosted zone> \
+--hosted-zone <Amazon Route 53 hosted zone> \
 --resource-group <Azure resource group name> \
 --gcp-project <GCP project ID> \
 --timeout[=5m] <Certificate validation timeout> \
@@ -2020,7 +2020,7 @@ akeyless target update lets-encrypt \
 
 `--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`]). Relevant only when `--acme-challenge=dns`
 
-`--hosted-zone`: **AWS Route 53** hosted zone identifier. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is AWS
+`--hosted-zone`: **Amazon Route 53** hosted zone identifier. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is AWS
 
 `--resource-group`: **Azure resource group** name. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is Azure
 
