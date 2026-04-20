@@ -2,13 +2,13 @@
 
 | Status         | Count |
 |----------------|-------|
-| 🔍 Total       | 2760  |
+| 🔍 Total       | 2761  |
 | ✅ Successful  | 2671  |
 | ⏳ Timeouts    | 0     |
 | 🔀 Redirected  | 69    |
 | 👻 Excluded    | 17    |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 1     |
+| 🚫 Errors      | 2     |
 | ⛔ Unsupported | 2     |
 
 ## Errors per input
@@ -16,6 +16,10 @@
 ### Errors in docs/Getting Started/getting-started-quickstarts/gateway-k8s-quickstart/kubernetes-setup-quickstart.md
 
 * [404] <https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm-quickstart> | Rejected status code: 404 Not Found (configurable with "accept" option)
+
+### Errors in docs/Integrations & Plugins/plugins-overview/n8n-nodes-akeyless.md
+
+* [403] <https://www.npmjs.com/package/n8n-nodes-akeyless-io> | Rejected status code: 403 Forbidden (configurable with "accept" option)
 
 ## Redirects per input
 
@@ -30,7 +34,7 @@
 
 ### Redirects in docs/Accessing Akeyless/access-and-authentication-methods/auth-with-oidc/google-oidc.md
 
-* [200] <https://accounts.google.com/signin/v2/identifier?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin> | Redirect: Followed 3 redirects resolving to the final status of: OK. Redirects: https://accounts.google.com/signin/v2/identifier?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin --[302]--> https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin --[302]--> https://accounts.google.com/InteractiveLogin?continue=https://console.developers.google.com/&flowEntry=ServiceLogin&flowName=GlifWebSignIn&followup=https://console.developers.google.com/&osid=1&passive=1209600&service=cloudconsole&dsh=S17648518:1776049640127662 --[302]--> https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fconsole.developers.google.com%2F&dsh=S17648518%3A1776049640127662&flowEntry=ServiceLogin&flowName=WebLiteSignIn&followup=https%3A%2F%2Fconsole.developers.google.com%2F&osid=1&passive=1209600&service=cloudconsole&ifkv=AT1y2_VVt16hcbHTuqOW9reoYTYqJYzIqgWmtBHbIpZGs7t5D0PErWOl1fzWRAJqrAiorQ6dzmpd
+* [200] <https://accounts.google.com/signin/v2/identifier?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin> | Redirect: Followed 3 redirects resolving to the final status of: OK. Redirects: https://accounts.google.com/signin/v2/identifier?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin --[302]--> https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin --[302]--> https://accounts.google.com/InteractiveLogin?continue=https://console.developers.google.com/&flowEntry=ServiceLogin&flowName=GlifWebSignIn&followup=https://console.developers.google.com/&osid=1&passive=1209600&service=cloudconsole&dsh=S1847107321:1776654422232360 --[302]--> https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fconsole.developers.google.com%2F&dsh=S1847107321%3A1776654422232360&flowEntry=ServiceLogin&flowName=WebLiteSignIn&followup=https%3A%2F%2Fconsole.developers.google.com%2F&osid=1&passive=1209600&service=cloudconsole&ifkv=AT1y2_UlwOBCXOTwkmJ1CSK3fTTxaZYtpw6MFCZcZGB2zjeBf7jsiBjVe13Wreo0_oI3v5_yjD5CaQ
 
 ### Redirects in docs/Accessing Akeyless/access-and-authentication-methods/auth-with-oidc/index.md
 
@@ -123,7 +127,7 @@
 ### Redirects in docs/Integrations & Plugins/plugins-overview/gitlab-component-plugin.md
 
 * [200] <https://docs.gitlab.com/ee/ci/components/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/ci/components/ --[301]--> https://docs.gitlab.com/ci/components/
-* [200] <https://www.gitlab.com/> | Redirect: Followed 3 redirects resolving to the final status of: OK. Redirects: https://www.gitlab.com/ --[308]--> https://gitlab.com/ --[308]--> https://gitlab.com/ --[301]--> https://about.gitlab.com/
+* [200] <https://www.gitlab.com/> | Redirect: Followed 4 redirects resolving to the final status of: OK. Redirects: https://www.gitlab.com/ --[308]--> https://gitlab.com/ --[308]--> https://gitlab.com/ --[301]--> https://about.gitlab.com/ --[301]--> https://about.gitlab.com/
 
 ### Redirects in docs/Integrations & Plugins/plugins-overview/gitlab-plugin.md
 
@@ -156,7 +160,7 @@
 
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/aws-producer.md
 
-* [202] <https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/> | Redirect: Followed 1 redirect resolving to the final status of: Accepted. Redirects: https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/ --[301]--> https://repost.aws/knowledge-center/iam-assume-role-cli
+* [200] <https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/ --[301]--> https://repost.aws/knowledge-center/iam-assume-role-cli
 
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/azure-ad-dynamic-secrets.md
 
@@ -165,6 +169,7 @@
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/eks-dynamic-secret-producer.md
 
 * [200] <https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html --[302]--> https://docs.aws.amazon.com/eks/latest/userguide/
+* [200] <https://kubernetes.io/docs/tasks/tools/install-kubectl/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://kubernetes.io/docs/tasks/tools/install-kubectl/ --[301]--> https://kubernetes.io/docs/tasks/tools/
 
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/gcp-dynamic-secrets.md
 
@@ -178,10 +183,6 @@
 * [200] <https://docs.gitlab.com/ee/user/group/settings/group_access_tokens.html> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/user/group/settings/group_access_tokens.html --[301]--> https://docs.gitlab.com/ee/user/group/settings/group_access_tokens/ --[301]--> https://docs.gitlab.com/user/group/settings/group_access_tokens/
 * [200] <https://docs.gitlab.com/ee/user/permissions.html> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/user/permissions.html --[301]--> https://docs.gitlab.com/ee/user/permissions/ --[301]--> https://docs.gitlab.com/user/permissions/
 * [200] <https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html --[301]--> https://docs.gitlab.com/ee/user/project/settings/project_access_tokens/ --[301]--> https://docs.gitlab.com/user/project/settings/project_access_tokens/
-
-### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/gke-dynamic-secret-producer.md
-
-* [200] <https://kubernetes.io/docs/tasks/tools/install-kubectl/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://kubernetes.io/docs/tasks/tools/install-kubectl/ --[301]--> https://kubernetes.io/docs/tasks/tools/
 
 ### Redirects in docs/Secrets Management/rotated-secrets/gcp-rotated-secret.md
 
@@ -211,4 +212,4 @@
 
 * [200] <https://cloud.google.com/secret-manager/docs/access-control> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://cloud.google.com/secret-manager/docs/access-control --[301]--> https://docs.cloud.google.com/secret-manager/docs/access-control
 
-[Full Github Actions output](https://github.com/akeylesslabs/technical-documentation/actions/runs/24323743474?check_suite_focus=true)
+[Full Github Actions output](https://github.com/akeylesslabs/technical-documentation/actions/runs/24646490419?check_suite_focus=true)
