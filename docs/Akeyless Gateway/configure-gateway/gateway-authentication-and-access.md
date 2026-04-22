@@ -49,7 +49,7 @@ For Kubernetes Helm deployments, configure `globalConfig.gatewayAuth` in `values
 globalConfig:
   gatewayAuth:
     gatewayAccessId: <Access ID>
-    gatewayAccessType: <access_key|aws_iam|azure_ad|gcp|cert|universal_identity>
+    gatewayAccessType: <access_key|aws_iam|azure_ad|gcp|cert|uid>
 ```
 
 For standalone Docker deployments, set the corresponding environment variables in the `docker run` command.
