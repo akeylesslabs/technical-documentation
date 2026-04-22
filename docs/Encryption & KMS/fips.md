@@ -18,8 +18,6 @@ FIPS 140-3 is the current U.S. and Canadian government standard for cryptographi
 
 [FIPS 140-3 Validated, Certificate #5227.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227)
 
-<Embed url="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" typeOfEmbed="default" />
-
 ## FIPS 140-2
 
 FIPS 140-2 is the previous CMVP cryptographic module standard. Many environments still reference FIPS 140-2 validated modules during migration to FIPS 140-3.
