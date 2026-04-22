@@ -19,17 +19,17 @@ The Akeyless CLI has pre-compiled binary versions for **Linux, macOS, and Window
 Run the following commands to download and install the CLI binary:
 
 ```shell Linux AMD
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
+curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/cli-linux-amd64
 chmod +x akeyless
 ./akeyless
 ```
 ```shell Linux ARM
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-arm64
+curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/cli-linux-arm64
 chmod +x akeyless
 ./akeyless
 ```
 ```shell macOS Intel
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-darwin-amd64
+curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/cli-darwin-amd64
 chmod +x akeyless
 ./akeyless
 ```
@@ -39,7 +39,7 @@ chmod +x akeyless
 ./akeyless
 ```
 ```powershell Windows
-curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-windows-amd64.exe
+curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/cli-windows-amd64.exe
 .\akeyless.exe
 ```
 
