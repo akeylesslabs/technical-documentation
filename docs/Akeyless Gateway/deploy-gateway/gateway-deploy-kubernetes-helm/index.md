@@ -282,14 +282,16 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 Akeyless support [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) authentication method for on-premise Kubernetes cluster environments, eliminating the secret zero problems within your config files.
 
-Universal Identity Authentication Method requires a dedicated [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `UID-Token` where the key of the secret has to be `gateway-uid-init-token`.
+Universal Identity Authentication Method requires a dedicated [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `UID-Token` where the key of the secret has to be `gateway-uid-token`.
 
 Run the following command to store the Kubernetes Secret that stores the `UID-Token`:
 
 ```shell
 kubectl create secret generic uid-token \
-  --from-literal=gateway-uid-token=<base64-encoded-UID-Token>
+  --from-literal=gateway-uid-token=<raw-UID-Token>
 ```
+
+With `--from-literal`, provide the UID token as a raw value. Do not pre-Base64-encode the token.
 
 Set your [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) `Access ID` as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins), and set the **Kubernetes Secret** name under `gatewayCredentialsExistingSecret`. Set the rotation interval and choose either to generate a child token for your pods using `uidCreateChildTokenPerPod` field.
 
