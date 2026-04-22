@@ -13,7 +13,7 @@ The **DigiCert** integration uses an [ACME Client (v2)](https://datatracker.ietf
 
 To prove domain ownership, the Akeyless integration supports DNS validation:
 
-* **DNS validation**: Ownership is proven by adding a DNS TXT record. This requires the domain to be managed in a supported DNS provider's hosted zone (for example, AWS Route 53, GCP Cloud DNS, or Azure DNS).
+* **DNS validation**: Ownership is proven by adding a DNS TXT record. This requires the domain to be managed in a supported DNS provider's hosted zone (for example, Amazon Route 53, GCP Cloud DNS, or Azure DNS).
 
 ## Create a Digicert Target with the CLI
 
@@ -98,14 +98,14 @@ Where:
 
    * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
-   * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+* **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
 
-   * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
+* **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
-   * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+* **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
-   * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
+* **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
 
-5. Click Finish.
+1. Click Finish.
 
 <br />

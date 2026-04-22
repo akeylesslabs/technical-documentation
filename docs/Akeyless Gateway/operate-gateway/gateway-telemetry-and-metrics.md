@@ -31,6 +31,10 @@ The following metrics are currently available:
 | `akeyless.gw.system.request_count` | Total requests issued directly against the Gateway API |
 | `akeyless.gw.system.healthcheck.status` | Container health check status |
 
+For Gateway API traffic monitoring, use `akeyless.gw.system.request_count` together with `akeyless.gw.system.http_response_status_code`.
+
+`akeyless.gw.system.network.*` covers network interface and TCP connection behavior.
+
 ## Health and Connection Status Values
 
 The following metrics are numeric status metrics:

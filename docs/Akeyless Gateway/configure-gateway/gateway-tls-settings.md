@@ -32,7 +32,7 @@ To configure TLS, on your [Gateway Configuration Manager](https://docs.akeyless.
 
 ## TLS 1.3 and PQC
 
-To enable hybrid post-quantum key exchange on the Gateway, configure the deployment to use TLS 1.3 and the Go runtime flag `GODEBUG=tlsmlkem=1`.
+To enable hybrid post-quantum key exchange on the Gateway, configure the deployment to use TLS 1.3.
 
 For deployment-specific steps, see:
 

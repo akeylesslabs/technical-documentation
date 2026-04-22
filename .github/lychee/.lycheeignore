@@ -26,6 +26,16 @@ https://platform.openai.com/docs/api-reference/admin-api-keys
 # Google Drive (specific file)
 ^https?://drive\.google\.com/file/d/1cFGehGRAUVN0IV3A-2Z3b2XAT31wKWRZ/view(\?usp=sharing)?$
 
+# Docker Hub (returns 500 intermittently to automated crawlers; false positive)
+^https?://hub\.docker\.com(/|$)
+^https?://hub\.docker\.com/r/
+
+# NPM package (non-scoped, returns 403 to bots; false positive)
+^https?://www\.npmjs\.com/package/n8n-nodes-akeyless-io$
+
+# Kubernetes docs (transient network failures from CI/local; URLs are valid)
+^https?://kubernetes\.io/docs/home(/|$)
+
 # GitHub repositories (legacy/deprecated but intentionally referenced)
 ^https?://github\.com/akeylesslabs/akeyless-python-cloud-id(/|$)
 ^https?://github\.com/akeylesslabs/akeyless-grpc-java(/|$)

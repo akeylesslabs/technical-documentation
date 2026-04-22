@@ -1,0 +1,51 @@
+name: PR Default Assignee
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+on:
+  pull_request_target:
+    types:
+      - opened
+
+jobs:
+  assign-pr-author:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Assign PR author when assignee is empty
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const pullRequest = context.payload.pull_request;
+            const creator = pullRequest?.user?.login;
+            const assignees = pullRequest?.assignees || [];
+
+            if (!creator) {
+              core.info('Pull request creator was not present in the event payload; skipping.');
+              return;
+            }
+
+            if (assignees.length > 0) {
+              core.info('Pull request already has an assignee; leaving it unchanged.');
+              return;
+            }
+
+            try {
+              await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pullRequest.number,
+                assignees: [creator],
+              });
+              core.info(`Assigned pull request #${pullRequest.number} to ${creator}.`);
+            } catch (error) {
+              if (error.status === 403 || error.status === 422) {
+                core.warning(`Could not assign ${creator} to pull request #${pullRequest.number}: ${error.message}`);
+                return;
+              }
+
+              throw error;
+            }

@@ -23,7 +23,7 @@ To prove domain ownership, Let's Encrypt requires an ACME challenge. Let's Encry
 
 To prove domain ownership, the Akeyless integration supports the following validation methods:
 
-* **DNS validation**: Ownership is proven by adding a DNS TXT record. This requires the domain to be managed in a supported DNS provider's hosted zone (for example, AWS Route 53, GCP Cloud DNS, or Azure DNS).
+* **DNS validation**: Ownership is proven by adding a DNS TXT record. This requires the domain to be managed in a supported DNS provider's hosted zone (for example, Amazon Route 53, GCP Cloud DNS, or Azure DNS).
 
 * **HTTP validation**: Ownership is proven by hosting a challenge file at `http://<YOUR_DOMAIN>/.well-known/acme-challenge/` and returning the expected value during validation.
 
@@ -105,7 +105,7 @@ Where:
 
      * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
-     * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+  * **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
      * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
      * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
@@ -113,6 +113,31 @@ Where:
    * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
 
 5. Click Finish.
+
+## DNS Provider Permissions for DNS-01
+
+When using `dns` challenge validation, the cloud target referenced by `dns-target-creds` must have permission to create and update ACME TXT records in the relevant DNS zone.
+
+Required permissions by provider:
+
+* **AWS Route 53**
+    * **Required for DNS-01 record changes**: `route53:ChangeResourceRecordSets` on the target hosted zone.
+    * **Common read permissions** (if zone lookup or record inspection is needed): `route53:GetHostedZone`, `route53:ListHostedZonesByName`, and `route53:ListResourceRecordSets`.
+    * Reference: [Actions, resources, and condition keys for Amazon Route 53](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html) and [Permissions required to use the Route 53 API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/r53-api-permissions-ref.html)
+
+* **GCP Cloud DNS**
+    * **Required for DNS-01 record changes**: `dns.changes.create` and the relevant record set permission (`dns.resourceRecordSets.create`, `dns.resourceRecordSets.update`, and/or `dns.resourceRecordSets.delete`).
+    * **Common read permissions**: `dns.managedZones.get`, `dns.managedZones.list`, `dns.resourceRecordSets.get`, and `dns.resourceRecordSets.list`.
+    * Reference: [Access control with IAM](https://docs.cloud.google.com/dns/docs/access-control)
+
+* **Azure DNS**
+    * **Recommended built-in role**: **DNS Zone Contributor** at the DNS zone scope.
+    * This role includes `Microsoft.Network/dnsZones/*` (manage DNS zones and record sets).
+    * Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
+
+> ℹ️ **Note (Least Privilege):**
+>
+> Scope permissions to only the DNS zones and record operations required for certificate validation.
 
 ## Issue Certificates With HTTP Challenge
 
