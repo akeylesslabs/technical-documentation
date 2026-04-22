@@ -16,32 +16,22 @@ Akeyless provides cryptographic module certifications under National Institute o
 
 FIPS 140-3 is the current U.S. and Canadian government standard for cryptographic modules that protect sensitive information. Under CMVP, accredited laboratories test modules against these requirements, and validated modules are published with a certificate number and status.
 
-Certificate: [FIPS 140-3 Certificate #5227](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227)
-
-![FIPS 140-3 validated product logo image in color](https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/images-media/FIPS%20140-3%20Logo-%20Color.jpg)
-
-FIPS 140-3 Validated, Certificate #5227.
-
-The FIPS 140-3 logo is a Certification Mark of NIST. FIPS 140-3 validation does not imply product endorsement by NIST or the Canadian Centre for Cyber Security.
-
-For logo and phrase usage guidance, refer to the CMVP page for the use of the FIPS 140-3 or FIPS 140-2 logo and phrases: [https://csrc.nist.gov/Projects/cryptographic-module-validation-program/use-of-fips-140-2-logo-and-phrases](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/use-of-fips-140-2-logo-and-phrases)
+[FIPS 140-3 Validated, Certificate #5227.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227)
 
 <Embed url="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" title="Cryptographic Module Validation Program | CSRC | CSRC" favicon="https://csrc.nist.gov/CSRC/Media/images/favicons/favicon.ico" image="https://csrc.nist.gov/dist/uswds/img/us_flag_small.png" provider="csrc.nist.gov" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" typeOfEmbed="default" />
-
-> ℹ️ **Note:**
->
-> The certificate posting for Cert. #5227 is currently missing details such as Module Version and Tested Configurations due to a known CMVP processing issue. For complete module information, use the **Security Policy** link on the [certificate posting](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227).
 
 ## FIPS 140-2
 
 FIPS 140-2 is the previous CMVP cryptographic module standard. Many environments still reference FIPS 140-2 validated modules during migration to FIPS 140-3.
 
-Certificate: [FIPS 140-2 Certificate #4824](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4824)
-
 ![NIST FIPS validation logo image associated with the Akeyless FIPS 140-2 certification](https://files.readme.io/42b0a02-fips-validated-certification-logo-300x300-1.png)
+
+[FIPS 140-2 Validated, Certificate #4824.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4824)
+
+The FIPS 140-2 logo is a Certification Mark of NIST. FIPS 140-2 validation does not imply product endorsement by NIST or the Canadian Centre for Cyber Security.
 
 ## FIPS 140-3 Versus FIPS 140-2
 
 FIPS 140-3 supersedes FIPS 140-2 for new validations, but a FIPS 140-2 validation is not automatically a FIPS 140-3 validation. Each certificate is evaluated and issued under its specific standard version.
 
-For transition guidance and validation status details, refer to CMVP resources and the certificate status shown on each NIST certificate page.
+[For transition guidance and validation status details, refer to CMVP resources and the certificate status shown on each NIST certificate page.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules)
