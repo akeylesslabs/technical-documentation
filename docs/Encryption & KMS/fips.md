@@ -18,13 +18,7 @@ FIPS 140-3 is the current U.S. and Canadian government standard for cryptographi
 
 [FIPS 140-3 Validated, Certificate #5227.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227)
 
-The FIPS 140-3 logo is a Certification Mark of NIST. FIPS 140-3 validation does not imply product endorsement by NIST or the Canadian Centre for Cyber Security.
-
-<Embed url="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" title="Cryptographic Module Validation Program | CSRC | CSRC" favicon="https://csrc.nist.gov/CSRC/Media/images/favicons/favicon.ico" image="https://csrc.nist.gov/dist/uswds/img/us_flag_small.png" provider="csrc.nist.gov" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" typeOfEmbed="default" />
-
-> ℹ️ **Note:**
->
-> The certificate posting for Cert. #5227 is currently missing details such as Module Version and Tested Configurations due to a known CMVP processing issue. For complete module information, use the **Security Policy** link on the [certificate posting](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227).
+<Embed url="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" typeOfEmbed="default" />
 
 ## FIPS 140-2
 
@@ -34,7 +28,7 @@ FIPS 140-2 is the previous CMVP cryptographic module standard. Many environments
 
 [FIPS 140-2 Validated, Certificate #4824.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4824)
 
-The FIPS 140-2 logo is a Certification Mark of NIST. FIPS 140-2 validation does not imply product endorsement by NIST or the Canadian Centre for Cyber Security.
+_The FIPS 140-2 logo is a Certification Mark of NIST. FIPS 140-2 validation does not imply product endorsement by NIST or the Canadian Centre for Cyber Security._
 
 ## FIPS 140-3 Versus FIPS 140-2
 
