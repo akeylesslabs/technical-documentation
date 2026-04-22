@@ -18,6 +18,14 @@ FIPS 140-3 is the current U.S. and Canadian government standard for cryptographi
 
 Certificate: [FIPS 140-3 Certificate #5227](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227)
 
+![FIPS 140-3 validated product logo image in color](https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/images-media/FIPS%20140-3%20Logo-%20Color.jpg)
+
+FIPS 140-3 Validated, Certificate #5227.
+
+The FIPS 140-3 logo is a Certification Mark of NIST. FIPS 140-3 validation does not imply product endorsement by NIST or the Canadian Centre for Cyber Security.
+
+For logo and phrase usage guidance, refer to the CMVP page for the use of the FIPS 140-3 or FIPS 140-2 logo and phrases: [https://csrc.nist.gov/Projects/cryptographic-module-validation-program/use-of-fips-140-2-logo-and-phrases](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/use-of-fips-140-2-logo-and-phrases)
+
 <Embed url="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" title="Cryptographic Module Validation Program | CSRC | CSRC" favicon="https://csrc.nist.gov/CSRC/Media/images/favicons/favicon.ico" image="https://csrc.nist.gov/dist/uswds/img/us_flag_small.png" provider="csrc.nist.gov" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227" typeOfEmbed="default" />
 
 > ℹ️ **Note:**
