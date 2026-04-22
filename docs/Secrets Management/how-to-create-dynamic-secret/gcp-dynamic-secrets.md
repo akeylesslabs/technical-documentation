@@ -55,6 +55,12 @@ For example:
 
 * A [privileged service account roles](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) includes `Service Account Key Admin` and `Service Account Token Creator`.
 
+* For **Dynamic Service Account** mode, the privileged service account also needs permissions to create and delete temporary service accounts and to update IAM bindings on target resources:
+
+    * Add [Service Account Admin](https://cloud.google.com/iam/docs/understanding-roles#iam.serviceAccountAdmin) (`roles/iam.serviceAccountAdmin`) to allow temporary service account lifecycle operations (for example, `iam.serviceAccounts.create`).
+
+    * If your role bindings target project resources, add [Project IAM Admin](https://cloud.google.com/iam/docs/understanding-roles#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`) to allow IAM policy changes on the project.
+
 * A [key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) of the privilege service account.
 
 Example list of GCP Service Account permissions:
@@ -69,6 +75,8 @@ iam.serviceAccountKeys.create
 iam.serviceAccountKeys.delete
 iam.serviceAccountKeys.get
 iam.serviceAccountKeys.list
+resourcemanager.projects.getIamPolicy
+resourcemanager.projects.setIamPolicy
 ```
 
 ## Create a Dynamic GCP Secret with the CLI
@@ -217,7 +225,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 5. If you checked **Explicitly specify target properties**, click **Next**.
 

@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.globalsign.com/), [Venafi (now part of CyberArk)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/), [GoDaddy](https://www.godaddy.com/), [Sectigo](https://www.sectigo.com/), and [Let's Encrypt](https://letsencrypt.org/) as Public CAs.
+Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.globalsign.com/), [Venafi (now part of CyberArk)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/), [GoDaddy](https://www.godaddy.com/), [Sectigo](https://www.sectigo.com/), [Google Trust Services (Google CA)](https://cloud.google.com/security/products/certificate-authority-service), [DigiCert](https://www.digicert.com/), and [Let's Encrypt](https://letsencrypt.org/) as Public CAs.
 
 The public certificate authority will sign and issue the certificate, while Akeyless will store and manage the certificate lifecycle.
 
-The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate while providing real-time expiration notification inside the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
+The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate, and providing real-time expiration notifications in the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
 
 ## Prerequisites
 
@@ -62,9 +62,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > ℹ️ **Note (Allowed Domains):**
 >
-> Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix, it is recommended to check this in advance for future automated renewal.
-
-<!-- -->
+> Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix; it is recommended to check this in advance for future automated renewal.
 
 > ℹ️ **Note (Auto-Renew and Public CA Certificate Validity):**
 >
@@ -93,7 +91,7 @@ Where:
 
 * `common-name`: Certificate common name.
 
-* `gateway-url`: Akeyless Gateway URL (port `8000`). to generate the classic key, relevant only when using `generate-key` option.
+* `gateway-url`: Akeyless Gateway URL (port `8000`). to generate the classic key, relevant only when using the `generate-key` option.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#generate-csr) section.
 
@@ -125,10 +123,12 @@ akeyless get-certificate-value \
 
 You can find the complete list of parameters for this command in the [CLI Reference - certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-certificate-value) section.
 
-Once the certificate issue request is processed, the selected public CA target validation flow is triggered and handled through the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
+Once the certificate issue request is processed, the selected public CA target validation flow is triggered and handled through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview).
 
 > ℹ️ **Note (Validation Method):**
 >
 > Validation depends on the selected public CA target. Some targets use email-based validation, while the [Let's Encrypt Target](https://docs.akeyless.io/docs/lets-encrypt) uses ACME challenge validation (`http` or `dns`).
+>
+> For DNS-based validation, ensure the referenced cloud target has the required DNS-zone permissions. For provider guidance, see [Let's Encrypt Target](https://docs.akeyless.io/docs/lets-encrypt#dns-provider-permissions-for-dns-01).
 
 The issued [Certificate item](https://docs.akeyless.io/docs/certificate-storage) should be created under the `destination-path` storage folder inside Akeyless.

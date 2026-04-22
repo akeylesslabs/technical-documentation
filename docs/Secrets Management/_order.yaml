@@ -5,3 +5,4 @@
 - secret-versions
 - sharing-static-secrets
 - targets
+- secret-and-target-locking

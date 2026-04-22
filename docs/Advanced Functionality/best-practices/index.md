@@ -32,7 +32,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 **CSP IAM** - Cloud Service Provider Identity and Access Management.
 
-**Customer Fragment** - [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) Akeyless unique encryption patented technology.
+**Customer Fragment** - [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge) Akeyless unique encryption patented technology.
 
 **SRA Bastion** - Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 

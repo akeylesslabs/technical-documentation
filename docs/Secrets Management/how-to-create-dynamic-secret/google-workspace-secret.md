@@ -154,7 +154,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **User TTL**: Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
 * **Time Unit**: Select the time unit (seconds, minutes, hours) for the TTL value.
 * **Gateway**: Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 ## Fetch a Dynamic Google Workspace Secret Value from the Akeyless Console
 

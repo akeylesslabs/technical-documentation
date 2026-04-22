@@ -1,8 +1,10 @@
 {
   "source_mode": "lychee-discovery",
-  "total_urls_scanned": 1,
-  "redirect_mappings_found": 0,
-  "files_updated": 0,
-  "links_updated": 0,
-  "redirect_mappings": {}
+  "total_urls_scanned": 3,
+  "redirect_mappings_found": 1,
+  "files_updated": 1,
+  "links_updated": 1,
+  "redirect_mappings": {
+    "https://docs.akeyless.io/docs/api-gateway-network-connectivity": "https://docs.akeyless.io/docs/gateway-network-connectivity"
+  }
 }

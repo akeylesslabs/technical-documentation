@@ -3,6 +3,7 @@
 - azure-targets
 - chef-infra-targets
 - database-targets
+- digicert-target
 - docker-hub-target
 - gcp-targets
 - gemini-target
@@ -12,6 +13,7 @@
 - globalsign-atlas
 - globalsign-target
 - godaddy-target
+- google-ca-target
 - hashicorp-vault-target
 - kubernetes-targets
 - ldap-target

@@ -18,23 +18,23 @@ The Akeyless node for n8n integrates with Akeyless Secrets Management. Use it to
 ## Installation
 
 1. For n8n Cloud (SaaS)
-2. Open your n8n instance
-3. Go to Settings → Community Nodes
-4. Search for `@akeylesslabs/n8n-nodes-akeyless`
 
-    ![Search for the node.](https://files.readme.io/7f6ee734fa1faa3631f18b22535d539c1a1a61dcf16766b41324334f2dc223c3-Screenshot_2025-11-17_at_19.14.55.png)
+2. Open your n8n instance
+
+3. Go to Settings → Community Nodes
+
+4. Search for `n8n-nodes-akeyless-io`
 
 5. Click Install
-6. Refresh your workflow editor
 
-    ![Illustration for: Refresh your workflow editor.](https://files.readme.io/e04ed312248f961e0a21a972c61fb43a7af87df983bd0149a7b9db46352dab55-Screenshot_2025-11-17_at_19.15.11.png)
+6. Refresh your workflow editor
 
 ### For Self-Hosted N8n
 
 Install by way of npm in your n8n installation directory:
 
 ```shell
-npm install @akeylesslabs/n8n-nodes-akeyless
+npm install @n8n-nodes-akeyless-io
 ```
 
 Then restart your n8n instance.
@@ -49,11 +49,7 @@ In n8n, go to Credentials → Add Credential
 
 Select Akeyless Security
 
-![Illustration for: Step 1: Configure Credentials In n8n, go to Credentials → Add Credential Select Akeyless Security.](https://files.readme.io/ccc9b3bfe271d41087a408b69547c7f8234bd6354fb286c270fdb60a008c5139-Screenshot_2025-11-14_at_16.45.51.png)
-
 Choose an authentication method:
-
-![Illustration for: Choose an authentication method.](https://files.readme.io/0cb8dee191ebe3c1562733b78e71d9f3c6cf7d0f798953dfb4608119027853c7-Screenshot_2025-11-17_at_19.22.46.png)
 
 #### Method A: Access ID + Access Key (Recommended)
 
@@ -79,75 +75,78 @@ Choose an authentication method:
 ## Available Operations
 
 1. Get Static Secret Value
-    Retrieves a static secret from Akeyless.
-    Configuration:
-    * Secret Name: The full path to your secret (For example, /production/api-key)
-    * Accessibility: Choose regular or personal
-    * Ignore Cache: Set to true to bypass cache
-      Output Example:
+   Retrieves a static secret from Akeyless.
+   Configuration:
 
-    ```text
-    {
-      "/production/api-key": "your-secret-value"
-    }
-    ```
+   * Secret Name: The full path to your secret (For example, /production/api-key)
+   * Accessibility: Choose regular or personal
+   * Ignore Cache: Set to true to bypass cache
+     Output Example:
 
-    Use Case: Retrieve API keys, database passwords, or other Static Secrets.
+   ```text
+   {
+     "/production/api-key": "your-secret-value"
+   }
+   ```
+
+   Use Case: Retrieve API keys, database passwords, or other Static Secrets.
 
 2. Get Rotated Secret Value
-    Retrieves a rotated secret (automatically rotated by Akeyless).
-    Configuration:
-    * Secret Name: The full path to your rotated secret
-    * Ignore Cache: Set to true to bypass cache
+   Retrieves a rotated secret (automatically rotated by Akeyless).
+   Configuration:
 
-    Output: Returns the current rotated secret value.
-    Use Case: Retrieve database credentials that rotate automatically.
+   * Secret Name: The full path to your rotated secret
+   * Ignore Cache: Set to true to bypass cache
+
+   Output: Returns the current rotated secret value.
+   Use Case: Retrieve database credentials that rotate automatically.
 
 3. Get Dynamic Secret Value
-    Retrieves a dynamic secret (generated on-demand).
-    Configuration:
-    * Secret Name: The full path to your dynamic secret
-    * Timeout: Maximum seconds to wait for secret generation (default: 15)
+   Retrieves a dynamic secret (generated on-demand).
+   Configuration:
 
-    Output: Returns the dynamically generated secret value.
-    Use Case: Generate temporary database access credentials or API tokens.
+   * Secret Name: The full path to your dynamic secret
+   * Timeout: Maximum seconds to wait for secret generation (default: 15)
+
+   Output: Returns the dynamically generated secret value.
+   Use Case: Generate temporary database access credentials or API tokens.
 
 4. Create Secret
-    Creates a new secret in Akeyless.
-    Configuration:
-    * Secret Name: Full path where the secret will be stored
-    * Type: Choose Generic or Password
-    * Format: Choose Text or JSON
-    * Accessibility: Choose regular or personal
-      For Generic Secrets:
-    * Secret Value: The value to store
-      For Password Secrets:
-    * Username: The username
-    * Password: The password
-      Additional Options:
-    * Secure Access Web Browsing: Enable if needed
-    * Secure Access Web Proxy: Enable if needed
-      Use Case: Store new API keys, create database credentials, or save configuration values.
+   Creates a new secret in Akeyless.
+   Configuration:
+   * Secret Name: Full path where the secret will be stored
+   * Type: Choose Generic or Password
+   * Format: Choose Text or JSON
+   * Accessibility: Choose regular or personal
+     For Generic Secrets:
+   * Secret Value: The value to store
+     For Password Secrets:
+   * Username: The username
+   * Password: The password
+     Additional Options:
+   * Secure Access Web Browsing: Enable if needed
+   * Secure Access Web Proxy: Enable if needed
+     Use Case: Store new API keys, create database credentials, or save configuration values.
 
 5. Delete Items
-    Deletes one or more items from Akeyless.
-    Configuration:
-    * Path: The path/name of the item(s) to delete (supports wildcards)
-      Use Case: Remove old secrets or clean up unused items.
+   Deletes one or more items from Akeyless.
+   Configuration:
+   * Path: The path/name of the item(s) to delete (supports wildcards)
+     Use Case: Remove old secrets or clean up unused items.
 
 6. Create Folder
-    Creates a new folder in Akeyless.
-    Configuration:
-    * Folder Name: The name/path of the folder to create
-    * Accessibility: Choose regular or personal
-      Use Case: Organize secrets into folders (For example, /production/, /staging/).
+   Creates a new folder in Akeyless.
+   Configuration:
+   * Folder Name: The name/path of the folder to create
+   * Accessibility: Choose regular or personal
+     Use Case: Organize secrets into folders (For example, /production/, /staging/).
 
 7. Delete Folder
-    Deletes a folder from Akeyless.
-    Configuration:
-    * Folder Name: The name/path of the folder to delete
-    * Accessibility: Choose regular or personal
-      Use Case: Remove empty or unused folders.
+   Deletes a folder from Akeyless.
+   Configuration:
+   * Folder Name: The name/path of the folder to delete
+   * Accessibility: Choose regular or personal
+     Use Case: Remove empty or unused folders.
 
 ## Using Secrets in Your Workflows
 
@@ -182,5 +181,5 @@ Extract the secret value first for cleaner, reusable workflows:
 
 ## Resources
 
-* Package on npm: [https://www.npmjs.com/package/@akeylesslabs/n8n-nodes-akeyless](https://www.npmjs.com/package/@akeylesslabs/n8n-nodes-akeyless)
+* Package on npm: [https://www.npmjs.com/package/n8n-nodes-akeyless-io](https://www.npmjs.com/package/n8n-nodes-akeyless-io)
 * GitHub Repository: [https://github.com/akeyless-community/N8N_PlugIn](https://github.com/akeyless-community/N8N_PlugIn)

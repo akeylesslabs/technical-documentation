@@ -4005,7 +4005,7 @@
         }
       }
     },
-    "/dynamic-secret-create-oracle": {
+    "/dynamic-secret-create-oracledb": {
       "post": {
         "tags": [
           "v2"
@@ -4356,33 +4356,6 @@
         }
       }
     },
-    "/dynamic-secret-tmp-creds-Get": {
-      "post": {
-        "tags": [
-          "v2"
-        ],
-        "operationId": "dynamicSecretTmpCredsGet",
-        "parameters": [
-          {
-            "x-go-name": "Body",
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/dynamicSecretTmpCredsGet"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "$ref": "#/responses/dynamicSecretTmpCredsGetResponse"
-          },
-          "default": {
-            "$ref": "#/responses/errorResponse"
-          }
-        }
-      }
-    },
     "/dynamic-secret-tmp-creds-delete": {
       "post": {
         "tags": [
@@ -4403,6 +4376,33 @@
         "responses": {
           "201": {
             "$ref": "#/responses/dynamicSecretTmpCredsDeleteResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/dynamic-secret-tmp-creds-get": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "dynamicSecretTmpCredsGet",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dynamicSecretTmpCredsGet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/dynamicSecretTmpCredsGetResponse"
           },
           "default": {
             "$ref": "#/responses/errorResponse"
@@ -4760,7 +4760,7 @@
         }
       }
     },
-    "/dynamic-secret-update-hana": {
+    "/dynamic-secret-update-hanadb": {
       "post": {
         "tags": [
           "v2"
@@ -4841,7 +4841,7 @@
         }
       }
     },
-    "/dynamic-secret-update-mongo": {
+    "/dynamic-secret-update-mongodb": {
       "post": {
         "tags": [
           "v2"
@@ -10345,6 +10345,60 @@
         }
       }
     },
+    "/lock-item": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "lockItem",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/lockItem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/lockItemResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/lock-target": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "lockTarget",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/lockTarget"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/lockTargetResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/move-objects": {
       "post": {
         "tags": [
@@ -12034,6 +12088,33 @@
         }
       }
     },
+    "/runtime-authority": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "runtimeAuthority",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/runtimeAuthorityCommand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/runtimeAuthorityResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/set-item-state": {
       "post": {
         "tags": [
@@ -12493,6 +12574,33 @@
         }
       }
     },
+    "/target-create-digicert": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "targetCreateDigiCert",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/targetCreateDigiCert"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/targetCreateDigiCertResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/target-create-dockerhub": {
       "post": {
         "tags": [
@@ -12756,6 +12864,33 @@
         "responses": {
           "201": {
             "$ref": "#/responses/targetCreateGodaddyResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/target-create-google-trust": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "targetCreateGoogleTrust",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/targetCreateGoogleTrust"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/targetCreateGoogleTrustResponse"
           },
           "default": {
             "$ref": "#/responses/errorResponse"
@@ -13384,6 +13519,33 @@
         }
       }
     },
+    "/target-update-digicert": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "targetUpdateDigiCert",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/targetUpdateDigiCert"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/targetUpdateDigiCertResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/target-update-dockerhub": {
       "post": {
         "tags": [
@@ -13647,6 +13809,33 @@
         "responses": {
           "201": {
             "$ref": "#/responses/targetUpdateGodaddyResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/target-update-google-trust": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "targetUpdateGoogleTrust",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/targetUpdateGoogleTrust"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/targetUpdateGoogleTrustResponse"
           },
           "default": {
             "$ref": "#/responses/errorResponse"
@@ -14214,6 +14403,60 @@
         "responses": {
           "200": {
             "$ref": "#/responses/uidRotateTokenResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/unlock-item": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "unlockItem",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/unlockItem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/unlockItemResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/unlock-target": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "unlockTarget",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/unlockTarget"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/unlockTargetResponse"
           },
           "default": {
             "$ref": "#/responses/errorResponse"
@@ -16695,6 +16938,10 @@
           "type": "boolean",
           "x-go-name": "HidePersonalFolder"
         },
+        "hide_secret_reveal_copy": {
+          "type": "boolean",
+          "x-go-name": "HideSecretRevealCopy"
+        },
         "hide_static_password": {
           "type": "boolean",
           "x-go-name": "HideStaticPassword"
@@ -16703,6 +16950,9 @@
           "description": "InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention",
           "type": "string",
           "x-go-name": "InvalidCharacters"
+        },
+        "item_locking": {
+          "$ref": "#/definitions/ItemLockingSetting"
         },
         "item_usage_event": {
           "$ref": "#/definitions/UsageEventSetting"
@@ -16928,6 +17178,40 @@
       "type": "integer",
       "format": "int64",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
+    },
+    "AgenticRule": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "rule": {
+          "type": "string",
+          "x-go-name": "Rule"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "AgenticRules": {
+      "type": "object",
+      "properties": {
+        "input_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AgenticRule"
+          },
+          "x-go-name": "InputRules"
+        },
+        "output_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AgenticRule"
+          },
+          "x-go-name": "OutputRules"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
     "AiInsightsConfigPart": {
       "type": "object",
@@ -17801,7 +18085,7 @@
         "access_key_id": {
           "description": "creds",
           "type": "string",
-          "x-go-name": "AccessKeyId"
+          "x-go-name": "AccessKeyID"
         },
         "access_key_secret": {
           "type": "string",
@@ -17814,6 +18098,10 @@
         "bucket": {
           "type": "string",
           "x-go-name": "Bucket"
+        },
+        "endpoint_url": {
+          "type": "string",
+          "x-go-name": "EndpointURL"
         },
         "prefix": {
           "type": "string",
@@ -20340,7 +20628,7 @@
           "x-go-name": "ESMName"
         },
         "organization-name": {
-          "description": "The organization name to create the secret in (only relevant for: github-scope=organization)",
+          "description": "The organization name to create the secret in",
           "type": "string",
           "x-go-name": "GithubOrganizationName"
         },
@@ -20382,11 +20670,21 @@
           "type": "string",
           "x-go-name": "USCPrefix"
         },
+        "usc-tags": {
+          "description": "Comma-separated list of tags to apply to all secrets created on the remote USC",
+          "type": "string",
+          "x-go-name": "USCTags"
+        },
         "use-prefix-as-filter": {
           "description": "Whether to filter the USC secret list using the specified usc-prefix [true/false]",
           "type": "string",
           "default": "false",
           "x-go-name": "UsePrefixAsFilterStr"
+        },
+        "use-tags-as-filter": {
+          "description": "Filter the USC secret list by the value(s) of --usc-tags. [true|false]",
+          "type": "boolean",
+          "x-go-name": "UseTagsAsFilter"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
@@ -20514,6 +20812,9 @@
         "administrative_port": {
           "type": "string",
           "x-go-name": "AdministrativePort"
+        },
+        "agentic_rules": {
+          "$ref": "#/definitions/AgenticRules"
         },
         "api_key": {
           "type": "string",
@@ -21951,6 +22252,75 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "DigiCertDirectoryType": {
+      "type": "string",
+      "title": "DigiCertDirectoryType defines DigiCert ACME endpoint selector.",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "DigiCertTargetDetails": {
+      "type": "object",
+      "title": "DigiCertTargetDetails defines configuration for DigiCert ACME target.",
+      "properties": {
+        "account_key_pem": {
+          "description": "ACME Account Private Key (PEM-encoded).\nSupports ECDSA (P-256, P-384, P-521), RSA (2048+), and Ed25519.\nAuto-generated as ECDSA P-256 during first certificate issuance bootstrap.\nStored encrypted, required for certificate operations and revocation.",
+          "type": "string",
+          "x-go-name": "AccountKeyPEM"
+        },
+        "account_url": {
+          "description": "ACME Account URL (returned after registration with DigiCert ACME).\nUsed to retrieve existing account instead of re-registering.",
+          "type": "string",
+          "x-go-name": "AccountURL"
+        },
+        "challenge_type": {
+          "$ref": "#/definitions/ACMEChallengeType"
+        },
+        "digicert_directory_type": {
+          "$ref": "#/definitions/DigiCertDirectoryType"
+        },
+        "dns_target_name": {
+          "description": "Name of DNS target (transient field - not stored in DB).\nUsed by CLI to pass DNS target name to SDK for creating target_object_assoc.\nRetrieved from target_object_assoc when reading target.\nRequired when ChallengeType is dns.",
+          "type": "string",
+          "x-go-name": "DNSTargetName"
+        },
+        "dns_target_type": {
+          "$ref": "#/definitions/TargetType"
+        },
+        "eab_hmac_key": {
+          "description": "External Account Binding HMAC key.\nRequired until ACME account is bootstrapped on first issuance.",
+          "type": "string",
+          "x-go-name": "EABHMACKey"
+        },
+        "eab_key_id": {
+          "description": "External Account Binding key identifier.\nRequired until ACME account is bootstrapped on first issuance.",
+          "type": "string",
+          "x-go-name": "EABKeyID"
+        },
+        "email": {
+          "description": "Email address for ACME account registration.\nRequired.",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "gcp_project": {
+          "description": "GCP Cloud DNS: Project ID.\nOptional - can be derived from service account.",
+          "type": "string",
+          "x-go-name": "GCPProject"
+        },
+        "hosted_zone": {
+          "description": "AWS Route53: Hosted zone ID.\nRequired when DNSTargetType is AWS.",
+          "type": "string",
+          "x-go-name": "HostedZone"
+        },
+        "resource_group": {
+          "description": "Azure DNS: Resource group name.\nRequired when DNSTargetType is Azure.",
+          "type": "string",
+          "x-go-name": "ResourceGroup"
+        },
+        "timeout": {
+          "$ref": "#/definitions/Duration"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "DiscoveryType": {
       "type": "string",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
@@ -22274,12 +22644,23 @@
     "EsmListSecretsOutput": {
       "type": "object",
       "properties": {
+        "next_token": {
+          "type": "string",
+          "x-go-name": "NextToken"
+        },
         "secrets_list": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/SecretInfo"
           },
           "x-go-name": "SecretsList"
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Warnings"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
@@ -22771,6 +23152,10 @@
     "GatewayMigrationCreateOutput": {
       "type": "object",
       "properties": {
+        "migration_id": {
+          "type": "string",
+          "x-go-name": "MigrationId"
+        },
         "migration_name": {
           "type": "string",
           "x-go-name": "MigrationName"
@@ -23042,6 +23427,10 @@
           "type": "string",
           "x-go-name": "DisplayName"
         },
+        "enable_json_body_limit": {
+          "type": "boolean",
+          "x-go-name": "EnableJSONBodyLimit"
+        },
         "enable_sni_proxy": {
           "type": "boolean",
           "x-go-name": "EnableSniProxy"
@@ -23070,6 +23459,11 @@
           "type": "integer",
           "format": "int64",
           "x-go-name": "HvpRouteVersion"
+        },
+        "json_body_limit_mb": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "JSONBodyLimitMB"
         },
         "notify_on_status_change": {
           "type": "boolean",
@@ -23802,6 +24196,70 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
     },
+    "GoogleTrustTargetDetails": {
+      "description": "GoogleTrustTargetDetails defines configuration for Google Trust Services ACME target",
+      "type": "object",
+      "properties": {
+        "account_key_pem": {
+          "description": "ACME Account Private Key (PEM-encoded)\nSupports ECDSA (P-256, P-384, P-521), RSA (2048+), and Ed25519\nAuto-generated as ECDSA P-256 during target creation bootstrap\nStored encrypted, required for certificate operations and revocation",
+          "type": "string",
+          "x-go-name": "AccountKeyPEM"
+        },
+        "account_url": {
+          "description": "ACME Account URL (returned after registration with Google Trust Services)\nUsed to retrieve existing account instead of re-registering",
+          "type": "string",
+          "x-go-name": "AccountURL"
+        },
+        "acme_environment": {
+          "$ref": "#/definitions/ACMEEnvironment"
+        },
+        "challenge_type": {
+          "$ref": "#/definitions/ACMEChallengeType"
+        },
+        "dns_target_name": {
+          "description": "Name of DNS target (transient field - not stored in DB)\nUsed by CLI to pass DNS target name to SDK for creating target_object_assoc\nRetrieved from target_object_assoc when reading target\nRequired when ChallengeType is \"dns\"",
+          "type": "string",
+          "x-go-name": "DNSTargetName"
+        },
+        "dns_target_type": {
+          "$ref": "#/definitions/TargetType"
+        },
+        "eab_hmac_key": {
+          "description": "External Account Binding HMAC key (required for ACME account bootstrap on target creation)\nNot persisted after bootstrap",
+          "type": "string",
+          "x-go-name": "EABHMACKey"
+        },
+        "eab_key_id": {
+          "description": "External Account Binding key identifier (required for ACME account bootstrap on target creation)\nNot persisted after bootstrap",
+          "type": "string",
+          "x-go-name": "EABKeyID"
+        },
+        "email": {
+          "description": "Email address for ACME account registration\nRequired",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "gcp_project": {
+          "description": "GCP Cloud DNS: Project ID\nOptional - can be derived from service account",
+          "type": "string",
+          "x-go-name": "GCPProject"
+        },
+        "hosted_zone": {
+          "description": "AWS Route53: Hosted zone ID\nRequired when DNSTargetType is AWS",
+          "type": "string",
+          "x-go-name": "HostedZone"
+        },
+        "resource_group": {
+          "description": "Azure DNS: Resource group name\nRequired when DNSTargetType is Azure",
+          "type": "string",
+          "x-go-name": "ResourceGroup"
+        },
+        "timeout": {
+          "$ref": "#/definitions/Duration"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "GraceRotationTiming": {
       "type": "string",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
@@ -23993,6 +24451,10 @@
     "HashiPayload": {
       "type": "object",
       "properties": {
+        "delete_sync_on_deletion": {
+          "type": "boolean",
+          "x-go-name": "DeleteSyncOnDeletion"
+        },
         "import_as_json": {
           "type": "boolean",
           "x-go-name": "ImportAsJson"
@@ -24011,6 +24473,10 @@
         "url": {
           "type": "string",
           "x-go-name": "Url"
+        },
+        "usc_name": {
+          "type": "string",
+          "x-go-name": "UscName"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
@@ -24307,6 +24773,9 @@
         "linked_details": {
           "$ref": "#/definitions/LinkedDetails"
         },
+        "locking_info": {
+          "$ref": "#/definitions/LockingInfo"
+        },
         "modification_date": {
           "type": "string",
           "format": "date-time",
@@ -24397,6 +24866,9 @@
       "type": "object",
       "title": "ItemGeneralInfo defines item general info.",
       "properties": {
+        "agentic_rules": {
+          "$ref": "#/definitions/AgenticRules"
+        },
         "cert_issue_details": {
           "$ref": "#/definitions/CertificateIssueInfo"
         },
@@ -24460,6 +24932,21 @@
         },
         "tokenizer_info": {
           "$ref": "#/definitions/TokenizerInfo"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "ItemLockingSetting": {
+      "type": "object",
+      "properties": {
+        "enable": {
+          "type": "boolean",
+          "x-go-name": "Enable"
+        },
+        "max_lock_ttl_mins": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "MaxLockTtlMins"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
@@ -25798,6 +26285,43 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "LockItemOutput": {
+      "type": "object",
+      "title": "LockItemOutput defines output of LockItem operation.",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "LockTargetOutput": {
+      "type": "object",
+      "title": "LockTargetOutput defines output of LockTarget operation.",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "LockingInfo": {
+      "type": "object",
+      "title": "LockingInfo defines item locking information for check-out style locking.",
+      "properties": {
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Actions"
+        },
+        "expire_at": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ExpireAt"
+        },
+        "locked_by": {
+          "type": "string",
+          "x-go-name": "LockedBy"
+        },
+        "unique_identifier": {
+          "type": "string",
+          "x-go-name": "UniqueIdentifier"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "LogForwardingConfigPart": {
       "type": "object",
       "properties": {
@@ -26056,6 +26580,9 @@
         "start_time": {
           "type": "string",
           "x-go-name": "StartTime"
+        },
+        "sync": {
+          "$ref": "#/definitions/SyncCounters"
         },
         "targets": {
           "$ref": "#/definitions/MigrationItems"
@@ -26340,6 +26867,41 @@
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "NetappStorage": {
+      "type": "object",
+      "title": "NetappStorage holds S3-compatible (e.g. NetApp StorageGRID) recording storage settings and credentials.",
+      "properties": {
+        "access_key_id": {
+          "type": "string",
+          "x-go-name": "AccessKeyID"
+        },
+        "access_key_secret": {
+          "type": "string",
+          "x-go-name": "AccessKeySecret"
+        },
+        "auth_type": {
+          "type": "string",
+          "x-go-name": "AuthType"
+        },
+        "bucket": {
+          "type": "string",
+          "x-go-name": "Bucket"
+        },
+        "endpoint_url": {
+          "type": "string",
+          "x-go-name": "EndpointURL"
+        },
+        "prefix": {
+          "type": "string",
+          "x-go-name": "Prefix"
+        },
+        "region": {
+          "type": "string",
+          "x-go-name": "Region"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
     },
     "NextAutoRotationEvent": {
       "type": "object",
@@ -27450,6 +28012,7 @@
     },
     "RecordStorageType": {
       "type": "string",
+      "title": "RecordStorageType defines the storage backend for RDP session recordings.",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
     },
     "RecordingQuality": {
@@ -28399,6 +28962,10 @@
           "type": "string",
           "x-go-name": "Name"
         },
+        "namespace": {
+          "type": "string",
+          "x-go-name": "Namespace"
+        },
         "region": {
           "type": "string",
           "x-go-name": "Region"
@@ -28590,6 +29157,10 @@
           "type": "boolean",
           "x-go-name": "Isolated"
         },
+        "lock_during_sra_session": {
+          "type": "boolean",
+          "x-go-name": "LockDuringSraSession"
+        },
         "native": {
           "type": "boolean",
           "x-go-name": "AwsNativeCli"
@@ -28609,6 +29180,11 @@
         "rotate_after_disconnect": {
           "type": "boolean",
           "x-go-name": "RotateAfterDisconnect"
+        },
+        "rotate_after_disconnect_delay_mins": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "RotateAfterDisconnectDelayMins"
         },
         "schema": {
           "type": "string",
@@ -29214,6 +29790,11 @@
       "type": "string",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "StringOrBool": {
+      "description": "StringOrBool accepts JSON strings, booleans, and numbers for backward\ncompatibility with older SDK versions that send boolean values for\nrotate-after-disconnect.",
+      "type": "string",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client"
+    },
     "SubClaimsDelimiters": {
       "type": "array",
       "items": {
@@ -29238,6 +29819,29 @@
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
+    },
+    "SyncCounters": {
+      "description": "Non-zero only when usc_name is configured on the migration.",
+      "type": "object",
+      "title": "SyncCounters holds USC auto-sync counters for a migration run.",
+      "properties": {
+        "created": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Created"
+        },
+        "failed": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Failed"
+        },
+        "skipped": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Skipped"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/importer/report"
     },
     "SyslogLogForwardingConfig": {
       "type": "object",
@@ -29281,6 +29885,11 @@
           "description": "Temporary credentials for accessing Auth",
           "type": "string",
           "x-go-name": "AuthAccessCredentials"
+        },
+        "csrf_token": {
+          "description": "CSRF token for synchronizer-token pattern (only populated for WebUI clients)",
+          "type": "string",
+          "x-go-name": "CSRFToken"
         },
         "expiry": {
           "description": "Credentials expiration date",
@@ -29375,6 +29984,10 @@
           "format": "date-time",
           "x-go-name": "CreationDate"
         },
+        "delete_protection": {
+          "type": "boolean",
+          "x-go-name": "DeleteProtection"
+        },
         "is_access_request_enabled": {
           "type": "boolean",
           "x-go-name": "IsAccessRequestEnabled"
@@ -29383,6 +29996,9 @@
           "type": "integer",
           "format": "int32",
           "x-go-name": "LastVersion"
+        },
+        "locking_info": {
+          "$ref": "#/definitions/LockingInfo"
         },
         "modification_date": {
           "type": "string",
@@ -29622,6 +30238,9 @@
         "db_target_details": {
           "$ref": "#/definitions/DbTargetDetails"
         },
+        "digicert_target_details": {
+          "$ref": "#/definitions/DigiCertTargetDetails"
+        },
         "dockerhub_target_details": {
           "$ref": "#/definitions/DockerhubTargetDetails"
         },
@@ -29651,6 +30270,9 @@
         },
         "godaddy_target_details": {
           "$ref": "#/definitions/GodaddyTargetDetails"
+        },
+        "google_trust_target_details": {
+          "$ref": "#/definitions/GoogleTrustTargetDetails"
         },
         "hashi_vault_target_details": {
           "$ref": "#/definitions/HashiVaultTargetDetails"
@@ -29847,6 +30469,11 @@
       "type": "object",
       "title": "UniversalIdentityAccessRules contains access rules specific to Universal Identity.",
       "properties": {
+        "child_ttl_limit": {
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "ChildTTLLimit"
+        },
         "deny_inheritance": {
           "type": "boolean",
           "x-go-name": "DenyInheritance"
@@ -29854,6 +30481,11 @@
         "deny_rotate": {
           "type": "boolean",
           "x-go-name": "DenyRotate"
+        },
+        "tree_length": {
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "TreeLength"
         },
         "ttl": {
           "type": "integer",
@@ -29881,6 +30513,16 @@
           "$ref": "#/definitions/UIDTokenDetails"
         }
       },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "UnlockItemOutput": {
+      "type": "object",
+      "title": "UnlockItemOutput defines output of UnlockItem operation.",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "UnlockTargetOutput": {
+      "type": "object",
+      "title": "UnlockTargetOutput defines output of UnlockTarget operation.",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
     "UnwrapTokenOutput": {
@@ -30363,12 +31005,23 @@
     "UscListSecretsOutput": {
       "type": "object",
       "properties": {
+        "next_token": {
+          "type": "string",
+          "x-go-name": "NextToken"
+        },
         "secrets_list": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/SecretInfo"
           },
           "x-go-name": "SecretsList"
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Warnings"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
@@ -30647,6 +31300,9 @@
         "encryption_key": {
           "type": "string",
           "x-go-name": "EncryptionKey"
+        },
+        "netapp": {
+          "$ref": "#/definitions/NetappStorage"
         },
         "recording_quality": {
           "$ref": "#/definitions/RecordingQuality"
@@ -33372,6 +34028,13 @@
           },
           "x-go-name": "CIDRWhitelist"
         },
+        "child-ttl-limit": {
+          "description": "Maximum child token ttl allowed in uid-create-child-token",
+          "type": "integer",
+          "format": "int32",
+          "default": 43200,
+          "x-go-name": "BoundChildTTLLimit"
+        },
         "delete_protection": {
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
@@ -33443,6 +34106,13 @@
           "description": "Authentication token (see `/auth` and `/configure`)",
           "type": "string",
           "x-go-name": "Profile"
+        },
+        "tree-length": {
+          "description": "Maximum UID tree depth allowed (child of child of ...)",
+          "type": "integer",
+          "format": "int32",
+          "default": 200,
+          "x-go-name": "BoundTreeLength"
         },
         "ttl": {
           "description": "Token ttl",
@@ -35687,6 +36357,13 @@
           },
           "x-go-name": "CIDRWhitelist"
         },
+        "child-ttl-limit": {
+          "description": "Maximum child token ttl allowed in uid-create-child-token",
+          "type": "integer",
+          "format": "int32",
+          "default": 43200,
+          "x-go-name": "BoundChildTTLLimit"
+        },
         "delete_protection": {
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
@@ -35763,6 +36440,13 @@
           "description": "Authentication token (see `/auth` and `/configure`)",
           "type": "string",
           "x-go-name": "Profile"
+        },
+        "tree-length": {
+          "description": "Maximum UID tree depth allowed (child of child of ...)",
+          "type": "integer",
+          "format": "int32",
+          "default": 200,
+          "x-go-name": "BoundTreeLength"
         },
         "ttl": {
           "description": "Token ttl",
@@ -38380,6 +39064,13 @@
           },
           "x-go-name": "CIDRWhitelist"
         },
+        "child-ttl-limit": {
+          "description": "Maximum child token ttl allowed in uid-create-child-token",
+          "type": "integer",
+          "format": "int32",
+          "default": 43200,
+          "x-go-name": "BoundChildTTLLimit"
+        },
         "delete_protection": {
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
@@ -38451,6 +39142,13 @@
           "description": "Authentication token (see `/auth` and `/configure`)",
           "type": "string",
           "x-go-name": "Profile"
+        },
+        "tree-length": {
+          "description": "Maximum UID tree depth allowed (child of child of ...)",
+          "type": "integer",
+          "format": "int32",
+          "default": 200,
+          "x-go-name": "BoundTreeLength"
         },
         "ttl": {
           "description": "Token ttl",
@@ -40879,6 +41577,11 @@
           "type": "string",
           "x-go-name": "AnalyticsAccess"
         },
+        "ara-reports-access": {
+          "description": "Allow this role to view Agentic Runtime Authority Dashboard. Currently only 'none', 'scoped',\n'all' values are supported.",
+          "type": "string",
+          "x-go-name": "ARAReportsAccess"
+        },
         "audit-access": {
           "description": "Allow this role to view audit logs. Currently only 'none', 'own', 'scoped' and 'all'\nvalues are supported, allowing associated auth methods to view audit\nlogs produced by the same auth methods.",
           "type": "string",
@@ -41060,6 +41763,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "metadata": {
           "description": "Deprecated - use description",
           "type": "string",
@@ -41076,10 +41784,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -41729,6 +42434,11 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "Json"
+        },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
         },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
@@ -43170,7 +43880,7 @@
           "x-go-name": "RoleName"
         },
         "rule-type": {
-          "description": "item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule",
+          "description": "item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, ara-reports-rule, sra-rule, ara-rule, usage-reports-rule, event-rule, event-forwarder-rule, reverse-rbac-rule",
           "type": "string",
           "default": "item-rule",
           "x-go-name": "RuleType"
@@ -43509,7 +44219,7 @@
           "x-go-name": "Profile"
         },
         "type": {
-          "description": "Type of object (item, am, role, target)",
+          "description": "Type of object (item, am, role, target, sra, ara)",
           "type": "string",
           "x-go-name": "Type"
         },
@@ -55024,6 +55734,11 @@
           "type": "string",
           "x-go-name": "ConjurUsername"
         },
+        "delete-remote": {
+          "description": "Delete the secret from the remote target as well, relevant only when usc-name is not empty (relevant only for HasiCorp Vault migration)",
+          "type": "boolean",
+          "x-go-name": "HashiDeleteRemote"
+        },
         "expiration-event-in": {
           "description": "How many days before the expiration of the certificate would you like to be notified.",
           "type": "array",
@@ -55212,6 +55927,11 @@
           "description": "The universal identity token, Required only for universal_identity authentication",
           "type": "string",
           "x-go-name": "UIDToken"
+        },
+        "usc-name": {
+          "description": "Universal Secret Connector name",
+          "type": "string",
+          "x-go-name": "HashiUscName"
         },
         "use-gw-cloud-identity": {
           "description": "Use the GW's Cloud IAM",
@@ -61769,6 +62489,11 @@
           "type": "string",
           "x-go-name": "ConjurUsername"
         },
+        "delete-remote": {
+          "description": "Delete the secret from the remote target as well, relevant only when usc-name is not empty (relevant only for HasiCorp Vault migration)",
+          "type": "boolean",
+          "x-go-name": "HashiDeleteRemote"
+        },
         "expiration-event-in": {
           "description": "How many days before the expiration of the certificate would you like to be notified.",
           "type": "array",
@@ -61962,6 +62687,11 @@
           "description": "The universal identity token, Required only for universal_identity authentication",
           "type": "string",
           "x-go-name": "UIDToken"
+        },
+        "usc-name": {
+          "description": "Universal Secret Connector name",
+          "type": "string",
+          "x-go-name": "HashiUscName"
         },
         "use-gw-cloud-identity": {
           "description": "Use the GW's Cloud IAM",
@@ -66263,7 +66993,7 @@
         "aws-storage-access-key-id": {
           "description": "AWS access key id. For more information refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html",
           "type": "string",
-          "x-go-name": "AccessKeyId"
+          "x-go-name": "AccessKeyID"
         },
         "aws-storage-bucket-name": {
           "description": "The AWS bucket name. For more information refer to https://docs.aws.amazon.com/s3/",
@@ -66274,6 +67004,11 @@
           "description": "The folder name in S3 bucket. For more information refer to https://docs.aws.amazon.com/s3/",
           "type": "string",
           "x-go-name": "BucketPrefix"
+        },
+        "aws-storage-endpoint-url": {
+          "description": "Custom AWS endpoint URL for S3-compatible storage (e.g. a private AWS endpoint)",
+          "type": "string",
+          "x-go-name": "EndpointURL"
         },
         "aws-storage-region": {
           "description": "The region where the storage is located",
@@ -68899,6 +69634,12 @@
           "type": "string",
           "x-go-name": "MultiFieldFilter"
         },
+        "ara-only": {
+          "description": "Filter by items with ARA functionality enabled",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "AraOnly"
+        },
         "auto-pagination": {
           "description": "Retrieve all items using pagination, when disabled retrieving only first 1000 items",
           "type": "string",
@@ -69144,6 +69885,90 @@
             "type": "string"
           },
           "x-go-name": "Types"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "lockItem": {
+      "type": "object",
+      "title": "lockItem is a command that locks a static secret item.",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "actions": {
+          "description": "Comma-separated blocked actions (read, update)",
+          "type": "string",
+          "x-go-name": "Actions"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "lock-ttl": {
+          "description": "Lock TTL in minutes",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "LockTTL"
+        },
+        "name": {
+          "description": "Item name",
+          "type": "string",
+          "x-go-name": "ItemName"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "lockTarget": {
+      "type": "object",
+      "title": "lockTarget is a command that locks a target.",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "actions": {
+          "description": "Comma-separated blocked actions (read, update)",
+          "type": "string",
+          "x-go-name": "Actions"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "lock-ttl": {
+          "description": "Lock TTL in minutes",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "LockTTL"
+        },
+        "name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
         },
         "uid-token": {
           "description": "The universal identity token, Required only for universal_identity authentication",
@@ -69769,7 +70594,7 @@
           "x-go-name": "Profile"
         },
         "type": {
-          "description": "Type of object (item, am, role)",
+          "description": "Type of object (item, am, role, target, sra, ara)",
           "type": "string",
           "x-go-name": "Type"
         },
@@ -70066,6 +70891,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -70082,10 +70912,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotation-event-in": {
           "description": "How many days before the rotation of the item would you like to be notified",
@@ -70253,6 +71080,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -70279,10 +71111,7 @@
           "x-go-name": "ResourceName"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotation-event-in": {
           "description": "How many days before the rotation of the item would you like to be notified",
@@ -70559,6 +71388,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -70575,10 +71409,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotation-event-in": {
           "description": "How many days before the rotation of the item would you like to be notified",
@@ -71158,6 +71989,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -71174,10 +72010,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=ldap)",
@@ -71358,6 +72191,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -71374,10 +72212,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -71522,6 +72357,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -71538,10 +72378,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -71691,6 +72528,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -71707,10 +72549,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -71980,6 +72819,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -71996,10 +72840,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -72144,6 +72985,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -72160,10 +73006,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -72437,6 +73280,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -72453,10 +73301,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -72879,6 +73724,11 @@
           "type": "string",
           "x-go-name": "KeyDataBase64"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -72900,10 +73750,7 @@
           "x-go-name": "PublicKeyRemotePath"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -73074,6 +73921,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -73090,10 +73942,7 @@
           "x-go-name": "PasswordLengthInput"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -73513,6 +74362,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -73542,10 +74396,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotation-event-in": {
           "description": "How many days before the rotation of the item would you like to be notified",
@@ -73707,6 +74558,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -73746,10 +74602,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotation-event-in": {
           "description": "How many days before the rotation of the item would you like to be notified",
@@ -74028,6 +74881,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -74057,10 +74915,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotation-event-in": {
           "description": "How many days before the rotation of the item would you like to be notified",
@@ -74671,6 +75526,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -74700,10 +75560,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=ldap)",
@@ -74878,6 +75735,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -74907,10 +75769,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -75049,6 +75908,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -75078,10 +75942,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -75225,6 +76086,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -75254,10 +76120,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -75528,6 +76391,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -75557,10 +76425,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -75699,6 +76564,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -75728,10 +76598,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -76006,6 +76873,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -76035,10 +76907,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -76455,6 +77324,11 @@
           "type": "string",
           "x-go-name": "KeyDataBase64"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -76489,10 +77363,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -76663,6 +77534,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -76692,10 +77568,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password (relevant only for rotator-type=password)",
@@ -76788,6 +77661,81 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "runtimeAuthorityCommand": {
+      "type": "object",
+      "title": "runtimeAuthorityCommand runs a target query against the gateway (same behavior as MCP query-db / service-execute tools).",
+      "required": [
+        "name",
+        "payload",
+        "agent-id"
+      ],
+      "properties": {
+        "agent-id": {
+          "description": "Agent identifier for auditing",
+          "type": "string",
+          "x-go-name": "AgentID"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "Secret name (dynamic secret or rotated secret)",
+          "type": "string",
+          "x-go-name": "SecretName"
+        },
+        "payload": {
+          "description": "Query or action payload (SQL, natural language, or CLI-style)",
+          "type": "string",
+          "x-go-name": "Payload"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "setDefaultProfile": {
+      "type": "object",
+      "title": "setDefaultProfile is a command that sets the default CLI profile.",
+      "required": [
+        "profile"
+      ],
+      "properties": {
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "profile": {
+          "description": "Profile name to use as the default",
+          "type": "string",
+          "x-go-name": "Profile"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "setDefaultProfileOutput": {
+      "type": "object",
+      "title": "setDefaultProfileOutput is the JSON-serializable result of the set-default-profile command.",
+      "properties": {
+        "profile_name": {
+          "type": "string",
+          "x-go-name": "ProfileName"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "setItemState": {
       "type": "object",
       "title": "setItemState is a command that sets item's state to enabled/disabled.",
@@ -76870,7 +77818,7 @@
           "x-go-name": "RoleName"
         },
         "rule-type": {
-          "description": "item-rule, target-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule, sra-rule",
+          "description": "item-rule, target-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, ara-reports-rule, sra-rule, ara-rule",
           "type": "string",
           "default": "item-rule",
           "x-go-name": "RuleType"
@@ -77697,6 +78645,11 @@
           "type": "string",
           "x-go-name": "BaseUrl"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -77754,6 +78707,11 @@
           "description": "AWS access key ID",
           "type": "string",
           "x-go-name": "AWSAccessKeyID"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -77848,6 +78806,11 @@
           "type": "string",
           "default": "credentials",
           "x-go-name": "ConnectionType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -77974,6 +78937,11 @@
         },
         "db-type": {
           "$ref": "#/definitions/TargetType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -78109,6 +79077,111 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "targetCreateDigiCert": {
+      "description": "targetCreateDigiCert is a command that creates a new DigiCert target",
+      "type": "object",
+      "required": [
+        "email",
+        "name"
+      ],
+      "properties": {
+        "acme-challenge": {
+          "description": "ACME challenge type. Options: [dns]",
+          "type": "string",
+          "default": "dns",
+          "x-go-name": "ChallengeType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "digicert-url": {
+          "description": "DigiCert ACME endpoint selector. Options: [us-production/eu-production/us-demo/eu-demo]",
+          "type": "string",
+          "default": "us-production",
+          "x-go-name": "DirectoryType"
+        },
+        "dns-target-creds": {
+          "description": "Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP",
+          "type": "string",
+          "x-go-name": "DNSTargetName"
+        },
+        "eab-hmac-key": {
+          "description": "External Account Binding HMAC key (required for ACME account bootstrap on create)",
+          "type": "string",
+          "x-go-name": "EABHMACKey"
+        },
+        "eab-key-id": {
+          "description": "External Account Binding key identifier (required for ACME account bootstrap on create)",
+          "type": "string",
+          "x-go-name": "EABKeyID"
+        },
+        "email": {
+          "description": "Email address for ACME account registration",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "gcp-project": {
+          "description": "GCP Cloud DNS project ID. Optional and can be derived from service account",
+          "type": "string",
+          "x-go-name": "GCPProject"
+        },
+        "hosted-zone": {
+          "description": "AWS Route53 hosted zone ID. Required when DNS credentials target is AWS",
+          "type": "string",
+          "x-go-name": "HostedZone"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "resource-group": {
+          "description": "Azure resource group name. Required when DNS credentials target is Azure",
+          "type": "string",
+          "x-go-name": "ResourceGroup"
+        },
+        "timeout": {
+          "description": "Timeout for challenge validation",
+          "type": "string",
+          "default": "5m",
+          "x-go-name": "Timeout"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "targetCreateDockerhub": {
       "type": "object",
       "title": "targetCreateDockerhub is a command that creates a new dockerhub target.",
@@ -78116,6 +79189,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78177,6 +79255,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78258,6 +79341,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78318,6 +79406,11 @@
           "type": "string",
           "x-go-name": "ApiKey"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78370,6 +79463,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78433,6 +79531,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78495,6 +79598,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78597,6 +79705,11 @@
           "type": "string",
           "x-go-name": "ContactPhone"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78676,6 +79789,11 @@
           "type": "string",
           "x-go-name": "APISecret"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78753,6 +79871,11 @@
           "type": "string",
           "x-go-name": "CustomerID"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78824,6 +79947,111 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "targetCreateGoogleTrust": {
+      "description": "targetCreateGoogleTrust is a command that creates a new Google Trust target",
+      "type": "object",
+      "required": [
+        "email",
+        "name"
+      ],
+      "properties": {
+        "acme-challenge": {
+          "description": "ACME challenge type. Options: [dns]",
+          "type": "string",
+          "default": "dns",
+          "x-go-name": "ChallengeType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "dns-target-creds": {
+          "description": "Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP",
+          "type": "string",
+          "x-go-name": "DNSTargetName"
+        },
+        "eab-hmac-key": {
+          "description": "External Account Binding HMAC key (required for ACME account bootstrap on create)",
+          "type": "string",
+          "x-go-name": "EABHMACKey"
+        },
+        "eab-key-id": {
+          "description": "External Account Binding key identifier (required for ACME account bootstrap on create)",
+          "type": "string",
+          "x-go-name": "EABKeyID"
+        },
+        "email": {
+          "description": "Email address for ACME account registration",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "gcp-project": {
+          "description": "GCP Cloud DNS project ID. Optional and can be derived from service account",
+          "type": "string",
+          "x-go-name": "GCPProject"
+        },
+        "google-trust-url": {
+          "description": "Google Trust directory environment. Options: [production/staging]",
+          "type": "string",
+          "default": "production",
+          "x-go-name": "Environment"
+        },
+        "hosted-zone": {
+          "description": "AWS Route53 hosted zone ID. Required when DNS credentials target is AWS",
+          "type": "string",
+          "x-go-name": "HostedZone"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "resource-group": {
+          "description": "Azure resource group name. Required when DNS credentials target is Azure",
+          "type": "string",
+          "x-go-name": "ResourceGroup"
+        },
+        "timeout": {
+          "description": "Timeout for challenge validation",
+          "type": "string",
+          "default": "5m",
+          "x-go-name": "Timeout"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "targetCreateHashiVault": {
       "type": "object",
       "title": "targetCreateHashiVault is a command that creates a new hashi-vault target.",
@@ -78831,6 +80059,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78895,6 +80128,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78995,6 +80233,11 @@
           "type": "string",
           "x-go-name": "BindDnPassword"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79059,6 +80302,7 @@
       "description": "targetCreateLetsEncrypt is a command that creates a new Let's Encrypt target",
       "type": "object",
       "required": [
+        "email",
         "name"
       ],
       "properties": {
@@ -79066,6 +80310,11 @@
           "type": "string",
           "default": "http",
           "x-go-name": "ChallengeType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -79148,6 +80397,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79208,6 +80462,11 @@
           "description": "API key ID",
           "type": "string",
           "x-go-name": "ApiKeyID"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -79294,6 +80553,11 @@
           "default": "9031",
           "x-go-name": "AuthorizationPort"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79355,6 +80619,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79447,6 +80716,11 @@
           "type": "string",
           "x-go-name": "ClientSecret"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79530,6 +80804,11 @@
           "type": "string",
           "x-go-name": "CustomerUri"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79610,6 +80889,11 @@
           "type": "string",
           "x-go-name": "Audience"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79641,10 +80925,15 @@
           "type": "string",
           "x-go-name": "Password"
         },
-        "token": {
+        "splunk-token": {
           "description": "Splunk Token (used when authenticating with token)",
           "type": "string",
           "x-go-name": "Token"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
         },
         "token-owner": {
           "description": "Splunk Token Owner (required when using token authentication for rotation)",
@@ -79682,6 +80971,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79759,6 +81053,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79823,6 +81122,11 @@
           "type": "string",
           "default": "credentials",
           "x-go-name": "ConnectionType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -79917,6 +81221,11 @@
           "description": "API Key of the ZeroSSLTarget account",
           "type": "string",
           "x-go-name": "APIKey"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -80182,6 +81491,11 @@
           "type": "string",
           "x-go-name": "BaseUrl"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80249,6 +81563,11 @@
           "description": "AWS access key ID",
           "type": "string",
           "x-go-name": "AWSAccessKeyID"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -80353,6 +81672,11 @@
           "type": "string",
           "default": "credentials",
           "x-go-name": "ConnectionType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -80489,6 +81813,11 @@
         },
         "db-type": {
           "$ref": "#/definitions/TargetType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -80634,6 +81963,116 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "targetUpdateDigiCert": {
+      "description": "targetUpdateDigiCert is a command that updates an existing DigiCert target",
+      "type": "object",
+      "required": [
+        "email",
+        "name"
+      ],
+      "properties": {
+        "acme-challenge": {
+          "description": "ACME challenge type. Options: [dns]",
+          "type": "string",
+          "default": "dns",
+          "x-go-name": "ChallengeType"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "digicert-url": {
+          "description": "DigiCert ACME endpoint selector. Options: [us-production/eu-production/us-demo/eu-demo]",
+          "type": "string",
+          "default": "us-production",
+          "x-go-name": "DirectoryType"
+        },
+        "dns-target-creds": {
+          "description": "Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP",
+          "type": "string",
+          "x-go-name": "DNSTargetName"
+        },
+        "eab-hmac-key": {
+          "description": "External Account Binding HMAC key (required for ACME account bootstrap on create)",
+          "type": "string",
+          "x-go-name": "EABHMACKey"
+        },
+        "eab-key-id": {
+          "description": "External Account Binding key identifier (required for ACME account bootstrap on create)",
+          "type": "string",
+          "x-go-name": "EABKeyID"
+        },
+        "email": {
+          "description": "Email address for ACME account registration",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "gcp-project": {
+          "description": "GCP Cloud DNS project ID. Optional and can be derived from service account",
+          "type": "string",
+          "x-go-name": "GCPProject"
+        },
+        "hosted-zone": {
+          "description": "AWS Route53 hosted zone ID. Required when DNS credentials target is AWS",
+          "type": "string",
+          "x-go-name": "HostedZone"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "keep-prev-version": {
+          "description": "Whether to keep previous version [true/false]. If not set, use default according to account settings",
+          "type": "string",
+          "x-go-name": "KeepPrevVersion"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "new-name": {
+          "description": "New target name",
+          "type": "string",
+          "x-go-name": "NewTargetName"
+        },
+        "resource-group": {
+          "description": "Azure resource group name. Required when DNS credentials target is Azure",
+          "type": "string",
+          "x-go-name": "ResourceGroup"
+        },
+        "timeout": {
+          "description": "Timeout for challenge validation",
+          "type": "string",
+          "default": "5m",
+          "x-go-name": "Timeout"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "targetUpdateDockerhub": {
       "type": "object",
       "title": "targetUpdateDockerhub is a command that updates an existing dockerhub target.",
@@ -80641,6 +82080,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80712,6 +82156,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80803,6 +82252,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80873,6 +82327,11 @@
           "type": "string",
           "x-go-name": "ApiKey"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80942,6 +82401,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81015,6 +82479,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81087,6 +82556,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81199,6 +82673,11 @@
           "type": "string",
           "x-go-name": "ContactPhone"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81288,6 +82767,11 @@
           "type": "string",
           "x-go-name": "APISecret"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81375,6 +82859,11 @@
           "type": "string",
           "x-go-name": "CustomerID"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81456,6 +82945,121 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "targetUpdateGoogleTrust": {
+      "description": "targetUpdateGoogleTrust is a command that updates an existing Google Trust target",
+      "type": "object",
+      "required": [
+        "email",
+        "name"
+      ],
+      "properties": {
+        "acme-challenge": {
+          "description": "ACME challenge type. Options: [dns]",
+          "type": "string",
+          "default": "dns",
+          "x-go-name": "ChallengeType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "dns-target-creds": {
+          "description": "Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP",
+          "type": "string",
+          "x-go-name": "DNSTargetName"
+        },
+        "eab-hmac-key": {
+          "description": "External Account Binding HMAC key (required for ACME account bootstrap on create)",
+          "type": "string",
+          "x-go-name": "EABHMACKey"
+        },
+        "eab-key-id": {
+          "description": "External Account Binding key identifier (required for ACME account bootstrap on create)",
+          "type": "string",
+          "x-go-name": "EABKeyID"
+        },
+        "email": {
+          "description": "Email address for ACME account registration",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "gcp-project": {
+          "description": "GCP Cloud DNS project ID. Optional and can be derived from service account",
+          "type": "string",
+          "x-go-name": "GCPProject"
+        },
+        "google-trust-url": {
+          "description": "Google Trust directory environment. Options: [production/staging]",
+          "type": "string",
+          "default": "production",
+          "x-go-name": "Environment"
+        },
+        "hosted-zone": {
+          "description": "AWS Route53 hosted zone ID. Required when DNS credentials target is AWS",
+          "type": "string",
+          "x-go-name": "HostedZone"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "keep-prev-version": {
+          "description": "Whether to keep previous version [true/false]. If not set, use default according to account settings",
+          "type": "string",
+          "x-go-name": "KeepPrevVersion"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "new-name": {
+          "description": "New target name",
+          "type": "string",
+          "x-go-name": "NewTargetName"
+        },
+        "resource-group": {
+          "description": "Azure resource group name. Required when DNS credentials target is Azure",
+          "type": "string",
+          "x-go-name": "ResourceGroup"
+        },
+        "timeout": {
+          "description": "Timeout for challenge validation",
+          "type": "string",
+          "default": "5m",
+          "x-go-name": "Timeout"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "targetUpdateHashiVault": {
       "type": "object",
       "title": "targetUpdateHashiVault is a command that updates an existing hashi-vault target.",
@@ -81463,6 +83067,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81537,6 +83146,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81647,6 +83261,11 @@
           "type": "string",
           "x-go-name": "BindDnPassword"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81720,6 +83339,7 @@
       "description": "targetUpdateLetsEncrypt is a command that updates an existing Let's Encrypt target",
       "type": "object",
       "required": [
+        "email",
         "name"
       ],
       "properties": {
@@ -81727,6 +83347,11 @@
           "type": "string",
           "default": "http",
           "x-go-name": "ChallengeType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -81900,6 +83525,11 @@
           "type": "string",
           "x-go-name": "ApiKeyID"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82002,6 +83632,11 @@
           "default": "9031",
           "x-go-name": "AuthorizationPort"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82073,6 +83708,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82175,6 +83815,11 @@
           "type": "string",
           "x-go-name": "ClientSecret"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82268,6 +83913,11 @@
           "type": "string",
           "x-go-name": "CustomerUri"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82351,6 +84001,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82438,6 +84093,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82512,6 +84172,11 @@
           "type": "string",
           "default": "credentials",
           "x-go-name": "ConnectionType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -82616,6 +84281,11 @@
           "description": "API Key of the ZeroSSLTarget account",
           "type": "string",
           "x-go-name": "APIKey"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -83007,6 +84677,68 @@
       "type": "object",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "unlockItem": {
+      "type": "object",
+      "title": "unlockItem is a command that unlocks a static secret item.",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "Item name",
+          "type": "string",
+          "x-go-name": "ItemName"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "unlockTarget": {
+      "type": "object",
+      "title": "unlockTarget is a command that unlocks a target.",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "unwrapToken": {
       "type": "object",
       "title": "unwrapToken is a command that returns an unwrapped token.",
@@ -83368,6 +85100,11 @@
           "default": "notReceivedInvalidCharacter",
           "x-go-name": "InvalidCharacters"
         },
+        "item-locking-enabled": {
+          "description": "Enable item locking feature [true/false]",
+          "type": "string",
+          "x-go-name": "ItemLockingEnabled"
+        },
         "item-type": {
           "$ref": "#/definitions/VersionSettingsObjectType"
         },
@@ -83419,6 +85156,12 @@
           "description": "Lock gw-bound-ips setting in the account.",
           "type": "string",
           "x-go-name": "GWCIDRWhitelistLock"
+        },
+        "lock-max-ttl": {
+          "description": "Set the maximum TTL for item/target locks in minutes",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "LockMaxTtl"
         },
         "max-rotation-interval": {
           "description": "Set the maximum rotation interval for rotated secrets auto rotation settings",
@@ -85535,6 +87278,13 @@
           },
           "x-go-name": "CIDRWhitelist"
         },
+        "child-ttl-limit": {
+          "description": "Maximum child token ttl allowed in uid-create-child-token",
+          "type": "integer",
+          "format": "int32",
+          "default": 43200,
+          "x-go-name": "BoundChildTTLLimit"
+        },
         "delete_protection": {
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
@@ -85611,6 +87361,13 @@
           "description": "Authentication token (see `/auth` and `/configure`)",
           "type": "string",
           "x-go-name": "Profile"
+        },
+        "tree-length": {
+          "description": "Maximum UID tree depth allowed (child of child of ...)",
+          "type": "integer",
+          "format": "int32",
+          "default": 200,
+          "x-go-name": "BoundTreeLength"
         },
         "ttl": {
           "description": "Token ttl",
@@ -87420,6 +89177,11 @@
           "default": false,
           "x-go-name": "Json"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -87450,10 +89212,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "secure-access-add-host": {
           "description": "List of the new hosts that will be attached to SRA servers host",
@@ -87624,6 +89383,16 @@
           "description": "The universal identity token, Required only for universal_identity authentication",
           "type": "string",
           "x-go-name": "UIDToken"
+        },
+        "usc-tags": {
+          "description": "Comma-separated list of tags to apply to all secrets created/synced on the remote USC\n\nUSC items only.",
+          "type": "string",
+          "x-go-name": "USCTags"
+        },
+        "use-tags-as-filter": {
+          "description": "Whether to filter the USC secret list using the specified usc-tags [true/false]\n\nUSC items only.",
+          "type": "string",
+          "x-go-name": "UseTagsAsFilterStr"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
@@ -88424,6 +90193,11 @@
           "type": "string",
           "x-go-name": "AnalyticsAccess"
         },
+        "ara-reports-access": {
+          "description": "Allow this role to view Agentic Runtime Authority Dashboard. Currently only 'none', 'scoped',\n'all' values are supported.",
+          "type": "string",
+          "x-go-name": "ARAReportsAccess"
+        },
         "audit-access": {
           "description": "Allow this role to view audit logs. Currently only 'none', 'own', 'scoped' and 'all'\nvalues are supported, allowing associated auth methods to view audit\nlogs produced by the same auth methods.",
           "type": "string",
@@ -88596,6 +90370,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "lock-during-sra-session": {
+          "description": "Lock this secret for read/update while an SRA session is active",
+          "type": "string",
+          "x-go-name": "LockDuringSraSession"
+        },
         "name": {
           "description": "Secret name",
           "type": "string",
@@ -88626,10 +90405,7 @@
           "x-go-name": "RemoveTags"
         },
         "rotate-after-disconnect": {
-          "description": "Rotate the value of the secret after SRA session ends [true/false]",
-          "type": "string",
-          "default": "false",
-          "x-go-name": "RotateAfterDisconnect"
+          "$ref": "#/definitions/StringOrBool"
         },
         "rotated-password": {
           "description": "rotated-username password",
@@ -89467,6 +91243,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -90163,6 +91944,10 @@
           "type": "string",
           "x-go-name": "SecretName"
         },
+        "selected-repositories": {
+          "type": "string",
+          "x-go-name": "SelectedRepositories"
+        },
         "tags": {
           "description": "Tags for the universal secrets",
           "type": "object",
@@ -90223,10 +92008,18 @@
           "type": "string",
           "x-go-name": "Namespace"
         },
+        "object-type": {
+          "$ref": "#/definitions/ObjectType"
+        },
         "secret-id": {
           "description": "The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to delete",
           "type": "string",
           "x-go-name": "SecretId"
+        },
+        "selected-repositories": {
+          "description": "GitHub selected repositories. For repository scope: repo name. For repository-environment scope: repo/env (format: repo-name/env-name). Required when multiple repos/envs configured.",
+          "type": "string",
+          "x-go-name": "SelectedRepositories"
         },
         "token": {
           "description": "Authentication token (see `/auth` and `/configure`)",
@@ -90265,10 +92058,18 @@
           "type": "string",
           "x-go-name": "Namespace"
         },
+        "object-type": {
+          "$ref": "#/definitions/ObjectType"
+        },
         "secret-id": {
           "description": "The secret id (or name, for AWS, Azure, K8s or Hashi vault targets) to get from the Universal Secrets Connector",
           "type": "string",
           "x-go-name": "SecretId"
+        },
+        "selected-repositories": {
+          "description": "GitHub selected repositories. For repository scope: repo name. For repository-environment scope: repo/env (format: repo-name/env-name). Required when multiple repos/envs configured.",
+          "type": "string",
+          "x-go-name": "SelectedRepositories"
         },
         "token": {
           "description": "Authentication token (see `/auth` and `/configure`)",
@@ -90308,6 +92109,17 @@
         },
         "object-type": {
           "$ref": "#/definitions/ObjectType"
+        },
+        "page-size": {
+          "description": "Optional: number of items requested per response (Azure KV). When set, response may include next_token",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageSize"
+        },
+        "page-token": {
+          "description": "Optional: continuation token returned by a previous usc list --page-size call",
+          "type": "string",
+          "x-go-name": "PageToken"
         },
         "token": {
           "description": "Authentication token (see `/auth` and `/configure`)",
@@ -90357,6 +92169,9 @@
           "type": "string",
           "x-go-name": "Namespace"
         },
+        "object-type": {
+          "$ref": "#/definitions/ObjectType"
+        },
         "pfx-password": {
           "description": "Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)",
           "type": "string",
@@ -90366,6 +92181,11 @@
           "description": "The universal secrets id (or name, for AWS, Azure, K8s or Hashi vault targets) to update",
           "type": "string",
           "x-go-name": "SecretId"
+        },
+        "selected-repositories": {
+          "description": "GitHub selected repositories (required for GitHub USC when repository-access is 'selected' or for repository scope)\nComma-separated repository names (e.g., \"repo1,repo2\")",
+          "type": "string",
+          "x-go-name": "SelectedRepositories"
         },
         "tags": {
           "description": "Tags for the universal secrets",
@@ -93140,6 +94960,18 @@
         "$ref": "#/definitions/ListTargetsOutput"
       }
     },
+    "lockItemResponse": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/LockItemOutput"
+      }
+    },
+    "lockTargetResponse": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/LockTargetOutput"
+      }
+    },
     "moveObjectsResponse": {
       "description": "moveObjectsResponse wraps response body.",
       "schema": {
@@ -93523,6 +95355,15 @@
         "$ref": "#/definitions/rotatedSecretUpdateOutput"
       }
     },
+    "runtimeAuthorityResponse": {
+      "description": ""
+    },
+    "setDefaultProfileResponse": {
+      "description": "setDefaultProfileResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/setDefaultProfileOutput"
+      }
+    },
     "setItemStateResponse": {
       "description": "setItemStateResponse wraps response body.",
       "schema": {
@@ -93625,6 +95466,12 @@
         "$ref": "#/definitions/targetCreateOutput"
       }
     },
+    "targetCreateDigiCertResponse": {
+      "description": "targetCreateDigiCertResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/targetCreateOutput"
+      }
+    },
     "targetCreateDockerhubResponse": {
       "description": "targetCreateDockerhubResponse wraps response body.",
       "schema": {
@@ -93681,6 +95528,12 @@
     },
     "targetCreateGodaddyResponse": {
       "description": "targetCreateGodaddyResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/targetCreateOutput"
+      }
+    },
+    "targetCreateGoogleTrustResponse": {
+      "description": "targetCreateGoogleTrustResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/targetCreateOutput"
       }
@@ -93823,6 +95676,12 @@
         "$ref": "#/definitions/targetUpdateOutput"
       }
     },
+    "targetUpdateDigiCertResponse": {
+      "description": "targetUpdateDigiCertResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/targetUpdateOutput"
+      }
+    },
     "targetUpdateDockerhubResponse": {
       "description": "targetUpdateDockerhubResponse wraps response body.",
       "schema": {
@@ -93879,6 +95738,12 @@
     },
     "targetUpdateGodaddyResponse": {
       "description": "targetUpdateGodaddyResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/targetUpdateOutput"
+      }
+    },
+    "targetUpdateGoogleTrustResponse": {
+      "description": "targetUpdateGoogleTrustResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/targetUpdateOutput"
       }
@@ -94013,6 +95878,18 @@
       "description": "unconfigureResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/unconfigureOutput"
+      }
+    },
+    "unlockItemResponse": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/UnlockItemOutput"
+      }
+    },
+    "unlockTargetResponse": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/UnlockTargetOutput"
       }
     },
     "unwrapTokenResponse": {

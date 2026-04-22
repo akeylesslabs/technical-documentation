@@ -12,6 +12,26 @@ Use this section to configure how Akeyless Gateway authenticates, secures transp
 
 Configuration is typically done after deployment and adjusted over time as security, compliance, and platform requirements evolve.
 
+## Access Gateway Settings (UI)
+
+Use the Gateway Configuration Manager to access Gateway settings from the UI:
+
+1. Open the Akeyless SaaS Console at `https://console.akeyless.io` and sign in.
+2. Or, if needed, open the Gateway Console endpoint at `<gateway-protocol>://<gateway-host>:8000/console`.
+   For example, `https://gateway.example.com:8000/console`.
+3. In the Console, open the **Gateway** tab and select the relevant Gateway.
+4. Select **Manage Gateway** to open and change Gateway settings.
+
+To see a Gateway in the **Gateway** list and use **Manage Gateway**, the user must have Gateway-scoped administrative permission (`scope` or `all`). Without this permission scope, the Gateway is not visible in the list, and the user cannot manage it.
+
+Use HTTPS for remote management whenever possible.
+
+For permission requirements, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+
+For inbound port and endpoint behavior, including Configure App deprecation and redirect details, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
+
+## Available Configuration Features
+
 The following configuration features are available:
 
 * Configure identity and authorization controls in [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).

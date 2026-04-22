@@ -22,7 +22,7 @@ next:
 ---
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets).
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). For Gateway Console (UI) access, the admin role must include an RBAC Administrative rule scoped to Gateway management, with permission scope set to `scope` or `all`. CLI and API management can still be allowed when the role grants the required permissions.
 
 > ℹ️ **Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), using the account owner's email and password with superuser privileges on the account.
 
@@ -32,7 +32,7 @@ next:
 
 | Service | Endpoint |
 | --- | --- |
-| [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
+| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway) | `/console` |
 | [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
 | Akeyless V1 REST API | `/api/v1` |
 | Akeyless V2 REST API | `/api/v2` |
@@ -56,7 +56,7 @@ To upgrade your current Gateway version, simply restart the container using the 
 
 > ℹ️ **Note:** In this example, the Gateway was deployed without a default Authentication Method as part of the deployment. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
 
-For further deployment options, visit the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) page.
+For further deployment options, visit the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration) page.
 
 ### Initial Configuration
 

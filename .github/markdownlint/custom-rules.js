@@ -1159,6 +1159,12 @@ module.exports = [
           replacement: "Workload Identity Federation",
           example_from: "Non-Human Identity Federation",
           example_to: "Workload Identity Federation"
+        },
+        {
+          term: "AWS Route 53",
+          replacement: "Amazon Route 53",
+          example_from: "AWS Route 53 hosted zone",
+          example_to: "Amazon Route 53 hosted zone"
         }
       ];
 
