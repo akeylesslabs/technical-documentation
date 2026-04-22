@@ -1,5 +1,5 @@
 ---
-title: FIPS Certification
+title: FIPS Certifications
 excerpt: Federal Information Processing Standards (FIPS) Certification
 deprecated: false
 hidden: false
