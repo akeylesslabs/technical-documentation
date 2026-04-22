@@ -4005,7 +4005,7 @@
         }
       }
     },
-    "/dynamic-secret-create-oracle": {
+    "/dynamic-secret-create-oracledb": {
       "post": {
         "tags": [
           "v2"
@@ -4356,33 +4356,6 @@
         }
       }
     },
-    "/dynamic-secret-tmp-creds-Get": {
-      "post": {
-        "tags": [
-          "v2"
-        ],
-        "operationId": "dynamicSecretTmpCredsGet",
-        "parameters": [
-          {
-            "x-go-name": "Body",
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/dynamicSecretTmpCredsGet"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "$ref": "#/responses/dynamicSecretTmpCredsGetResponse"
-          },
-          "default": {
-            "$ref": "#/responses/errorResponse"
-          }
-        }
-      }
-    },
     "/dynamic-secret-tmp-creds-delete": {
       "post": {
         "tags": [
@@ -4403,6 +4376,33 @@
         "responses": {
           "201": {
             "$ref": "#/responses/dynamicSecretTmpCredsDeleteResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/dynamic-secret-tmp-creds-get": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "dynamicSecretTmpCredsGet",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dynamicSecretTmpCredsGet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/dynamicSecretTmpCredsGetResponse"
           },
           "default": {
             "$ref": "#/responses/errorResponse"
@@ -4760,7 +4760,7 @@
         }
       }
     },
-    "/dynamic-secret-update-hana": {
+    "/dynamic-secret-update-hanadb": {
       "post": {
         "tags": [
           "v2"
@@ -4841,7 +4841,7 @@
         }
       }
     },
-    "/dynamic-secret-update-mongo": {
+    "/dynamic-secret-update-mongodb": {
       "post": {
         "tags": [
           "v2"
@@ -12088,6 +12088,33 @@
         }
       }
     },
+    "/runtime-authority": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "runtimeAuthority",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/runtimeAuthorityCommand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/runtimeAuthorityResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/set-item-state": {
       "post": {
         "tags": [
@@ -17152,6 +17179,40 @@
       "format": "int64",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
     },
+    "AgenticRule": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "rule": {
+          "type": "string",
+          "x-go-name": "Rule"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "AgenticRules": {
+      "type": "object",
+      "properties": {
+        "input_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AgenticRule"
+          },
+          "x-go-name": "InputRules"
+        },
+        "output_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AgenticRule"
+          },
+          "x-go-name": "OutputRules"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "AiInsightsConfigPart": {
       "type": "object",
       "properties": {
@@ -20609,11 +20670,21 @@
           "type": "string",
           "x-go-name": "USCPrefix"
         },
+        "usc-tags": {
+          "description": "Comma-separated list of tags to apply to all secrets created on the remote USC",
+          "type": "string",
+          "x-go-name": "USCTags"
+        },
         "use-prefix-as-filter": {
           "description": "Whether to filter the USC secret list using the specified usc-prefix [true/false]",
           "type": "string",
           "default": "false",
           "x-go-name": "UsePrefixAsFilterStr"
+        },
+        "use-tags-as-filter": {
+          "description": "Filter the USC secret list by the value(s) of --usc-tags. [true|false]",
+          "type": "boolean",
+          "x-go-name": "UseTagsAsFilter"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
@@ -20741,6 +20812,9 @@
         "administrative_port": {
           "type": "string",
           "x-go-name": "AdministrativePort"
+        },
+        "agentic_rules": {
+          "$ref": "#/definitions/AgenticRules"
         },
         "api_key": {
           "type": "string",
@@ -22570,6 +22644,10 @@
     "EsmListSecretsOutput": {
       "type": "object",
       "properties": {
+        "next_token": {
+          "type": "string",
+          "x-go-name": "NextToken"
+        },
         "secrets_list": {
           "type": "array",
           "items": {
@@ -23074,6 +23152,10 @@
     "GatewayMigrationCreateOutput": {
       "type": "object",
       "properties": {
+        "migration_id": {
+          "type": "string",
+          "x-go-name": "MigrationId"
+        },
         "migration_name": {
           "type": "string",
           "x-go-name": "MigrationName"
@@ -24784,6 +24866,9 @@
       "type": "object",
       "title": "ItemGeneralInfo defines item general info.",
       "properties": {
+        "agentic_rules": {
+          "$ref": "#/definitions/AgenticRules"
+        },
         "cert_issue_details": {
           "$ref": "#/definitions/CertificateIssueInfo"
         },
@@ -29801,6 +29886,11 @@
           "type": "string",
           "x-go-name": "AuthAccessCredentials"
         },
+        "csrf_token": {
+          "description": "CSRF token for synchronizer-token pattern (only populated for WebUI clients)",
+          "type": "string",
+          "x-go-name": "CSRFToken"
+        },
         "expiry": {
           "description": "Credentials expiration date",
           "type": "integer",
@@ -29893,6 +29983,10 @@
           "type": "string",
           "format": "date-time",
           "x-go-name": "CreationDate"
+        },
+        "delete_protection": {
+          "type": "boolean",
+          "x-go-name": "DeleteProtection"
         },
         "is_access_request_enabled": {
           "type": "boolean",
@@ -30911,6 +31005,10 @@
     "UscListSecretsOutput": {
       "type": "object",
       "properties": {
+        "next_token": {
+          "type": "string",
+          "x-go-name": "NextToken"
+        },
         "secrets_list": {
           "type": "array",
           "items": {
@@ -41479,6 +41577,11 @@
           "type": "string",
           "x-go-name": "AnalyticsAccess"
         },
+        "ara-reports-access": {
+          "description": "Allow this role to view Agentic Runtime Authority Dashboard. Currently only 'none', 'scoped',\n'all' values are supported.",
+          "type": "string",
+          "x-go-name": "ARAReportsAccess"
+        },
         "audit-access": {
           "description": "Allow this role to view audit logs. Currently only 'none', 'own', 'scoped' and 'all'\nvalues are supported, allowing associated auth methods to view audit\nlogs produced by the same auth methods.",
           "type": "string",
@@ -43777,7 +43880,7 @@
           "x-go-name": "RoleName"
         },
         "rule-type": {
-          "description": "item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, sra-rule, ara-rule",
+          "description": "item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, ara-reports-rule, sra-rule, ara-rule, usage-reports-rule, event-rule, event-forwarder-rule, reverse-rbac-rule",
           "type": "string",
           "default": "item-rule",
           "x-go-name": "RuleType"
@@ -69531,6 +69634,12 @@
           "type": "string",
           "x-go-name": "MultiFieldFilter"
         },
+        "ara-only": {
+          "description": "Filter by items with ARA functionality enabled",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "AraOnly"
+        },
         "auto-pagination": {
           "description": "Retrieve all items using pagination, when disabled retrieving only first 1000 items",
           "type": "string",
@@ -77552,6 +77661,81 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "runtimeAuthorityCommand": {
+      "type": "object",
+      "title": "runtimeAuthorityCommand runs a target query against the gateway (same behavior as MCP query-db / service-execute tools).",
+      "required": [
+        "name",
+        "payload",
+        "agent-id"
+      ],
+      "properties": {
+        "agent-id": {
+          "description": "Agent identifier for auditing",
+          "type": "string",
+          "x-go-name": "AgentID"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "Secret name (dynamic secret or rotated secret)",
+          "type": "string",
+          "x-go-name": "SecretName"
+        },
+        "payload": {
+          "description": "Query or action payload (SQL, natural language, or CLI-style)",
+          "type": "string",
+          "x-go-name": "Payload"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "setDefaultProfile": {
+      "type": "object",
+      "title": "setDefaultProfile is a command that sets the default CLI profile.",
+      "required": [
+        "profile"
+      ],
+      "properties": {
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "profile": {
+          "description": "Profile name to use as the default",
+          "type": "string",
+          "x-go-name": "Profile"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "setDefaultProfileOutput": {
+      "type": "object",
+      "title": "setDefaultProfileOutput is the JSON-serializable result of the set-default-profile command.",
+      "properties": {
+        "profile_name": {
+          "type": "string",
+          "x-go-name": "ProfileName"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "setItemState": {
       "type": "object",
       "title": "setItemState is a command that sets item's state to enabled/disabled.",
@@ -77634,7 +77818,7 @@
           "x-go-name": "RoleName"
         },
         "rule-type": {
-          "description": "item-rule, target-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, sra-rule, ara-rule",
+          "description": "item-rule, target-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, ara-reports-rule, sra-rule, ara-rule",
           "type": "string",
           "default": "item-rule",
           "x-go-name": "RuleType"
@@ -78461,6 +78645,11 @@
           "type": "string",
           "x-go-name": "BaseUrl"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78518,6 +78707,11 @@
           "description": "AWS access key ID",
           "type": "string",
           "x-go-name": "AWSAccessKeyID"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -78612,6 +78806,11 @@
           "type": "string",
           "default": "credentials",
           "x-go-name": "ConnectionType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -78738,6 +78937,11 @@
         },
         "db-type": {
           "$ref": "#/definitions/TargetType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -78887,6 +79091,11 @@
           "default": "dns",
           "x-go-name": "ChallengeType"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -78980,6 +79189,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79041,6 +79255,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79122,6 +79341,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79182,6 +79406,11 @@
           "type": "string",
           "x-go-name": "ApiKey"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79234,6 +79463,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79297,6 +79531,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79359,6 +79598,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79461,6 +79705,11 @@
           "type": "string",
           "x-go-name": "ContactPhone"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79540,6 +79789,11 @@
           "type": "string",
           "x-go-name": "APISecret"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79616,6 +79870,11 @@
           "description": "Customer ID (ShopperId) required for renewal of imported certificates",
           "type": "string",
           "x-go-name": "CustomerID"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -79701,6 +79960,11 @@
           "type": "string",
           "default": "dns",
           "x-go-name": "ChallengeType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -79795,6 +80059,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79859,6 +80128,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -79959,6 +80233,11 @@
           "type": "string",
           "x-go-name": "BindDnPassword"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80031,6 +80310,11 @@
           "type": "string",
           "default": "http",
           "x-go-name": "ChallengeType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -80113,6 +80397,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80173,6 +80462,11 @@
           "description": "API key ID",
           "type": "string",
           "x-go-name": "ApiKeyID"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -80259,6 +80553,11 @@
           "default": "9031",
           "x-go-name": "AuthorizationPort"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80320,6 +80619,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80412,6 +80716,11 @@
           "type": "string",
           "x-go-name": "ClientSecret"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80495,6 +80804,11 @@
           "type": "string",
           "x-go-name": "CustomerUri"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80575,6 +80889,11 @@
           "type": "string",
           "x-go-name": "Audience"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80652,6 +80971,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80729,6 +81053,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -80793,6 +81122,11 @@
           "type": "string",
           "default": "credentials",
           "x-go-name": "ConnectionType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -80887,6 +81221,11 @@
           "description": "API Key of the ZeroSSLTarget account",
           "type": "string",
           "x-go-name": "APIKey"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -81152,6 +81491,11 @@
           "type": "string",
           "x-go-name": "BaseUrl"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81219,6 +81563,11 @@
           "description": "AWS access key ID",
           "type": "string",
           "x-go-name": "AWSAccessKeyID"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -81323,6 +81672,11 @@
           "type": "string",
           "default": "credentials",
           "x-go-name": "ConnectionType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -81459,6 +81813,11 @@
         },
         "db-type": {
           "$ref": "#/definitions/TargetType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -81721,6 +82080,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81792,6 +82156,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81883,6 +82252,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -81953,6 +82327,11 @@
           "type": "string",
           "x-go-name": "ApiKey"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82022,6 +82401,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82095,6 +82479,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82167,6 +82556,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82279,6 +82673,11 @@
           "type": "string",
           "x-go-name": "ContactPhone"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82368,6 +82767,11 @@
           "type": "string",
           "x-go-name": "APISecret"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82454,6 +82858,11 @@
           "description": "Customer ID (ShopperId) required for renewal of imported certificates",
           "type": "string",
           "x-go-name": "CustomerID"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -82549,6 +82958,11 @@
           "type": "string",
           "default": "dns",
           "x-go-name": "ChallengeType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -82653,6 +83067,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82727,6 +83146,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82837,6 +83261,11 @@
           "type": "string",
           "x-go-name": "BindDnPassword"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -82918,6 +83347,11 @@
           "type": "string",
           "default": "http",
           "x-go-name": "ChallengeType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -83091,6 +83525,11 @@
           "type": "string",
           "x-go-name": "ApiKeyID"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -83193,6 +83632,11 @@
           "default": "9031",
           "x-go-name": "AuthorizationPort"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -83264,6 +83708,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -83366,6 +83815,11 @@
           "type": "string",
           "x-go-name": "ClientSecret"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -83459,6 +83913,11 @@
           "type": "string",
           "x-go-name": "CustomerUri"
         },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -83542,6 +84001,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -83629,6 +84093,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -83703,6 +84172,11 @@
           "type": "string",
           "default": "credentials",
           "x-go-name": "ConnectionType"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -83807,6 +84281,11 @@
           "description": "API Key of the ZeroSSLTarget account",
           "type": "string",
           "x-go-name": "APIKey"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
         },
         "description": {
           "description": "Description of the object",
@@ -88904,6 +89383,16 @@
           "description": "The universal identity token, Required only for universal_identity authentication",
           "type": "string",
           "x-go-name": "UIDToken"
+        },
+        "usc-tags": {
+          "description": "Comma-separated list of tags to apply to all secrets created/synced on the remote USC\n\nUSC items only.",
+          "type": "string",
+          "x-go-name": "USCTags"
+        },
+        "use-tags-as-filter": {
+          "description": "Whether to filter the USC secret list using the specified usc-tags [true/false]\n\nUSC items only.",
+          "type": "string",
+          "x-go-name": "UseTagsAsFilterStr"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
@@ -89703,6 +90192,11 @@
           "description": "Allow this role to view analytics. Currently only 'none', 'own', 'all'\nvalues are supported, allowing associated auth methods to view reports\nproduced by the same auth methods.",
           "type": "string",
           "x-go-name": "AnalyticsAccess"
+        },
+        "ara-reports-access": {
+          "description": "Allow this role to view Agentic Runtime Authority Dashboard. Currently only 'none', 'scoped',\n'all' values are supported.",
+          "type": "string",
+          "x-go-name": "ARAReportsAccess"
         },
         "audit-access": {
           "description": "Allow this role to view audit logs. Currently only 'none', 'own', 'scoped' and 'all'\nvalues are supported, allowing associated auth methods to view audit\nlogs produced by the same auth methods.",
@@ -90749,6 +91243,11 @@
         "name"
       ],
       "properties": {
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
         "description": {
           "description": "Description of the object",
           "type": "string",
@@ -91610,6 +92109,17 @@
         },
         "object-type": {
           "$ref": "#/definitions/ObjectType"
+        },
+        "page-size": {
+          "description": "Optional: number of items requested per response (Azure KV). When set, response may include next_token",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageSize"
+        },
+        "page-token": {
+          "description": "Optional: continuation token returned by a previous usc list --page-size call",
+          "type": "string",
+          "x-go-name": "PageToken"
         },
         "token": {
           "description": "Authentication token (see `/auth` and `/configure`)",
@@ -94843,6 +95353,15 @@
       "description": "rotatedSecretUpdateWindowsResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/rotatedSecretUpdateOutput"
+      }
+    },
+    "runtimeAuthorityResponse": {
+      "description": ""
+    },
+    "setDefaultProfileResponse": {
+      "description": "setDefaultProfileResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/setDefaultProfileOutput"
       }
     },
     "setItemStateResponse": {

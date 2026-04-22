@@ -28,7 +28,7 @@ Use HTTPS for remote management whenever possible.
 
 For permission requirements, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
-For inbound port and endpoint behavior, including Configure App deprecation and redirect details, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/api-gateway-network-connectivity).
+For inbound port and endpoint behavior, including Configure App deprecation and redirect details, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
 
 ## Available Configuration Features
 

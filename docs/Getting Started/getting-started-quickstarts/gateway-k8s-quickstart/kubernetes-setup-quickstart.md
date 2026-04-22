@@ -19,7 +19,7 @@ next:
       type: link
       url: https://helm.sh/docs/
 ---
-This Quickstart helps you prepare a local Kubernetes environment using **Docker Desktop** so that you can deploy the Akeyless Gateway with the [Akeyless Gateway with Kubernetes Quickstart](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm-quickstart).
+This Quickstart helps you prepare a local Kubernetes environment using **Docker Desktop** so that you can deploy the Akeyless Gateway with the [Akeyless Gateway with Kubernetes Quickstart](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm).
 
 By the end of this guide, you will have:
 
