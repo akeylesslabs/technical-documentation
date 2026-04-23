@@ -27,6 +27,7 @@ Each run emits:
 
 * JSON report artifact: `.github/dependency-monitor/dependency-monitor-report.json`.
 * Markdown report artifact: `.github/dependency-monitor/dependency-monitor-report.md`.
+* Persisted state snapshot: `.github/dependency-monitor/state/last-seen.json`.
 * Top findings summary in workflow outputs.
 * Jira alert task with labels `dependency-monitor` and mode label (`dep-immediate` or `dep-digest`) on scheduled runs with findings.
 
@@ -56,8 +57,11 @@ Note that SLA timing starts when the Jira issue is created or updated by automat
 
 ## Duplicate suppression and digest behavior
 
+* Findings are generated only when a dependency version changes compared to the persisted last-seen state.
 * Alerts are keyed by a digest key derived from dependency and version tuples.
-* If a matching digest key already exists in Jira, automation adds a comment instead of creating a duplicate issue.
+* A stable dedupe label (`depkey-<digest>`) is applied to each dependency alert issue.
+* If a matching dedupe label already exists in Jira, automation adds a comment instead of creating a duplicate issue.
+* If a matching issue is already in a Done status category, automation attempts to transition it back to a non-Done status before commenting.
 * If at least one finding is High or Critical, alert mode is `immediate`.
 * If all findings are Medium or Low, alert mode is `digest`.
 

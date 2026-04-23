@@ -44,6 +44,7 @@ jobs:
       dep_findings: ${{ steps.capture.outputs.dep_findings }}
       dep_top5: ${{ steps.capture.outputs.dep_top5 }}
       dep_digest_key: ${{ steps.capture.outputs.dep_digest_key }}
+      dep_dedupe_label: ${{ steps.capture.outputs.dep_dedupe_label }}
       dep_alert_mode: ${{ steps.capture.outputs.dep_alert_mode }}
       dep_high_critical: ${{ steps.capture.outputs.dep_high_critical }}
       dep_issue_key: ${{ steps.jira.outputs.issue_key }}
@@ -57,13 +58,27 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Restore dependency monitor state cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .github/dependency-monitor/state
+          key: dep-monitor-state-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            dep-monitor-state-${{ github.ref_name }}-
+
+      - name: Ensure state directory exists
+        run: |
+          mkdir -p .github/dependency-monitor/state
+
       - name: Collect dependency changes
         run: |
           set -e
           python .github/scripts/collect_dependency_changes.py \
             --registry .github/dependency-monitor/registry.json \
             --out-json .github/dependency-monitor/dependency-monitor-report.json \
-            --out-md .github/dependency-monitor/dependency-monitor-report.md
+            --out-md .github/dependency-monitor/dependency-monitor-report.md \
+            --state-in .github/dependency-monitor/state/last-seen.json \
+            --state-out .github/dependency-monitor/state/last-seen.json
 
       - name: Capture dependency outputs
         id: capture
@@ -89,7 +104,7 @@ jobs:
           top_lines = []
           for finding in report.get('top_findings', []):
               line = (
-                  f"[{finding['severity'].upper()}] {finding['name']} {finding['version']} "
+                f"[{finding['severity'].upper()}] {finding['name']} {finding['previous_version']} -> {finding['version']} ({finding['change_type']}) "
                   f"{finding['release_url']}"
               )
               top_lines.append(line)
@@ -99,6 +114,7 @@ jobs:
               output.write(f"dep_summary={summary}\n")
               output.write(f"dep_findings={report['docs_impacting_findings']}\n")
               output.write(f"dep_digest_key={report['digest_key']}\n")
+                output.write(f"dep_dedupe_label={report['dedupe_label']}\n")
               output.write(f"dep_alert_mode={report['alert_mode']}\n")
               output.write(f"dep_high_critical={report['high_or_critical_count']}\n")
               output.write('dep_top5<<EOF\n')
@@ -114,6 +130,14 @@ jobs:
           path: |
             .github/dependency-monitor/dependency-monitor-report.json
             .github/dependency-monitor/dependency-monitor-report.md
+            .github/dependency-monitor/state/last-seen.json
+
+      - name: Save dependency monitor state cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .github/dependency-monitor/state
+          key: dep-monitor-state-${{ github.ref_name }}-${{ github.run_id }}
 
       - name: Create or update Jira dependency alert
         id: jira
@@ -129,6 +153,7 @@ jobs:
           DEP_FINDINGS: ${{ steps.capture.outputs.dep_findings }}
           DEP_ALERT_MODE: ${{ steps.capture.outputs.dep_alert_mode }}
           DEP_DIGEST_KEY: ${{ steps.capture.outputs.dep_digest_key }}
+          DEP_DEDUPE_LABEL: ${{ steps.capture.outputs.dep_dedupe_label }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -euo pipefail
@@ -162,7 +187,7 @@ jobs:
           SEARCH_RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" -G \
             -H "$AUTH_HEADER" \
             -H "Content-Type: application/json" \
-            --data-urlencode "jql=project = ${JIRA_PROJECT_KEY} AND labels = dependency-monitor AND summary ~ \"[${DEP_DIGEST_KEY}]\" ORDER BY created DESC" \
+            --data-urlencode "jql=project = ${JIRA_PROJECT_KEY} AND labels = dependency-monitor AND labels = ${DEP_DEDUPE_LABEL} ORDER BY created DESC" \
             --data-urlencode "maxResults=1" \
             --data-urlencode "fields=key" \
             "$JIRA_BASE_URL/rest/api/3/search")
@@ -194,6 +219,43 @@ jobs:
              }')
 
           if [ -n "$EXISTING_KEY" ]; then
+            ISSUE_DATA=$(curl -sS "${JIRA_CURL_OPTS[@]}" -G \
+              -H "$AUTH_HEADER" \
+              -H "Content-Type: application/json" \
+              --data-urlencode "fields=status" \
+              "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}")
+
+            STATUS_CATEGORY=$(echo "$ISSUE_DATA" | jq -r '.fields.status.statusCategory.key // empty')
+            if [ "$STATUS_CATEGORY" = "done" ]; then
+              TRANSITIONS=$(curl -sS "${JIRA_CURL_OPTS[@]}" \
+                -H "$AUTH_HEADER" \
+                -H "Content-Type: application/json" \
+                "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}/transitions")
+
+              REOPEN_ID=$(echo "$TRANSITIONS" | jq -r '
+                .transitions[]
+                | select(.to.statusCategory.key != "done")
+                | select(.name | ascii_downcase | test("reopen|to do|open|backlog|in progress"))
+                | .id
+              ' | head -n 1)
+
+              if [ -z "$REOPEN_ID" ]; then
+                REOPEN_ID=$(echo "$TRANSITIONS" | jq -r '
+                  .transitions[]
+                  | select(.to.statusCategory.key != "done")
+                  | .id
+                ' | head -n 1)
+              fi
+
+              if [ -n "$REOPEN_ID" ]; then
+                curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
+                  -H "$AUTH_HEADER" \
+                  -H "Content-Type: application/json" \
+                  --data "$(jq -n --arg id "$REOPEN_ID" '{transition:{id:$id}}')" \
+                  "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}/transitions" >/dev/null
+              fi
+            fi
+
             COMMENT_PAYLOAD=$(jq -n --argjson adf "$ADF_DESC" '{body: $adf}')
             curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
               -H "$AUTH_HEADER" \
@@ -210,6 +272,7 @@ jobs:
             --arg proj "$JIRA_PROJECT_KEY" \
             --arg summary "$SUMMARY" \
             --arg modeLabel "$MODE_LABEL" \
+            --arg dedupeLabel "$DEP_DEDUPE_LABEL" \
             --argjson adf "$ADF_DESC" \
             '{
               fields: {
@@ -217,7 +280,7 @@ jobs:
                 summary: $summary,
                 description: $adf,
                 issuetype: { name: "Task" },
-                labels: ["automation", "documentation", "dependency-monitor", $modeLabel]
+                labels: ["automation", "documentation", "dependency-monitor", $modeLabel, $dedupeLabel]
               }
             }')
 
@@ -280,6 +343,7 @@ jobs:
           DEP_TOP5: ${{ needs.dependency-change-monitor.outputs.dep_top5 }}
           DEP_ALERT_MODE: ${{ needs.dependency-change-monitor.outputs.dep_alert_mode }}
           DEP_DIGEST_KEY: ${{ needs.dependency-change-monitor.outputs.dep_digest_key }}
+          DEP_DEDUPE_LABEL: ${{ needs.dependency-change-monitor.outputs.dep_dedupe_label }}
           DEP_ISSUE_KEY: ${{ needs.dependency-change-monitor.outputs.dep_issue_key }}
 
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -334,6 +398,7 @@ jobs:
           - ${DEP_SUMMARY}
           - Alert mode: ${DEP_ALERT_MODE}
           - Digest key: ${DEP_DIGEST_KEY}
+          - Dedupe label: ${DEP_DEDUPE_LABEL}
           - Jira issue key: ${DEP_ISSUE_KEY}
 
           ### Top Dependency Findings
