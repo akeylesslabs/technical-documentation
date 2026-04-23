@@ -1,8 +1,11 @@
 ---
 title: 'Google ADK with Akeyless Secretless AI '
+excerpt: ''
 deprecated: false
 hidden: false
 metadata:
+    title: ''
+    description: ''
   robots: index
 ---
 ## Introduction
@@ -26,6 +29,14 @@ This architecture fundamentally changes how an app accesses resources.
 
 The result: The agent's database credentials only exist for the few seconds they are needed. An attacker scanning the environment would find nothing to steal.
 
+## Prerequisites in Akeyless
+
+Before using this architecture, configure these Akeyless prerequisites:
+
+* [GCP authentication method](https://docs.akeyless.io/docs/auth-with-gcp)
+* [Dynamic Secrets overview](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
+* [Database Dynamic Secrets setup (including MongoDB)](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db)
+
 ## Code Deep Dive: The Secretless Engine
 
 Let's break down the Python code that makes this possible.
@@ -34,7 +45,7 @@ Let's break down the Python code that makes this possible.
 
 Before we can fetch any secret, we need a token. But that token can expire. This function, fetch_secret_from_akeyless, is a resilient engine that can get any static secret. It first tries optimistically, and if it fails, it performs a full re-authentication using its GCP identity.
 
-```python Phyton
+```python
 def fetch_secret_from_akeyless(secret_name: str) -> Optional[str]:
     """Fetch any secret from Akeyless CLI - no local storage"""
     try:
@@ -85,7 +96,7 @@ def fetch_secret_from_akeyless(secret_name: str) -> Optional[str]:
 
 This function is our workhorse for Static Secrets, like the Gemini key:
 
-```python Phyton
+```python
 def fetch_api_key_from_akeyless():
     """Fetch Google API key from Akeyless CLI - no local storage"""
     return fetch_secret_from_akeyless('/Gemini_API_Key-V2')
@@ -95,7 +106,7 @@ def fetch_api_key_from_akeyless():
 
 This is the most critical part of the new code. This function's job is to get MongoDB credentials. It does not look for static connection strings. It only attempts to fetch dynamic, just-in-time credentials. If it can't, it fails which is exactly the behavior we want.
 
-```python Phyton
+```python
 def fetch_mongodb_credentials_from_akeyless() -> Optional[Dict[str, str]]:
     """Fetch MongoDB credentials from Akeyless CLI dynamic secret - no local storage"""
     
@@ -156,7 +167,7 @@ def fetch_mongodb_credentials_from_akeyless() -> Optional[Dict[str, str]]:
 
 Finally, we wrap this logic into an initialization function that the Google ADK agent calls when it's created.
 
-```python Phyton
+```python
 import os
 import json
 import subprocess
@@ -214,7 +225,7 @@ When the agent starts, the initialize_credentials function is called. It:
 
 The result is that no secrets ever touch the disk. The API Key and database credentials exist only in the application's memory, where they are used directly by the agent's tools. This "secretless" approach significantly enhances security by eliminating static, stored credentials.
 
-```python Phyton
+```python
 def create_agent():
     """Create the agent with proper credential handling"""
     try:
