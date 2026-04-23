@@ -66,15 +66,15 @@ References:
 
 ## 4. Cache and Offline Behavior
 
-If stale values are returned, or behavior differs during SaaS interruptions, validate cache configuration and expected offline behavior.
+If stale values are returned, or behavior differs during SaaS interruptions, validate that your selected caching mode and runtime options match your requirements.
 
 Check:
 
-* Cache mode is configured as intended (local or cluster cache).
-* Refresh and cleanup intervals align with operational requirements.
-* Workload behavior with `ignore-cache` matches expected disconnected-mode behavior.
+* The selected caching method is configured as intended (runtime, proactive, standalone cluster cache, or HA cluster cache).
+* Refresh and synchronization settings align with operational requirements.
+* Workload behavior with `ignore-cache` is validated against your outage expectations.
 
-Reference:
+References:
 
 * [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching)
 

@@ -265,3 +265,23 @@ Wordpress.yaml
 YAML
 your-RSA-key-name
 yum
+shell
+akl_gw_token_reviewer_token.yaml
+Gateway
+Gateway With Exmaples
+plaintext
+Using Target
+inline connection
+ExternalSecretExample.yaml:
+Create your namespace
+SegregationForNamespace1.yaml
+HTTP
+ssh > ca.pub file
+ssh
+General template
+akeyless connect -h
+ca.pub
+akeyless_config_file
+SSH CA Public Key
+Create-Key-In-Akeyless
+Inline Connection

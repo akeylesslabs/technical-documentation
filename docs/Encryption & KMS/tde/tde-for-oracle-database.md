@@ -491,4 +491,4 @@ Guidance on managing the restoration process of an RMAN backup with a new TDE ke
 
 ## Troubleshooting TDE
 
-For common issues such as wallet access problems, key mismatches, or encryption errors, please refer to relevant sections of the [Oracle Transparent Data Encryption Troubleshooting and Debugging](https://support.oracle.com/knowledge/Oracle%20Database%20Products/1228046_1.html#aref_section310) (To view full details, sign in with Oracle support account). This page provides insights into common pitfalls and how to resolve them, ensuring that TDE implementation remains secure and functional.
+For common issues such as wallet access problems, key mismatches, or encryption errors, please refer to relevant sections of the [Oracle Transparent Data Encryption Troubleshooting and Debugging](https://support.oracle.com/knowledge/Oracle%20Database%20Products/1228046_1.html#aref_section310) (To view full details, sign in with Oracle support account). This page provides insights into common issues and how to resolve them, ensuring that TDE implementation remains secure and functional.

@@ -87,13 +87,13 @@ Each **Gateway** cluster exposes a `/status` endpoint that provides basic runtim
 
 ## Gateway Health
 
-To assess the Gateway’s connectivity to Akeyless SaaS core services, you can use the `/health` endpoint. Additionally, when working with [Cluster Cache](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference#cache-configuration), this endpoint will also be affected by the cache status.
+To assess the Gateway’s connectivity to Akeyless SaaS core services, you can use the `/health` endpoint. When cluster cache is enabled, cache availability can also affect this endpoint result. For cache architecture and runtime semantics, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
 
 * If the Gateway is successfully connected, it responds with an HTTP status code `200` and the message: **Health Check Ok**.
 * If the connection fails, it returns an HTTP status code `503` with the message: **Health Check Error**
 * If Cluster Cache is used, and not available, even when the Gateway is successfully connected, it will return `503` with **Health Check Error**
 
-To disable the effect of the [Cluster Cache](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference#cache-configuration) on the `/health` endpoint you can set the following env variable as part of your Gateway deployment:
+To disable the effect of cluster cache health on the `/health` endpoint, set the following environment variable as part of your Gateway deployment:
 
 ```yaml Gateway chart
 env:

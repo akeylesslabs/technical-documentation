@@ -100,7 +100,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 
 > ⚠️ **Warning:**
 >
-> Logs are uploaded to your S3 bucket at 10-minute intervals. Keep in mind that if your pod scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
+> Logs are uploaded to your S3 bucket at 10-minute intervals. Note that if your pod scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
 
 ```yaml
 target_log_type="aws_s3"

@@ -28,7 +28,7 @@ Akeyless SCP enables secure copy by way of [Secure Remote Access Bastion](https:
 
 1. Download Akeyless SCP script:
 
-    ```curl Akeyless SCP
+    ```shell
     curl -o akeyless-scp https://download.akeyless.io/Akeyless_Artifacts/Linux/SSH/akeyless-scp
     chmod +x akeyless-scp
     mv akeyless-scp /usr/local/bin
