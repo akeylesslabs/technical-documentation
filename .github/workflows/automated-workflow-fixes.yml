@@ -3,6 +3,9 @@ name: Automated Workflow Fixes
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 on:
   schedule:
     - cron: "0 2 * * 1" # Mondays at 2 AM UTC
@@ -74,7 +77,6 @@ jobs:
       dep_high_critical: ${{ steps.capture.outputs.dep_high_critical }}
       dep_stale_suppressed: ${{ steps.capture.outputs.dep_stale_suppressed }}
       dep_cooldown_skips: ${{ steps.capture.outputs.dep_cooldown_skips }}
-      dep_issue_key: ${{ steps.jira.outputs.issue_key }}
 
     steps:
       - name: Checkout repository
@@ -307,7 +309,6 @@ jobs:
               --data "$COMMENT_PAYLOAD" \
               "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}/comment" >/dev/null
 
-            echo "issue_key=$EXISTING_KEY" >> "$GITHUB_OUTPUT"
             echo "Updated existing dependency-monitor issue: $EXISTING_KEY"
             exit 0
           fi
@@ -341,7 +342,6 @@ jobs:
             exit 1
           fi
 
-          echo "issue_key=$ISSUE_KEY" >> "$GITHUB_OUTPUT"
           echo "Created dependency-monitor issue: $ISSUE_KEY"
 
   aggregate-and-jira:
@@ -388,7 +388,6 @@ jobs:
           DEP_ALERT_MODE: ${{ needs.dependency-change-monitor.outputs.dep_alert_mode }}
           DEP_DIGEST_KEY: ${{ needs.dependency-change-monitor.outputs.dep_digest_key }}
           DEP_DEDUPE_LABEL: ${{ needs.dependency-change-monitor.outputs.dep_dedupe_label }}
-          DEP_ISSUE_KEY: ${{ needs.dependency-change-monitor.outputs.dep_issue_key }}
 
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
@@ -443,7 +442,7 @@ jobs:
           - Alert mode: ${DEP_ALERT_MODE}
           - Digest key: ${DEP_DIGEST_KEY}
           - Dedupe label: ${DEP_DEDUPE_LABEL}
-          - Jira issue key: ${DEP_ISSUE_KEY}
+          - Jira issue: Created/updated when Jira write is enabled (see dependency-change-monitor logs)
 
           ### Top Dependency Findings
           ${DEP_TOP5}
