@@ -40,6 +40,15 @@ config:
   #   - severity: error|warning|info
   AKY005: false
 
+  # AKY022: Validate fenced code info strings against allowlisted languages and tabs
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - languages_file: path to allowed first-token language identifiers
+  #   - tabs_file: path to allowed tab labels after the language identifier
+  AKY022:
+    languages_file: .github/markdownlint/fence-languages.txt
+    tabs_file: .github/markdownlint/fence-tabs.txt
+
   # AKY006: Disallow Latin abbreviations (e.g., i.e., ad hoc)
   # Knobs:
   #   - severity: error|warning|info

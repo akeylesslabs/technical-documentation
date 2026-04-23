@@ -30,6 +30,28 @@ function loadNamesFromFile(filePath) {
     .filter(Boolean);
 }
 
+function loadAllowlistSet(values, filePath) {
+  const inlineValues = Array.isArray(values) ? values : [];
+  return new Set(
+    [...inlineValues, ...loadNamesFromFile(filePath)]
+      .map((value) => String(value || "").trim())
+      .filter(Boolean)
+  );
+}
+
+function parseFenceInfo(info) {
+  const trimmed = String(info || "").trim();
+  if (!trimmed) return { language: "", tab: "" };
+
+  const match = trimmed.match(/^(\S+)(?:\s+(.+))?$/);
+  if (!match) return { language: trimmed, tab: "" };
+
+  return {
+    language: match[1],
+    tab: (match[2] || "").trim()
+  };
+}
+
 /** Collect 1-based line numbers that are inside code blocks (fenced or indented). */
 function getCodeBlockLineSet(tokens) {
   const codeLines = new Set();
@@ -310,6 +332,58 @@ module.exports = [
           if (!info) {
             report(onError, t.lineNumber, "Fenced code blocks must include a language identifier (e.g., ```bash).");
           }
+        }
+      }
+    }
+  },
+
+  /**
+   * AKY022: Validate fenced code info strings against allowlisted languages and tab labels.
+   *
+   * Options (in .markdownlint-cli2.yaml):
+   *   AKY022:
+   *     languages_file: path/to/fence-languages.txt
+   *     tabs_file: path/to/fence-tabs.txt
+   *     languages:
+   *       - shell
+   *     tabs:
+   *       - Example Tab
+   */
+  {
+    names: ["AKY022", "fenced-code-info-allowlist"],
+    description: "Validate fenced code info strings against allowlisted languages and tab labels",
+    tags: ["code", "style"],
+    function: function (params, onError) {
+      const cfg = params.config || {};
+      const allowedLanguages = loadAllowlistSet(cfg.languages, cfg.languages_file);
+      const allowedTabs = loadAllowlistSet(cfg.tabs, cfg.tabs_file);
+      const validateTabs = allowedTabs.size > 0;
+
+      for (const token of params.tokens || []) {
+        if (token.type !== "fence") continue;
+
+        const info = (token.info || "").trim();
+        if (!info) continue;
+
+        const { language, tab } = parseFenceInfo(info);
+
+        if (!allowedLanguages.has(language)) {
+          report(
+            onError,
+            token.lineNumber,
+            `Unknown fenced code language identifier '${language}'. Add it to the AKY022 language allowlist if it is intentional.`,
+            info
+          );
+          continue;
+        }
+
+        if (tab && validateTabs && !allowedTabs.has(tab)) {
+          report(
+            onError,
+            token.lineNumber,
+            `Unknown fenced code tab label '${tab}'. Add it to the AKY022 tab allowlist if it is intentional.`,
+            info
+          );
         }
       }
     }
