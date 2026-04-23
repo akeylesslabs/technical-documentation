@@ -77,9 +77,10 @@ AKEYLESS_URL: "https://vault.akeyless.io"
 # AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "azure_ad"
 AKEYLESS_ACCESS_ID: "<Access Id>"
-# optional
-# AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
+AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
 ```
+
+`AKEYLESS_AZURE_OBJ_ID` is required for the Kubernetes Secrets Injector when `AKEYLESS_ACCESS_TYPE` is `azure_ad`.
 
 ### AWS-IAM
 

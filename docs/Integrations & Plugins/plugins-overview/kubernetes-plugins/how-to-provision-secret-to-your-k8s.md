@@ -95,6 +95,8 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
     * Set `AKEYLESS_ACCESS_TYPE` to `k8s`. Or with any other supported [Authentication Methods for Kubernetes](https://docs.akeyless.io/docs/auth-meth-k8s).
 
+    * For `AKEYLESS_ACCESS_TYPE` set to `azure_ad`, set `AKEYLESS_AZURE_OBJ_ID` to your Azure Managed Identity object ID.
+
     * Set `AKEYLESS_K8S_AUTH_CONF_NAME` with your Gateway Kubernetes Auth name. Relevant **only** for Access type of `k8s`.
 
     * Set `AKEYLESS_API_GW_URL` with the URL of your Gateway API v1 endpoint: `/8000/api/v1` or port `8080`.
@@ -117,6 +119,8 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
     env:
     AKEYLESS_ACCESS_ID: "<AccessID>"
     AKEYLESS_ACCESS_TYPE: "k8s"
+    # For azure_ad authentication:
+    # AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
     AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_Auth_Name"
     AKEYLESS_API_GW_URL: "https://Your-Gateway-URL:8000/api/v1" 
     # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
