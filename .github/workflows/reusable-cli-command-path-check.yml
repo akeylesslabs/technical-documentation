@@ -62,14 +62,21 @@ jobs:
               continue
             fi
 
-            RESOLVED_VERSION="$(curl -fsSL "https://dl.k8s.io/release/stable-${MINOR}.txt")"
+            # Use -sS to silence progress but keep error messages, don't fail on HTTP errors (-f)
+            # so we can handle 404 gracefully for versions that don't have stable files yet
+            RESOLVED_VERSION="$(curl -sS "https://dl.k8s.io/release/stable-${MINOR}.txt" 2>/dev/null || echo "")"
             if [ -z "$RESOLVED_VERSION" ]; then
-              echo "Could not resolve stable version for minor $MINOR" >&2
-              exit 1
+              echo "⚠ Kubernetes 1.$MINOR: stable version file not available (expected for recently released versions)"
+              continue
             fi
 
             MATRIX_ITEMS="$(echo "$MATRIX_ITEMS" | jq -c --arg minor "v1.${MINOR}" --arg version "$RESOLVED_VERSION" '. + [{kubectl_minor:$minor, kubectl_version:$version}]')"
           done
+
+          # If no versions were resolved, fall back to the stable version
+          if [ "$(echo "$MATRIX_ITEMS" | jq 'length')" -eq 0 ]; then
+            MATRIX_ITEMS="$(echo '[]' | jq -c --arg version "$STABLE_VERSION" '. + [{kubectl_minor:"current", kubectl_version:$version}]')"
+          fi
 
           MATRIX_JSON="$(jq -cn --argjson include "$MATRIX_ITEMS" '{include:$include}')"
 
