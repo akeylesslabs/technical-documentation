@@ -111,12 +111,25 @@ jobs:
           set -e
           sudo apt-get update -qq
           sudo apt-get install -y -qq \
-            awscli \
             curl \
             docker.io \
             jq \
+            unzip \
             openssh-client \
             openssl
+
+      - name: Install AWS CLI
+        run: |
+          set -e
+          if command -v aws >/dev/null 2>&1; then
+            aws --version
+            exit 0
+          fi
+
+          curl -sSLo /tmp/awscliv2.zip "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+          unzip -q /tmp/awscliv2.zip -d /tmp
+          sudo /tmp/aws/install --update
+          aws --version
 
       - name: Install Azure CLI
         run: |
