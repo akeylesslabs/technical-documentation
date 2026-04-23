@@ -16,7 +16,7 @@ This page discusses the creation of Kubernetes [Universal Secrets Connectors](ht
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
 
-## Working With Universal Secrets Connector from the CLI
+## Working with Universal Secrets Connector with the CLI
 
 This section will discuss the different commands necessary to handle USCs. While the initial creation command is a regular Akeyless command, management of USCs is done through a set of sub-commands, which all have the prefix `usc` added to them, as will be shown later in this section. If the prefix is not added to these sub-commands, they will not work.
 

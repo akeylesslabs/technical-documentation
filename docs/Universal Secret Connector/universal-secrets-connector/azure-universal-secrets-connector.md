@@ -19,8 +19,8 @@ This page explains how to create an Azure [Universal Secrets Connector](https://
 * Azure subscription access.
 * Existing Azure Key Vault.
 * Permission to:
-  * Create app registrations.
-  * Assign RBAC roles to Azure resources.
+    * Create app registrations.
+    * Assign RBAC roles to Azure resources.
 
 ### Akeyless requirements
 

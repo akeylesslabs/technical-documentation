@@ -30,7 +30,7 @@ Key rotation is performed through the Akeyless Platform. Only AES keys that were
 
 > ℹ️ **Note:**
 >
-> Please keep in mind that in Salesforce Data and Analytics keys can be rotated only once in 24 hours, and SearchIndex keys can be rotated once in 7 days.
+> Note that in Salesforce Data and Analytics keys can be rotated only once in 24 hours, and SearchIndex keys can be rotated once in 7 days.
 
 ## Disable and Enable a Managed Key
 
@@ -44,7 +44,7 @@ akeyless set-item-state --name <Key Name> --desired-state <Disabled/Enabled>
 
 > ℹ️ **Note:**
 >
-> Please keep in mind that in Salesforce you're not allowed to disable the active key. You'll need to wait for this key to rotate.
+> Note that in Salesforce you're not allowed to disable the active key. You'll need to wait for this key to rotate.
 
 ## Delete a Managed Key
 
@@ -62,4 +62,4 @@ To delete a classic key from the Akeyless KMS you can use the `delete-item` [com
 
 > ℹ️ **Note:**
 >
-> Please keep in mind that in Salesforce you're not allowed to delete the active key.
+> Note that in Salesforce you're not allowed to delete the active key.

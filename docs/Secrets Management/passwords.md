@@ -7,7 +7,7 @@ metadata:
 ---
 You can create a **Password** item to store the username, password, and the websites associated with those credentials.
 
-# Create a Password from the Akeyless CLI
+## Create a Password with the Akeyless CLI
 
 To create a password with the CLI, run the following command:
 
@@ -28,9 +28,9 @@ Where:
 * `password`: Password value.
 * `username`: Username value.
 
-You can find the complete list of parameters for this command in the CLI Reference - [Static Secrets](https://docs.akeyless.io/docs/cli-reference-static-secrets#create-secret) section.
+You can find the complete list of parameters for this command with the CLI Reference - [Static Secrets](https://docs.akeyless.io/docs/cli-reference-static-secrets#create-secret) section.
 
-# Create a Password from the Akeyless Console
+## Create a Password with the Akeyless Console
 
 To create a password using the Console, run the following steps:
 
@@ -41,5 +41,3 @@ To create a password using the Console, run the following steps:
    * **Username**: Username value.
    * **Password**: Password value.
    * **Website**: Comma separated list of URLs associated with the password.
-
-<br />

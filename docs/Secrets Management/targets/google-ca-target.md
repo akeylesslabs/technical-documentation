@@ -111,5 +111,3 @@ Where:
 * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
 
 1. Click Finish.
-
-<br />

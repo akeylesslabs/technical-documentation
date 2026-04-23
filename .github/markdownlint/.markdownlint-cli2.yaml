@@ -442,6 +442,106 @@ config:
         example_from: "This interface provides a bird's eye view of your items."
         example_to: "This interface provides a high-level view of your items."
 
+      - term: "rule of thumb"
+        replacement: "general guideline"
+        example_from: "As a rule of thumb, use HTTPS for all API calls."
+        example_to: "As a general guideline, use HTTPS for all API calls."
+
+      - term: "rules of thumb"
+        replacement: "general guidelines"
+        example_from: "Use these rules of thumb when choosing an authentication method."
+        example_to: "Use these general guidelines when choosing an authentication method."
+
+      - term: "under the hood"
+        replacement: "internally"
+        example_from: "Under the hood, the library uses an event-driven architecture."
+        example_to: "Internally, the library uses an event-driven architecture."
+
+      - term: "at heart"
+        replacement: "fundamentally"
+        example_from: "At heart, this product does a thing."
+        example_to: "Fundamentally, this product does a thing."
+
+      - term: "pitfall"
+        replacement: "common issue"
+        example_from: "A pitfall of using floating-point numbers is precision loss."
+        example_to: "A common issue with floating-point numbers is precision loss."
+
+      - term: "pitfalls"
+        replacement: "common issues"
+        example_from: "These pitfalls can affect deployment reliability."
+        example_to: "These common issues can affect deployment reliability."
+
+      - term: "silver bullet"
+        replacement: "single solution"
+        example_from: "There is no silver bullet for this security challenge."
+        example_to: "There is no single solution for this security challenge."
+
+      - term: "best bet"
+        replacement: "recommended option"
+        example_from: "Your best bet is to use workload identity federation."
+        example_to: "The recommended option is to use workload identity federation."
+
+      - term: "behind the scenes"
+        replacement: "internally"
+        example_from: "The service rotates certificates behind the scenes."
+        example_to: "The service rotates certificates internally."
+
+      - term: "quick win"
+        replacement: "short-term improvement"
+        example_from: "This change is a quick win for deployment reliability."
+        example_to: "This change is a short-term improvement for deployment reliability."
+
+      - term: "quick wins"
+        replacement: "short-term improvements"
+        example_from: "These updates are quick wins for onboarding."
+        example_to: "These updates are short-term improvements for onboarding."
+
+      - term: "game changer"
+        replacement: "major improvement"
+        example_from: "This feature is a game changer for operations teams."
+        example_to: "This feature is a major improvement for operations teams."
+
+      - term: "low-hanging fruit"
+        replacement: "easy-to-implement improvement"
+        example_from: "This task is low-hanging fruit for the next sprint."
+        example_to: "This task is an easy-to-implement improvement for the next sprint."
+
+      - term: "hit the ground running"
+        replacement: "start quickly"
+        example_from: "This guide helps teams hit the ground running."
+        example_to: "This guide helps teams start quickly."
+
+      - term: "on the same page"
+        replacement: "aligned"
+        example_from: "Ensure all teams are on the same page before rollout."
+        example_to: "Ensure all teams are aligned before rollout."
+
+      - term: "cut corners"
+        replacement: "skip required steps"
+        example_from: "Do not cut corners when rotating credentials."
+        example_to: "Do not skip required steps when rotating credentials."
+
+      - term: "keep in mind"
+        replacement: "note"
+        example_from: "Keep in mind that token lifetime is limited."
+        example_to: "Note that token lifetime is limited."
+
+      - term: "in a nutshell"
+        replacement: "in summary"
+        example_from: "In a nutshell, this flow reduces manual overhead."
+        example_to: "In summary, this flow reduces manual overhead."
+
+      - term: "when it comes to"
+        replacement: "for"
+        example_from: "When it comes to rotation, use automated workflows."
+        example_to: "For rotation, use automated workflows."
+
+      - term: "magic bullet"
+        replacement: "single solution"
+        example_from: "There is no magic bullet for access control."
+        example_to: "There is no single solution for access control."
+
   # AKY018: Require canonical Markdown table separator rows
   #
   # Purpose:

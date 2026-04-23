@@ -60,13 +60,8 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
-> ℹ️ **Note (Allowed Domains):**
->
-> Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix; it is recommended to check this in advance for future automated renewal.
-
-> ℹ️ **Note (Auto-Renew and Public CA Certificate Validity):**
->
-> `scheduled-renew` schedules renewal relative to the **certificate's actual expiration date**, not the issuer `ttl`. Public CAs may issue certificates with a shorter validity period than the `ttl` requested — for example, GlobalSign may cap validity at 200 days even if the issuer `ttl` is set to 365 days. In that case, Akeyless bases the renewal schedule on the real certificate expiry. With `--scheduled-renew 14` and a 200-day certificate, renewal is triggered on day 186.
+* **Note (Allowed Domains)**: Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix; it is recommended to check this in advance for future automated renewal.
+* **Note (Auto-Renew and Public CA Certificate Validity)**: `scheduled-renew` schedules renewal relative to the **certificate's actual expiration date**, not the issuer `ttl`. Public CAs may issue certificates with a shorter validity period than the `ttl` requested. For example, GlobalSign might cap validity at 200 days even if the issuer `ttl` is set to 365 days. In that case, Akeyless bases the renewal schedule on the real certificate expiry. With `--scheduled-renew 14` and a 200-day certificate, renewal is triggered on day 186.
 
 ### Issuing a Certificate
 
