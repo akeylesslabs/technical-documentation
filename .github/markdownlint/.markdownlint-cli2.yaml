@@ -442,6 +442,16 @@ config:
         example_from: "This interface provides a bird's eye view of your items."
         example_to: "This interface provides a high-level view of your items."
 
+      - term: "rule of thumb"
+        replacement: "general guideline"
+        example_from: "As a rule of thumb, use HTTPS for all API calls."
+        example_to: "As a general guideline, use HTTPS for all API calls."
+
+      - term: "rules of thumb"
+        replacement: "general guidelines"
+        example_from: "Use these rules of thumb when choosing an authentication method."
+        example_to: "Use these general guidelines when choosing an authentication method."
+
   # AKY018: Require canonical Markdown table separator rows
   #
   # Purpose:
