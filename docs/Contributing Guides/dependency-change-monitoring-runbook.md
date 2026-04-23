@@ -29,7 +29,6 @@ Each run emits:
 * Markdown report artifact: `.github/dependency-monitor/dependency-monitor-report.md`.
 * Top findings summary in workflow outputs.
 * Jira alert task with labels `dependency-monitor` and mode label (`dep-immediate` or `dep-digest`) on scheduled runs with findings.
-* Slack message to `#docs-automation` when webhook configuration is present.
 
 ## Severity and SLA
 

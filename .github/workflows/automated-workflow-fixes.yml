@@ -237,41 +237,6 @@ jobs:
           echo "issue_key=$ISSUE_KEY" >> "$GITHUB_OUTPUT"
           echo "Created dependency-monitor issue: $ISSUE_KEY"
 
-      - name: Send Slack digest to docs-automation
-        if: ${{ github.event_name == 'schedule' && steps.capture.outputs.dep_findings != '0' && secrets.DOCS_AUTOMATION_SLACK_WEBHOOK_URL != '' }}
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.DOCS_AUTOMATION_SLACK_WEBHOOK_URL }}
-          DEP_SUMMARY: ${{ steps.capture.outputs.dep_summary }}
-          DEP_TOP5: ${{ steps.capture.outputs.dep_top5 }}
-          DEP_ALERT_MODE: ${{ steps.capture.outputs.dep_alert_mode }}
-          DEP_FINDINGS: ${{ steps.capture.outputs.dep_findings }}
-          DEP_DIGEST_KEY: ${{ steps.capture.outputs.dep_digest_key }}
-          DEP_ISSUE_KEY: ${{ steps.jira.outputs.issue_key }}
-          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
-        run: |
-          set -euo pipefail
-
-          ISSUE_URL=""
-          if [ -n "${DEP_ISSUE_KEY:-}" ] && [ -n "${JIRA_BASE_URL:-}" ]; then
-            ISSUE_URL="${JIRA_BASE_URL}/browse/${DEP_ISSUE_KEY}"
-          fi
-
-          TEXT="Dependency change ${DEP_ALERT_MODE} for #docs-automation\n"
-          TEXT+="Digest key: ${DEP_DIGEST_KEY}\n"
-          TEXT+="Findings: ${DEP_FINDINGS}\n"
-          TEXT+="${DEP_SUMMARY}\n\n"
-          TEXT+="Top findings:\n${DEP_TOP5}\n\n"
-          TEXT+="Workflow run: ${RUN_URL}\n"
-          if [ -n "$ISSUE_URL" ]; then
-            TEXT+="Jira: ${ISSUE_URL}\n"
-          fi
-
-          curl -sS -X POST \
-            -H "Content-Type: application/json" \
-            --data "$(jq -n --arg text "$TEXT" '{text: $text}')" \
-            "$SLACK_WEBHOOK_URL" >/dev/null
-
   aggregate-and-jira:
     runs-on: ubuntu-latest
     needs:
