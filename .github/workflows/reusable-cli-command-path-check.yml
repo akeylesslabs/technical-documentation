@@ -163,14 +163,12 @@ jobs:
         run: |
           set -euo pipefail
           curl -fsSL --retry 3 --retry-delay 2 --retry-max-time 60 \
-            -o /tmp/akeyless \
-            https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-          if [ ! -s /tmp/akeyless ]; then
-            echo "Akeyless CLI download produced an empty file" >&2
-            exit 1
-          fi
-          chmod +x /tmp/akeyless
-          sudo mv /tmp/akeyless /usr/local/bin/akeyless
+            https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public \
+            | sudo gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" \
+            | sudo tee /etc/apt/sources.list.d/akeyless.list > /dev/null
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq akeyless
           akeyless --version
 
       - name: Install kubectl
