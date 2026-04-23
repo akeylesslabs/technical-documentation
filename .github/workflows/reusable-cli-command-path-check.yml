@@ -1,0 +1,162 @@
+name: Reusable CLI Command Path Check
+
+on:
+  workflow_call:
+    inputs:
+      push_changes:
+        description: Commit generated CLI command path reports.
+        required: false
+        type: boolean
+        default: false
+      branch_name:
+        description: Branch used when push_changes is true.
+        required: false
+        type: string
+        default: automation/cli-command-path-check
+    outputs:
+      cli_path_summary:
+        description: Summary of CLI command path validation.
+        value: ${{ jobs.cli-path-check.outputs.cli_path_summary }}
+      cli_path_failures:
+        description: Number of failures found.
+        value: ${{ jobs.cli-path-check.outputs.cli_path_failures }}
+      cli_path_top5:
+        description: Top findings as newline-separated text.
+        value: ${{ jobs.cli-path-check.outputs.cli_path_top5 }}
+      commit_url:
+        description: Commit URL when push_changes creates a commit.
+        value: ${{ jobs.cli-path-check.outputs.commit_url }}
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'docs/**/*.md'
+      - '.github/scripts/check_akeyless_command_paths.py'
+      - '.github/workflows/reusable-cli-command-path-check.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  cli-path-check:
+    runs-on: ubuntu-latest
+    outputs:
+      cli_path_summary: ${{ steps.capture.outputs.cli_path_summary }}
+      cli_path_failures: ${{ steps.capture.outputs.cli_path_failures }}
+      cli_path_top5: ${{ steps.capture.outputs.cli_path_top5 }}
+      commit_url: ${{ steps.commiturl.outputs.url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install Akeyless CLI
+        run: |
+          set -e
+          curl -sSLo akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
+          chmod +x akeyless
+          sudo mv akeyless /usr/local/bin/akeyless
+          akeyless --version
+
+      - name: Prepare output directories
+        run: |
+          mkdir -p .github/cli-command-paths
+
+      - name: Validate command paths
+        continue-on-error: true
+        run: |
+          set +e
+          : > .github/cli-command-paths/command-path-check.out.txt
+          python .github/scripts/check_akeyless_command_paths.py \
+            --docs-root docs \
+            --out-json .github/cli-command-paths/command-path-check.json \
+            --out-md .github/cli-command-paths/command-path-check.md \
+            > .github/cli-command-paths/command-path-check.out.txt 2>&1
+          set -e
+
+      - name: Capture summary
+        id: capture
+        run: |
+          if [ -f .github/cli-command-paths/command-path-check.json ]; then
+            FAILURE_COUNT=$(jq -r '.failure_count // 0' .github/cli-command-paths/command-path-check.json)
+            FILES_SCANNED=$(jq -r '.files_scanned // 0' .github/cli-command-paths/command-path-check.json)
+            CHECKED_PATHS=$(jq -r '.checked_command_paths // 0' .github/cli-command-paths/command-path-check.json)
+            TOP5=$(jq -r '.failures[:5][] | "\(.file):\(.line) => \(.path)"' .github/cli-command-paths/command-path-check.json)
+            RUNTIME_ERROR=$(jq -r '.runtime_error // empty | split("\n") | map(select(length > 0)) | .[:8] | join(" | ")' .github/cli-command-paths/command-path-check.json)
+
+            if [ -n "$RUNTIME_ERROR" ]; then
+              if [ "$FAILURE_COUNT" = "0" ]; then
+                FAILURE_COUNT=1
+              fi
+              if [ -n "$TOP5" ]; then
+                TOP5="$TOP5\nruntime_error: $RUNTIME_ERROR"
+              else
+                TOP5="runtime_error: $RUNTIME_ERROR"
+              fi
+            fi
+          else
+            FAILURE_COUNT=1
+            FILES_SCANNED=0
+            CHECKED_PATHS=0
+            if [ -s .github/cli-command-paths/command-path-check.out.txt ]; then
+              CLI_TAIL=$(tail -n 20 .github/cli-command-paths/command-path-check.out.txt)
+              TOP5="validator did not produce json output\n$CLI_TAIL"
+            else
+              TOP5="validator did not produce json output"
+            fi
+          fi
+
+          echo "cli_path_summary=Scanned $FILES_SCANNED markdown files, checked $CHECKED_PATHS unique command paths, found $FAILURE_COUNT failures" >> "$GITHUB_OUTPUT"
+          echo "cli_path_failures=$FAILURE_COUNT" >> "$GITHUB_OUTPUT"
+          {
+            echo "cli_path_top5<<EOF"
+            echo "$TOP5"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Commit reports
+        id: commit
+        if: ${{ inputs.push_changes }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          BRANCH="${{ inputs.branch_name }}"
+          git fetch origin
+          git checkout -B "$BRANCH"
+
+          git add .github/cli-command-paths/command-path-check.json .github/cli-command-paths/command-path-check.md .github/cli-command-paths/command-path-check.out.txt || true
+
+          if git diff --cached --quiet; then
+            echo "has_commit=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: update CLI command path report [skip ci]"
+            git push origin "$BRANCH" --force
+            echo "has_commit=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get commit URL
+        id: commiturl
+        if: ${{ inputs.push_changes && steps.commit.outputs.has_commit == 'true' }}
+        run: |
+          COMMIT_SHA="$(git rev-parse HEAD)"
+          echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload CLI path artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cli-command-path-artifacts
+          path: |
+            .github/cli-command-paths/command-path-check.json
+            .github/cli-command-paths/command-path-check.md
+            .github/cli-command-paths/command-path-check.out.txt
+          if-no-files-found: ignore

@@ -9,384 +9,129 @@ on:
   workflow_dispatch:
 
 jobs:
-  automated-workflow-fixes:
+  link-check:
+    uses: ./.github/workflows/reusable-link-check.yml
+    with:
+      push_changes: true
+      branch_name: automation/link-check
+    secrets: inherit
+
+  markdownlint:
+    uses: ./.github/workflows/reusable-markdownlint.yml
+    with:
+      push_changes: true
+      branch_name: automation/markdownlint
+    secrets: inherit
+
+  spell-check:
+    uses: ./.github/workflows/reusable-spell-check.yml
+    with:
+      push_changes: true
+      branch_name: automation/spell-check
+    secrets: inherit
+
+  cli-path-check:
+    uses: ./.github/workflows/reusable-cli-command-path-check.yml
+    with:
+      push_changes: true
+      branch_name: automation/cli-command-path-check
+    secrets: inherit
+
+  aggregate-and-jira:
     runs-on: ubuntu-latest
+    needs:
+      - link-check
+      - markdownlint
+      - spell-check
+      - cli-path-check
+    if: always()
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          persist-credentials: true
-
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
-
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
-
-      - name: Install tooling
+      - name: Prepare report directory
         run: |
-          set -e
-          npm install -g markdownlint-cli2 cspell @cspell/cspell-json-reporter
-          mkdir -p .github/lychee .github/markdownlint .github/cspell .github/cli-command-paths .github/automation-reports
+          mkdir -p .github/automation-reports
 
-      - name: Replace doc links
-        run: |
-          set -e
-          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          find . -path './.github' -prune -o -type f -name "*.md" -print0 | \
-            xargs -0 sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g'
-
-          COUNT=$(grep -roF "(https://docs.akeyless.io/docs/" . --include="*.md" | wc -l)
-          echo "$TIMESTAMP - Replaced doc: links. Total replacements so far: $COUNT" >> .github/lychee/readme-link-replacer.log
-          echo "REPLACER_SUMMARY=$COUNT replacements across Markdown files" >> $GITHUB_ENV
-
-      - name: Run Lychee (discovery)
-        id: lychee_discovery
-        uses: lycheeverse/lychee-action@v2.8.0
-        continue-on-error: true
+      - name: Build aggregated findings report
+        id: aggregate
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: >
-            --verbose
-            --no-progress
-            --max-retries 4
-            --retry-wait-time 5
-            --exclude-file ".github/lychee/.lycheeignore"
-            --exclude-path ".github"
-            --exclude-link-local
-            --exclude-loopback
-            --include-mail
-            './**/*.md'
-          output: .github/lychee/lychee-discovery.md
+          REPLACER_SUMMARY: ${{ needs.link-check.outputs.replacer_summary }}
+          REDIRECT_SUMMARY: ${{ needs.link-check.outputs.redirect_summary }}
+          LYCHEE_SUMMARY: ${{ needs.link-check.outputs.lychee_summary }}
+          LYCHEE_BROKEN: ${{ needs.link-check.outputs.lychee_broken }}
+          LYCHEE_COMMIT_URL: ${{ needs.link-check.outputs.commit_url }}
 
-      - name: Normalize redirected docs links
+          MARKDOWNLINT_SUMMARY: ${{ needs.markdownlint.outputs.markdownlint_summary }}
+          MARKDOWNLINT_VIOLATIONS: ${{ needs.markdownlint.outputs.markdownlint_violations }}
+          MARKDOWNLINT_COMMIT_URL: ${{ needs.markdownlint.outputs.commit_url }}
+
+          CSPELL_SUMMARY: ${{ needs.spell-check.outputs.cspell_summary }}
+          CSPELL_ISSUE_COUNT: ${{ needs.spell-check.outputs.cspell_issue_count }}
+          CSPELL_TOP5: ${{ needs.spell-check.outputs.cspell_top5 }}
+          CSPELL_COMMIT_URL: ${{ needs.spell-check.outputs.commit_url }}
+
+          CLI_PATH_SUMMARY: ${{ needs.cli-path-check.outputs.cli_path_summary }}
+          CLI_PATH_FAILURES: ${{ needs.cli-path-check.outputs.cli_path_failures }}
+          CLI_PATH_TOP5: ${{ needs.cli-path-check.outputs.cli_path_top5 }}
+          CLI_PATH_COMMIT_URL: ${{ needs.cli-path-check.outputs.commit_url }}
+
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -e
-          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
 
-          python3 - <<'PY'
-          import json
-          import pathlib
-          import re
-          import urllib.request
+          LYCHEE_BROKEN="${LYCHEE_BROKEN:-0}"
+          MARKDOWNLINT_VIOLATIONS="${MARKDOWNLINT_VIOLATIONS:-0}"
+          CSPELL_ISSUE_COUNT="${CSPELL_ISSUE_COUNT:-0}"
+          CLI_PATH_FAILURES="${CLI_PATH_FAILURES:-0}"
 
-          root = pathlib.Path('.')
-          md_files = [p for p in root.rglob('*.md') if '.github' not in p.parts]
-          docs_url_pattern = re.compile(r"https://docs\.akeyless\.io/docs/[^\s\)\]>\"']+")
+          FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES))
 
-          discovery_path = pathlib.Path('.github/lychee/lychee-discovery.md')
-          discovery_text = ''
-          if discovery_path.exists():
-            discovery_text = discovery_path.read_text(encoding='utf-8', errors='ignore')
+          echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_OUTPUT"
+          echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_ENV"
 
-          urls = set(docs_url_pattern.findall(discovery_text))
-
-          source_mode = 'lychee-discovery'
-          if not urls:
-            source_mode = 'fallback-markdown-scan'
-            for file_path in md_files:
-              try:
-                text = file_path.read_text(encoding='utf-8')
-              except Exception:
-                continue
-              urls.update(docs_url_pattern.findall(text))
-
-          redirects = {}
-          for url in sorted(urls):
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            try:
-              with urllib.request.urlopen(req, timeout=20) as response:
-                final_url = response.geturl()
-            except Exception:
-              continue
-
-            if final_url != url and final_url.startswith('https://docs.akeyless.io/docs/'):
-              redirects[url] = final_url
-
-          keys = sorted(redirects.keys(), key=len, reverse=True)
-          changed_files = 0
-          changed_links = 0
-
-          if keys:
-            exact_match = re.compile(r"(" + "|".join(re.escape(k) for k in keys) + r")(?![A-Za-z0-9_/#?&=%.-])")
-
-            for file_path in md_files:
-              try:
-                text = file_path.read_text(encoding='utf-8')
-              except Exception:
-                continue
-
-              replacements_in_file = [0]
-
-              def replace_url(match):
-                replacements_in_file[0] += 1
-                return redirects[match.group(1)]
-
-              updated = exact_match.sub(replace_url, text)
-              if updated != text:
-                file_path.write_text(updated, encoding='utf-8')
-                changed_files += 1
-                changed_links += replacements_in_file[0]
-
-          report = {
-            'source_mode': source_mode,
-            'total_urls_scanned': len(urls),
-            'redirect_mappings_found': len(redirects),
-            'files_updated': changed_files,
-            'links_updated': changed_links,
-            'redirect_mappings': redirects,
-          }
-
-          pathlib.Path('.github/lychee').mkdir(parents=True, exist_ok=True)
-          with open('.github/lychee/docs-redirect-normalizer.json', 'w', encoding='utf-8') as handle:
-            json.dump(report, handle, indent=2)
-
-          with open('.github/lychee/docs-redirect-normalizer.log', 'a', encoding='utf-8') as handle:
-            handle.write(
-              f"source={report['source_mode']}; {report['files_updated']} files updated, {report['links_updated']} links normalized, "
-              f"{report['redirect_mappings_found']} redirect mappings found, "
-              f"{report['total_urls_scanned']} docs URLs scanned\n"
-            )
-          PY
-
-          REDIRECT_SUMMARY=$(python3 - <<'PY'
-          import json
-          with open('.github/lychee/docs-redirect-normalizer.json', 'r', encoding='utf-8') as handle:
-            report = json.load(handle)
-          print(f"{report['links_updated']} links normalized across {report['files_updated']} markdown files")
-          PY
-          )
-
-          echo "$TIMESTAMP - $REDIRECT_SUMMARY" >> .github/lychee/docs-redirect-normalizer.log
-          echo "REDIRECT_SUMMARY=$REDIRECT_SUMMARY" >> $GITHUB_ENV
-
-      - name: Run Lychee (final)
-        id: lychee
-        uses: lycheeverse/lychee-action@v2.8.0
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: >
-            --verbose
-            --no-progress
-            --max-retries 4
-            --retry-wait-time 5
-            --exclude-file ".github/lychee/.lycheeignore"
-            --exclude-path ".github"
-            --exclude-link-local
-            --exclude-loopback
-            --include-mail
-            './**/*.md'
-          output: .github/lychee/lychee-out.md
-
-      - name: Capture Lychee summary
-        run: |
-          BROKEN=$(grep -c "❌" .github/lychee/lychee-out.md || true)
-          TOTAL=$(grep -cE "http[s]?://" .github/lychee/lychee-out.md || true)
-          echo "LYCHEE_SUMMARY=$TOTAL links checked, $BROKEN broken" >> $GITHUB_ENV
-          echo "LYCHEE_BROKEN=$BROKEN" >> $GITHUB_ENV
-
-      - name: Run markdownlint (fix)
-        id: mdl
-        continue-on-error: true
-        run: |
-          set +e
-          npx markdownlint-cli2 --fix --config .github/markdownlint/.markdownlint-cli2.yaml 'docs/**/*.md' \
-            > .github/markdownlint/markdownlint-fix-out.txt 2>&1
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
-          set -e
-
-      - name: Capture markdownlint summary
-        run: |
-          if [ "${{ steps.mdl.outputs.exit_code }}" != "0" ]; then
-            echo "MARKDOWNLINT_SUMMARY=markdownlint found violations after --fix" >> $GITHUB_ENV
-            echo "MARKDOWNLINT_VIOLATIONS=1" >> $GITHUB_ENV
-          else
-            echo "MARKDOWNLINT_SUMMARY=markdownlint passed after --fix" >> $GITHUB_ENV
-            echo "MARKDOWNLINT_VIOLATIONS=0" >> $GITHUB_ENV
-          fi
-
-      - name: Run CSpell (pre-fix)
-        continue-on-error: true
-        run: |
-          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress > .github/cspell/cspell-out.pre.txt || true
-          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
-            --reporter @cspell/cspell-json-reporter > .github/cspell/cspell-out.pre.json || true
-
-      - name: Autofix misspellings (conservative)
-        continue-on-error: true
-        run: |
-          python .cspell/cspell-autofix.py \
-            --report .github/cspell/cspell-out.pre.json \
-            --repo-root . \
-            --corrections .cspell/corrections.json
-
-      - name: Run CSpell (post-fix)
-        continue-on-error: true
-        run: |
-          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress > .github/cspell/cspell-out.txt || true
-          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
-            --reporter @cspell/cspell-json-reporter > .github/cspell/cspell-out.json || true
-
-      - name: Capture CSpell summary
-        run: |
-          if [ -s ".github/cspell/cspell-out.json" ] && jq -e . ".github/cspell/cspell-out.json" >/dev/null 2>&1; then
-            ISSUE_COUNT=$(jq -r '.issues | length' .github/cspell/cspell-out.json)
-            TOP5=$(jq -r '.issues[].text' .github/cspell/cspell-out.json | sort | uniq -c | sort -nr | head -5 | sed 's/^[[:space:]]*//')
-          else
-            ISSUE_COUNT=$(grep -c "Unknown word" .github/cspell/cspell-out.txt || true)
-            TOP5=""
-          fi
-
-          echo "CSPELL_SUMMARY=$ISSUE_COUNT spelling issues found in Markdown files" >> $GITHUB_ENV
-          echo "CSPELL_ISSUE_COUNT=$ISSUE_COUNT" >> $GITHUB_ENV
-          {
-            echo "CSPELL_TOP5<<EOF"
-            echo "$TOP5"
-            echo "EOF"
-          } >> $GITHUB_ENV
-
-      - name: Install Akeyless CLI
-        run: |
-          set -e
-          curl -sSLo akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-          chmod +x akeyless
-          sudo mv akeyless /usr/local/bin/akeyless
-          akeyless --version
-
-      - name: Validate CLI command paths
-        id: cli_paths
-        continue-on-error: true
-        run: |
-          set +e
-          : > .github/cli-command-paths/command-path-check.out.txt
-          python .github/scripts/check_akeyless_command_paths.py \
-            --docs-root docs \
-            --out-json .github/cli-command-paths/command-path-check.json \
-            --out-md .github/cli-command-paths/command-path-check.md \
-            > .github/cli-command-paths/command-path-check.out.txt 2>&1
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
-          set -e
-
-      - name: Capture CLI command path summary
-        run: |
-          if [ -f .github/cli-command-paths/command-path-check.json ]; then
-            FAILURE_COUNT=$(jq -r '.failure_count // 0' .github/cli-command-paths/command-path-check.json)
-            FILES_SCANNED=$(jq -r '.files_scanned // 0' .github/cli-command-paths/command-path-check.json)
-            CHECKED_PATHS=$(jq -r '.checked_command_paths // 0' .github/cli-command-paths/command-path-check.json)
-            TOP5=$(jq -r '.failures[:5][] | "\(.file):\(.line) => \(.path)"' .github/cli-command-paths/command-path-check.json)
-            RUNTIME_ERROR=$(jq -r '.runtime_error // empty | split("\n") | map(select(length > 0)) | .[:8] | join(" | ")' .github/cli-command-paths/command-path-check.json)
-
-            if [ -n "$RUNTIME_ERROR" ]; then
-              if [ "$FAILURE_COUNT" = "0" ]; then
-                FAILURE_COUNT=1
-              fi
-              if [ -n "$TOP5" ]; then
-                TOP5="$TOP5\nruntime_error: $RUNTIME_ERROR"
-              else
-                TOP5="runtime_error: $RUNTIME_ERROR"
-              fi
-            fi
-          else
-            FAILURE_COUNT=1
-            FILES_SCANNED=0
-            CHECKED_PATHS=0
-            if [ -s .github/cli-command-paths/command-path-check.out.txt ]; then
-              CLI_TAIL=$(tail -n 20 .github/cli-command-paths/command-path-check.out.txt)
-              TOP5="validator did not produce json output\n$CLI_TAIL"
-            else
-              TOP5="validator did not produce json output"
-            fi
-          fi
-
-          echo "CLI_PATH_SUMMARY=Scanned $FILES_SCANNED markdown files, checked $CHECKED_PATHS unique command paths, found $FAILURE_COUNT failures" >> $GITHUB_ENV
-          echo "CLI_PATH_FAILURES=$FAILURE_COUNT" >> $GITHUB_ENV
-          {
-            echo "CLI_PATH_TOP5<<EOF"
-            echo "$TOP5"
-            echo "EOF"
-          } >> $GITHUB_ENV
-
-      - name: Prepare combined report
-        run: |
-          set -e
           cat > .github/automation-reports/automated-workflow-fixes-summary.md <<EOF
           # Automated Workflow Fixes Summary
 
+          ## Run Context
+          - Workflow run: ${RUN_URL}
+          - Workflow artifacts: ${RUN_URL}#artifacts
+          - Findings total: ${FINDINGS_TOTAL}
+
           ## Link Check
-          - $REPLACER_SUMMARY
-          - $REDIRECT_SUMMARY
-          - $LYCHEE_SUMMARY
+          - ${REPLACER_SUMMARY}
+          - ${REDIRECT_SUMMARY}
+          - ${LYCHEE_SUMMARY}
+          - Commit: ${LYCHEE_COMMIT_URL}
 
           ## Markdown Lint
-          - $MARKDOWNLINT_SUMMARY
+          - ${MARKDOWNLINT_SUMMARY}
+          - Violations: ${MARKDOWNLINT_VIOLATIONS}
+          - Commit: ${MARKDOWNLINT_COMMIT_URL}
 
           ## Spell Check
-          - $CSPELL_SUMMARY
+          - ${CSPELL_SUMMARY}
+          - Commit: ${CSPELL_COMMIT_URL}
+
+          ### Top CSpell Findings
+          ${CSPELL_TOP5}
 
           ## CLI Command Path Check
-          - $CLI_PATH_SUMMARY
+          - ${CLI_PATH_SUMMARY}
+          - Commit: ${CLI_PATH_COMMIT_URL}
 
-          ## Top CSpell Findings
-          $CSPELL_TOP5
-
-          ## Top CLI Command Path Failures
-          $CLI_PATH_TOP5
+          ### Top CLI Command Path Findings
+          ${CLI_PATH_TOP5}
           EOF
 
-      - name: Commit outputs + autofixes
-        id: commit
+      - name: Upload aggregated report artifact
         if: always()
-        run: |
-          set -e
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          BRANCH="automation/automated-workflow-fixes"
-          git fetch origin
-          git checkout -B $BRANCH
-
-          git add "**/*.md" || true
-          git add .github/lychee/lychee-discovery.md .github/lychee/lychee-out.md .github/lychee/readme-link-replacer.log .github/lychee/docs-redirect-normalizer.log .github/lychee/docs-redirect-normalizer.json || true
-          git add .github/markdownlint/markdownlint-fix-out.txt || true
-          git add .github/cspell/cspell-out.pre.txt .github/cspell/cspell-out.pre.json .github/cspell/cspell-out.txt .github/cspell/cspell-out.json || true
-          git add .github/cli-command-paths/command-path-check.json .github/cli-command-paths/command-path-check.md .github/cli-command-paths/command-path-check.out.txt || true
-          git add .github/automation-reports/automated-workflow-fixes-summary.md || true
-
-          CHANGED_FILES=$(git diff --cached --name-only | sed '/^\s*$/d' | head -100 || true)
-          if [ -z "$CHANGED_FILES" ]; then
-            CHANGED_FILES="(no committed file changes in this run)"
-          fi
-
-          if git diff --cached --quiet; then
-            echo "has_commit=false" >> "$GITHUB_OUTPUT"
-            echo "commit_url=" >> "$GITHUB_OUTPUT"
-          else
-            git commit -m "chore: automated workflow fixes report [skip ci]"
-            git push origin $BRANCH --force
-            echo "has_commit=true" >> "$GITHUB_OUTPUT"
-            COMMIT_SHA="$(git rev-parse HEAD)"
-            echo "commit_url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
-          fi
-
-          {
-            echo "CHANGED_FILES<<EOF"
-            echo "$CHANGED_FILES"
-            echo "EOF"
-          } >> $GITHUB_ENV
+        uses: actions/upload-artifact@v4
+        with:
+          name: automated-workflow-fixes-summary
+          path: .github/automation-reports/automated-workflow-fixes-summary.md
 
       - name: Create Jira issue (scheduled findings only)
         id: jira
-        if: ${{ github.event_name == 'schedule' && (fromJSON(env.LYCHEE_BROKEN || '0') > 0 || fromJSON(env.MARKDOWNLINT_VIOLATIONS || '0') > 0 || fromJSON(env.CSPELL_ISSUE_COUNT || '0') > 0 || fromJSON(env.CLI_PATH_FAILURES || '0') > 0) }}
+        if: ${{ github.event_name == 'schedule' && steps.aggregate.outputs.findings_total != '0' }}
         continue-on-error: true
         env:
           JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
@@ -394,25 +139,29 @@ jobs:
           JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
           JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          BRANCH_NAME: automation/automated-workflow-fixes
-          COMMIT_URL: ${{ steps.commit.outputs.commit_url }}
-          REPLACER_SUMMARY: ${{ env.REPLACER_SUMMARY }}
-          REDIRECT_SUMMARY: ${{ env.REDIRECT_SUMMARY }}
-          LYCHEE_SUMMARY: ${{ env.LYCHEE_SUMMARY }}
-          MARKDOWNLINT_SUMMARY: ${{ env.MARKDOWNLINT_SUMMARY }}
-          MARKDOWNLINT_VIOLATIONS: ${{ env.MARKDOWNLINT_VIOLATIONS }}
-          CSPELL_SUMMARY: ${{ env.CSPELL_SUMMARY }}
-          CSPELL_ISSUE_COUNT: ${{ env.CSPELL_ISSUE_COUNT }}
-          CSPELL_TOP5: ${{ env.CSPELL_TOP5 }}
-          CLI_PATH_SUMMARY: ${{ env.CLI_PATH_SUMMARY }}
-          CLI_PATH_FAILURES: ${{ env.CLI_PATH_FAILURES }}
-          CLI_PATH_TOP5: ${{ env.CLI_PATH_TOP5 }}
-          CHANGED_FILES: ${{ env.CHANGED_FILES }}
+          REPLACER_SUMMARY: ${{ needs.link-check.outputs.replacer_summary }}
+          REDIRECT_SUMMARY: ${{ needs.link-check.outputs.redirect_summary }}
+          LYCHEE_SUMMARY: ${{ needs.link-check.outputs.lychee_summary }}
+          LYCHEE_BROKEN: ${{ needs.link-check.outputs.lychee_broken }}
+
+          MARKDOWNLINT_SUMMARY: ${{ needs.markdownlint.outputs.markdownlint_summary }}
+          MARKDOWNLINT_VIOLATIONS: ${{ needs.markdownlint.outputs.markdownlint_violations }}
+
+          CSPELL_SUMMARY: ${{ needs.spell-check.outputs.cspell_summary }}
+          CSPELL_ISSUE_COUNT: ${{ needs.spell-check.outputs.cspell_issue_count }}
+          CSPELL_TOP5: ${{ needs.spell-check.outputs.cspell_top5 }}
+
+          CLI_PATH_SUMMARY: ${{ needs.cli-path-check.outputs.cli_path_summary }}
+          CLI_PATH_FAILURES: ${{ needs.cli-path-check.outputs.cli_path_failures }}
+          CLI_PATH_TOP5: ${{ needs.cli-path-check.outputs.cli_path_top5 }}
+
+          FINDINGS_TOTAL: ${{ steps.aggregate.outputs.findings_total }}
         run: |
           set -e
 
           TS="$(date -u +'%Y-%m-%d %H:%M UTC')"
-          SUMMARY="Automated Workflow Fixes ${TS} – $GITHUB_REPOSITORY@$BRANCH_NAME"
+          SUMMARY="Automated Workflow Fixes ${TS} – $GITHUB_REPOSITORY"
+
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
           JIRA_CURL_OPTS=(
             --retry 3
@@ -426,8 +175,6 @@ jobs:
           ADF_DESC=$(jq -n \
             --arg run "$RUN_URL" \
             --arg artifacts "${RUN_URL}#artifacts" \
-            --arg br "$BRANCH_NAME" \
-            --arg commit "$COMMIT_URL" \
             --arg l1 "$REPLACER_SUMMARY" \
             --arg l2 "$REDIRECT_SUMMARY" \
             --arg l3 "$LYCHEE_SUMMARY" \
@@ -440,7 +187,7 @@ jobs:
             --arg c1 "$CLI_PATH_SUMMARY" \
             --arg c2 "$CLI_PATH_FAILURES" \
             --arg c3 "$CLI_PATH_TOP5" \
-            --arg files "$CHANGED_FILES" \
+            --arg total "$FINDINGS_TOTAL" \
             'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
              def linkPara($label; $url):
                { type:"paragraph", content:[
@@ -453,11 +200,10 @@ jobs:
              {
                type:"doc", version:1,
                content: [
-                 para("Combined weekly automation run: link check, markdown lint, spell check, and CLI command path validation."),
+                 para("Weekly coordinator run for docs automation checks."),
                  linkPara("Workflow run: "; $run),
                  linkPara("Workflow artifacts: "; $artifacts),
-                 para("Branch: " + $br),
-                 linkPara("Commit: "; $commit),
+                 para("Total findings: " + $total),
                  para("Link check: " + $l1),
                  para("Link redirects: " + $l2),
                  para("Lychee summary: " + $l3),
@@ -472,8 +218,6 @@ jobs:
                  para("CLI command path failures: " + $c2),
                  para("Top CLI command path findings:"),
                  codeBlock($c3),
-                 para("Changed files (first 100):"),
-                 codeBlock($files),
                  para("This ticket was created automatically by GitHub Actions.")
                ]
              }')
@@ -499,7 +243,6 @@ jobs:
             "$JIRA_BASE_URL/rest/api/3/issue")
 
           ISSUE_KEY=$(echo "$RESP" | jq -r '.key // empty')
-          ISSUE_ID=$(echo "$RESP" | jq -r '.id // empty')
 
           if [ -z "$ISSUE_KEY" ]; then
             echo "Failed to create Jira issue. Response:"
@@ -508,45 +251,4 @@ jobs:
           fi
 
           echo "issue_key=$ISSUE_KEY" >> "$GITHUB_OUTPUT"
-          echo "issue_id=$ISSUE_ID" >> "$GITHUB_OUTPUT"
           echo "Created Jira issue: $ISSUE_KEY"
-
-      - name: Attach artifacts to Jira issue
-        if: steps.jira.outputs.issue_key != ''
-        continue-on-error: true
-        env:
-          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
-          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
-          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
-          ISSUE_KEY: ${{ steps.jira.outputs.issue_key }}
-        run: |
-          set -e
-          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
-          JIRA_CURL_OPTS=(
-            --retry 3
-            --retry-all-errors
-            --retry-delay 2
-            --retry-max-time 30
-            --connect-timeout 10
-            --max-time 45
-          )
-
-          attach_file () {
-            local fpath="$1"
-            if [ -f "$fpath" ]; then
-              curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
-                -H "$AUTH_HEADER" \
-                -H "X-Atlassian-Token: no-check" \
-                -F "file=@${fpath}" \
-                "$JIRA_BASE_URL/rest/api/3/issue/${ISSUE_KEY}/attachments" >/dev/null
-            fi
-          }
-
-          attach_file ".github/automation-reports/automated-workflow-fixes-summary.md"
-          attach_file ".github/lychee/lychee-out.md"
-          attach_file ".github/lychee/docs-redirect-normalizer.json"
-          attach_file ".github/markdownlint/markdownlint-fix-out.txt"
-          attach_file ".github/cspell/cspell-out.json"
-          attach_file ".github/cli-command-paths/command-path-check.json"
-          attach_file ".github/cli-command-paths/command-path-check.md"
-          attach_file ".github/cli-command-paths/command-path-check.out.txt"
