@@ -254,10 +254,10 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * **Keep sentences simple and clear**: Short sentences are easier to translate and less likely to create ambiguity.
 * **Avoid fragments**: Sentence fragments are harder to translate; therefore, wherever possible, write in complete sentences.
 * **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meaning to a native speaker or speakers from a particular region. Examples:
-    * "Fundamentally, this product does a thing."
-    * "Internally, the library uses an event-driven architecture."
-    * "As a general guideline, use HTTPS for all API calls."
-    * "A common issue with floating-point numbers is precision loss."
+    * "At heart, this product does a thing."
+    * "Under the hood, the library uses an event-driven architecture.”
+    * “As a rule of thumb, use HTTPS for all API calls.”
+    * “A pitfall of using floating-point numbers is precision loss.”
 * **Use consistent terminology**: Reuse the same word or phrase for the same concept throughout the documentation to aid translation memory tools.
 * **Write numbers and units clearly**: Use commas as separators in large numbers (1,000).
 * **Avoid embedded text in images**: Avoid text in diagrams presented as images. Instead, use Mermaid diagrams or move the text to a caption. If labels or text must appear in graphics, provide separate source files for easy translation.
