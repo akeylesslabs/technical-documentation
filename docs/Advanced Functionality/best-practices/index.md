@@ -74,4 +74,6 @@ Different components of the Akeyless Platform require different versions of Kube
 
 * For Kubernetes External KMS: 1.10 or higher
 
-* For Kubernetes External Secrets Operator or secret store provider: 1.16 or higher
+* For Kubernetes External Secrets Operator: 1.19 or higher
+
+* For Kubernetes Secrets Store CSI Provider: 1.16 or higher
