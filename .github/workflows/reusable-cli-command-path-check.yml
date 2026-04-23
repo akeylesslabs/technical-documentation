@@ -65,11 +65,16 @@ jobs:
             # Use -sS to silence progress but keep error messages, don't fail on HTTP errors (-f)
             # so we can handle 404 gracefully for versions that don't have stable files yet
             RESOLVED_VERSION="$(curl -sS "https://dl.k8s.io/release/stable-${MINOR}.txt" 2>/dev/null || echo "")"
-            if [ -z "$RESOLVED_VERSION" ]; then
+            
+            # Skip if empty or if the response is an error XML message
+            if [ -z "$RESOLVED_VERSION" ] || [[ "$RESOLVED_VERSION" =~ \<\?xml ]]; then
               echo "⚠ Kubernetes 1.$MINOR: stable version file not available (expected for recently released versions)"
               continue
             fi
 
+            # Trim whitespace from version string
+            RESOLVED_VERSION="$(echo "$RESOLVED_VERSION" | xargs)"
+            
             MATRIX_ITEMS="$(echo "$MATRIX_ITEMS" | jq -c --arg minor "v1.${MINOR}" --arg version "$RESOLVED_VERSION" '. + [{kubectl_minor:$minor, kubectl_version:$version}]')"
           done
 
