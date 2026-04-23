@@ -13,12 +13,12 @@ You can choose whether the lock applies to **reading** the item or **updating** 
 
 If an item is locked for **reading**, users with read permission will still be able to see the item, but they will not be able to view the secret value.
 
-# Prerequisites
+## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.48.0` or later.
 * Only users with `list` and `update` permissions will be able to lock secrets.
 
-# Locking and item using the CLI
+## Locking an item with the CLI
 
 In order to lock an item using the CLI, run the following command:
 
@@ -35,9 +35,9 @@ Where:
 * `--actions`: **Required**. Defines whether the item is locked for **reading** its value or **updating** its value.
 * `--lock-ttl`: **Optional**. Sets a TTL for the lock.
 
-You can find the complete list of parameters for this command in the CLI Reference.
+You can find the complete list of parameters for this command with the CLI Reference.
 
-# Locking and item using the Akeyless Console
+## Locking an item with the Akeyless Console
 
 In order to lock an item using the Akeyless console, run the following steps:
 
@@ -46,7 +46,3 @@ In order to lock an item using the Akeyless console, run the following steps:
 3. Choose if to lock the item for **Read** or **Update**.
 4. Set a TTL for the lock (Optional).
 5. Press **Lock Now**
-
-<br />
-
-<br />

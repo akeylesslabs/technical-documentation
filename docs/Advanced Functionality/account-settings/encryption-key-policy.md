@@ -42,13 +42,8 @@ Where:
 
 * `object-types`: The object types this policy applies to (`items`, `targets`). If not provided, it defaults to both `items` and `targets`.
 
-> ❗ **Important:**
->
-> `allowed-key-types` and `allowed-key-names` are mutually exclusive. Use only one of these flags in a command.
-
-> ℹ️ **Note:**
->
-> `max-rotation-interval-days` is not allowed when `object-types` is set to `targets` only.
+* **Important**: `allowed-key-types` and `allowed-key-names` are mutually exclusive. Use only one of these flags in a command.
+* **Note**: `max-rotation-interval-days` is not allowed when `object-types` is set to `targets` only.
 
 ## Set an Encryption Key Policy with the Console
 

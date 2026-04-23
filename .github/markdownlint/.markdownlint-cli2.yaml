@@ -487,6 +487,61 @@ config:
         example_from: "The service rotates certificates behind the scenes."
         example_to: "The service rotates certificates internally."
 
+      - term: "quick win"
+        replacement: "short-term improvement"
+        example_from: "This change is a quick win for deployment reliability."
+        example_to: "This change is a short-term improvement for deployment reliability."
+
+      - term: "quick wins"
+        replacement: "short-term improvements"
+        example_from: "These updates are quick wins for onboarding."
+        example_to: "These updates are short-term improvements for onboarding."
+
+      - term: "game changer"
+        replacement: "major improvement"
+        example_from: "This feature is a game changer for operations teams."
+        example_to: "This feature is a major improvement for operations teams."
+
+      - term: "low-hanging fruit"
+        replacement: "easy-to-implement improvement"
+        example_from: "This task is low-hanging fruit for the next sprint."
+        example_to: "This task is an easy-to-implement improvement for the next sprint."
+
+      - term: "hit the ground running"
+        replacement: "start quickly"
+        example_from: "This guide helps teams hit the ground running."
+        example_to: "This guide helps teams start quickly."
+
+      - term: "on the same page"
+        replacement: "aligned"
+        example_from: "Ensure all teams are on the same page before rollout."
+        example_to: "Ensure all teams are aligned before rollout."
+
+      - term: "cut corners"
+        replacement: "skip required steps"
+        example_from: "Do not cut corners when rotating credentials."
+        example_to: "Do not skip required steps when rotating credentials."
+
+      - term: "keep in mind"
+        replacement: "note"
+        example_from: "Keep in mind that token lifetime is limited."
+        example_to: "Note that token lifetime is limited."
+
+      - term: "in a nutshell"
+        replacement: "in summary"
+        example_from: "In a nutshell, this flow reduces manual overhead."
+        example_to: "In summary, this flow reduces manual overhead."
+
+      - term: "when it comes to"
+        replacement: "for"
+        example_from: "When it comes to rotation, use automated workflows."
+        example_to: "For rotation, use automated workflows."
+
+      - term: "magic bullet"
+        replacement: "single solution"
+        example_from: "There is no magic bullet for access control."
+        example_to: "There is no single solution for access control."
+
   # AKY018: Require canonical Markdown table separator rows
   #
   # Purpose:
