@@ -687,3 +687,4 @@
 /docs/serverless-gateway/azure-serverless -> /docs/gateway-deploy-serverless-azure
 /v2/docs/serverless-gateway/azure-serverless -> /docs/gateway-deploy-serverless-azure
 /docs/teamcity-plugin -> /docs/teamcity-plugins
+/docs/how-to-provision-secret-to-your-k8s -> /docs/akeyless-kubernetes-secrets-injector
