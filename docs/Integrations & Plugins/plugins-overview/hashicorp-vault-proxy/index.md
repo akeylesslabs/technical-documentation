@@ -31,13 +31,13 @@ Or directly through your [Gateway](https://docs.akeyless.io/docs/gateway-overvie
 
 HashiCorp Vault `V1` secret engine proxy will be available using this prefix: `v1/kv`
 
-```curl Vault Proxy V1
+```shell Vault Proxy V1
 curl --header "X-Vault-Token: XXXXX" https://hvp.akeyless.io/v1/kv/{secret-name}
 ```
 
 HashiCorp Vault `V2` secret engine will be available using this prefix: `v1/secret/data`
 
-```curl Vault Proxy V2
+```shell Vault Proxy V2
 curl --header "X-Vault-Token: XXXX" https://hvp.akeyless.io/v1/secret/data/{secret-name}
 ```
 

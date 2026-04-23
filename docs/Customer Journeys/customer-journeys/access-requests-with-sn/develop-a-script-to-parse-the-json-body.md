@@ -42,7 +42,7 @@ The provided script is designed to be used in a ServiceNow instance, specificall
 
 ### Script Example
 
-```js
+```javascript
 (function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
     // Parse the incoming JSON payload from the request body
     var requestBody = request.body.dataString;
