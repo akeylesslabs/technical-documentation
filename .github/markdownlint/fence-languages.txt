@@ -1,4 +1,7 @@
 # Allowed fenced code block language identifiers.
+# Keep entries as language identifiers only.
+# Do not add tab labels here; use .github/markdownlint/fence-tabs.txt for tab labels.
+# Keep identifiers lowercase for consistency.
 bash
 csharp
 curl
