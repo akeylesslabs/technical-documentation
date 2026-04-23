@@ -379,8 +379,10 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"- Successful fetches: {report['successful_fetches']}",
         f"- Fetch errors: {report['fetch_errors']}",
         f"- Previous state found: {report['previous_state_found']}",
+        f"- Suppress new findings without baseline: {report.get('suppress_new_without_baseline', False)}",
         f"- Changed dependencies: {report['changed_dependencies']}",
         f"- Suppressed stale alerts: {report['stale_suppressed']}",
+        f"- Suppressed new alerts without baseline: {report.get('new_without_baseline_suppressed', 0)}",
         f"- Cooldown source skips: {report['cooldown_skips']}",
         f"- Docs-impacting findings: {report['docs_impacting_findings']}",
         f"- Alert mode: {report['alert_mode']}",
@@ -459,6 +461,9 @@ def main() -> int:
     now_utc = dt.datetime.now(tz=dt.timezone.utc)
     sequence += 1
 
+    has_prior_baseline = bool(previous_versions)
+    suppress_new_without_baseline = not has_prior_baseline
+
     findings: list[dict[str, Any]] = []
     fetch_error_items: list[dict[str, str]] = []
     warnings: list[str] = []
@@ -475,6 +480,7 @@ def main() -> int:
         "degraded_fetches": 0,
         "cooldown_skips": 0,
         "stale_suppressed": 0,
+        "new_without_baseline_suppressed": 0,
     }
 
     categories_covered = sorted({str(dep.get("category", "unknown")) for dep in dependencies})
@@ -541,6 +547,11 @@ def main() -> int:
             continue
 
         metrics["changed_dependencies"] += 1
+
+        # Avoid alert floods when state cache is missing and everything appears as "new".
+        if suppress_new_without_baseline and delta == "new":
+            metrics["new_without_baseline_suppressed"] += 1
+            continue
 
         if should_suppress_stale(
             dep_id=dep_id,
@@ -652,9 +663,11 @@ def main() -> int:
         "fetch_errors": metrics["fetch_errors"],
         "fetch_error_items": fetch_error_items,
         "warnings": warnings,
-        "previous_state_found": bool(previous_versions),
+        "previous_state_found": has_prior_baseline,
+        "suppress_new_without_baseline": suppress_new_without_baseline,
         "changed_dependencies": metrics["changed_dependencies"],
         "stale_suppressed": metrics["stale_suppressed"],
+        "new_without_baseline_suppressed": metrics["new_without_baseline_suppressed"],
         "cooldown_skips": metrics["cooldown_skips"],
         "docs_impacting_findings": len(findings),
         "findings": findings,
