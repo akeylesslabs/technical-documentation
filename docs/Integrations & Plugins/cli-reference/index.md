@@ -189,7 +189,7 @@ Lists all Secure Remote Access (SRA) bastions in the account
 
 ### `move-objects`
 
-Moves/Renames objects
+Moves or renames folders and their contents in bulk. Both `--source` and `--target` must be folder paths. This command does not move an individual object.
 
 #### Usage
 

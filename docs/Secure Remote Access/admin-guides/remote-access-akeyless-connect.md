@@ -19,7 +19,10 @@ To use Akeyless Connect you need:
 * Akeyless [CLI](https://docs.akeyless.io/docs/cli)
 * An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates)
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with Remote Access enabled.
+* A local SSH client on the end-user machine (for example, OpenSSH).
 * OpenSSH v7.2 or higher on target servers.
+
+Akeyless Connect does not replace the local SSH client. To use a non-default SSH executable, set `SSH_EXTERNAL_CLIENT` in `~/.akeyless-connect.rc`.
 
 > ℹ️ **Note:**
 >
