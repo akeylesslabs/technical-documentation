@@ -61,6 +61,7 @@ Note that SLA timing starts when the Jira issue is created or updated by automat
 ## Duplicate suppression and digest behavior
 
 * Findings are generated only when a dependency version changes compared to the persisted last-seen state.
+* If no prior persisted state is available for a run, new-version (`<none> -> <version>`) findings are suppressed for that run to establish a baseline without alert flooding.
 * Stale suppression prevents repeat alerts for the same dependency version within the configured suppression window (default: 7 days).
 * Source health tracking applies a short cool down period after repeated source fetch failures to reduce noisy retries.
 * Alerts are keyed by a digest key derived from dependency and version tuples.
