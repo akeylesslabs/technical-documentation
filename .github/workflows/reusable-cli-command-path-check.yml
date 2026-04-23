@@ -161,10 +161,16 @@ jobs:
 
       - name: Install Akeyless CLI
         run: |
-          set -e
-          curl -sSLo akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-          chmod +x akeyless
-          sudo mv akeyless /usr/local/bin/akeyless
+          set -euo pipefail
+          curl -fsSL --retry 3 --retry-delay 2 --retry-max-time 60 \
+            -o /tmp/akeyless \
+            https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
+          if [ ! -s /tmp/akeyless ]; then
+            echo "Akeyless CLI download produced an empty file" >&2
+            exit 1
+          fi
+          chmod +x /tmp/akeyless
+          sudo mv /tmp/akeyless /usr/local/bin/akeyless
           akeyless --version
 
       - name: Install kubectl
