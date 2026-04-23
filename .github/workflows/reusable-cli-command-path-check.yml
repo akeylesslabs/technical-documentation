@@ -65,6 +65,15 @@ jobs:
           sudo mv akeyless /usr/local/bin/akeyless
           akeyless --version
 
+      - name: Install kubectl
+        run: |
+          set -e
+          KUBECTL_VERSION="$(curl -sSL https://dl.k8s.io/release/stable.txt)"
+          curl -sSLo kubectl "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/kubectl
+          kubectl version --client
+
       - name: Prepare output directories
         run: |
           mkdir -p .github/cli-command-paths
