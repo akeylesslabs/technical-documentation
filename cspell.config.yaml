@@ -48,10 +48,18 @@ dictionaryDefinitions:
 
 overrides:
   - filename: "**/*.md"
-    languageId: markdown
+    languageId: plaintext
+    patterns:
+      - name: markdown_fenced_code_after_opener
+        pattern: |-
+          /(?<=^[ \t]*(```|~~~)[^\n]*\n)[\s\S]*?(?=^[ \t]*\1[ \t]*$)/gm
+      - name: markdown_fence_closer
+        pattern: |-
+          /^[ \t]*(```|~~~)[ \t]*$/gm
     ignoreRegExpList:
+      - markdown_fenced_code_after_opener
+      - markdown_fence_closer
       - /`[^`]*`/
-      - /```[\s\S]*?```/
       - /^\s*slug:\s*.*$/m # Ignore front-matter slug values
     words:
       - creds
