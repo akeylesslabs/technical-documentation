@@ -106,12 +106,69 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Akeyless CLI
+      - name: Install base CLI dependencies
+        run: |
+          set -euo pipefail
+
+          NEEDS_APT=0
+          if ! command -v jq >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+          if ! command -v unzip >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+          if ! command -v ssh >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+          if ! command -v openssl >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+
+          if [ "$NEEDS_APT" -eq 1 ]; then
+            sudo apt-get update -qq
+          fi
+
+          if ! command -v jq >/dev/null 2>&1; then
+            sudo apt-get install -y -qq jq
+          fi
+          if ! command -v unzip >/dev/null 2>&1; then
+            sudo apt-get install -y -qq unzip
+          fi
+          if ! command -v ssh >/dev/null 2>&1; then
+            sudo apt-get install -y -qq openssh-client
+          fi
+          if ! command -v openssl >/dev/null 2>&1; then
+            sudo apt-get install -y -qq openssl
+          fi
+
+      - name: Install AWS CLI
         run: |
           set -e
-          curl -sSLo akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-          chmod +x akeyless
-          sudo mv akeyless /usr/local/bin/akeyless
+          if command -v aws >/dev/null 2>&1; then
+            aws --version
+            exit 0
+          fi
+
+          curl -sSLo /tmp/awscliv2.zip "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+          unzip -q /tmp/awscliv2.zip -d /tmp
+          sudo /tmp/aws/install --update
+          aws --version
+
+      - name: Install Azure CLI
+        run: |
+          set -e
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      - name: Install Akeyless CLI
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 --retry-delay 2 --retry-max-time 60 \
+            https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public \
+            | sudo gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" \
+            | sudo tee /etc/apt/sources.list.d/akeyless.list > /dev/null
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq akeyless
           akeyless --version
 
       - name: Install kubectl
@@ -166,6 +223,39 @@ jobs:
           set -e
           sudo apt-get update -qq && sudo apt-get install -y -qq certbot
           certbot --version
+
+      - name: Verify supported CLIs are available
+        run: |
+          set -euo pipefail
+          REQUIRED_CMDS=(
+            akeyless
+            aws
+            az
+            certbot
+            curl
+            docker
+            eksctl
+            gcloud
+            helm
+            jq
+            kubectl
+            oci
+            openssl
+            ssh
+            terraform
+          )
+
+          MISSING=()
+          for cmd in "${REQUIRED_CMDS[@]}"; do
+            if ! command -v "$cmd" >/dev/null 2>&1; then
+              MISSING+=("$cmd")
+            fi
+          done
+
+          if [ "${#MISSING[@]}" -gt 0 ]; then
+            echo "Missing required CLIs: ${MISSING[*]}" >&2
+            exit 1
+          fi
 
       - name: Prepare output directories
         run: |
