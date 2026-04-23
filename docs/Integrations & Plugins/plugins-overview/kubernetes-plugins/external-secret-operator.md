@@ -28,7 +28,7 @@ In addition to retrieving secrets from Akeyless to your Kubernetes cluster, you 
 ## Prerequisites
 
 * [Helm](https://helm.sh/) installed
-* Kubernetes v1.16 or higher
+* Kubernetes v1.19 or higher
 
 ## Installing With Helm
 
