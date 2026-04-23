@@ -28,8 +28,6 @@ Where:
 * `password`: Password value.
 * `username`: Username value.
 
-You can find the complete list of parameters for this command in the CLI Reference - section.
-
 # Create a Password from the Akeyless Console
 
 To create a password using the Console, run the following steps:
