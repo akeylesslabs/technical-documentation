@@ -51,6 +51,7 @@ overrides:
     languageId: markdown
     ignoreRegExpList:
       - /`[^`]*`/
+      - /```[\s\S]*?```/
       - /^\s*slug:\s*.*$/m # Ignore front-matter slug values
     words:
       - creds
