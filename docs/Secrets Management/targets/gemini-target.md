@@ -16,7 +16,7 @@ akeyless target create gemini \
 --name <target name> \
 --api-key <Gemini API key> \
 --gemini-url <Gemini API base URL> \
-[--key <protection key>]
+--key <protection key>
 ```
 
 Where:
@@ -27,7 +27,7 @@ Where:
 
 * `gemini-url`: The Gemini API base URL. Default: `https://generativelanguage.googleapis.com`
 
-   For AI Insights, you can also use the OpenAI-compatible Gemini endpoint: `https://generativelanguage.googleapis.com/v1beta/openai`
+  For AI Insights, you can also use the OpenAI-compatible Gemini endpoint: `https://generativelanguage.googleapis.com/v1beta/openai`
 
 * `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
@@ -42,8 +42,8 @@ Where:
 
 4. Define the remaining parameters as follows:
 
-    * **API Key:** The Gemini API Key.
+   * **API Key:** The Gemini API Key.
 
-    * **Gemini URL:** The endpoint for the Gemini API. Default: `https://generativelanguage.googleapis.com`
+   * **Gemini URL:** The endpoint for the Gemini API. Default: `https://generativelanguage.googleapis.com`
 
-       For AI Insights, you can also use the OpenAI-compatible Gemini endpoint: `https://generativelanguage.googleapis.com/v1beta/openai`
+     For AI Insights, you can also use the OpenAI-compatible Gemini endpoint: `https://generativelanguage.googleapis.com/v1beta/openai`

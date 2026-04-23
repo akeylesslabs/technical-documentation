@@ -19,8 +19,8 @@ This page explains how to create an Azure [Universal Secrets Connector](https://
 * Azure subscription access.
 * Existing Azure Key Vault.
 * Permission to:
-    * Create app registrations.
-    * Assign RBAC roles to Azure resources.
+  * Create app registrations.
+  * Assign RBAC roles to Azure resources.
 
 ### Akeyless requirements
 
@@ -35,14 +35,18 @@ This page explains how to create an Azure [Universal Secrets Connector](https://
 Use this sequence when onboarding an Azure Key Vault to Universal Secrets Connector.
 
 1. Create or identify an Azure App Registration (service principal).
+
 2. Generate and securely store the client secret.
+
 3. Assign role-based access at the Key Vault resource scope:
 
-    * **Required for secrets:** Key Vault Secrets Officer or similar role.
-    * **Optional for certificate operations:** Key Vault Certificates Officer or similar role.
+   * **Required for secrets:** Key Vault Secrets Officer or similar role.
+   * **Optional for certificate operations:** Key Vault Certificates Officer or similar role.
 
 4. Create an Akeyless Azure target. For detailed target setup instructions, see [Azure AD Targets](https://docs.akeyless.io/docs/azure-targets).
+
 5. Create the Azure USC and associate it to the target.
+
 6. Validate list, get, create, update, and delete operations with the CLI.
 
 ## Azure Configuration
@@ -58,8 +62,8 @@ Use this section for a complete Azure-side setup.
 5. Select **Register**.
 6. Record these values from the app overview:
 
-    * **Application (client) ID**
-    * **Directory (tenant) ID**
+   * **Application (client) ID**
+   * **Directory (tenant) ID**
 
 ### Step 2: Create a client secret
 
@@ -69,9 +73,9 @@ Use this section for a complete Azure-side setup.
 4. Select **Add**.
 5. Copy the **Client Secret Value** immediately and store it in a secure location.
 
-    > ⚠️ **Warning:**
-    >
-    > The secret value is only shown once in Azure Portal.
+   > ⚠️ **Warning:**
+   >
+   > The secret value is only shown once in Azure Portal.
 
 ### Step 3: Assign Key Vault IAM role
 
@@ -240,33 +244,33 @@ After setup, validate with these checks:
 
 1. List objects:
 
-    ```shell
-    akeyless usc list --usc-name <usc name>
-    ```
+   ```shell
+   akeyless usc list --usc-name <usc name>
+   ```
 
-1. Read an existing secret:
+2. Read an existing secret:
 
-    ```shell
-    akeyless usc get --usc-name <usc name> --secret-id <secret id or name>
-    ```
+   ```shell
+   akeyless usc get --usc-name <usc name> --secret-id <secret id or name>
+   ```
 
-1. Create a test secret:
+3. Create a test secret:
 
-    ```shell
-    akeyless usc create --usc-name <usc name> --secret-name <test secret name> --value <test value>
-    ```
+   ```shell
+   akeyless usc create --usc-name <usc name> --secret-name <test secret name> --value <test value>
+   ```
 
-1. Update the test secret:
+4. Update the test secret:
 
-    ```shell
-    akeyless usc update --usc-name <usc name> --secret-id <test secret name> --value <new value>
-    ```
+   ```shell
+   akeyless usc update --usc-name <usc name> --secret-id <test secret name> --value <new value>
+   ```
 
-1. Delete the test secret:
+5. Delete the test secret:
 
-    ```shell
-    akeyless usc delete --usc-name <usc name> --secret-id <test secret name>
-    ```
+   ```shell
+   akeyless usc delete --usc-name <usc name> --secret-id <test secret name>
+   ```
 
 ### Logging and auditing
 
@@ -318,17 +322,25 @@ Resolution:
 
 4. Define the remaining settings as follows:
 
-    * **Description:** Optional, enter a description of the Universal Secrets Connector.
+   * **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-    * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+   * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-    * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
+   * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
 
-    * **Target:** Select an existing [Azure Target](https://docs.akeyless.io/docs/azure-targets).
+   * **Target:** Select an existing [Azure Target](https://docs.akeyless.io/docs/azure-targets).
 
-    * **Gateway:** Select the desired corresponding Gateway.
+   * **Gateway:** Select the desired corresponding Gateway.
 
-    * **Key Vault Name:** The name of the Azure Key Vault you would like to connect with.
+   * **Key Vault Name:** The name of the Azure Key Vault you would like to connect with.
+
+   * **USC Secret Prefix:** Optional, provide a prefix to be appended to any newly created secret.
+
+   * **Use Prefix as Filter:** Optional, use the secret prefix as a filter.
+
+   * **Use USC Tags:** Optional, provide tags to be appended to any newly created secret.
+
+   * **Use Tags as Filter:** Optional, use the secret tags as a filter.
 
 5. Click **Finish**.
 

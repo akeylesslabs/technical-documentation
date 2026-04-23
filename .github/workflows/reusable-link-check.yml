@@ -1,0 +1,266 @@
+name: Reusable Link Check
+
+on:
+  workflow_call:
+    inputs:
+      push_changes:
+        description: Commit and push generated outputs to automation branch.
+        required: false
+        type: boolean
+        default: false
+      branch_name:
+        description: Branch used when push_changes is true.
+        required: false
+        type: string
+        default: automation/link-check
+    outputs:
+      replacer_summary:
+        description: "Summary of doc: link replacement count."
+        value: ${{ jobs.link-check.outputs.replacer_summary }}
+      redirect_summary:
+        description: Summary of redirect normalization.
+        value: ${{ jobs.link-check.outputs.redirect_summary }}
+      lychee_summary:
+        description: Summary of links checked and broken links.
+        value: ${{ jobs.link-check.outputs.lychee_summary }}
+      lychee_broken:
+        description: Number of broken links found.
+        value: ${{ jobs.link-check.outputs.lychee_broken }}
+      commit_url:
+        description: Commit URL when push_changes creates a commit.
+        value: ${{ jobs.link-check.outputs.commit_url }}
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'docs/**/*.md'
+      - '.github/workflows/reusable-link-check.yml'
+      - '.github/lychee/**'
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      replacer_summary: ${{ steps.replace.outputs.replacer_summary }}
+      redirect_summary: ${{ steps.normalize.outputs.redirect_summary }}
+      lychee_summary: ${{ steps.capture.outputs.lychee_summary }}
+      lychee_broken: ${{ steps.capture.outputs.lychee_broken }}
+      commit_url: ${{ steps.commiturl.outputs.url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Prepare output directories
+        run: |
+          mkdir -p .github/lychee
+
+      - name: Replace doc links
+        id: replace
+        run: |
+          set -e
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+
+          find . -path './.github' -prune -o -type f -name "*.md" -print0 | \
+            xargs -0 sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g'
+
+          COUNT=$(grep -roF "(https://docs.akeyless.io/docs/" . --include="*.md" | wc -l)
+          SUMMARY="$COUNT replacements across Markdown files"
+
+          echo "$TIMESTAMP - Replaced doc: links. Total replacements so far: $COUNT" >> .github/lychee/readme-link-replacer.log
+          echo "replacer_summary=$SUMMARY" >> "$GITHUB_OUTPUT"
+
+      - name: Run Lychee (discovery)
+        uses: lycheeverse/lychee-action@v2.8.0
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: >
+            --verbose
+            --no-progress
+            --max-retries 4
+            --retry-wait-time 5
+            --exclude-file ".github/lychee/.lycheeignore"
+            --exclude-path ".github"
+            --exclude-link-local
+            --exclude-loopback
+            --include-mail
+            './**/*.md'
+          output: .github/lychee/lychee-discovery.md
+
+      - name: Normalize redirected docs links
+        id: normalize
+        run: |
+          set -e
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+
+          python3 - <<'PY'
+          import json
+          import pathlib
+          import re
+          import urllib.request
+
+          root = pathlib.Path('.')
+          md_files = [p for p in root.rglob('*.md') if '.github' not in p.parts]
+          docs_url_pattern = re.compile(r"https://docs\.akeyless\.io/docs/[^\s\)\]>\"']+")
+
+          discovery_path = pathlib.Path('.github/lychee/lychee-discovery.md')
+          discovery_text = ''
+          if discovery_path.exists():
+            discovery_text = discovery_path.read_text(encoding='utf-8', errors='ignore')
+
+          urls = set(docs_url_pattern.findall(discovery_text))
+
+          source_mode = 'lychee-discovery'
+          if not urls:
+            source_mode = 'fallback-markdown-scan'
+            for file_path in md_files:
+              try:
+                text = file_path.read_text(encoding='utf-8')
+              except Exception:
+                continue
+              urls.update(docs_url_pattern.findall(text))
+
+          redirects = {}
+          for url in sorted(urls):
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            try:
+              with urllib.request.urlopen(req, timeout=20) as response:
+                final_url = response.geturl()
+            except Exception:
+              continue
+
+            if final_url != url and final_url.startswith('https://docs.akeyless.io/docs/'):
+              redirects[url] = final_url
+
+          keys = sorted(redirects.keys(), key=len, reverse=True)
+          changed_files = 0
+          changed_links = 0
+
+          if keys:
+            exact_match = re.compile(r"(" + "|".join(re.escape(k) for k in keys) + r")(?![A-Za-z0-9_/#?&=%.-])")
+
+            for file_path in md_files:
+              try:
+                text = file_path.read_text(encoding='utf-8')
+              except Exception:
+                continue
+
+              replacements_in_file = [0]
+
+              def replace_url(match):
+                replacements_in_file[0] += 1
+                return redirects[match.group(1)]
+
+              updated = exact_match.sub(replace_url, text)
+              if updated != text:
+                file_path.write_text(updated, encoding='utf-8')
+                changed_files += 1
+                changed_links += replacements_in_file[0]
+
+          report = {
+            'source_mode': source_mode,
+            'total_urls_scanned': len(urls),
+            'redirect_mappings_found': len(redirects),
+            'files_updated': changed_files,
+            'links_updated': changed_links,
+            'redirect_mappings': redirects,
+          }
+
+          pathlib.Path('.github/lychee').mkdir(parents=True, exist_ok=True)
+          with open('.github/lychee/docs-redirect-normalizer.json', 'w', encoding='utf-8') as handle:
+            json.dump(report, handle, indent=2)
+
+          with open('.github/lychee/docs-redirect-normalizer.log', 'a', encoding='utf-8') as handle:
+            handle.write(
+              f"source={report['source_mode']}; {report['files_updated']} files updated, {report['links_updated']} links normalized, "
+              f"{report['redirect_mappings_found']} redirect mappings found, "
+              f"{report['total_urls_scanned']} docs URLs scanned\\n"
+            )
+          PY
+
+          REDIRECT_SUMMARY=$(python3 - <<'PY'
+          import json
+          with open('.github/lychee/docs-redirect-normalizer.json', 'r', encoding='utf-8') as handle:
+            report = json.load(handle)
+          print(f"{report['links_updated']} links normalized across {report['files_updated']} markdown files")
+          PY
+          )
+
+          echo "$TIMESTAMP - $REDIRECT_SUMMARY" >> .github/lychee/docs-redirect-normalizer.log
+          echo "redirect_summary=$REDIRECT_SUMMARY" >> "$GITHUB_OUTPUT"
+
+      - name: Run Lychee (final)
+        uses: lycheeverse/lychee-action@v2.8.0
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: >
+            --verbose
+            --no-progress
+            --max-retries 4
+            --retry-wait-time 5
+            --exclude-file ".github/lychee/.lycheeignore"
+            --exclude-path ".github"
+            --exclude-link-local
+            --exclude-loopback
+            --include-mail
+            './**/*.md'
+          output: .github/lychee/lychee-out.md
+
+      - name: Capture Lychee summary
+        id: capture
+        run: |
+          BROKEN=$(grep -c "❌" .github/lychee/lychee-out.md || true)
+          TOTAL=$(grep -cE "http[s]?://" .github/lychee/lychee-out.md || true)
+          echo "lychee_summary=$TOTAL links checked, $BROKEN broken" >> "$GITHUB_OUTPUT"
+          echo "lychee_broken=$BROKEN" >> "$GITHUB_OUTPUT"
+
+      - name: Commit outputs
+        id: commit
+        if: ${{ inputs.push_changes }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          BRANCH="${{ inputs.branch_name }}"
+          git fetch origin
+          git checkout -B "$BRANCH"
+
+          git add "**/*.md" || true
+          git add .github/lychee/lychee-discovery.md .github/lychee/lychee-out.md .github/lychee/readme-link-replacer.log .github/lychee/docs-redirect-normalizer.log .github/lychee/docs-redirect-normalizer.json || true
+
+          if git diff --cached --quiet; then
+            echo "has_commit=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: link check outputs [skip ci]"
+            git push origin "$BRANCH" --force
+            echo "has_commit=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get commit URL
+        id: commiturl
+        if: ${{ inputs.push_changes && steps.commit.outputs.has_commit == 'true' }}
+        run: |
+          COMMIT_SHA="$(git rev-parse HEAD)"
+          echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload link-check artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check-artifacts
+          path: |
+            .github/lychee/lychee-discovery.md
+            .github/lychee/lychee-out.md
+            .github/lychee/readme-link-replacer.log
+            .github/lychee/docs-redirect-normalizer.log
+            .github/lychee/docs-redirect-normalizer.json
+          if-no-files-found: ignore

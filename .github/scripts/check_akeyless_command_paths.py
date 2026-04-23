@@ -12,6 +12,12 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
+SUPPORTED_COMMANDS = (
+    "akeyless",
+    "kubectl",
+)
+
+
 ALLOWED_FENCE_LANGS = {
     "",
     "bash",
@@ -33,12 +39,16 @@ class CommandOccurrence:
     file_path: str
     line_number: int
     command_line: str
+    cli_name: str
     path_tokens: tuple[str, ...]
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Validate akeyless command paths in markdown code blocks against `akeyless <path> -h`."
+        description=(
+            "Validate supported CLI command paths in markdown code blocks against "
+            "`<command> <path> -h`."
+        )
     )
     parser.add_argument(
         "--docs-root",
@@ -104,13 +114,11 @@ def collect_commands(md_file: Path) -> list[CommandOccurrence]:
     for line_number, raw_line in iter_fenced_code_lines(text):
         normalized = raw_line.strip()
         normalized = re.sub(r"^\s*[$>]\s*", "", normalized)
-        if not normalized.startswith("akeyless "):
-            continue
-
         tokens = tokenize_command(normalized)
-        if not tokens or tokens[0] != "akeyless":
+        if not tokens or tokens[0] not in SUPPORTED_COMMANDS:
             continue
 
+        cli_name = tokens[0]
         path_tokens = extract_path_tokens(tokens)
         if not path_tokens:
             continue
@@ -120,6 +128,7 @@ def collect_commands(md_file: Path) -> list[CommandOccurrence]:
                 file_path=md_file.as_posix(),
                 line_number=line_number,
                 command_line=normalized,
+                cli_name=cli_name,
                 path_tokens=path_tokens,
             )
         )
@@ -127,8 +136,8 @@ def collect_commands(md_file: Path) -> list[CommandOccurrence]:
     return occurrences
 
 
-def run_help(path_tokens: tuple[str, ...]) -> tuple[bool, str]:
-    command = ["akeyless", *path_tokens, "-h"]
+def run_help(cli_name: str, path_tokens: tuple[str, ...]) -> tuple[bool, str]:
+    command = [cli_name, *path_tokens, "-h"]
     proc = subprocess.run(command, capture_output=True, text=True)
     output = (proc.stdout or "") + ("\n" + proc.stderr if proc.stderr else "")
     out_lower = output.lower()
@@ -170,7 +179,7 @@ def write_reports(
     out_json.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
     lines = [
-        "# Akeyless command-path check",
+        "# CLI command-path check",
         "",
         f"- Files scanned: {files_scanned}",
         f"- Command paths checked: {checked_paths}",
@@ -216,8 +225,16 @@ def main() -> int:
         if not docs_root.exists():
             raise RuntimeError(f"Docs root does not exist: {docs_root}")
 
-        if subprocess.run(["akeyless", "-h"], capture_output=True).returncode != 0:
-            raise RuntimeError("`akeyless` CLI is not available in PATH.")
+        missing_clis = [
+            cli_name
+            for cli_name in SUPPORTED_COMMANDS
+            if subprocess.run([cli_name, "-h"], capture_output=True).returncode != 0
+        ]
+        if missing_clis:
+            raise RuntimeError(
+                "Required CLI command(s) are not available in PATH: "
+                + ", ".join(missing_clis)
+            )
 
         md_files = sorted(docs_root.rglob("*.md"))
         files_scanned = len(md_files)
@@ -226,15 +243,15 @@ def main() -> int:
         for md_file in md_files:
             occurrences.extend(collect_commands(md_file))
 
-        unique_paths = sorted({occ.path_tokens for occ in occurrences})
+        unique_paths = sorted({(occ.cli_name, occ.path_tokens) for occ in occurrences})
         checked_paths = len(unique_paths)
 
-        validation_cache: dict[tuple[str, ...], tuple[bool, str]] = {}
-        for path_tokens in unique_paths:
-            validation_cache[path_tokens] = run_help(path_tokens)
+        validation_cache: dict[tuple[str, tuple[str, ...]], tuple[bool, str]] = {}
+        for cli_name, path_tokens in unique_paths:
+            validation_cache[(cli_name, path_tokens)] = run_help(cli_name, path_tokens)
 
         for occ in occurrences:
-            is_valid, cli_output = validation_cache[occ.path_tokens]
+            is_valid, cli_output = validation_cache[(occ.cli_name, occ.path_tokens)]
             if is_valid:
                 continue
             failures.append(
@@ -242,7 +259,7 @@ def main() -> int:
                     "file": occ.file_path,
                     "line": occ.line_number,
                     "command": occ.command_line,
-                    "path": " ".join(occ.path_tokens),
+                    "path": f"{occ.cli_name} {' '.join(occ.path_tokens)}",
                     "cli_output": cli_output,
                 }
             )

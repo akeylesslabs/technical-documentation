@@ -1,0 +1,154 @@
+name: Reusable Spell Check
+
+on:
+  workflow_call:
+    inputs:
+      push_changes:
+        description: Commit cspell autofix changes and reports.
+        required: false
+        type: boolean
+        default: false
+      branch_name:
+        description: Branch used when push_changes is true.
+        required: false
+        type: string
+        default: automation/spell-check
+    outputs:
+      cspell_summary:
+        description: CSpell summary line.
+        value: ${{ jobs.spell-check.outputs.cspell_summary }}
+      cspell_issue_count:
+        description: Number of spelling issues.
+        value: ${{ jobs.spell-check.outputs.cspell_issue_count }}
+      cspell_top5:
+        description: Top findings as newline-separated text.
+        value: ${{ jobs.spell-check.outputs.cspell_top5 }}
+      commit_url:
+        description: Commit URL when push_changes creates a commit.
+        value: ${{ jobs.spell-check.outputs.commit_url }}
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'docs/**/*.md'
+      - '.cspell/**'
+      - 'cspell.config.yaml'
+      - '.github/workflows/reusable-spell-check.yml'
+
+jobs:
+  spell-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      cspell_summary: ${{ steps.capture.outputs.cspell_summary }}
+      cspell_issue_count: ${{ steps.capture.outputs.cspell_issue_count }}
+      cspell_top5: ${{ steps.capture.outputs.cspell_top5 }}
+      commit_url: ${{ steps.commiturl.outputs.url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Install cspell
+        run: |
+          npm install -g cspell @cspell/cspell-json-reporter
+
+      - name: Prepare output directories
+        run: |
+          mkdir -p .github/cspell
+
+      - name: Run CSpell (pre-fix)
+        continue-on-error: true
+        run: |
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress > .github/cspell/cspell-out.pre.txt || true
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
+            --reporter @cspell/cspell-json-reporter > .github/cspell/cspell-out.pre.json || true
+
+      - name: Autofix misspellings (conservative)
+        continue-on-error: true
+        run: |
+          python .cspell/cspell-autofix.py \
+            --report .github/cspell/cspell-out.pre.json \
+            --repo-root . \
+            --corrections .cspell/corrections.json
+
+      - name: Run CSpell (post-fix)
+        continue-on-error: true
+        run: |
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress > .github/cspell/cspell-out.txt || true
+          cspell "docs/**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
+            --reporter @cspell/cspell-json-reporter > .github/cspell/cspell-out.json || true
+
+      - name: Capture CSpell summary
+        id: capture
+        run: |
+          if [ -s ".github/cspell/cspell-out.json" ] && jq -e . ".github/cspell/cspell-out.json" >/dev/null 2>&1; then
+            ISSUE_COUNT=$(jq -r '.issues | length' .github/cspell/cspell-out.json)
+            TOP5=$(jq -r '.issues[].text' .github/cspell/cspell-out.json | sort | uniq -c | sort -nr | head -5 | sed 's/^[[:space:]]*//')
+          else
+            ISSUE_COUNT=$(grep -c "Unknown word" .github/cspell/cspell-out.txt || true)
+            TOP5=""
+          fi
+
+          echo "cspell_summary=$ISSUE_COUNT spelling issues found in Markdown files" >> "$GITHUB_OUTPUT"
+          echo "cspell_issue_count=$ISSUE_COUNT" >> "$GITHUB_OUTPUT"
+          {
+            echo "cspell_top5<<EOF"
+            echo "$TOP5"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Commit outputs + autofixes
+        id: commit
+        if: ${{ inputs.push_changes }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          BRANCH="${{ inputs.branch_name }}"
+          git fetch origin
+          git checkout -B "$BRANCH"
+
+          git add .github/cspell/cspell-out.pre.txt .github/cspell/cspell-out.pre.json .github/cspell/cspell-out.txt .github/cspell/cspell-out.json || true
+          git add "**/*.md" || true
+
+          if git diff --cached --quiet; then
+            echo "has_commit=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: cspell autofix + report [skip ci]"
+            git push origin "$BRANCH" --force
+            echo "has_commit=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get commit URL
+        id: commiturl
+        if: ${{ inputs.push_changes && steps.commit.outputs.has_commit == 'true' }}
+        run: |
+          COMMIT_SHA="$(git rev-parse HEAD)"
+          echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload cspell artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cspell-artifacts
+          path: |
+            .github/cspell/cspell-out.pre.txt
+            .github/cspell/cspell-out.pre.json
+            .github/cspell/cspell-out.txt
+            .github/cspell/cspell-out.json
+          if-no-files-found: ignore
