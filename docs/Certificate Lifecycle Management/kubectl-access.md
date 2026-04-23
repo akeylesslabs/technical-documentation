@@ -43,7 +43,7 @@ Below we will describe how to configure kubectl to work with short-lived certifi
     - name: minikube
     user:
         exec:
-        apiVersion: client.authentication.k8s.io/v1alpha1
+        apiVersion: client.authentication.k8s.io/v1
         args:
         - get-kube-exec-creds
         - --cert-issuer-name
