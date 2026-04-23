@@ -1,0 +1,115 @@
+name: Reusable Markdown Lint
+
+on:
+  workflow_call:
+    inputs:
+      push_changes:
+        description: Commit markdownlint fixes and report.
+        required: false
+        type: boolean
+        default: false
+      branch_name:
+        description: Branch used when push_changes is true.
+        required: false
+        type: string
+        default: automation/markdownlint
+    outputs:
+      markdownlint_summary:
+        description: markdownlint summary after --fix.
+        value: ${{ jobs.markdownlint.outputs.markdownlint_summary }}
+      markdownlint_violations:
+        description: 1 when violations remain after --fix, otherwise 0.
+        value: ${{ jobs.markdownlint.outputs.markdownlint_violations }}
+      commit_url:
+        description: Commit URL when push_changes creates a commit.
+        value: ${{ jobs.markdownlint.outputs.commit_url }}
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'docs/**/*.md'
+      - '.github/workflows/reusable-markdownlint.yml'
+      - '.github/markdownlint/**'
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      markdownlint_summary: ${{ steps.capture.outputs.markdownlint_summary }}
+      markdownlint_violations: ${{ steps.capture.outputs.markdownlint_violations }}
+      commit_url: ${{ steps.commiturl.outputs.url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Prepare output directories
+        run: |
+          mkdir -p .github/markdownlint
+
+      - name: Run markdownlint (fix)
+        id: mdl
+        continue-on-error: true
+        run: |
+          set +e
+          npx markdownlint-cli2 --fix --config .github/markdownlint/.markdownlint-cli2.yaml 'docs/**/*.md' \
+            > .github/markdownlint/markdownlint-fix-out.txt 2>&1
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          set -e
+
+      - name: Capture markdownlint summary
+        id: capture
+        run: |
+          if [ "${{ steps.mdl.outputs.exit_code }}" != "0" ]; then
+            echo "markdownlint_summary=markdownlint found violations after --fix" >> "$GITHUB_OUTPUT"
+            echo "markdownlint_violations=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "markdownlint_summary=markdownlint passed after --fix" >> "$GITHUB_OUTPUT"
+            echo "markdownlint_violations=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit outputs
+        id: commit
+        if: ${{ inputs.push_changes }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          BRANCH="${{ inputs.branch_name }}"
+          git fetch origin
+          git checkout -B "$BRANCH"
+
+          git add docs/**/*.md .github/markdownlint/markdownlint-fix-out.txt || true
+
+          if git diff --cached --quiet; then
+            echo "has_commit=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: markdownlint fixes and report [skip ci]"
+            git push origin "$BRANCH" --force
+            echo "has_commit=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get commit URL
+        id: commiturl
+        if: ${{ inputs.push_changes && steps.commit.outputs.has_commit == 'true' }}
+        run: |
+          COMMIT_SHA="$(git rev-parse HEAD)"
+          echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload markdownlint artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: markdownlint-artifacts
+          path: .github/markdownlint/markdownlint-fix-out.txt
+          if-no-files-found: ignore
