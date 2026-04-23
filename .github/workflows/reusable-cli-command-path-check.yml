@@ -108,15 +108,38 @@ jobs:
 
       - name: Install base CLI dependencies
         run: |
-          set -e
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq \
-            curl \
-            docker.io \
-            jq \
-            unzip \
-            openssh-client \
-            openssl
+          set -euo pipefail
+
+          NEEDS_APT=0
+          if ! command -v jq >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+          if ! command -v unzip >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+          if ! command -v ssh >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+          if ! command -v openssl >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+
+          if [ "$NEEDS_APT" -eq 1 ]; then
+            sudo apt-get update -qq
+          fi
+
+          if ! command -v jq >/dev/null 2>&1; then
+            sudo apt-get install -y -qq jq
+          fi
+          if ! command -v unzip >/dev/null 2>&1; then
+            sudo apt-get install -y -qq unzip
+          fi
+          if ! command -v ssh >/dev/null 2>&1; then
+            sudo apt-get install -y -qq openssh-client
+          fi
+          if ! command -v openssl >/dev/null 2>&1; then
+            sudo apt-get install -y -qq openssl
+          fi
 
       - name: Install AWS CLI
         run: |
