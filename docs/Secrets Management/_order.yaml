@@ -4,6 +4,6 @@
 - rotated-secrets
 - secret-versions
 - sharing-static-secrets
+- passwords
 - targets
 - secret-and-target-locking
-- passwords
