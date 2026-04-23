@@ -1,4 +1,6 @@
 # Allowed fenced code block tab labels.
+# Keep entries as tab labels only (text after the language token in a fenced code block).
+# Keep labels in canonical casing to avoid near-duplicate variants.
 .gitlab-ci.yml
 /etc/ssh/principals
 /etc/ssh/sshd_config
@@ -111,9 +113,12 @@ gpg key creation
 Group
 GW Cloud ID
 http
+HTTP
 ini
 Injectfile.yaml
+inline connection
 Inline connection
+Inline Connection
 Inline connection with Certificate
 Inline connection with Token
 Inline Login
@@ -214,11 +219,13 @@ secrets.txt
 secretstore.yaml
 Secure Remote Access
 Set Akeyless URL
+shell
 Shell
 sing_key_parse.go
 Snowflake
 Splunk
 sqlcrypt.conf
+ssh
 SSH
 SSH Certificate
 SSH Linked Target
@@ -246,11 +253,10 @@ User-Assigned Identity
 User-Pass
 Username and Password
 Using target
+Using Target
 v16_gitlab-ci.yml
 Validation output
 values.yaml
-values.yaml with empty dir
-values.yaml with storageClass
 vars.tf
 Vault Proxy V1
 Vault Proxy V2
@@ -265,23 +271,3 @@ Wordpress.yaml
 YAML
 your-RSA-key-name
 yum
-shell
-akl_gw_token_reviewer_token.yaml
-Gateway
-Gateway With Exmaples
-plaintext
-Using Target
-inline connection
-ExternalSecretExample.yaml:
-Create your namespace
-SegregationForNamespace1.yaml
-HTTP
-ssh > ca.pub file
-ssh
-General template
-akeyless connect -h
-ca.pub
-akeyless_config_file
-SSH CA Public Key
-Create-Key-In-Akeyless
-Inline Connection
