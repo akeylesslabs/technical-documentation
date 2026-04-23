@@ -384,8 +384,9 @@ jobs:
             echo "EOF"
           } >> $GITHUB_ENV
 
-      - name: Create Jira issue
+      - name: Create Jira issue (scheduled findings only)
         id: jira
+        if: ${{ github.event_name == 'schedule' && (fromJSON(env.LYCHEE_BROKEN || '0') > 0 || fromJSON(env.MARKDOWNLINT_VIOLATIONS || '0') > 0 || fromJSON(env.CSPELL_ISSUE_COUNT || '0') > 0 || fromJSON(env.CLI_PATH_FAILURES || '0') > 0) }}
         continue-on-error: true
         env:
           JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
@@ -399,10 +400,13 @@ jobs:
           REDIRECT_SUMMARY: ${{ env.REDIRECT_SUMMARY }}
           LYCHEE_SUMMARY: ${{ env.LYCHEE_SUMMARY }}
           MARKDOWNLINT_SUMMARY: ${{ env.MARKDOWNLINT_SUMMARY }}
+          MARKDOWNLINT_VIOLATIONS: ${{ env.MARKDOWNLINT_VIOLATIONS }}
           CSPELL_SUMMARY: ${{ env.CSPELL_SUMMARY }}
           CSPELL_ISSUE_COUNT: ${{ env.CSPELL_ISSUE_COUNT }}
+          CSPELL_TOP5: ${{ env.CSPELL_TOP5 }}
           CLI_PATH_SUMMARY: ${{ env.CLI_PATH_SUMMARY }}
           CLI_PATH_FAILURES: ${{ env.CLI_PATH_FAILURES }}
+          CLI_PATH_TOP5: ${{ env.CLI_PATH_TOP5 }}
           CHANGED_FILES: ${{ env.CHANGED_FILES }}
         run: |
           set -e
@@ -421,16 +425,21 @@ jobs:
 
           ADF_DESC=$(jq -n \
             --arg run "$RUN_URL" \
+            --arg artifacts "${RUN_URL}#artifacts" \
             --arg br "$BRANCH_NAME" \
             --arg commit "$COMMIT_URL" \
             --arg l1 "$REPLACER_SUMMARY" \
             --arg l2 "$REDIRECT_SUMMARY" \
             --arg l3 "$LYCHEE_SUMMARY" \
+            --arg l3c "$LYCHEE_BROKEN" \
             --arg m1 "$MARKDOWNLINT_SUMMARY" \
+            --arg m2 "$MARKDOWNLINT_VIOLATIONS" \
             --arg s1 "$CSPELL_SUMMARY" \
             --arg s2 "$CSPELL_ISSUE_COUNT" \
+            --arg s3 "$CSPELL_TOP5" \
             --arg c1 "$CLI_PATH_SUMMARY" \
             --arg c2 "$CLI_PATH_FAILURES" \
+            --arg c3 "$CLI_PATH_TOP5" \
             --arg files "$CHANGED_FILES" \
             'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
              def linkPara($label; $url):
@@ -446,16 +455,23 @@ jobs:
                content: [
                  para("Combined weekly automation run: link check, markdown lint, spell check, and CLI command path validation."),
                  linkPara("Workflow run: "; $run),
+                 linkPara("Workflow artifacts: "; $artifacts),
                  para("Branch: " + $br),
                  linkPara("Commit: "; $commit),
                  para("Link check: " + $l1),
                  para("Link redirects: " + $l2),
                  para("Lychee summary: " + $l3),
+                 para("Lychee broken links: " + $l3c),
                  para("Markdown lint: " + $m1),
+                 para("Markdown lint violations: " + $m2),
                  para("CSpell summary: " + $s1),
                  para("CSpell issue count: " + $s2),
+                 para("Top CSpell findings:"),
+                 codeBlock($s3),
                  para("CLI command path summary: " + $c1),
                  para("CLI command path failures: " + $c2),
+                 para("Top CLI command path findings:"),
+                 codeBlock($c3),
                  para("Changed files (first 100):"),
                  codeBlock($files),
                  para("This ticket was created automatically by GitHub Actions.")
