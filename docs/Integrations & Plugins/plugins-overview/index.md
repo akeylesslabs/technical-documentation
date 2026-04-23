@@ -18,7 +18,7 @@ We offer a wide array of plugins, including:
 
 **CI/CD Integrations**: [GitHub Actions](https://docs.akeyless.io/docs/github-action), [Jenkins](https://docs.akeyless.io/docs/jenkins), [GitLab](https://docs.akeyless.io/docs/gitlab-plugin), [CircleCI](https://docs.akeyless.io/docs/circleci-plugin) and more.
 
-**Kubernetes**: [Akeyless Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s), [External Secret Operator](https://docs.akeyless.io/docs/external-secret-operator), [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) and more.
+**Kubernetes**: [Akeyless Secrets Injector](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector), [External Secret Operator](https://docs.akeyless.io/docs/external-secret-operator), [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) and more.
 
 **Provisioning Tools**: [Terraform Provider](https://docs.akeyless.io/docs/terraform-provider), [Ansible Plugins](https://docs.akeyless.io/docs/ansible-awx-plugin), [Chef](https://docs.akeyless.io/docs/chef-plugin) [Puppet](https://docs.akeyless.io/docs/puppet-plugin) and more.
 

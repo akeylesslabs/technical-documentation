@@ -186,7 +186,7 @@ Current guidance snapshots:
 
 These recommendations apply to Kubernetes deployments where Gateway proactive cache is enabled.
 
-When Akeyless Kubernetes Secrets Injector is also deployed in the same cluster, plan Gateway and Injector capacity as separate workloads. For Injector-specific scaling guidance, see [Akeyless Kubernetes Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#scalability-guidance-for-gateway-and-injector).
+When Akeyless Kubernetes Secrets Injector is also deployed in the same cluster, plan Gateway and Injector capacity as separate workloads. For Injector-specific scaling guidance, see [Akeyless Kubernetes Secrets Injector](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#scalability-guidance-for-gateway-and-injector).
 
 > ℹ️ **Note (Scope):**
 >
