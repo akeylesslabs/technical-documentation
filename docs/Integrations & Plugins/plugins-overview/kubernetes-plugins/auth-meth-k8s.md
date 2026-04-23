@@ -77,9 +77,10 @@ AKEYLESS_URL: "https://vault.akeyless.io"
 # AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "azure_ad"
 AKEYLESS_ACCESS_ID: "<Access Id>"
-# optional
 # AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
 ```
+
+Set `AKEYLESS_AZURE_OBJ_ID` when you need to select a specific user-assigned managed identity (for example, when multiple user-assigned identities are attached).
 
 ### AWS-IAM
 
