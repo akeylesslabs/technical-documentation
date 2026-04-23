@@ -71,7 +71,7 @@ akeyless list-items --profile azure-app
 
 ## Azure Groups Overage Claim
 
-Azure AD enforces a limit on the number of groups it includes directly in a token: 200 for JWT/OIDC tokens and 150 for SAML tokens. When a user is a member of more groups than this limit (directly or indirectly), Azure omits the `groups` claim from the token and instead includes a distributed-claim pointer:
+When Azure does not include the `groups` claim directly in an OIDC token and instead returns distributed-claim pointers (`_claim_names` / `_claim_sources`), Akeyless attempts to resolve the user's full group list by calling Microsoft Graph:
 
 ```json
 {
@@ -86,7 +86,7 @@ Azure AD enforces a limit on the number of groups it includes directly in a toke
 }
 ```
 
-Akeyless automatically detects this pattern and resolves the full group list by calling the Microsoft Graph API on behalf of the OIDC auth method. No additional Akeyless configuration is required. However, the Azure app registration must be granted the Microsoft Graph **Application** permission `GroupMember.Read.All` (or the broader `Directory.Read.All`), with admin consent granted, so that Akeyless can retrieve the user's group memberships.
+Akeyless detects this distributed-claim pattern and calls Microsoft Graph by using the OIDC auth method's client credentials (`client_id` and `client_secret`) to retrieve group memberships. For this flow to succeed, the Azure app registration must have Microsoft Graph **Application** permissions that allow group membership retrieval (for example, `GroupMember.Read.All` or `Directory.Read.All`), with admin consent granted.
 
 ### Grant the Required API Permission
 
@@ -99,4 +99,4 @@ Akeyless automatically detects this pattern and resolves the full group list by 
 
 > ℹ️ **Note:**
 >
-> This permission is only required when users may belong to more than 200 groups. If no user in your tenant exceeds the overage limit, no additional permissions are needed.
+> This permission is only required for distributed-claim group resolution. If Azure includes `groups` directly in the token for your users, no additional Graph API permission is required.
