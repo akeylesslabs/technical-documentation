@@ -56,6 +56,66 @@ class CommandOccurrence:
     path_tokens: tuple[str, ...]
 
 
+@dataclass(frozen=True)
+class CliValidator:
+    help_flag: str = "-h"
+    invalid_patterns: tuple[str, ...] = ()
+
+
+DEFAULT_CLI_VALIDATOR = CliValidator()
+
+
+GENERIC_INVALID_PATTERNS = (
+    r"\bcommand not found\b",
+    r"\bunknown command\b",
+    r"\bis not a command\b",
+    r"\bno help topic\b",
+    r"\bunknown shorthand flag\b",
+)
+
+
+CLI_VALIDATORS: dict[str, CliValidator] = {
+    "aws": CliValidator(
+        invalid_patterns=(
+            r"\baws:\s+error:\s+argument\s+command:\s+invalid\s+choice\b",
+        )
+    ),
+    "az": CliValidator(
+        invalid_patterns=(
+            r"\berror:\s+'.+'\s+is\s+misspelled\s+or\s+not\s+recognized\b",
+        )
+    ),
+    "docker": CliValidator(
+        invalid_patterns=(
+            r"\bdocker:\s+'.+'\s+is\s+not\s+a\s+docker\s+command\b",
+        )
+    ),
+    "gcloud": CliValidator(
+        invalid_patterns=(
+            r"\berror:\s+\(.+\)\s+invalid\s+choice:\b",
+        )
+    ),
+    "helm": CliValidator(
+        invalid_patterns=(
+            r"\berror:\s+unknown\s+command\b",
+        )
+    ),
+    "kubectl": CliValidator(
+        invalid_patterns=(
+            r"\berror:\s+unknown\s+command\b",
+        )
+    ),
+    "terraform": CliValidator(
+        invalid_patterns=(
+            r"\bterraform\s+has\s+no\s+command\s+named\b",
+        )
+    ),
+}
+
+
+ENV_ASSIGNMENT_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*=.*$")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -107,6 +167,80 @@ def tokenize_command(line: str) -> list[str]:
         return line.split()
 
 
+def is_env_assignment(token: str) -> bool:
+    return bool(ENV_ASSIGNMENT_RE.match(token))
+
+
+def strip_wrappers(tokens: list[str]) -> list[str]:
+    index = 0
+    while index < len(tokens):
+        token = tokens[index]
+
+        if token == "sudo":
+            index += 1
+            while index < len(tokens) and tokens[index].startswith("-"):
+                index += 1
+            continue
+
+        if token in ("env", "/usr/bin/env"):
+            index += 1
+            while index < len(tokens):
+                current = tokens[index]
+                if current == "--":
+                    index += 1
+                    break
+                if current.startswith("-") or is_env_assignment(current):
+                    index += 1
+                    continue
+                break
+            continue
+
+        if token == "command":
+            index += 1
+            while index < len(tokens) and tokens[index].startswith("-"):
+                index += 1
+            continue
+
+        if is_env_assignment(token):
+            index += 1
+            continue
+
+        break
+
+    return tokens[index:]
+
+
+def iter_logical_command_lines(markdown_text: str):
+    current_start_line = 0
+    current_parts: list[str] = []
+
+    for line_number, raw_line in iter_fenced_code_lines(markdown_text):
+        normalized = raw_line.rstrip()
+        normalized = re.sub(r"^\s*[$>]\s*", "", normalized)
+
+        if not normalized.strip():
+            if current_parts:
+                yield current_start_line, " ".join(current_parts).strip()
+                current_parts = []
+                current_start_line = 0
+            continue
+
+        if not current_parts:
+            current_start_line = line_number
+
+        if normalized.endswith("\\"):
+            current_parts.append(normalized[:-1].strip())
+            continue
+
+        current_parts.append(normalized.strip())
+        yield current_start_line, " ".join(current_parts).strip()
+        current_parts = []
+        current_start_line = 0
+
+    if current_parts:
+        yield current_start_line, " ".join(current_parts).strip()
+
+
 def extract_path_tokens(tokens: list[str]) -> tuple[str, ...]:
     path: list[str] = []
     for token in tokens[1:]:
@@ -124,10 +258,9 @@ def collect_commands(md_file: Path) -> list[CommandOccurrence]:
     text = md_file.read_text(encoding="utf-8")
     occurrences: list[CommandOccurrence] = []
 
-    for line_number, raw_line in iter_fenced_code_lines(text):
-        normalized = raw_line.strip()
-        normalized = re.sub(r"^\s*[$>]\s*", "", normalized)
+    for line_number, normalized in iter_logical_command_lines(text):
         tokens = tokenize_command(normalized)
+        tokens = strip_wrappers(tokens)
         if not tokens or tokens[0] not in SUPPORTED_COMMANDS:
             continue
 
@@ -150,23 +283,17 @@ def collect_commands(md_file: Path) -> list[CommandOccurrence]:
 
 
 def run_help(cli_name: str, path_tokens: tuple[str, ...]) -> tuple[bool, str]:
-    command = [cli_name, *path_tokens, "-h"]
+    validator = CLI_VALIDATORS.get(cli_name, DEFAULT_CLI_VALIDATOR)
+    command = [cli_name, *path_tokens, validator.help_flag]
     proc = subprocess.run(command, capture_output=True, text=True)
     output = (proc.stdout or "") + ("\n" + proc.stderr if proc.stderr else "")
     out_lower = output.lower()
-
-    invalid_markers = (
-        "command not found",
-        "unknown command",
-        "is not a command",
-        "unknown shorthand flag",
-        "accepts",
-    )
+    invalid_patterns = (*GENERIC_INVALID_PATTERNS, *validator.invalid_patterns)
 
     if proc.returncode == 0:
         return True, output.strip()
 
-    if any(marker in out_lower for marker in invalid_markers):
+    if any(re.search(pattern, out_lower) for pattern in invalid_patterns):
         return False, output.strip()
 
     return True, output.strip()
