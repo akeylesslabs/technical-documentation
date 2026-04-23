@@ -74,6 +74,50 @@ jobs:
           sudo mv kubectl /usr/local/bin/kubectl
           kubectl version --client
 
+      - name: Install helm
+        run: |
+          set -e
+          curl -sSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+          helm version --short
+
+      - name: Install terraform
+        run: |
+          set -e
+          TERRAFORM_VERSION="$(curl -sSL https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r .current_version)"
+          curl -sSLo /tmp/terraform.zip "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+          unzip -q /tmp/terraform.zip -d /tmp/terraform-bin
+          sudo mv /tmp/terraform-bin/terraform /usr/local/bin/terraform
+          terraform version
+
+      - name: Install eksctl
+        run: |
+          set -e
+          EKSCTL_VERSION="$(curl -sSL https://api.github.com/repos/eksctl-io/eksctl/releases/latest | jq -r .tag_name)"
+          curl -sSLo /tmp/eksctl.tar.gz "https://github.com/eksctl-io/eksctl/releases/download/${EKSCTL_VERSION}/eksctl_Linux_amd64.tar.gz"
+          tar -xzf /tmp/eksctl.tar.gz -C /tmp
+          sudo mv /tmp/eksctl /usr/local/bin/eksctl
+          eksctl version
+
+      - name: Install oci
+        run: |
+          set -e
+          pip install --quiet oci-cli
+          oci --version
+
+      - name: Install gcloud
+        run: |
+          set -e
+          curl -sSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+          echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+          sudo apt-get update -qq && sudo apt-get install -y -qq google-cloud-cli
+          gcloud version
+
+      - name: Install certbot
+        run: |
+          set -e
+          sudo apt-get update -qq && sudo apt-get install -y -qq certbot
+          certbot --version
+
       - name: Prepare output directories
         run: |
           mkdir -p .github/cli-command-paths

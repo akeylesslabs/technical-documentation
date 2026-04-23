@@ -14,7 +14,20 @@ from pathlib import Path
 
 SUPPORTED_COMMANDS = (
     "akeyless",
+    "aws",
+    "az",
+    "certbot",
+    "curl",
+    "docker",
+    "eksctl",
+    "gcloud",
+    "helm",
+    "jq",
     "kubectl",
+    "oci",
+    "openssl",
+    "ssh",
+    "terraform",
 )
 
 

@@ -1,4 +1,4 @@
-name: CLI Command Path Check (Akeyless + kubectl) (Manual)
+name: CLI Command Path Check (Manual)
 
 on:
   workflow_dispatch:
