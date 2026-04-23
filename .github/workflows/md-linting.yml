@@ -3,6 +3,9 @@ name: Markdown Linter (Manual)
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   markdownlint:
     uses: ./.github/workflows/reusable-markdownlint.yml

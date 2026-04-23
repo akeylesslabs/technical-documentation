@@ -3,6 +3,9 @@ name: Spell Checker (Manual)
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   spell-check:
     uses: ./.github/workflows/reusable-spell-check.yml
