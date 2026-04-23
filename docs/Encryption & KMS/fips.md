@@ -24,7 +24,7 @@ FIPS 140-3 is the current U.S. and Canadian government standard for cryptographi
 
 FIPS 140-2 is the previous CMVP cryptographic module standard. Many environments still reference FIPS 140-2 validated modules during migration to FIPS 140-3.
 
-![NIST FIPS validation logo image associated with the Akeyless FIPS 140-2 certification](https://files.readme.io/42b0a02-fips-validated-certification-logo-300x300-1.png)
+<Image align="center" alt="NIST FIPS validation logo image associated with the Akeyless FIPS 140-2 certification" width="250px" src="https://files.readme.io/42b0a02-fips-validated-certification-logo-300x300-1.png" />
 
 [FIPS 140-2 Validated, Certificate #4824.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4824)
 
