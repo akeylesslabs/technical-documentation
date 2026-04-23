@@ -71,7 +71,7 @@ akeyless list-items --profile azure-app
 
 ## Azure Groups Overage Claim
 
-When Azure does not include the `groups` claim directly in an OIDC token and instead returns distributed-claim pointers (`_claim_names` / `_claim_sources`), Akeyless attempts to resolve the user's full group list by calling Microsoft Graph:
+When Azure does not include the `groups` claim directly in an OIDC token and instead returns distributed-claim pointers (`_claim_names` / `_claim_sources`), as documented in [Groups overage claim](https://learn.microsoft.com/en-us/entra/identity-platform/id-token-claims-reference#groups-overage-claim), Akeyless attempts to resolve the user's full group list by calling Microsoft Graph.
 
 ```json
 {
@@ -86,7 +86,7 @@ When Azure does not include the `groups` claim directly in an OIDC token and ins
 }
 ```
 
-Akeyless detects this distributed-claim pattern and calls Microsoft Graph by using the OIDC auth method's client credentials (`client_id` and `client_secret`) to retrieve group memberships. For this flow to succeed, the Azure app registration must have Microsoft Graph **Application** permissions that allow group membership retrieval (for example, `GroupMember.Read.All` or `Directory.Read.All`), with admin consent granted.
+Akeyless detects this distributed-claim pattern and calls Microsoft Graph by using the OIDC auth method's client credentials (`client_id` and `client_secret`) to retrieve group memberships from the [getMemberObjects](https://learn.microsoft.com/en-us/graph/api/directoryobject-getmemberobjects?view=graph-rest-1.0) endpoint. For this flow to succeed, the Azure app registration must have Microsoft Graph **Application** permissions that allow group membership retrieval (for example, [GroupMember.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#groupmemberreadall) or [Directory.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#directoryreadall)), with admin consent granted.
 
 ### Grant the Required API Permission
 
