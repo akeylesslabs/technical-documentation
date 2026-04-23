@@ -15,16 +15,13 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-
 ALLOWED_SOURCE_TYPES = {
     "github_latest_release",
     "google_cloud_sdk_manifest",
     "hashicorp_checkpoint",
     "kubernetes_stable_release",
 }
-
 ALLOWED_KINDS = {"cli", "ecosystem"}
-
 ALLOWED_CATEGORIES = {
     "authentication-identity",
     "cloud-providers",
@@ -34,6 +31,8 @@ ALLOWED_CATEGORIES = {
     "security-crypto",
     "targets-integrations",
 }
+SEVERITY_RANK = {"low": 0, "medium": 1, "high": 2, "critical": 3}
+RANK_SEVERITY = {0: "low", 1: "medium", 2: "high", 3: "critical"}
 
 
 class RateLimitError(RuntimeError):
@@ -46,31 +45,16 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Collect dependency release signals and classify docs-impacting alerts."
     )
-    parser.add_argument(
-        "--registry",
-        default=".github/dependency-monitor/registry.json",
-        help="Path to dependency registry JSON",
-    )
-    parser.add_argument(
-        "--out-json",
-        default=".github/dependency-monitor/dependency-monitor-report.json",
-        help="Output JSON report path",
-    )
-    parser.add_argument(
-        "--out-md",
-        default=".github/dependency-monitor/dependency-monitor-report.md",
-        help="Output markdown report path",
-    )
-    parser.add_argument(
-        "--state-in",
-        default=".github/dependency-monitor/state/last-seen.json",
-        help="Path to previous state snapshot JSON",
-    )
-    parser.add_argument(
-        "--state-out",
-        default=".github/dependency-monitor/state/last-seen.json",
-        help="Path to write updated state snapshot JSON",
-    )
+    parser.add_argument("--registry", default=".github/dependency-monitor/registry.json")
+    parser.add_argument("--out-json", default=".github/dependency-monitor/dependency-monitor-report.json")
+    parser.add_argument("--out-md", default=".github/dependency-monitor/dependency-monitor-report.md")
+    parser.add_argument("--out-metrics", default=".github/dependency-monitor/dependency-monitor-metrics.json")
+    parser.add_argument("--state-in", default=".github/dependency-monitor/state/last-seen.json")
+    parser.add_argument("--state-out", default=".github/dependency-monitor/state/last-seen.json")
+    parser.add_argument("--min-severity", choices=["low", "medium", "high", "critical"], default="low")
+    parser.add_argument("--categories", default="", help="Comma-separated categories filter")
+    parser.add_argument("--force-alert-mode", choices=["auto", "immediate", "digest"], default="auto")
+    parser.add_argument("--stale-suppression-days", type=int, default=7)
     return parser.parse_args()
 
 
@@ -86,14 +70,12 @@ def validate_registry(registry: dict[str, Any]) -> tuple[dict[str, Any], list[di
 
     defaults = registry.get("defaults", {})
     dependencies = registry.get("dependencies", [])
-
     if not isinstance(defaults, dict):
         raise ValueError("Registry defaults must be an object")
     if not isinstance(dependencies, list) or not dependencies:
         raise ValueError("Registry dependencies must be a non-empty array")
 
     seen_ids: set[str] = set()
-    validated: list[dict[str, Any]] = []
     required_fields = {
         "id",
         "name",
@@ -105,6 +87,7 @@ def validate_registry(registry: dict[str, Any]) -> tuple[dict[str, Any], list[di
         "impacted_capability",
         "suggested_docs",
     }
+    validated: list[dict[str, Any]] = []
 
     for index, item in enumerate(dependencies, start=1):
         if not isinstance(item, dict):
@@ -133,9 +116,7 @@ def validate_registry(registry: dict[str, Any]) -> tuple[dict[str, Any], list[di
 
         source_type = str(item["source_type"]).strip()
         if source_type not in ALLOWED_SOURCE_TYPES:
-            raise ValueError(
-                f"Dependency {dep_id} has unsupported source_type: {source_type}"
-            )
+            raise ValueError(f"Dependency {dep_id} has unsupported source_type: {source_type}")
 
         source_url = str(item["source_url"]).strip()
         if not source_url.startswith("https://"):
@@ -165,7 +146,6 @@ def request_url(url: str, accept_json: bool, timeout: int = 30) -> str:
     headers: dict[str, str] = {"User-Agent": "akeyless-docs-dependency-monitor/1.0"}
     if accept_json:
         headers["Accept"] = "application/json"
-
     req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return resp.read().decode("utf-8")
@@ -186,17 +166,14 @@ def request_with_retries(url: str, accept_json: bool, retries: int = 3) -> str:
                     "GitHub API rate limit exceeded",
                     reset_epoch=str(err.headers.get("X-RateLimit-Reset", "")),
                 ) from err
-
             if err.code in {429, 500, 502, 503, 504} and attempt < retries:
-                sleep_for = (2 ** (attempt - 1)) + random.random()
-                time.sleep(sleep_for)
+                time.sleep((2 ** (attempt - 1)) + random.random())
                 continue
             raise
         except (urllib.error.URLError, TimeoutError) as err:
             last_error = err
             if attempt < retries:
-                sleep_for = (2 ** (attempt - 1)) + random.random()
-                time.sleep(sleep_for)
+                time.sleep((2 ** (attempt - 1)) + random.random())
                 continue
             raise
     if last_error:
@@ -205,12 +182,21 @@ def request_with_retries(url: str, accept_json: bool, retries: int = 3) -> str:
 
 
 def fetch_json(url: str) -> dict[str, Any]:
-    raw = request_with_retries(url, accept_json=True)
-    return json.loads(raw)
+    return json.loads(request_with_retries(url, accept_json=True))
 
 
 def fetch_text(url: str) -> str:
     return request_with_retries(url, accept_json=False).strip()
+
+
+def normalize_version(value: str, source_type: str) -> str:
+    normalized = value.strip()
+    if source_type in {"github_latest_release", "kubernetes_stable_release", "hashicorp_checkpoint"}:
+        normalized = re.sub(r"^v", "", normalized, flags=re.IGNORECASE)
+    if source_type == "google_cloud_sdk_manifest":
+        normalized = normalized.split()[0]
+    normalized = re.sub(r"\s+", "", normalized)
+    return normalized or "unknown"
 
 
 def parse_semver_like(version: str) -> tuple[int, int, int] | None:
@@ -241,52 +227,51 @@ def change_type(previous: str | None, current: str) -> str:
     return "changed"
 
 
-def is_docs_impacting(change_kind: str) -> bool:
-    return change_kind in {"new", "major", "minor", "patch", "changed"}
-
-
-def escalation_for_keywords(text: str) -> int:
-    lowered = text.lower()
-    if any(token in lowered for token in ["cve", "critical", "breaking", "removed", "deprecat"]):
-        return 2
-    if any(token in lowered for token in ["security", "migration", "incompatible", "behavior change"]):
-        return 1
-    return 0
-
-
-def severity_rank(name: str) -> int:
-    ranks = {"low": 0, "medium": 1, "high": 2, "critical": 3}
-    return ranks.get(name, 1)
-
-
 def severity_name(rank: int) -> str:
-    names = {0: "low", 1: "medium", 2: "high", 3: "critical"}
-    return names[max(0, min(3, rank))]
-    req = urllib.request.Request(
-        url,
-        headers={
-            "Accept": "application/json",
-            "User-Agent": "akeyless-docs-dependency-monitor/1.0",
-        },
-    )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        raw = resp.read().decode("utf-8")
-    return json.loads(raw)
+    return RANK_SEVERITY[max(0, min(3, rank))]
 
 
-def normalize_version(value: str) -> str:
-    return value.strip()
+def escalation_for_keywords(text: str) -> tuple[int, list[str]]:
+    lowered = text.lower()
+    hits: list[str] = []
+
+    strong = ["cve", "critical", "breaking", "removed", "deprecat"]
+    medium = ["security", "migration", "incompatible", "behavior change"]
+
+    score = 0
+    for token in strong:
+        if token in lowered:
+            hits.append(token)
+            score = max(score, 2)
+    for token in medium:
+        if token in lowered:
+            hits.append(token)
+            score = max(score, 1)
+
+    return score, hits
+
+
+def parse_timestamp(value: str) -> dt.datetime | None:
+    try:
+        return dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+
+def in_cooldown(health: dict[str, Any], sequence: int) -> bool:
+    return int(health.get("cooldown_until_sequence", 0)) >= sequence
 
 
 def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dict[str, Any]:
-    source_type = entry["source_type"]
-    source = entry["source"]
+    source_type = str(entry["source_type"])
+    source = str(entry["source"])
 
     if source_type == "github_latest_release":
         try:
             payload = fetch_json(f"https://api.github.com/repos/{source}/releases/latest")
             version = normalize_version(
-                str(payload.get("tag_name") or payload.get("name") or "unknown")
+                str(payload.get("tag_name") or payload.get("name") or "unknown"),
+                source_type=source_type,
             )
             return {
                 "version": version,
@@ -297,12 +282,11 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
                 "warning": "",
             }
         except RateLimitError as err:
-            fallback_version = previous_version or "rate-limited"
-            warning = "GitHub API rate limit exceeded; used fallback source URL"
+            warning = "GitHub API rate limit exceeded; used previous state fallback"
             if err.reset_epoch:
                 warning += f" (reset epoch {err.reset_epoch})"
             return {
-                "version": fallback_version,
+                "version": previous_version or "rate-limited",
                 "release_url": entry.get("source_url") or "",
                 "release_published_at": "",
                 "release_name": "GitHub rate limit fallback",
@@ -311,7 +295,7 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
             }
 
     if source_type == "kubernetes_stable_release":
-        version = normalize_version(fetch_text(source))
+        version = normalize_version(fetch_text(source), source_type=source_type)
         return {
             "version": version,
             "release_url": entry.get("source_url") or source,
@@ -323,7 +307,7 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
 
     if source_type == "google_cloud_sdk_manifest":
         payload = fetch_json(source)
-        version = normalize_version(str(payload.get("version", "unknown")))
+        version = normalize_version(str(payload.get("version", "unknown")), source_type=source_type)
         return {
             "version": version,
             "release_url": entry.get("source_url") or source,
@@ -335,7 +319,9 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
 
     if source_type == "hashicorp_checkpoint":
         payload = fetch_json(source)
-        version = normalize_version(str(payload.get("current_version", "unknown")))
+        version = normalize_version(
+            str(payload.get("current_version", "unknown")), source_type=source_type
+        )
         return {
             "version": version,
             "release_url": entry.get("source_url") or source,
@@ -348,67 +334,71 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
     raise ValueError(f"Unsupported source_type: {source_type}")
 
 
-def classify_severity(raw: str) -> str:
-    raw_lower = (raw or "").lower()
-    if raw_lower in {"critical", "high", "medium", "low"}:
-        return raw_lower
-    return "medium"
-
-
-def extract_major(version: str) -> int | None:
-    match = re.search(r"(\d+)", version)
-    if not match:
-        return None
-    return int(match.group(1))
+def should_suppress_stale(
+    dep_id: str,
+    version: str,
+    alert_history: dict[str, Any],
+    now_utc: dt.datetime,
+    suppression_days: int,
+) -> bool:
+    if suppression_days <= 0:
+        return False
+    record = alert_history.get(dep_id)
+    if not isinstance(record, dict):
+        return False
+    if str(record.get("version", "")) != version:
+        return False
+    alerted_at = parse_timestamp(str(record.get("last_alerted_at", "")))
+    if not alerted_at:
+        return False
+    delta = now_utc - alerted_at
+    return delta.total_seconds() < suppression_days * 86400
 
 
 def render_markdown(report: dict[str, Any]) -> str:
-    lines: list[str] = []
-    lines.append("# Dependency Change Monitor Report")
-    lines.append("")
-    lines.append(f"- Collected at: {report['generated_at_utc']}")
-    lines.append(f"- Dependencies configured: {report['dependencies_configured']}")
-    lines.append(f"- Categories covered: {', '.join(report['categories_covered'])}")
-    lines.append(f"- Successful fetches: {report['successful_fetches']}")
-    lines.append(f"- Fetch errors: {report['fetch_errors']}")
-    lines.append(f"- Previous state found: {report['previous_state_found']}")
-    lines.append(f"- Changed dependencies: {report['changed_dependencies']}")
-    lines.append(f"- Docs-impacting findings: {report['docs_impacting_findings']}")
-    lines.append(f"- Alert mode: {report['alert_mode']}")
-    lines.append(f"- Digest key: {report['digest_key']}")
-    lines.append(f"- Dedupe label: {report['dedupe_label']}")
-    lines.append("")
+    lines = [
+        "# Dependency Change Monitor Report",
+        "",
+        f"- Collected at: {report['generated_at_utc']}",
+        f"- Dependencies configured: {report['dependencies_configured']}",
+        f"- Categories covered: {', '.join(report['categories_covered'])}",
+        f"- Successful fetches: {report['successful_fetches']}",
+        f"- Fetch errors: {report['fetch_errors']}",
+        f"- Previous state found: {report['previous_state_found']}",
+        f"- Changed dependencies: {report['changed_dependencies']}",
+        f"- Suppressed stale alerts: {report['stale_suppressed']}",
+        f"- Cooldown source skips: {report['cooldown_skips']}",
+        f"- Docs-impacting findings: {report['docs_impacting_findings']}",
+        f"- Alert mode: {report['alert_mode']}",
+        f"- Digest key: {report['digest_key']}",
+        f"- Dedupe label: {report['dedupe_label']}",
+        "",
+    ]
 
     if report.get("warnings"):
-        lines.append("## Warnings")
-        lines.append("")
-        for warning in report["warnings"]:
-            lines.append(f"- {warning}")
+        lines.extend(["## Warnings", ""])
+        lines.extend([f"- {item}" for item in report["warnings"]])
         lines.append("")
 
-    if report["fetch_error_items"]:
-        lines.append("## Fetch errors")
-        lines.append("")
-        for item in report["fetch_error_items"]:
-            lines.append(f"- `{item['id']}`: {item['error']}")
+    if report.get("fetch_error_items"):
+        lines.extend(["## Fetch errors", ""])
+        lines.extend([f"- `{item['id']}`: {item['error']}" for item in report["fetch_error_items"]])
         lines.append("")
 
-    lines.append("## Findings")
-    lines.append("")
+    lines.extend(["## Findings", ""])
     if not report["findings"]:
-        lines.append("No docs-impacting dependency findings were generated.")
-        lines.append("")
+        lines.extend(["No docs-impacting dependency findings were generated.", ""])
         return "\n".join(lines)
 
     for finding in report["findings"]:
-        docs_paths = ", ".join(finding["suggested_docs"])
         lines.append(
             f"- [{finding['severity'].upper()}] `{finding['name']}` changed `{finding['previous_version']}` -> `{finding['version']}`"
         )
         lines.append(f"  - Change type: {finding['change_type']}")
+        lines.append(f"  - Why docs-impacting: {', '.join(finding['reasons'])}")
         lines.append(f"  - Source: {finding['release_url']}")
         lines.append(f"  - Impacted capability: {finding['impacted_capability']}")
-        lines.append(f"  - Suggested docs to review: {docs_paths}")
+        lines.append(f"  - Suggested docs to review: {', '.join(finding['suggested_docs'])}")
     lines.append("")
     return "\n".join(lines)
 
@@ -418,6 +408,7 @@ def main() -> int:
     registry_path = Path(args.registry)
     out_json_path = Path(args.out_json)
     out_md_path = Path(args.out_md)
+    out_metrics_path = Path(args.out_metrics)
     state_in_path = Path(args.state_in)
     state_out_path = Path(args.state_out)
 
@@ -428,99 +419,180 @@ def main() -> int:
     registry = load_json(registry_path, default={})
     defaults, dependencies = validate_registry(registry)
 
+    requested_categories = {
+        item.strip() for item in args.categories.split(",") if item.strip()
+    }
+
     previous_state = load_json(state_in_path, default={})
     previous_versions: dict[str, str] = {}
+    source_health = {}
+    alert_history = {}
+    sequence = 0
     if isinstance(previous_state, dict):
-        maybe_versions = previous_state.get("versions", {})
-        if isinstance(maybe_versions, dict):
+        sequence = int(previous_state.get("sequence", 0))
+        versions = previous_state.get("versions", {})
+        if isinstance(versions, dict):
             previous_versions = {
-                str(key): str(value) for key, value in maybe_versions.items() if str(value).strip()
+                str(k): str(v) for k, v in versions.items() if str(v).strip()
             }
+        source_health = previous_state.get("source_health", {})
+        if not isinstance(source_health, dict):
+            source_health = {}
+        alert_history = previous_state.get("alert_history", {})
+        if not isinstance(alert_history, dict):
+            alert_history = {}
+
+    now_utc = dt.datetime.now(tz=dt.timezone.utc)
+    sequence += 1
 
     findings: list[dict[str, Any]] = []
     fetch_error_items: list[dict[str, str]] = []
     warnings: list[str] = []
     current_versions: dict[str, str] = {}
-    categories_covered = sorted(
-        {str(dep.get("category", "unknown")) for dep in dependencies}
-    )
-    changed_dependencies = 0
+
+    metrics = {
+        "generated_at_utc": now_utc.strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "dependencies_configured": len(dependencies),
+        "successful_fetches": 0,
+        "fetch_errors": 0,
+        "changed_dependencies": 0,
+        "docs_impacting_findings": 0,
+        "findings_by_severity": {"low": 0, "medium": 0, "high": 0, "critical": 0},
+        "degraded_fetches": 0,
+        "cooldown_skips": 0,
+        "stale_suppressed": 0,
+    }
+
+    categories_covered = sorted({str(dep.get("category", "unknown")) for dep in dependencies})
+    min_rank = SEVERITY_RANK[args.min_severity]
 
     for dep in dependencies:
         dep_id = str(dep.get("id", "unknown"))
+        category = str(dep.get("category", "unknown"))
+        if requested_categories and category not in requested_categories:
+            continue
+
         previous_version = previous_versions.get(dep_id)
-        severity = classify_severity(
-            str(dep.get("default_severity") or defaults.get("severity") or "medium")
-        )
+        health = source_health.get(dep_id, {})
+        if not isinstance(health, dict):
+            health = {}
+
+        if in_cooldown(health, sequence):
+            metrics["cooldown_skips"] += 1
+            warnings.append(
+                f"{dep_id}: source in cooldown until sequence {health.get('cooldown_until_sequence')}"
+            )
+            if previous_version:
+                current_versions[dep_id] = previous_version
+            continue
+
+        base_severity = str(dep.get("default_severity") or defaults.get("severity") or "medium").lower()
+        base_rank = SEVERITY_RANK.get(base_severity, 1)
         owner = str(dep.get("owner") or defaults.get("owner") or "unknown")
         suggested_docs = [str(item) for item in dep.get("suggested_docs", [])]
 
         try:
             fetched = fetch_dependency(dep, previous_version=previous_version)
-            version = str(fetched.get("version") or "unknown")
-            current_versions[dep_id] = version
-
+            metrics["successful_fetches"] += 1
             if fetched.get("degraded"):
+                metrics["degraded_fetches"] += 1
                 warning_text = str(fetched.get("warning") or "Degraded fetch mode used")
                 warnings.append(f"{dep_id}: {warning_text}")
 
-            delta = change_type(previous_version, version)
-            if delta == "unchanged":
-                continue
-
-            changed_dependencies += 1
-            if not is_docs_impacting(delta):
-                continue
-
-            rank = severity_rank(severity)
-            if delta == "major":
-                rank += 1
-            if str(dep.get("category", "")) in {"kubernetes-container", "authentication-identity"}:
-                rank += 1
-
-            keyword_text = " ".join(
-                [
-                    str(fetched.get("release_name") or ""),
-                    str(fetched.get("warning") or ""),
-                ]
-            )
-            rank += escalation_for_keywords(keyword_text)
-            severity = severity_name(rank)
-
-            finding = {
-                "id": dep_id,
-                "name": str(dep.get("name", "unknown")),
-                "kind": str(dep.get("kind", "ecosystem")),
-                "category": str(dep.get("category", "unknown")),
-                "owner": owner,
-                "source_url": str(dep.get("source_url") or ""),
-                "release_url": str(fetched.get("release_url") or dep.get("source_url") or ""),
-                "previous_version": previous_version or "<none>",
-                "version": version,
-                "change_type": delta,
-                "release_name": str(fetched.get("release_name") or ""),
-                "release_published_at": str(fetched.get("release_published_at") or ""),
-                "severity": severity,
-                "docs_impacting": True,
-                "impacted_capability": str(dep.get("impacted_capability") or "Documentation examples and guidance"),
-                "suggested_docs": suggested_docs,
-                "summary": f"{dep.get('name', 'Dependency')} changed from {previous_version or '<none>'} to {version}",
-            }
-            findings.append(finding)
+            health["consecutive_failures"] = 0
+            health["cooldown_until_sequence"] = 0
+            source_health[dep_id] = health
         except Exception as exc:  # noqa: BLE001
-            fetch_error_items.append(
-                {
-                    "id": dep_id,
-                    "error": str(exc),
-                }
-            )
+            metrics["fetch_errors"] += 1
+            fetch_error_items.append({"id": dep_id, "error": str(exc)})
+
+            failures = int(health.get("consecutive_failures", 0)) + 1
+            health["consecutive_failures"] = failures
+            if failures >= 3:
+                health["cooldown_until_sequence"] = sequence + 2
+                warnings.append(
+                    f"{dep_id}: source entered cooldown for 2 runs after {failures} consecutive failures"
+                )
+            source_health[dep_id] = health
+
             if previous_version:
                 current_versions[dep_id] = previous_version
-                warnings.append(
-                    f"{dep_id}: using previous version snapshot due to fetch failure"
-                )
+            continue
 
-    findings.sort(key=lambda item: (-severity_rank(item["severity"]), item["name"]))
+        version = str(fetched.get("version") or "unknown")
+        current_versions[dep_id] = version
+
+        delta = change_type(previous_version, version)
+        if delta == "unchanged":
+            continue
+
+        metrics["changed_dependencies"] += 1
+
+        if should_suppress_stale(
+            dep_id=dep_id,
+            version=version,
+            alert_history=alert_history,
+            now_utc=now_utc,
+            suppression_days=args.stale_suppression_days,
+        ):
+            metrics["stale_suppressed"] += 1
+            warnings.append(
+                f"{dep_id}: suppressed duplicate alert for version {version} within {args.stale_suppression_days} days"
+            )
+            continue
+
+        rank = base_rank
+        reasons = [f"change:{delta}", f"base-severity:{severity_name(base_rank)}"]
+
+        if delta == "major":
+            rank += 1
+            reasons.append("major-version-bump")
+
+        if category in {"kubernetes-container", "authentication-identity"}:
+            rank += 1
+            reasons.append(f"category-escalation:{category}")
+
+        keyword_text = " ".join([str(fetched.get("release_name") or ""), str(fetched.get("warning") or "")])
+        keyword_boost, keyword_hits = escalation_for_keywords(keyword_text)
+        if keyword_boost:
+            rank += keyword_boost
+            reasons.append("keyword-escalation:" + ",".join(sorted(set(keyword_hits))))
+
+        severity = severity_name(rank)
+        if SEVERITY_RANK[severity] < min_rank:
+            continue
+
+        finding = {
+            "id": dep_id,
+            "name": str(dep.get("name", "unknown")),
+            "kind": str(dep.get("kind", "ecosystem")),
+            "category": category,
+            "owner": owner,
+            "source_url": str(dep.get("source_url") or ""),
+            "release_url": str(fetched.get("release_url") or dep.get("source_url") or ""),
+            "previous_version": previous_version or "<none>",
+            "version": version,
+            "change_type": delta,
+            "release_name": str(fetched.get("release_name") or ""),
+            "release_published_at": str(fetched.get("release_published_at") or ""),
+            "severity": severity,
+            "docs_impacting": True,
+            "reasons": reasons,
+            "impacted_capability": str(dep.get("impacted_capability") or "Documentation examples and guidance"),
+            "suggested_docs": suggested_docs,
+            "summary": f"{dep.get('name', 'Dependency')} changed from {previous_version or '<none>'} to {version}",
+        }
+        findings.append(finding)
+
+        alert_history[dep_id] = {
+            "version": version,
+            "last_alerted_at": now_utc.isoformat(),
+        }
+
+    findings.sort(key=lambda item: (-SEVERITY_RANK[item["severity"]], item["name"]))
+    metrics["docs_impacting_findings"] = len(findings)
+    for item in findings:
+        metrics["findings_by_severity"][item["severity"]] += 1
 
     digest_parts = [f"{item['id']}:{item['version']}" for item in findings]
     digest_blob = "|".join(sorted(digest_parts)).encode("utf-8")
@@ -528,28 +600,31 @@ def main() -> int:
     dedupe_label = f"depkey-{digest_key}"
 
     high_or_critical = sum(1 for item in findings if item["severity"] in {"critical", "high"})
-    alert_mode = "immediate" if findings and high_or_critical > 0 else "digest"
+    if args.force_alert_mode == "auto":
+        alert_mode = "immediate" if findings and high_or_critical > 0 else "digest"
+    else:
+        alert_mode = args.force_alert_mode
 
     state_snapshot = {
-        "updated_at_utc": dt.datetime.now(tz=dt.timezone.utc).strftime(
-            "%Y-%m-%d %H:%M:%S UTC"
-        ),
+        "updated_at_utc": now_utc.strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "sequence": sequence,
         "versions": current_versions,
+        "source_health": source_health,
+        "alert_history": alert_history,
     }
 
-    state_out_path.parent.mkdir(parents=True, exist_ok=True)
-    state_out_path.write_text(json.dumps(state_snapshot, indent=2), encoding="utf-8")
-
     report = {
-        "generated_at_utc": dt.datetime.now(tz=dt.timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "generated_at_utc": now_utc.strftime("%Y-%m-%d %H:%M:%S UTC"),
         "dependencies_configured": len(dependencies),
         "categories_covered": categories_covered,
-        "successful_fetches": len(current_versions),
-        "fetch_errors": len(fetch_error_items),
+        "successful_fetches": metrics["successful_fetches"],
+        "fetch_errors": metrics["fetch_errors"],
         "fetch_error_items": fetch_error_items,
         "warnings": warnings,
         "previous_state_found": bool(previous_versions),
-        "changed_dependencies": changed_dependencies,
+        "changed_dependencies": metrics["changed_dependencies"],
+        "stale_suppressed": metrics["stale_suppressed"],
+        "cooldown_skips": metrics["cooldown_skips"],
         "docs_impacting_findings": len(findings),
         "findings": findings,
         "alert_mode": alert_mode,
@@ -565,16 +640,23 @@ def main() -> int:
                 "change_type": item["change_type"],
                 "severity": item["severity"],
                 "release_url": item["release_url"],
+                "reasons": item["reasons"],
                 "impacted_capability": item["impacted_capability"],
                 "suggested_docs": item["suggested_docs"],
             }
             for item in findings[:5]
         ],
+        "metrics": metrics,
     }
 
     out_json_path.parent.mkdir(parents=True, exist_ok=True)
+    state_out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_metrics_path.parent.mkdir(parents=True, exist_ok=True)
+
     out_json_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     out_md_path.write_text(render_markdown(report), encoding="utf-8")
+    out_metrics_path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+    state_out_path.write_text(json.dumps(state_snapshot, indent=2), encoding="utf-8")
 
     return 0
 

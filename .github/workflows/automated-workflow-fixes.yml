@@ -7,6 +7,31 @@ on:
   schedule:
     - cron: "0 2 * * 1" # Mondays at 2 AM UTC
   workflow_dispatch:
+    inputs:
+      min_severity:
+        description: "Minimum severity to include (low, medium, high, critical)"
+        required: false
+        default: low
+      force_alert_mode:
+        description: "Force alert mode (auto, immediate, digest)"
+        required: false
+        default: auto
+      categories:
+        description: "Optional comma-separated category filter"
+        required: false
+        default: ""
+      stale_suppression_days:
+        description: "Suppress repeat alerts for the same version within N days"
+        required: false
+        default: "7"
+      disable_jira_write:
+        description: "Disable Jira create/update for this manual run"
+        required: false
+        default: "false"
+      reopen_target_status_names:
+        description: "Exact Jira target status names (comma-separated)"
+        required: false
+        default: "Triage,Backlog,In Progress"
 
 jobs:
   link-check:
@@ -47,6 +72,8 @@ jobs:
       dep_dedupe_label: ${{ steps.capture.outputs.dep_dedupe_label }}
       dep_alert_mode: ${{ steps.capture.outputs.dep_alert_mode }}
       dep_high_critical: ${{ steps.capture.outputs.dep_high_critical }}
+      dep_stale_suppressed: ${{ steps.capture.outputs.dep_stale_suppressed }}
+      dep_cooldown_skips: ${{ steps.capture.outputs.dep_cooldown_skips }}
       dep_issue_key: ${{ steps.jira.outputs.issue_key }}
 
     steps:
@@ -72,13 +99,24 @@ jobs:
 
       - name: Collect dependency changes
         run: |
-          set -e
+          set -euo pipefail
+
+          MIN_SEVERITY="${{ github.event_name == 'workflow_dispatch' && github.event.inputs.min_severity || 'low' }}"
+          FORCE_ALERT_MODE="${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_alert_mode || 'auto' }}"
+          CATEGORY_FILTER="${{ github.event_name == 'workflow_dispatch' && github.event.inputs.categories || '' }}"
+          STALE_SUPPRESSION_DAYS="${{ github.event_name == 'workflow_dispatch' && github.event.inputs.stale_suppression_days || '7' }}"
+
           python .github/scripts/collect_dependency_changes.py \
             --registry .github/dependency-monitor/registry.json \
             --out-json .github/dependency-monitor/dependency-monitor-report.json \
             --out-md .github/dependency-monitor/dependency-monitor-report.md \
+            --out-metrics .github/dependency-monitor/dependency-monitor-metrics.json \
             --state-in .github/dependency-monitor/state/last-seen.json \
-            --state-out .github/dependency-monitor/state/last-seen.json
+            --state-out .github/dependency-monitor/state/last-seen.json \
+            --min-severity "$MIN_SEVERITY" \
+            --force-alert-mode "$FORCE_ALERT_MODE" \
+            --categories "$CATEGORY_FILTER" \
+            --stale-suppression-days "$STALE_SUPPRESSION_DAYS"
 
       - name: Capture dependency outputs
         id: capture
@@ -104,8 +142,9 @@ jobs:
           top_lines = []
           for finding in report.get('top_findings', []):
               line = (
-                f"[{finding['severity'].upper()}] {finding['name']} {finding['previous_version']} -> {finding['version']} ({finding['change_type']}) "
-                  f"{finding['release_url']}"
+                  f"[{finding['severity'].upper()}] {finding['name']} "
+                  f"{finding['previous_version']} -> {finding['version']} "
+                  f"({finding['change_type']}) {finding['release_url']}"
               )
               top_lines.append(line)
 
@@ -114,9 +153,11 @@ jobs:
               output.write(f"dep_summary={summary}\n")
               output.write(f"dep_findings={report['docs_impacting_findings']}\n")
               output.write(f"dep_digest_key={report['digest_key']}\n")
-                output.write(f"dep_dedupe_label={report['dedupe_label']}\n")
+              output.write(f"dep_dedupe_label={report['dedupe_label']}\n")
               output.write(f"dep_alert_mode={report['alert_mode']}\n")
               output.write(f"dep_high_critical={report['high_or_critical_count']}\n")
+              output.write(f"dep_stale_suppressed={report.get('stale_suppressed', 0)}\n")
+              output.write(f"dep_cooldown_skips={report.get('cooldown_skips', 0)}\n")
               output.write('dep_top5<<EOF\n')
               output.write('\n'.join(top_lines))
               output.write('\nEOF\n')
@@ -130,6 +171,7 @@ jobs:
           path: |
             .github/dependency-monitor/dependency-monitor-report.json
             .github/dependency-monitor/dependency-monitor-report.md
+            .github/dependency-monitor/dependency-monitor-metrics.json
             .github/dependency-monitor/state/last-seen.json
 
       - name: Save dependency monitor state cache
@@ -141,7 +183,7 @@ jobs:
 
       - name: Create or update Jira dependency alert
         id: jira
-        if: ${{ github.event_name == 'schedule' && steps.capture.outputs.dep_findings != '0' }}
+        if: ${{ steps.capture.outputs.dep_findings != '0' && (github.event_name != 'workflow_dispatch' || github.event.inputs.disable_jira_write != 'true') }}
         continue-on-error: true
         env:
           JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
@@ -154,6 +196,7 @@ jobs:
           DEP_ALERT_MODE: ${{ steps.capture.outputs.dep_alert_mode }}
           DEP_DIGEST_KEY: ${{ steps.capture.outputs.dep_digest_key }}
           DEP_DEDUPE_LABEL: ${{ steps.capture.outputs.dep_dedupe_label }}
+          REOPEN_TARGET_STATUS_NAMES: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.reopen_target_status_names || 'Triage,Backlog,In Progress' }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -euo pipefail
@@ -232,20 +275,19 @@ jobs:
                 -H "Content-Type: application/json" \
                 "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}/transitions")
 
-              REOPEN_ID=$(echo "$TRANSITIONS" | jq -r '
+              TARGET_STATUS_JSON=$(printf '%s' "$REOPEN_TARGET_STATUS_NAMES" \
+                | tr ',' '\n' \
+                | sed 's/^ *//;s/ *$//' \
+                | sed '/^$/d' \
+                | jq -R . \
+                | jq -s .)
+
+              REOPEN_ID=$(echo "$TRANSITIONS" | jq -r --argjson targets "$TARGET_STATUS_JSON" '
                 .transitions[]
                 | select(.to.statusCategory.key != "done")
-                | select(.name | ascii_downcase | test("reopen|to do|open|backlog|in progress"))
+                | select(($targets | index(.to.name)) != null)
                 | .id
               ' | head -n 1)
-
-              if [ -z "$REOPEN_ID" ]; then
-                REOPEN_ID=$(echo "$TRANSITIONS" | jq -r '
-                  .transitions[]
-                  | select(.to.statusCategory.key != "done")
-                  | .id
-                ' | head -n 1)
-              fi
 
               if [ -n "$REOPEN_ID" ]; then
                 curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
@@ -253,6 +295,8 @@ jobs:
                   -H "Content-Type: application/json" \
                   --data "$(jq -n --arg id "$REOPEN_ID" '{transition:{id:$id}}')" \
                   "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}/transitions" >/dev/null
+              else
+                echo "No exact reopen transition found for configured status names: $REOPEN_TARGET_STATUS_NAMES"
               fi
             fi
 

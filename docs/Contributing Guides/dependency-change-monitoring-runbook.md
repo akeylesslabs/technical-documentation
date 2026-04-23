@@ -27,9 +27,12 @@ Each run emits:
 
 * JSON report artifact: `.github/dependency-monitor/dependency-monitor-report.json`.
 * Markdown report artifact: `.github/dependency-monitor/dependency-monitor-report.md`.
+* Metrics artifact: `.github/dependency-monitor/dependency-monitor-metrics.json`.
 * Persisted state snapshot: `.github/dependency-monitor/state/last-seen.json`.
 * Top findings summary in workflow outputs.
-* Jira alert task with labels `dependency-monitor` and mode label (`dep-immediate` or `dep-digest`) on scheduled runs with findings.
+* Jira alert task with labels `dependency-monitor` and mode label (`dep-immediate` or `dep-digest`) when findings exist and Jira writes are enabled for the run.
+
+Manual dispatch supports `min_severity`, `force_alert_mode`, `categories`, `stale_suppression_days`, `disable_jira_write`, and `reopen_target_status_names` controls.
 
 ## Severity and SLA
 
@@ -58,10 +61,12 @@ Note that SLA timing starts when the Jira issue is created or updated by automat
 ## Duplicate suppression and digest behavior
 
 * Findings are generated only when a dependency version changes compared to the persisted last-seen state.
+* Stale suppression prevents repeat alerts for the same dependency version within the configured suppression window (default: 7 days).
+* Source health tracking applies a short cool down period after repeated source fetch failures to reduce noisy retries.
 * Alerts are keyed by a digest key derived from dependency and version tuples.
 * A stable dedupe label (`depkey-<digest>`) is applied to each dependency alert issue.
 * If a matching dedupe label already exists in Jira, automation adds a comment instead of creating a duplicate issue.
-* If a matching issue is already in a Done status category, automation attempts to transition it back to a non-Done status before commenting.
+* If a matching issue is already in a Done status category, automation attempts to transition it back only to transition targets whose destination status names exactly match the configured list.
 * If at least one finding is High or Critical, alert mode is `immediate`.
 * If all findings are Medium or Low, alert mode is `digest`.
 
