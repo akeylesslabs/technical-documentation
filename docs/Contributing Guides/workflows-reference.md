@@ -30,7 +30,7 @@ This page documents all current GitHub Actions workflows in this repository and 
 | Reusable Link Check | `.github/workflows/reusable-link-check.yml` | Reusable call, pull request, and manual dispatch | Performs doc link replacement, redirect normalization, and Lychee checks; emits reusable outputs and artifacts for coordinator aggregation. |
 | Reusable Markdown Lint | `.github/workflows/reusable-markdownlint.yml` | Reusable call, pull request, and manual dispatch | Runs `markdownlint-cli2 --fix`, emits summary outputs, and uploads markdownlint artifacts. |
 | Reusable Spell Check | `.github/workflows/reusable-spell-check.yml` | Reusable call, pull request, and manual dispatch | Runs CSpell pre/post checks with conservative autofix, emits findings outputs, and uploads CSpell artifacts. |
-| Reusable CLI Command Path Check | `.github/workflows/reusable-cli-command-path-check.yml` | Reusable call, pull request, and manual dispatch | Validates command paths for `akeyless`, `aws`, `az`, `certbot`, `curl`, `docker`, `eksctl`, `gcloud`, `helm`, `jq`, `kubectl`, `oci`, `openssl`, `ssh`, and `terraform` in docs, emits findings outputs, and uploads CLI path report artifacts. |
+| Reusable CLI Command Path Check | `.github/workflows/reusable-cli-command-path-check.yml` | Reusable call, pull request, and manual dispatch | Validates command paths for `akeyless`, `aws`, `az`, `certbot`, `curl`, `docker`, `eksctl`, `gcloud`, `helm`, `jq`, `kubectl`, `oci`, `openssl`, `ssh`, and `terraform` in docs, runs checks across a dynamic kubectl matrix (current stable minor and two previous minors), aggregates findings into reusable outputs, and uploads CLI path report artifacts. |
 
 ## Dependabot
 

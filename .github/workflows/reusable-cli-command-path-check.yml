@@ -16,16 +16,16 @@ on:
     outputs:
       cli_path_summary:
         description: Summary of CLI command path validation.
-        value: ${{ jobs.cli-path-check.outputs.cli_path_summary }}
+        value: ${{ jobs.aggregate-cli-path-check.outputs.cli_path_summary }}
       cli_path_failures:
         description: Number of failures found.
-        value: ${{ jobs.cli-path-check.outputs.cli_path_failures }}
+        value: ${{ jobs.aggregate-cli-path-check.outputs.cli_path_failures }}
       cli_path_top5:
         description: Top findings as newline-separated text.
-        value: ${{ jobs.cli-path-check.outputs.cli_path_top5 }}
+        value: ${{ jobs.aggregate-cli-path-check.outputs.cli_path_top5 }}
       commit_url:
         description: Commit URL when push_changes creates a commit.
-        value: ${{ jobs.cli-path-check.outputs.commit_url }}
+        value: ${{ jobs.aggregate-cli-path-check.outputs.commit_url }}
   workflow_dispatch:
   pull_request:
     paths:
@@ -37,13 +37,50 @@ permissions:
   contents: write
 
 jobs:
-  cli-path-check:
+  resolve-kubectl-versions:
     runs-on: ubuntu-latest
     outputs:
-      cli_path_summary: ${{ steps.capture.outputs.cli_path_summary }}
-      cli_path_failures: ${{ steps.capture.outputs.cli_path_failures }}
-      cli_path_top5: ${{ steps.capture.outputs.cli_path_top5 }}
-      commit_url: ${{ steps.commiturl.outputs.url }}
+      matrix: ${{ steps.versions.outputs.matrix }}
+
+    steps:
+      - name: Resolve supported kubectl versions
+        id: versions
+        run: |
+          set -euo pipefail
+
+          STABLE_VERSION="$(curl -fsSL https://dl.k8s.io/release/stable.txt)"
+          STABLE_MINOR="$(echo "$STABLE_VERSION" | sed -E 's/^v([0-9]+)\.([0-9]+).*/\2/')"
+          if ! [[ "$STABLE_MINOR" =~ ^[0-9]+$ ]]; then
+            echo "Unable to parse stable Kubernetes minor from: $STABLE_VERSION" >&2
+            exit 1
+          fi
+
+          MATRIX_ITEMS="[]"
+          for OFFSET in 0 1 2; do
+            MINOR=$((STABLE_MINOR - OFFSET))
+            if [ "$MINOR" -lt 0 ]; then
+              continue
+            fi
+
+            RESOLVED_VERSION="$(curl -fsSL "https://dl.k8s.io/release/stable-${MINOR}.txt")"
+            if [ -z "$RESOLVED_VERSION" ]; then
+              echo "Could not resolve stable version for minor $MINOR" >&2
+              exit 1
+            fi
+
+            MATRIX_ITEMS="$(echo "$MATRIX_ITEMS" | jq -c --arg minor "v1.${MINOR}" --arg version "$RESOLVED_VERSION" '. + [{kubectl_minor:$minor, kubectl_version:$version}]')"
+          done
+
+          MATRIX_JSON="$(jq -cn --argjson include "$MATRIX_ITEMS" '{include:$include}')"
+
+          echo "matrix=$MATRIX_JSON" >> "$GITHUB_OUTPUT"
+
+  cli-path-check:
+    needs: resolve-kubectl-versions
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.resolve-kubectl-versions.outputs.matrix) }}
 
     steps:
       - name: Checkout repository
@@ -68,7 +105,7 @@ jobs:
       - name: Install kubectl
         run: |
           set -e
-          KUBECTL_VERSION="$(curl -sSL https://dl.k8s.io/release/stable.txt)"
+          KUBECTL_VERSION="${{ matrix.kubectl_version }}"
           curl -sSLo kubectl "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
           chmod +x kubectl
           sudo mv kubectl /usr/local/bin/kubectl
@@ -126,53 +163,171 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          : > .github/cli-command-paths/command-path-check.out.txt
+          : > .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.out.txt
           python .github/scripts/check_akeyless_command_paths.py \
             --docs-root docs \
-            --out-json .github/cli-command-paths/command-path-check.json \
-            --out-md .github/cli-command-paths/command-path-check.md \
-            > .github/cli-command-paths/command-path-check.out.txt 2>&1
+            --out-json .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.json \
+            --out-md .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.md \
+            > .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.out.txt 2>&1
           set -e
 
-      - name: Capture summary
+      - name: Upload CLI path artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cli-command-path-artifacts-${{ matrix.kubectl_minor }}
+          path: |
+            .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.json
+            .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.md
+            .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.out.txt
+          if-no-files-found: ignore
+
+  aggregate-cli-path-check:
+    if: always()
+    needs:
+      - resolve-kubectl-versions
+      - cli-path-check
+    runs-on: ubuntu-latest
+    outputs:
+      cli_path_summary: ${{ steps.capture.outputs.cli_path_summary }}
+      cli_path_failures: ${{ steps.capture.outputs.cli_path_failures }}
+      cli_path_top5: ${{ steps.capture.outputs.cli_path_top5 }}
+      commit_url: ${{ steps.commiturl.outputs.url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Download matrix artifacts
+        uses: actions/download-artifact@v5
+        with:
+          pattern: cli-command-path-artifacts-*
+          path: .github/cli-command-paths
+          merge-multiple: true
+
+      - name: Aggregate reports
         id: capture
         run: |
-          if [ -f .github/cli-command-paths/command-path-check.json ]; then
-            FAILURE_COUNT=$(jq -r '.failure_count // 0' .github/cli-command-paths/command-path-check.json)
-            FILES_SCANNED=$(jq -r '.files_scanned // 0' .github/cli-command-paths/command-path-check.json)
-            CHECKED_PATHS=$(jq -r '.checked_command_paths // 0' .github/cli-command-paths/command-path-check.json)
-            TOP5=$(jq -r '.failures[:5][] | "\(.file):\(.line) => \(.path)"' .github/cli-command-paths/command-path-check.json)
-            RUNTIME_ERROR=$(jq -r '.runtime_error // empty | split("\n") | map(select(length > 0)) | .[:8] | join(" | ")' .github/cli-command-paths/command-path-check.json)
+          set -euo pipefail
+          mkdir -p .github/cli-command-paths
 
-            if [ -n "$RUNTIME_ERROR" ]; then
-              if [ "$FAILURE_COUNT" = "0" ]; then
-                FAILURE_COUNT=1
-              fi
-              if [ -n "$TOP5" ]; then
-                TOP5="$TOP5\nruntime_error: $RUNTIME_ERROR"
-              else
-                TOP5="runtime_error: $RUNTIME_ERROR"
-              fi
-            fi
-          else
-            FAILURE_COUNT=1
-            FILES_SCANNED=0
-            CHECKED_PATHS=0
-            if [ -s .github/cli-command-paths/command-path-check.out.txt ]; then
-              CLI_TAIL=$(tail -n 20 .github/cli-command-paths/command-path-check.out.txt)
-              TOP5="validator did not produce json output\n$CLI_TAIL"
-            else
-              TOP5="validator did not produce json output"
-            fi
-          fi
+          python - <<'PY'
+          import glob
+          import json
+          import os
+          from pathlib import Path
 
-          echo "cli_path_summary=Scanned $FILES_SCANNED markdown files, checked $CHECKED_PATHS unique command paths, found $FAILURE_COUNT failures" >> "$GITHUB_OUTPUT"
-          echo "cli_path_failures=$FAILURE_COUNT" >> "$GITHUB_OUTPUT"
-          {
-            echo "cli_path_top5<<EOF"
-            echo "$TOP5"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
+          json_files = sorted(glob.glob('.github/cli-command-paths/command-path-check.*.json'))
+          out_json = Path('.github/cli-command-paths/command-path-check.json')
+          out_md = Path('.github/cli-command-paths/command-path-check.md')
+          out_txt = Path('.github/cli-command-paths/command-path-check.out.txt')
+
+          aggregate = {
+              'files_scanned': 0,
+              'checked_command_paths': 0,
+              'failure_count': 0,
+              'runtime_error': None,
+              'failures': [],
+              'kubectl_versions_checked': [],
+          }
+          runtime_errors = []
+
+          if not json_files:
+              aggregate['failure_count'] = 1
+              aggregate['runtime_error'] = 'validator did not produce json output for any kubectl version'
+          else:
+              for file_path in json_files:
+                  version = Path(file_path).name.replace('command-path-check.', '').replace('.json', '')
+                  aggregate['kubectl_versions_checked'].append(version)
+                  report = json.loads(Path(file_path).read_text(encoding='utf-8'))
+
+                  aggregate['files_scanned'] = max(aggregate['files_scanned'], int(report.get('files_scanned', 0)))
+                  aggregate['checked_command_paths'] = max(
+                      aggregate['checked_command_paths'],
+                      int(report.get('checked_command_paths', 0)),
+                  )
+
+                  failures = report.get('failures', [])
+                  aggregate['failure_count'] += len(failures)
+                  for failure in failures:
+                      aggregate['failures'].append({
+                          'kubectl_version': version,
+                          **failure,
+                      })
+
+                  runtime_error = report.get('runtime_error')
+                  if runtime_error:
+                      runtime_errors.append(f'[{version}] {runtime_error}')
+
+              if runtime_errors:
+                  aggregate['runtime_error'] = ' | '.join(runtime_errors[:8])
+                  if aggregate['failure_count'] == 0:
+                      aggregate['failure_count'] = 1
+
+          top5 = []
+          for failure in aggregate['failures'][:5]:
+              top5.append(
+                  f"[{failure['kubectl_version']}] {failure['file']}:{failure['line']} => {failure['path']}"
+              )
+          if aggregate.get('runtime_error'):
+              top5.append(f"runtime_error: {aggregate['runtime_error']}")
+          top5 = top5[:5]
+
+          summary = (
+              'Scanned '
+              f"{aggregate['files_scanned']} markdown files, checked "
+              f"{aggregate['checked_command_paths']} unique command paths, across "
+              f"{len(aggregate['kubectl_versions_checked'])} kubectl versions, found "
+              f"{aggregate['failure_count']} failures"
+          )
+
+          out_json.write_text(json.dumps(aggregate, indent=2), encoding='utf-8')
+
+          md_lines = [
+              '# CLI command-path check',
+              '',
+              f"- Files scanned: {aggregate['files_scanned']}",
+              f"- Command paths checked: {aggregate['checked_command_paths']}",
+              f"- Kubectl versions checked: {', '.join(aggregate['kubectl_versions_checked']) if aggregate['kubectl_versions_checked'] else 'none'}",
+              f"- Failures: {aggregate['failure_count']}",
+              '',
+          ]
+          if aggregate.get('runtime_error'):
+              md_lines.extend(['## Runtime error', '', '```', aggregate['runtime_error'], '```', ''])
+          if aggregate['failures']:
+              md_lines.append('## Invalid command paths')
+              md_lines.append('')
+              for failure in aggregate['failures']:
+                  md_lines.append(
+                      f"- `[{failure['kubectl_version']}] {failure['path']}` in `{failure['file']}:{failure['line']}`"
+                  )
+                  md_lines.append(f"  - Command: `{failure['command']}`")
+                  snippet = (failure.get('cli_output') or '').strip().replace('\n', ' ')
+                  if snippet:
+                      md_lines.append(f"  - CLI output: `{snippet[:300]}`")
+              md_lines.append('')
+          else:
+              md_lines.extend(['No invalid command paths found.', ''])
+
+          out_md.write_text('\n'.join(md_lines), encoding='utf-8')
+
+          out_txt_lines = [summary]
+          if top5:
+              out_txt_lines.append('Top findings:')
+              out_txt_lines.extend(top5)
+          out_txt.write_text('\n'.join(out_txt_lines) + '\n', encoding='utf-8')
+
+          gh_output = Path(os.environ['GITHUB_OUTPUT'])
+          with gh_output.open('a', encoding='utf-8') as f:
+              f.write(f"cli_path_summary={summary}\n")
+              f.write(f"cli_path_failures={aggregate['failure_count']}\n")
+              f.write('cli_path_top5<<EOF\n')
+              f.write('\n'.join(top5))
+              f.write('\nEOF\n')
+          PY
 
       - name: Commit reports
         id: commit
@@ -212,4 +367,7 @@ jobs:
             .github/cli-command-paths/command-path-check.json
             .github/cli-command-paths/command-path-check.md
             .github/cli-command-paths/command-path-check.out.txt
+            .github/cli-command-paths/command-path-check.*.json
+            .github/cli-command-paths/command-path-check.*.md
+            .github/cli-command-paths/command-path-check.*.out.txt
           if-no-files-found: ignore
