@@ -1,7 +1,7 @@
 ---
 title: Create a Password
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
