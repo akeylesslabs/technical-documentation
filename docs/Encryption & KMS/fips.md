@@ -16,7 +16,7 @@ Akeyless provides cryptographic module certifications under National Institute o
 
 FIPS 140-3 is the current U.S. and Canadian government standard for cryptographic modules that protect sensitive information. Under CMVP, accredited laboratories test modules against these requirements, and validated modules are published with a certificate number and status.
 
-<br />
+<Image align="center" alt="NIST FIPS validation logo image associated with the Akeyless FIPS 140-3 certification" border={true} width="250px" src="https://files.readme.io/280e9ea698fba1f0e717da87f0f4ff19a0c86cf9abadf74984ceaa7c6ca33e1d-FIPS_140-3_Logo_Color.png" className="border" />
 
 [FIPS 140-3 Validated, Certificate #5227.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5227)
 
