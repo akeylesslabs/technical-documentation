@@ -61,7 +61,7 @@ At a high level:
 
 ## Prerequisites
 
-* A running Kubernetes cluster, **v1.16+** (ESO requirement).
+* A running Kubernetes cluster, **v1.19+** (ESO requirement).
 * **Helm** installed locally.
 * An Akeyless tenant with:
     * At least one **Authentication Method** (API Key, Kubernetes Auth, Azure AD, AWS IAM, or GCP).
