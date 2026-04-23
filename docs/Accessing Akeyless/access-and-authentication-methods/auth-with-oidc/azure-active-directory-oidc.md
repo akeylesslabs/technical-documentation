@@ -68,3 +68,35 @@ Now, you can run any Akeyless CLI command and be authenticated with the Azure ap
 ```shell
 akeyless list-items --profile azure-app
 ```
+
+## Azure Groups Overage Claim
+
+Azure AD enforces a limit on the number of groups it includes directly in a token: 200 for JWT/OIDC tokens and 150 for SAML tokens. When a user is a member of more groups than this limit (directly or indirectly), Azure omits the `groups` claim from the token and instead includes a distributed-claim pointer:
+
+```json
+{
+  "_claim_names": {
+    "groups": "src1"
+  },
+  "_claim_sources": {
+    "src1": {
+      "endpoint": "https://graph.microsoft.com/v1.0/users/{objectId}/getMemberObjects"
+    }
+  }
+}
+```
+
+Akeyless automatically detects this pattern and resolves the full group list by calling the Microsoft Graph API on behalf of the OIDC auth method. No additional Akeyless configuration is required. However, the Azure app registration must be granted the Microsoft Graph **Application** permission `GroupMember.Read.All` (or the broader `Directory.Read.All`), with admin consent granted, so that Akeyless can retrieve the user's group memberships.
+
+### Grant the Required API Permission
+
+1. In the Azure portal, navigate to **App registrations** and select your Akeyless OIDC application.
+2. Go to **API permissions** and select **Add a permission**.
+3. Select **Microsoft Graph**.
+4. Select **Application permissions**.
+5. Search for and add `GroupMember.Read.All` (or `Directory.Read.All`).
+6. Select **Grant admin consent for \<your directory\>** and confirm.
+
+> ℹ️ **Note:**
+>
+> This permission is only required when users may belong to more than 200 groups. If no user in your tenant exceeds the overage limit, no additional permissions are needed.
