@@ -109,5 +109,3 @@ akeyless usc delete --usc-name <usc name> --secret-id <secret id or name>
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).
-
-<br />
