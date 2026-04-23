@@ -71,7 +71,7 @@ akeyless list-items --profile azure-app
 
 ## Azure Groups Overage Claim
 
-When Azure does not include the `groups` claim directly in an OIDC token and instead returns distributed-claim pointers (`_claim_names` / `_claim_sources`), as documented in [Groups overage claim](https://learn.microsoft.com/en-us/entra/identity-platform/id-token-claims-reference#groups-overage-claim), Akeyless attempts to resolve the user's full group list by calling Microsoft Graph.
+When Azure does not include the `groups` claim directly in an OIDC token and instead returns distributed-claim pointers (`_claim_names` / `_claim_sources`), as documented in [Groups overage claim](https://learn.microsoft.com/en-us/entra/identity-platform/id-token-claims-reference#groups-overage-claim), Akeyless attempts to resolve the user's full group list by calling Microsoft Graph. Microsoft documents this overage behavior when group membership exceeds 200 groups for JWT tokens (OIDC) or 150 groups for SAML tokens.
 
 ```json
 {
