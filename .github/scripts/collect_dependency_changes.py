@@ -238,15 +238,24 @@ def escalation_for_keywords(text: str) -> tuple[int, list[str]]:
     strong = ["cve", "critical", "breaking", "removed", "deprecat"]
     medium = ["security", "migration", "incompatible", "behavior change"]
 
-    score = 0
+    strong_count = 0
+    medium_count = 0
     for token in strong:
         if token in lowered:
             hits.append(token)
-            score = max(score, 2)
+            strong_count += 1
     for token in medium:
         if token in lowered:
             hits.append(token)
-            score = max(score, 1)
+            medium_count += 1
+
+    # Strong keywords accumulate: each strong hit is +1, capped at +2
+    score = min(strong_count, 2)
+    # Medium keywords add +1 if found, capped so total doesn't exceed +2 when strong hits exist
+    if medium_count > 0 and strong_count == 0:
+        score = 1
+    elif medium_count > 0 and strong_count > 0:
+        score = min(strong_count + 1, 2)
 
     return score, hits
 
@@ -278,6 +287,7 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
                 "release_url": payload.get("html_url") or entry.get("source_url") or "",
                 "release_published_at": payload.get("published_at") or "",
                 "release_name": payload.get("name") or payload.get("tag_name") or "",
+                "release_body": payload.get("body") or "",
                 "degraded": False,
                 "warning": "",
             }
@@ -290,6 +300,7 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
                 "release_url": entry.get("source_url") or "",
                 "release_published_at": "",
                 "release_name": "GitHub rate limit fallback",
+                "release_body": "",
                 "degraded": True,
                 "warning": warning,
             }
@@ -301,6 +312,7 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
             "release_url": entry.get("source_url") or source,
             "release_published_at": "",
             "release_name": f"Kubernetes stable {version}",
+            "release_body": "",
             "degraded": False,
             "warning": "",
         }
@@ -313,6 +325,7 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
             "release_url": entry.get("source_url") or source,
             "release_published_at": "",
             "release_name": f"Google Cloud SDK {version}",
+            "release_body": "",
             "degraded": False,
             "warning": "",
         }
@@ -327,6 +340,7 @@ def fetch_dependency(entry: dict[str, Any], previous_version: str | None) -> dic
             "release_url": entry.get("source_url") or source,
             "release_published_at": "",
             "release_name": f"Terraform {version}",
+            "release_body": "",
             "degraded": False,
             "warning": "",
         }
@@ -544,15 +558,32 @@ def main() -> int:
         rank = base_rank
         reasons = [f"change:{delta}", f"base-severity:{severity_name(base_rank)}"]
 
+        # Escalate for major version bumps
         if delta == "major":
             rank += 1
             reasons.append("major-version-bump")
 
-        if category in {"kubernetes-container", "authentication-identity"}:
+        # De-escalate for patch-level changes (floor at 0)
+        if delta == "patch":
+            rank = max(0, rank - 1)
+            reasons.append("patch-release-deescalation")
+
+        # Escalate for high-risk categories
+        if category in {"kubernetes-container", "authentication-identity", "security-crypto"}:
             rank += 1
             reasons.append(f"category-escalation:{category}")
 
-        keyword_text = " ".join([str(fetched.get("release_name") or ""), str(fetched.get("warning") or "")])
+        # Floor new entries in high-risk categories to at least medium
+        if delta == "new" and category in {"kubernetes-container", "authentication-identity", "security-crypto"}:
+            rank = max(rank, 1)  # medium severity
+            reasons.append("new-entry-high-risk-category")
+
+        # Scan release notes for security keywords
+        keyword_text = " ".join([
+            str(fetched.get("release_name") or ""),
+            str(fetched.get("release_body") or ""),
+            str(fetched.get("warning") or "")
+        ])
         keyword_boost, keyword_hits = escalation_for_keywords(keyword_text)
         if keyword_boost:
             rank += keyword_boost
