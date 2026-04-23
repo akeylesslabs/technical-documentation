@@ -12,6 +12,25 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
+SUPPORTED_COMMANDS = (
+    "akeyless",
+    "aws",
+    "az",
+    "certbot",
+    "curl",
+    "docker",
+    "eksctl",
+    "gcloud",
+    "helm",
+    "jq",
+    "kubectl",
+    "oci",
+    "openssl",
+    "ssh",
+    "terraform",
+)
+
+
 ALLOWED_FENCE_LANGS = {
     "",
     "bash",
@@ -33,12 +52,76 @@ class CommandOccurrence:
     file_path: str
     line_number: int
     command_line: str
+    cli_name: str
     path_tokens: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class CliValidator:
+    help_flag: str = "-h"
+    invalid_patterns: tuple[str, ...] = ()
+
+
+DEFAULT_CLI_VALIDATOR = CliValidator()
+
+
+GENERIC_INVALID_PATTERNS = (
+    r"\bcommand not found\b",
+    r"\bunknown command\b",
+    r"\bis not a command\b",
+    r"\bno help topic\b",
+    r"\bunknown shorthand flag\b",
+)
+
+
+CLI_VALIDATORS: dict[str, CliValidator] = {
+    "aws": CliValidator(
+        invalid_patterns=(
+            r"\baws:\s+error:\s+argument\s+command:\s+invalid\s+choice\b",
+        )
+    ),
+    "az": CliValidator(
+        invalid_patterns=(
+            r"\berror:\s+'.+'\s+is\s+misspelled\s+or\s+not\s+recognized\b",
+        )
+    ),
+    "docker": CliValidator(
+        invalid_patterns=(
+            r"\bdocker:\s+'.+'\s+is\s+not\s+a\s+docker\s+command\b",
+        )
+    ),
+    "gcloud": CliValidator(
+        invalid_patterns=(
+            r"\berror:\s+\(.+\)\s+invalid\s+choice:\b",
+        )
+    ),
+    "helm": CliValidator(
+        invalid_patterns=(
+            r"\berror:\s+unknown\s+command\b",
+        )
+    ),
+    "kubectl": CliValidator(
+        invalid_patterns=(
+            r"\berror:\s+unknown\s+command\b",
+        )
+    ),
+    "terraform": CliValidator(
+        invalid_patterns=(
+            r"\bterraform\s+has\s+no\s+command\s+named\b",
+        )
+    ),
+}
+
+
+ENV_ASSIGNMENT_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*=.*$")
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Validate akeyless command paths in markdown code blocks against `akeyless <path> -h`."
+        description=(
+            "Validate supported CLI command paths in markdown code blocks against "
+            "`<command> <path> -h`."
+        )
     )
     parser.add_argument(
         "--docs-root",
@@ -84,6 +167,80 @@ def tokenize_command(line: str) -> list[str]:
         return line.split()
 
 
+def is_env_assignment(token: str) -> bool:
+    return bool(ENV_ASSIGNMENT_RE.match(token))
+
+
+def strip_wrappers(tokens: list[str]) -> list[str]:
+    index = 0
+    while index < len(tokens):
+        token = tokens[index]
+
+        if token == "sudo":
+            index += 1
+            while index < len(tokens) and tokens[index].startswith("-"):
+                index += 1
+            continue
+
+        if token in ("env", "/usr/bin/env"):
+            index += 1
+            while index < len(tokens):
+                current = tokens[index]
+                if current == "--":
+                    index += 1
+                    break
+                if current.startswith("-") or is_env_assignment(current):
+                    index += 1
+                    continue
+                break
+            continue
+
+        if token == "command":
+            index += 1
+            while index < len(tokens) and tokens[index].startswith("-"):
+                index += 1
+            continue
+
+        if is_env_assignment(token):
+            index += 1
+            continue
+
+        break
+
+    return tokens[index:]
+
+
+def iter_logical_command_lines(markdown_text: str):
+    current_start_line = 0
+    current_parts: list[str] = []
+
+    for line_number, raw_line in iter_fenced_code_lines(markdown_text):
+        normalized = raw_line.rstrip()
+        normalized = re.sub(r"^\s*[$>]\s*", "", normalized)
+
+        if not normalized.strip():
+            if current_parts:
+                yield current_start_line, " ".join(current_parts).strip()
+                current_parts = []
+                current_start_line = 0
+            continue
+
+        if not current_parts:
+            current_start_line = line_number
+
+        if normalized.endswith("\\"):
+            current_parts.append(normalized[:-1].strip())
+            continue
+
+        current_parts.append(normalized.strip())
+        yield current_start_line, " ".join(current_parts).strip()
+        current_parts = []
+        current_start_line = 0
+
+    if current_parts:
+        yield current_start_line, " ".join(current_parts).strip()
+
+
 def extract_path_tokens(tokens: list[str]) -> tuple[str, ...]:
     path: list[str] = []
     for token in tokens[1:]:
@@ -101,16 +258,13 @@ def collect_commands(md_file: Path) -> list[CommandOccurrence]:
     text = md_file.read_text(encoding="utf-8")
     occurrences: list[CommandOccurrence] = []
 
-    for line_number, raw_line in iter_fenced_code_lines(text):
-        normalized = raw_line.strip()
-        normalized = re.sub(r"^\s*[$>]\s*", "", normalized)
-        if not normalized.startswith("akeyless "):
-            continue
-
+    for line_number, normalized in iter_logical_command_lines(text):
         tokens = tokenize_command(normalized)
-        if not tokens or tokens[0] != "akeyless":
+        tokens = strip_wrappers(tokens)
+        if not tokens or tokens[0] not in SUPPORTED_COMMANDS:
             continue
 
+        cli_name = tokens[0]
         path_tokens = extract_path_tokens(tokens)
         if not path_tokens:
             continue
@@ -120,6 +274,7 @@ def collect_commands(md_file: Path) -> list[CommandOccurrence]:
                 file_path=md_file.as_posix(),
                 line_number=line_number,
                 command_line=normalized,
+                cli_name=cli_name,
                 path_tokens=path_tokens,
             )
         )
@@ -127,24 +282,18 @@ def collect_commands(md_file: Path) -> list[CommandOccurrence]:
     return occurrences
 
 
-def run_help(path_tokens: tuple[str, ...]) -> tuple[bool, str]:
-    command = ["akeyless", *path_tokens, "-h"]
+def run_help(cli_name: str, path_tokens: tuple[str, ...]) -> tuple[bool, str]:
+    validator = CLI_VALIDATORS.get(cli_name, DEFAULT_CLI_VALIDATOR)
+    command = [cli_name, *path_tokens, validator.help_flag]
     proc = subprocess.run(command, capture_output=True, text=True)
     output = (proc.stdout or "") + ("\n" + proc.stderr if proc.stderr else "")
     out_lower = output.lower()
-
-    invalid_markers = (
-        "command not found",
-        "unknown command",
-        "is not a command",
-        "unknown shorthand flag",
-        "accepts",
-    )
+    invalid_patterns = (*GENERIC_INVALID_PATTERNS, *validator.invalid_patterns)
 
     if proc.returncode == 0:
         return True, output.strip()
 
-    if any(marker in out_lower for marker in invalid_markers):
+    if any(re.search(pattern, out_lower) for pattern in invalid_patterns):
         return False, output.strip()
 
     return True, output.strip()
@@ -170,7 +319,7 @@ def write_reports(
     out_json.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
     lines = [
-        "# Akeyless command-path check",
+        "# CLI command-path check",
         "",
         f"- Files scanned: {files_scanned}",
         f"- Command paths checked: {checked_paths}",
@@ -216,8 +365,16 @@ def main() -> int:
         if not docs_root.exists():
             raise RuntimeError(f"Docs root does not exist: {docs_root}")
 
-        if subprocess.run(["akeyless", "-h"], capture_output=True).returncode != 0:
-            raise RuntimeError("`akeyless` CLI is not available in PATH.")
+        missing_clis = [
+            cli_name
+            for cli_name in SUPPORTED_COMMANDS
+            if subprocess.run([cli_name, "-h"], capture_output=True).returncode != 0
+        ]
+        if missing_clis:
+            raise RuntimeError(
+                "Required CLI command(s) are not available in PATH: "
+                + ", ".join(missing_clis)
+            )
 
         md_files = sorted(docs_root.rglob("*.md"))
         files_scanned = len(md_files)
@@ -226,15 +383,15 @@ def main() -> int:
         for md_file in md_files:
             occurrences.extend(collect_commands(md_file))
 
-        unique_paths = sorted({occ.path_tokens for occ in occurrences})
+        unique_paths = sorted({(occ.cli_name, occ.path_tokens) for occ in occurrences})
         checked_paths = len(unique_paths)
 
-        validation_cache: dict[tuple[str, ...], tuple[bool, str]] = {}
-        for path_tokens in unique_paths:
-            validation_cache[path_tokens] = run_help(path_tokens)
+        validation_cache: dict[tuple[str, tuple[str, ...]], tuple[bool, str]] = {}
+        for cli_name, path_tokens in unique_paths:
+            validation_cache[(cli_name, path_tokens)] = run_help(cli_name, path_tokens)
 
         for occ in occurrences:
-            is_valid, cli_output = validation_cache[occ.path_tokens]
+            is_valid, cli_output = validation_cache[(occ.cli_name, occ.path_tokens)]
             if is_valid:
                 continue
             failures.append(
@@ -242,7 +399,7 @@ def main() -> int:
                     "file": occ.file_path,
                     "line": occ.line_number,
                     "command": occ.command_line,
-                    "path": " ".join(occ.path_tokens),
+                    "path": f"{occ.cli_name} {' '.join(occ.path_tokens)}",
                     "cli_output": cli_output,
                 }
             )

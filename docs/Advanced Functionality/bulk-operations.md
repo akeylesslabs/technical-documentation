@@ -221,14 +221,15 @@ Role(s) deleted successfully from /folder
 
 ## Move Objects
 
-The move-objects flow can move multiple items, Auth Methods, or Roles from a specific folder to a different one or similarly rename a folder.
+The move-objects flow moves multiple items, Auth Methods, or Roles from one folder to another, or renames a folder.
+Both the source and target paths must be folders. This flow does not move an individual object. To move a single object, use the appropriate update command for that object type.
 The user running the command must have `Get`, `List`, and `Update` permissions on the designated source path and recursively on each role inside and on the target path.
 
 Only objects visible to the user making the action will be moved. However, the operation will fail if the user has only `Get/List` (meaning they are visible to them) and not `Update` on some of the objects inside the source path.
 
 In the case of a duplicate as a result of running the operation, the operation will fail on a `409`.
 
-For example the CLI command use:
+For example, the CLI command uses:
 
 * `objects-type` - The object type you like to move ( `item/auth_method/target/role` ), the default is `item`
 * `source` - Path to the folder to move

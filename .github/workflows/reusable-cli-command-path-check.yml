@@ -1,0 +1,385 @@
+name: Reusable CLI Command Path Check
+
+on:
+  workflow_call:
+    inputs:
+      push_changes:
+        description: Commit generated CLI command path reports.
+        required: false
+        type: boolean
+        default: false
+      branch_name:
+        description: Branch used when push_changes is true.
+        required: false
+        type: string
+        default: automation/cli-command-path-check
+    outputs:
+      cli_path_summary:
+        description: Summary of CLI command path validation.
+        value: ${{ jobs.aggregate-cli-path-check.outputs.cli_path_summary }}
+      cli_path_failures:
+        description: Number of failures found.
+        value: ${{ jobs.aggregate-cli-path-check.outputs.cli_path_failures }}
+      cli_path_top5:
+        description: Top findings as newline-separated text.
+        value: ${{ jobs.aggregate-cli-path-check.outputs.cli_path_top5 }}
+      commit_url:
+        description: Commit URL when push_changes creates a commit.
+        value: ${{ jobs.aggregate-cli-path-check.outputs.commit_url }}
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'docs/**/*.md'
+      - '.github/scripts/check_akeyless_command_paths.py'
+      - '.github/workflows/reusable-cli-command-path-check.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  resolve-kubectl-versions:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.versions.outputs.matrix }}
+
+    steps:
+      - name: Resolve supported kubectl versions
+        id: versions
+        run: |
+          set -euo pipefail
+
+          STABLE_VERSION="$(curl -fsSL https://dl.k8s.io/release/stable.txt)"
+          STABLE_MINOR="$(echo "$STABLE_VERSION" | sed -E 's/^v([0-9]+)\.([0-9]+).*/\2/')"
+          if ! [[ "$STABLE_MINOR" =~ ^[0-9]+$ ]]; then
+            echo "Unable to parse stable Kubernetes minor from: $STABLE_VERSION" >&2
+            exit 1
+          fi
+
+          MATRIX_ITEMS="[]"
+          for OFFSET in 0 1 2; do
+            MINOR=$((STABLE_MINOR - OFFSET))
+            if [ "$MINOR" -lt 0 ]; then
+              continue
+            fi
+
+            # Use -sS to silence progress but keep error messages, don't fail on HTTP errors (-f)
+            # so we can handle 404 gracefully for versions that don't have stable files yet
+            RESOLVED_VERSION="$(curl -sS "https://dl.k8s.io/release/stable-${MINOR}.txt" 2>/dev/null || echo "")"
+            
+            # Skip if empty or if the response is an error XML message
+            if [ -z "$RESOLVED_VERSION" ] || [[ "$RESOLVED_VERSION" =~ \<\?xml ]]; then
+              echo "⚠ Kubernetes 1.$MINOR: stable version file not available (expected for recently released versions)"
+              continue
+            fi
+
+            # Trim whitespace from version string
+            RESOLVED_VERSION="$(echo "$RESOLVED_VERSION" | xargs)"
+            
+            MATRIX_ITEMS="$(echo "$MATRIX_ITEMS" | jq -c --arg minor "v1.${MINOR}" --arg version "$RESOLVED_VERSION" '. + [{kubectl_minor:$minor, kubectl_version:$version}]')"
+          done
+
+          # If no versions were resolved, fall back to the stable version
+          if [ "$(echo "$MATRIX_ITEMS" | jq 'length')" -eq 0 ]; then
+            MATRIX_ITEMS="$(echo '[]' | jq -c --arg version "$STABLE_VERSION" '. + [{kubectl_minor:"current", kubectl_version:$version}]')"
+          fi
+
+          MATRIX_JSON="$(jq -cn --argjson include "$MATRIX_ITEMS" '{include:$include}')"
+
+          echo "matrix=$MATRIX_JSON" >> "$GITHUB_OUTPUT"
+
+  cli-path-check:
+    needs: resolve-kubectl-versions
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.resolve-kubectl-versions.outputs.matrix) }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install Akeyless CLI
+        run: |
+          set -e
+          curl -sSLo akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
+          chmod +x akeyless
+          sudo mv akeyless /usr/local/bin/akeyless
+          akeyless --version
+
+      - name: Install kubectl
+        run: |
+          set -e
+          KUBECTL_VERSION="${{ matrix.kubectl_version }}"
+          curl -sSLo kubectl "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/kubectl
+          kubectl version --client
+
+      - name: Install helm
+        run: |
+          set -e
+          curl -sSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+          helm version --short
+
+      - name: Install terraform
+        run: |
+          set -e
+          TERRAFORM_VERSION="$(curl -sSL https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r .current_version)"
+          curl -sSLo /tmp/terraform.zip "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+          unzip -q /tmp/terraform.zip -d /tmp/terraform-bin
+          sudo mv /tmp/terraform-bin/terraform /usr/local/bin/terraform
+          terraform version
+
+      - name: Install eksctl
+        run: |
+          set -e
+          EKSCTL_VERSION="$(curl -sSL https://api.github.com/repos/eksctl-io/eksctl/releases/latest | jq -r .tag_name)"
+          curl -sSLo /tmp/eksctl.tar.gz "https://github.com/eksctl-io/eksctl/releases/download/${EKSCTL_VERSION}/eksctl_Linux_amd64.tar.gz"
+          tar -xzf /tmp/eksctl.tar.gz -C /tmp
+          sudo mv /tmp/eksctl /usr/local/bin/eksctl
+          eksctl version
+
+      - name: Install oci
+        run: |
+          set -e
+          pip install --quiet oci-cli
+          oci --version
+
+      - name: Install gcloud
+        run: |
+          set -e
+          curl -sSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+          echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+          sudo apt-get update -qq && sudo apt-get install -y -qq google-cloud-cli
+          gcloud version
+
+      - name: Install certbot
+        run: |
+          set -e
+          sudo apt-get update -qq && sudo apt-get install -y -qq certbot
+          certbot --version
+
+      - name: Prepare output directories
+        run: |
+          mkdir -p .github/cli-command-paths
+
+      - name: Validate command paths
+        continue-on-error: true
+        run: |
+          set +e
+          : > .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.out.txt
+          python .github/scripts/check_akeyless_command_paths.py \
+            --docs-root docs \
+            --out-json .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.json \
+            --out-md .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.md \
+            > .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.out.txt 2>&1
+          set -e
+
+      - name: Upload CLI path artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cli-command-path-artifacts-${{ matrix.kubectl_minor }}
+          path: |
+            .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.json
+            .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.md
+            .github/cli-command-paths/command-path-check.${{ matrix.kubectl_minor }}.out.txt
+          if-no-files-found: ignore
+
+  aggregate-cli-path-check:
+    if: always()
+    needs:
+      - resolve-kubectl-versions
+      - cli-path-check
+    runs-on: ubuntu-latest
+    outputs:
+      cli_path_summary: ${{ steps.capture.outputs.cli_path_summary }}
+      cli_path_failures: ${{ steps.capture.outputs.cli_path_failures }}
+      cli_path_top5: ${{ steps.capture.outputs.cli_path_top5 }}
+      commit_url: ${{ steps.commiturl.outputs.url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Download matrix artifacts
+        uses: actions/download-artifact@v5
+        with:
+          pattern: cli-command-path-artifacts-*
+          path: .github/cli-command-paths
+          merge-multiple: true
+
+      - name: Aggregate reports
+        id: capture
+        run: |
+          set -euo pipefail
+          mkdir -p .github/cli-command-paths
+
+          python - <<'PY'
+          import glob
+          import json
+          import os
+          from pathlib import Path
+
+          json_files = sorted(glob.glob('.github/cli-command-paths/command-path-check.*.json'))
+          out_json = Path('.github/cli-command-paths/command-path-check.json')
+          out_md = Path('.github/cli-command-paths/command-path-check.md')
+          out_txt = Path('.github/cli-command-paths/command-path-check.out.txt')
+
+          aggregate = {
+              'files_scanned': 0,
+              'checked_command_paths': 0,
+              'failure_count': 0,
+              'runtime_error': None,
+              'failures': [],
+              'kubectl_versions_checked': [],
+          }
+          runtime_errors = []
+
+          if not json_files:
+              aggregate['failure_count'] = 1
+              aggregate['runtime_error'] = 'validator did not produce json output for any kubectl version'
+          else:
+              for file_path in json_files:
+                  version = Path(file_path).name.replace('command-path-check.', '').replace('.json', '')
+                  aggregate['kubectl_versions_checked'].append(version)
+                  report = json.loads(Path(file_path).read_text(encoding='utf-8'))
+
+                  aggregate['files_scanned'] = max(aggregate['files_scanned'], int(report.get('files_scanned', 0)))
+                  aggregate['checked_command_paths'] = max(
+                      aggregate['checked_command_paths'],
+                      int(report.get('checked_command_paths', 0)),
+                  )
+
+                  failures = report.get('failures', [])
+                  aggregate['failure_count'] += len(failures)
+                  for failure in failures:
+                      aggregate['failures'].append({
+                          'kubectl_version': version,
+                          **failure,
+                      })
+
+                  runtime_error = report.get('runtime_error')
+                  if runtime_error:
+                      runtime_errors.append(f'[{version}] {runtime_error}')
+
+              if runtime_errors:
+                  aggregate['runtime_error'] = ' | '.join(runtime_errors[:8])
+                  if aggregate['failure_count'] == 0:
+                      aggregate['failure_count'] = 1
+
+          top5 = []
+          for failure in aggregate['failures'][:5]:
+              top5.append(
+                  f"[{failure['kubectl_version']}] {failure['file']}:{failure['line']} => {failure['path']}"
+              )
+          if aggregate.get('runtime_error'):
+              top5.append(f"runtime_error: {aggregate['runtime_error']}")
+          top5 = top5[:5]
+
+          summary = (
+              'Scanned '
+              f"{aggregate['files_scanned']} markdown files, checked "
+              f"{aggregate['checked_command_paths']} unique command paths, across "
+              f"{len(aggregate['kubectl_versions_checked'])} kubectl versions, found "
+              f"{aggregate['failure_count']} failures"
+          )
+
+          out_json.write_text(json.dumps(aggregate, indent=2), encoding='utf-8')
+
+          md_lines = [
+              '# CLI command-path check',
+              '',
+              f"- Files scanned: {aggregate['files_scanned']}",
+              f"- Command paths checked: {aggregate['checked_command_paths']}",
+              f"- Kubectl versions checked: {', '.join(aggregate['kubectl_versions_checked']) if aggregate['kubectl_versions_checked'] else 'none'}",
+              f"- Failures: {aggregate['failure_count']}",
+              '',
+          ]
+          if aggregate.get('runtime_error'):
+              md_lines.extend(['## Runtime error', '', '```', aggregate['runtime_error'], '```', ''])
+          if aggregate['failures']:
+              md_lines.append('## Invalid command paths')
+              md_lines.append('')
+              for failure in aggregate['failures']:
+                  md_lines.append(
+                      f"- `[{failure['kubectl_version']}] {failure['path']}` in `{failure['file']}:{failure['line']}`"
+                  )
+                  md_lines.append(f"  - Command: `{failure['command']}`")
+                  snippet = (failure.get('cli_output') or '').strip().replace('\n', ' ')
+                  if snippet:
+                      md_lines.append(f"  - CLI output: `{snippet[:300]}`")
+              md_lines.append('')
+          else:
+              md_lines.extend(['No invalid command paths found.', ''])
+
+          out_md.write_text('\n'.join(md_lines), encoding='utf-8')
+
+          out_txt_lines = [summary]
+          if top5:
+              out_txt_lines.append('Top findings:')
+              out_txt_lines.extend(top5)
+          out_txt.write_text('\n'.join(out_txt_lines) + '\n', encoding='utf-8')
+
+          gh_output = Path(os.environ['GITHUB_OUTPUT'])
+          with gh_output.open('a', encoding='utf-8') as f:
+              f.write(f"cli_path_summary={summary}\n")
+              f.write(f"cli_path_failures={aggregate['failure_count']}\n")
+              f.write('cli_path_top5<<EOF\n')
+              f.write('\n'.join(top5))
+              f.write('\nEOF\n')
+          PY
+
+      - name: Commit reports
+        id: commit
+        if: ${{ inputs.push_changes }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          BRANCH="${{ inputs.branch_name }}"
+          git fetch origin
+          git checkout -B "$BRANCH"
+
+          git add .github/cli-command-paths/command-path-check.json .github/cli-command-paths/command-path-check.md .github/cli-command-paths/command-path-check.out.txt || true
+
+          if git diff --cached --quiet; then
+            echo "has_commit=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: update CLI command path report [skip ci]"
+            git push origin "$BRANCH" --force
+            echo "has_commit=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get commit URL
+        id: commiturl
+        if: ${{ inputs.push_changes && steps.commit.outputs.has_commit == 'true' }}
+        run: |
+          COMMIT_SHA="$(git rev-parse HEAD)"
+          echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload CLI path artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cli-command-path-artifacts
+          path: |
+            .github/cli-command-paths/command-path-check.json
+            .github/cli-command-paths/command-path-check.md
+            .github/cli-command-paths/command-path-check.out.txt
+            .github/cli-command-paths/command-path-check.*.json
+            .github/cli-command-paths/command-path-check.*.md
+            .github/cli-command-paths/command-path-check.*.out.txt
+          if-no-files-found: ignore

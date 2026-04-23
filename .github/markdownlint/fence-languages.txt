@@ -1,0 +1,21 @@
+# Allowed fenced code block language identifiers.
+bash
+csharp
+curl
+go
+http
+java
+javascript
+js
+json
+kotlin
+mermaid
+powershell
+python
+ruby
+shell
+sql
+text
+toml
+xml
+yaml
