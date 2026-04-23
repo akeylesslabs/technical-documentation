@@ -131,7 +131,7 @@ users:
 - name: <some user name>
   user:
     exec:
-      apiVersion: client.authentication.k8s.io/v1alpha1
+      apiVersion: client.authentication.k8s.io/v1
       args:
         - get-dynamic-secret-value
         - --name
