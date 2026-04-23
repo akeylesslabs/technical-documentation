@@ -182,7 +182,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
 
 ## Troubleshooting
 
-If you're running into issues getting TDE with Akeyless set up on MSSQL, here are some useful tips and common pitfalls to check:
+If you're running into issues getting TDE with Akeyless set up on MSSQL, here are some useful tips and common issues to check:
 
 * If you're looking for logs about the setup, you can find them in the **Windows Event Viewer** — most EKM-related errors are recorded there and are very helpful for debugging.
 * After you first run the installer, any future changes to the configuration file (which by default will be located under: `C:\\Program Files\\Akeyless\\Akeyless Ekm Provider\\sqlcrypt.conf`) will only take effect after restarting the `SQL Server (MSSQLSERVER)` Windows service.
