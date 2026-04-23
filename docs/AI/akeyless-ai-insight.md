@@ -19,10 +19,6 @@ Akeyless AI Insights enables natural-language interaction with the Akeyless Plat
 
 This guide uses **OpenAI** examples. You can also use **Gemini** by creating a Gemini target and setting a compatible model.
 
-## Related AI Guides
-
-* [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
-
 ## Prerequisites
 
 Before you begin, ensure you have the following:
@@ -213,3 +209,7 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 * [ ] Configure gateway
 * [ ] Verify the Gateway configuration
 * [ ] Test in the Web UI
+
+## Related AI Guides
+
+* [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
