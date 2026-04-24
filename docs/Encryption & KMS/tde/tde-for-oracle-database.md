@@ -270,7 +270,7 @@ SELECT * FROM dba_encrypted_columns;
 
 The output will show details like this:
 
-```sql diff
+```text
 OWNER  TABLE_NAME COLUMN_NAME ENCRYPTION_ALG SALT INTEGRITY_ALG
 ------ ---------- ----------- -------------- ---- -------------
 OE     EMPLOYEE   SALARY      AES 192 bits   YES  SHA-1

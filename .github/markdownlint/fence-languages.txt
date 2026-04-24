@@ -1,21 +1,53 @@
 # Allowed fenced code block language identifiers.
 # Keep entries as language identifiers only.
 # Do not add tab labels here; use .github/markdownlint/fence-tabs.txt for tab labels.
-# Keep identifiers lowercase for consistency.
+# Source: https://docs.readme.com/rdmd/docs/code-blocks (Language Support).
+# Standardization: use exactly one canonical, lowercase token per supported language (no aliases).
+asp
+c
+clojure
+cpp
 csharp
+css
+curl
+d
+dart
+diff
+dockerfile
+erlang
 go
+graphql
+groovy
+handlebars
 http
+html
 java
 javascript
 json
+jsx
+julia
 kotlin
+liquid
+lua
+markdown
 mermaid
+objectivec
+objectivecpp
+ocaml
+perl
+php
 powershell
 python
+r
 ruby
+rust
+scala
 shell
+solidity
 sql
+swift
 text
 toml
+typescript
 xml
 yaml

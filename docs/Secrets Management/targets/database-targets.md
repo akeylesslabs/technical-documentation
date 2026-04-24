@@ -138,7 +138,7 @@ akeyless target create db \
 --port <Database port> \
 --user-name <Database user name>
 ```
-```shell SAP HanaDB
+```shell SAP HANA database
 akeyless target create db \
 --name <Target name> \
 --db-type hanadb \

@@ -169,7 +169,7 @@ K8S_ISSUER=$(jq -R 'split(".") | .[1] | @base64d | fromjson |.iss' <<< $(cat /va
 
 Use the Akeyless CLI to create the Kubernetes auth config:
 
-```shell Native Kubernetes Cluster
+```shell Native Kubernetes
 akeyless gateway-create-k8s-auth-config --name k8s-conf \
 --gateway-url https://<Your_Akeyless_GW_URL>:8000 \
 --access-id $ACCESS_ID \

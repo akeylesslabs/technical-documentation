@@ -63,7 +63,6 @@ default.toml
 Delete Immediately
 dependency definition
 Deployment
-diff
 Disabling a Key
 dnf
 DNS with AWS
@@ -165,7 +164,6 @@ MyAES256SIVKey
 MySQL/MariaDB
 MySQLWordPress.yaml
 Native Kubernetes
-Native Kubernetes Cluster
 Oauth2.0
 OCI IAM
 OIDC
@@ -203,9 +201,7 @@ SAML
 Sample Output
 SAP HANA database
 SAP HanaDB
-Scala
-Scheduled Delete
-secret
+Secret
 secret_token.yaml
 secret.yaml
 secrets.txt

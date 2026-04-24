@@ -197,7 +197,7 @@ Example:
 # Python cell
 spark.conf.set("api.key", API_KEY)
 ```
-```shell Scala
+```scala
 // Scala cell
 val apiKey = spark.conf.get("api.key")
 println(apiKey)

@@ -542,6 +542,47 @@ config:
         example_from: "There is no magic bullet for access control."
         example_to: "There is no single solution for access control."
 
+      # Racist or exclusionary terminology
+      - term: "segregation"
+        replacement: "isolation"
+        example_from: "Use network segregation for security."
+        example_to: "Use network isolation for security."
+
+      - term: "segregated"
+        replacement: "isolated"
+        example_from: "Keep environments segregated."
+        example_to: "Keep environments isolated."
+
+      - term: "grandfathered"
+        replacement: "legacy"
+        example_from: "This is a grandfathered API endpoint."
+        example_to: "This is a legacy API endpoint."
+
+      - term: "grandfather clause"
+        replacement: "legacy exception"
+        example_from: "We maintain a grandfather clause for backward compatibility."
+        example_to: "We maintain a legacy exception for backward compatibility."
+
+      - term: "grandfathering"
+        replacement: "preserving legacy support"
+        example_from: "Grandfathering older configurations simplifies migration."
+        example_to: "Preserving legacy support for older configurations simplifies migration."
+
+      - term: "tribal knowledge"
+        replacement: "undocumented knowledge"
+        example_from: "Avoid relying on tribal knowledge; document all processes."
+        example_to: "Avoid relying on undocumented knowledge; document all processes."
+
+      - term: "gypped"
+        replacement: "cheated"
+        example_from: "Don't get gypped by overpaying for licensing."
+        example_to: "Don't get cheated by overpaying for licensing."
+
+      - term: "gyp"
+        replacement: "cheat"
+        example_from: "These vendors try to gyp customers."
+        example_to: "These vendors try to cheat customers."
+
   # AKY018: Require canonical Markdown table separator rows
   #
   # Purpose:

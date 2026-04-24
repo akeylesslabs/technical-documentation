@@ -62,7 +62,7 @@ While Databricks supports SQL, most SQL queries don’t require secrets — henc
 # Python Cell: retrieve secret and set Spark config
 spark.conf.set("api.key", "RETRIEVED_SECRET")
 ```
-```shell Scala
+```scala
 // Scala Cell: read secret from Spark config
 val apiKey = spark.conf.get("api.key")
 println(s"Retrieved API Key: $apiKey")
