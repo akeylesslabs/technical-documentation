@@ -117,6 +117,8 @@ Where:
 * `access_key` is required for API Key authentication.
 * `pki_cert_issuer_name` is used for X.509 CA minting.
 * `jwt_keys_secret_name` points to the Akeyless item that stores JWT signing keys for JWT-SVID publication.
+* `jwt_keys_retention_period` (optional) - this indicates the interval with which to keep expired keys in the JWT SVIDs kept in the Akeyless secret. When not specified, the default 48 hours applies.
+* `jwt_keys_max_count` (optional) - this configuration controls how many total JWT SVIDs will be kept in the Akeyless secret. When not specified, the default 10 applies.
 
 For K8s, GCP, or Azure Authentication Methods, also set:
 
