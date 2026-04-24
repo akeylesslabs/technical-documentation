@@ -43,7 +43,8 @@ akeyless rotated-secret update windows \
 --secure-access-enable true \
 --secure-access-host <hostname or IP> \
 --secure-access-rdp-domain <domain name> \
---rotate-after-disconnect <true|false>
+--rotate-after-disconnect <true|false> \
+--lock-during-sra-session <true|false>
 ```
 
 Where:
@@ -55,7 +56,8 @@ Optional:
 
 * **secure-access-rdp-user:** Override the RDP Domain username.
 * **secure-access-allow-external-user:** Allow providing external user for a domain users [true/false].
-* **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+* **lock-during-sra-session:** Optional for Rotated Secret. Lock this secret for read and update while an SRA session is active.
+* **rotate-after-disconnect:** Optional for Rotated Secret. Controls post-session rotation. Supported values are `false`, `true`, `0` (immediate), or a positive number of minutes to delay rotation.
 * **secure-access-rd-gateway-server:** Optional for Dynamic Secret, to connect from SRA to the remote host by way of an RD-Gateway server.
 
 ## Set Up Remote Access to a Windows Machine from the Akeyless Console
@@ -73,7 +75,8 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
     * `Override User`: Optional for Dynamic Secret. Override the RDP Domain username.
     * `Allow Providing External Username`: Optional for Dynamic Secret. Select to enable an external username to log in to the target host.
     * `RD Gateway`: Optional for Dynamic Secret. Connect from SRA to the remote host by way of an RD-Gateway server.
-    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+    * `Lock secret while session is active`: Optional for Rotated Secret. Prevents read and update while a session is active.
+    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate immediately or set a delayed rotation schedule after the session ends.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
