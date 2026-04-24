@@ -106,4 +106,3 @@ AKEYLESS_ACCESS_TYPE: "gcp"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 AKEYLESS_GCP_AUDIENCE: "akeyless.io"
 ```
-

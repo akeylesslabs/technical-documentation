@@ -202,4 +202,3 @@ spark.conf.set("api.key", API_KEY)
 val apiKey = spark.conf.get("api.key")
 println(apiKey)
 ```
-

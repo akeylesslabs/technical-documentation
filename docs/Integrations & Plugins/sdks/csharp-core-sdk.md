@@ -125,4 +125,3 @@ DeleteItemOutput deleteItemResult = instance.DeleteItem(deleteItemBody);
 ## API Reference
 
 For a detailed API reference, see [here](https://github.com/akeylesslabs/akeyless-csharp-netcore).
-

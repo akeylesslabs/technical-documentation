@@ -797,4 +797,3 @@ When you are working with a GKE cluster, make sure that port **8443** is opened 
 ## Tutorial
 
 Check out our tutorial video on [Injecting Secrets into a Kubernetes Cluster](https://tutorials.akeyless.io/docs/injecting-secrets-into-a-kubernetes-cluster).
-

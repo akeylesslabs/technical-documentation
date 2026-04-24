@@ -167,4 +167,3 @@ What it does:
 ## Final Result
 
 If successful, you’ll see the data from the API inside your Databricks workspace, stored securely using a secret retrieved from Akeyless.
-
