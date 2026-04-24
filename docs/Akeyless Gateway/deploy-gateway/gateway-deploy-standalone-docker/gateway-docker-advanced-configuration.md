@@ -90,7 +90,7 @@ Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods](http
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
-```shell Legacy Command
+```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
@@ -115,7 +115,7 @@ With a list of users who can manage your Gateway configuration using the `ALLOWE
 ```shell
 docker run -d -p 8000:8000  -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e GATEWAY_CERTIFICATE="base64-cert" -e GATEWAY_CERTIFICATE_KEY="base64-cert-key" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
-```shell Legacy Command
+```shell Legacy
 docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_CERTIFICATE="base64-cert" -e ADMIN_CERTIFICATE_KEY="base64-cert-key" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
@@ -124,7 +124,7 @@ Alternatively, you can mount the certificate and key directly into the Docker im
 ```shell
 docker run -d -p 8000:8000  -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-admin-cert.key -v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-admin-cert.crt -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
-```shell Legacy Command
+```shell Legacy
 docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-admin-cert.key -v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-admin-cert.crt -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
@@ -210,7 +210,7 @@ To do that, you can set the `CLUSTER_NAME="meaningful-cluster-name"` variable. I
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-```shell Legacy Command
+```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="your-access-id" -e ADMIN_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
@@ -224,7 +224,7 @@ To choose an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) to 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-```shell Legacy Command
+```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxxxxxxx" -e ADMIN_ACCESS_KEY="62Hu...xxx....qlg=" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 

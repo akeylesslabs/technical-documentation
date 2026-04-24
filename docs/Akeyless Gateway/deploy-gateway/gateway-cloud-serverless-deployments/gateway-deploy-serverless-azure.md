@@ -63,7 +63,7 @@ The following Authentication Methods are supported for Azure Serverless:
 
 When using [Azure AD](https://docs.akeyless.io/docs/auth-with-azure) as the `admin_access_id` of the Gateway, make sure to additionally set a list of users who can manage your Gateway configuration using the `allowed_access_permissions` parameter, for example:
 
-```shell Azure_AD
+```shell Azure AD
 using 'main.bicep'
 
 @description('Initial Display Name')

@@ -58,7 +58,7 @@ akeyless target create db \
 --user-name <Database user name> \
 --db-name <Database name>
 ```
-```shell PostgresSQL
+```shell PostgreSQL
 akeyless target create db \
 --name <Target name> \
 --db-type postgres \
@@ -138,7 +138,7 @@ akeyless target create db \
 --port <Database port> \
 --user-name <Database user name>
 ```
-```shell SAP HanaDB
+```shell SAP HANA database
 akeyless target create db \
 --name <Target name> \
 --db-type hanadb \

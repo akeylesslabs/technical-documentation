@@ -59,7 +59,7 @@ Once you have your `customer_fragments.json` file saved, you'll need to provide 
 
 Run the following command to create the Gateway with the mounted fragment:
 
-```shell shell
+```shell
 docker run -d -p 8000:8000 -p 5696:5696 -v /path/of/customer_fragments.json:/home/akeyless/.akeyless/customer_fragments.json -e ADMIN_ACCESS_ID="identity-access-id" -e ADMIN_ACCESS_KEY="identity-access-key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 

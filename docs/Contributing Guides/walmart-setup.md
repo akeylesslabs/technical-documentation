@@ -120,7 +120,7 @@ For more information about authentication methods, see [Authentication Methods](
 
 In the following example, you'll find both the API-key and the LDAP authentication methods: API-Key and LDAP.
 
-```shell API-Key
+```shell API Key
 #configure a profile
 akeyless configure
 Access ID: p-abc12de

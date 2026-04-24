@@ -589,7 +589,7 @@ akeyless/inject_file_secret1: "/K8s/my_k8s_secret2"
 
 To inject an entire folder of secrets from Akeyless, for example, all secrets under `/K8s/my-secrets-folder` will be injected into the pod `fs` under `/tmp/secrets/K8s/<secrets-full-name>`:
 
-```yaml YAML
+```yaml
 akeyless/inject_folder: "/K8s/my-secrets-folder/|location=/tmp/secrets/"
 ```
 

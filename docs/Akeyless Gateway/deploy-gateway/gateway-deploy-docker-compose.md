@@ -84,7 +84,7 @@ While running your Gateway instance inside your cloud environment, you can use [
 
 Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you need to set a list of users who can [manage your Gateway](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#gateway-admins) configuration using the `ALLOWED_ACCESS_PERMISSIONS` variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), like [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key).
 
-```shell AWS_IAM
+```shell AWS IAM
 GATEWAY_ACCESS_ID=<AccessID>
 GATEWAY_ACCESS_TYPE=aws_iam 
 ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<AccessID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
@@ -94,7 +94,7 @@ GATEWAY_ACCESS_ID=<Access ID>
 GATEWAY_ACCESS_TYPE=gcp_gce
 ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
 ```
-```shell Azure_AD
+```shell Azure AD
 GATEWAY_ACCESS_ID=<Access ID>
 GATEWAY_ACCESS_TYPE=azure_ad 
 ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
@@ -124,7 +124,7 @@ ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy"
 
 Add the environment variable to the `docker-compose.yaml` file:
 
-```shell docker-compose.yaml
+```shell docker-compose.yml
 ALLOWED_ACCESS_PERMISSIONS: $ALLOWED_ACCESS_PERMISSIONS
 ```
 

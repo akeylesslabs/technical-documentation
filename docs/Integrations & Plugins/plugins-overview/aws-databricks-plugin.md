@@ -54,7 +54,7 @@ Databricks EC2 → AWS IAM Role → Akeyless IAM Auth Method → Secret Retrieva
 
 ### Step 1: Install Required Packages
 
-```shell Python
+```python
 %pip install akeyless akeyless_cloud_id
 %restart_python
 ```
@@ -63,7 +63,7 @@ Installs the Akeyless SDK and cloud identity helper, then restarts the Python ke
 
 ### Step 2: Authenticate With Akeyless Using AWS IAM
 
-```shell Python
+```python
 from akeyless_cloud_id import CloudId
 import akeyless
 
@@ -94,7 +94,7 @@ This uses the IAM role attached to the Databricks EC2 instance to securely get a
 
 ### Step 3: Retrieve a Secret from Akeyless
 
-```shell Python
+```python
 # Get the API key from Akeyless Vault
 secret_request = akeyless.GetSecretValue(names=[secret_path], token=token)
 res = api.get_secret_value(secret_request)
@@ -105,7 +105,7 @@ This fetches your API Key securely and stores it in the API\_KEY variable.
 
 ### Step 4: Use the Secret (API Call Example)
 
-```shell Python
+```python
 import requests
 
 url = "https://health.data.ny.gov/api/views/jxy9-yhdk/rows.csv"
@@ -117,7 +117,7 @@ Uses the API Key to fetch public healthcare data as an example.
 
 ### Step 5: Load API Data Into a Spark Table
 
-```shell Python
+```python
 import pandas as pd
 from io import StringIO
 
@@ -137,7 +137,7 @@ else:
 
 The only change from the non-DLT version is how the data is saved:
 
-```shell Python
+```python
 @dlt.table(
     name="default.baby_names_by_dlt_pipeline",
     comment="This table is created by a DLT pipeline."
@@ -193,11 +193,11 @@ Example trust policy (cross-account):
 
 Example:
 
-```shell Python
+```python
 # Python cell
 spark.conf.set("api.key", API_KEY)
 ```
-```shell Scala
+```scala
 // Scala cell
 val apiKey = spark.conf.get("api.key")
 println(apiKey)
