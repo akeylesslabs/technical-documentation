@@ -25,7 +25,7 @@ The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://doc
 
 Run the following command to create a PKI Certificate Issuer with a Public CA Target:
 
-```shell Shell
+```shell
 akeyless create-pki-cert-issuer \
 --name <PKI Issuer name> \
 --ca-target <Path/To/Target> \
@@ -127,3 +127,4 @@ Once the certificate issue request is processed, the selected public CA target v
 > For DNS-based validation, ensure the referenced cloud target has the required DNS-zone permissions. For provider guidance, see [Let's Encrypt Target](https://docs.akeyless.io/docs/lets-encrypt#dns-provider-permissions-for-dns-01).
 
 The issued [Certificate item](https://docs.akeyless.io/docs/certificate-storage) should be created under the `destination-path` storage folder inside Akeyless.
+

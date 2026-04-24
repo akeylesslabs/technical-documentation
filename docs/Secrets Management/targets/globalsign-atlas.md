@@ -22,7 +22,7 @@ Akeyless will store and manage the issued certificates and notify you of upcomin
 
 To create a GlobalSign Atlas target with the CLI, run the following command:
 
-```shell Shell
+```shell
 akeyless target create globalsign-atlas \
 --name <Target name> \
 --api-key <API Key> \
@@ -64,3 +64,4 @@ You can find the complete list of parameters for this command in the [CLI refere
     * **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
 
 5. Click **Finish**.
+
