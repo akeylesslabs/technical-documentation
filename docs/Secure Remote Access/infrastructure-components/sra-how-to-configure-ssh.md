@@ -172,7 +172,7 @@ The outcome of this command will be creating a new file beside the public key by
 
 After generating a certificate, you should be able to connect to the server without a key, using a standard command:
 
-```shell ssh
+```shell SSH
 ssh user@server
 ```
 

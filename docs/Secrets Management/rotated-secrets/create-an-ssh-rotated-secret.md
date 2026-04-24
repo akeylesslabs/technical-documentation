@@ -151,7 +151,7 @@ Where `exec_command` should be replaced with the path to your script or any exis
 
 For example, to rotate a user on some Linux distribution like **RedHat**, the following statement can be used:
 
-```shell shell
+```shell Shell
 echo '{{USERNAME}}:{{NEW_PASSWORD}}'| chpasswd
 ```
 

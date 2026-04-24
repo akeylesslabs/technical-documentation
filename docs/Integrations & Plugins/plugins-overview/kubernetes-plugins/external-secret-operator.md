@@ -132,7 +132,7 @@ Where:
 
 Apply the configuration:
 
-```shell shell
+```shell Shell
 kubectl apply -f secretstore.yaml
 ```
 
@@ -254,7 +254,7 @@ Where:
 
 Getting the Kubernetes Secret:
 
-```yaml shell
+```yaml Shell
 kubectl get secret akeyless-secret-to-create-json -o jsonpath='{.data}'
 ```
 

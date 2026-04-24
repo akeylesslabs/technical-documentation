@@ -129,7 +129,7 @@ Akeyless enables CLI access from any Unix terminal.
 
 3. Use `akeyless connect` command to perform SSH authentication to the target server by way of Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
 
-   ```shell General template
+  ```shell General Template
    akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
    ```
 

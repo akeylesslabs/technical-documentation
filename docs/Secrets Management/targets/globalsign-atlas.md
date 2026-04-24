@@ -22,7 +22,7 @@ Akeyless will store and manage the issued certificates and notify you of upcomin
 
 To create a GlobalSign Atlas target with the CLI, run the following command:
 
-```shell shell
+```shell Shell
 akeyless target create globalsign-atlas \
 --name <Target name> \
 --api-key <API Key> \

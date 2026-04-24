@@ -52,7 +52,7 @@ To use the **Kerberos** Auth Method in Akeyless, the following accounts and perm
 
 To authenticate users or clients to services using **Kerberos**, a [Service Principal Name](https://learn.microsoft.com/en-us/windows/win32/ad/service-principal-names) (SPN) must be registered with an account.
 
-```powershell shell
+```powershell Shell
 setspn -U -S HTTP/<SPN> <AccountName>
 ```
 
@@ -68,7 +68,7 @@ Once the SPN is successfully registered, we can proceed with authenticating to t
 
 First, we will retrieve the `msDS-KeyVersionNumber` value:
 
-```powershell shell
+```powershell Shell
 Get-ADUser <AccountName> -Property msDS-KeyVersionNumber
 ```
 
@@ -82,7 +82,7 @@ A [keytab](https://docs.oracle.com/cd/E27515_01/common/tutorials/kerberos_keytab
 
 Run the following command to generate a **keytab** for the user who will be authenticated by way of Kerberos:
 
-```powershell shell
+```powershell Shell
 ktpass /princ <username>@<REALM> /ptype krb5_nt_principal /crypto <EncryptionType> /out <OutputFile> /mapuser <MapUser> /kvno <KeyVersionNumber> /pass <Password>
 ```
 

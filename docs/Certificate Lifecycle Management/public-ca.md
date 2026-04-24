@@ -25,7 +25,7 @@ The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://doc
 
 Run the following command to create a PKI Certificate Issuer with a Public CA Target:
 
-```shell shell
+```shell Shell
 akeyless create-pki-cert-issuer \
 --name <PKI Issuer name> \
 --ca-target <Path/To/Target> \

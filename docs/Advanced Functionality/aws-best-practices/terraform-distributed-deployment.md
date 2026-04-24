@@ -50,7 +50,7 @@ The following steps will be used to deploy a distributed deployment.
 
 Set the `env_vars.tf` file to set your AWS account details, as well as declaring the name of the AWS Role that will be created.
 
-```yaml env_vars.tf
+```yaml env-vars.tf
 variable "role_name" {
   description = "The AWS IAM Role name to be created and managed by Terraform"
   type        = string

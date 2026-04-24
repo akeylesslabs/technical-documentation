@@ -53,7 +53,7 @@ The following Authentication Methods are supported for serverless mode:
 
 When using [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) as the `admin_access_id` of the Gateway, make sure to also set a list of users that are able to manage your Akeyless Gateway configuration using the `allowed_access_permissions` variable. For example:
 
-```shell AWS_IAM
+```shell AWS IAM
 variable "admin_access_id_type" {
   description = "Set the Admin Auth Type for the Gateway"
   type        = string
