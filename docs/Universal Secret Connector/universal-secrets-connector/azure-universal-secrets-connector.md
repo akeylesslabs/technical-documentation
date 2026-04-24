@@ -162,6 +162,18 @@ To list the certificates from your USC, use the following command:
 akeyless usc list --usc-name <usc name> --object-type certificate
 ```
 
+From Gateway `4.49.0` and CLI `1.142.0`, USC list operations support additional filtering and scale behaviors:
+
+* Pagination support for large Azure Key Vault inventories.
+* Prefix-based filtering for all USC types.
+* Tag-based filtering for Azure USC.
+
+To view the exact supported list flags in your installed CLI version, run:
+
+```shell
+akeyless usc list -h
+```
+
 ### Fetching a Secret from the USC
 
 To view a secret from your USC, use the following command:

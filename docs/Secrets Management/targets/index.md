@@ -22,6 +22,14 @@ Using targets has three primary advantages:
 
 * Don't break the credential chain: Targets can also be used to sync encryption keys with an external KMS, or to define a Target to be used with our [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) to manage and automate your privilege account credentials rotation. This allows every item referencing the target to be up to date on the necessary information and to stay usable even after rotations are done.
 
+## Delete protection for targets
+
+Targets support delete protection to reduce accidental deletion risk.
+
+When delete protection is enabled, target deletion requires explicit protection removal before the delete operation can proceed.
+
+For related item protection controls, see [Secret and Target Locking](https://docs.akeyless.io/docs/secret-and-target-locking).
+
 ## Tutorial
 
 Check out our tutorial video on [Creating and Configuring Targets](https://tutorials.akeyless.io/docs/creating-targets).

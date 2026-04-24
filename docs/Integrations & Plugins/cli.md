@@ -243,6 +243,15 @@ cd .akeyless/profiles/
 
 After you've created an additional profile, add the `--profile` parameter with the profile name to any `akeyless` command to use it under that profile.
 
+To set or retrieve the default active profile in CLI `1.142.0` or later, use:
+
+```shell
+akeyless set-default-profile --profile-name <profile name>
+akeyless get-default-profile
+```
+
+Use `set-default-profile` to switch the profile used when `--profile` is not provided on a command.
+
 ### Advanced Configuration
 
 When creating a profile with the CLI, the profile contains only the Authentication Method settings, such as `Access ID`, and `Access Type`.
