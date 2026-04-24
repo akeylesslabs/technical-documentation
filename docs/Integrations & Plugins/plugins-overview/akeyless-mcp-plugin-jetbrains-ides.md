@@ -69,7 +69,7 @@ curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/
 
 After downloading:
 
-```shell macOS/Linux
+```shell Linux and macOS
 chmod +x akeyless
 ./akeyless
 ```

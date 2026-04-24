@@ -156,7 +156,6 @@ macOS
 macOS (Homebrew)
 macOS Apple Silicon
 macOS Intel
-macOS/Linux
 main.bicep
 main.go
 main.py
