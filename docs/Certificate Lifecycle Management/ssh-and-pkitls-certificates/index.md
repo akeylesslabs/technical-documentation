@@ -270,4 +270,3 @@ To issue a certificate using an existing PKI issuer through the console, go thro
 3. Fill in the public key (`PEM` format) or the `CSR` .
 
 4. Tap generate, and if all parameters are valid, you will get a certificate.
-

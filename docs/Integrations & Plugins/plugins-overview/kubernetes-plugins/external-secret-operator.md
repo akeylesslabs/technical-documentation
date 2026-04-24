@@ -424,4 +424,3 @@ Upon successful execution, a secret named `k8s-created-secret` will be created i
 ## Tutorial
 
 Check out our tutorial video on [Sync Secrets to Kubernetes with External Secrets Operator (ESO)](https://tutorials.akeyless.io/docs/sync-secrets-to-k8s-with-external-secrets-operator).
-

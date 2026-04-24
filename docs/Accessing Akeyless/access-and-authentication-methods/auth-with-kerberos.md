@@ -291,4 +291,3 @@ Make sure to change the following:
 `<your-gateway-url>` with the URL of your Akeyless Gateway.
 
 `<your-access-id>` with your Akeyless Access ID.
-

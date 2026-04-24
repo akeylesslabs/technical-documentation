@@ -137,4 +137,3 @@ To set up a default Encryption Key:
 3. In the **Default Encryption Key** drop-down list, select one of the available encryption keys.
 
 4. Click **Save Changes**.
-

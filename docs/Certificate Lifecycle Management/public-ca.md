@@ -127,4 +127,3 @@ Once the certificate issue request is processed, the selected public CA target v
 > For DNS-based validation, ensure the referenced cloud target has the required DNS-zone permissions. For provider guidance, see [Let's Encrypt Target](https://docs.akeyless.io/docs/lets-encrypt#dns-provider-permissions-for-dns-01).
 
 The issued [Certificate item](https://docs.akeyless.io/docs/certificate-storage) should be created under the `destination-path` storage folder inside Akeyless.
-
