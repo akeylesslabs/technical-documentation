@@ -58,7 +58,7 @@ While Databricks supports SQL, most SQL queries don’t require secrets — henc
 
 ## Example: Sharing a Secret Across Languages
 
-```shell Python
+```python
 # Python Cell: retrieve secret and set Spark config
 spark.conf.set("api.key", "RETRIEVED_SECRET")
 ```
@@ -74,7 +74,7 @@ This notebook retrieves a secret (API Key), fetches data from a public API, and 
 
 ### Step-by-Step Notebook
 
-```shell Python
+```python
 # Install Akeyless packages
 %pip install akeyless akeyless_cloud_id
 %restart_python
@@ -86,7 +86,7 @@ What it does:
 * `akeyless_cloud_id` helps authenticate with Akeyless using Azure Managed Identity.
 * `%restart_python` is required in Databricks after installing new packages to reload the environment.
 
-```shell Python
+```python
 # Import Akeyless SDK and cloud ID generator
 from akeyless_cloud_id import CloudId
 import akeyless
@@ -123,7 +123,7 @@ What it does:
 * Stores the result in the API\_KEY variable.
 * You can now use this API Key in your code securely — without ever hardcoding it!
 
-```shell Python
+```python
 # Use the API key to fetch public data
 import requests
 url = "https://health.data.ny.gov/api/views/jxy9-yhdk/rows.csv"
@@ -135,7 +135,7 @@ What it does:
 
 * Calls a public API that requires authentication (in this case, data.gov) using the secret from Akeyless.
 
-```shell Python
+```python
 # Load response into DataFrame and save to Databricks
 import pandas as pd
 from io import StringIO
@@ -167,3 +167,4 @@ What it does:
 ## Final Result
 
 If successful, you’ll see the data from the API inside your Databricks workspace, stored securely using a secret retrieved from Akeyless.
+

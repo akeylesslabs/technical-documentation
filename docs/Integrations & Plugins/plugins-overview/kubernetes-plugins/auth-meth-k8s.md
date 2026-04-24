@@ -28,7 +28,7 @@ Akeyless supports multiple options to authenticate your Kubernetes cluster with 
 
 To use the Kubernetes Auth Method for authentication:
 
-```yaml YAML
+```yaml
 AKEYLESS_ACCESS_TYPE: "k8s"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_conf_name"
@@ -46,7 +46,7 @@ AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1" # or using por
 
 To use UID Auth Method for authentication:
 
-```yaml YAML
+```yaml
 AKEYLESS_ACCESS_TYPE: "universal_identity"
 AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_INIT_TOKEN: "<token>"
@@ -56,7 +56,7 @@ AKEYLESS_INIT_TOKEN: "<token>"
 
 To use API Key Auth Method for authentication:
 
-```yaml YAML
+```yaml
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
 # AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
@@ -71,7 +71,7 @@ AKEYLESS_ACCESS_ID: "<Access Id>"
 
 To use Azure AD Auth Method for authentication:
 
-```yaml YAML
+```yaml
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
 # AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
@@ -86,7 +86,7 @@ Set `AKEYLESS_AZURE_OBJ_ID` when you need to select a specific user-assigned man
 
 To use AWS-IAM Auth Method for authentication:
 
-```yaml YAML
+```yaml
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
 # AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
@@ -106,3 +106,4 @@ AKEYLESS_ACCESS_TYPE: "gcp"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 AKEYLESS_GCP_AUDIENCE: "akeyless.io"
 ```
+

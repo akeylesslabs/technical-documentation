@@ -34,7 +34,7 @@ To create a passkey by way of the Akeyless API, follow this structure:
 
 _API Endpoint:_
 
-```shell HTTP
+```http
 POST http://localhost:8081/create-passkey
 ```
 
@@ -59,3 +59,4 @@ _Request Payload:_
 * `username`: The username associated with the passkey, which is searchable in the system.
 * `origin-url`: A list of allowed origin URLs (websites) where the passkey can be used. This parameter is searchable.
 * `accessibility`: Determines whether the passkey is for personal or regular use. If not specified, the passkey is classified as regular.
+

@@ -55,7 +55,7 @@ akeyless target create lets-encrypt \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
 ```
-```shell HTTP
+```shell
 akeyless target create lets-encrypt \
 --name <Target Name> \
 --email <ACME Account Email> \
@@ -173,3 +173,4 @@ akeyless get-certificate-value \
 >
 > `validate-certificate-challenge` is required for HTTP challenge flows. DNS challenge flows do not require this additional validation command.
 > For a PKI issuer that uses a Let's Encrypt target, requested TTL values in certificate requests can be between 30 and 90 days. The issued Let's Encrypt certificate validity is fixed at 90 days.
+

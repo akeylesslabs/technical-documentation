@@ -411,7 +411,7 @@ fixedArtifactRepository: "artifacts.site2.akeyless.io"
 
 To set a local rate limit on your Gateway instance you can add the `GW_RATE_LIMIT` environment variable where the value will set the maximum calls per minute. When a client reaches that threshold, this will be logged and any additional requests during that minute will be discarded on the Gateway:
 
-```yaml YAML
+```yaml
 env:
   - name: GW_RATE_LIMIT
     value: 4000

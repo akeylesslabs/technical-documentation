@@ -53,7 +53,6 @@ create certificate
 Create PKI Cert Issuer
 Create your namespace
 Create-Key-In-Akeyless
-csharp
 Custom Rotation Statement
 Custom Tokenization
 customCA
@@ -116,7 +115,6 @@ Google Chronicle
 gpg key creation
 Group
 GW Cloud ID
-HTTP
 ini
 Injectfile.yaml
 Inline connection
@@ -126,9 +124,7 @@ Inline Login
 Issue Certificate
 Issuer Discovery
 issuer.yaml
-JavaScript
 Jenkins
-JSON
 JWT
 k8s_sa.yaml
 krb5.conf
@@ -188,7 +184,6 @@ Private Key
 Prometheus Exporter
 Prometheus Scraping
 pushsecret.yaml
-Python
 Rancher
 RDP
 Redis
@@ -218,7 +213,6 @@ secretstore.yaml
 Secure Remote Access
 SegregationForNamespace1.yaml
 Set Akeyless URL
-Shell
 sing_key_parse.go
 Snowflake
 Splunk
@@ -266,6 +260,5 @@ Windows Linked Target
 Windows Target
 WMT tenant network
 Wordpress.yaml
-YAML
 your-RSA-key-name
 yum
