@@ -1,6 +1,6 @@
 - auth-meth-k8s
 - policy-segregation-for-kubernetes
-- how-to-provision-secret-to-your-k8s
+- akeyless-kubernetes-secrets-injector
 - external-secrets-operator
 - eso-and-aks-workload-identity
 - kubernetes-secrets-store-csi-provider
