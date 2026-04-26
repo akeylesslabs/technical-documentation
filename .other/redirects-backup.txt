@@ -72,3 +72,5 @@
 /v2/docs/access-resources-remotely -> /docs/sra-access-resources
 /docs/remote-access-desktop-application-beta -> /docs/sra-desktop-application-beta
 /v2/docs/remote-access-desktop-application-beta -> /docs/sra-desktop-application-beta
+/docs/copy-of-remote-access-on-k8s -> /docs/sra-remote-access-on-k8s
+/v2/docs/copy-of-remote-access-on-k8s -> /docs/sra-remote-access-on-k8s
