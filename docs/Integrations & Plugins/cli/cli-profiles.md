@@ -12,6 +12,15 @@ next:
 ---
 CLI profiles store authentication and command defaults for the Akeyless CLI.
 
+## When to use profiles
+
+Profiles are useful when you need to:
+
+* Switch between tenants or environments.
+* Use different authentication methods for different workflows.
+* Keep Gateway or default path settings scoped to specific command contexts.
+* Run automation with a consistent default profile while still allowing command-level override.
+
 ## Create and use profiles
 
 ### Create a profile
@@ -61,9 +70,18 @@ An explicit `--profile` flag takes precedence over environment and settings-base
 
 ## Manage the default profile
 
-> Warning:
+> ⚠️ **Warning:**
 >
 > Support for changing the default profile with `set-default-profile` and viewing it with `get-default-profile` was added in CLI version `1.142.0`.
+
+### Default profile precedence
+
+The CLI resolves the effective default profile in this order:
+
+1. Explicit `--profile` flag on the command.
+2. `AKEYLESS_DEFAULT_PROFILE` environment variable.
+3. `default_profile` stored in `.akeyless/settings`.
+4. Built-in fallback value `default`.
 
 ### Set the default profile
 
@@ -92,9 +110,7 @@ The command output includes:
 * Redacted token
 * Token expiry
 
-If the CLI is not currently authenticated, the command reports the authentication fields as `Not authenticated`.
-
-You can also pass `--profile <profile name>` to inspect a specific profile context.
+If the CLI is not currently authenticated, the command reports **Access ID**, **Token**, and **Token expiry** as `Not authenticated`.
 
 ### Edit the default profile manually
 
@@ -103,15 +119,6 @@ Because the default profile is stored in `.akeyless/settings`, changing the acti
 If needed, you can edit the `default_profile` value manually in `.akeyless/settings`, but Akeyless recommends using `akeyless set-default-profile --profile <profile name>` so the setting is written in the supported format.
 
 Editing a profile's `toml` file changes that profile's configuration, but does not change which profile is treated as the default.
-
-### Default profile precedence
-
-The CLI resolves the effective default profile in this order:
-
-1. Explicit `--profile` flag on the command.
-2. `AKEYLESS_DEFAULT_PROFILE` environment variable.
-3. `default_profile` stored in `.akeyless/settings`.
-4. Built-in fallback value `default`.
 
 If both `AKEYLESS_DEFAULT_PROFILE` and `default_profile` are set, the environment variable wins for that shell or process.
 
@@ -139,12 +146,3 @@ Where:
 * `cert_username`: Default username for issued SSH certificates.
 * `public_key_file_path`: Path to the SSH public key file.
 * `legacy_signing_alg`: Use the SSH legacy signing algorithm.
-
-## When to use profiles
-
-Profiles are useful when you need to:
-
-* Switch between tenants or environments.
-* Use different authentication methods for different workflows.
-* Keep Gateway or default path settings scoped to specific command contexts.
-* Run automation with a consistent default profile while still allowing command-level override.

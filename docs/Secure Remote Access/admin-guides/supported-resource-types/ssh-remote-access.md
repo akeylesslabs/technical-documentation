@@ -102,12 +102,12 @@ Akeyless enables CLI access from any Unix terminal.
    AKEYLESS_GW_REST_API=""
 
    # Following are used for control service, to configure the temporary session:
-   # ${SRA-CTRL-PROTO}://"${SRA_API_PREFIX}${SRA_HOST}${SRA-CTRL-PATH}":"${SRA-CTRL-PORT}
+    # ${SRA_API_PROTO}://"${SRA_API_PREFIX}${SRA_HOST}${SRA_API_PATH}":"${SRA_API_PORT}
    #
    SRA_API_PREFIX=""
-   SRA-CTRL-PATH=""
-   SRA-CTRL-PROTO=http
-   SRA-CTRL-PORT=9900
+    SRA_API_PATH=""
+    SRA_API_PROTO=http
+    SRA_API_PORT=9900
    SRA_SSH_PORT=22
 
    # Allow caching of temp session creds
@@ -123,13 +123,13 @@ Akeyless enables CLI access from any Unix terminal.
 
    * `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
 
-   * `AKEYLESS_PROFILE`: Akeyless CLI profile to be used.
+   * `AKEYLESS_PROFILE`: Akeyless CLI profile to be used. For profile creation, precedence, and default-profile behavior, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
 
    * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
 
 3. Use `akeyless connect` command to perform SSH authentication to the target server by way of Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
 
-  ```shell General Template
+    ```shell General Template
    akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
    ```
 
