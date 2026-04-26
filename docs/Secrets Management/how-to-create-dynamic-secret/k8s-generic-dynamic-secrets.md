@@ -34,7 +34,7 @@ In addition, you must supply a list of Allowed Namespaces to exist within, to co
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 
-* A [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#k8s-generic) or the equivalent inline credentials
+* A [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) or the equivalent inline credentials
 
 * **Fixed Mode:** A pre-defined privileged service account or a Kubernetes user, with permission to run the Kubernetes API `RequestToken` command to generate JWT tokens for other service accounts. In our example, it will be called `token-request-sa` or `token-request-user` respectively. This entity would be used as a privileged user to generate the temporary tokens for other service accounts. In our example, it will be called `example-service-account`.
 
@@ -127,11 +127,11 @@ subjects:
   namespace: <Namespace>
 ```
 
-If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#k8s-generic) using either the GW Service Account or the dedicated Service Account (if it's a dedicated Service Account, be sure to extract its Bearer Token).
+If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using either the GW Service Account or the dedicated Service Account (if it's a dedicated Service Account, be sure to extract its Bearer Token).
 
 > ℹ️ **Info (Kubernetes v1.24 and above):**
 >
-> Starting from Kubernetes v1.24 and above, note that Service Accounts are created without tokens by default. To provide the privileged Service Account a Bearer Token for creating the [Kubernetes Generic Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#k8s-generic), create the token manually.
+> Starting from Kubernetes v1.24 and above, note that Service Accounts are created without tokens by default. To provide the privileged Service Account a Bearer Token for creating the [Kubernetes Generic Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic), create the token manually.
 
 When using `kubeadm`, please make sure to enable the following API flags in the `kubeadm-config.yaml` file.
 
@@ -253,13 +253,13 @@ subjects:
 EOF
 ```
 
-If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#k8s-generic) using the Client Certificate generated above.
+If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using the Client Certificate generated above.
 
 ## Dynamic Generic Kubernetes Secrets with the CLI
 
 ### Create a Dynamic Generic Kubernetes Secret
 
-**Fixed Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#create-a-generic-kubernetes-target-from-the-cli) in **Fixed Mode**, use the following command:
+**Fixed Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Fixed Mode**, use the following command:
 
 ```shell Fixed Mode
 akeyless dynamic-secret create k8s \
@@ -285,7 +285,7 @@ Where:
 
 * `k8s-namespace`: The name of the Kubernetes Namespace where the example Kubernetes ServiceAccount exists.
 
-**Dynamic Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#create-a-generic-kubernetes-target-from-the-cli) in **Dynamic Mode**, use the following command (note that parameters will change if you choose to create a Service Account using an existing Role, or if you choose to generate everything from scratch):
+**Dynamic Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Dynamic Mode**, use the following command (note that parameters will change if you choose to create a Service Account using an existing Role, or if you choose to generate everything from scratch):
 
 ```shell Existing Role
 akeyless dynamic-secret create k8s \
@@ -341,7 +341,7 @@ roleRef:
 >
 > While working with RoleBinding using a `yml` file, the `namespace` subjects are ignored and managed only by way of the `Allowed Namespaces` list.
 
-If you don't have a configured [Kubernetes Targets](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets) yet, you can use the command with your Kubernetes Cluster connection strings inline:
+If you don't have a configured [Kubernetes Targets](https://docs.akeyless.io/docs/kubernetes-targets) yet, you can use the command with your Kubernetes Cluster connection strings inline:
 
 * `k8s-cluster-endpoint`: The URL of the cluster.
 
@@ -445,7 +445,7 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
     * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-    * **Target mode:** In this section, you can either select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets) or specify endpoint details explicitly in the next section.
+    * **Target mode:** In this section, you can either select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets) or specify endpoint details explicitly in the next section.
 
 5. Select your Service Account mode, **Fixed** or **Dynamic**, and fill in the following parameters:
 

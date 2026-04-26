@@ -20,7 +20,7 @@ You can create dynamic access credentials for AWS in two modes:
 ## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
-* An [AWS Target](https://docs.akeyless.io/docs/aws-targets)
+* An [AWS Target](https://docs.akeyless.io/docs/cloud-targets)
 * If you are using `iam_user` mode, the minimum required policy for the user should include the following permissions:
 
 ```json
@@ -81,9 +81,9 @@ _Note:_ Make sure that the target AWS role that will be part of the roles that t
 
 > ℹ️ **Note:**
 >
-> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/aws-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/aws-targets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/cloud-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/cloud-targets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic AWS secret with the CLI using an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets), run the following command:
+To create a dynamic AWS secret with the CLI using an existing [AWS Target](https://docs.akeyless.io/docs/cloud-targets), run the following command:
 
 ```shell
 akeyless dynamic-secret create aws \
@@ -131,7 +131,7 @@ Where:
 
 ### Inline Connection String
 
-If you don't have an [AWS Target](https://docs.akeyless.io/docs/aws-targets) yet, you can use the command with target AWS account connection settings:
+If you don't have an [AWS Target](https://docs.akeyless.io/docs/cloud-targets) yet, you can use the command with target AWS account connection settings:
 
 * `aws-access-key-id`: The Access ID of the privileged user you created to authenticate Akeyless with AWS.
 
@@ -165,9 +165,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-    * **Target mode:** In this section, you can either select an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) or specify details of the target AWS account explicitly.
+    * **Target mode:** In this section, you can either select an existing [AWS Target](https://docs.akeyless.io/docs/cloud-targets) or specify details of the target AWS account explicitly.
 
-        * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets).
+        * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/cloud-targets).
 
         * Check the **Explicitly specify target properties** to provide details of the target AWS account in the next step.
 

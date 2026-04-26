@@ -56,7 +56,7 @@ By default, the Gateway configuration is encrypted with your account's default e
 
 #### Customer Fragment
 
-If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a Base64-encoded JSON that includes your **Customer Fragment**.
+If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge), create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a Base64-encoded JSON that includes your **Customer Fragment**.
 
 ```shell values.yaml
 kubectl create secret generic customer-fragment \
@@ -150,7 +150,7 @@ globalConfig:
       value: "true"
 ```
 
-Once the Gateway is running, you can set the matching AccessID as your OIDC default login using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager)
+Once the Gateway is running, you can set the matching AccessID as your OIDC default login using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway)
 
 ## Cache Settings
 

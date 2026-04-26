@@ -185,5 +185,5 @@ resource "aws_iam_role_policy_attachment" "attach" {
 ### Run the Deployment
 
 1. Run `terraform init && terraform apply`.  
-2. Create an [AWS Target](https://docs.akeyless.io/docs/aws-targets) in Akeyless using the **Gateway Cloud ID** option.  
+2. Create an [AWS Target](https://docs.akeyless.io/docs/cloud-targets) in Akeyless using the **Gateway Cloud ID** option.  
 3. Use that target whenever you create a **Dynamic Secret**, **Rotated Secret**, or **USC** .

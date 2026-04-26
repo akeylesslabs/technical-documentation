@@ -12,7 +12,7 @@ next:
 ---
 > ℹ️ **Note:** Venafi recently became CyberArk Machine Identity Security.
 
-Akeyless officially integrates with **Cert Manager**. This guide demonstrates integration based on a Venafi Dynamic Secret. For direct integration with Akeyless, follow the main [Cert Manager](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-cert-manager) guide.
+Akeyless officially integrates with **Cert Manager**. This guide demonstrates integration based on a Venafi Dynamic Secret. For direct integration with Akeyless, follow the main [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) guide.
 
 ## Using cert-manager With Akeyless and Venafi Dynamic Secret
 

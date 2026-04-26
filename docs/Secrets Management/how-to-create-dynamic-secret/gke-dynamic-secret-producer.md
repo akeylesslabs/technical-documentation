@@ -24,9 +24,9 @@ To use a dynamic GKE secret, your GCP administrator needs to create a GCP IAM se
 
 > ℹ️ **Note:**
 >
-> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#gke). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gke-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/kubernetes-targets#gke). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gke-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic GKE secret with the CLI using an existing [GKE Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#gke), run the following command:
+To create a dynamic GKE secret with the CLI using an existing [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke), run the following command:
 
 ```shell
 akeyless dynamic-secret create gke \
@@ -52,13 +52,13 @@ Where:
 
 * `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* `target-name`: A name of the [GKE Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#gke) that enables connection to the GKE cluster.
+* `target-name`: A name of the [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke) that enables connection to the GKE cluster.
 
 * `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 ### Inline Connection Strings
 
-If you don't have a [GKE Target](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-targets#gke) yet, you can use the command with your GKE connection string:
+If you don't have a [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke) yet, you can use the command with your GKE connection string:
 
 * `gke-cluster-name`: The name of the GKE cluster you want to connect to.
 

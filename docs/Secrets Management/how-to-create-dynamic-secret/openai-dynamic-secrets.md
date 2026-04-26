@@ -82,7 +82,7 @@ Where:
 
     * **Gateway**: Select the Gateway through which the dynamic secret will create users.
 
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge#/).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge#/).
 
 5. If you checked **Explicitly specify target properties**, click **Next**.
 
