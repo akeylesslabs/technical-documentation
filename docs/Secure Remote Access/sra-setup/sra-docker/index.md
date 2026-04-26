@@ -58,10 +58,10 @@ To deploy a gateway with the SRA utility, run the following steps:
 
 1. For SSH access, configure the following in the `docker-compose.yaml` file:
 
-    * ```yaml docker-compose.yaml
-        volumes:
-        - /path/to/ca.pub:/var/akeyless/creds/ca.pub
-        ```
+     ```yaml
+     volumes:
+         - /path/to/ca.pub:/var/akeyless/creds/ca.pub
+     ```
 
     In the example above, the `ca.pub` is the public key specified in the SSH Certificate Issuer.
 

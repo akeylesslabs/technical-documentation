@@ -86,7 +86,7 @@ target_elasticsearch_index="<your_index>" (required)
 
 ## Logz.io
 
-```yaml Shell
+```yaml
 target_log_type="logz_io"
 target_logz_io_token="<TOKEN>"
 target_logz_io_protocol="tcp"
