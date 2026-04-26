@@ -1,5 +1,5 @@
-- remote-access-getting-started
-- remote-access-setup
-- admin-guides
-- user-guides
-- infrastructure-components
+- sra-getting-started
+- sra-setup
+- sra-admin-guides
+- sra-user-guides
+- sra-infrastructure-components

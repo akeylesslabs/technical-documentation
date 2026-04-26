@@ -44,6 +44,37 @@ If you wish the target to reference a specific Storage Account, add the followin
 
 * `resource-name`: The name of the Azure Storage Account.
 
+### Create an Azure Storage Account target with the CLI
+
+To create an Azure target for an Azure Storage Account with the CLI, run the following command:
+
+```shell
+akeyless target create azure \
+--name <target name> \
+--tenant-id <Azure tenant ID> \
+--client-id <Azure client ID> \
+--client-secret <Azure client secret> \
+--subscription-id <Subscription ID> \
+--resource-group-name <Resource Group name> \
+--resource-name <Resource name>
+```
+
+Where:
+
+* `name`: A unique name of the target. The name can include the path to the virtual folder where the target should be created, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+
+* `tenant-id`: The ID of the Azure tenant.
+
+* `client-id`: The client ID of the app that has the Storage Account Key Operator Service Role permission assigned to the Azure Storage Account.
+
+* `client-secret`: The client secret of the app that has the Storage Account Key Operator Service Role permission assigned to the Azure Storage Account.
+
+* `subscription-id`: The ID of the subscription that contains the Azure Storage Account.
+
+* `resource-group-name`: The name of the resource group to which the Azure Storage Account belongs.
+
+* `resource-name`: The name of the Azure Storage Account.
+
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#azure) section.
 
 ## Create an Azure Target in the Console
