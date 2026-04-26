@@ -5,9 +5,7 @@
 - sra-web-bastion
 - sra-web-bastion-advanced-config
 - sra-ssh-log-forwarding
-- sra-akeyless-connect
 - sra-akeyless-scp
-- sra-ssh-certificates
 - sra-bastion-docker
 - sra-web-bastion-docker
 - sra-basic-bastion
