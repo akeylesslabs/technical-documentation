@@ -36,10 +36,15 @@ You can find the complete list of parameters for this command with the CLI Refer
 
 To create a password using the Console, run the following steps:
 
-1. Log in to the Akeyless Console, and go to **Items** > **New** > **Password**.
-2. Define a Name of the password, and specify the Location as a path to the virtual folder where you want to create the new password, using slash / separators. If the folder does not exist, it will be created together with the password.
-3. Define the remaining parameters as follows:
+1. Log in to the Akeyless Console and go to **Items**.
+2. Select **+ New**, then select **Password**.
+
+This opens the **Create Password** wizard.
+
+1. Define a name for the password, and specify the location as a path to the virtual folder where you want to create the new password, using slash `/` separators. If the folder does not exist, it will be created together with the password.
+2. Define the remaining parameters as follows:
    * **Delete Protection**: When enabled, protects the secret from accidental deletion.
    * **Username**: Username value.
    * **Password**: Password value.
    * **Website**: Comma separated list of URLs associated with the password.
+3. Select **Finish**.

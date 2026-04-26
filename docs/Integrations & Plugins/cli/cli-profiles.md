@@ -17,10 +17,24 @@ CLI profiles store authentication and command defaults for the Akeyless CLI.
 To create a profile explicitly, run:
 
 ```shell
-akeyless configure --profile <profile name> --access-id <Access ID> --access-key <Access key> --access-type access_key
+akeyless configure --profile <profile name> --access-id <Access ID> --access-type <access type>
 ```
 
 The `--profile` flag names the profile file that the CLI stores under `.akeyless/profiles`.
+
+`configure` supports multiple access types, including `access_key`, `password`, `azure_ad`, `saml`, `oidc`, `aws_iam`, `gcp`, `k8s`, `cert`, `oci`, and `kerberos`. Add the flags required for the selected access type.
+
+For example, for API key authentication:
+
+```shell
+akeyless configure --profile <profile name> --access-id <Access ID> --access-key <Access key> --access-type access_key
+```
+
+For email and password authentication:
+
+```shell
+akeyless configure --profile <profile name> --access-id <Access ID> --admin-email <Email> --admin-password <Password> --access-type password
+```
 
 You can also create a profile during first-time CLI setup when the CLI prompts for a profile name.
 

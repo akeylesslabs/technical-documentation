@@ -36,7 +36,7 @@ You will be taken to the Akeyless Console homepage.
 2. Select **+ New**.
 3. Select **Static Secret** from the presented menu.
 
-This opens the **Create Static Secret** form.
+This opens the **Create Static Secret** wizard.
 
 ## Step 3: Configure the Static Secret
 
