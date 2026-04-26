@@ -28,7 +28,7 @@ In addition to retrieving secrets from Akeyless to your Kubernetes cluster, you 
 ## Prerequisites
 
 * [Helm](https://helm.sh/) installed
-* Kubernetes v1.16 or higher
+* Kubernetes v1.19 or higher
 
 ## Installing With Helm
 
@@ -132,7 +132,7 @@ Where:
 
 Apply the configuration:
 
-```shell shell
+```shell
 kubectl apply -f secretstore.yaml
 ```
 
@@ -254,7 +254,7 @@ Where:
 
 Getting the Kubernetes Secret:
 
-```yaml shell
+```yaml Shell
 kubectl get secret akeyless-secret-to-create-json -o jsonpath='{.data}'
 ```
 

@@ -43,6 +43,8 @@ For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/do
 
 * For Azure Kubernetes Service (AKS), **managed-identity** is enabled on your AKS cluster.
 
+* For AKS Workload Identity, the AKS OIDC issuer and workload identity features are enabled.
+
 * For Google Kubernetes Engine (GKE) cluster, port **8443** is opened in your Google Cloud Platform (GCP) firewall rules.
 
 ## Create a Secret in Akeyless
@@ -95,6 +97,8 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
     * Set `AKEYLESS_ACCESS_TYPE` to `k8s`. Or with any other supported [Authentication Methods for Kubernetes](https://docs.akeyless.io/docs/auth-meth-k8s).
 
+    * For `AKEYLESS_ACCESS_TYPE` set to `azure_ad`, set `AKEYLESS_AZURE_OBJ_ID` to select a specific user-assigned managed identity. This is required when multiple user-assigned identities are attached.
+
     * Set `AKEYLESS_K8S_AUTH_CONF_NAME` with your Gateway Kubernetes Auth name. Relevant **only** for Access type of `k8s`.
 
     * Set `AKEYLESS_API_GW_URL` with the URL of your Gateway API v1 endpoint: `/8000/api/v1` or port `8080`.
@@ -117,6 +121,8 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
     env:
     AKEYLESS_ACCESS_ID: "<AccessID>"
     AKEYLESS_ACCESS_TYPE: "k8s"
+    # For azure_ad authentication (when selecting a user-assigned identity):
+    # AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
     AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_Auth_Name"
     AKEYLESS_API_GW_URL: "https://Your-Gateway-URL:8000/api/v1" 
     # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
@@ -179,6 +185,80 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
     NAME                                                        DESIRED    CURRENT        READY        AGE
     replicaset.apps/injector-akeyless-secrets-injection-77c857d496   2          2              2           1d
     ```
+
+### AKS Workload Identity (`azure_ad`) Example
+
+To authenticate the injector with Azure Workload Identity on AKS, configure `AKEYLESS_ACCESS_TYPE: "azure_ad"` and run workloads with a ServiceAccount that is mapped to a federated Azure managed identity.
+
+1. Configure the injector chart values.
+
+    ```yaml values.yaml
+    env:
+      AKEYLESS_ACCESS_ID: "<Azure-AD-Access-ID>"
+      AKEYLESS_ACCESS_TYPE: "azure_ad"
+      AKEYLESS_API_GW_URL: "https://<Your-Gateway-URL>:8000/api/v1"
+      # Optional. Set only to select a specific user-assigned identity.
+      # AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
+    ```
+
+2. Annotate the Kubernetes ServiceAccount used by the workload.
+
+    ```yaml
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: app-wi-sa
+      namespace: akeyless
+      annotations:
+        azure.workload.identity/client-id: "<user-assigned-managed-identity-client-id>"
+    ```
+
+3. Label and annotate the workload that consumes Akeyless secrets.
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: wi-demo
+      namespace: akeyless
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: wi-demo
+      template:
+        metadata:
+          labels:
+            app: wi-demo
+            azure.workload.identity/use: "true"
+          annotations:
+            akeyless/enabled: "true"
+        spec:
+          serviceAccountName: app-wi-sa
+          containers:
+            - name: wi-demo
+              image: alpine
+              command: ["sh", "-c", "echo $MY_SECRET; sleep 3600"]
+              env:
+                - name: MY_SECRET
+                  value: akeyless:/K8s/my_k8s_secret
+    ```
+
+4. Validate projected Azure Workload Identity variables in the pod.
+
+    ```shell
+    kubectl exec -n akeyless deploy/wi-demo -- printenv | grep AZURE_
+    ```
+
+Expected output includes these values:
+
+* `AZURE_CLIENT_ID`
+* `AZURE_TENANT_ID`
+* `AZURE_FEDERATED_TOKEN_FILE`
+
+> ℹ️ **Note:**
+>
+> `AKEYLESS_AZURE_OBJ_ID` is not required for the default AKS Workload Identity flow. Set it only when a specific user-assigned identity must be selected.
 
 ## Launch an Application
 
@@ -509,7 +589,7 @@ akeyless/inject_file_secret1: "/K8s/my_k8s_secret2"
 
 To inject an entire folder of secrets from Akeyless, for example, all secrets under `/K8s/my-secrets-folder` will be injected into the pod `fs` under `/tmp/secrets/K8s/<secrets-full-name>`:
 
-```yaml YAML
+```yaml
 akeyless/inject_folder: "/K8s/my-secrets-folder/|location=/tmp/secrets/"
 ```
 

@@ -140,7 +140,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (for example, if you are not authorized to create and access Targets in the Akeyless Console).
 
-        * Use the **Choose an existing target** drop-down list to select the existing [Azure AD Target](https://docs.akeyless.io/docs/cloud-targets).
+        * Use the **Choose an existing target** drop-down list to select the existing [Azure AD Target](https://docs.akeyless.io/docs/azure-targets).
 
         * Check the **Explicitly specify target properties** to provide details of the target Azure AD in the next step.
 

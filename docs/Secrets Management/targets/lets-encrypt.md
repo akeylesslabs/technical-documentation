@@ -55,7 +55,7 @@ akeyless target create lets-encrypt \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
 ```
-```shell HTTP
+```shell
 akeyless target create lets-encrypt \
 --name <Target Name> \
 --email <ACME Account Email> \

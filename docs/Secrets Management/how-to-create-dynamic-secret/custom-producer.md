@@ -188,7 +188,7 @@ That predefined ID is sent to the `POST /sync/revoke` endpoint, which must also 
 
 After you have a custom dynamic secret implementation that follows these specifications, create a custom dynamic secret from the Akeyless CLI.
 
-```bash
+```shell
 akeyless dynamic-secret create \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \

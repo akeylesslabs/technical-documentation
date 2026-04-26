@@ -77,7 +77,7 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 * In our scenario, we aim to obtain a token for utilizing the Akeyless API. Following this, we intend to establish an authentication method for a new employee and subsequently link this authentication method to the appropriate access role. Below is a script exemplifying this process.
 
-```shell JavaScript
+```javascript
 (function execute(inputs, outputs) {
     // Define a function to authenticate and get a token
     function authenticateAndGetToken() {

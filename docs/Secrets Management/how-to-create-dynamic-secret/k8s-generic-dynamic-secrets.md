@@ -547,19 +547,15 @@ subjects:
   namespace: kubernetes-dashboard
 ```
 
-1. Extract the service account token (secret) name by running:
+1. Extract the `token-request-sa` service account token by running:
 
-    ```shell
-    TOKENNAME=`kubectl -n kubernetes-dashboard get serviceaccount/token-request-sa -o jsonpath='{.secrets[0].name}'`
-    ```
+  ```shell
+  TOKEN=$(kubectl -n kubernetes-dashboard create token token-request-sa)
+  ```
 
-2. Extract the service account token by running:
+  This command uses the Kubernetes TokenRequest flow, which works on current Kubernetes versions and does not depend on auto-generated service account token secrets.
 
-    ```shell
-    TOKEN=`kubectl -n kubernetes-dashboard get secret $TOKENNAME -o jsonpath='{.data.token}'| base64 --decode`
-    ```
-
-3. Create a Kubernetes generic dynamic secret called **K8s-dashboard-producer** by running:
+1. Create a Kubernetes generic dynamic secret called **K8s-dashboard-producer** by running:
 
     ```shell
     akeyless dynamic-secret create k8s -n k8s-dashboard-producer \
@@ -571,7 +567,7 @@ subjects:
     --k8s-cluster-token ${TOKEN}
     ```
 
-4. Get the **K8s-dashboard-producer** dynamic secret value by running:
+1. Get the **K8s-dashboard-producer** dynamic secret value by running:
 
     ```shell
     akeyless get-dynamic-secret-value -n k8s-dashboard-producer | jq .
@@ -593,7 +589,7 @@ subjects:
     }
     ```
 
-5. Copy the **token** value, and use it for the Kubernetes Dashboard.
+1. Copy the **token** value, and use it for the Kubernetes Dashboard.
 
 ## Single `Kubeconfig` Generation
 

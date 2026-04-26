@@ -106,8 +106,8 @@ The existing permissions for Secure Remote Access are as follows:
 * Request Access: Allows a user to request access and requires adding a reason for access. Once the request is sent, an admin or approver receives a notification in the Event Center to approve or deny. If approved, the user can then access the remote resource.
 * Justify Access Only: Allows a user to access a remote resource only after entering the reason for access.
 * Approval Authority: Allows a user to be part of the eligible approvers for Secure Remote Access Requests of the organization in the specified path. This option cannot be selected if “Request Access” is enabled.
-* Upload Files: For RDP only. Allows a user to upload local files to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/remote-desktop-secure-access#download--upload-files).
-* Download Files: For RDP only. Allows a user to download files from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/remote-desktop-secure-access#download--upload-files).
+* Upload Files: For RDP only. Allows a user to upload local files to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
+* Download Files: For RDP only. Allows a user to download files from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
 
 ## Administrative Rules
 

@@ -21,6 +21,17 @@ It covers:
 * Using [PushSecret](https://external-secrets.io/latest/api/pushsecret/) to push Kubernetes secrets back to Akeyless
 * Example usage
 
+## Supported Secret Types
+
+The Akeyless ESO provider supports all Akeyless secret types:
+
+* [Static Secrets](https://docs.akeyless.io/docs/static-secrets)
+* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
+* [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets)
+* [Certificates](https://docs.akeyless.io/docs/certificate-storage)
+
+You can fetch and push these secret types between Akeyless and Kubernetes using ESO's `ExternalSecret` and `PushSecret` resources.
+
 ## How ESO Works With Akeyless
 
 The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates [standard Kubernetes Secret objects](https://kubernetes.io/docs/concepts/configuration/secret/) in a Kubernetes cluster.
@@ -61,7 +72,7 @@ At a high level:
 
 ## Prerequisites
 
-* A running Kubernetes cluster, **v1.16+** (ESO requirement).
+* A running Kubernetes cluster, **v1.19+** (ESO requirement).
 * **Helm** installed locally.
 * An Akeyless tenant with:
     * At least one **Authentication Method** (API Key, Kubernetes Auth, Azure AD, AWS IAM, or GCP).

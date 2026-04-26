@@ -34,7 +34,7 @@ Using a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an
 
 ### Creating a Root CA Signer Key
 
-Let's create [DFC Key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **Root CA** with a self-signed certificate, first let's create the **CSR** conf file:
+Let's create [DFC Key](https://docs.akeyless.io/docs/gateway-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **Root CA** with a self-signed certificate, first let's create the **CSR** conf file:
 
 ```shell
 cat <<EOF > csr.conf
@@ -57,7 +57,7 @@ Where:
 
 * `digitalSignature`, `KeyCertSign`, `cRLSign`: Key Usage for CA certificates.
 
-Run the following command to create [DFC key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) and the certificate:
+Run the following command to create [DFC key](https://docs.akeyless.io/docs/gateway-zero-knowledge#create-dfc-key-from-the-akeyless-console) and the certificate:
 
 ```shell
 akeyless create-dfc-key \

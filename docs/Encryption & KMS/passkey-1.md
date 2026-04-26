@@ -34,7 +34,7 @@ To create a passkey by way of the Akeyless API, follow this structure:
 
 _API Endpoint:_
 
-```shell http
+```http
 POST http://localhost:8081/create-passkey
 ```
 

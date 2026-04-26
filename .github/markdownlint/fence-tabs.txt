@@ -1,4 +1,6 @@
 # Allowed fenced code block tab labels.
+# Keep entries as tab labels only (text after the language token in a fenced code block).
+# Keep labels in canonical casing to avoid near-duplicate variants.
 .gitlab-ci.yml
 /etc/ssh/principals
 /etc/ssh/sshd_config
@@ -11,31 +13,32 @@ AES256CBC
 AES256GCM
 AES256SIV
 agent.toml
+akeyless connect -h
 Akeyless Events Format
 Akeyless Token
+akeyless_config_file
 Akeyless_sidecar.yaml
 akeyless-connect.rc
+akl_gw_token_reviewer_token.yaml
 akl_gw_token_reviewer.yaml
 AMD64
 API Auth
 API Key
 API Key Token
-API-Key
 apt
 ARM64
 Auth Methods
 AWS
 AWS IAM
 AWS S3
-AWS_IAM
 Azure
 Azure AD
 Azure Analytics
 Azure Blob
 Azure Blob-Inline connection string
 Azure SQL
-Azure_AD
 brew
+ca.pub
 Cassandra
 cdktf.json
 Ceph
@@ -48,7 +51,8 @@ config.yml
 ConfigMap
 create certificate
 Create PKI Cert Issuer
-csharp
+Create your namespace
+Create-Key-In-Akeyless
 Custom Rotation Statement
 Custom Tokenization
 customCA
@@ -59,7 +63,6 @@ default.toml
 Delete Immediately
 dependency definition
 Deployment
-diff
 Disabling a Key
 dnf
 DNS with AWS
@@ -67,7 +70,6 @@ DNS with Azure
 DNS with GCP
 Docker
 Docker Hub Target
-docker-compose.yaml
 docker-compose.yml
 Dynamic
 Dynamic Group
@@ -78,7 +80,6 @@ dynamic_secret.yaml
 Elastic
 Email
 Enabling a Key
-env_vars.tf
 env-vars.tf
 env.yaml
 ExampleChromeFormatCSV.csv
@@ -86,14 +87,17 @@ ExampleJsonSecret
 Existing Role
 Explicit credentials
 externalsecret.yaml
+ExternalSecretExample.yaml:
 fetch-secret.yml
 Fixed
 Fixed Mode
 Fixed Service Account
 Fixed User
+Gateway
 Gateway chart
 Gateway SA Kubernetes Role
 Gateway Service Account
+Gateway With Exmaples
 gateway.env
 GCP
 GCP_GCE
@@ -110,7 +114,6 @@ Google Chronicle
 gpg key creation
 Group
 GW Cloud ID
-http
 ini
 Injectfile.yaml
 Inline connection
@@ -120,9 +123,7 @@ Inline Login
 Issue Certificate
 Issuer Discovery
 issuer.yaml
-JavaScript
 Jenkins
-JSON
 JWT
 k8s_sa.yaml
 krb5.conf
@@ -134,11 +135,9 @@ Kubernetes Auth
 Layout Options
 LDAP
 Legacy
-Legacy Command
 Linux
 Linux (apt)
 Linux (yum/dnf)
-Linux \ macOS
 Linux AMD
 Linux AMD64
 Linux and macOS
@@ -152,7 +151,6 @@ macOS
 macOS (Homebrew)
 macOS Apple Silicon
 macOS Intel
-macOS/Linux
 main.bicep
 main.go
 main.py
@@ -166,7 +164,6 @@ MyAES256SIVKey
 MySQL/MariaDB
 MySQLWordPress.yaml
 Native Kubernetes
-Native Kubernetes Cluster
 Oauth2.0
 OCI IAM
 OIDC
@@ -178,14 +175,13 @@ PKI Certificate
 PKI Certificate.yaml
 pki_cert_with_csr.tmpl
 pki_cert_with_key.tmpl
+plaintext
 policies.json
 PostgreSQL
-PostgresSQL
 Private Key
 Prometheus Exporter
 Prometheus Scraping
 pushsecret.yaml
-Python
 Rancher
 RDP
 Redis
@@ -205,21 +201,21 @@ SAML
 Sample Output
 SAP HANA database
 SAP HanaDB
-Scala
-Scheduled Delete
-secret
+Secret
 secret_token.yaml
 secret.yaml
 secrets.txt
 secretstore.yaml
 Secure Remote Access
+SegregationForNamespace1.yaml
 Set Akeyless URL
-Shell
 sing_key_parse.go
 Snowflake
 Splunk
 sqlcrypt.conf
 SSH
+ssh > ca.pub file
+SSH CA Public Key
 SSH Certificate
 SSH Linked Target
 SSH Target
@@ -249,8 +245,6 @@ Using target
 v16_gitlab-ci.yml
 Validation output
 values.yaml
-values.yaml with empty dir
-values.yaml with storageClass
 vars.tf
 Vault Proxy V1
 Vault Proxy V2
@@ -262,26 +256,5 @@ Windows Linked Target
 Windows Target
 WMT tenant network
 Wordpress.yaml
-YAML
 your-RSA-key-name
 yum
-shell
-akl_gw_token_reviewer_token.yaml
-Gateway
-Gateway With Exmaples
-plaintext
-Using Target
-inline connection
-ExternalSecretExample.yaml:
-Create your namespace
-SegregationForNamespace1.yaml
-HTTP
-ssh > ca.pub file
-ssh
-General template
-akeyless connect -h
-ca.pub
-akeyless_config_file
-SSH CA Public Key
-Create-Key-In-Akeyless
-Inline Connection
