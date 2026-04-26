@@ -7,6 +7,8 @@ metadata:
 ---
 You can create a **Password** item to store the username, password, and the websites associated with those credentials.
 
+Password items are separate from Static Secrets. Use a Password item when storing website or account login credentials that include fields such as username, password, and associated URLs.
+
 ## Create a Password with the Akeyless CLI
 
 To create a password with the CLI, run the following command:

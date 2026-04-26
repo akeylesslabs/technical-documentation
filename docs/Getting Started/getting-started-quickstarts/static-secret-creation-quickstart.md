@@ -12,6 +12,8 @@ next:
 ---
 This Quickstart guides you through creating a Static Secret in Akeyless. A Static Secret is a user-defined value, such as an API Key or password, that you store and retrieve as needed. This is the most basic operation in Akeyless and is often the first step before integrating secrets with applications or automation.
 
+If the value represents website or account credentials with dedicated username, password, and URL fields, use a [Password item](https://docs.akeyless.io/docs/passwords) instead.
+
 ## Prerequisites
 
 You will need:
