@@ -24,7 +24,7 @@ This guide describes how to run a Serverless Gateway on **Azure** based on [Func
 
 | Service | Endpoint |
 | --- | --- |
-| [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
+| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway) | `/console` |
 | [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
 | Akeyless V1 REST API | `/api/v1` |
 | Akeyless V2 REST API | `/api/v2` |
@@ -90,7 +90,7 @@ param admin_access_id = '<Access ID>'
 param allowed_access_permissions = '[{"name": "", "access_id": "", "permissions": ["admin"]}]'
 
 @description('''Akeyless Customer key fragments (Zero Knowledge).
-                For more information https://docs.akeyless.io/docs/implement-zero-knowledge
+                For more information https://docs.akeyless.io/docs/gateway-zero-knowledge
                 The input should be in json format. See the below example.
                 Use the exact format here inside the {braces} and add it to the `default = ` empty value below.
                 {
@@ -146,7 +146,7 @@ param admin_access_key = '<Access Key>'
 param allowed_access_permissions = '[{"name": "", "access_id": "", "permissions": ["admin"]}]'
 
 @description('''Akeyless Customer key fragments (Zero Knowledge).
-                For more information https://docs.akeyless.io/docs/implement-zero-knowledge
+                For more information https://docs.akeyless.io/docs/gateway-zero-knowledge
                 The input should be in json format. See the below example.
                 Use the exact format here inside the {braces} and add it to the `default = ` empty value below.
                 {
@@ -181,13 +181,13 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 * `functionAppName`: The name for the [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) that will be created in Azure.
 
 ### Customer Fragment
 
-To work with [Zero-Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) edit the `customer_fragments` param as follows:
+To work with [Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge) edit the `customer_fragments` param as follows:
 
 ```shell
 "customer_fragments": [{"id": "<Customer Fragment ID>","value": "<Customer Fragment Value>","description": "My Serverless Fragment","name": "ServerLessFragment"}]

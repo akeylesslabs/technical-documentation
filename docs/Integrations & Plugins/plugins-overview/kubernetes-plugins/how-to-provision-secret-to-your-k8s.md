@@ -103,13 +103,13 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
     * Set `AKEYLESS_API_GW_URL` with the URL of your Gateway API v1 endpoint: `/8000/api/v1` or port `8080`.
 
-    * Optional `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list).
+    * Optional `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list).
 
-    * Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`. To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
+    * Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`. To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list) to disable this on the deployment level.
 
-    * `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the Docker entrypoint, can be used at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
+    * `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#override-entrypoint-automatically) the Docker entrypoint, can be used at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list). not required for **public** registry.
 
-    * Optional `AKEYLESS_IGNORE_CACHE`: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be used at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
+    * Optional `AKEYLESS_IGNORE_CACHE`: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be used at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list)
 
     * Optional `INIT_RUN_AS_USER`: To apply a [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to your init container, set the following environment variable, `INIT_RUN_AS_USER: "id=65534"`.
 
@@ -763,7 +763,7 @@ injector-akeyless-secrets-injection-scrape-pods
 
 The `podmonitor` automatically discovers and collects metrics from pods running in a Kubernetes cluster, ensuring seamless integration with Prometheus for dynamic monitoring.
 
-Now, [inject a secret](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#launch-an-application) into your Kubernetes cluster.
+Now, [inject a secret](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#launch-an-application) into your Kubernetes cluster.
 
 Once done, the following metrics will be shown:
 

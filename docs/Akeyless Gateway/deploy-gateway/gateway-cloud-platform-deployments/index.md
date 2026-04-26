@@ -56,10 +56,10 @@ Choose the guide that matches your platform:
 
 | Platform Guide | Typical Identity Integration |
 | --- | --- |
-| [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-k8s#aws-iam) | AWS IAM roles |
+| [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#aws-iam) | AWS IAM roles |
 | [Azure Container App Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-container-app) | Azure managed identity |
-| [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-k8s#azure-active-directory) | Azure AD workload identity |
-| [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-k8s#gcp) | GCP workload identity |
+| [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#azure-active-directory) | Azure AD workload identity |
+| [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#gcp) | GCP workload identity |
 
 ## What Stays the Same Across Platforms
 

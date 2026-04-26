@@ -1,0 +1,11 @@
+- sra-database
+- sra-remote-desktop
+- sra-aws-console
+- sra-azure-portal
+- sra-gcp-portal
+- sra-ssh
+- sra-ldap
+- sra-rabbitmq
+- sra-k8s-cluster
+- sra-web-applications
+- sra-tunnels
