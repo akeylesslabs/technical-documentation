@@ -1,5 +1,5 @@
 ---
-title: Advanced Configuration
+title: Docker Compose Advanced Configuration
 excerpt: ''
 deprecated: false
 hidden: false

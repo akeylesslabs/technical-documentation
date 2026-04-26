@@ -1,5 +1,5 @@
 ---
-title: Advanced Configuration
+title: Kubernetes Advanced Configuration
 excerpt: ''
 deprecated: false
 hidden: false

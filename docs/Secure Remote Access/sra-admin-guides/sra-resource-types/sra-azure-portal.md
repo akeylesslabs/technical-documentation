@@ -16,14 +16,14 @@ You can enable Secure Remote Access to Azure Portal with a Dynamic Secret that g
 
 To enable Secure Remote Access to Azure Portal you need:
 
-* The [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion) deployed.
+* [Remote Access on Kubernetes](https://docs.akeyless.io/docs/sra-setup-k8s) deployed.
 
 * The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
 
 In addition, for users to access the Azure Portal in Isolated mode, you need:
 
-* The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
-* The Azure Portal site URL is specified as part of the `policies` section in the `values.yaml` file on the Web Access Bastion.
+* [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
+* The Azure Portal site URL is specified as part of the `policies` section in the `values.yaml` file on the Zero Trust Web Access deployment.
 
 ## Create an Azure Secret
 
