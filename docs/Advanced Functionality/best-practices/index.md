@@ -34,7 +34,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 **Customer Fragment** - [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge) Akeyless unique encryption patented technology.
 
-**SRA Bastion** - Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
+**SRA Bastion** - Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion).
 
 ## Akeyless Platform
 
@@ -52,7 +52,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 * **Storing item** - Items location inside Akeyless should not be saved on the default root path (`/`). The recommended mode is to create those items under the relevant tree folders that describe the exact unit in your organization. This will enable easier and clearer tenant management.
 
-* [SSH certificates](https://docs.akeyless.io/docs/ssh-certificates) - Should **not** be set with `*` on the `principals` field. Instead, this field should be used for special use cases where your users need special permissions. In addition, SSH certificates should be used with a `list of allowed users` who can log in using those certificates.
+* [SSH certificates](https://docs.akeyless.io/docs/sra-ssh-certificates) - Should **not** be set with `*` on the `principals` field. Instead, this field should be used for special use cases where your users need special permissions. In addition, SSH certificates should be used with a `list of allowed users` who can log in using those certificates.
 
 * [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) - Should be used and set while following the Principle Of Least Privileges (PoLP). Each Dynamic Secret has its permission profile which will determine your temporary users' access level. For example, a database's Dynamic Secret should be used with the minimum permissions for your users based on the `creation statement`, where you should limit the access to a specific database and table.
 
@@ -74,4 +74,6 @@ Different components of the Akeyless Platform require different versions of Kube
 
 * For Kubernetes External KMS: 1.10 or higher
 
-* For Kubernetes External Secrets Operator or secret store provider: 1.16 or higher
+* For Kubernetes External Secrets Operator: 1.19 or higher
+
+* For Kubernetes Secrets Store CSI Provider: 1.16 or higher

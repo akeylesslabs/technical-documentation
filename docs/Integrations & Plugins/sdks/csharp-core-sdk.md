@@ -36,7 +36,7 @@ using akeyless.Model;
 
 Create and configure an instance of Akeyless Client:
 
-```csharp csharp
+```csharp
 configuration config = new Configuration();
 config.BasePath = "https://api.akeyless.io";
 var instance = new V2Api(config);
@@ -52,7 +52,7 @@ The Akeyless **C#** SDK supports multiple [Authentication Methods](https://docs.
 
 To use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) for authentication set the following:
 
-```csharp csharp
+```csharp
 var authBody = new Auth(accessId: "<Access ID>", accessKey: "<Access Key>");
 AuthOutput authResult = instance.Auth(authBody);
 String token = authResult.Token;
@@ -100,14 +100,14 @@ Make sure to set your `Access Id` in the relevant place.
 
 ### Create a Secret
 
-```csharp csharp
+```csharp
 var createSecretBody = new CreateSecret(name: "netcore", value: "value", token: token);
 CreateSecretOutput createSecretResult = instance.CreateSecret(createSecretBody);
 ```
 
 ### Retrieve a Secret
 
-```csharp csharp
+```csharp
 List<String> secrets = new List<String>();
 secrets.Add("netcore");
 var getSecretValueBody = new GetSecretValue(names: secrets, token: token);
@@ -117,7 +117,7 @@ Console.WriteLine(getSecretValueResult["netcore"]);
 
 ### Delete a Secret
 
-```csharp csharp
+```csharp
 var deleteItemBody = new DeleteItem(name: "netcore", deleteImmediately: true, deleteInDays: -1, token: token);
 DeleteItemOutput deleteItemResult = instance.DeleteItem(deleteItemBody);
 ```

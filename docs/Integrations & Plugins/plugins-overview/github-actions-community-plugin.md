@@ -177,7 +177,7 @@ jobs:
         echo "Environment Variables"
         echo "MY_SECRET: ${{ env.MY_SECRET }}"
 ```
-```yaml AWS_IAM
+```yaml AWS IAM
 name: 'Static-Secret'
 on: push
 

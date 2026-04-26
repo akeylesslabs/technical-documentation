@@ -68,3 +68,35 @@ Now, you can run any Akeyless CLI command and be authenticated with the Azure ap
 ```shell
 akeyless list-items --profile azure-app
 ```
+
+## Azure Groups Overage Claim
+
+When Azure does not include the `groups` claim directly in an OIDC token and instead returns distributed-claim pointers (`_claim_names` / `_claim_sources`), as documented in [Groups overage claim](https://learn.microsoft.com/en-us/entra/identity-platform/id-token-claims-reference#groups-overage-claim), Akeyless attempts to resolve the user's full group list by calling Microsoft Graph. According to Microsoft, this overage behavior occurs when membership exceeds 200 groups for JWT (OIDC) tokens or 150 groups for SAML tokens.
+
+```json
+{
+  "_claim_names": {
+    "groups": "src1"
+  },
+  "_claim_sources": {
+    "src1": {
+      "endpoint": "https://graph.microsoft.com/v1.0/users/{objectId}/getMemberObjects"
+    }
+  }
+}
+```
+
+Akeyless detects this distributed-claim pattern and calls Microsoft Graph by using the OIDC auth method's client credentials (`client_id` and `client_secret`) to retrieve group memberships from the [getMemberObjects](https://learn.microsoft.com/en-us/graph/api/directoryobject-getmemberobjects?view=graph-rest-1.0) endpoint. For this flow to succeed, the Azure app registration must have Microsoft Graph **Application** permissions that allow group membership retrieval (for example, [GroupMember.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#groupmemberreadall) or [Directory.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#directoryreadall)), with admin consent granted.
+
+### Grant the Required API Permission
+
+1. In the Azure portal, navigate to **App registrations** and select your Akeyless OIDC application.
+2. Go to **API permissions** and select **Add a permission**.
+3. Select **Microsoft Graph**.
+4. Select **Application permissions**.
+5. Search for and add `GroupMember.Read.All` (or `Directory.Read.All`).
+6. Select **Grant admin consent for \<your directory\>** and confirm.
+
+> ℹ️ **Note:**
+>
+> This permission is only required for distributed-claim group resolution. If Azure includes `groups` directly in the token for your users, no additional Graph API permission is required.

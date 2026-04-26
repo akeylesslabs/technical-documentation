@@ -16,6 +16,6 @@ metadata:
 
 * **Principle of least privilege** - To follow PoLP using the Akeyless RBAC model, use the "list" permission, which provides Just-in-Time access to users without exposing the secret.
 
-* **SSH and CLI access required permissions** - Make sure your users have `read` permissions on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) to ensure they can issue a short-lived certificate to set up the connection.
+* **SSH and CLI access required permissions** - Make sure your users have `read` permissions on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) to ensure they can issue a short-lived certificate to set up the connection.
 
 * **Forward Logs** - From your Gateway to any logging system, to constantly track and monitor your users' activity.

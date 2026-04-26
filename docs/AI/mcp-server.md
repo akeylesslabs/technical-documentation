@@ -61,7 +61,7 @@ If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains 
 
 #### Sample Configuration Structure
 
-```json JSON
+```json
 {
   "mcpServers": {
     "akeyless": {
@@ -163,7 +163,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](https://docs.
 
 ##### Access Key Authentication (Default)
 
-```json JSON
+```json
 {
   "args": [
     "mcp",
@@ -224,7 +224,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](https://docs.
 
 ##### Kubernetes Authentication
 
-```json JSON
+```json
 {
   "args": [
     "mcp",
@@ -253,7 +253,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](https://docs.
 
 ##### OIDC/JWT Authentication
 
-```json JSON
+```json
 {
   "args": [
     "mcp",
@@ -266,7 +266,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](https://docs.
 
 ##### Password Authentication
 
-```json JSON
+```json
 {
   "args": [
     "mcp",
@@ -280,7 +280,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](https://docs.
 
 ##### SAML Authentication
 
-```json JSON
+```json
 {
   "args": [
     "mcp",

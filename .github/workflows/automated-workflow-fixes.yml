@@ -3,10 +3,38 @@ name: Automated Workflow Fixes
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 on:
   schedule:
     - cron: "0 2 * * 1" # Mondays at 2 AM UTC
   workflow_dispatch:
+    inputs:
+      min_severity:
+        description: "Minimum severity to include (low, medium, high, critical)"
+        required: false
+        default: low
+      force_alert_mode:
+        description: "Force alert mode (auto, immediate, digest)"
+        required: false
+        default: auto
+      categories:
+        description: "Optional comma-separated category filter"
+        required: false
+        default: ""
+      stale_suppression_days:
+        description: "Suppress repeat alerts for the same version within N days"
+        required: false
+        default: "7"
+      disable_jira_write:
+        description: "Disable Jira create/update for this manual run"
+        required: false
+        default: "false"
+      reopen_target_status_names:
+        description: "Exact Jira target status names (comma-separated)"
+        required: false
+        default: "Triage,Backlog,In Progress"
 
 jobs:
   link-check:
@@ -37,6 +65,285 @@ jobs:
       branch_name: automation/cli-command-path-check
     secrets: inherit
 
+  dependency-change-monitor:
+    runs-on: ubuntu-latest
+    outputs:
+      dep_summary: ${{ steps.capture.outputs.dep_summary }}
+      dep_findings: ${{ steps.capture.outputs.dep_findings }}
+      dep_top5: ${{ steps.capture.outputs.dep_top5 }}
+      dep_digest_key: ${{ steps.capture.outputs.dep_digest_key }}
+      dep_dedupe_label: ${{ steps.capture.outputs.dep_dedupe_label }}
+      dep_alert_mode: ${{ steps.capture.outputs.dep_alert_mode }}
+      dep_high_critical: ${{ steps.capture.outputs.dep_high_critical }}
+      dep_stale_suppressed: ${{ steps.capture.outputs.dep_stale_suppressed }}
+      dep_cooldown_skips: ${{ steps.capture.outputs.dep_cooldown_skips }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Restore dependency monitor state cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .github/dependency-monitor/state
+          key: dep-monitor-state-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            dep-monitor-state-${{ github.ref_name }}-
+
+      - name: Ensure state directory exists
+        run: |
+          mkdir -p .github/dependency-monitor/state
+
+      - name: Collect dependency changes
+        run: |
+          set -euo pipefail
+
+          MIN_SEVERITY="${{ github.event_name == 'workflow_dispatch' && github.event.inputs.min_severity || 'low' }}"
+          FORCE_ALERT_MODE="${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_alert_mode || 'auto' }}"
+          CATEGORY_FILTER="${{ github.event_name == 'workflow_dispatch' && github.event.inputs.categories || '' }}"
+          STALE_SUPPRESSION_DAYS="${{ github.event_name == 'workflow_dispatch' && github.event.inputs.stale_suppression_days || '7' }}"
+
+          python .github/scripts/collect_dependency_changes.py \
+            --registry .github/dependency-monitor/registry.json \
+            --out-json .github/dependency-monitor/dependency-monitor-report.json \
+            --out-md .github/dependency-monitor/dependency-monitor-report.md \
+            --out-metrics .github/dependency-monitor/dependency-monitor-metrics.json \
+            --state-in .github/dependency-monitor/state/last-seen.json \
+            --state-out .github/dependency-monitor/state/last-seen.json \
+            --min-severity "$MIN_SEVERITY" \
+            --force-alert-mode "$FORCE_ALERT_MODE" \
+            --categories "$CATEGORY_FILTER" \
+            --stale-suppression-days "$STALE_SUPPRESSION_DAYS"
+
+      - name: Capture dependency outputs
+        id: capture
+        run: |
+          set -e
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          report = json.loads(
+              Path('.github/dependency-monitor/dependency-monitor-report.json').read_text(
+                  encoding='utf-8'
+              )
+          )
+
+          summary = (
+              f"Collected {report['docs_impacting_findings']} docs-impacting findings "
+              f"from {report['dependencies_configured']} configured dependencies "
+              f"across {len(report['categories_covered'])} categories"
+          )
+
+          top_lines = []
+          for finding in report.get('top_findings', []):
+              line = (
+                  f"[{finding['severity'].upper()}] {finding['name']} "
+                  f"{finding['previous_version']} -> {finding['version']} "
+                  f"({finding['change_type']}) {finding['release_url']}"
+              )
+              top_lines.append(line)
+
+          gh_output = Path(os.environ['GITHUB_OUTPUT'])
+          with gh_output.open('a', encoding='utf-8') as output:
+              output.write(f"dep_summary={summary}\n")
+              output.write(f"dep_findings={report['docs_impacting_findings']}\n")
+              output.write(f"dep_digest_key={report['digest_key']}\n")
+              output.write(f"dep_dedupe_label={report['dedupe_label']}\n")
+              output.write(f"dep_alert_mode={report['alert_mode']}\n")
+              output.write(f"dep_high_critical={report['high_or_critical_count']}\n")
+              output.write(f"dep_stale_suppressed={report.get('stale_suppressed', 0)}\n")
+              output.write(f"dep_cooldown_skips={report.get('cooldown_skips', 0)}\n")
+              output.write('dep_top5<<EOF\n')
+              output.write('\n'.join(top_lines))
+              output.write('\nEOF\n')
+          PY
+
+      - name: Upload dependency monitor artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-monitor-report
+          path: |
+            .github/dependency-monitor/dependency-monitor-report.json
+            .github/dependency-monitor/dependency-monitor-report.md
+            .github/dependency-monitor/dependency-monitor-metrics.json
+            .github/dependency-monitor/state/last-seen.json
+
+      - name: Save dependency monitor state cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .github/dependency-monitor/state
+          key: dep-monitor-state-${{ github.ref_name }}-${{ github.run_id }}
+
+      - name: Create or update Jira dependency alert
+        id: jira
+        if: ${{ steps.capture.outputs.dep_findings != '0' && (github.event_name != 'workflow_dispatch' || github.event.inputs.disable_jira_write != 'true') }}
+        continue-on-error: true
+        env:
+          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
+          JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
+          DEP_SUMMARY: ${{ steps.capture.outputs.dep_summary }}
+          DEP_TOP5: ${{ steps.capture.outputs.dep_top5 }}
+          DEP_FINDINGS: ${{ steps.capture.outputs.dep_findings }}
+          DEP_ALERT_MODE: ${{ steps.capture.outputs.dep_alert_mode }}
+          DEP_DIGEST_KEY: ${{ steps.capture.outputs.dep_digest_key }}
+          DEP_DEDUPE_LABEL: ${{ steps.capture.outputs.dep_dedupe_label }}
+          REOPEN_TARGET_STATUS_NAMES: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.reopen_target_status_names || 'Triage,Backlog,In Progress' }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${JIRA_BASE_URL:-}" ] || [ -z "${JIRA_EMAIL:-}" ] || [ -z "${JIRA_API_TOKEN:-}" ] || [ -z "${JIRA_PROJECT_KEY:-}" ]; then
+            echo "Jira secrets are not fully configured; skipping dependency alert issue creation."
+            exit 0
+          fi
+
+          TS="$(date -u +'%Y-%m-%d %H:%M UTC')"
+          WEEK_KEY="$(date -u +'%G-W%V')"
+
+          if [ "$DEP_ALERT_MODE" = "immediate" ]; then
+            SUMMARY="Dependency Change Alert [${DEP_DIGEST_KEY}] ${TS}"
+            MODE_LABEL="dep-immediate"
+          else
+            SUMMARY="Dependency Change Digest ${WEEK_KEY} [${DEP_DIGEST_KEY}]"
+            MODE_LABEL="dep-digest"
+          fi
+
+          AUTH_HEADER="Authorization: Basic $(printf '%s:%s' "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
+
+          SEARCH_RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" -G \
+            -H "$AUTH_HEADER" \
+            -H "Content-Type: application/json" \
+            --data-urlencode "jql=project = ${JIRA_PROJECT_KEY} AND labels = dependency-monitor AND labels = ${DEP_DEDUPE_LABEL} ORDER BY created DESC" \
+            --data-urlencode "maxResults=1" \
+            --data-urlencode "fields=key" \
+            "$JIRA_BASE_URL/rest/api/3/search")
+
+          EXISTING_KEY=$(echo "$SEARCH_RESP" | jq -r '.issues[0].key // empty')
+
+          ADF_DESC=$(jq -n \
+            --arg run "$RUN_URL" \
+            --arg depSummary "$DEP_SUMMARY" \
+            --arg depTop5 "$DEP_TOP5" \
+            --arg depMode "$DEP_ALERT_MODE" \
+            --arg depCount "$DEP_FINDINGS" \
+            --arg key "$DEP_DIGEST_KEY" \
+            'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
+             def codeBlock($t): {type:"codeBlock", attrs:{language:""}, content:[{type:"text", text:$t}]};
+             {
+               type:"doc", version:1,
+               content:[
+                 para("Dependency change monitor run generated docs-impacting findings."),
+                 para("Run URL: " + $run),
+                 para("Mode: " + $depMode),
+                 para("Digest key: " + $key),
+                 para("Findings count: " + $depCount),
+                 para($depSummary),
+                 para("Top findings (includes source links):"),
+                 codeBlock($depTop5),
+                 para("Review suggested docs and triage for required updates.")
+               ]
+             }')
+
+          if [ -n "$EXISTING_KEY" ]; then
+            ISSUE_DATA=$(curl -sS "${JIRA_CURL_OPTS[@]}" -G \
+              -H "$AUTH_HEADER" \
+              -H "Content-Type: application/json" \
+              --data-urlencode "fields=status" \
+              "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}")
+
+            STATUS_CATEGORY=$(echo "$ISSUE_DATA" | jq -r '.fields.status.statusCategory.key // empty')
+            if [ "$STATUS_CATEGORY" = "done" ]; then
+              TRANSITIONS=$(curl -sS "${JIRA_CURL_OPTS[@]}" \
+                -H "$AUTH_HEADER" \
+                -H "Content-Type: application/json" \
+                "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}/transitions")
+
+              TARGET_STATUS_JSON=$(printf '%s' "$REOPEN_TARGET_STATUS_NAMES" \
+                | tr ',' '\n' \
+                | sed 's/^ *//;s/ *$//' \
+                | sed '/^$/d' \
+                | jq -R . \
+                | jq -s .)
+
+              REOPEN_ID=$(echo "$TRANSITIONS" | jq -r --argjson targets "$TARGET_STATUS_JSON" '
+                .transitions[]
+                | select(.to.statusCategory.key != "done")
+                | select(($targets | index(.to.name)) != null)
+                | .id
+              ' | head -n 1)
+
+              if [ -n "$REOPEN_ID" ]; then
+                curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
+                  -H "$AUTH_HEADER" \
+                  -H "Content-Type: application/json" \
+                  --data "$(jq -n --arg id "$REOPEN_ID" '{transition:{id:$id}}')" \
+                  "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}/transitions" >/dev/null
+              else
+                echo "No exact reopen transition found for configured status names: $REOPEN_TARGET_STATUS_NAMES"
+              fi
+            fi
+
+            COMMENT_PAYLOAD=$(jq -n --argjson adf "$ADF_DESC" '{body: $adf}')
+            curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
+              -H "$AUTH_HEADER" \
+              -H "Content-Type: application/json" \
+              --data "$COMMENT_PAYLOAD" \
+              "$JIRA_BASE_URL/rest/api/3/issue/${EXISTING_KEY}/comment" >/dev/null
+
+            echo "Updated existing dependency-monitor issue: $EXISTING_KEY"
+            exit 0
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg proj "$JIRA_PROJECT_KEY" \
+            --arg summary "$SUMMARY" \
+            --arg modeLabel "$MODE_LABEL" \
+            --arg dedupeLabel "$DEP_DEDUPE_LABEL" \
+            --argjson adf "$ADF_DESC" \
+            '{
+              fields: {
+                project: { key: $proj },
+                summary: $summary,
+                description: $adf,
+                issuetype: { name: "Task" },
+                labels: ["automation", "documentation", "dependency-monitor", $modeLabel, $dedupeLabel]
+              }
+            }')
+
+          CREATE_RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
+            -H "$AUTH_HEADER" \
+            -H "Content-Type: application/json" \
+            --data "$PAYLOAD" \
+            "$JIRA_BASE_URL/rest/api/3/issue")
+
+          ISSUE_KEY=$(echo "$CREATE_RESP" | jq -r '.key // empty')
+          if [ -z "$ISSUE_KEY" ]; then
+            echo "Failed to create dependency-monitor Jira issue. Response:"
+            echo "$CREATE_RESP"
+            exit 1
+          fi
+
+          echo "Created dependency-monitor issue: $ISSUE_KEY"
+
   aggregate-and-jira:
     runs-on: ubuntu-latest
     needs:
@@ -44,6 +351,7 @@ jobs:
       - markdownlint
       - spell-check
       - cli-path-check
+      - dependency-change-monitor
     if: always()
 
     steps:
@@ -74,6 +382,13 @@ jobs:
           CLI_PATH_TOP5: ${{ needs.cli-path-check.outputs.cli_path_top5 }}
           CLI_PATH_COMMIT_URL: ${{ needs.cli-path-check.outputs.commit_url }}
 
+          DEP_SUMMARY: ${{ needs.dependency-change-monitor.outputs.dep_summary }}
+          DEP_FINDINGS: ${{ needs.dependency-change-monitor.outputs.dep_findings }}
+          DEP_TOP5: ${{ needs.dependency-change-monitor.outputs.dep_top5 }}
+          DEP_ALERT_MODE: ${{ needs.dependency-change-monitor.outputs.dep_alert_mode }}
+          DEP_DIGEST_KEY: ${{ needs.dependency-change-monitor.outputs.dep_digest_key }}
+          DEP_DEDUPE_LABEL: ${{ needs.dependency-change-monitor.outputs.dep_dedupe_label }}
+
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -e
@@ -82,8 +397,9 @@ jobs:
           MARKDOWNLINT_VIOLATIONS="${MARKDOWNLINT_VIOLATIONS:-0}"
           CSPELL_ISSUE_COUNT="${CSPELL_ISSUE_COUNT:-0}"
           CLI_PATH_FAILURES="${CLI_PATH_FAILURES:-0}"
+          DEP_FINDINGS="${DEP_FINDINGS:-0}"
 
-          FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES))
+          FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES + DEP_FINDINGS))
 
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_OUTPUT"
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_ENV"
@@ -120,6 +436,16 @@ jobs:
 
           ### Top CLI Command Path Findings
           ${CLI_PATH_TOP5}
+
+          ## Dependency Change Monitor
+          - ${DEP_SUMMARY}
+          - Alert mode: ${DEP_ALERT_MODE}
+          - Digest key: ${DEP_DIGEST_KEY}
+          - Dedupe label: ${DEP_DEDUPE_LABEL}
+          - Jira issue: Created/updated when Jira write is enabled (see dependency-change-monitor logs)
+
+          ### Top Dependency Findings
+          ${DEP_TOP5}
           EOF
 
       - name: Upload aggregated report artifact

@@ -123,7 +123,7 @@ akeyless dynamic-secret create cassandra \
 --cassandra-statements "CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';" \
 --password-length 16
 ```
-```shell SAP HanaDB
+```shell SAP HANA database
 akeyless dynamic-secret create hanadb \
 --name <New Secret Name> \
 --target-name <Target Name> \

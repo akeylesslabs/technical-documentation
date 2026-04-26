@@ -107,8 +107,8 @@ Use this pattern when you want users to connect through Akeyless Secure Remote A
 
 ### Prerequisites
 
-* SRA is deployed and reachable in your environment. See [Remote Access Setup Overview](https://docs.akeyless.io/docs/remote-access-setup-overview).
-* Users can access the SRA portal or client flow. See [Secure Remote Access Portal](https://docs.akeyless.io/docs/access-resources-remotely).
+* SRA is deployed and reachable in your environment. See [Remote Access Setup Overview](https://docs.akeyless.io/docs/sra-setup-overview).
+* Users can access the SRA portal or client flow. See [Secure Remote Access Portal](https://docs.akeyless.io/docs/sra-portal).
 * Your custom rotated secret is already working with a reachable Web Target and successful rotation flow.
 
 ### Recommended Flow

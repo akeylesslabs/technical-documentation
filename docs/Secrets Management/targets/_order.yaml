@@ -9,7 +9,6 @@
 - gemini-target
 - github-target
 - gitlab-target
-- cloud-targets
 - globalsign-atlas
 - globalsign-target
 - godaddy-target

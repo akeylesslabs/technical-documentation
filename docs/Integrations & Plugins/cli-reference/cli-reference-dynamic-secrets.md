@@ -94,7 +94,7 @@ Creates Artifactory Dynamic Secret
 
 #### Usage
 
-```shell Using Target
+```shell Using target
 akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
 --artifactory-token-scope <Space-separated list of scopes> \
@@ -494,14 +494,14 @@ Creates Amazon Elastic Kubernetes Service (Amazon EKS) Dynamic Secret
 
 #### Usage
 
-```shell Using Target
+```shell Using target
 akeyless dynamic-secret create eks \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --eks-assume-role <Role ARN>
 ```
-```shell inline connection
+```shell Inline connection
 akeyless dynamic-secret create eks \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
@@ -556,7 +556,7 @@ Creates Google Cloud Provider (GCP) Dynamic Secret
 
 #### Usage
 
-```shell Using Target
+```shell Using target
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --service-account-type <fixed/dynamic> \
@@ -567,7 +567,7 @@ akeyless dynamic-secret create gcp \
 --gcp-token-scopes <Token Scopes> \
 --gcp-key-algo <Service Key Algorithm>
 ```
-```shell Inline Connection
+```shell Inline connection
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --service-account-type <fixed, dynamic> \
@@ -1273,7 +1273,7 @@ There are possible ways to run this command - using a target or an inline connec
 
 #### Usage
 
-```shell Using Target
+```shell Using target
 akeyless dynamic-secret create ping \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
@@ -1344,7 +1344,7 @@ Creates PostgreSQL Dynamic Secret
 
 #### Usage
 
-```shell Using Target
+```shell Using target
 akeyless dynamic-secret create postgresql \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \

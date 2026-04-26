@@ -1,0 +1,263 @@
+{
+  "defaults": {
+    "owner": "product-education",
+    "severity": "medium"
+  },
+  "dependencies": [
+    {
+      "id": "cli-akeyless",
+      "name": "Akeyless CLI",
+      "kind": "cli",
+      "category": "targets-integrations",
+      "owner": "docs-automation",
+      "source_type": "github_latest_release",
+      "source": "akeylesslabs/cli",
+      "source_url": "https://github.com/akeylesslabs/cli/releases/latest",
+      "default_severity": "high",
+      "impacted_capability": "Akeyless CLI command paths and examples",
+      "suggested_docs": [
+        "docs/Integrations & Plugins/cli-reference/",
+        "docs/Advanced Functionality/",
+        "docs/Secrets Management/"
+      ]
+    },
+    {
+      "id": "cli-aws",
+      "name": "AWS CLI",
+      "kind": "cli",
+      "category": "cloud-providers",
+      "source_type": "github_latest_release",
+      "source": "aws/aws-cli",
+      "source_url": "https://github.com/aws/aws-cli/releases/latest",
+      "default_severity": "high",
+      "impacted_capability": "AWS auth and target command examples",
+      "suggested_docs": [
+        "docs/Accessing Akeyless/",
+        "docs/Secrets Management/",
+        "docs/Akeyless Gateway/"
+      ]
+    },
+    {
+      "id": "cli-az",
+      "name": "Azure CLI",
+      "kind": "cli",
+      "category": "cloud-providers",
+      "source_type": "github_latest_release",
+      "source": "Azure/azure-cli",
+      "source_url": "https://github.com/Azure/azure-cli/releases/latest",
+      "default_severity": "high",
+      "impacted_capability": "Azure auth and target command examples",
+      "suggested_docs": [
+        "docs/Accessing Akeyless/",
+        "docs/Secrets Management/"
+      ]
+    },
+    {
+      "id": "cli-certbot",
+      "name": "Certbot",
+      "kind": "cli",
+      "category": "security-crypto",
+      "source_type": "github_latest_release",
+      "source": "certbot/certbot",
+      "source_url": "https://github.com/certbot/certbot/releases/latest",
+      "default_severity": "medium",
+      "impacted_capability": "Certificate lifecycle command examples",
+      "suggested_docs": [
+        "docs/Certificate Lifecycle Management/"
+      ]
+    },
+    {
+      "id": "cli-curl",
+      "name": "curl",
+      "kind": "cli",
+      "category": "targets-integrations",
+      "source_type": "github_latest_release",
+      "source": "curl/curl",
+      "source_url": "https://github.com/curl/curl/releases/latest",
+      "default_severity": "medium",
+      "impacted_capability": "HTTP API examples and shell snippets",
+      "suggested_docs": [
+        "docs/",
+        "reference/"
+      ]
+    },
+    {
+      "id": "cli-docker",
+      "name": "Docker CLI",
+      "kind": "cli",
+      "category": "kubernetes-container",
+      "source_type": "github_latest_release",
+      "source": "docker/cli",
+      "source_url": "https://github.com/docker/cli/releases/latest",
+      "default_severity": "high",
+      "impacted_capability": "Container deployment and Gateway installation examples",
+      "suggested_docs": [
+        "docs/Akeyless Gateway/",
+        "docs/Advanced Functionality/"
+      ]
+    },
+    {
+      "id": "cli-eksctl",
+      "name": "eksctl",
+      "kind": "cli",
+      "category": "kubernetes-container",
+      "source_type": "github_latest_release",
+      "source": "eksctl-io/eksctl",
+      "source_url": "https://github.com/eksctl-io/eksctl/releases/latest",
+      "default_severity": "high",
+      "impacted_capability": "EKS setup and integration examples",
+      "suggested_docs": [
+        "docs/Accessing Akeyless/",
+        "docs/Akeyless Gateway/"
+      ]
+    },
+    {
+      "id": "cli-gcloud",
+      "name": "gcloud CLI",
+      "kind": "cli",
+      "category": "cloud-providers",
+      "source_type": "google_cloud_sdk_manifest",
+      "source": "https://dl.google.com/dl/cloudsdk/channels/rapid/components-2.json",
+      "source_url": "https://cloud.google.com/sdk/docs/release-notes",
+      "default_severity": "high",
+      "impacted_capability": "GCP auth and target command examples",
+      "suggested_docs": [
+        "docs/Accessing Akeyless/",
+        "docs/Secrets Management/"
+      ]
+    },
+    {
+      "id": "cli-helm",
+      "name": "Helm CLI",
+      "kind": "cli",
+      "category": "helm-packaging",
+      "source_type": "github_latest_release",
+      "source": "helm/helm",
+      "source_url": "https://github.com/helm/helm/releases/latest",
+      "default_severity": "high",
+      "impacted_capability": "Helm install and upgrade examples",
+      "suggested_docs": [
+        "docs/Akeyless Gateway/",
+        "docs/Contributing Guides/"
+      ]
+    },
+    {
+      "id": "cli-jq",
+      "name": "jq",
+      "kind": "cli",
+      "category": "targets-integrations",
+      "source_type": "github_latest_release",
+      "source": "jqlang/jq",
+      "source_url": "https://github.com/jqlang/jq/releases/latest",
+      "default_severity": "medium",
+      "impacted_capability": "JSON parsing examples and scripts",
+      "suggested_docs": [
+        "docs/",
+        "recipes/"
+      ]
+    },
+    {
+      "id": "cli-kubectl",
+      "name": "kubectl",
+      "kind": "cli",
+      "category": "kubernetes-container",
+      "source_type": "kubernetes_stable_release",
+      "source": "https://dl.k8s.io/release/stable.txt",
+      "source_url": "https://kubernetes.io/releases/",
+      "default_severity": "critical",
+      "impacted_capability": "Kubernetes command examples and compatibility guidance",
+      "suggested_docs": [
+        "docs/Akeyless Gateway/",
+        "docs/Secrets Management/",
+        "docs/Advanced Functionality/"
+      ]
+    },
+    {
+      "id": "cli-oci",
+      "name": "OCI CLI",
+      "kind": "cli",
+      "category": "cloud-providers",
+      "source_type": "github_latest_release",
+      "source": "oracle/oci-cli",
+      "source_url": "https://github.com/oracle/oci-cli/releases/latest",
+      "default_severity": "medium",
+      "impacted_capability": "OCI auth and target command examples",
+      "suggested_docs": [
+        "docs/Accessing Akeyless/"
+      ]
+    },
+    {
+      "id": "cli-openssl",
+      "name": "OpenSSL",
+      "kind": "cli",
+      "category": "security-crypto",
+      "source_type": "github_latest_release",
+      "source": "openssl/openssl",
+      "source_url": "https://github.com/openssl/openssl/releases/latest",
+      "default_severity": "high",
+      "impacted_capability": "TLS, certificate, and cryptography examples",
+      "suggested_docs": [
+        "docs/Certificate Lifecycle Management/",
+        "docs/Akeyless Gateway/"
+      ]
+    },
+    {
+      "id": "cli-ssh",
+      "name": "OpenSSH",
+      "kind": "cli",
+      "category": "security-crypto",
+      "source_type": "github_latest_release",
+      "source": "openssh/openssh-portable",
+      "source_url": "https://github.com/openssh/openssh-portable/releases/latest",
+      "default_severity": "medium",
+      "impacted_capability": "Remote access and SSH certificate examples",
+      "suggested_docs": [
+        "docs/Accessing Akeyless/",
+        "docs/Akeyless Gateway/"
+      ]
+    },
+    {
+      "id": "cli-terraform",
+      "name": "Terraform CLI",
+      "kind": "cli",
+      "category": "targets-integrations",
+      "source_type": "hashicorp_checkpoint",
+      "source": "https://checkpoint-api.hashicorp.com/v1/check/terraform",
+      "source_url": "https://github.com/hashicorp/terraform/releases/latest",
+      "default_severity": "high",
+      "impacted_capability": "IaC examples and Terraform provider guidance",
+      "suggested_docs": [
+        "docs/Advanced Functionality/",
+        "docs/Akeyless Gateway/"
+      ]
+    },
+    {
+      "id": "obs-opentelemetry",
+      "name": "OpenTelemetry Collector",
+      "kind": "ecosystem",
+      "category": "observability-operations",
+      "source_type": "github_latest_release",
+      "source": "open-telemetry/opentelemetry-collector",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector/releases/latest",
+      "default_severity": "medium",
+      "impacted_capability": "Telemetry integration guidance",
+      "suggested_docs": [
+        "docs/Advanced Functionality/"
+      ]
+    },
+    {
+      "id": "identity-oauthlib",
+      "name": "OAuthlib",
+      "kind": "ecosystem",
+      "category": "authentication-identity",
+      "source_type": "github_latest_release",
+      "source": "oauthlib/oauthlib",
+      "source_url": "https://github.com/oauthlib/oauthlib/releases/latest",
+      "default_severity": "medium",
+      "impacted_capability": "OIDC and OAuth integration guidance",
+      "suggested_docs": [
+        "docs/Accessing Akeyless/"
+      ]
+    }
+  ]
+}

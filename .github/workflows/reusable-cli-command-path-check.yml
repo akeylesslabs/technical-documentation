@@ -62,14 +62,17 @@ jobs:
               continue
             fi
 
-            # Use -sS to silence progress but keep error messages, don't fail on HTTP errors (-f)
-            # so we can handle 404 gracefully for versions that don't have stable files yet
+            # Prefer dl.k8s.io stable-minor endpoints, but fall back to the latest GitHub
+            # release tag for that minor when the stable file is unavailable.
             RESOLVED_VERSION="$(curl -sS "https://dl.k8s.io/release/stable-${MINOR}.txt" 2>/dev/null || echo "")"
-            
-            # Skip if empty or if the response is an error XML message
             if [ -z "$RESOLVED_VERSION" ] || [[ "$RESOLVED_VERSION" =~ \<\?xml ]]; then
-              echo "⚠ Kubernetes 1.$MINOR: stable version file not available (expected for recently released versions)"
-              continue
+              echo "⚠ Kubernetes 1.$MINOR: stable version file not available; falling back to GitHub releases"
+              RESOLVED_VERSION="$(python3 -c "import json, urllib.request, sys; minor=${MINOR}; releases=json.load(urllib.request.urlopen('https://api.github.com/repos/kubernetes/kubernetes/releases?per_page=100', timeout=30)); prefix=f'v1.{minor}.'; tags=[str(r.get('tag_name') or '').strip() for r in releases if not r.get('prerelease') and not r.get('draft') and str(r.get('tag_name') or '').strip().startswith(prefix)]; print(tags[0] if tags else sys.exit(1))")"
+            fi
+
+            if [ -z "$RESOLVED_VERSION" ]; then
+              echo "Unable to resolve a Kubernetes release for minor 1.$MINOR" >&2
+              exit 1
             fi
 
             # Trim whitespace from version string
@@ -106,12 +109,69 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Akeyless CLI
+      - name: Install base CLI dependencies
+        run: |
+          set -euo pipefail
+
+          NEEDS_APT=0
+          if ! command -v jq >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+          if ! command -v unzip >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+          if ! command -v ssh >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+          if ! command -v openssl >/dev/null 2>&1; then
+            NEEDS_APT=1
+          fi
+
+          if [ "$NEEDS_APT" -eq 1 ]; then
+            sudo apt-get update -qq
+          fi
+
+          if ! command -v jq >/dev/null 2>&1; then
+            sudo apt-get install -y -qq jq
+          fi
+          if ! command -v unzip >/dev/null 2>&1; then
+            sudo apt-get install -y -qq unzip
+          fi
+          if ! command -v ssh >/dev/null 2>&1; then
+            sudo apt-get install -y -qq openssh-client
+          fi
+          if ! command -v openssl >/dev/null 2>&1; then
+            sudo apt-get install -y -qq openssl
+          fi
+
+      - name: Install AWS CLI
         run: |
           set -e
-          curl -sSLo akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-          chmod +x akeyless
-          sudo mv akeyless /usr/local/bin/akeyless
+          if command -v aws >/dev/null 2>&1; then
+            aws --version
+            exit 0
+          fi
+
+          curl -sSLo /tmp/awscliv2.zip "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+          unzip -q /tmp/awscliv2.zip -d /tmp
+          sudo /tmp/aws/install --update
+          aws --version
+
+      - name: Install Azure CLI
+        run: |
+          set -e
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      - name: Install Akeyless CLI
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 --retry-delay 2 --retry-max-time 60 \
+            https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public \
+            | sudo gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" \
+            | sudo tee /etc/apt/sources.list.d/akeyless.list > /dev/null
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq akeyless
           akeyless --version
 
       - name: Install kubectl
@@ -166,6 +226,39 @@ jobs:
           set -e
           sudo apt-get update -qq && sudo apt-get install -y -qq certbot
           certbot --version
+
+      - name: Verify supported CLIs are available
+        run: |
+          set -euo pipefail
+          REQUIRED_CMDS=(
+            akeyless
+            aws
+            az
+            certbot
+            curl
+            docker
+            eksctl
+            gcloud
+            helm
+            jq
+            kubectl
+            oci
+            openssl
+            ssh
+            terraform
+          )
+
+          MISSING=()
+          for cmd in "${REQUIRED_CMDS[@]}"; do
+            if ! command -v "$cmd" >/dev/null 2>&1; then
+              MISSING+=("$cmd")
+            fi
+          done
+
+          if [ "${#MISSING[@]}" -gt 0 ]; then
+            echo "Missing required CLIs: ${MISSING[*]}" >&2
+            exit 1
+          fi
 
       - name: Prepare output directories
         run: |
