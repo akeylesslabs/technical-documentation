@@ -12,7 +12,9 @@ next:
 ---
 CLI profiles store authentication and command defaults for the Akeyless CLI.
 
-## Create a profile
+## Create and use profiles
+
+### Create a profile
 
 To create a profile explicitly, run:
 
@@ -38,7 +40,7 @@ akeyless configure --profile <profile name> --access-id <Access ID> --admin-emai
 
 You can also create a profile during first-time CLI setup when the CLI prompts for a profile name.
 
-## Where profiles are stored
+### Where profiles are stored
 
 Profile definitions are stored as individual `toml` files under `.akeyless/profiles` in the user's home directory.
 
@@ -50,7 +52,7 @@ cd .akeyless/profiles/
 
 The CLI also stores default-profile settings in `.akeyless/settings`.
 
-## Use a profile on a command
+### Use a profile on a command
 
 After creating an additional profile, add the `--profile` flag with the profile name to any `akeyless` command:
 
@@ -60,7 +62,13 @@ akeyless get-secret-value --name /path/to/secret --profile <profile name>
 
 An explicit `--profile` flag takes precedence over environment and settings-based defaults.
 
-## Set the default profile
+## Manage the default profile
+
+> Warning:
+>
+> Support for changing the default profile with `set-default-profile` and viewing it with `get-default-profile` was added in CLI version `1.142.0`.
+
+### Set the default profile
 
 To set the default profile used when `--profile` is not specified, run:
 
@@ -70,7 +78,7 @@ akeyless set-default-profile --profile <profile name>
 
 This command persists the selected profile name in `.akeyless/settings`.
 
-## View the default profile
+### View the default profile
 
 To display the effective default profile information, run:
 
@@ -91,7 +99,15 @@ If the CLI is not currently authenticated, the command reports the authenticatio
 
 You can also pass `--profile <profile name>` to inspect a specific profile context.
 
-## Default profile precedence
+### Edit the default profile manually
+
+Because the default profile is stored in `.akeyless/settings`, changing the active default profile is separate from editing the individual profile files under `.akeyless/profiles`.
+
+If needed, you can edit the `default_profile` value manually in `.akeyless/settings`, but Akeyless recommends using `akeyless set-default-profile --profile <profile name>` so the setting is written in the supported format.
+
+Editing a profile's `toml` file changes that profile's configuration, but does not change which profile is treated as the default.
+
+### Default profile precedence
 
 The CLI resolves the effective default profile in this order:
 
@@ -99,6 +115,8 @@ The CLI resolves the effective default profile in this order:
 2. `AKEYLESS_DEFAULT_PROFILE` environment variable.
 3. `default_profile` stored in `.akeyless/settings`.
 4. Built-in fallback value `default`.
+
+If both `AKEYLESS_DEFAULT_PROFILE` and `default_profile` are set, the environment variable wins for that shell or process.
 
 ## Profile configuration defaults
 
