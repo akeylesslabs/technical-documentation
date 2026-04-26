@@ -17,7 +17,7 @@ Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets).
 * A Linux or a Windows machine with [Docker Engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2 GB RAM.
 * [Docker Compose installed](https://docs.docker.com/compose/install/)
-* Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your machine.
+* Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/gateway-network-connectivity) from your machine.
 
 > ⚠️ **Warning:**
 >
@@ -27,7 +27,7 @@ Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/
 
 | Service | Endpoint |
 | --- | --- |
-| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
+| [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) | `/console` |
 | [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
 | Akeyless V1 REST API | `/api/v1` |
 | Akeyless V2 REST API | `/api/v2` |
@@ -139,13 +139,13 @@ To work with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) as an `A
 
 ### Access Permissions
 
-To delegate the exact permissions users will have on your Gateway components you can explicitly grant permissions, for example, to grant permissions to a user to manage only your Gateway [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings:
+To delegate the exact permissions users will have on your Gateway components you can explicitly grant permissions, for example, to grant permissions to a user to manage only your Gateway [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings:
 
 ```shell gateway.env
 [{"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["email=test01@testhost.com", "email=test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]}, {"name": "LogForwarding", "access_id": "p-xxxxxx", "sub_claims": {"email": ["email=test03@testhost.com"]}, "permissions": ["log_forwarding"]}]
 ```
 
-In the above example, your Gateway **Admins** are `test01@testhost.com,test01@testhost.com` or any user which is part of your `Devops` group in your **IdP**, where `test03@testhost.com` have permission to manage **only** your Gateway [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings.
+In the above example, your Gateway **Admins** are `test01@testhost.com,test01@testhost.com` or any user which is part of your `Devops` group in your **IdP**, where `test03@testhost.com` have permission to manage **only** your Gateway [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings.
 
 Full list of available permissions:
 
@@ -158,7 +158,7 @@ Full list of available permissions:
 | `rotate_secret_value` | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item |
 | `targets` | Management of all Targets items that were created using your Gateway |
 | `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
-| `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings |
+| `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings |
 | `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
 | `caching` | Management of [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) settings |
 | `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |

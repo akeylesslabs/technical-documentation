@@ -211,7 +211,7 @@ job:
         public_key_data: 'public_key_data'
 ```
 
-Where the `cert_user_name` value should match the [SSH Issuer](https://docs.akeyless.io/docs/ssh-remote-access) allowed username list. Should be provided with a `public_key_data` to issue the certificate.
+Where the `cert_user_name` value should match the [SSH Issuer](https://docs.akeyless.io/docs/sra-ssh) allowed username list. Should be provided with a `public_key_data` to issue the certificate.
 
 ### Issue a PKI Certificate
 

@@ -12,27 +12,27 @@ next:
 ---
 You can export the Audit Logs from the Akeyless Gateway to any of the following log services:
 
-* [Amazon S3](https://docs.akeyless.io/docs/log-forwarding#amazon-s3)
+* [Amazon S3](https://docs.akeyless.io/docs/gateway-log-forwarding#amazon-s3)
 
-* [Azure Log Analytics](https://docs.akeyless.io/docs/log-forwarding#azure-log-analytics)
+* [Azure Log Analytics](https://docs.akeyless.io/docs/gateway-log-forwarding#azure-log-analytics)
 
-* [Datadog](https://docs.akeyless.io/docs/log-forwarding#datadog)
+* [Datadog](https://docs.akeyless.io/docs/gateway-log-forwarding#datadog)
 
-* [Elasticsearch](https://docs.akeyless.io/docs/log-forwarding#elasticsearch)
+* [Elasticsearch](https://docs.akeyless.io/docs/gateway-log-forwarding#elasticsearch)
 
-* [Google Chronicle](https://docs.akeyless.io/docs/log-forwarding#google-chronicle)
+* [Google Chronicle](https://docs.akeyless.io/docs/gateway-log-forwarding#google-chronicle)
 
-* [Logstash](https://docs.akeyless.io/docs/log-forwarding#logstash)
+* [Logstash](https://docs.akeyless.io/docs/gateway-log-forwarding#logstash)
 
-* [Logz.io](https://docs.akeyless.io/docs/log-forwarding#logzio)
+* [Logz.io](https://docs.akeyless.io/docs/gateway-log-forwarding#logzio)
 
-* [Splunk](https://docs.akeyless.io/docs/log-forwarding#splunk)
+* [Splunk](https://docs.akeyless.io/docs/gateway-log-forwarding#splunk)
 
-* [stdout](https://docs.akeyless.io/docs/log-forwarding#stdout)
+* [stdout](https://docs.akeyless.io/docs/gateway-log-forwarding#stdout)
 
 * [Sumo Logic](https://docs.akeyless.io/docs/gateway-log-forwarding#sumo-logic)
 
-* [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
+* [Syslog](https://docs.akeyless.io/docs/gateway-log-forwarding#syslog)
 
 > ⚠️ **Warning:**
 >

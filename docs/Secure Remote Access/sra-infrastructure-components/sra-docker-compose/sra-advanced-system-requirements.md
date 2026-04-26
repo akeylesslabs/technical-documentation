@@ -1,0 +1,86 @@
+---
+title: Advanced System Requirements
+deprecated: false
+hidden: true
+metadata:
+  robots: index
+---
+In this guide, you will find the system requirements and general information about the SRA deployment.
+
+## Minimum Resource Requirements
+
+Each pod in the Akeyless SRA solution has the following minimum resource requirements:
+
+* **CPU**: 1 CPU (1000m)
+* **Memory**: 2 GiB
+
+These minimum resource allocations are designed to optimize performance and ensure stable operations. Adjustments may be needed based on the specific workload and deployment size.
+
+## Connection Handling Capabilities
+
+* **Web-SRA and SSH-SRA Pods**: These are capable of handling between 70 to 100 simultaneous connections with a mix of SSH, DB, and other applications under the recommended resource allocation.
+
+* **Web Dispatcher Pods**: The Web Dispatcher enables proxy protocol support and can handle hundreds of simultaneous connections, efficiently distributing the load.
+
+* **Web Worker Pods**: Each 'web-worker' pod is designed to handle one secure web connection. For multiple secure web connections, additional 'web-worker' pods are required (For example, 5 simultaneous secure web connections require 5 web-worker pods).
+
+The number of pods and replication is managed with the values file during Helm installation. Multiple `ssh-sra` pods previously required a dedicated persistent volume, but it is now replaced with a local Redis deployment. This will simplify the solution and reduce the dependency on a persistent volume.
+
+### Browser Extension Requirements
+
+The Browser Extension is installed on the local browser and is highly recommended for the SRA environment. It enables Direct and Proxy connections for web access, including advanced features such as auto-injection of passwords and additional RDP features.
+
+### Storage Requirements
+
+Akeyless does not require extensive storage for basic operation. However, if session recording is enabled, additional storage will be necessary. RDP session recordings are captured and saved as .m4v video files. These files can be stored locally, requiring a persistent volume, or uploaded to an S3 bucket for remote storage. The recording output rate is approximately 4 MB per minute, resulting in a file size of around 240 MB for a one-hour session.
+
+### Recommended Server Specifications
+
+Based on the components and their respective resource allocations, the following server specifications are recommended for deploying the Akeyless Remote Access solution:
+
+#### Minimum Specifications for Small Deployments
+
+* **vCPUs**: 4
+* **Memory**: 16 GiB
+* **Storage**: 100 GiB (SSD recommended)
+* **Networking**: 1 Gbps NIC
+
+This setup is suitable for small deployments, supporting up to 100 simultaneous SSH/application connections and several secure web applications with a combination of `web-sra`, `ssh-sra`, and `web-worker` pods.
+
+#### Medium to Large Deployments
+
+* **vCPUs**: 16
+* **Memory**: 32 GiB
+* **Storage**: 500 GiB (SSD recommended)
+* **Networking**: 10 Gbps NIC
+
+This configuration is ideal for medium to large deployments, supporting hundreds of simultaneous connections and multiple web-worker pods.
+
+### Additional Considerations
+
+* **High Availability**: For production environments, it is recommended to deploy the Akeyless SRA solution in a high-availability configuration using multiple nodes and load balancers, with Kubernetes managing scaling and failover across multiple replicas to ensure traffic is balanced and service remains continuous.
+
+* **Scaling**: As the number of users and connections grows, additional resources may be required. The Kubernetes infrastructure should be monitored regularly, and autoscaling policies should be implemented to automatically adjust the number of pods based on demand.
+
+* **Security**: Ensure that the Kubernetes cluster is secured following best practices, including network segmentation, pod security policies, and regular security audits.
+
+* **Network**
+  Long SRA sessions (SSH/RDP/Web) might be cut off early by default LB/Ingress timeouts. Set your LB/Ingress idle/response timeout ≥ your intended session TTL (For example, 15-60 minutes):
+
+    * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is `30s`. Increase by way of BackendConfig (or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection)) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
+
+    * **AWS (EKS / Elastic Load Balancing)** - ALB (`HTTP`/`HTTPS`): Default idle `timeout = 60s`. Set higher using LB attributes; with AWS Load Balancer Controller use: `alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600` (measured in seconds). [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html).
+
+    * **NLB (TCP/TLS)**: Default TCP idle timeout is 350 seconds. It can range from 60 to 6000 seconds. Adjust if sessions may be idle, and enable TCP keepalives. [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/update-idle-timeout.html).
+
+    * **Microsoft Azure (AKS)** -
+
+        * **Azure Load Balancer (L4)**: Default idle `timeout = 4 minutes`, configurable up to 100 minutes (Standard). Increase for SRA sessions. [See vendor information](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-tcp-idle-timeout).
+
+        * **Application Gateway (L7):** TCP idle timeout default 4 minutes (configurable up to 30 minutes), HTTP request timeout default 20 seconds (backend response wait). Tune both as needed. [See vendor information](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-faq).
+
+    * **NGINX Ingress (generic)** - Defaults commonly close connections around 60 seconds without traffic. Raise with annotations / ConfigMap (For example, `nginx.ingress.kubernetes.io/proxy-read-timeout`, proxy-send-timeout). [See vendor information](https://nginx.org/en/docs/http/websocket.html).
+
+### Conclusion
+
+The Akeyless Remote Access solution is designed to be flexible and scalable, capable of meeting the needs of a wide range of environments. By following the recommended server specifications and resource allocations, organizations can ensure that their deployment is both performant and reliable, providing Secure Remote Access to their critical resources. Further information can be found on the [SRA online document page](https://docs.akeyless.io/docs/sra-overview).

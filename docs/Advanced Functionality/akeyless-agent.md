@@ -18,7 +18,7 @@ The supported items that can be fetched using the Agent are:
 
 * [Static Secrets](https://docs.akeyless.io/docs/static-secrets#/)
 * [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets#/)
-* [SSH Certificates](https://docs.akeyless.io/docs/ssh-certificates#/)
+* [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates#/)
 * [PKI Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management#/)
 
 > ℹ️ **Note (CLI Version):**
