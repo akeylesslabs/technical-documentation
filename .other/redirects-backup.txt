@@ -1,7 +1,7 @@
 /docs/kubernetes -> /docs/kubernetes-plugins
 /v2/docs/sra-adv-system-requirements -> /docs/sra-sra-adv-system-requirements
-/docs/akeyless-scp-1 -> /docs/sra-akeyless-scp-1
-/v2/docs/akeyless-scp-1 -> /docs/sra-akeyless-scp-1
+/docs/akeyless-scp-1 -> /docs/sra-akeyless-scp
+/v2/docs/akeyless-scp-1 -> /docs/sra-akeyless-scp
 /docs/remote-access-akeyless-connect -> /docs/sra-akeyless-connect
 /v2/docs/remote-access-akeyless-connect -> /docs/sra-akeyless-connect
 /docs/ssh-certificates -> /docs/sra-ssh-certificates
