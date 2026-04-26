@@ -34,7 +34,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 **Customer Fragment** - [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge) Akeyless unique encryption patented technology.
 
-**SRA Bastion** - Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion).
+**SRA Bastion** - Akeyless [Remote Access on Kubernetes](https://docs.akeyless.io/docs/sra-setup-k8s).
 
 ## Akeyless Platform
 
@@ -70,7 +70,7 @@ Different components of the Akeyless Platform require different versions of Kube
 
 * For the Akeyless native injector: 1.19 or higher
 
-* For Akeyless Secrets Management Authentication and policy segregation: 1.21 or higher
+* For Akeyless Secrets Management Authentication and policy isolation: 1.21 or higher
 
 * For Kubernetes External KMS: 1.10 or higher
 

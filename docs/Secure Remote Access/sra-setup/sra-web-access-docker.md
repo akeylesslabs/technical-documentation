@@ -107,7 +107,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/auth-with-api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` as environment variables with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
-```yaml Shell
+```yaml
 services:
   dispatcher:
     image: "akeyless/zero-trust-web-dispatcher"
@@ -140,7 +140,7 @@ AWS IAM can be used in the following approach:
 
 While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
-```yaml Shell
+```yaml
 services:
   dispatcher:
     image: "akeyless/zero-trust-web-dispatcher"
@@ -166,7 +166,7 @@ Azure AD authentication is provided with OpenID Connect. OpenID Connect is an id
 
 Set your [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) `Access ID` as your `PRIVILEGED\_ACCESS\_ID` with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
-```yaml Shell
+```yaml
 services:
   dispatcher:
     image: "akeyless/zero-trust-web-dispatcher"
@@ -276,7 +276,7 @@ services:
 
 ### Log Forwarding
 
-To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/sra-ssh-log-forwarding) page. Set the `LOG_FORWARDING` variable inside the **Docker Compose** deployment file as follow:
+To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on the [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) page. Set the `LOG_FORWARDING` variable inside the **Docker Compose** deployment file as follows:
 
 ```yaml docker-compose.yml
 services:
