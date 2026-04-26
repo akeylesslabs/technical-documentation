@@ -64,7 +64,7 @@ Where:
 * `secure-access-aws-region`: Optional, only required to enable CLI access. the AWS region the user is permitted to access.
 * `secure-access-aws-native-cli`: Optional, specifies to use the native AWS CLI wrapper.
 * `secure-access-certificate-issuer`: Optional, only required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
-* `rotate-after-disconnect`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+* `rotate-after-disconnect`: Optional for Rotated Secret. Controls post-session rotation. Supported values are `false`, `true`, `0` (immediate), or a positive number of minutes to delay rotation.
 
 By default, access to the AWS portal will use a direct network access mode. To work with Akeyless [Web Access](https://docs.akeyless.io/docs/sra-web-bastion) for session isolation or as a secure proxy entry point, please set **one** of the following:
 
@@ -86,7 +86,7 @@ Let's set up remote access to the AWS Console from the Akeyless Console. If you'
 3. Click on the **Secure Remote Access** tab, select the pencil ico, and enable **Secure Remote Access**, then fill in the following fields:
 
     * `AWS Account ID`: The AWS account ID, as defined in the dynamic secret.
-    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate immediately or set a delayed rotation schedule after the session ends.
 
     For **Web Access**, choose one of the following modes:
 
