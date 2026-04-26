@@ -246,7 +246,7 @@ After you've created an additional profile, add the `--profile` parameter with t
 To set or retrieve the default active profile in CLI `1.142.0` or later, use:
 
 ```shell
-akeyless set-default-profile --profile-name <profile name>
+akeyless set-default-profile --profile <profile name>
 akeyless get-default-profile
 ```
 

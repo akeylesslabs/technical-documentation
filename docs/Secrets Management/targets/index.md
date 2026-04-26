@@ -26,7 +26,7 @@ Using targets has three primary advantages:
 
 Targets support delete protection to reduce accidental deletion risk.
 
-When delete protection is enabled, target deletion requires explicit protection removal before the delete operation can proceed.
+Use the delete protection setting on target create and update operations to help prevent accidental deletion.
 
 For related item protection controls, see [Secret and Target Locking](https://docs.akeyless.io/docs/secret-and-target-locking).
 
