@@ -429,7 +429,9 @@ akeyless update-item --name <Item name> \
 
 `--secure-access-gateway`: Defines which Gateway (Gateway URL) is related to a secret item
 
-`--rotate-after-disconnect[=false]`: Rotate the secret value after an SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+
+Examples: `--rotate-after-disconnect true`, `--rotate-after-disconnect 0`, `--rotate-after-disconnect 15`
 
 `--change-event`: Trigger an event when a secret value changes [`true`/`false`] (relevant only for Static Secret)
 

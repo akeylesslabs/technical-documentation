@@ -114,7 +114,7 @@ akeyless rotated-secret create aws \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -289,7 +289,7 @@ akeyless rotated-secret create custom \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -504,7 +504,7 @@ akeyless rotated-secret create ldap \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -566,7 +566,7 @@ akeyless rotated-secret create mongodb \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -624,7 +624,7 @@ akeyless rotated-secret create mssql \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -684,7 +684,7 @@ akeyless rotated-secret create mysql \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -784,7 +784,7 @@ akeyless rotated-secret create oracledb \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -840,7 +840,7 @@ akeyless rotated-secret create postgresql \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -946,7 +946,7 @@ akeyless rotated-secret create redshift \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1108,7 +1108,7 @@ akeyless rotated-secret create ssh \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -1172,7 +1172,7 @@ akeyless rotated-secret create windows \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1281,7 +1281,7 @@ akeyless rotated-secret update aws \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -1446,7 +1446,7 @@ akeyless rotated-secret update custom \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -1662,7 +1662,7 @@ akeyless rotated-secret update ldap \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1723,7 +1723,7 @@ akeyless rotated-secret update mongodb \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1780,7 +1780,7 @@ akeyless rotated-secret update mssql \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1837,7 +1837,7 @@ akeyless rotated-secret update mysql \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1933,7 +1933,7 @@ akeyless rotated-secret update oracledb \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1990,7 +1990,7 @@ akeyless rotated-secret update postgresql \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -2094,7 +2094,7 @@ akeyless rotated-secret update redshift \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -2257,7 +2257,7 @@ akeyless rotated-secret update ssh \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -2320,7 +2320,7 @@ akeyless rotated-secret update windows \
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 

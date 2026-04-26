@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-RDP Session Recording is managed entirely through your Gateway's console under the **Remote Access** section in the Gateway settings. These sessions generate video recordings that can be uploaded to either **AWS S3** or **Azure Blob Storage** for secure storage or can be saved locally.
+RDP Session Recording is managed entirely through your Gateway's console under the **Remote Access** section in the Gateway settings. These sessions generate video recordings that can be uploaded to **AWS S3**, **S3-compatible object storage** (for example, NetApp StorageGRID), or **Azure Blob Storage** for secure storage, or can be saved locally.
 
 ## Session Recording
 
 SRA supports the recording of RDP sessions. You can choose to store RDP Session Recordings by clicking **Remote Access -> Session Recording -> RDP Recordings**, clicking the slider to Enable, and then choosing the location to keep the recordings of those sessions.
 
-**RDP** sessions provide video recordings that can be saved to **AWS S3** buckets, **Azure Blob Storage**, or locally. To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage.
+**RDP** sessions provide video recordings that can be saved to **AWS S3** buckets, **S3-compatible object storage**, **Azure Blob Storage**, or locally. To work with session recording for RDP, provide the following settings to upload your recording to object storage.
 
 ### Compression & Encryption
 
@@ -90,6 +90,20 @@ With this option, the user provides explicit AWS credentials for authentication.
 * **Bucket Name**: The name of the S3 bucket where the recordings will be stored.
 * **Bucket Prefix**: A folder structure within the bucket to organize the recordings.
 
+### S3-Compatible Object Storage (for example, NetApp StorageGRID)
+
+For S3-compatible platforms, configure the S3 connection with a custom endpoint URL.
+
+Use the following values:
+
+* **Endpoint URL** (required): The S3-compatible endpoint, for example `https://<storagegrid-host>:<port>`.
+* **Access Key ID** (required): The access key used for S3 API authentication.
+* **Secret Access Key** (required): The secret access key paired with the access key ID.
+* **Bucket Name** (required): The bucket where recordings will be stored.
+* **Bucket Prefix** (optional): A folder path inside the bucket for organizing recordings.
+
+SRA uses the standard S3 API for this flow. This allows recording uploads to compatible object storage providers without requiring AWS-specific identity integration.
+
 ### Azure Blob Storage
 
 For storing RDP session recordings in Azure Blob Storage, the user can also select between two options:
@@ -121,6 +135,7 @@ akeyless gateway update remote-access-rdp-recording \
 --aws-storage-region <your-region> \
 --aws-storage-bucket-name <S3-bucket-name> \
 --aws-storage-bucket-prefix <S3-bucket-prefix> \
+--aws-storage-endpoint-url <optional-s3-compatible-endpoint-url> \
 --aws-storage-access-key-id <optional-explicit-key-id> \
 --aws-storage-secret-access-key <optional-explicit-access-key>
 ```

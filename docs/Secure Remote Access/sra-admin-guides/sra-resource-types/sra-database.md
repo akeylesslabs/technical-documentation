@@ -66,7 +66,7 @@ where:
 * **secure-access-host:** The hostname (or IP address) and port for accessing the database as defined in the dynamic secret.
 * **secure-access-db-schema:** Optional, only supported for MSSQL and PostgreSQL database Dynamic Secrets.
 * **secure-access-certificate-issuer:** Optional, only required to enable CLI access to the database. The path to the SSH Certificate Issuer that should be used for certificate authentication for CLI access.
-* **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+* **rotate-after-disconnect:** Optional for Rotated Secret. Controls post-session rotation. Supported values are `false`, `true`, `0` (immediate), or a positive number of minutes to delay rotation.
 * **secure-access-delay:** The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
 
 ## Set Up Remote Access to a Database from the Akeyless Console
@@ -80,7 +80,7 @@ Let's set up remote access to a database from the Akeyless Console. If you'd pre
 3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
     * `Host(s)`: The hostname (or IP address) and port for accessing the database as defined in the dynamic secret.
-    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate immediately or set a delayed rotation schedule after the session ends.
 
     * For **Web Access**, define the following fields:
 
