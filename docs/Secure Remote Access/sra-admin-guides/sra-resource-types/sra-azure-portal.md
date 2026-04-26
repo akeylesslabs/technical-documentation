@@ -62,7 +62,7 @@ Alternatively, if you prefer to work with the Akeyless bastions as a proxy entry
 
 * `secure-access-web-proxy`: Optional, web-proxy by way of Akeyless Web Access Bastion.
 * `secure-access-url`: Required for Rotated Secret. The target URL where credentials will be injected.
-* `rotate-after-disconnect`: Optional for Rotated Secret. You can enable an automatic Secret Rotation after a session ends.
+* `rotate-after-disconnect`: Optional for Rotated Secret. Controls post-session rotation. Supported values are `false`, `true`, `0` (immediate), or a positive number of minutes to delay rotation.
 * `secure-access-delay`: The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
 
 ## Set Up Remote Access to the Azure Portal from the Akeyless Console
@@ -75,7 +75,7 @@ Let's set up remote access to the Azure Portal from the Akeyless Console. If you
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
-    * `Rotate after disconnection`: Optional for Rotated Secret. You can enable an automatic Secret Rotation after a session ends.
+    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate immediately or set a delayed rotation schedule after the session ends.
 
     * `Block Concurrent Use`: Optional for Rotated Secret. Block concurrent use of this secret.
 
