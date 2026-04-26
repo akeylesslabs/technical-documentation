@@ -14,11 +14,11 @@ SSH/Web Access log forwarding enables you to forward SSH/Web Access session reco
 
 Log forwarding to your bastions can be done for:
 
-SSH Access: [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion)
+SSH Access: [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion)
 
 Web Application Access
 
-: [Web Access Bastion](https://docs.akeyless.io/docs/web-access-bastion)
+: [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-bastion)
 
 ## Syslog
 

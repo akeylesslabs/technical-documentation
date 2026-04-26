@@ -1,5 +1,5 @@
 - sra-session-management
-- remote-access-akeyless-connect
-- akeyless-scp-1
-- ssh-certificates
+- sra-akeyless-connect
+- sra-akeyless-scp
+- sra-ssh-certificates
 - sra-resource-types

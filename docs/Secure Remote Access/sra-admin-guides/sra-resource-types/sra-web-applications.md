@@ -34,7 +34,7 @@ This application is used to inject credentials for any secured websites. To star
 
 ## Set Up Remote Access to a Web Application from the Akeyless CLI
 
-Let's set up remote access to your web application using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/web-applications-secure-remote-access#set-up-remote-access-to-a-web-application-from-the-akeyless-console) instead.
+Let's set up remote access to your web application using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/sra-web-applications#set-up-remote-access-to-a-web-application-from-the-akeyless-console) instead.
 
 Run the `update-item` command to define the following fields on the static secret that specifies the web application access credentials:
 
@@ -61,7 +61,7 @@ A new tab will open, redirect to the requested page, and inject credentials prov
 
 ## Set Up Remote Access to a Web Application from the Akeyless Console
 
-Let's set up remote access to the web application from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/web-applications-secure-remote-access#set-up-remote-access-to-a-web-application-from-the-akeyless-cli) instead.
+Let's set up remote access to the web application from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/sra-web-applications#set-up-remote-access-to-a-web-application-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Items**.
 

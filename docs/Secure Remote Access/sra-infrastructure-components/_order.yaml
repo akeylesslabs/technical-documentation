@@ -7,7 +7,7 @@
 - sra-ssh-log-forwarding
 - sra-akeyless-connect
 - sra-akeyless-scp
-- sra-how-to-configure-ssh
+- sra-ssh-certificates
 - sra-bastion-docker
 - sra-web-bastion-docker
 - sra-basic-bastion

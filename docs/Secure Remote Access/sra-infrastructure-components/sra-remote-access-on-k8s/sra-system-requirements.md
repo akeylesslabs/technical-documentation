@@ -26,15 +26,15 @@ The `web-sra` component allows access to RDP/SSH/DB target hosts from the [Zero-
 
 #### SSH-SRA
 
-The `ssh-sra` component enables end-users to connect to targets that support CLI access (over SSH) from their own native Terminal or CLI tool with the `akeyless connect` command. [Read more about the command here](https://docs.akeyless.io/docs/remote-access-akeyless-connect).
+The `ssh-sra` component enables end-users to connect to targets that support CLI access (over SSH) from their own native Terminal or CLI tool with the `akeyless connect` command. [Read more about the command here](https://docs.akeyless.io/docs/sra-akeyless-connect).
 
 > Although SRA can be deployed with Docker Compose or Kubernetes, this document focuses on deploying to Kubernetes
 
 ### Zero-Trust Web Access (ZTWA)
 
-This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/web-applications-secure-remote-access) targets by way of the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension), which opens a browser session and injects credentials into the browser for the user.
+This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/sra-web-applications) targets by way of the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension), which opens a browser session and injects credentials into the browser for the user.
 
-These targets are accessed using one of three methods: [Secure Web Browsing](https://docs.akeyless.io/docs/web-applications-secure-remote-access), [Secure Web Proxy](https://docs.akeyless.io/docs/web-applications-secure-remote-access), or [Direct Connections](https://docs.akeyless.io/docs/web-applications-secure-remote-access). This solution creates two types of applications as well:
+These targets are accessed using one of three methods: [Secure Web Browsing](https://docs.akeyless.io/docs/sra-web-applications), [Secure Web Proxy](https://docs.akeyless.io/docs/sra-web-applications), or [Direct Connections](https://docs.akeyless.io/docs/sra-web-applications). This solution creates two types of applications as well:
 
 * **Web Dispatcher**: Acts as a load balancer service that dispatches requests to _web-workers_ to take on secure web-browsing sessions. It enables secure web browsing by launching a Firefox browser inside the pod.
 * **Web Workers**: These containers host the isolated browser sessions (for "secure web browsing") and each such container supports a single isolated browser session.
@@ -117,4 +117,4 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
 ### Conclusion
 
-The Akeyless Remote Access solution is designed to be flexible and scalable, capable of meeting the needs of a wide range of environments. By following the recommended server specifications and resource allocations, organizations can ensure that their deployment is both performant and reliable, providing Secure Remote Access to their critical resources. Further information can be found at the [SRA documentation](https://docs.akeyless.io/docs/remote-access-overview).
+The Akeyless Remote Access solution is designed to be flexible and scalable, capable of meeting the needs of a wide range of environments. By following the recommended server specifications and resource allocations, organizations can ensure that their deployment is both performant and reliable, providing Secure Remote Access to their critical resources. Further information can be found at the [SRA documentation](https://docs.akeyless.io/docs/sra-overview).

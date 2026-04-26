@@ -83,4 +83,4 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
 ### Conclusion
 
-The Akeyless Remote Access solution is designed to be flexible and scalable, capable of meeting the needs of a wide range of environments. By following the recommended server specifications and resource allocations, organizations can ensure that their deployment is both performant and reliable, providing Secure Remote Access to their critical resources. Further information can be found on the [SRA online document page](https://docs.akeyless.io/docs/remote-access-overview).
+The Akeyless Remote Access solution is designed to be flexible and scalable, capable of meeting the needs of a wide range of environments. By following the recommended server specifications and resource allocations, organizations can ensure that their deployment is both performant and reliable, providing Secure Remote Access to their critical resources. Further information can be found on the [SRA online document page](https://docs.akeyless.io/docs/sra-overview).

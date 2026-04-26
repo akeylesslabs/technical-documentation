@@ -18,7 +18,7 @@ next:
 
 The Akeyless Platform’s Secure Remote Access (SRA) solution offers a modern approach to Privileged Access Management (PAM), enabling users to securely connect to servers, databases, internal applications, and web apps across any environment—whether cloud hosted or on-premise, private or public—by leveraging Just-in-Time, Zero-Trust access with full auditability.
 
-Users can connect securely to resources through the Gateway's internal SRA Portal, the public [SRA Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal), a desktop application, or by way of the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI command. Akeyless supports a variety of protocols, including SSH, RDP, SQL, kubectl, and more.
+Users can connect securely to resources through the Gateway's internal SRA Portal, the public [SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal), a desktop application, or by way of the [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) CLI command. Akeyless supports a variety of protocols, including SSH, RDP, SQL, kubectl, and more.
 
 ## Architecture
 
@@ -27,7 +27,7 @@ SRA is deployed alongside the [Akeyless Gateway](https://docs.akeyless.io/docs/g
 ![Akeyless Gateway and Secure Remote Access architecture](https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png)
 
 1. Web: The web application allows users to securely access internal resources on a browser-based interface by way of the SRA Portal, leveraging embedded clients.
-2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any Unix-supporting resource.
+2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp) commands to any Unix-supporting resource.
 
 To connect to a resource, the user first authenticates to Akeyless by way of a configured Identity Provider (IdP). Once authorized, SRA facilitates the connection in a Zero-Trust manner by retrieving the required secret credentials by way of the Gateway and automatically injecting them into the target resource to establish and proxy the user’s access.
 
@@ -68,20 +68,20 @@ Remote Access supports access to any flavor of Kubernetes cluster, including EKS
 
 Akeyless' Remote Access solution supports connections to the following resource types:
 
-* [Databases](https://docs.akeyless.io/docs/database-secure-remote-access)
-* [Windows Remote Desktop](https://docs.akeyless.io/docs/remote-desktop-secure-access)
-* [AWS Console](https://docs.akeyless.io/docs/aws-console-secure-remote-access)
-* [Azure Portal](https://docs.akeyless.io/docs/azure-portal-access)
-* [GCP Portal](https://docs.akeyless.io/docs/gcp-portal-access)
-* [SSH Servers](https://docs.akeyless.io/docs/ssh-remote-access)
+* [Databases](https://docs.akeyless.io/docs/sra-database)
+* [Windows Remote Desktop](https://docs.akeyless.io/docs/sra-remote-desktop)
+* [AWS Console](https://docs.akeyless.io/docs/sra-aws-console)
+* [Azure Portal](https://docs.akeyless.io/docs/sra-azure-portal)
+* [GCP Portal](https://docs.akeyless.io/docs/sra-gcp-portal)
+* [SSH Servers](https://docs.akeyless.io/docs/sra-ssh)
 * [LDAP Servers](https://docs.akeyless.io/docs/auth-with-ldap)
-* [RabbitMQ](https://docs.akeyless.io/docs/rabbitmq-secure-remote-access)
-* [Kubernetes](https://docs.akeyless.io/docs/k8s-cluster-access)
-* [Web Applications](https://docs.akeyless.io/docs/web-applications-secure-remote-access)
+* [RabbitMQ](https://docs.akeyless.io/docs/sra-rabbitmq)
+* [Kubernetes](https://docs.akeyless.io/docs/sra-k8s-cluster)
+* [Web Applications](https://docs.akeyless.io/docs/sra-web-applications)
 * [kubectl](https://docs.akeyless.io/docs/kubectl-access)
 
 ## Web Access
 
 In addition, you can define Remote Access to external SaaS systems using the [Web Access Application](https://docs.akeyless.io/docs/web-access-on-k8s) as a separate deployment, not connected to the Gateway. This enables you to remotely access web-based applications in Isolated mode, which restricts user access to only the websites you determine, either while connected to a SaaS system or using a secure proxy mode to enable access for an internal resource from the external network.
 
-For details about the various Remote Access components, see [Overview Section](https://docs.akeyless.io/docs/remote-access-setup-overview).
+For details about the various Remote Access components, see [Overview Section](https://docs.akeyless.io/docs/sra-setup-overview).

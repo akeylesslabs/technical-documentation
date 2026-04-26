@@ -20,8 +20,8 @@ The following plugins are available for Kubernetes:
 
 * [Akeyless Kubernetes Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s)
 * [Kubernetes External Secret Operator (ESO)](https://docs.akeyless.io/docs/external-secrets-operator)
-* [Kubernetes Secrets Store Container Storage Interface (CSI)](https://docs.akeyless.io/docs/kubernetes-secrets-store-csi-provider)
-* [Kubernetes Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager)
+* [Kubernetes Secrets Store Container Storage Interface (CSI)](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-secrets-store-csi-provider)
+* [Kubernetes Cert Manager](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-cert-manager)
 
 > ℹ️ **Note:** The documentation, configuration, and examples for Akeyless Kubernetes plugins are also applicable to Red Hat OpenShift environments.
 

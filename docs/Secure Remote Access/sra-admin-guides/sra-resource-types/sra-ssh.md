@@ -14,18 +14,18 @@ Certificate-based authentication eliminates the need to approve and distribute k
 
 Akeyless SSH Secure Remote Access enables traffic connections to servers that are not directly accessible by way of SSH but directed through a `ssh-sra` host, which proxies the connection between the SSH client and the remote servers. In addition, you can record all SSH sessions traffic and expose them to the filesystem for log forwarding.
 
-In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates).
+In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/sra-ssh-certificates).
 
 > ℹ️ **Note (Legacy Mode):**
 >
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
-> For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
+> For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/sra-ssh#legacy-mode) at the bottom of this page.
 
 ## Prerequisites
 
-* [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployment.
+* [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployment.
 
-* An [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
+* An [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for certificate authentication.
 
 * SSH sessions behind a **GKE HTTP(S)** Load Balancer may disconnect after `30` seconds due to the default backend timeout. You can increase it by configuring a BackendConfig (`spec.timeoutSec`) and annotating your Service as described in the GCP docs on [backend service timeouts](https://docs.cloud.google.com/load-balancing/docs/backend-service#timeout-setting) and [Ingress BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration#backendconfig).
 
@@ -135,7 +135,7 @@ Akeyless enables CLI access from any Unix terminal.
 
 ## Legacy SSH Versions
 
-Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect)to access remote machines running OpenSSH version `7.4` or `7.6`. This occurs both in CLI and the Web portal.
+Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)to access remote machines running OpenSSH version `7.4` or `7.6`. This occurs both in CLI and the Web portal.
 
 It is possible to bypass this issue by setting the following environment variable in the SSH and Web bastion deployments, to all outgoing SSH connections:
 

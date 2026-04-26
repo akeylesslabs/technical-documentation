@@ -16,7 +16,7 @@ You can enable Secure Remote Access to Azure Portal with a Dynamic Secret that g
 
 To enable Secure Remote Access to Azure Portal you need:
 
-* The [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) deployed.
+* The [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion) deployed.
 
 * The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
 
@@ -33,7 +33,7 @@ If you already have a relevant secret, continue below.
 
 ## Set Up Remote Access to the Azure Portal from the Akeyless CLI
 
-Let's set up remote access to the Azure Portal using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/azure-portal-access#set-up-remote-access-to-the-azure-portal-from-the-akeyless-console) instead.
+Let's set up remote access to the Azure Portal using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/sra-azure-portal#set-up-remote-access-to-the-azure-portal-from-the-akeyless-console) instead.
 
 Run the relevant command to define the following fields to the secret that specifies the Azure details and access credentials:
 
@@ -67,7 +67,7 @@ Alternatively, if you prefer to work with the Akeyless bastions as a proxy entry
 
 ## Set Up Remote Access to the Azure Portal from the Akeyless Console
 
-Let's set up remote access to the Azure Portal from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/azure-portal-access#set-up-remote-access-to-the-azure-portal-from-the-akeyless-cli) instead.
+Let's set up remote access to the Azure Portal from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/sra-azure-portal#set-up-remote-access-to-the-azure-portal-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Items**.
 

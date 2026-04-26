@@ -142,7 +142,7 @@ Where:
 
 * `gateway_url`: Akeyless Gateway URL, port `8000`, for Gateway-dependent workflows such as certain dynamic secret operations. For general CLI API calls through a non-public Gateway, use `AKEYLESS_GATEWAY_URL` instead.
 * `default_location_prefix`: Global default prefix for the `name` flag.
-* `cert_issuer_name`: Default [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) name.
+* `cert_issuer_name`: Default [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) name.
 * `cert_username`: Default username for issued SSH certificates.
 * `public_key_file_path`: Path to the SSH public key file.
 * `legacy_signing_alg`: Use the SSH legacy signing algorithm.

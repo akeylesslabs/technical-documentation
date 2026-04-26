@@ -79,7 +79,7 @@ vault write auth/kubernetes/login \
   jwt="<kubernetes-serviceaccount-jwt>"
 ```
 
-For a full implementation example with cert-manager, see [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager).
+For a full implementation example with cert-manager, see [Cert Manager](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-cert-manager).
 
 > ℹ️ **Note:**
 >

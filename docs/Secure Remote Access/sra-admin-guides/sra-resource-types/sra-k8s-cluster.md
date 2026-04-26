@@ -14,17 +14,17 @@ You can enable Secure Remote Access to a Kubernetes cluster based on the dynamic
 
 ## Prerequisites
 
-* The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
+* The [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
 * A running Kubernetes dynamic Secret [EKS](https://docs.akeyless.io/docs/eks-dynamic-secret-producer), [GKE](https://docs.akeyless.io/docs/gke-dynamic-secret-producer) or [Kubernetes Generic](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) .
 
-* [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect)
+* [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)
 
-* An [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
+* An [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates).
 
 ## Set Up Remote Access to a Kubernetes Cluster from the Akeyless CLI
 
-Let's set up remote access to a Kubernetes cluster using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/k8s-cluster-access#set-up-remote-access-to-a-k8s-cluster-from-the-akeyless-console) instead.
+Let's set up remote access to a Kubernetes cluster using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/sra-k8s-cluster#set-up-remote-access-to-a-k8s-cluster-from-the-akeyless-console) instead.
 
 Run the relevant command to define the following fields to the secret that specifies the Kubernetes cluster details and access credentials:
 
@@ -50,7 +50,7 @@ For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-gener
 
 ## Set Up Remote Access to a Kubernetes Cluster from the Akeyless Console
 
-Let's set up remote access to a Kubernetes cluster from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/k8s-cluster-access#set-up-remote-access-to-a-k8s-cluster-from-the-akeyless-cli) instead.
+Let's set up remote access to a Kubernetes cluster from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/sra-k8s-cluster#set-up-remote-access-to-a-k8s-cluster-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Items**.
 
@@ -80,7 +80,7 @@ For **CLI Access**:
 
 * `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / and so on. Also allows using the `--watch` flag (`-w`), for example.
 
-From any terminal which has [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) configured, you can run the following command:
+From any terminal which has [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) configured, you can run the following command:
 
 ```shell
 akeyless connect -t <namespace>@<cluster endpoint without https:// > -n <dynamic-secret-name> -v <sra-bastion-ssh-service-address:port>

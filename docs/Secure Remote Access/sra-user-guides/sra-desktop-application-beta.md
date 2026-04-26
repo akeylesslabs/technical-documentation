@@ -74,7 +74,7 @@ Download the relevant Desktop Application installer from ([https://download.akey
 
     > ⚠️ **Warning (Important):**
     >
-    > 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
+    > 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
     > 2. You also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable true` flag to your CLI command.
     > 3. Ensure that the `akeyless` user is added to the list of `Allowed User(s)` in the SSH Cert Issuer item. Otherwise, the desktop application will not be able to establish a connection.
 

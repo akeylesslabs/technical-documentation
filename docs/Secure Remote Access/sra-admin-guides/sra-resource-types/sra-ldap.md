@@ -16,7 +16,7 @@ You can enable Secure Remote Access to an LDAP server with a Dynamic Secret that
 
 To enable Secure Remote Access to an LDAP server you need:
 
-* The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
+* The [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
 ## Create an LDAP Secret
 
@@ -26,7 +26,7 @@ If you already have a relevant secret, continue below.
 
 ## Set Up Remote Access to an LDAP Server from the Akeyless CLI
 
-Let's set up remote access to an LDAP server using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/ldap-remote-access#set-up-remote-access-to-an-ldap-server-from-the-akeyless-console) instead.
+Let's set up remote access to an LDAP server using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/sra-ldap#set-up-remote-access-to-an-ldap-server-from-the-akeyless-console) instead.
 
 Run the relevant command to define the following fields to the secret that specifies the LDAP server details and access credentials:
 
@@ -56,7 +56,7 @@ Optional:
 
 ## Set Up Remote Access to an LDAP Server from the Akeyless Console
 
-Let's set up remote access to a LDAP server from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/ldap-remote-access#set-up-remote-access-to-an-ldap-server-from-the-akeyless-cli) instead.
+Let's set up remote access to a LDAP server from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/sra-ldap#set-up-remote-access-to-an-ldap-server-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Items**.
 

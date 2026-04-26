@@ -16,7 +16,7 @@ You can enable Secure Remote Access to a Windows machine with a [Dynamic Secret]
 
 To enable Secure Remote Access to a Windows machine you need:
 
-* [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
+* [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
 ## Create an RDP Secret
 
@@ -26,7 +26,7 @@ If you already have a relevant secret, continue below.
 
 ## Set Up Remote Access to a Windows Machine from the Akeyless CLI
 
-Let's set up remote access to a Windows Machine using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console) instead.
+Let's set up remote access to a Windows Machine using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/sra-remote-desktop#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console) instead.
 
 Run the relevant command to define the following fields to the secret that specifies the Windows machine details and access credentials:
 
@@ -60,7 +60,7 @@ Optional:
 
 ## Set Up Remote Access to a Windows Machine from the Akeyless Console
 
-Let's set up remote access to a Windows Machine from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-cli) instead.
+Let's set up remote access to a Windows Machine from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/sra-remote-desktop#set-up-remote-access-to-a-windows-machine-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Items**.
 
@@ -79,7 +79,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 ## Access a Windows Machine Over the Web from the Secure Remote Access Portal
 
-1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **Remote Desktop**.
+1. [Log in](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **Remote Desktop**.
 
 2. Select the Windows machine hostname or IP address, then select **Connect**. A new tab opens, in which you can interact with the Windows machine according to your permissions.
 

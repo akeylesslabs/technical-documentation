@@ -16,7 +16,7 @@ next:
 ---
 > ℹ️ **Note:**
 >
-> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) and is no longer available.
+> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion) and is no longer available.
 
 Akeyless Professional Bastion provides SSH connections with short lived signed certificate authentication, together with session recording.
 
@@ -30,7 +30,7 @@ To spin Akeyless Professional-Bastion using Docker please refer to the last sect
 
 * Kubernetes Installed.
 
-* [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates)
+* [SSH Certificate](https://docs.akeyless.io/docs/sra-ssh-certificates)
 
 ### Storage
 
@@ -64,7 +64,7 @@ The `values.yaml` file holds default values, replace the values with the ones fr
 
 `https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-ssh-bastion`
 
-If you don't have an SSH certificate ready, please follow this guide on how to create [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless vault and set your CA Public key in the `values.yaml` file.
+If you don't have an SSH certificate ready, please follow this guide on how to create [SSH Cert issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) with Akeyless vault and set your CA Public key in the `values.yaml` file.
 
 The following parameters are mandatory:
 

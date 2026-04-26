@@ -22,7 +22,7 @@ next:
 ---
 > ℹ️ **Note:**
 >
-> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) and is no longer available.
+> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion) and is no longer available.
 
 The Akeyless Basic Bastion provides Secure Remote Access to resources using Akeyless Just In Time credentials (Dynamic Secrets and SSH certificates).
 

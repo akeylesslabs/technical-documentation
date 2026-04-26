@@ -12,11 +12,11 @@ next:
 ---
 Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can be used to connect with various native and thick clients to remote hosts by way of Akeyless SRA SSH server, supported with a complete Audit Trail.
 
-While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI, any thick client can be used to establish the connection to a remote server within your internal network by way of the Akeyless SRA SSH server.
+While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) CLI, any thick client can be used to establish the connection to a remote server within your internal network by way of the Akeyless SRA SSH server.
 
 ## Prerequisites
 
-* [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) configured.
+* [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) configured.
 
 * The [Secure Remote Access server](https://docs.akeyless.io/docs/remote-access-setup-k8s) deployed.
 
@@ -46,7 +46,7 @@ Where:
 
 * `--tunnel`: SSH tunnel setting, for example, `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
 
-* `cert-issuer-name`: Optional. If already configured inside `akeyless-connect.rc` file, alternatively provide the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) to establish the connection to the bastion.
+* `cert-issuer-name`: Optional. If already configured inside `akeyless-connect.rc` file, alternatively provide the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) to establish the connection to the bastion.
 
 * `name`: Full name of the secret item to use to connect. For example, use a Dynamic or a Rotated Secret for a database or RDP connection, or a Static Secret that contains the target system credentials.
 

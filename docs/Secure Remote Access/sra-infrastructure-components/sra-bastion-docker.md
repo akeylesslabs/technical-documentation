@@ -22,7 +22,7 @@ The Akeyless Secure Remote Access Bastion provides Secure Remote Access to resou
 
 * Docker Installed
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for CLI Access.
 
 * At least 1 vCPU available with 1 GB RAM per Docker container.
 
@@ -53,11 +53,11 @@ To control which users are allowed to request access from the Akeyless Bastion, 
 
 For RDP access that uses the **Fixed user** feature, rely on the username sub-claim to determine which **Windows** username to use. If you use a different sub-claim, specify it at deployment time using the `USERNAME_SUB_CLAIM` environment variable. To configure this behavior independently for SSH and RDP, use `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM`, respectively.
 
-To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates)
+To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/sra-ssh-certificates) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates)
 
 > ℹ️ **Info:**
 >
-> If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless Platform and set your CA.
+> If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) with Akeyless Platform and set your CA.
 
 ### Authentication
 
@@ -246,7 +246,7 @@ docker run --name web-bastion -d -p 8888:8888  \
 
 ### Log Forwarding
 
-To forward all your users session logs from the `ssh-bastion`, mount a local file which hold the setting of your target log server. [Review this guide for the process](https://docs.akeyless.io/docs/ssh-log-forwarding). For example:
+To forward all your users session logs from the `ssh-bastion`, mount a local file which hold the setting of your target log server. [Review this guide for the process](https://docs.akeyless.io/docs/sra-ssh-log-forwarding). For example:
 
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \

@@ -32,7 +32,7 @@ Akeyless currently supports creating Universal Secrets Connectors for the follow
 
 * [Azure Universal Secrets Connector](https://docs.akeyless.io/docs/azure-universal-secrets-connector)
 
-* [Kubernetes Universal Secrets Connector](https://docs.akeyless.io/docs/kubernetes-universal-secrets-connector)
+* [Kubernetes Universal Secrets Connector](https://docs.akeyless.io/docs/kubernetes-plugins-plugins-universal-secrets-connector)
 
 * [HashiCorp Vault Universal Secret Connector](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
 

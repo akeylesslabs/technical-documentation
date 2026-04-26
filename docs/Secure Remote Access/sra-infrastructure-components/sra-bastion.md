@@ -24,7 +24,7 @@ This chart bootstraps the Secure Remote Access Bastion deployment on a Kubernete
 
 * Kubernetes Installed
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for CLI Access.
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 
@@ -115,7 +115,7 @@ privilegedAccess:
   allowedAccessIDs: []
 ```
 
-To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates), set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates). You can configure one or more CA public keys.
+To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/sra-ssh-certificates), set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates). You can configure one or more CA public keys.
 
 ```yaml
 #############################################
@@ -132,7 +132,7 @@ sshConfig:
 
 > ℹ️ **Info:**
 >
-> If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless Platform and set your CA Public key in the chart `values`.
+> If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) with Akeyless Platform and set your CA Public key in the chart `values`.
 >
 > You will also need to enable Secure Remote Access on the SSH Cert Issuer.
 

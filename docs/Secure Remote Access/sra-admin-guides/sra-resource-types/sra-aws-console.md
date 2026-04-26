@@ -14,19 +14,19 @@ You can enable Secure Remote Access to AWS with a Dynamic Secret that generates 
 
 > ℹ️ **Note:**
 >
-> Use [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command to access the AWS Console from any Unix terminal.
+> Use [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) command to access the AWS Console from any Unix terminal.
 
 ## Prerequisites
 
 To enable Secure Remote Access to AWS you need:
 
-* The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
+* The [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
 * The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
 
 In addition, for users to access the AWS Console using the CLI, you need:
 
-* An [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
+* An [SSH Certificate](https://docs.akeyless.io/docs/sra-ssh-certificates) for certificate authentication.
 
 ## Create an AWS Secret
 
@@ -36,7 +36,7 @@ If you already have a relevant secret, continue below.
 
 ## Set Up Remote Access to the AWS Console from the Akeyless CLI
 
-Let's set up remote access to the AWS Console using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/aws-console-secure-remote-access#set-up-remote-access-to-the-aws-console-from-the-akeyless-console) instead.
+Let's set up remote access to the AWS Console using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/sra-aws-console#set-up-remote-access-to-the-aws-console-from-the-akeyless-console) instead.
 
 Run the relevant command to define the following fields to the secret that specifies the AWS account details and access credentials:
 
@@ -66,7 +66,7 @@ Where:
 * `secure-access-certificate-issuer`: Optional, only required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
 * `rotate-after-disconnect`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
-By default, access to the AWS portal will use a direct network access mode. To work with Akeyless [Web Access](https://docs.akeyless.io/docs/web-access-bastion) for session isolation or as a secure proxy entry point, please set **one** of the following:
+By default, access to the AWS portal will use a direct network access mode. To work with Akeyless [Web Access](https://docs.akeyless.io/docs/sra-web-bastion) for session isolation or as a secure proxy entry point, please set **one** of the following:
 
 * `secure-access-web-browsing`: Optional, secure browser by way of Akeyless Web Access Zero trust Web Access.
 
@@ -77,7 +77,7 @@ Alternatively, if you prefer to work with the Akeyless bastions as a proxy entry
 
 ## Set Up Remote Access to the AWS Console from the Akeyless Console
 
-Let's set up remote access to the AWS Console from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/aws-console-secure-remote-access#set-up-remote-access-to-the-aws-console-from-the-akeyless-cli) instead.
+Let's set up remote access to the AWS Console from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/sra-aws-console#set-up-remote-access-to-the-aws-console-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Items**.
 
@@ -92,9 +92,9 @@ Let's set up remote access to the AWS Console from the Akeyless Console. If you'
 
     * `Direct connection`: Default, using a direct connection to AWS portal by way of Akeyless Secure Remote Access.
 
-    * `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-bastion).
+    * `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-bastion).
 
-    * `Secure Web Proxy`: Optional, secure web proxy mode **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-bastion).
+    * `Secure Web Proxy`: Optional, secure web proxy mode **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-bastion).
 
     For **CLI Access**:
 
@@ -110,7 +110,7 @@ Let's set up remote access to the AWS Console from the Akeyless Console. If you'
 
 ## Access the AWS Console Over the Web from the Secure Remote Access Portal
 
-1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **AWS Console**.
+1. [Log in](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **AWS Console**.
 
 2. Select the required target, then select **Web**. A new tab opens to the AWS Console sign-in page, and Akeyless injects the credentials generated by the dynamic secret for the temporary user.
 
@@ -120,13 +120,13 @@ Let's set up remote access to the AWS Console from the Akeyless Console. If you'
 
 ## Access the AWS Console Using CLI from the Secure Remote Access Portal
 
-1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **AWS Console**.
+1. [Log in](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **AWS Console**.
 
 2. Select the required target, then select **CLI**. A new tab opens, showing that you are connected to the AWS Console.
 
 ## Access the AWS Console Using Akeyless Connect Command
 
-[Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command enables application native CLI access:
+[Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) command enables application native CLI access:
 
 ```shell
 akeyless connect -t <AWS Region> -g <your-gateway-ip[:port]> -n "/path/to/AWS-dynamic-secret"

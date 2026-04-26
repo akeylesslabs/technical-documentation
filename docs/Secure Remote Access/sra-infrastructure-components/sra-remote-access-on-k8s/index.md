@@ -1,5 +1,5 @@
 ---
-title: Copy of Remote Access on K8s
+title: Remote Access on K8s
 deprecated: false
 hidden: true
 metadata:
@@ -11,7 +11,7 @@ Akeyless Secure Remote Access offers robust security for accessing your resource
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Secure Remote Access.
 >
-> [Review the documentation for the legacy chart](https://docs.akeyless.io/docs/secure-remote-access-bastion).
+> [Review the documentation for the legacy chart](https://docs.akeyless.io/docs/sra-bastion).
 
 Remote Access is enabled through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) Helm chart deployment. Usually this is added after the Gateway is deployed, but it can be deployed as part of the Gateway deployment. This document will show how to upgrade your deployment to add Remote Access capabilities.
 
@@ -25,7 +25,7 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 
 * A Kubernetes Cluster
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI access
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for CLI access
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart. It can be found under `sraConfig` for the Web service and `sshConfig` for the SSH service.
 
@@ -94,7 +94,7 @@ _**Storage**_
 
 **NOTE**: Persistence is only relevant for the SRA-Web pod.
 
-The purpose of the `PersistentVolume` is to ensure that data can be shared and accessed by all pods in the cluster. When RDP is configured to [save recordings locally](https://docs.akeyless.io/docs/remote-access-rdp-recordings#local), the PersistentVolume is used to store these recordings. The Helm chart defines a persistent storage configuration using the `ReadWriteMany` access mode, which enables all pods to read from, and write to, the same storage volume. This is necessary to ensure that any changes or updates made by one pod are available to all other pods, maintaining consistency across the services.
+The purpose of the `PersistentVolume` is to ensure that data can be shared and accessed by all pods in the cluster. When RDP is configured to [save recordings locally](https://docs.akeyless.io/docs/sra-rdp-recordings#local), the PersistentVolume is used to store these recordings. The Helm chart defines a persistent storage configuration using the `ReadWriteMany` access mode, which enables all pods to read from, and write to, the same storage volume. This is necessary to ensure that any changes or updates made by one pod are available to all other pods, maintaining consistency across the services.
 
 ```yaml
 persistence: 
@@ -123,7 +123,7 @@ Here’s how it works:
 
 ### SSH Config
 
-To provide just-in-time native CLI access for your users using [SSH Certificates](https://docs.akeyless.io/docs/ssh-certificates), set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
+To provide just-in-time native CLI access for your users using [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates), set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates).
 
 ```yaml
 sshConfig:

@@ -12,23 +12,23 @@ next:
 ---
 Akeyless Platform's Secure Remote Access solution supports connections to the following resource types:
 
-* [Databases](https://docs.akeyless.io/docs/database-secure-remote-access)
+* [Databases](https://docs.akeyless.io/docs/sra-database)
 
-* [Windows Remote Desktop](https://docs.akeyless.io/docs/remote-desktop-secure-access)
+* [Windows Remote Desktop](https://docs.akeyless.io/docs/sra-remote-desktop)
 
-* [AWS Console](https://docs.akeyless.io/docs/aws-console-secure-remote-access)
+* [AWS Console](https://docs.akeyless.io/docs/sra-aws-console)
 
-* [Azure Portal](https://docs.akeyless.io/docs/azure-portal-access)
+* [Azure Portal](https://docs.akeyless.io/docs/sra-azure-portal)
 
-* [GCP Portal](https://docs.akeyless.io/docs/gcp-portal-access)
+* [GCP Portal](https://docs.akeyless.io/docs/sra-gcp-portal)
 
-* [SSH Servers](https://docs.akeyless.io/docs/ssh-remote-access)
+* [SSH Servers](https://docs.akeyless.io/docs/sra-ssh)
 
-* [RabbitMQ](https://docs.akeyless.io/docs/rabbitmq-secure-remote-access)
+* [RabbitMQ](https://docs.akeyless.io/docs/sra-rabbitmq)
 
-* [Kubernetes](https://docs.akeyless.io/docs/k8s-cluster-access)
+* [Kubernetes](https://docs.akeyless.io/docs/sra-k8s-cluster)
 
-* [Web Applications](https://docs.akeyless.io/docs/web-applications-secure-remote-access)
+* [Web Applications](https://docs.akeyless.io/docs/sra-web-applications)
 
 * [kubectl](https://docs.akeyless.io/docs/kubectl-access)
 

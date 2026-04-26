@@ -12,7 +12,7 @@ next:
 ---
 The Secure Remote Access Portal is available through the main console at `http://Your-Akeyless-Gateway-URL:8000/sra/portal` or through the public SaaS console at `https://zerotrust.akeyless.io`.
 
-All Akeyless-supported [resource types](https://docs.akeyless.io/docs/supported-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli), or the [Desktop Application](https://docs.akeyless.io/docs/remote-access-desktop-application-beta).
+All Akeyless-supported [resource types](https://docs.akeyless.io/docs/supported-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli), or the [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application-beta).
 
 Currently, the SRA Portal supports the following authentication methods:
 
@@ -37,7 +37,7 @@ The portal shows all the [resource types](https://docs.akeyless.io/docs/supporte
 
 ### Add a Custom Target for SSH or RDP
 
-In addition to existing hosts that are part of the allowed hosts on the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-remote-access), you can add new hostnames or IP addresses on the fly by using a matching SSH Cert Issuer that can provide access.
+In addition to existing hosts that are part of the allowed hosts on the [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh), you can add new hostnames or IP addresses on the fly by using a matching SSH Cert Issuer that can provide access.
 
 > ℹ️ **Note (Key Features):**
 >
@@ -46,7 +46,7 @@ In addition to existing hosts that are part of the allowed hosts on the [SSH Cer
 > * **Edit** and **Delete** Capability: Users can edit or remove the last added host from the list.
 
 1. In the SSH or RDP window, choose **Custom Target** and click the **+** button.
-2. Select the **Permission Profile**. For example, [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-remote-access).
+2. Select the **Permission Profile**. For example, [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh).
 3. Enter **Hostname** or **IP Address**.
 4. Select **Confirm**.
 

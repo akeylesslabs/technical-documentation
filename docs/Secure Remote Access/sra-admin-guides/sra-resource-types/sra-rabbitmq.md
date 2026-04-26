@@ -16,7 +16,7 @@ You can enable Secure Remote Access to RabbitMQ on the dynamic secret that gener
 
 To enable Secure Remote Access to RabbitMQ you need:
 
-* The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
+* The [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
 * A [RabbitMQ Dynamic Secrets](https://docs.akeyless.io/docs/rabbitmq-producer).
 
@@ -26,7 +26,7 @@ To enable Secure Remote Access to RabbitMQ you need:
 
 Create a [RabbitMQ Dynamic Secret](https://docs.akeyless.io/docs/rabbitmq-producer) in Akeyless API Gateway.
 
-Let's set up remote access to RabbitMQ using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/rabbitmq-secure-remote-access#set-up-remote-access-to-rabbitmq-from-the-akeyless-console) instead.
+Let's set up remote access to RabbitMQ using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/sra-rabbitmq#set-up-remote-access-to-rabbitmq-from-the-akeyless-console) instead.
 
 Run the relevant command to define the following fields to the secret that specifies the RabbitMQ details and access credentials:
 
@@ -45,7 +45,7 @@ Where:
 
 ## Set Up Remote Access to RabbitMQ from the Akeyless Console
 
-Let's set up remote access to RabbitMQ from the Akeyless Console. If you'd prefer, see how to do this from [Akeyless CLI](https://docs.akeyless.io/docs/rabbitmq-secure-remote-access#set-up-remote-access-to-rabbitmq-from-the-akeyless-cli) instead.
+Let's set up remote access to RabbitMQ from the Akeyless Console. If you'd prefer, see how to do this from [Akeyless CLI](https://docs.akeyless.io/docs/sra-rabbitmq#set-up-remote-access-to-rabbitmq-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Items**.
 

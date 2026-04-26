@@ -18,7 +18,7 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
 * Akeyless Gateway deployed on [Kubernetes](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#/). If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported for SRA.
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for Remote CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for Remote CLI Access.
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion `ztbConfig` section and the SSH bastion under `sshConfig`.
 
@@ -111,6 +111,6 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
 
 ## SRA Portal Access
 
-To login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`, using one of the  [supported authentication methods](https://docs.akeyless.io/docs/access-resources-remotely#prerequisites).
+To login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`, using one of the [supported authentication methods](https://docs.akeyless.io/docs/sra-portal).
 
 Once logged in, you will see Secrets with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or by way of CLI.

@@ -35,7 +35,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 > ℹ️ **Note (First things first):**
 >
-> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/remote-access-quick-start-guide#remote-access-section) section.
+> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/sra-quick-start-guide#remote-access-section) section.
 
 ## Create Your Authentication Method
 
@@ -105,7 +105,7 @@ Follow the below commands:
 
 > ℹ️ **Note (SSH connection):**
 >
-> This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/ssh-certificates).
+> This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/sra-ssh-certificates).
 
 ## Configuration
 
@@ -173,7 +173,7 @@ To configure Remote Access, follow these steps:
 
 `sra`: Set the `enabled` field to `true`. Note that the Remote Access deployment creates two more pods in the cluster, one for Web and one for SSH.
 
-`CAPublicKey`: For this to work properly, you are also required to provide the matching public key of the key you used to create the SSH Certificate Issuer in Akeyless. You can provide one or more CA public keys. More info can be found [here](https://docs.akeyless.io/docs/ssh-certificates). Add each `ssh-rsa` value on a new line.
+`CAPublicKey`: For this to work properly, you are also required to provide the matching public key of the key you used to create the SSH Certificate Issuer in Akeyless. You can provide one or more CA public keys. More info can be found [here](https://docs.akeyless.io/docs/sra-ssh-certificates). Add each `ssh-rsa` value on a new line.
 
 ## Deployment
 
@@ -243,4 +243,4 @@ Here we will lay out the steps to get a SAML user to access the Remote Access Po
 
 ## Next Steps
 
-With a Gateway deployed, you can now test out using just-in-time [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) for various applications and services by setting up [Targets](https://docs.akeyless.io/docs/targets). If you are also using Remote Access, you can also set up Remote Access on those Targets and log into those [Resources](https://docs.akeyless.io/docs/supported-resource-types) securely from anywhere by [reading the docs](https://docs.akeyless.io/docs/remote-access-overview).
+With a Gateway deployed, you can now test out using just-in-time [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) for various applications and services by setting up [Targets](https://docs.akeyless.io/docs/targets). If you are also using Remote Access, you can also set up Remote Access on those Targets and log into those [Resources](https://docs.akeyless.io/docs/supported-resource-types) securely from anywhere by [reading the docs](https://docs.akeyless.io/docs/sra-overview).

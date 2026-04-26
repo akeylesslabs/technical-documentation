@@ -33,7 +33,7 @@ Note that this guide assumes you already have a gateway, and will only refer to 
 
 * Akeyless Gateway deployed on [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#/).
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_ username` allowed.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for CLI Access with `session_ username` allowed.
 
 ### Deployment Overview
 
@@ -118,6 +118,6 @@ Upon successful installation, you will see 4 containers:
 
 To start working with SRA, open your browser and login to the **Secure Remote Access** portal using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
 
-Log in with one of the [supported authentication methods](https://docs.akeyless.io/docs/access-resources-remotely#prerequisites).
+Log in with one of the [supported authentication methods](https://docs.akeyless.io/docs/sra-portal).
 
 Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret#/) with Secure Remote Access enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or by way of an SSH connection.

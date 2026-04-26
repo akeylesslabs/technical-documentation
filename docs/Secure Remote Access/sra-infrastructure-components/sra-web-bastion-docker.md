@@ -276,7 +276,7 @@ services:
 
 ### Log Forwarding
 
-To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/ssh-log-forwarding) page. Set the `LOG_FORWARDING` variable inside the **Docker Compose** deployment file as follow:
+To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/sra-ssh-log-forwarding) page. Set the `LOG_FORWARDING` variable inside the **Docker Compose** deployment file as follow:
 
 ```yaml docker-compose.yml
 services:

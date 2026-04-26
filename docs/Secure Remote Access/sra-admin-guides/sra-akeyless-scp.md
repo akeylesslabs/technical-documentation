@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless SCP enables secure copy by way of [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
+Akeyless SCP enables secure copy by way of [Remote Access](https://docs.akeyless.io/docs/sra-setup-overview).
 
 > ℹ️ **Note:**
 >
@@ -18,9 +18,9 @@ Akeyless SCP enables secure copy by way of [Remote Access](https://docs.akeyless
 
 ## Prerequisite
 
-* Akeyless [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
+* Akeyless [Remote Access](https://docs.akeyless.io/docs/sra-setup-overview).
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates).
 
 * OpenSSH V7.3 or higher on target servers.
 
@@ -93,7 +93,7 @@ Akeyless SCP enables secure copy by way of [Remote Access](https://docs.akeyless
 
     `IDENTITY_FILE` - Default is `~/.ssh/id_rsa`. Full path to the private key to be signed and used for the Zero Trust session.
 
-    `CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-certificates) item.
+    `CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) item.
 
     `AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). By default, it's using the `default` profile of your Akeyless CLI.
 

@@ -22,9 +22,9 @@ To use Akeyless Connect you need:
 
 * Akeyless CLI v1.42.0 or higher.
 
-* An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
+* An [SSH certificate issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for certificate authentication.
 
-* A [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
+* A [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion).
 
 * OpenSSH v7.9 and OpenSSL 1.1.1 or higher on target servers.
 
@@ -108,7 +108,7 @@ To use Akeyless Connect you need:
 
     `AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
-    `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) is configured with TLS.  
+    `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion) is configured with TLS.  
 
     `BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
 
@@ -126,7 +126,7 @@ To use Akeyless Connect you need:
 
     `SSH_EXTRA_ARGS` - Add any official SSH arguments.
 
-3. Use the `akeyless connect` command to connect to a resource through the [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion):
+3. Use the `akeyless connect` command to connect to a resource through the [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-bastion):
 
     ```shell General Template
     akeyless connect -t <[user@]target/hostname/ip[:port]> -v <sra-bastion-ssh-sra-service/ip[:port]>

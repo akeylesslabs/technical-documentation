@@ -38,7 +38,7 @@ httpProxySettings:
 
 ## Log Forwarding
 
-To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/ssh-log-forwarding) page.
+To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/sra-ssh-log-forwarding) page.
 
 ```yaml
 logForward: |
