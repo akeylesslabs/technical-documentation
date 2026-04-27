@@ -4,7 +4,6 @@
     "akeyless-community/AkeylessCredentialsProvider",
     "akeyless-community/N8N_PlugIn",
     "akeyless-community/akeyless-action",
-    "akeyless-community/akeyless-custom-server-kustomize-patches",
     "akeyless-community/akeyless-github-action",
     "akeyless-community/akeyless-k8s-auth-terraform",
     "akeyless-community/akeyless-mcp-plugin",
