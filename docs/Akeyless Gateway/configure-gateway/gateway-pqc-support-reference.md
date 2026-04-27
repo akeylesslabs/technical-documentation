@@ -50,7 +50,7 @@ Deployment examples:
 
 Hybrid PQC key exchange requires both peers to support `X25519MLKEM768`. The following clients negotiate it automatically:
 
-* Modern browsers (Chrome 131+, Firefox 132+, Edge 131+)
+* Current major browsers
 * Go runtime 1.24 and later (including the Akeyless Go SDK and CLI)
 
 Older clients that do not support `X25519MLKEM768` fall back to a classical key exchange without disrupting the TLS connection.
@@ -78,7 +78,12 @@ A hybrid PQC key exchange returns output similar to:
 Server Temp Key: X25519MLKEM768
 ```
 
-Either verification method confirms that TLS is using a hybrid key exchange with both classical and post-quantum components.
+Interpretation:
+
+* `Server Temp Key: X25519MLKEM768`: Hybrid PQC is active.
+* `Server Temp Key: X25519`: The connection negotiated classical key exchange.
+
+If you expect hybrid PQC but observe `X25519`, confirm that the client supports `X25519MLKEM768` and that the Gateway is configured with `MIN_TLS_VERSION=TLSv1.3`.
 
 ## Related Resources
 
