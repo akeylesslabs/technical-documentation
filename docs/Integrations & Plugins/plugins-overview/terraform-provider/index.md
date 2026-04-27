@@ -81,7 +81,7 @@ output "auth_method" {
 }
 ```
 
-To apply this request, run:
+To apply this configuration, run:
 
 ```shell
 terraform apply
@@ -90,7 +90,7 @@ terraform apply
 Resources can be imported from Akeyless, for example, import a static secret:
 
 ```shell
-terraform import akeyless_static_secret.resorce-name /full-secret-name-in-akeyless
+terraform import akeyless_static_secret.resource-name /full-secret-name-in-akeyless
 ```
 
 ## DigiCert Target
