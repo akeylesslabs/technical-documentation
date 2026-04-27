@@ -20,7 +20,6 @@
     "akeyless-community/external-secrets",
     "akeyless-community/heimdal",
     "akeyless-community/k8s-auth-validator",
-    "akeyless-community/openshift-helmchart",
     "akeyless-community/steampipe-plugin-akeyless",
     "akeyless-community/teamcity-akeyless-plugin",
     "akeyless-community/terraform-cloud-gha-secrets",
