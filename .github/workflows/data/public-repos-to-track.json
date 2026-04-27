@@ -8,7 +8,6 @@
     "akeyless-community/akeyless-custom-server-kustomize-patches",
     "akeyless-community/akeyless-custom-server-ui-rotate",
     "akeyless-community/akeyless-custom-server-w-puppeteer",
-    "akeyless-community/akeyless-dba-workflow-tf-example",
     "akeyless-community/akeyless-eso-webhook-trigger",
     "akeyless-community/akeyless-github-action",
     "akeyless-community/akeyless-k8s-auth-terraform",
