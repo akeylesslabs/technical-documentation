@@ -320,9 +320,9 @@ In this example, you will fetch an AWS Rotated Secret from Akeyless, called `aws
       with:
         access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
         access-type: jwt
-      rotated-secrets: |
-        - name: "/path/to/rotated/aws/secret"
-          output-name: "aws_rotated_secret"
+        rotated-secrets: |
+          - name: "/path/to/rotated/aws/secret"
+            output-name: "aws_rotated_secret"
 ```
 
 ### SSH Certificates Example
@@ -341,18 +341,18 @@ In this example, you will fetch two SSH Certificates from Akeyless, called `ssh_
     steps:
       - name: Fetch ssh certificates from Akeyless
         id: fetch-ssh-certificate
-        uses: akeyless-community/akeyless-github-action@v1.1.2
+        uses: akeyless-community/akeyless-github-action@v1.1.5
         with:
           access-type: jwt
           ssh-certificates: |
             - name: "/path/to/ssh/secret1"
               output-name: "ssh_secret1"
-              cert-username: "ubuntu",
-              public-key-data: "public_key_data",
+              cert-username: "ubuntu"
+              public-key-data: "public_key_data"
             - name: "/path/to/ssh/secret2"
               output-name: "ssh_secret2"
-              cert-username: "ubuntu",
-              public-key-data: "public_key_data",
+              cert-username: "ubuntu"
+              public-key-data: "public_key_data"
 ```
 
 ### PKI Certificates Example
@@ -485,7 +485,7 @@ Using the following in YAML:
  - name: Use Akeyless secret
    run: |
      echo "key1:${{ env.PATH_TO_SECRET_KEY1 }}" >> secrets.txt
-    echo "key2:${{ env.PATH_TO_SECRET_KEY2 }}" >> secrets.txt
+     echo "key2:${{ env.PATH_TO_SECRET_KEY2 }}" >> secrets.txt
      echo "key1:${{ env.SECRET }}" >> secrets.txt
 ```
 
