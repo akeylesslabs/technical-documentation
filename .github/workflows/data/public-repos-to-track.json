@@ -22,7 +22,6 @@
     "akeylesslabs/akeyless-grpc-rust",
     "akeylesslabs/akeyless-java",
     "akeylesslabs/akeyless-java-cloud-id",
-    "akeylesslabs/akeyless-java-cloud-id-lightweight",
     "akeylesslabs/akeyless-javascript",
     "akeylesslabs/akeyless-js-cloud-id",
     "akeylesslabs/akeyless-netcore-cloud-id",
