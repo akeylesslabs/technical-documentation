@@ -35,7 +35,6 @@
     "akeylesslabs/homebrew-tap",
     "akeylesslabs/jwt-go",
     "akeylesslabs/keda",
-    "akeylesslabs/openssl-c",
     "akeylesslabs/sigstore",
   ],
   "third_party_repos": [
