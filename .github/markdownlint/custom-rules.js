@@ -1219,6 +1219,11 @@ module.exports = [
     tags: ["terminology", "style"],
     function: function (params, onError) {
       const cfg = params.config || {};
+      const allowPhrases = new Set(
+        (Array.isArray(cfg.allow_phrases) ? cfg.allow_phrases : [])
+          .map((s) => String(s || "").trim().toLowerCase())
+          .filter(Boolean)
+      );
 
       const defaultTerms = [
         {

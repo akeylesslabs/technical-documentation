@@ -170,6 +170,8 @@ config:
   #         example_to: string          # (Optional) Example of preferred usage
   AKY017:
     allow_phrases:
+      - "segregation"
+      - "segregate"
       - "policy segregation"
       - "namespace segregation"
       - "pod segregation"

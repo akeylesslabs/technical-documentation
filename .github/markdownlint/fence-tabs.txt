@@ -196,6 +196,7 @@ RSA2048
 S3-Inline connection string
 SAML
 Sample Output
+Scheduled Delete
 SAP HANA database
 SAP HanaDB
 Secret
