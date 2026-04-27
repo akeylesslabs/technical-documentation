@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Use this page as a formal reference for hybrid post-quantum cryptography (PQC) support in Akeyless SaaS and Akeyless Gateway TLS connections.
+Akeyless implements hybrid post-quantum cryptography (PQC) for TLS connections between clients and both the Akeyless SaaS platform and Akeyless Gateway deployments. This page provides the cryptographic profile, coverage matrix, and verification steps for compliance and operational reference.
 
 ## Cryptography Profile
 
@@ -30,7 +30,7 @@ Akeyless TLS hybrid PQC connections use the following profile:
 | Connection path | Hybrid PQC support | Required action |
 | --- | --- | --- |
 | Client to Akeyless SaaS | Enabled by default | No user configuration required |
-| Client to Akeyless Gateway endpoint | Supported | Set `MIN_TLS_VERSION=TLSv1.3` on the Gateway deployment |
+| Client to Akeyless Gateway endpoint | Supported, configuration required | Set `MIN_TLS_VERSION=TLSv1.3` on the Gateway deployment |
 | Gateway to Akeyless SaaS | Enabled by default | No user configuration required |
 
 ## Gateway Configuration Requirements
@@ -39,10 +39,21 @@ To enable hybrid PQC for the Akeyless Gateway endpoint, set the following enviro
 
 * `MIN_TLS_VERSION=TLSv1.3`
 
+When TLS 1.3 is enabled, the Go runtime negotiates `X25519MLKEM768` automatically. No additional flags are required.
+
 Deployment examples:
 
 * [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration)
 * [Gateway Kubernetes Helm Values Reference](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference)
+
+## Client Compatibility
+
+Hybrid PQC key exchange requires both peers to support `X25519MLKEM768`. The following clients negotiate it automatically:
+
+* Modern browsers (Chrome 131+, Firefox 132+, Edge 131+)
+* Go runtime 1.24 and later (including the Akeyless Go SDK and CLI)
+
+Older clients that do not support `X25519MLKEM768` fall back to a classical key exchange without disrupting the TLS connection.
 
 ## Verification Guidance
 
@@ -52,7 +63,7 @@ To verify hybrid PQC on a Gateway endpoint using a browser:
 2. Open the browser connection security details.
 3. Confirm the negotiated key exchange includes `X25519MLKEM768`.
 
-To verify using OpenSSL:
+To verify using OpenSSL (requires OpenSSL 3.2 or later; Linux and macOS):
 
 ```shell
 openssl s_client -connect <gateway-host>:<port> 2>&1 | grep "Server Temp Key"
