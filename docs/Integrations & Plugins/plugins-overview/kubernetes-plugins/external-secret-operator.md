@@ -254,7 +254,7 @@ Where:
 
 Getting the Kubernetes Secret:
 
-```yaml
+```shell
 kubectl get secret akeyless-secret-to-create-json -o jsonpath='{.data}'
 ```
 

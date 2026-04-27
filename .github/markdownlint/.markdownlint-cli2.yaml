@@ -169,6 +169,11 @@ config:
   #         example_from: string        # (Optional) Example of discouraged usage
   #         example_to: string          # (Optional) Example of preferred usage
   AKY017:
+    allow_phrases:
+      - "policy segregation"
+      - "namespace segregation"
+      - "pod segregation"
+      - "policy segregation for kubernetes"
     terms:
       # Akeyless Marketing Requests/Changes
       - term: "Vaultless"
