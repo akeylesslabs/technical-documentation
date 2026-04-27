@@ -31,7 +31,6 @@
     "akeylesslabs/akeyless-netcore-cloud-id",
     "akeylesslabs/akeyless-python",
     "akeylesslabs/akeyless-ruby",
-    "akeylesslabs/akeyless-ruby-sdk",
     "akeylesslabs/akeyless-servicenow-credential-resolver",
     "akeylesslabs/ansible-ui",
     "akeylesslabs/awx",
