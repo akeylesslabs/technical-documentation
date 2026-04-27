@@ -10,7 +10,6 @@
     "akeyless-community/akeyless-custom-server-w-puppeteer",
     "akeyless-community/akeyless-dba-workflow-tf-example",
     "akeyless-community/akeyless-eso-webhook-trigger",
-    "akeyless-community/akeyless-gateway-migrator",
     "akeyless-community/akeyless-github-action",
     "akeyless-community/akeyless-k8s-auth-terraform",
     "akeyless-community/akeyless-mcp-plugin",
