@@ -16,7 +16,6 @@
     "akeyless-community/akeyless-k8s-auth-terraform",
     "akeyless-community/akeyless-mcp-plugin",
     "akeyless-community/akeyless-openapi-spec-extractor",
-    "akeyless-community/akeyless-openldap-ldif-star-trek",
     "akeyless-community/akeyless-serverless-gateway",
     "akeyless-community/akeyless-sheller",
     "akeyless-community/akeyless-tf-cloud-docker-agent",
