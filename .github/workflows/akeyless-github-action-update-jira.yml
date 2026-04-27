@@ -1,4 +1,4 @@
-name: Akeyless Community Repos Update Jira Tasks
+name: Akeyless Public Repos Update Jira Tasks
 
 permissions:
   contents: read
@@ -14,56 +14,95 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        repo:
-          - AkeylessCredentialsProvider
-          - Akeyless-Cursor-Plugin
-          - N8N_PlugIn
-          - akeyless-action
-          - akeyless-cert-manager-issuer
-          - akeyless-connectivity-check
-          - akeyless-custom-server-kustomize-patches
-          - akeyless-custom-server-ui-rotate
-          - akeyless-custom-server-w-puppeteer
-          - akeyless-dba-workflow-tf-example
-          - akeyless-eso-webhook-trigger
-          - akeyless-gateway-migrator
-          - akeyless-github-action
-          - akeyless-instruqt-learners-terraform
-          - akeyless-k8s-auth-examples
-          - akeyless-k8s-auth-terraform
-          - akeyless-mcp-plugin
-          - akeyless-nu-shell-examples
-          - akeyless-oidc-identity-provider-example
-          - akeyless-openapi-spec-extractor
-          - akeyless-openldap-ldif-star-trek
-          - akeyless-serverless-gateway
-          - akeyless-sheller
-          - akeyless-tf-cloud-docker-agent
-          - akeyless-tf-cloud-intro
-          - akeyless-ui-webhook-builder
-          - awx-plugins
-          - custom-server-ui-payload-generator
-          - dapr
-          - dapr-docs
-          - example-java-sdk-encryption-as-a-service
-          - external-secrets
-          - heimdal
-          - homebrew-agmigrator
-          - homebrew-kav
-          - idp-demo
-          - json-secret-importer
-          - k8s-auth-validator
-          - keda-docs
-          - mock-authentication
-          - network-diagram-generator
-          - openshift-helmchart
-          - sra-demo-environment
-          - ssh-target
-          - steampipe-plugin-akeyless
-          - support-bundle
-          - teamcity-akeyless-plugin
-          - terraform-cloud-gha-secrets
-          - terraform-provider-akeyless
+        repo_full:
+          - akeyless-community/Akeyless-Cursor-Plugin
+          - akeyless-community/AkeylessCredentialsProvider
+          - akeyless-community/N8N_PlugIn
+          - akeyless-community/akeyless-action
+          - akeyless-community/akeyless-cert-manager-issuer
+          - akeyless-community/akeyless-connectivity-check
+          - akeyless-community/akeyless-custom-server-kustomize-patches
+          - akeyless-community/akeyless-custom-server-ui-rotate
+          - akeyless-community/akeyless-custom-server-w-puppeteer
+          - akeyless-community/akeyless-dba-workflow-tf-example
+          - akeyless-community/akeyless-eso-webhook-trigger
+          - akeyless-community/akeyless-gateway-migrator
+          - akeyless-community/akeyless-github-action
+          - akeyless-community/akeyless-instruqt-learners-terraform
+          - akeyless-community/akeyless-k8s-auth-examples
+          - akeyless-community/akeyless-k8s-auth-terraform
+          - akeyless-community/akeyless-mcp-plugin
+          - akeyless-community/akeyless-nu-shell-examples
+          - akeyless-community/akeyless-oidc-identity-provider-example
+          - akeyless-community/akeyless-openapi-spec-extractor
+          - akeyless-community/akeyless-openldap-ldif-star-trek
+          - akeyless-community/akeyless-serverless-gateway
+          - akeyless-community/akeyless-sheller
+          - akeyless-community/akeyless-tf-cloud-docker-agent
+          - akeyless-community/akeyless-tf-cloud-intro
+          - akeyless-community/akeyless-ui-webhook-builder
+          - akeyless-community/awx-plugins
+          - akeyless-community/custom-server-ui-payload-generator
+          - akeyless-community/dapr
+          - akeyless-community/dapr-docs
+          - akeyless-community/example-java-sdk-encryption-as-a-service
+          - akeyless-community/external-secrets
+          - akeyless-community/heimdal
+          - akeyless-community/homebrew-agmigrator
+          - akeyless-community/homebrew-kav
+          - akeyless-community/idp-demo
+          - akeyless-community/json-secret-importer
+          - akeyless-community/k8s-auth-validator
+          - akeyless-community/keda-docs
+          - akeyless-community/mock-authentication
+          - akeyless-community/network-diagram-generator
+          - akeyless-community/openshift-helmchart
+          - akeyless-community/sra-demo-environment
+          - akeyless-community/ssh-target
+          - akeyless-community/steampipe-plugin-akeyless
+          - akeyless-community/support-bundle
+          - akeyless-community/teamcity-akeyless-plugin
+          - akeyless-community/terraform-cloud-gha-secrets
+          - akeyless-community/terraform-provider-akeyless
+          - akeylesslabs/DAPR-components
+          - akeylesslabs/adminer
+          - akeylesslabs/akeyless-csharp-netcore
+          - akeylesslabs/akeyless-csi-provider
+          - akeylesslabs/akeyless-funnel
+          - akeylesslabs/akeyless-go
+          - akeylesslabs/akeyless-go-cloud-id
+          - akeylesslabs/akeyless-go-test
+          - akeylesslabs/akeyless-grpc-go
+          - akeylesslabs/akeyless-grpc-php
+          - akeylesslabs/akeyless-grpc-rust
+          - akeylesslabs/akeyless-java
+          - akeylesslabs/akeyless-java-cloud-id
+          - akeylesslabs/akeyless-java-cloud-id-lightweight
+          - akeylesslabs/akeyless-javascript
+          - akeylesslabs/akeyless-js-cloud-id
+          - akeylesslabs/akeyless-minio
+          - akeylesslabs/akeyless-netcore-cloud-id
+          - akeylesslabs/akeyless-python
+          - akeylesslabs/akeyless-ruby
+          - akeylesslabs/akeyless-ruby-sdk
+          - akeylesslabs/akeyless-servicenow-credential-resolver
+          - akeylesslabs/ansible-ui
+          - akeylesslabs/awx
+          - akeylesslabs/cli
+          - akeylesslabs/custom-producer
+          - akeylesslabs/docker-compose
+          - akeylesslabs/go-kmip
+          - akeylesslabs/go-socks5
+          - akeylesslabs/golang-openssl-wrapper
+          - akeylesslabs/helm-charts
+          - akeylesslabs/homebrew-tap
+          - akeylesslabs/jwt-go
+          - akeylesslabs/keda
+          - akeylesslabs/openssl
+          - akeylesslabs/openssl-c
+          - akeylesslabs/sigstore
+          - akeylesslabs/sshproxy
+          - akeylesslabs/trufflehog
 
     steps:
       - name: Get latest upstream release tag
@@ -71,7 +110,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          RELEASE_API_URL="https://api.github.com/repos/akeyless-community/${{ matrix.repo }}/releases/latest"
+          RELEASE_API_URL="https://api.github.com/repos/${{ matrix.repo_full }}/releases/latest"
           RELEASE_RESP_BODY=$(mktemp)
 
           RELEASE_HTTP_CODE=$(curl -sS -o "$RELEASE_RESP_BODY" -w "%{http_code}" \
@@ -97,7 +136,7 @@ jobs:
             exit 0
           fi
 
-          TAGS_API_URL="https://api.github.com/repos/akeyless-community/${{ matrix.repo }}/tags?per_page=100"
+          TAGS_API_URL="https://api.github.com/repos/${{ matrix.repo_full }}/tags?per_page=100"
           TAGS_RESP_BODY=$(mktemp)
 
           TAGS_HTTP_CODE=$(curl -sS -o "$TAGS_RESP_BODY" -w "%{http_code}" \
@@ -125,7 +164,7 @@ jobs:
           fi
 
           if [ -z "$LATEST_TAG" ]; then
-            echo "No releases or tags found for akeyless-community/${{ matrix.repo }}. Skipping."
+            echo "No releases or tags found for ${{ matrix.repo_full }}. Skipping."
             echo "has_release=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -134,7 +173,7 @@ jobs:
           echo "latest_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
           echo "Detected latest tag from tags API fallback: $LATEST_TAG"
 
-      - name: Create Jira issue for new release (${{ matrix.repo }})
+      - name: Create Jira issue for new release (${{ matrix.repo_full }})
         id: jira
         if: steps.detect.outputs.has_release == 'true'
         env:
@@ -142,13 +181,13 @@ jobs:
           JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
           JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
-          REPO_SLUG: ${{ matrix.repo }}
+          REPO_FULL: ${{ matrix.repo_full }}
           LATEST_TAG: ${{ steps.detect.outputs.latest_tag }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -e
 
-          REPO_DISPLAY="akeyless-community/${REPO_SLUG}"
+          REPO_DISPLAY="${REPO_FULL}"
           SUMMARY_PREFIX="${REPO_DISPLAY} upstream update detected:"
           SUMMARY="${SUMMARY_PREFIX} latest ${LATEST_TAG}"
 
@@ -185,7 +224,7 @@ jobs:
             exit 0
           fi
 
-          LABEL_SLUG=$(echo "$REPO_SLUG" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9-' '-' | sed 's/-*$//')
+          LABEL_SLUG=$(echo "$REPO_FULL" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9-' '-' | sed 's/-*$//')
 
           ADF_DESC=$(jq -n \
             --arg repo_display "$REPO_DISPLAY" \
@@ -220,7 +259,7 @@ jobs:
                 summary: $summary,
                 description: $adf,
                 issuetype: { name: "Task" },
-                labels: ["documentation","akeyless-community",$label_slug,"scheduled"]
+                labels: ["documentation","akeyless-public-repos",$label_slug,"scheduled"]
               }
             }')
 
