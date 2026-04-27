@@ -31,7 +31,6 @@
     "akeylesslabs/ansible-ui",
     "akeylesslabs/custom-producer",
     "akeylesslabs/docker-compose",
-    "akeylesslabs/golang-openssl-wrapper",
     "akeylesslabs/helm-charts",
     "akeylesslabs/homebrew-tap",
     "akeylesslabs/jwt-go",
