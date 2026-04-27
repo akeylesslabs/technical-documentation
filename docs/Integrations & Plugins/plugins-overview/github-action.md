@@ -412,7 +412,7 @@ By default, the action sets the environment variable value to the entire JSON st
 
 For a secret with JSON values:
 
-```json secret
+```json
 {
   "key1":"val1",
   "key2":"val2"

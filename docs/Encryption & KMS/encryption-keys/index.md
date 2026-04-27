@@ -80,7 +80,7 @@ akeyless create-dfc-key -n MyCBC -a AES256CBC
 ```shell Delete Immediately
 akeyless delete-item -n MyAES256GCMKey
 ```
-```shell Scheduled Delete
+```shell
 akeyless delete-item -n MyAES128GCMKey --delete-in-days=30
 ```
 
