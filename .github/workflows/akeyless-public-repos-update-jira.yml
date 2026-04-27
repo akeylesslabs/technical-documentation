@@ -420,9 +420,14 @@ jobs:
 
       - name: Write per-repo result
         if: always()
+        id: per_repo
         run: |
           set -euo pipefail
           mkdir -p .github/workflow-results
+
+          SAFE_REPO_SLUG="${{ matrix.repo_full }}"
+          SAFE_REPO_SLUG="${SAFE_REPO_SLUG//\//__}"
+          echo "safe_repo_slug=$SAFE_REPO_SLUG" >> "$GITHUB_OUTPUT"
 
           ACTION="${{ steps.jira.outputs.action || '' }}"
           if [ -z "$ACTION" ]; then
@@ -437,7 +442,7 @@ jobs:
             fi
           fi
 
-          RESULT_FILE=".github/workflow-results/${{ replace(matrix.repo_full, '/', '__') }}.json"
+          RESULT_FILE=".github/workflow-results/${SAFE_REPO_SLUG}.json"
           jq -n \
             --arg repo "${{ matrix.repo_full }}" \
             --arg in_scope "${{ steps.scope.outputs.in_scope }}" \
@@ -464,7 +469,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: repo-scan-${{ replace(matrix.repo_full, '/', '__') }}
+          name: repo-scan-${{ steps.per_repo.outputs.safe_repo_slug }}
           path: .github/workflow-results/*.json
           if-no-files-found: error
 
