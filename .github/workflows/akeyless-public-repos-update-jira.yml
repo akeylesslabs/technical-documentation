@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 2 * * 1"
+    - cron: "15 2 * * 1"
   workflow_dispatch:
     inputs:
       scope_org:
