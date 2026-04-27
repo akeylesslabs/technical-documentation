@@ -29,7 +29,6 @@
     "akeyless-community/json-secret-importer",
     "akeyless-community/k8s-auth-validator",
     "akeyless-community/keda-docs",
-    "akeyless-community/network-diagram-generator",
     "akeyless-community/openshift-helmchart",
     "akeyless-community/sra-demo-environment",
     "akeyless-community/ssh-target",
