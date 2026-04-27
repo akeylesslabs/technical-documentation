@@ -120,6 +120,14 @@ Upon successful creation, the response:
 > ℹ️ **Note:**
 >
 > Save the returned `AccessID` and private key for next steps inside environment variables `$PRV_KEY` and `$ACCESS_ID`.
+>
+> If the private key is lost, generate a new key pair on the same Kubernetes Auth Method:
+>
+> ```shell
+> akeyless auth-method update k8s --name my-k8s-auth-method --gen-key true --json
+> ```
+>
+> Update each Kubernetes Auth config that uses this Auth Method with the new private key before authenticating.
 
 #### Create Kubernetes Gateway Auth Config Using Certificates
 
