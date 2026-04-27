@@ -5,11 +5,10 @@ permissions:
   security-events: read
 
 on:
-  secret_scanning_alert:
+  repository_dispatch:
     types:
-      - created
-      - reopened
-      - publicly_leaked
+      - secret_scanning_alert
+  workflow_dispatch:
 
 jobs:
   create-jira-task:
@@ -23,20 +22,20 @@ jobs:
           JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
           JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
-          REPO_NAME: ${{ github.repository }}
-          ALERT_NUMBER: ${{ github.event.secret_scanning_alert.number }}
-          ALERT_URL: ${{ github.event.secret_scanning_alert.html_url }}
-          ALERT_STATE: ${{ github.event.secret_scanning_alert.state }}
-          ALERT_SECRET_TYPE: ${{ github.event.secret_scanning_alert.secret_type_display_name }}
-          ALERT_PUSH_PROTECTION_BYPASSED: ${{ github.event.secret_scanning_alert.push_protection_bypassed }}
-          ALERT_PUSH_PROTECTION_BYPASSED_BY: ${{ github.event.secret_scanning_alert.push_protection_bypassed_by.login }}
-          ALERT_CREATED_AT: ${{ github.event.secret_scanning_alert.created_at }}
-          ALERT_UPDATED_AT: ${{ github.event.secret_scanning_alert.updated_at }}
-          ALERT_RESOLVED_AT: ${{ github.event.secret_scanning_alert.resolved_at }}
-          ALERT_RESOLUTION: ${{ github.event.secret_scanning_alert.resolution }}
-          ALERT_RESOLUTION_COMMENT: ${{ github.event.secret_scanning_alert.resolution_comment }}
-          ALERT_VALIDITY: ${{ github.event.secret_scanning_alert.validity }}
-          ALERT_LOCATION_URL: ${{ github.event.secret_scanning_alert.locations_url }}
+          REPO_NAME: ${{ github.event.client_payload.repository.full_name || github.event.client_payload.repository || github.repository }}
+          ALERT_NUMBER: ${{ github.event.client_payload.secret_scanning_alert.number || github.event.client_payload.number || 'manual' }}
+          ALERT_URL: ${{ github.event.client_payload.secret_scanning_alert.html_url || github.event.client_payload.html_url || format('{0}/{1}/security/secret-scanning', github.server_url, github.repository) }}
+          ALERT_STATE: ${{ github.event.client_payload.secret_scanning_alert.state || github.event.client_payload.state || 'unknown' }}
+          ALERT_SECRET_TYPE: ${{ github.event.client_payload.secret_scanning_alert.secret_type_display_name || github.event.client_payload.secret_type_display_name || 'unknown' }}
+          ALERT_PUSH_PROTECTION_BYPASSED: ${{ github.event.client_payload.secret_scanning_alert.push_protection_bypassed || github.event.client_payload.push_protection_bypassed || 'unknown' }}
+          ALERT_PUSH_PROTECTION_BYPASSED_BY: ${{ github.event.client_payload.secret_scanning_alert.push_protection_bypassed_by.login || github.event.client_payload.push_protection_bypassed_by || 'not provided' }}
+          ALERT_CREATED_AT: ${{ github.event.client_payload.secret_scanning_alert.created_at || github.event.client_payload.created_at || '' }}
+          ALERT_UPDATED_AT: ${{ github.event.client_payload.secret_scanning_alert.updated_at || github.event.client_payload.updated_at || '' }}
+          ALERT_RESOLVED_AT: ${{ github.event.client_payload.secret_scanning_alert.resolved_at || github.event.client_payload.resolved_at || '' }}
+          ALERT_RESOLUTION: ${{ github.event.client_payload.secret_scanning_alert.resolution || github.event.client_payload.resolution || '' }}
+          ALERT_RESOLUTION_COMMENT: ${{ github.event.client_payload.secret_scanning_alert.resolution_comment || github.event.client_payload.resolution_comment || '' }}
+          ALERT_VALIDITY: ${{ github.event.client_payload.secret_scanning_alert.validity || github.event.client_payload.validity || '' }}
+          ALERT_LOCATION_URL: ${{ github.event.client_payload.secret_scanning_alert.locations_url || github.event.client_payload.locations_url || '' }}
         run: |
           set -e
 
