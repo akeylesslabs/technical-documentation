@@ -53,6 +53,10 @@ persistence:
 
 For security reasons, please limit the `PersistentVolumes` mount permissions to `0650`.
 
+For current ZTWA versions, configure the shared volume so the volume root is owned by group `10000`.
+
+When using Amazon EFS, configure and mount through an EFS access point with the required ownership and permissions.
+
 ### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.  
@@ -84,6 +88,8 @@ helm show values akeyless/akeyless-zero-trust-web-access > values.yaml
 The chart exposes resource requests and limits for the main workloads and bootstrap init containers.
 
 The chart templates also configure non-root execution for Web Dispatcher and Web Worker containers.
+
+Do not override the chart's default user or group security context values unless instructed by Akeyless support.
 
 Use the following example as a baseline for environments with strict Kubernetes admission policies:
 
