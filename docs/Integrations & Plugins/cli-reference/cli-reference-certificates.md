@@ -191,11 +191,15 @@ akeyless create-pki-cert-issuer \
 
 `--not-require-cn [=false]`: If set, clients can request certificates without a CN.
 
-`--server-flag [=false]`: Extended Key Usage field If set, certificates will be flagged for server auth.
+`--server-flag [=false]`: Extended Key Usage field. If set, certificates will be flagged for server auth.
 
-`--client-flag [=false]`: Extended Key Usage field If set, certificates will be flagged for client auth use.
+`--client-flag [=false]`: Extended Key Usage field. If set, certificates will be flagged for client auth use.
 
-`--code-signing-flag [=false]`: Extended Key Usage field If set, certificates will be flagged for code signing use.
+`--code-signing-flag [=false]`: Extended Key Usage field. If set, certificates will be flagged for code signing use.
+
+> ℹ️ **Note:**
+>
+> The `--server-flag`, `--client-flag`, and `--code-signing-flag` options define which Extended Key Usage (EKU) types this issuer permits. When set, they allow leaf certificate requesters to explicitly include the corresponding EKU (for example, by passing `--ext-key-usage clientAuth` to `get-pki-certificate`). These flags do not automatically add EKU to all issued certificates, and they do not prevent issuing certificates without any EKU. Automatic EKU application and stricter issuance enforcement are planned for a future release.
 
 `--key-usage[=DigitalSignature,KeyAgreement,KeyEncipherment]`: A list of Key Usage flags
 
@@ -484,6 +488,10 @@ akeyless update-pki-cert-issuer \
 `--client-flag`: If set, certificates will be flagged for client auth use
 
 `--code-signing-flag`: If set, certificates will be flagged for code signing use
+
+> ℹ️ **Note:**
+>
+> The `--server-flag`, `--client-flag`, and `--code-signing-flag` options define which Extended Key Usage (EKU) types this issuer permits. When set, they allow leaf certificate requesters to explicitly include the corresponding EKU (for example, by passing `--ext-key-usage clientAuth` to `get-pki-certificate`). These flags do not automatically add EKU to all issued certificates, and they do not prevent issuing certificates without any EKU. Automatic EKU application and stricter issuance enforcement are planned for a future release.
 
 `--key-usage[=DigitalSignature, KeyAgreement, KeyEncipherment]`: A comma-separated string or list of key usages
 
