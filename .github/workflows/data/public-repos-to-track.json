@@ -29,7 +29,6 @@
     "akeylesslabs/akeyless-ruby",
     "akeylesslabs/akeyless-servicenow-credential-resolver",
     "akeylesslabs/ansible-ui",
-    "akeylesslabs/awx",
     "akeylesslabs/custom-producer",
     "akeylesslabs/docker-compose",
     "akeylesslabs/golang-openssl-wrapper",
