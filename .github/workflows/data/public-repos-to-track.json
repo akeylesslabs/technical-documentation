@@ -13,7 +13,6 @@
     "akeyless-community/akeyless-serverless-gateway",
     "akeyless-community/akeyless-tf-cloud-docker-agent",
     "akeyless-community/awx-plugins",
-    "akeyless-community/dapr-docs",
     "akeyless-community/external-secrets",
     "akeyless-community/heimdal",
     "akeyless-community/k8s-auth-validator",
