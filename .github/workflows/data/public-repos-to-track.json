@@ -44,7 +44,6 @@
     "akeylesslabs/akeyless-funnel",
     "akeylesslabs/akeyless-go",
     "akeylesslabs/akeyless-go-cloud-id",
-    "akeylesslabs/akeyless-go-test",
     "akeylesslabs/akeyless-grpc-go",
     "akeylesslabs/akeyless-grpc-php",
     "akeylesslabs/akeyless-grpc-rust",
