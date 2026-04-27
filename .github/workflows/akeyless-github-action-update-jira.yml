@@ -71,37 +71,68 @@ jobs:
         run: |
           set -euo pipefail
 
-          API_URL="https://api.github.com/repos/akeyless-community/${{ matrix.repo }}/releases/latest"
-          RESP_BODY=$(mktemp)
+          RELEASE_API_URL="https://api.github.com/repos/akeyless-community/${{ matrix.repo }}/releases/latest"
+          RELEASE_RESP_BODY=$(mktemp)
 
-          HTTP_CODE=$(curl -sS -o "$RESP_BODY" -w "%{http_code}" \
+          RELEASE_HTTP_CODE=$(curl -sS -o "$RELEASE_RESP_BODY" -w "%{http_code}" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github+json" \
-            "$API_URL")
+            "$RELEASE_API_URL")
 
-          if [ "$HTTP_CODE" = "404" ]; then
-            echo "No releases found for akeyless-community/${{ matrix.repo }}. Skipping."
-            echo "has_release=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "GitHub API request failed for $API_URL with HTTP $HTTP_CODE"
-            cat "$RESP_BODY"
+          if [ "$RELEASE_HTTP_CODE" != "200" ] && [ "$RELEASE_HTTP_CODE" != "404" ]; then
+            echo "GitHub API request failed for $RELEASE_API_URL with HTTP $RELEASE_HTTP_CODE"
+            cat "$RELEASE_RESP_BODY"
             exit 1
           fi
 
-          LATEST_TAG=$(jq -r '.tag_name // empty' "$RESP_BODY")
+          LATEST_TAG=""
+          if [ "$RELEASE_HTTP_CODE" = "200" ]; then
+            LATEST_TAG=$(jq -r '.tag_name // empty' "$RELEASE_RESP_BODY")
+          fi
+
+          if [ -n "$LATEST_TAG" ]; then
+            echo "has_release=true" >> "$GITHUB_OUTPUT"
+            echo "latest_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
+            echo "Detected latest release tag from releases API: $LATEST_TAG"
+            exit 0
+          fi
+
+          TAGS_API_URL="https://api.github.com/repos/akeyless-community/${{ matrix.repo }}/tags?per_page=100"
+          TAGS_RESP_BODY=$(mktemp)
+
+          TAGS_HTTP_CODE=$(curl -sS -o "$TAGS_RESP_BODY" -w "%{http_code}" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "$TAGS_API_URL")
+
+          if [ "$TAGS_HTTP_CODE" = "200" ]; then
+            set +e
+            SEMVER_TAG=$(jq -r '.[].name // empty' "$TAGS_RESP_BODY" \
+              | grep -E '^[vV]?[0-9]+(\.[0-9]+){1,3}([.-][0-9A-Za-z.-]+)?$' \
+              | sort -V \
+              | tail -n1)
+            set -e
+
+            if [ -n "$SEMVER_TAG" ]; then
+              LATEST_TAG="$SEMVER_TAG"
+            else
+              LATEST_TAG=$(jq -r '.[0].name // empty' "$TAGS_RESP_BODY")
+            fi
+          elif [ "$TAGS_HTTP_CODE" != "404" ]; then
+            echo "GitHub API request failed for $TAGS_API_URL with HTTP $TAGS_HTTP_CODE"
+            cat "$TAGS_RESP_BODY"
+            exit 1
+          fi
 
           if [ -z "$LATEST_TAG" ]; then
-            echo "No releases found for akeyless-community/${{ matrix.repo }}. Skipping."
+            echo "No releases or tags found for akeyless-community/${{ matrix.repo }}. Skipping."
             echo "has_release=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           echo "has_release=true" >> "$GITHUB_OUTPUT"
           echo "latest_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
-          echo "Detected latest release tag: $LATEST_TAG"
+          echo "Detected latest tag from tags API fallback: $LATEST_TAG"
 
       - name: Create Jira issue for new release (${{ matrix.repo }})
         id: jira
