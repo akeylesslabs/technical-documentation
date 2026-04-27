@@ -12,7 +12,6 @@
     "akeyless-community/akeyless-eso-webhook-trigger",
     "akeyless-community/akeyless-gateway-migrator",
     "akeyless-community/akeyless-github-action",
-    "akeyless-community/akeyless-k8s-auth-examples",
     "akeyless-community/akeyless-k8s-auth-terraform",
     "akeyless-community/akeyless-mcp-plugin",
     "akeyless-community/akeyless-serverless-gateway",
