@@ -10,7 +10,6 @@
     "akeyless-community/akeyless-k8s-auth-terraform",
     "akeyless-community/akeyless-mcp-plugin",
     "akeyless-community/akeyless-serverless-gateway",
-    "akeyless-community/akeyless-tf-cloud-docker-agent",
     "akeyless-community/awx-plugins",
     "akeyless-community/external-secrets",
     "akeyless-community/heimdal",
