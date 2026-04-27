@@ -111,7 +111,7 @@ jobs:
 
       - name: Upload markdownlint artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: markdownlint-artifacts
           path: .github/markdownlint/markdownlint-fix-out.txt

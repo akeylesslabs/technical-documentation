@@ -167,7 +167,7 @@ jobs:
 
       - name: Upload dependency monitor artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dependency-monitor-report
           path: |
@@ -450,7 +450,7 @@ jobs:
 
       - name: Upload aggregated report artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: automated-workflow-fixes-summary
           path: .github/automation-reports/automated-workflow-fixes-summary.md
