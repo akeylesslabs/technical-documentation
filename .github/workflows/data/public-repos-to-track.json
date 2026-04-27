@@ -22,7 +22,6 @@
     "akeyless-community/akeyless-serverless-gateway",
     "akeyless-community/akeyless-sheller",
     "akeyless-community/akeyless-tf-cloud-docker-agent",
-    "akeyless-community/akeyless-tf-cloud-intro",
     "akeyless-community/akeyless-ui-webhook-builder",
     "akeyless-community/awx-plugins",
     "akeyless-community/custom-server-ui-payload-generator",
