@@ -30,7 +30,6 @@
     "akeyless-community/k8s-auth-validator",
     "akeyless-community/keda-docs",
     "akeyless-community/openshift-helmchart",
-    "akeyless-community/sra-demo-environment",
     "akeyless-community/ssh-target",
     "akeyless-community/steampipe-plugin-akeyless",
     "akeyless-community/support-bundle",
