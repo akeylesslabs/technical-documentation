@@ -37,7 +37,6 @@
     "akeylesslabs/keda",
     "akeylesslabs/openssl-c",
     "akeylesslabs/sigstore",
-    "akeylesslabs/sshproxy"
   ],
   "third_party_repos": [
     "helm/helm",
