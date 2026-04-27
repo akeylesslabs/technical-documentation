@@ -128,11 +128,13 @@ kubectl get deploy web-worker-deployment -n <namespace> -o yaml
 
 ## Configuration
 
-To connect to Akeyless private repository, set the `dockerRepositoryCreds` field to access the Akeyless internal image and the relevant `apiGatewayURL` to point your Gateway REST API port `8080`.
+To connect to Akeyless private repository, set the `dockerRepositoryCreds` field to access the Akeyless internal image and set `apiGatewayURL` to the Gateway REST API endpoint.
+
+For current ZTWA versions, set `apiGatewayURL` with the `/api/v2` path.
 
 ```yaml
 dockerRepositoryCreds:
-apiGatewayURL: https://rest.akeyless.io
+apiGatewayURL: https://rest.akeyless.io/api/v2
 
 # Optional, to Work with a specifc enviorement set the relevant URL.
   env:
