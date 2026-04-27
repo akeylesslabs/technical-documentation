@@ -56,7 +56,7 @@ Before using the extension, you must have the Akeyless CLI installed and be auth
 
 ```shell
 # Install Akeyless CLI (macOS)
-brew install akeyless/tap/akeyless
+brew install akeylesslabs/tap/akeyless
 
 # Or follow instructions on the Akeyless docs for other platforms
 # https://docs.akeyless.io/docs/cli
