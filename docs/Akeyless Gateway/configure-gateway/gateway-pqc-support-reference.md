@@ -21,7 +21,7 @@ Akeyless TLS hybrid PQC connections use the following profile:
 | TLS version | `TLS 1.3` |
 | Hybrid key exchange identifier | `X25519MLKEM768` |
 | Classical component | `X25519` |
-| Post-quantum component | `MLKEM-768` |
+| Post-quantum component | ML-KEM 768 |
 
 `X25519MLKEM768` indicates a hybrid key exchange where both classical and post-quantum algorithms participate in the TLS handshake.
 
@@ -35,10 +35,9 @@ Akeyless TLS hybrid PQC connections use the following profile:
 
 ## Gateway Configuration Requirements
 
-To enable hybrid PQC for the Akeyless Gateway endpoint, set both environment variables in the deployment:
+To enable hybrid PQC for the Akeyless Gateway endpoint, set the following environment variable in the deployment:
 
 * `MIN_TLS_VERSION=TLSv1.3`
-* `GODEBUG=tlsmlkem=1`
 
 Deployment examples:
 

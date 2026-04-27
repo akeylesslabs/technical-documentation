@@ -329,20 +329,19 @@ After TLS is configured and the Gateway is available over HTTPS, validate the ne
 `X25519MLKEM768` confirms a hybrid key exchange:
 
 * `X25519` (classical elliptic-curve cryptography)
-* `MLKEM-768` (post-quantum cryptography)
+* ML-KEM 768 (post-quantum cryptography)
 
 This confirms the connection is using **TLS 1.3 with hybrid post-quantum key exchange**.
 
 #### Gateway Restart Requirement
 
-To enable hybrid PQC support on the Gateway endpoint, restart the Gateway with the required environment variables:
+To enable hybrid PQC support on the Gateway endpoint, restart the Gateway with the required environment variable:
 
 ```shell
 docker run -d \
 -p 8000:8000 \
 -p 5696:5696 \
 -e MIN_TLS_VERSION=TLSv1.3 \
--e GODEBUG=tlsmlkem=1 \
 --name akeyless-gateway \
 akeyless/base:latest-akeyless
 ```

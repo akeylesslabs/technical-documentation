@@ -43,7 +43,7 @@ For deployment-specific steps, see:
 
 For a formal algorithm and coverage reference, see [PQC Support Reference](https://docs.akeyless.io/docs/gateway-pqc-support-reference).
 
-After deployment, verify that the browser connection details show `X25519MLKEM768`, which confirms a hybrid key exchange (`X25519` + `MLKEM-768`).
+After deployment, verify that the browser connection details show `X25519MLKEM768`, which confirms a hybrid key exchange (X25519 + ML-KEM 768).
 
 ## Updating a TLS Certificate
 

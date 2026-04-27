@@ -117,27 +117,22 @@ Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/gatewa
 
 The same TLS and PQC settings apply across all cloud platforms where Akeyless Gateway runs on Kubernetes, including managed and self-managed clusters.
 
-To enable hybrid post-quantum key exchange on the Gateway pod, set TLS 1.3 and add the Go runtime flag in `globalConfig.env`:
+To enable hybrid post-quantum key exchange on the Gateway pod, set TLS 1.3 in `TLSConf`:
 
 ```yaml values.yaml
 TLSConf:
   enabled: true
   minimumTlsVersion: TLSv1.3
-
-globalConfig:
-  env:
-    - name: GODEBUG
-      value: tlsmlkem=1
 ```
 
-Apply the updated chart values and restart/upgrade the Gateway release so the pod loads the new runtime flag.
+Apply the updated chart values and restart/upgrade the Gateway release.
 
 To verify PQC support, open the Gateway endpoint over HTTPS in Chrome, check the connection security details, and confirm the negotiated key exchange includes `X25519MLKEM768`.
 
 `X25519MLKEM768` confirms a hybrid key exchange:
 
 * `X25519` (classical elliptic-curve cryptography)
-* `MLKEM-768` (post-quantum cryptography)
+* ML-KEM 768 (post-quantum cryptography)
 
 ### OIDC Configuration
 
