@@ -32,7 +32,6 @@
     "akeylesslabs/awx",
     "akeylesslabs/custom-producer",
     "akeylesslabs/docker-compose",
-    "akeylesslabs/go-kmip",
     "akeylesslabs/golang-openssl-wrapper",
     "akeylesslabs/helm-charts",
     "akeylesslabs/homebrew-tap",
