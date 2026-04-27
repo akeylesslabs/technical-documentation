@@ -137,25 +137,16 @@ resource "akeyless_target_digicert" "digicert_target" {
 }
 ```
 
+## Upgrading to v2.0
+
+Provider v2.0.0 removed resources and parameters that were deprecated in v1.5.0. Before upgrading from v1.x, update your configuration as follows:
+
+| Deprecated (removed in v2.0) | Replacement |
+| --- | --- |
+| `akeyless_producer_*` resources | `akeyless_dynamic_secret_*` resources |
+| `akeyless_rotated_secret` (generic) | `akeyless_rotated_secret_<type>` resources |
+| `metadata` and `comment` parameters | `description` parameter |
+
 ## Changelog
 
-### 2.0.1
-
-* Added `akeyless_target_digicert` resource for DigiCert ACME target management.
-* Fixed a bug in the `akeyless_auth_method_kerberos` resource.
-* Fixed a bug in the `akeyless_event_forwarder_teams` resource.
-* Fixed bugs in the `akeyless_dynamic_secret` resources for HanaDB, MongoDB, and temporary credentials.
-* Fixed a bug in `akeyless_gateway_migration` resources.
-* Fixed descriptions in the `akeyless_dynamic_secret_aws` resource.
-
-### 2.0.0
-
-* Added support for missing endpoints and arguments.
-
-### 1.11.6
-
-* Added `akeyless_items` data source.
-
-### 1.11.5
-
-* Added `akeyless_folder` resource.
+For the full version history, see the [Akeyless Terraform Provider Changelog](https://changelog.akeyless.io/tf).
