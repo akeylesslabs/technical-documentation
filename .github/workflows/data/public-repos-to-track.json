@@ -29,7 +29,6 @@
     "akeyless-community/openshift-helmchart",
     "akeyless-community/ssh-target",
     "akeyless-community/steampipe-plugin-akeyless",
-    "akeyless-community/support-bundle",
     "akeyless-community/teamcity-akeyless-plugin",
     "akeyless-community/terraform-cloud-gha-secrets",
     "akeyless-community/terraform-provider-akeyless",
