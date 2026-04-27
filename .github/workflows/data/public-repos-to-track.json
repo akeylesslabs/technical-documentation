@@ -5,7 +5,6 @@
     "akeyless-community/N8N_PlugIn",
     "akeyless-community/akeyless-action",
     "akeyless-community/akeyless-custom-server-kustomize-patches",
-    "akeyless-community/akeyless-custom-server-ui-rotate",
     "akeyless-community/akeyless-custom-server-w-puppeteer",
     "akeyless-community/akeyless-eso-webhook-trigger",
     "akeyless-community/akeyless-github-action",
