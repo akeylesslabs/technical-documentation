@@ -57,7 +57,9 @@ Set `read, create, list` permissions for **Secret & Keys** for the Access Role:
 ```shell
 akeyless set-role-rule --role-name /Dev/Spire-Server-Role \
 --path /SPIRE/Keys/'*' \
---capability read --capability create --capability list
+--capability read \
+--capability create \
+--capability list
 ```
 
 ### Grant Access Permissions on the Gateway

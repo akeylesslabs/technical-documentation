@@ -23,10 +23,6 @@ Use this page as a quick decision guide for selecting the correct plugin.
 3. If SPIRE Server should use Akeyless PKI issuer flows for upstream CA operations and JWT-SVID key publication, use [SPIRE Upstream Authority](https://docs.akeyless.io/docs/spire-upstream-authority).
 4. If SPIRE Server should use a certificate item from Akeyless for upstream X.509 CA operations only, use [SPIRE Upstream Authority SM](https://docs.akeyless.io/docs/spire-upstream-authority-sm).
 
-> ℹ️ **Note:**
->
-> For JWT-SVID publication in upstream authority workflows, use SPIRE Upstream Authority, not SPIRE Upstream Authority SM.
-
 ## Plugin Comparison
 
 | Plugin | Primary Purpose | When to Choose It |

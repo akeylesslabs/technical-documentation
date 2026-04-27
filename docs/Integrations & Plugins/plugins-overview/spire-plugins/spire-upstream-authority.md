@@ -60,7 +60,9 @@ Set role permissions for the SPIRE item path:
 ```shell
 akeyless set-role-rule --role-name /Dev/Spire-Role \
 --path /SPIRE/SVID/'*' \
---capability create --capability list --capability read
+--capability create \
+--capability list \
+--capability read
 ```
 
 ### Grant Access Permissions on the Gateway
@@ -157,11 +159,11 @@ akeyless create-pki-cert-issuer \
 --key-usage certsign,crlsign
 ```
 
-For JWT-SVID support, prepare an Akeyless item that contains the JWT signing keys, and reference that item name in `jwt_keys_secret_name`.
+For JWT-SVID support, `jwt_keys_secret_name` is optional. If this setting is omitted, the plugin creates and manages a default item named `<pki_cert_issuer_name>-jwt-keys`.
 
 > ℹ️ **Info:**
 >
-> If the item referenced by `jwt_keys_secret_name` does not contain JWT keys, plugin initialization fails with a missing JWT keys error.
+> If `jwt_keys_secret_name` is set and the item does not exist, the plugin creates it during initialization. The plugin manages key rotation, key updates, and cleanup of expired keys.
 
 ## Initialize SPIRE Server and Agent
 

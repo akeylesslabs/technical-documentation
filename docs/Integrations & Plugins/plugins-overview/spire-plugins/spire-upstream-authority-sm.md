@@ -16,7 +16,7 @@ This guide covers the Akeyless SPIRE Upstream Authority SM plugin, which uses a 
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.40.0` or later
 * A running SPIRE Server and SPIRE Agent deployment
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Read` permission on the required item path
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Read`, `Update`, and `List` permissions on the required item path
 * A certificate item in Akeyless containing `certificate` and `private_key` in PEM format
 
 > ℹ️ **Note:**
@@ -59,7 +59,9 @@ Set role permissions:
 ```shell
 akeyless set-role-rule --role-name /Dev/Spire-Role \
 --path /SPIRE/SVID/'*' \
---capability read
+--capability read \
+--capability update \
+--capability list
 ```
 
 ## Download the Plugin

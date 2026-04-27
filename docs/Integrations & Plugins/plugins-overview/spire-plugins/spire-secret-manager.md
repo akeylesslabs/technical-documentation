@@ -57,7 +57,9 @@ Set `create, list, update` permissions for **Secret & Keys** for the Access Role
 ```shell
 akeyless set-role-rule --role-name /Dev/Spire-Agent-Role \
 --path /SPIRE/SVID/'*' \
---capability create --capability update --capability list
+--capability create \
+--capability update \
+--capability list
 ```
 
 ## Configuration
