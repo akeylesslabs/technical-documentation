@@ -140,7 +140,7 @@ For example:
   legacy_signing_alg = 'true|false'
 ```
 
-With these defaults in place, the CLI can reuse them automatically. For example, `default_location_prefix = 'non-production'` lets a command such as `akeyless get-secret-value --name app/db-password` inherit the common prefix instead of requiring the full item path each time.
+With these defaults in place, the CLI can reuse them automatically. For example, `default_location_prefix = 'non-production'` lets a command such as `akeyless get-secret-value --name app/db-password` inherit the common prefix instead of requiring the full item path each time. If a command already uses a full path that starts with the same prefix, the CLI does not prepend it again.
 
 Where:
 
