@@ -1,4 +1,4 @@
-name: Akeyless GitHub Action Update Jira Task
+name: Akeyless Community Repos Update Jira Tasks
 
 permissions:
   contents: read
@@ -9,8 +9,61 @@ on:
   workflow_dispatch:
 
 jobs:
-  create-jira-task-scheduled:
+  check-repo:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        repo:
+          - AkeylessCredentialsProvider
+          - Akeyless-Cursor-Plugin
+          - N8N_PlugIn
+          - akeyless-action
+          - akeyless-cert-manager-issuer
+          - akeyless-connectivity-check
+          - akeyless-custom-server-kustomize-patches
+          - akeyless-custom-server-ui-rotate
+          - akeyless-custom-server-w-puppeteer
+          - akeyless-dba-workflow-tf-example
+          - akeyless-eso-webhook-trigger
+          - akeyless-gateway-migrator
+          - akeyless-github-action
+          - akeyless-instruqt-learners-terraform
+          - akeyless-k8s-auth-examples
+          - akeyless-k8s-auth-terraform
+          - akeyless-mcp-plugin
+          - akeyless-nu-shell-examples
+          - akeyless-oidc-identity-provider-example
+          - akeyless-openapi-spec-extractor
+          - akeyless-openldap-ldif-star-trek
+          - akeyless-serverless-gateway
+          - akeyless-sheller
+          - akeyless-tf-cloud-docker-agent
+          - akeyless-tf-cloud-intro
+          - akeyless-ui-webhook-builder
+          - awx-plugins
+          - custom-server-ui-payload-generator
+          - dapr
+          - dapr-docs
+          - example-java-sdk-encryption-as-a-service
+          - external-secrets
+          - heimdal
+          - homebrew-agmigrator
+          - homebrew-kav
+          - idp-demo
+          - json-secret-importer
+          - k8s-auth-validator
+          - keda-docs
+          - mock-authentication
+          - network-diagram-generator
+          - openshift-helmchart
+          - sra-demo-environment
+          - ssh-target
+          - steampipe-plugin-akeyless
+          - support-bundle
+          - teamcity-akeyless-plugin
+          - terraform-cloud-gha-secrets
+          - terraform-provider-akeyless
 
     steps:
       - name: Get latest upstream release tag
@@ -18,31 +71,35 @@ jobs:
         run: |
           set -euo pipefail
 
-          LATEST_TAG=$(curl -fsSL "https://api.github.com/repos/akeyless-community/akeyless-github-action/releases/latest" \
+          LATEST_TAG=$(curl -fsSL "https://api.github.com/repos/akeyless-community/${{ matrix.repo }}/releases/latest" \
             | jq -r '.tag_name // empty')
 
           if [ -z "$LATEST_TAG" ]; then
-            echo "Unable to resolve latest release tag from GitHub API."
-            exit 1
+            echo "No releases found for akeyless-community/${{ matrix.repo }}. Skipping."
+            echo "has_release=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
 
+          echo "has_release=true" >> "$GITHUB_OUTPUT"
           echo "latest_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
           echo "Detected latest release tag: $LATEST_TAG"
 
-      - name: Create Jira issue for new release
+      - name: Create Jira issue for new release (${{ matrix.repo }})
         id: jira
+        if: steps.detect.outputs.has_release == 'true'
         env:
           JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
           JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
           JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
-          REPO_NAME: ${{ github.repository }}
+          REPO_SLUG: ${{ matrix.repo }}
           LATEST_TAG: ${{ steps.detect.outputs.latest_tag }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -e
 
-          SUMMARY_PREFIX="Akeyless GitHub Action upstream update detected:"
+          REPO_DISPLAY="akeyless-community/${REPO_SLUG}"
+          SUMMARY_PREFIX="${REPO_DISPLAY} upstream update detected:"
           SUMMARY="${SUMMARY_PREFIX} latest ${LATEST_TAG}"
 
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
@@ -78,7 +135,10 @@ jobs:
             exit 0
           fi
 
+          LABEL_SLUG=$(echo "$REPO_SLUG" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9-' '-' | sed 's/-*$//')
+
           ADF_DESC=$(jq -n \
+            --arg repo_display "$REPO_DISPLAY" \
             --arg latest "$LATEST_TAG" \
             --arg run_url "$RUN_URL" \
             'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
@@ -91,9 +151,9 @@ jobs:
              {
                type:"doc", version:1,
                content:[
-                 para("A new release was detected for akeyless-community/akeyless-github-action."),
+                 para("A new release was detected for " + $repo_display + "."),
                  para("Latest upstream tag: " + $latest),
-                 para("Action repository: akeyless-community/akeyless-github-action"),
+                 para("Repository: " + $repo_display),
                  linkPara("Workflow run URL: "; $run_url),
                  para("This ticket was created automatically by GitHub Actions for documentation triage.")
                ]
@@ -103,13 +163,14 @@ jobs:
             --arg proj "$JIRA_PROJECT_KEY" \
             --arg summary "$SUMMARY" \
             --argjson adf "$ADF_DESC" \
+            --arg label_slug "$LABEL_SLUG" \
             '{
               fields: {
                 project: { key: $proj },
                 summary: $summary,
                 description: $adf,
                 issuetype: { name: "Task" },
-                labels: ["documentation","github-actions","akeyless-github-action","scheduled"]
+                labels: ["documentation","akeyless-community",$label_slug,"scheduled"]
               }
             }')
 
