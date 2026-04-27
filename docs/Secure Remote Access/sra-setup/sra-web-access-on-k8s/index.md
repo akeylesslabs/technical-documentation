@@ -79,6 +79,53 @@ Or run the following Helm command to generate the values file locally:
 helm show values akeyless/akeyless-zero-trust-web-access > values.yaml
 ```
 
+### Resource limits and non-root runtime
+
+The chart exposes resource requests and limits for the main workloads and bootstrap init containers.
+
+The chart templates also configure non-root execution for Web Dispatcher and Web Worker containers.
+
+Use the following example as a baseline for environments with strict Kubernetes admission policies:
+
+```yaml
+dispatcher:
+  resources:
+    requests:
+      cpu: 1000m
+      memory: 1Gi
+    limits:
+      memory: 2Gi
+  initContainer:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        memory: 512Mi
+
+webWorker:
+  resources:
+    requests:
+      cpu: 1000m
+      memory: 1Gi
+    limits:
+      memory: 2Gi
+  initContainer:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        memory: 512Mi
+```
+
+After installation, verify the effective runtime security context from the resulting pod specs:
+
+```shell
+kubectl get deploy web-dispatcher-deployment -n <namespace> -o yaml
+kubectl get deploy web-worker-deployment -n <namespace> -o yaml
+```
+
 ## Configuration
 
 To connect to Akeyless private repository, set the `dockerRepositoryCreds` field to access the Akeyless internal image and the relevant `apiGatewayURL` to point your Gateway REST API port `8080`.
