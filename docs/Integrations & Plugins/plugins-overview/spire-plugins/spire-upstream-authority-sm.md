@@ -10,11 +10,18 @@ metadata:
 next:
   description: ''
 ---
+This guide covers the Akeyless SPIRE Upstream Authority SM plugin, which uses a certificate item from Akeyless for SPIRE upstream X.509 CA operations used by SPIFFE Verifiable Identity Documents (SVIDs).
+
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.40.0` or later
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Read` permission for **Items**
-* **Certificate Item** stored in Akeyless Platform containing the `certificate` and `private_key` in `pem` format.
+* A running SPIRE Server and SPIRE Agent deployment
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Read`, `Update`, and `List` permissions on the required item path
+* A certificate item in Akeyless containing `certificate` and `private_key` in PEM format
+
+> ℹ️ **Note:**
+>
+> For JWT-SVID key publication support, use [SPIRE Upstream Authority](https://docs.akeyless.io/docs/spire-upstream-authority).
 
 ## Authentication
 
@@ -26,142 +33,108 @@ The following Authentication Methods are supported:
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 * [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> ℹ️ **Note:**
->
-> In this guide, we will use an `API Key` Authentication Method for simplicity
-
 <ApiKeyWarning />
 
-Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) using the CLI:
+Create an API Key Authentication Method:
 
 ```shell
 akeyless create-auth-method --name /Dev/Spire-Auth
 ```
 
-Create an [Access Role](https://docs.akeyless.io/docs/rbac):
+Create an access role:
 
 ```shell
 akeyless create-role --name /Dev/Spire-Role
 ```
 
-Associate your **API Key** Authentication Method to the Access Role that was created:
+Associate the Authentication Method to the role:
 
 ```shell
 akeyless assoc-role-am --role-name /Dev/Spire-Role \
 --am-name /Dev/Spire-Auth
 ```
 
-Set `Read` permission for **Secret & Keys** for the Access Role:
+Set role permissions:
 
 ```shell
 akeyless set-role-rule --role-name /Dev/Spire-Role \
 --path /SPIRE/SVID/'*' \
---capability read
+--capability read \
+--capability update \
+--capability list
 ```
 
-## Configuration
+## Download the Plugin
 
-Run the following command to download and unpack pre-built `spire-server` and `spire-agent` executable and example configuration files in a `spire-1.7.0` directory:
+Download the latest SM plugin:
 
-```shell
-curl -s -N -L https://github.com/spiffe/spire/releases/download/v1.7.0/spire-1.7.0-linux-amd64-glibc.tar.gz | tar xz
+```shell AMD64
+curl -o AkeylessUpstreamAuthority-sm https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-sm/spire-upstream-sm-linux-amd64
+```
+```shell ARM64
+curl -o AkeylessUpstreamAuthority-sm https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-sm/spire-upstream-sm-linux-arm64
 ```
 
-Next, run the following command to create the `certificate` item in Akeyless:
+Download the checksum file and validate the binary:
 
 ```shell
-akeyless create-certificate \
---name </SPIRE/SVID/certificate_name> \
---certificate <Path/To/certificate.pem> \
---private-key <Path/To/private_Key.pem>
+curl -o spire-upstream-sm.sha256 https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-sm/spire-upstream-sm-linux-amd64-sha256sumfile
+sha256sum -c spire-upstream-sm.sha256
 ```
 
- Use the following command to download the **AkeylessUpstreamAuthority SM** plugin:
+## Configure SPIRE Server
+
+Edit `conf/server/server.conf`, and configure the `UpstreamAuthority` block:
 
 ```shell
-curl -o AkeylessUpstreamAuthority-sm https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-sm-amd64-linux-v0.0.1
-```
-
-Change the file permissions so it will be executable:
-
-```shell
-chmod +x AkeylessUpstreamAuthority-sm
-```
-
-Validate the `SHA256 CHECKSUM`:
-
-```shell
-sha256sum AkeylessUpstreamAuthority-sm
-```
-
-The `sha256sum` command generates a unique, fixed-size hash value (256 bits) for the **binary** file, ensuring that data remains unchanged.
-
-### Server Configuration
-
-Edit the **UpstreamAuthority** Plugin as follows in `spire-1.7.0/conf/server/server.conf` file.
-
-```shell
-UpstreamAuthority  "akeyless_sm" {
-     plugin_cmd = "/path/to/plugin_cmd"
-     plugin_checksum = "sha256 of the plugin binary"
-     plugin_data {
-       access_id = "<Your_Access_ID>"
-       access_key = "<Your_Access_KEY>"
-       akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL>:8000/api/v2>' # or use port 8081
-       certificate_name = "</SPIRE/SVID/certificate_name>"
-     }
+UpstreamAuthority "akeyless_sm" {
+    plugin_cmd = "/path/to/AkeylessUpstreamAuthority-sm"
+    plugin_checksum = "sha256_of_plugin_binary"
+    plugin_data {
+        access_id = "<your_access_id>"
+        access_key = "<your_access_key>"
+        akeyless_gateway_url = "https://<your-gateway-url>:8000/api/v2"
+        certificate_name = "/SPIRE/SVID/certificate_name"
+    }
 }
 ```
 
 Where:
 
-* `plugin_cmd` - The location of the binary file that was created.
+* `plugin_cmd` is the path to the plugin binary.
+* `plugin_checksum` is the SHA256 digest of that binary.
+* `access_id` is the Authentication Method Access ID.
+* `access_key` is required for API Key authentication.
+* `akeyless_gateway_url` is the Akeyless Gateway API v2 endpoint.
+* `certificate_name` is the certificate item name in Akeyless.
 
-* `plugin_checksum` - sha256 of the binary.
+For K8s, GCP, or Azure Authentication Methods, also set:
 
-* `access_id` - The Auth Method **Access-ID**
+* `k8s_auth_config_name`
+* `gcp_audience` (default: `akeyless.io`)
+* `azure_object_id`
 
-* `access_key` - Optional, The AccessKey. Relevant only for API Key.
+## Initialize SPIRE Server and Agent
 
-* `akeyless_gateway_url` - Akeyless Gateway URL API v2 endpoint.
-
-* `certificate_name` - The `certificate` item that was created earlier in Akeyless. In our example `/SPIRE/SVID/certificate_name`
-
-For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
-
-* `k8s_auth_config_name` - Kubernetes Auth Config name as created under your Gateway
-
-* `gcp_audience` - The audience to verify the `JWT` received by the client. By default, `akeyless.io`
-
-* `azure_object_id` - Optional for Azure, `objectID`
-
-### SPIRE Server Initialization
-
-To initialize the server, run the following command:
+Start SPIRE Server:
 
 ```shell
 bin/spire-server run -config conf/server/server.conf &
 ```
 
-Once the server is running, the Agent needs to be configured as well. Add the following line to the `conf/agent/agent.conf` file in the `agent` section to set the path to the SPIRE server **CA bundle**:
+Set the trust bundle path in `conf/agent/agent.conf`:
 
 ```shell
-trust_bundle_path = "/Path/To/certificate/file" 
+trust_bundle_path = "/path/to/certificate/file"
 ```
 
-> ℹ️ **Info (trust bundle):**
->
-> The `"/Path/To/certificate.pem"` is a path on your machine where a `certificate.pem` file will be exist and the value of the file will be the value of the `certificate` that was created earlier in Akeyless.
-
-Run the following command to generate a token that will be used to attest the `agent` to the `server`
+Generate an agent join token:
 
 ```shell
 bin/spire-server token generate -spiffeID spiffe://example.org/myagent
 ```
 
-### SPIRE Agent Initialization
-
-Use the generated token to attest the `agent` to the `server`
+Start SPIRE Agent:
 
 ```shell
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
@@ -169,4 +142,4 @@ bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 
 > ℹ️ **Info (SPIFFE/SPIRE):**
 >
-> For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
+> For full SPIRE bootstrap and registration steps, see [Quickstart for Linux and macOS](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/).

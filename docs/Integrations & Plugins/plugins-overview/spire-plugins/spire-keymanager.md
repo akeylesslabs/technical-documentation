@@ -10,10 +10,12 @@ metadata:
 next:
   description: ''
 ---
+This guide covers the Akeyless SPIRE Key Manager plugin, which manages signing keys used for X.509 SPIFFE Verifiable Identity Documents (SVIDs) and JWT-SVIDs.
+
 ## Prerequisites
 
-* [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.35.0` or later
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `create` and `read` permissions for **Items**, as well as [Gateway Access Permission](https://docs.akeyless.io/docs/gateway-authentication-and-access) to manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
+* [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.40.0` or later
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Create`, `Read`, and `List` permissions for **Items**, as well as [Gateway Access Permission](https://docs.akeyless.io/docs/gateway-authentication-and-access) to manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
 
 ## Authentication
 
@@ -27,7 +29,7 @@ The following Authentication Methods can be used:
 
 > ℹ️ **Note:**
 >
-> In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For macOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
+> This guide uses API Key authentication for brevity and Linux-based examples. For macOS, see the [SPIRE quickstart section](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
 
 <ApiKeyWarning />
 
@@ -55,22 +57,17 @@ Set `read, create, list` permissions for **Secret & Keys** for the Access Role:
 ```shell
 akeyless set-role-rule --role-name /Dev/Spire-Server-Role \
 --path /SPIRE/Keys/'*' \
---capability read --capability create 
+--capability read \
+--capability create \
+--capability list
 ```
 
 ### Grant Access Permissions on the Gateway
 
-Log into the console using a Gateway admin account, navigate to the **Gateways** tab, and choose the relevant **Gateway**.
-
-Click on **Access Permissions** and click on **New**:
-
-Give it a meaningful **Name**, choose the **Auth Method**, and click next.
-
-Set the relevant permissions for this **Auth Method**:
-
- **Admin** - grant full permissions on the **Gateway** or
-
-**Custom** - grant specific permissions for at least **Classic Keys**.
+1. Sign in to the Akeyless Console with a Gateway admin account.
+2. Open **Gateways**, and select the target Gateway.
+3. Open **Access Permissions**, and select **New**.
+4. Select the Authentication Method, and grant either **Admin** permissions or **Custom** permissions that include Classic Key operations.
 
 ## Configuration
 
@@ -80,21 +77,22 @@ Run the following command to download and unpack pre-built `spire-server` and `s
 curl -s -N -L https://github.com/spiffe/spire/releases/download/v1.7.0/spire-1.7.0-linux-amd64-glibc.tar.gz | tar xz
 ```
 
-Next, [download](https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/) the **AkeylessKeyManager** plugin, by running the following command:
+Next, download the latest **AkeylessKeyManager** plugin:
 
 ```shell AMD64
-curl -o AkeylessKeyManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-kms-amd64-linux-v0.0.8
+curl -o AkeylessKeyManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-kms/spire-kms-linux-amd64
 chmod +x AkeylessKeyManager
 ```
 ```shell ARM64
-curl -o AkeylessKeyManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-kms-arm64-linux-v0.0.6
+curl -o AkeylessKeyManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-kms/spire-kms-linux-arm64
 chmod +x AkeylessKeyManager
 ```
 
-Validate the **SHA256 CHECKSUM**:
+Download the checksum file and validate the binary:
 
 ```shell
-sha256sum AkeylessKeyManager
+curl -o spire-kms.sha256 https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-kms/spire-kms-linux-amd64-sha256sumfile
+sha256sum -c spire-kms.sha256
 ```
 
 The `sha256sum` command generates a unique, fixed-size hash value (256 bits) for the **binary** file, ensuring that data remains unchanged.
@@ -103,39 +101,39 @@ Open your SPIRE Server Conf file which you will find in the `spire-` directory a
 
 ```shell
 KeyManager "akeyless_kms" {
-    plugin_cmd = "/path/to/plugin_cmd"
-    plugin_checksum = "sha256 of the plugin binary"
+  plugin_cmd = "/path/to/AkeylessKeyManager"
+  plugin_checksum = "sha256_of_plugin_binary"
     plugin_data {
-        akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL>:8000/api/v2>' # or use port 8081
-        access_id = "<Your_Access_ID>"
-            access_key = "<Your_Access_KEY>"
-            key_metadata_file = "./key_metadata"
-            target_folder = "/SPIRE/Keys/"
+    akeyless_gateway_url = "https://<your-gateway-url>:8000/api/v2"
+    access_id = "<your_access_id>"
+    access_key = "<your_access_key>"
+    key_metadata_file = "./key_metadata"
+    target_folder = "/SPIRE/Keys/"
     }
 }
 ```
 
 Where:
 
-* `plugin_cmd` - The location of the binary file that was created.
+* `plugin_cmd` - The path to the plugin binary.
 
-* `plugin_checksum` - sha256 of the binary.
+* `plugin_checksum` - The SHA256 digest of that binary.
 
 * `akeyless_gateway_url` - Akeyless Gateway URL API v2 endpoint.
 
-* `access_id` - The **Auth Method** `AccessID`
+* `access_id` - The Authentication Method Access ID.
 
-* `access_key` - Optional, The `AccessKey`. Relevant only for **API Key**.
+* `access_key` - Required for API Key authentication.
 
-* `key_metadata_file` - A file path location where information about generated keys will be persisted
+* `key_metadata_file` - File path where generated key metadata is persisted.
 
-* `target_folder` - A path to save all items inside Akeyless where the generated `KEY-ID` will be stored using the following form `/SPIRE/Keys/{TRUST_DOMAIN}/{SERVER_ID}/{KEY_ID}`
+* `target_folder` - Akeyless path where generated key items are stored in the format `/SPIRE/Keys/{TRUST_DOMAIN}/{SERVER_ID}/{KEY_ID}`.
 
 For **K8s**, **GCP**, or **AzureAD** Auth methods set the following settings as well:
 
-* `k8s_auth_config_name`- Kubernetes Auth Config name as created under your Gateway
+* `k8s_auth_config_name` - Kubernetes Auth Config name as created under your Gateway.
 
-* `gcp_audience`- The audience to verify the JWT received by the client. By default, `akeyless.io`
+* `gcp_audience` - Audience used to verify JWTs from the client. Default: `akeyless.io`.
 
 * `azure_object_id` - Optional for Azure, `objectID`
 
@@ -143,9 +141,9 @@ For **K8s**, **GCP**, or **AzureAD** Auth methods set the following settings as 
 
 > ℹ️ **Info (Key Type):**
 >
-> To set a key type for the SPIRE server, inside the `server` section, add the following parameter.
+> To set a key type for SPIRE Server, add the following parameter in the `server` section.
 >
-> For example, if we would want to use a key type of `RSA-2048` we will add: `ca_key_type` = `rsa-2048`. The default Key Type is: `ec-p256`
+> For example, to use `RSA-2048`, set `ca_key_type = rsa-2048`. The default key type is `ec-p256`.
 
 To initialize the server, run the following command:
 
@@ -153,11 +151,11 @@ To initialize the server, run the following command:
 bin/spire-server run -config conf/server/server.conf &
 ```
 
-With a successful server initialization, 2 **Classic keys** will be created in your Akeyless account and you can find them in the console in the `SPIRE/Keys` folder:
+With successful server initialization, 2 **Classic Keys** are created in the Akeyless Console under `/SPIRE/Keys/`:
 
-* **JWT-Signer-A** - Uses **JSON Web Tokens (JWT)** signed by an identity provider for authentication and authorization of clients.
-* **X509-CA-A** - Relies on **X.509** certificates issued by a trusted Certificate Authority.
+* **JWT-Signer-A** - Used to sign JWT-SVIDs.
+* **X509-CA-A** - Used to sign X.509-SVIDs.
 
 > ℹ️ **Info (SPIFFE/SPIRE):**
 >
-> For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
+> For full bootstrap and registration steps, see [Quickstart for Linux and macOS](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/).
