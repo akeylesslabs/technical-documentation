@@ -30,7 +30,6 @@
     "akeylesslabs/akeyless-servicenow-credential-resolver",
     "akeylesslabs/ansible-ui",
     "akeylesslabs/awx",
-    "akeylesslabs/cli",
     "akeylesslabs/custom-producer",
     "akeylesslabs/docker-compose",
     "akeylesslabs/go-kmip",
