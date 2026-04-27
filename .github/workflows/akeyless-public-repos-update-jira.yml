@@ -45,7 +45,7 @@ on:
       soft_fail_classes:
         description: Comma-separated failure classes to soft-fail
         required: false
-        default: "no_signal,api_transient,dedupe_query"
+        default: "no_signal,api_transient"
         type: string
       retry_count:
         description: Retry count for GitHub/Jira API calls
@@ -114,7 +114,7 @@ jobs:
       SPECIFIC_REPOS: ${{ inputs.specific_repos || '' }}
       INCLUDE_PRERELEASES: ${{ inputs.include_prereleases && 'true' || 'false' }}
       DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
-      SOFT_FAIL_CLASSES: ${{ inputs.soft_fail_classes || 'no_signal,api_transient,dedupe_query' }}
+      SOFT_FAIL_CLASSES: ${{ inputs.soft_fail_classes || 'no_signal,api_transient' }}
       RETRY_COUNT: ${{ inputs.retry_count || '3' }}
     strategy:
       fail-fast: false
@@ -285,6 +285,11 @@ jobs:
             echo ",$SOFT_FAIL_CLASSES," | grep -Eq ",${class_name},"
           }
 
+          capture_error_snippet() {
+            local file_path="$1"
+            tr '\n' ' ' < "$file_path" | sed 's/[[:space:]]\+/ /g' | cut -c1-300
+          }
+
           REPO_DISPLAY="${REPO_FULL}"
           SUMMARY_PREFIX="${REPO_DISPLAY} upstream update detected:"
           SUMMARY="${SUMMARY_PREFIX} latest ${LATEST_TAG}"
@@ -292,6 +297,12 @@ jobs:
           DEDUPE_LABEL="ak-upd-${DEDUPE_KEY}"
 
           echo "dedupe_label=$DEDUPE_LABEL" >> "$GITHUB_OUTPUT"
+
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "action=dry_run" >> "$GITHUB_OUTPUT"
+            echo "Dry-run mode enabled. Would create issue for ${REPO_FULL} @ ${LATEST_TAG}."
+            exit 0
+          fi
 
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
           JIRA_CURL_OPTS=(
@@ -317,8 +328,11 @@ jobs:
             "$JIRA_BASE_URL/rest/api/3/search")
 
           if [ "$SEARCH_HTTP_CODE" != "200" ]; then
+            SEARCH_ERROR_SNIPPET=$(capture_error_snippet "$SEARCH_RESP_BODY")
             echo "Jira search failed with HTTP $SEARCH_HTTP_CODE"
             cat "$SEARCH_RESP_BODY"
+            echo "jira_http_code=$SEARCH_HTTP_CODE" >> "$GITHUB_OUTPUT"
+            echo "jira_error_snippet=$SEARCH_ERROR_SNIPPET" >> "$GITHUB_OUTPUT"
             echo "failure_class=dedupe_query" >> "$GITHUB_OUTPUT"
             if is_soft_fail_class "dedupe_query"; then
               echo "action=soft_failed_dedupe_query" >> "$GITHUB_OUTPUT"
@@ -335,12 +349,6 @@ jobs:
             echo "issue_id=$EXISTING_ID" >> "$GITHUB_OUTPUT"
             echo "action=deduped" >> "$GITHUB_OUTPUT"
             echo "Jira issue already exists for latest tag $LATEST_TAG: $EXISTING_KEY"
-            exit 0
-          fi
-
-          if [ "$DRY_RUN" = "true" ]; then
-            echo "action=dry_run" >> "$GITHUB_OUTPUT"
-            echo "Dry-run mode enabled. Would create issue for ${REPO_FULL} @ ${LATEST_TAG}."
             exit 0
           fi
 
@@ -394,8 +402,11 @@ jobs:
             "$JIRA_BASE_URL/rest/api/3/issue")
 
           if [ "$CREATE_HTTP_CODE" != "201" ]; then
+            CREATE_ERROR_SNIPPET=$(capture_error_snippet "$CREATE_RESP_BODY")
             echo "Failed to create Jira issue. HTTP $CREATE_HTTP_CODE"
             cat "$CREATE_RESP_BODY"
+            echo "jira_http_code=$CREATE_HTTP_CODE" >> "$GITHUB_OUTPUT"
+            echo "jira_error_snippet=$CREATE_ERROR_SNIPPET" >> "$GITHUB_OUTPUT"
             echo "failure_class=jira_create" >> "$GITHUB_OUTPUT"
             if is_soft_fail_class "jira_create"; then
               echo "action=soft_failed_jira_create" >> "$GITHUB_OUTPUT"
@@ -451,6 +462,8 @@ jobs:
             --arg signal_source "${{ steps.detect.outputs.signal_source || '' }}" \
             --arg detect_failure_class "${{ steps.detect.outputs.failure_class || '' }}" \
             --arg jira_failure_class "${{ steps.jira.outputs.failure_class || '' }}" \
+            --arg jira_http_code "${{ steps.jira.outputs.jira_http_code || '' }}" \
+            --arg jira_error_snippet "${{ steps.jira.outputs.jira_error_snippet || '' }}" \
             --arg issue_key "${{ steps.jira.outputs.issue_key || '' }}" \
             --arg dedupe_label "${{ steps.jira.outputs.dedupe_label || '' }}" \
             '{
@@ -461,6 +474,8 @@ jobs:
               signal_source: $signal_source,
               detect_failure_class: $detect_failure_class,
               jira_failure_class: $jira_failure_class,
+              jira_http_code: $jira_http_code,
+              jira_error_snippet: $jira_error_snippet,
               issue_key: $issue_key,
               dedupe_label: $dedupe_label
             }' > "$RESULT_FILE"
