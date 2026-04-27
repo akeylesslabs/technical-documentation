@@ -5,6 +5,8 @@ permissions:
   pull-requests: read
 
 on:
+  schedule:
+    - cron: "0 2 * * 1"
   pull_request_target:
     types:
       - opened
@@ -178,6 +180,167 @@ jobs:
                 description: $adf,
                 issuetype: { name: "Task" },
                 labels: ["documentation","github-actions","akeyless-github-action"]
+              }
+            }')
+
+          RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
+            -H "$AUTH_HEADER" \
+            -H "Content-Type: application/json" \
+            --data "$PAYLOAD" \
+            "$JIRA_BASE_URL/rest/api/3/issue")
+
+          ISSUE_KEY=$(echo "$RESP" | jq -r '.key // empty')
+          ISSUE_ID=$(echo "$RESP" | jq -r '.id // empty')
+
+          if [ -z "$ISSUE_KEY" ]; then
+            echo "Failed to create Jira issue. Response:"
+            echo "$RESP"
+            exit 1
+          fi
+
+          echo "issue_key=$ISSUE_KEY" >> "$GITHUB_OUTPUT"
+          echo "issue_id=$ISSUE_ID" >> "$GITHUB_OUTPUT"
+          echo "Created Jira issue: $ISSUE_KEY"
+
+  create-jira-task-scheduled:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Detect upstream action update gap
+        id: detect
+        run: |
+          set -euo pipefail
+
+          MATCHES=$(rg -o --no-filename 'akeyless-community/akeyless-github-action@[A-Za-z0-9._-]+' docs .github \
+            | sort -u || true)
+
+          if [ -z "$MATCHES" ]; then
+            echo "should_create=false" >> "$GITHUB_OUTPUT"
+            echo "No action references found in scanned paths."
+            exit 0
+          fi
+
+          CURRENT_VERSIONS=$(echo "$MATCHES" | sed -E 's#.*@##' | sort -u)
+
+          LATEST_TAG=$(curl -fsSL "https://api.github.com/repos/akeyless-community/akeyless-github-action/releases/latest" \
+            | jq -r '.tag_name // empty')
+
+          if [ -z "$LATEST_TAG" ]; then
+            echo "Unable to resolve latest release tag from GitHub API."
+            exit 1
+          fi
+
+          if echo "$CURRENT_VERSIONS" | grep -Fxq "$LATEST_TAG"; then
+            echo "should_create=false" >> "$GITHUB_OUTPUT"
+            echo "Repository already references latest tag: $LATEST_TAG"
+            exit 0
+          fi
+
+          echo "should_create=true" >> "$GITHUB_OUTPUT"
+          echo "latest_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
+          {
+            echo "matches<<EOF"
+            echo "$MATCHES"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          {
+            echo "current_versions<<EOF"
+            echo "$CURRENT_VERSIONS"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create Jira issue
+        id: jira
+        if: steps.detect.outputs.should_create == 'true'
+        env:
+          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
+          JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
+          REPO_NAME: ${{ github.repository }}
+          LATEST_TAG: ${{ steps.detect.outputs.latest_tag }}
+          CURRENT_VERSIONS: ${{ steps.detect.outputs.current_versions }}
+          MATCHES: ${{ steps.detect.outputs.matches }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -e
+
+          SUMMARY_PREFIX="Akeyless GitHub Action upstream update detected:"
+          SUMMARY="${SUMMARY_PREFIX} latest ${LATEST_TAG}"
+
+          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
+
+          SEARCH_JQL=$(jq -rn --arg proj "$JIRA_PROJECT_KEY" --arg prefix "$SUMMARY_PREFIX" --arg tag "$LATEST_TAG" '$proj + " AND summary ~ " + "\"" + $prefix + "\"" + " AND summary ~ " + "\"" + $tag + "\""')
+          SEARCH_RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" \
+            -G \
+            -H "$AUTH_HEADER" \
+            --data-urlencode "jql=${SEARCH_JQL}" \
+            --data-urlencode "maxResults=1" \
+            "$JIRA_BASE_URL/rest/api/3/search")
+
+          EXISTING_KEY=$(echo "$SEARCH_RESP" | jq -r '.issues[0].key // empty')
+          EXISTING_ID=$(echo "$SEARCH_RESP" | jq -r '.issues[0].id // empty')
+
+          if [ -n "$EXISTING_KEY" ]; then
+            echo "issue_key=$EXISTING_KEY" >> "$GITHUB_OUTPUT"
+            echo "issue_id=$EXISTING_ID" >> "$GITHUB_OUTPUT"
+            echo "Jira issue already exists: $EXISTING_KEY"
+            exit 0
+          fi
+
+          ADF_DESC=$(jq -n \
+            --arg repo "$REPO_NAME" \
+            --arg latest "$LATEST_TAG" \
+            --arg current "$CURRENT_VERSIONS" \
+            --arg matches "$MATCHES" \
+            --arg run_url "$RUN_URL" \
+            'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
+             def linkPara($label; $url):
+               { type:"paragraph", content:[
+                   {type:"text", text:$label},
+                   {type:"text", text:$url, marks:[{type:"link", attrs:{href:$url}}]}
+                 ]};
+             def codeBlock($t):
+               {type:"codeBlock", attrs:{language:""}, content:[{type:"text", text:$t}]};
+
+             {
+               type:"doc", version:1,
+               content:[
+                 para("Scheduled dependency monitoring detected that repository references are behind the latest akeyless-community/akeyless-github-action release."),
+                 para("Repository: " + $repo),
+                 para("Latest upstream tag: " + $latest),
+                 para("Current referenced versions:"),
+                 codeBlock($current),
+                 para("Detected references:"),
+                 codeBlock($matches),
+                 linkPara("Workflow run URL: "; $run_url),
+                 para("This ticket was created automatically by GitHub Actions for documentation triage.")
+               ]
+             }')
+
+          PAYLOAD=$(jq -n \
+            --arg proj "$JIRA_PROJECT_KEY" \
+            --arg summary "$SUMMARY" \
+            --argjson adf "$ADF_DESC" \
+            '{
+              fields: {
+                project: { key: $proj },
+                summary: $summary,
+                description: $adf,
+                issuetype: { name: "Task" },
+                labels: ["documentation","github-actions","akeyless-github-action","scheduled"]
               }
             }')
 
