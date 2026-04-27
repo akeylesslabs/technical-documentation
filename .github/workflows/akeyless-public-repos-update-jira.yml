@@ -317,7 +317,7 @@ jobs:
           SEARCH_JQL=$(jq -rn \
             --arg proj "$JIRA_PROJECT_KEY" \
             --arg dedupe_label "$DEDUPE_LABEL" \
-            '$proj + " AND labels = " + "\"" + $dedupe_label + "\""')
+            '"project = " + $proj + " AND labels = " + "\"" + $dedupe_label + "\""')
 
           SEARCH_RESP_BODY=$(mktemp)
           SEARCH_HTTP_CODE=$(curl -sS -o "$SEARCH_RESP_BODY" -w "%{http_code}" "${JIRA_CURL_OPTS[@]}" \
