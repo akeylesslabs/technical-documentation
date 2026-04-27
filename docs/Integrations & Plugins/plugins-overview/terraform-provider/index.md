@@ -25,7 +25,7 @@ For more information on the Terraform provider, see the [Akeyless GitHub Reposit
     required_providers {
         akeyless = {
         source = "akeyless-community/akeyless"
-        version = "1.3.1"
+        version = "2.0.1"
         }
     }
     }
@@ -92,3 +92,70 @@ Resources can be imported from Akeyless, for example, import a static secret:
 ```shell
 terraform import akeyless_static_secret.resorce-name /full-secret-name-in-akeyless
 ```
+
+## DigiCert Target
+
+Provider version 2.0.1 introduces the `akeyless_target_digicert` resource, which allows you to manage a DigiCert ACME target in Akeyless.
+
+### Required arguments
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `name` | String | Target name |
+| `email` | String | Email address for ACME account registration |
+
+### Optional arguments
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `acme_challenge` | String | ACME challenge type. Options: `dns` |
+| `description` | String | Description of the object |
+| `digicert_url` | String | DigiCert ACME endpoint. Options: `us-production`, `eu-production`, `us-demo`, `eu-demo` |
+| `dns_target_creds` | String | Name of an existing cloud target for DNS credentials. Required when challenge type is `dns`. Supported providers: AWS, Azure, GCP |
+| `eab_hmac_key` | String (Sensitive) | External Account Binding HMAC key (required for ACME account bootstrap on create) |
+| `eab_key_id` | String | External Account Binding key identifier (required for ACME account bootstrap on create) |
+| `gcp_project` | String | GCP Cloud DNS project ID (optional; can be derived from service account) |
+| `hosted_zone` | String | AWS Route53 hosted zone ID. Required when DNS credentials target is AWS |
+| `keep_prev_version` | String | Whether to keep the previous version (`true`/`false`). If not set, uses account default |
+| `key` | String | Name of a key used to encrypt the target secret value. If empty, the account default protection key is used |
+| `max_versions` | String | Maximum number of versions, limited by account settings defaults |
+| `resource_group` | String | Azure resource group name. Required when DNS credentials target is Azure |
+| `timeout` | String | Timeout for challenge validation |
+
+### Example
+
+```shell
+resource "akeyless_target_digicert" "digicert_target" {
+  name           = "/targets/digicert-prod"
+  email          = "admin@example.com"
+  digicert_url   = "us-production"
+  acme_challenge = "dns"
+  dns_target_creds = "/targets/aws-dns-creds"
+  hosted_zone    = "Z1234567890ABC"
+  eab_key_id     = "your-eab-key-id"
+  eab_hmac_key   = "your-eab-hmac-key"
+}
+```
+
+## Changelog
+
+### 2.0.1
+
+* Added `akeyless_target_digicert` resource for DigiCert ACME target management.
+* Fixed a bug in the `akeyless_auth_method_kerberos` resource.
+* Fixed a bug in the `akeyless_event_forwarder_teams` resource.
+* Fixed bugs in the `akeyless_dynamic_secret` resources for HanaDB, MongoDB, and temporary credentials.
+* Fixed a bug in `akeyless_gateway_migration` resources.
+* Fixed descriptions in the `akeyless_dynamic_secret_aws` resource.
+
+### 2.0.0
+
+* Added support for missing endpoints and arguments.
+
+### 1.11.6
+
+* Added `akeyless_items` data source.
+
+### 1.11.5
+
+* Added `akeyless_folder` resource.

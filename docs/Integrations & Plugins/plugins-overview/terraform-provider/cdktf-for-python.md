@@ -25,7 +25,7 @@ The Cloud Development Kit for Terraform (CDKTF) allows you to manage your Akeyle
 Install the CDKTF for Akeyless [package](https://pypi.org/project/akeyless-cdktf/#files)
 
 ```python
-pip install akeyless-cdktf==1.6.3
+pip install akeyless-cdktf==2.0.1
 ```
 
 Once the package is installed, configure the `main.py` and `cdktf.json` files:
