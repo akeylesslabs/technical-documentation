@@ -88,5 +88,12 @@
     "akeylesslabs/sigstore",
     "akeylesslabs/sshproxy",
     "akeylesslabs/trufflehog"
+  ],
+  "third_party_repos": [
+    "helm/helm",
+    "kubernetes/kubernetes",
+    "external-secrets/external-secrets",
+    "cert-manager/cert-manager",
+    "hashicorp/terraform"
   ]
 }

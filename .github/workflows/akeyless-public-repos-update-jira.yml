@@ -57,6 +57,11 @@ on:
         required: false
         default: "20"
         type: string
+      include_third_party_repos:
+        description: Include repos from third_party_repos in tracked repo file
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   load-repo-list:
@@ -78,13 +83,23 @@ jobs:
             exit 1
           fi
 
-          REPO_COUNT=$(jq -r '.repos | length' "$REPO_FILE")
+          INCLUDE_THIRD_PARTY="${{ github.event_name == 'workflow_dispatch' && inputs.include_third_party_repos && 'true' || 'false' }}"
+
+          SELECTED_REPOS=$(jq -c --arg include_third_party "$INCLUDE_THIRD_PARTY" '
+            if $include_third_party == "true" then
+              (.repos + (.third_party_repos // [])) | unique
+            else
+              .repos
+            end
+          ' "$REPO_FILE")
+
+          REPO_COUNT=$(jq -r 'length' <<< "$SELECTED_REPOS")
           if [ "$REPO_COUNT" -le 0 ]; then
             echo "Tracked repo list is empty in $REPO_FILE"
             exit 1
           fi
 
-          MATRIX=$(jq -c '{ repo_full: .repos }' "$REPO_FILE")
+          MATRIX=$(jq -cn --argjson repos "$SELECTED_REPOS" '{ repo_full: $repos }')
           echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
           echo "repo_count=$REPO_COUNT" >> "$GITHUB_OUTPUT"
 
