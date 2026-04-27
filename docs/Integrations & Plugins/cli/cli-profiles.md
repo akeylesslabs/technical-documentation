@@ -126,6 +126,8 @@ If both `AKEYLESS_DEFAULT_PROFILE` and `default_profile` are set, the environmen
 
 Profiles can include command defaults in addition to authentication settings.
 
+This is useful when the same Gateway address, item-path prefix, or SSH certificate settings are used repeatedly. Storing them in the profile reduces repeated flags, keeps commands shorter, and helps keep interactive and automated workflows consistent.
+
 For example:
 
 ```toml default.toml
@@ -138,11 +140,15 @@ For example:
   legacy_signing_alg = 'true|false'
 ```
 
+With these defaults in place, the CLI can reuse them automatically. For example, `default_location_prefix = 'non-production'` lets a command such as `akeyless get-secret-value --name app/db-password` inherit the common prefix instead of requiring the full item path each time.
+
 Where:
 
-* `gateway_url`: Akeyless Gateway URL, port `8000`, for Gateway-dependent workflows such as certain dynamic secret operations. For general CLI API calls through a non-public Gateway, use `AKEYLESS_GATEWAY_URL` instead.
-* `default_location_prefix`: Global default prefix for the `name` flag.
-* `cert_issuer_name`: Default [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) name.
-* `cert_username`: Default username for issued SSH certificates.
-* `public_key_file_path`: Path to the SSH public key file.
-* `legacy_signing_alg`: Use the SSH legacy signing algorithm.
+* `gateway_url`: Default Akeyless Gateway URL for commands that support the `--gateway-url` flag. Use port `8000` for Gateway Configuration Manager workflows. For setup details and usage patterns, see [Working with the Gateway](https://docs.akeyless.io/docs/cli#working-with-the-gateway). For general CLI API calls through a non-public Gateway, use `AKEYLESS_GATEWAY_URL` instead.
+* `default_location_prefix`: Global default prefix for the `name` flag. This is useful when multiple commands operate under the same path prefix, such as `non-production`, `prod/team-a`, or another shared folder structure.
+* `cert_issuer_name`: Default [SSH certificate issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) name used by the [get-ssh-certificate CLI reference](https://docs.akeyless.io/docs/cli-reference-certificates#get-ssh-certificate).
+* `cert_username`: Default username used by the [get-ssh-certificate CLI reference](https://docs.akeyless.io/docs/cli-reference-certificates#get-ssh-certificate) when issuing the SSH certificate.
+* `public_key_file_path`: Default path to the SSH public key file used by the [get-ssh-certificate CLI reference](https://docs.akeyless.io/docs/cli-reference-certificates#get-ssh-certificate).
+* `legacy_signing_alg`: Default setting for the legacy signing algorithm option used by the [get-ssh-certificate CLI reference](https://docs.akeyless.io/docs/cli-reference-certificates#get-ssh-certificate), which can help with older OpenSSH compatibility requirements.
+
+These SSH certificate defaults are also relevant to [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect). `akeyless connect` relies on the same certificate-issuance flow before opening the Secure Remote Access session, so keeping the issuer, username, public-key path, and legacy signing preference in the profile can reduce repeated setup.
