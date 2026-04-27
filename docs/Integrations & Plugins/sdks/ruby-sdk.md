@@ -52,7 +52,8 @@ token = result.token
 
 # get secret value using the token
 body = Akeyless::GetSecretValue.new
-body.token = tokenbody.names = ['my-secret']
+body.token = token
+body.names = ['my-secret']
 result = api.get_secret_value(body)
 ```
 
