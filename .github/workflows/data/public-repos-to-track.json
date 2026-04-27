@@ -45,7 +45,6 @@
     "akeylesslabs/homebrew-tap",
     "akeylesslabs/jwt-go",
     "akeylesslabs/keda",
-    "akeylesslabs/openssl",
     "akeylesslabs/openssl-c",
     "akeylesslabs/sigstore",
     "akeylesslabs/sshproxy"
