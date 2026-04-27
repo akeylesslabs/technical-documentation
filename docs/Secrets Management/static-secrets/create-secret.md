@@ -58,9 +58,11 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
 1. Log in to the Akeyless Console and go to **Items > New > Static Secret**.
 
-2. Define a **Name** for the secret, and optionally specify the **Location** as a path to the virtual folder in which you want to create the new secret, using slash `/` separators. If the folder does not exist, it will be created together with the secret.
+This opens the **Create Static Secret** wizard.
 
-3. Define the remaining parameters as follows:
+1. Define a **Name** for the secret, and optionally specify the **Location** as a path to the virtual folder in which you want to create the new secret, using slash `/` separators. If the folder does not exist, it will be created together with the secret.
+
+2. Define the remaining parameters as follows:
 
     * **Description:** Optional, enter a description of the secret.
 
@@ -76,7 +78,7 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
     * **Change Event** Optional, trigger an event when the value is changed.
 
-4. Select **Save**.
+3. Select **Finish**.
 
 ## Tutorial
 

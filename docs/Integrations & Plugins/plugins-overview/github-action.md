@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Official [GitHub Actions](https://github.com/marketplace/actions/akeyless-authentication-and-fetching-secrets) plugin enables you to automate workflows for your GitHub-hosted repositories. With the GitHub Actions plugin, you can fetch secrets directly from Akeyless into your workflows. This guide describes how to use our various [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) to fetch [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets, as well as [SSH](https://docs.akeyless.io/docs/sra-ssh-certificates) and [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) certificates, from Akeyless.
+The Akeyless [GitHub Actions plugin](https://github.com/marketplace/actions/akeyless-authentication-and-fetching-secrets) enables workflow automation for GitHub-hosted repositories. This guide describes how to use supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) to fetch [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets, as well as [SSH](https://docs.akeyless.io/docs/sra-ssh-certificates) and [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) certificates, from Akeyless.
 
 ## Prerequisites
 
@@ -164,11 +164,62 @@ For example: `repository=octo-org/octo-repo` where `octo-org = {GitHub Account}`
 
 ## Usage
 
-Although this repository's workflows use placeholder values, it is still a real Akeyless account and a real provider. The approaches demonstrated in these examples are still valid as-is for real implementations. Use these to your advantage!
+The workflow examples use placeholder values. Replace them with your own Akeyless paths, authentication values, and cloud settings before running in production.
 
 > ℹ️ **Note (Zero-Knowledge Encryption):**
 >
 > If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint, for example, `https://Your_GW_URL:8000/api/v2` (or using your gateway URL at port `8081`).
+
+### GCP Workload Identity Federation
+
+Use `akeyless-community/akeyless-github-action@v1.1.5` or later for Google Cloud Platform (GCP) Workload Identity Federation flows.
+
+When GitHub Actions uses `google-github-actions/auth` with `token_format: id_token`, run that authentication step before the Akeyless action so cloud identity is available in the runner environment.
+
+Example workflow:
+
+```yaml
+jobs:
+  fetch_secrets:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          token_format: id_token
+          id_token_audience: akeyless.io
+          id_token_include_email: true
+          workload_identity_provider: projects/${{ secrets.GCP_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: akeyless-wif-sa@customer-success-391112.iam.gserviceaccount.com
+
+      - name: Fetch static secrets from Akeyless
+        uses: akeyless-community/akeyless-github-action@v1.1.5
+        id: fetch-secrets
+        with:
+          access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
+          access-type: gcp
+          api-url: https://api.akeyless.io
+          gcp-audience: akeyless.io
+          static-secrets: |
+            - name: "/Cloud/GCP/gcp_iam_wif/static_secret"
+              output-name: "my_first_secret"
+
+      - name: Use Akeyless secret
+        run: |
+          echo "Step Outputs"
+          echo "my_first_secret: ${{ steps.fetch-secrets.outputs.my_first_secret }}" >> secrets.txt
+          echo "Environment Variables"
+          echo "my_first_secret: ${{ env.my_first_secret }}" >> secrets.txt
+```
+
+> ℹ️ **Note:**
+>
+> For GCP login, this action uses cloud identity retrieval through `akeyless-cloud-id` and sends `gcp-audience` with `access-type: gcp`.
 
 ### Static Secrets Example
 
@@ -184,7 +235,7 @@ jobs:
 
     steps:
       - name: Fetch static secrets from Akeyless
-        uses: akeyless-community/akeyless-github-action@v1.1.2
+        uses: akeyless-community/akeyless-github-action@v1.1.5
         id: fetch-secrets
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
@@ -223,7 +274,7 @@ In this example, you will fetch an AWS Dynamic Secret from Akeyless, called `aws
     steps:
     - name: Fetch dynamic secrets from Akeyless
       id: fetch-dynamic-secrets
-      uses: akeyless-community/akeyless-github-action@v1.1.2
+      uses: akeyless-community/akeyless-github-action@v1.1.5
       with:
         access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
         access-type: jwt        
@@ -265,13 +316,13 @@ In this example, you will fetch an AWS Rotated Secret from Akeyless, called `aws
     steps:
     - name: Fetch rotated secrets from Akeyless
       id: fetch-rotated-secrets
-      uses: akeyless-community/akeyless-github-action@v1.1.2
+      uses: akeyless-community/akeyless-github-action@v1.1.5
       with:
         access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
         access-type: jwt
-      rotated-secrets: |
-        - name: "/path/to/rotated/aws/secret"
-          output-name: "aws_rotated_secret"
+        rotated-secrets: |
+          - name: "/path/to/rotated/aws/secret"
+            output-name: "aws_rotated_secret"
 ```
 
 ### SSH Certificates Example
@@ -290,18 +341,19 @@ In this example, you will fetch two SSH Certificates from Akeyless, called `ssh_
     steps:
       - name: Fetch ssh certificates from Akeyless
         id: fetch-ssh-certificate
-        uses: akeyless-community/akeyless-github-action@v1.1.2
+        uses: akeyless-community/akeyless-github-action@v1.1.5
         with:
+          access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
           access-type: jwt
-          ssh-certificate-secrets: |
+          ssh-certificates: |
             - name: "/path/to/ssh/secret1"
               output-name: "ssh_secret1"
-              cert-username: "ubuntu",
-              public-key-data: "public_key_data",
+              cert-username: "ubuntu"
+              public-key-data: "public_key_data"
             - name: "/path/to/ssh/secret2"
               output-name: "ssh_secret2"
-              cert-username: "ubuntu",
-              public-key-data: "public_key_data",
+              cert-username: "ubuntu"
+              public-key-data: "public_key_data"
 ```
 
 ### PKI Certificates Example
@@ -320,10 +372,11 @@ In this example, you will fetch two PKI Certificates from Akeyless, called `pki_
     steps:
       - name: Fetch pki certificates from Akeyless
         id: fetch-pki-certificates
-        uses: akeyless-community/akeyless-github-action@v1.1.2
+        uses: akeyless-community/akeyless-github-action@v1.1.5
         with:
+          access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
           access-type: jwt
-          pki-certificate-secrets: |
+          pki-certificates: |
             - name: "/path/to/pki/secret1"
               output-name: "pki_secret1"
               csr-data-base64: "csr_data_base64"
@@ -358,7 +411,7 @@ jobs:
           echo "ACTIONS_RUNNER_DEBUG=true" >> $GITHUB_ENV
 
       - name: Create a new secret in Akeyless
-        uses: Akeyless-Product-Team/akeyless-github-action@main
+        uses: akeyless-community/akeyless-github-action@v1.1.5
         with:
           access-type: access_key
           access-id: ${{ secrets.AKEYLESS_ACCESS_ID }}
@@ -393,7 +446,7 @@ jobs:
           echo "ACTIONS_RUNNER_DEBUG=true" >> $GITHUB_ENV
 
       - name: Update an existing secret in Akeyless
-        uses: Akeyless-Product-Team/akeyless-github-action@main
+        uses: akeyless-community/akeyless-github-action@v1.1.5
         with:
           access-type: access_key
           access-id: ${{ secrets.AKEYLESS_ACCESS_ID }}
@@ -404,37 +457,37 @@ jobs:
 
 ### Parsing JSON Secrets Examples
 
-By default, the action sets the environment variable value to the entire JSON string in the secret value. You can set `parse-json-secrets` to `true` to create environment variables for each key/value pair in the secret JSON.
+By default, the action sets the environment variable value to the full JSON string in the secret value. Set `parse-json-secrets` to `true` to create environment variables for each key-value pair in the secret JSON.
 
 * If the JSON uses case-sensitive keys such as "name" and "Name", the action will have duplicate name conflicts. In this case, set `parse-json-secrets` to `false` and parse the JSON secret value separately.
 * You can still use the `key` and `output-name` for extracting a specific `key` with a specific name.
-* The default env `name` will be the path to the secret. If your secret name is `/dev/test`, the default name will be `env.DEV_TEST_{key}`.
+* The default env var name is based on the secret path. If the secret name is `/dev/test`, the default name is `env.DEV_TEST_{key}`.
 
 For a secret with JSON values:
 
-```json secret
+```json
 {
   "key1":"val1",
   "key2":"val2"
 }
 ```
 
-Using the following inside your `yaml`:
+Using the following in YAML:
 
 ```yaml
    with:
       access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
       access-type: jwt
       static-secrets: |
-       - name: "/path/to-secret"
-       - name: "/path/to-secret"
+       - name: "/path/to/secret"
+       - name: "/path/to/secret"
          key: "key1"
          output-name: "SECRET"
       parse-json-secrets: true
  - name: Use Akeyless secret
    run: |
-     echo "key1:${{ env.PATH_TO-SECRET_KEY1 }} >> secrets.txt
-     echo "key2:${{ env.PATH_TO-SECRET_KEY2 }}" >> secrets.txt
+     echo "key1:${{ env.PATH_TO_SECRET_KEY1 }}" >> secrets.txt
+     echo "key2:${{ env.PATH_TO_SECRET_KEY2 }}" >> secrets.txt
      echo "key1:${{ env.SECRET }}" >> secrets.txt
 ```
 
@@ -490,4 +543,4 @@ We can use the following example:
       key: "imp"
 ```
 
-and in `steps.output.my_first_secret` the value will be `value`.
+and in `steps.fetch-secrets.outputs.my_first_secret` the value is `value`.

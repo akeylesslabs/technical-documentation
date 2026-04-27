@@ -122,7 +122,7 @@ The returned JSON object will have keys named `password` and `username`. For exa
 ```json
 {
   "password": "example_password_value",
-  "username": "tmp_ProdDB_p-csdsffer"
+  "username": "example_username"
 }
 ```
 

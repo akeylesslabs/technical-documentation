@@ -63,7 +63,6 @@ default.toml
 Delete Immediately
 dependency definition
 Deployment
-Disabling a Key
 dnf
 DNS with AWS
 DNS with Azure
@@ -79,7 +78,6 @@ Dynamic Service Account
 dynamic_secret.yaml
 Elastic
 Email
-Enabling a Key
 env-vars.tf
 env.yaml
 ExampleChromeFormatCSV.csv
@@ -104,7 +102,6 @@ GCP_GCE
 General Template
 Generated Role
 get certificates
-Get RSA Public Key
 Get-Dynamic-Secret
 Get-Static-Secret
 GitHub Target
@@ -199,6 +196,7 @@ RSA2048
 S3-Inline connection string
 SAML
 Sample Output
+Scheduled Delete
 SAP HANA database
 SAP HanaDB
 Secret

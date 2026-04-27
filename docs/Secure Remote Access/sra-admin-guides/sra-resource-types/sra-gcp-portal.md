@@ -24,9 +24,9 @@ To enable Secure Remote Access to the GCP Portal you need:
 
 * The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
 
-* The [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-bastion).
+* The [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
-* The GCP Portal site URL specified in the `values.YAML` file on the Web Access Bastion.
+* The GCP Portal site URL specified in the `values.yaml` file on the Zero Trust Web Access deployment.
 
 ## Set Up Remote Access to GCP Portal from the Akeyless Console
 

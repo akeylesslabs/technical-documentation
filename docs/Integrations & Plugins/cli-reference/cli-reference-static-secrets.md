@@ -37,13 +37,13 @@ akeyless create-secret \
 
 `-f, --format[=text]`: Secret format [`text`/`json` / `key-value`] (relevant only for type '`generic`')
 
-`--url, --inject-url`: Comma-separated list of URLs associated with the item (only relevant for type 'password')
+`--url, --inject-url`: Comma-separated list of URLs associated with the item (only relevant for type `password`)
 
-`-p, --password`: The password value (relevant for "password manager" only)
+`-p, --password`: The password value (only relevant for type `password`)
 
-`-u, --username`: The username value (relevant for "password manager" only)
+`-u, --username`: The username value (only relevant for type `password`)
 
-`-c, --custom-field`: Additional custom fields to associate with the item, to specify multiple fields repeat the argument: `--custom-field fieldName1=value1 -c fieldName2=value2` (only relevant for type 'password')
+`-c, --custom-field`: Additional custom fields to associate with the item. To specify multiple fields, repeat the argument: `--custom-field fieldName1=value1 -c fieldName2=value2` (only relevant for type `password`)
 
 `--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
 
@@ -255,9 +255,9 @@ akeyless update-secret-val \
 
 `--value`: **Required**, The updated secret value
 
-`--url, --inject-url`: List of the URL associated with the item (relevant for "password manager" only)
+`--url, --inject-url`: List of URLs associated with the item (only relevant for type `password`)
 
-`-p, --password`: The password value (relevant for "password manager" only)
+`-p, --password`: The password value (only relevant for type `password`)
 
 `-u, --username`: The username value (relevant for "password manager" only)
 
