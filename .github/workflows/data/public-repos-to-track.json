@@ -28,7 +28,6 @@
     "akeyless-community/custom-server-ui-payload-generator",
     "akeyless-community/dapr",
     "akeyless-community/dapr-docs",
-    "akeyless-community/example-java-sdk-encryption-as-a-service",
     "akeyless-community/external-secrets",
     "akeyless-community/heimdal",
     "akeyless-community/homebrew-agmigrator",
