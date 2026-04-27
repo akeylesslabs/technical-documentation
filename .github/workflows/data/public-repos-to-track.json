@@ -17,7 +17,6 @@
     "akeyless-community/akeyless-mcp-plugin",
     "akeyless-community/akeyless-openapi-spec-extractor",
     "akeyless-community/akeyless-serverless-gateway",
-    "akeyless-community/akeyless-sheller",
     "akeyless-community/akeyless-tf-cloud-docker-agent",
     "akeyless-community/akeyless-ui-webhook-builder",
     "akeyless-community/awx-plugins",
