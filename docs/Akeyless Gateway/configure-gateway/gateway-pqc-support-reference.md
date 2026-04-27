@@ -41,6 +41,8 @@ To enable hybrid PQC for the Akeyless Gateway endpoint, set the following enviro
 
 When TLS 1.3 is enabled, the Go runtime negotiates `X25519MLKEM768` automatically. No additional flags are required.
 
+After changing `MIN_TLS_VERSION`, restart or redeploy the Gateway so the updated value is applied.
+
 Deployment examples:
 
 * [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration)
@@ -66,10 +68,10 @@ To verify hybrid PQC on a Gateway endpoint using a browser:
 To verify using OpenSSL (requires OpenSSL 3.2 or later):
 
 ```shell Linux and macOS
-openssl s_client -connect <gateway-host>:<port> 2>&1 | grep "Server Temp Key"
+openssl s_client -connect <gateway-host>:<port> -tls1_3 2>&1 | grep "Server Temp Key"
 ```
 ```powershell Windows
-openssl s_client -connect <gateway-host>:<port> 2>&1 | Select-String "Server Temp Key"
+openssl s_client -connect <gateway-host>:<port> -tls1_3 2>&1 | Select-String "Server Temp Key"
 ```
 
 A hybrid PQC key exchange returns output similar to:
@@ -84,6 +86,12 @@ Interpretation:
 * `Server Temp Key: X25519`: The connection negotiated classical key exchange.
 
 If you expect hybrid PQC but observe `X25519`, confirm that the client supports `X25519MLKEM768` and that the Gateway is configured with `MIN_TLS_VERSION=TLSv1.3`.
+
+Troubleshooting checklist:
+
+* Confirm the command is targeting the Gateway endpoint directly.
+* Confirm the Gateway has restarted after applying `MIN_TLS_VERSION=TLSv1.3`.
+* Confirm the client and OpenSSL version support `X25519MLKEM768`.
 
 ## Related Resources
 
