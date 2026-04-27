@@ -12,7 +12,11 @@ next:
 ---
 The Cloud Development Kit for Terraform (CDKTF) allows you to manage your Akeyless resources, such as secrets, roles, and authentication methods, using Terraform without needing to write HashiCorp Configuration Language (HCL). Instead, you can define and manage these resources using **Python**.
 
-> **Deprecation notice:** HashiCorp deprecated CDKTF on 2025-12-10 and no longer supports or maintains it. The `akeyless-cdktf` package remains available on PyPI, but the upstream CDKTF framework is end-of-life. Evaluate alternatives before adopting CDKTF for new projects.
+> **Deprecation notice:** HashiCorp deprecated CDKTF on 2025-12-10 and no longer supports or maintains it. The `akeyless-cdktf` package remains available on PyPI, but the upstream CDKTF framework is end-of-life. Consider these alternatives for new projects:
+>
+> * [Terraform provider with HCL](https://docs.akeyless.io/docs/terraform-provider) — manage Akeyless resources using standard HCL configuration
+> * [Pulumi Akeyless provider](https://www.pulumi.com/registry/packages/akeyless/) — manage Akeyless resources using Python or other languages
+> * [Akeyless Python SDK](https://docs.akeyless.io/docs/python-sdk-1) — programmatic access to Akeyless without an IaC framework
 
 ## Prerequisites
 
