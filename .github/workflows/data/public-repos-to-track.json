@@ -25,7 +25,6 @@
     "akeyless-community/dapr-docs",
     "akeyless-community/external-secrets",
     "akeyless-community/heimdal",
-    "akeyless-community/homebrew-agmigrator",
     "akeyless-community/json-secret-importer",
     "akeyless-community/k8s-auth-validator",
     "akeyless-community/keda-docs",
