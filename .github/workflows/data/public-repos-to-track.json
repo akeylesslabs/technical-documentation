@@ -25,7 +25,6 @@
     "akeylesslabs/akeyless-csharp-netcore",
     "akeylesslabs/akeyless-csi-provider",
     "akeylesslabs/akeyless-go",
-    "akeylesslabs/akeyless-go-cloud-id",
     "akeylesslabs/akeyless-grpc-go",
     "akeylesslabs/akeyless-grpc-php",
     "akeylesslabs/akeyless-grpc-rust",
