@@ -355,6 +355,11 @@ module.exports = [
     tags: ["code", "style"],
     function: function (params, onError) {
       const cfg = params.config || {};
+      const allowPhrases = new Set(
+        (Array.isArray(cfg.allow_phrases) ? cfg.allow_phrases : [])
+          .map((s) => String(s || "").trim().toLowerCase())
+          .filter(Boolean)
+      );
       const allowedLanguages = loadAllowlistSet(cfg.languages, cfg.languages_file);
       const allowedTabs = loadAllowlistSet(cfg.tabs, cfg.tabs_file);
       const validateTabs = allowedTabs.size > 0;
@@ -1214,11 +1219,6 @@ module.exports = [
     tags: ["terminology", "style"],
     function: function (params, onError) {
       const cfg = params.config || {};
-      const allowPhrases = new Set(
-        (Array.isArray(cfg.allow_phrases) ? cfg.allow_phrases : [])
-          .map((s) => String(s || "").trim().toLowerCase())
-          .filter(Boolean)
-      );
 
       const defaultTerms = [
         {
