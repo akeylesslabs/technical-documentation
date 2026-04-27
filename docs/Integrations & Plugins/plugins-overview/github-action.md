@@ -164,7 +164,7 @@ For example: `repository=octo-org/octo-repo` where `octo-org = {GitHub Account}`
 
 ## Usage
 
-Although this repository's workflows use placeholder values, it is still a real Akeyless account and a real provider. The approaches demonstrated in these examples are still valid as-is for real implementations. Use these to your advantage!
+The workflow examples use placeholder values. Replace them with your own Akeyless paths, authentication values, and cloud settings before running in production.
 
 > ℹ️ **Note (Zero-Knowledge Encryption):**
 >
@@ -343,6 +343,7 @@ In this example, you will fetch two SSH Certificates from Akeyless, called `ssh_
         id: fetch-ssh-certificate
         uses: akeyless-community/akeyless-github-action@v1.1.5
         with:
+          access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
           access-type: jwt
           ssh-certificates: |
             - name: "/path/to/ssh/secret1"
@@ -373,6 +374,7 @@ In this example, you will fetch two PKI Certificates from Akeyless, called `pki_
         id: fetch-pki-certificates
         uses: akeyless-community/akeyless-github-action@v1.1.5
         with:
+          access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
           access-type: jwt
           pki-certificates: |
             - name: "/path/to/pki/secret1"
