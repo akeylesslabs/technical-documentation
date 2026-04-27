@@ -1,0 +1,201 @@
+name: Akeyless GitHub Action Update Jira Task
+
+permissions:
+  contents: read
+  pull-requests: read
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  create-jira-task:
+    if: github.event.pull_request.state == 'open'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Collect changed PR files
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const files = await github.paginate(
+              github.rest.pulls.listFiles,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.issue.number,
+                per_page: 100,
+              }
+            );
+
+            fs.mkdirSync('.github/automation-reports', { recursive: true });
+            fs.writeFileSync(
+              '.github/automation-reports/akeyless-github-action-update-files.json',
+              JSON.stringify(
+                files.map((file) => ({
+                  filename: file.filename,
+                  status: file.status,
+                  patch: file.patch || '',
+                })),
+                null,
+                2
+              )
+            );
+
+      - name: Detect action version update
+        id: detect
+        run: |
+          set -euo pipefail
+
+          FILES_JSON='.github/automation-reports/akeyless-github-action-update-files.json'
+
+          MATCHES=$(jq -r '.[] | .patch // empty' "$FILES_JSON" \
+            | grep -Eo 'akeyless-community/akeyless-github-action@[A-Za-z0-9._-]+' \
+            | sort -u || true)
+
+          if [ -z "$MATCHES" ]; then
+            echo "should_create=false" >> "$GITHUB_OUTPUT"
+            echo "No akeyless-community/akeyless-github-action version updates found in PR diff."
+            exit 0
+          fi
+
+          FILE_LIST=$(jq -r '.[].filename' "$FILES_JSON" | sed '/^\s*$/d' | head -50)
+          if [ -z "$FILE_LIST" ]; then
+            FILE_LIST="(no changed files reported)"
+          fi
+
+          echo "should_create=true" >> "$GITHUB_OUTPUT"
+          {
+            echo "matches<<EOF"
+            echo "$MATCHES"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          {
+            echo "files<<EOF"
+            echo "$FILE_LIST"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create Jira issue
+        id: jira
+        if: steps.detect.outputs.should_create == 'true'
+        env:
+          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
+          JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
+          REPO_NAME: ${{ github.repository }}
+          MATCHES: ${{ steps.detect.outputs.matches }}
+          FILE_LIST: ${{ steps.detect.outputs.files }}
+        run: |
+          set -e
+
+          SUMMARY_PREFIX="Akeyless GitHub Action update in PR #${PR_NUMBER}:"
+          SUMMARY="${SUMMARY_PREFIX} ${PR_TITLE}"
+
+          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
+
+          SEARCH_JQL=$(jq -rn --arg proj "$JIRA_PROJECT_KEY" --arg prefix "$SUMMARY_PREFIX" '$proj + " AND summary ~ " + "\"" + $prefix + "\""')
+          SEARCH_RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" \
+            -G \
+            -H "$AUTH_HEADER" \
+            --data-urlencode "jql=${SEARCH_JQL}" \
+            --data-urlencode "maxResults=1" \
+            "$JIRA_BASE_URL/rest/api/3/search")
+
+          EXISTING_KEY=$(echo "$SEARCH_RESP" | jq -r '.issues[0].key // empty')
+          EXISTING_ID=$(echo "$SEARCH_RESP" | jq -r '.issues[0].id // empty')
+
+          if [ -n "$EXISTING_KEY" ]; then
+            echo "issue_key=$EXISTING_KEY" >> "$GITHUB_OUTPUT"
+            echo "issue_id=$EXISTING_ID" >> "$GITHUB_OUTPUT"
+            echo "Jira issue already exists: $EXISTING_KEY"
+            exit 0
+          fi
+
+          ADF_DESC=$(jq -n \
+            --arg repo "$REPO_NAME" \
+            --arg prtitle "$PR_TITLE" \
+            --arg prurl "$PR_URL" \
+            --arg prnum "$PR_NUMBER" \
+            --arg author "$PR_AUTHOR" \
+            --arg head "$PR_HEAD_REF" \
+            --arg base "$PR_BASE_REF" \
+            --arg matches "$MATCHES" \
+            --arg files "$FILE_LIST" \
+            'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
+             def linkPara($label; $url):
+               { type:"paragraph", content:[
+                   {type:"text", text:$label},
+                   {type:"text", text:$url, marks:[{type:"link", attrs:{href:$url}}]}
+                 ]};
+             def codeBlock($t):
+               {type:"codeBlock", attrs:{language:""}, content:[{type:"text", text:$t}]};
+
+             {
+               type:"doc", version:1,
+               content:[
+                 para("A pull request updated the Akeyless GitHub Action reference in this repository."),
+                 para("Repository: " + $repo),
+                 para("Pull request: #" + $prnum + " - " + $prtitle),
+                 linkPara("Pull request URL: "; $prurl),
+                 para("Author: " + $author),
+                 para("Branch: " + $head + " -> " + $base),
+                 para("Detected action references:"),
+                 codeBlock($matches),
+                 para("Changed files (first 50):"),
+                 codeBlock($files),
+                 para("This ticket was created automatically by GitHub Actions for documentation triage.")
+               ]
+             }')
+
+          PAYLOAD=$(jq -n \
+            --arg proj "$JIRA_PROJECT_KEY" \
+            --arg summary "$SUMMARY" \
+            --argjson adf "$ADF_DESC" \
+            '{
+              fields: {
+                project: { key: $proj },
+                summary: $summary,
+                description: $adf,
+                issuetype: { name: "Task" },
+                labels: ["documentation","github-actions","akeyless-github-action"]
+              }
+            }')
+
+          RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
+            -H "$AUTH_HEADER" \
+            -H "Content-Type: application/json" \
+            --data "$PAYLOAD" \
+            "$JIRA_BASE_URL/rest/api/3/issue")
+
+          ISSUE_KEY=$(echo "$RESP" | jq -r '.key // empty')
+          ISSUE_ID=$(echo "$RESP" | jq -r '.id // empty')
+
+          if [ -z "$ISSUE_KEY" ]; then
+            echo "Failed to create Jira issue. Response:"
+            echo "$RESP"
+            exit 1
+          fi
+
+          echo "issue_key=$ISSUE_KEY" >> "$GITHUB_OUTPUT"
+          echo "issue_id=$ISSUE_ID" >> "$GITHUB_OUTPUT"
+          echo "Created Jira issue: $ISSUE_KEY"
