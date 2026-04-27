@@ -93,10 +93,6 @@ Resources can be imported from Akeyless, for example, import a static secret:
 terraform import akeyless_static_secret.resource-name /full-secret-name-in-akeyless
 ```
 
-## New in v2.0.1
-
-Provider version 2.0.1 introduces the `akeyless_target_digicert` resource for managing a DigiCert ACME target in Akeyless. For the full argument reference, see the [akeyless_target_digicert](https://registry.terraform.io/providers/akeyless-community/akeyless/latest/docs/resources/target_digicert) entry in the Terraform Registry.
-
 ## Upgrading to v2.0
 
 Provider v2.0.0 removed resources and parameters that were deprecated in v1.5.0. Before upgrading from v1.x, update your configuration as follows:
