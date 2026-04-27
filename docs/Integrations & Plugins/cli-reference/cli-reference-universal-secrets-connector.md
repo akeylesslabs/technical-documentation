@@ -185,6 +185,10 @@ akeyless usc list --usc-name <USC name>
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
+`--page-size`: Optional number of items requested per response (Azure KV). When set, the response may include a next token.
+
+`--page-token`: Optional continuation token returned by a previous `usc list --page-size` call.
+
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token

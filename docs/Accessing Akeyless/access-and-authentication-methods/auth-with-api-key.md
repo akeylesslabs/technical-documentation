@@ -63,7 +63,7 @@ To use an API key-based authentication method with the Console:
 
 ### Using an API Key Authentication Method with the CLI
 
-To use an API key-based authentication method with a CLI profile, run the [Akeyless configure command](https://docs.akeyless.io/docs/cli-reference#configure). For more information about profiles, see [Working With Profiles](https://docs.akeyless.io/docs/cli#working-with-profiles):
+To use an API key-based authentication method with a CLI profile, run the [Akeyless configure command](https://docs.akeyless.io/docs/cli-reference#configure). For more information about profiles, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles):
 
 ```shell
 akeyless configure \

@@ -162,6 +162,41 @@ To list the certificates from your USC, use the following command:
 akeyless usc list --usc-name <usc name> --object-type certificate
 ```
 
+For Azure Key Vault inventories, USC list operations support page-based retrieval:
+
+```shell
+akeyless usc list --usc-name <usc name> --page-size <items per page>
+akeyless usc list --usc-name <usc name> --page-size <items per page> --page-token <next token>
+```
+
+Use `--page-size` on the first request. If the response includes `next_token`, pass that token into the next `usc list --page-token` call to continue browsing the Azure Key Vault inventory.
+
+Connector-level prefix filtering is configured on the USC item itself by using `--usc-prefix` together with `--use-prefix-as-filter`.
+
+To interact with prefix filtering:
+
+1. Create or update the USC with a prefix value.
+2. Enable `use-prefix-as-filter` on that USC.
+3. Run `akeyless usc list --usc-name <usc name>`.
+
+Only matching secrets are returned for that connector configuration.
+
+Azure USC secret create and update operations also support tags.
+
+To interact with Azure USC tag filtering:
+
+1. Set connector tags with `--usc-tags`.
+2. Enable `--use-tags-as-filter` on the USC.
+3. Run `akeyless usc list --usc-name <usc name>` to view secrets filtered by the configured connector tags.
+
+When creating a new Azure USC secret from the Console UI, the dialog inherits the connector prefix and shows connector tags in the creation form.
+
+To view the exact supported CLI flags in your installed version, run:
+
+```shell
+akeyless usc list -h
+```
+
 ### Fetching a Secret from the USC
 
 To view a secret from your USC, use the following command:

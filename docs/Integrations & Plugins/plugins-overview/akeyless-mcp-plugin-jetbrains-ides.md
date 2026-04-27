@@ -94,7 +94,7 @@ akeyless configure --profile default --access-id p-xxxx --access-key xxxx --acce
 akeyless configure --profile saml --access-id p-xxxx --access-type saml
 ```
 
-For profile details and advanced options, see [Working With Profiles](https://docs.akeyless.io/docs/cli#working-with-profiles).
+For profile details and advanced options, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
 
 ### Step 3: Install the Plugin
 

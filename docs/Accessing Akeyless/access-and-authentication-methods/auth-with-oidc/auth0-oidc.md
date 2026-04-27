@@ -44,6 +44,8 @@ akeyless auth-method create oidc --name 'My Auth0 app' --issuer https://{your-au
     akeyless configure --access-id <your-access-id> --access-type oidc --profile 'auth0-app'
     ```
 
+   For more information about creating and managing CLI profiles, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
+
 2. Now, you can run any Akeyless CLI command and be authenticated with the Auth0 application:
 
     ```shell

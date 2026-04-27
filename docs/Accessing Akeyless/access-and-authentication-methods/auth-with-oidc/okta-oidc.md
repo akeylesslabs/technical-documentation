@@ -55,6 +55,8 @@ akeyless auth-method create oidc --name 'My Okta app' --issuer https://{your-okt
     akeyless configure --access-id <your-access-id> --access-type oidc --profile 'okta-app'
     ```
 
+   For more information about creating and managing CLI profiles, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
+
 2. Now, you can run any Akeyless CLI command and be authenticated with the Okta application:
 
     ```shell
