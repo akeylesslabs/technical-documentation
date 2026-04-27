@@ -63,10 +63,13 @@ To verify hybrid PQC on a Gateway endpoint using a browser:
 2. Open the browser connection security details.
 3. Confirm the negotiated key exchange includes `X25519MLKEM768`.
 
-To verify using OpenSSL (requires OpenSSL 3.2 or later; Linux and macOS):
+To verify using OpenSSL (requires OpenSSL 3.2 or later):
 
-```shell
+```shell Linux and macOS
 openssl s_client -connect <gateway-host>:<port> 2>&1 | grep "Server Temp Key"
+```
+```powershell Windows
+openssl s_client -connect <gateway-host>:<port> 2>&1 | Select-String "Server Temp Key"
 ```
 
 A hybrid PQC key exchange returns output similar to:
