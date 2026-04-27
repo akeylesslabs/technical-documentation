@@ -167,7 +167,7 @@ import (
     "log"
     "os"
 
-    "github.com/akeylesslabs/akeyless-go/v3"
+    "github.com/akeylesslabs/akeyless-go/v5"
 )
 
 func main() {
