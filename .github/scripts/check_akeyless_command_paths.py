@@ -6,6 +6,7 @@ import argparse
 import json
 import re
 import shlex
+import shutil
 import subprocess
 import traceback
 from dataclasses import dataclass
@@ -365,10 +366,10 @@ def main() -> int:
         if not docs_root.exists():
             raise RuntimeError(f"Docs root does not exist: {docs_root}")
 
+        # Use PATH resolution to verify presence. Some CLIs (for example, aws/ssh)
+        # can return non-zero for "-h" even when they are installed and usable.
         missing_clis = [
-            cli_name
-            for cli_name in SUPPORTED_COMMANDS
-            if subprocess.run([cli_name, "-h"], capture_output=True).returncode != 0
+            cli_name for cli_name in SUPPORTED_COMMANDS if shutil.which(cli_name) is None
         ]
         if missing_clis:
             raise RuntimeError(

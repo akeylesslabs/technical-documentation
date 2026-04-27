@@ -77,30 +77,30 @@ akeyless create-dfc-key -n MyCBC -a AES256CBC
 
 * Delete an Encryption Key: Delete an obsolete Encryption Key or an obsolete version of an Encryption Key. You may schedule a later deletion date by adding a `delete-in-days` parameter.
 
-```shell Delete Immediately
-akeyless delete-item -n MyAES256GCMKey
-```
-```shell Scheduled Delete
-akeyless delete-item -n MyAES128GCMKey --delete-in-days=30
-```
+  ```shell Delete Immediately
+  akeyless delete-item -n MyAES256GCMKey
+  ```
+  ```shell Scheduled Delete
+  akeyless delete-item -n MyAES128GCMKey --delete-in-days=30
+  ```
 
 * Get the public key from your RSA encryption key:
 
-```shell Get RSA Public Key
-akeyless get-rsa-public -n MyRSAKey
-```
+  ```shell
+  akeyless get-rsa-public -n MyRSAKey
+  ```
 
 * Disabling a Key: Changes a key's state to `disabled`. This command can also be used to cancel a pending `delete` command, changing the key to the disabled state, from which it can be re-enabled.
 
-```shell Disabling a Key
-akeyless set-item-state -n MyAES256GCMKey -s disabled
-```
+  ```shell
+  akeyless set-item-state -n MyAES256GCMKey -s disabled
+  ```
 
 * Enabling a Key: This can be used to return a disabled key to an enabled state.
 
-```shell Enabling a Key
-akeyless set-item-state -n MyAES256GCMKey -s enabled
-```
+  ```shell
+  akeyless set-item-state -n MyAES256GCMKey -s enabled
+  ```
 
 ### Using the Encryption Key
 

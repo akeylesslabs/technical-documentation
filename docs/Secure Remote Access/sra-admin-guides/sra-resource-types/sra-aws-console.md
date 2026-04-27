@@ -66,7 +66,7 @@ Where:
 * `secure-access-certificate-issuer`: Optional, only required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
 * `rotate-after-disconnect`: Optional for Rotated Secret. Controls post-session rotation. Supported values are `false`, `true`, `0` (immediate), or a positive number of minutes to delay rotation.
 
-By default, access to the AWS portal will use a direct network access mode. To work with Akeyless [Web Access](https://docs.akeyless.io/docs/sra-web-bastion) for session isolation or as a secure proxy entry point, please set **one** of the following:
+By default, access to the AWS portal will use a direct network access mode. To work with Akeyless [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-on-k8s) for session isolation or as a secure proxy entry point, please set **one** of the following:
 
 * `secure-access-web-browsing`: Optional, secure browser by way of Akeyless Web Access Zero trust Web Access.
 
@@ -92,9 +92,9 @@ Let's set up remote access to the AWS Console from the Akeyless Console. If you'
 
     * `Direct connection`: Default, using a direct connection to AWS portal by way of Akeyless Secure Remote Access.
 
-    * `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-bastion).
+    * `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
-    * `Secure Web Proxy`: Optional, secure web proxy mode **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-bastion).
+    * `Secure Web Proxy`: Optional, secure web proxy mode **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
     For **CLI Access**:
 

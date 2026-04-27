@@ -1,5 +1,5 @@
 ---
-title: Advanced Configuration
+title: Zero Trust Web Access on K8s Advanced Configuration
 excerpt: ''
 deprecated: false
 hidden: false
@@ -38,7 +38,7 @@ httpProxySettings:
 
 ## Log Forwarding
 
-To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/sra-ssh-log-forwarding) page.
+To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on the [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) page.
 
 ```yaml
 logForward: |
