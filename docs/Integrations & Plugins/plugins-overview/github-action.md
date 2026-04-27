@@ -170,6 +170,57 @@ Although this repository's workflows use placeholder values, it is still a real 
 >
 > If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint, for example, `https://Your_GW_URL:8000/api/v2` (or using your gateway URL at port `8081`).
 
+### GCP Workload Identity Federation
+
+Use `akeyless-community/akeyless-github-action@v1.1.5` or later for Google Cloud Platform (GCP) Workload Identity Federation flows.
+
+When GitHub Actions uses `google-github-actions/auth` with `token_format: id_token`, run that authentication step before the Akeyless action so cloud identity is available in the runner environment.
+
+Example workflow:
+
+```yaml
+jobs:
+  fetch_secrets:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          token_format: id_token
+          id_token_audience: akeyless.io
+          id_token_include_email: true
+          workload_identity_provider: projects/${{ secrets.GCP_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: akeyless-wif-sa@customer-success-391112.iam.gserviceaccount.com
+
+      - name: Fetch static secrets from Akeyless
+        uses: akeyless-community/akeyless-github-action@v1.1.5
+        id: fetch-secrets
+        with:
+          access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
+          access-type: gcp
+          api-url: https://api.akeyless.io
+          gcp-audience: akeyless.io
+          static-secrets: |
+            - name: "/Cloud/GCP/gcp_iam_wif/static_secret"
+              output-name: "my_first_secret"
+
+      - name: Use Akeyless secret
+        run: |
+          echo "Step Outputs"
+          echo "my_first_secret: ${{ steps.fetch-secrets.outputs.my_first_secret }}" >> secrets.txt
+          echo "Environment Variables"
+          echo "my_first_secret: ${{ env.my_first_secret }}" >> secrets.txt
+```
+
+> ℹ️ **Note:**
+>
+> For GCP login, this action uses cloud identity retrieval through `akeyless-cloud-id` and sends `gcp-audience` with `access-type: gcp`.
+
 ### Static Secrets Example
 
 In this example, you will fetch two Static Secrets from Akeyless, `my_first_secret` and `my_second_secret`. Just define each secret's path and output name. The secret values can be found in the `secrets.txt` file created in that directory (note the "key" is only relevant for JSON formatted secrets, see [below](https://docs.akeyless.io/docs/github-action#parsing-json-secrets-examples)).
