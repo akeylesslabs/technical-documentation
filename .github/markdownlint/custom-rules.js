@@ -355,6 +355,29 @@ module.exports = [
     tags: ["code", "style"],
     function: function (params, onError) {
       const cfg = params.config || {};
+      const globalAllowPhrases = new Set(
+        (Array.isArray(cfg.allow_phrases) ? cfg.allow_phrases : [])
+          .map((s) => String(s || "").trim().toLowerCase())
+          .filter(Boolean)
+      );
+      const filePath = String(params.name || "").replace(/\\/g, "/").toLowerCase();
+      const allowByPath = Array.isArray(cfg.allow_phrases_by_path)
+        ? cfg.allow_phrases_by_path
+        : [];
+
+      const allowPhrases = new Set(globalAllowPhrases);
+      for (const entry of allowByPath) {
+        const pathValue = String((entry && entry.path) || "")
+          .replace(/\\/g, "/")
+          .toLowerCase();
+        if (!pathValue || !filePath.endsWith(pathValue)) continue;
+
+        const phrases = Array.isArray(entry.phrases) ? entry.phrases : [];
+        for (const phrase of phrases) {
+          const normalized = String(phrase || "").trim().toLowerCase();
+          if (normalized) allowPhrases.add(normalized);
+        }
+      }
       const allowedLanguages = loadAllowlistSet(cfg.languages, cfg.languages_file);
       const allowedTabs = loadAllowlistSet(cfg.tabs, cfg.tabs_file);
       const validateTabs = allowedTabs.size > 0;
@@ -1214,6 +1237,30 @@ module.exports = [
     tags: ["terminology", "style"],
     function: function (params, onError) {
       const cfg = params.config || {};
+      const allowPhrases = new Set(
+        (Array.isArray(cfg.allow_phrases) ? cfg.allow_phrases : [])
+          .map((s) => String(s || "").trim().toLowerCase())
+          .filter(Boolean)
+      );
+      const filePath = String(params.name || "")
+        .replace(/\\/g, "/")
+        .toLowerCase();
+      const allowByPath = Array.isArray(cfg.allow_phrases_by_path)
+        ? cfg.allow_phrases_by_path
+        : [];
+
+      for (const entry of allowByPath) {
+        const pathValue = String((entry && entry.path) || "")
+          .replace(/\\/g, "/")
+          .toLowerCase();
+        if (!pathValue || !filePath.endsWith(pathValue)) continue;
+
+        const phrases = Array.isArray(entry.phrases) ? entry.phrases : [];
+        for (const phrase of phrases) {
+          const normalized = String(phrase || "").trim().toLowerCase();
+          if (normalized) allowPhrases.add(normalized);
+        }
+      }
 
       const defaultTerms = [
         {
@@ -1289,6 +1336,13 @@ module.exports = [
 
         // Remove visible URL strings so we don't match inside them.
         const cleaned = stripUrls(String(text));
+        const cleanedLower = cleaned.toLowerCase();
+
+        for (const allowed of allowPhrases) {
+          if (cleanedLower.includes(allowed)) {
+            return false;
+          }
+        }
 
         for (const m of matchers) {
           if (m.re.test(cleaned)) {
