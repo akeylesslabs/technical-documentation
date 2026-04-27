@@ -54,7 +54,6 @@
     "akeylesslabs/custom-producer",
     "akeylesslabs/docker-compose",
     "akeylesslabs/go-kmip",
-    "akeylesslabs/go-socks5",
     "akeylesslabs/golang-openssl-wrapper",
     "akeylesslabs/helm-charts",
     "akeylesslabs/homebrew-tap",
