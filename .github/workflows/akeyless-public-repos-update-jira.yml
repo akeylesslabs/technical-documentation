@@ -1,0 +1,595 @@
+name: Akeyless Public Repos Update Jira Tasks
+
+permissions:
+  contents: read
+
+on:
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
+    inputs:
+      scope_org:
+        description: Repo owner scope (all, akeyless-community, akeylesslabs)
+        required: false
+        default: all
+        type: choice
+        options:
+          - all
+          - akeyless-community
+          - akeylesslabs
+      include_pattern:
+        description: Regex to include matching full repo slugs (owner/repo)
+        required: false
+        default: ".*"
+        type: string
+      exclude_pattern:
+        description: Regex to exclude matching full repo slugs (owner/repo)
+        required: false
+        default: "^$"
+        type: string
+      specific_repos:
+        description: Optional comma-separated full repo slugs to include
+        required: false
+        default: ""
+        type: string
+      include_prereleases:
+        description: Include prerelease versions when detecting latest signal
+        required: false
+        default: false
+        type: boolean
+      dry_run:
+        description: Do not create Jira issues; only report what would happen
+        required: false
+        default: false
+        type: boolean
+      soft_fail_classes:
+        description: Comma-separated failure classes to soft-fail
+        required: false
+        default: "no_signal,api_transient,dedupe_query"
+        type: string
+      retry_count:
+        description: Retry count for GitHub/Jira API calls
+        required: false
+        default: "3"
+        type: string
+      max_parallel:
+        description: Maximum parallel matrix jobs
+        required: false
+        default: "20"
+        type: string
+
+jobs:
+  check-repo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SCOPE_ORG: ${{ inputs.scope_org || 'all' }}
+      INCLUDE_PATTERN: ${{ inputs.include_pattern || '.*' }}
+      EXCLUDE_PATTERN: ${{ inputs.exclude_pattern || '^$' }}
+      SPECIFIC_REPOS: ${{ inputs.specific_repos || '' }}
+      INCLUDE_PRERELEASES: ${{ inputs.include_prereleases && 'true' || 'false' }}
+      DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+      SOFT_FAIL_CLASSES: ${{ inputs.soft_fail_classes || 'no_signal,api_transient,dedupe_query' }}
+      RETRY_COUNT: ${{ inputs.retry_count || '3' }}
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(inputs.max_parallel || '20') }}
+      matrix:
+        repo_full:
+          - akeyless-community/Akeyless-Cursor-Plugin
+          - akeyless-community/AkeylessCredentialsProvider
+          - akeyless-community/N8N_PlugIn
+          - akeyless-community/akeyless-action
+          - akeyless-community/akeyless-cert-manager-issuer
+          - akeyless-community/akeyless-connectivity-check
+          - akeyless-community/akeyless-custom-server-kustomize-patches
+          - akeyless-community/akeyless-custom-server-ui-rotate
+          - akeyless-community/akeyless-custom-server-w-puppeteer
+          - akeyless-community/akeyless-dba-workflow-tf-example
+          - akeyless-community/akeyless-eso-webhook-trigger
+          - akeyless-community/akeyless-gateway-migrator
+          - akeyless-community/akeyless-github-action
+          - akeyless-community/akeyless-instruqt-learners-terraform
+          - akeyless-community/akeyless-k8s-auth-examples
+          - akeyless-community/akeyless-k8s-auth-terraform
+          - akeyless-community/akeyless-mcp-plugin
+          - akeyless-community/akeyless-nu-shell-examples
+          - akeyless-community/akeyless-oidc-identity-provider-example
+          - akeyless-community/akeyless-openapi-spec-extractor
+          - akeyless-community/akeyless-openldap-ldif-star-trek
+          - akeyless-community/akeyless-serverless-gateway
+          - akeyless-community/akeyless-sheller
+          - akeyless-community/akeyless-tf-cloud-docker-agent
+          - akeyless-community/akeyless-tf-cloud-intro
+          - akeyless-community/akeyless-ui-webhook-builder
+          - akeyless-community/awx-plugins
+          - akeyless-community/custom-server-ui-payload-generator
+          - akeyless-community/dapr
+          - akeyless-community/dapr-docs
+          - akeyless-community/example-java-sdk-encryption-as-a-service
+          - akeyless-community/external-secrets
+          - akeyless-community/heimdal
+          - akeyless-community/homebrew-agmigrator
+          - akeyless-community/homebrew-kav
+          - akeyless-community/idp-demo
+          - akeyless-community/json-secret-importer
+          - akeyless-community/k8s-auth-validator
+          - akeyless-community/keda-docs
+          - akeyless-community/mock-authentication
+          - akeyless-community/network-diagram-generator
+          - akeyless-community/openshift-helmchart
+          - akeyless-community/sra-demo-environment
+          - akeyless-community/ssh-target
+          - akeyless-community/steampipe-plugin-akeyless
+          - akeyless-community/support-bundle
+          - akeyless-community/teamcity-akeyless-plugin
+          - akeyless-community/terraform-cloud-gha-secrets
+          - akeyless-community/terraform-provider-akeyless
+          - akeylesslabs/DAPR-components
+          - akeylesslabs/adminer
+          - akeylesslabs/akeyless-csharp-netcore
+          - akeylesslabs/akeyless-csi-provider
+          - akeylesslabs/akeyless-funnel
+          - akeylesslabs/akeyless-go
+          - akeylesslabs/akeyless-go-cloud-id
+          - akeylesslabs/akeyless-go-test
+          - akeylesslabs/akeyless-grpc-go
+          - akeylesslabs/akeyless-grpc-php
+          - akeylesslabs/akeyless-grpc-rust
+          - akeylesslabs/akeyless-java
+          - akeylesslabs/akeyless-java-cloud-id
+          - akeylesslabs/akeyless-java-cloud-id-lightweight
+          - akeylesslabs/akeyless-javascript
+          - akeylesslabs/akeyless-js-cloud-id
+          - akeylesslabs/akeyless-minio
+          - akeylesslabs/akeyless-netcore-cloud-id
+          - akeylesslabs/akeyless-python
+          - akeylesslabs/akeyless-ruby
+          - akeylesslabs/akeyless-ruby-sdk
+          - akeylesslabs/akeyless-servicenow-credential-resolver
+          - akeylesslabs/ansible-ui
+          - akeylesslabs/awx
+          - akeylesslabs/cli
+          - akeylesslabs/custom-producer
+          - akeylesslabs/docker-compose
+          - akeylesslabs/go-kmip
+          - akeylesslabs/go-socks5
+          - akeylesslabs/golang-openssl-wrapper
+          - akeylesslabs/helm-charts
+          - akeylesslabs/homebrew-tap
+          - akeylesslabs/jwt-go
+          - akeylesslabs/keda
+          - akeylesslabs/openssl
+          - akeylesslabs/openssl-c
+          - akeylesslabs/sigstore
+          - akeylesslabs/sshproxy
+          - akeylesslabs/trufflehog
+
+    steps:
+      - name: Apply scope controls
+        id: scope
+        run: |
+          set -euo pipefail
+
+          REPO_FULL="${{ matrix.repo_full }}"
+          REPO_OWNER="${REPO_FULL%%/*}"
+          IN_SCOPE=true
+
+          if [ "$SCOPE_ORG" != "all" ] && [ "$REPO_OWNER" != "$SCOPE_ORG" ]; then
+            IN_SCOPE=false
+          fi
+
+          if [ "$IN_SCOPE" = true ] && [ -n "$SPECIFIC_REPOS" ]; then
+            MATCHED=false
+            IFS=',' read -ra REPOS_ARR <<< "$SPECIFIC_REPOS"
+            for r in "${REPOS_ARR[@]}"; do
+              r_trimmed="$(echo "$r" | xargs)"
+              if [ "$r_trimmed" = "$REPO_FULL" ]; then
+                MATCHED=true
+                break
+              fi
+            done
+            if [ "$MATCHED" = false ]; then
+              IN_SCOPE=false
+            fi
+          fi
+
+          if [ "$IN_SCOPE" = true ] && ! echo "$REPO_FULL" | grep -Eq "$INCLUDE_PATTERN"; then
+            IN_SCOPE=false
+          fi
+
+          if [ "$IN_SCOPE" = true ] && echo "$REPO_FULL" | grep -Eq "$EXCLUDE_PATTERN"; then
+            IN_SCOPE=false
+          fi
+
+          echo "in_scope=$IN_SCOPE" >> "$GITHUB_OUTPUT"
+
+      - name: Get latest upstream release tag
+        id: detect
+        if: steps.scope.outputs.in_scope == 'true'
+        run: |
+          set -euo pipefail
+
+          is_soft_fail_class() {
+            local class_name="$1"
+            echo ",$SOFT_FAIL_CLASSES," | grep -Eq ",${class_name},"
+          }
+
+          gh_curl() {
+            local url="$1"
+            local body_out="$2"
+            curl -sS -o "$body_out" -w "%{http_code}" \
+              --retry "$RETRY_COUNT" \
+              --retry-all-errors \
+              --retry-delay 2 \
+              --retry-max-time 60 \
+              --connect-timeout 10 \
+              --max-time 45 \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "$url"
+          }
+
+          RELEASE_API_URL="https://api.github.com/repos/${{ matrix.repo_full }}/releases/latest"
+          RELEASE_RESP_BODY=$(mktemp)
+
+          RELEASE_HTTP_CODE=$(gh_curl "$RELEASE_API_URL" "$RELEASE_RESP_BODY")
+
+          if [ "$RELEASE_HTTP_CODE" != "200" ] && [ "$RELEASE_HTTP_CODE" != "404" ]; then
+            echo "GitHub API request failed for $RELEASE_API_URL with HTTP $RELEASE_HTTP_CODE"
+            cat "$RELEASE_RESP_BODY"
+            echo "failure_class=api_transient" >> "$GITHUB_OUTPUT"
+            if is_soft_fail_class "api_transient"; then
+              echo "has_signal=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            exit 1
+          fi
+
+          LATEST_TAG=""
+          if [ "$RELEASE_HTTP_CODE" = "200" ]; then
+            LATEST_TAG=$(jq -r '.tag_name // empty' "$RELEASE_RESP_BODY")
+            IS_PRERELEASE=$(jq -r '.prerelease // false' "$RELEASE_RESP_BODY")
+
+            if [ -n "$LATEST_TAG" ] && [ "$INCLUDE_PRERELEASES" != "true" ] && [ "$IS_PRERELEASE" = "true" ]; then
+              LATEST_TAG=""
+            fi
+          fi
+
+          if [ -n "$LATEST_TAG" ]; then
+            echo "has_signal=true" >> "$GITHUB_OUTPUT"
+            echo "latest_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
+            echo "signal_source=release" >> "$GITHUB_OUTPUT"
+            echo "Detected latest release tag from releases API: $LATEST_TAG"
+            exit 0
+          fi
+
+          TAGS_API_URL="https://api.github.com/repos/${{ matrix.repo_full }}/tags?per_page=100"
+          TAGS_RESP_BODY=$(mktemp)
+
+          TAGS_HTTP_CODE=$(gh_curl "$TAGS_API_URL" "$TAGS_RESP_BODY")
+
+          if [ "$TAGS_HTTP_CODE" = "200" ]; then
+            TAG_NAMES=$(jq -r '.[].name // empty' "$TAGS_RESP_BODY")
+
+            FILTERED_TAGS="$TAG_NAMES"
+            if [ "$INCLUDE_PRERELEASES" != "true" ]; then
+              FILTERED_TAGS=$(echo "$TAG_NAMES" | grep -Eiv '(alpha|beta|rc|preview|pre|snapshot)' || true)
+            fi
+
+            SEMVER_TAG=$(echo "$FILTERED_TAGS" | grep -E '^[vV]?[0-9]+(\.[0-9]+){1,3}([.-][0-9A-Za-z.-]+)?$' | head -n1 || true)
+            if [ -n "$SEMVER_TAG" ]; then
+              LATEST_TAG="$SEMVER_TAG"
+            else
+              LATEST_TAG=$(echo "$FILTERED_TAGS" | head -n1 || true)
+            fi
+          elif [ "$TAGS_HTTP_CODE" != "404" ]; then
+            echo "GitHub API request failed for $TAGS_API_URL with HTTP $TAGS_HTTP_CODE"
+            cat "$TAGS_RESP_BODY"
+            echo "failure_class=api_transient" >> "$GITHUB_OUTPUT"
+            if is_soft_fail_class "api_transient"; then
+              echo "has_signal=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            exit 1
+          fi
+
+          if [ -z "$LATEST_TAG" ]; then
+            echo "No releases or tags found for ${{ matrix.repo_full }}. Skipping."
+            echo "failure_class=no_signal" >> "$GITHUB_OUTPUT"
+            echo "has_signal=false" >> "$GITHUB_OUTPUT"
+            if is_soft_fail_class "no_signal"; then
+              exit 0
+            fi
+            exit 0
+          fi
+
+          echo "has_signal=true" >> "$GITHUB_OUTPUT"
+          echo "latest_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
+          echo "signal_source=tag" >> "$GITHUB_OUTPUT"
+          echo "Detected latest tag from tags API fallback: $LATEST_TAG"
+
+      - name: Create Jira issue for new release (${{ matrix.repo_full }})
+        id: jira
+        if: steps.scope.outputs.in_scope == 'true' && steps.detect.outputs.has_signal == 'true'
+        env:
+          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
+          JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
+          REPO_FULL: ${{ matrix.repo_full }}
+          LATEST_TAG: ${{ steps.detect.outputs.latest_tag }}
+          SIGNAL_SOURCE: ${{ steps.detect.outputs.signal_source }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -e
+
+          is_soft_fail_class() {
+            local class_name="$1"
+            echo ",$SOFT_FAIL_CLASSES," | grep -Eq ",${class_name},"
+          }
+
+          REPO_DISPLAY="${REPO_FULL}"
+          SUMMARY_PREFIX="${REPO_DISPLAY} upstream update detected:"
+          SUMMARY="${SUMMARY_PREFIX} latest ${LATEST_TAG}"
+          DEDUPE_KEY=$(printf "%s|%s" "$REPO_FULL" "$LATEST_TAG" | sha256sum | awk '{print $1}' | cut -c1-20)
+          DEDUPE_LABEL="ak-upd-${DEDUPE_KEY}"
+
+          echo "dedupe_label=$DEDUPE_LABEL" >> "$GITHUB_OUTPUT"
+
+          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+          JIRA_CURL_OPTS=(
+            --retry "$RETRY_COUNT"
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 60
+            --connect-timeout 10
+            --max-time 45
+          )
+
+          SEARCH_JQL=$(jq -rn \
+            --arg proj "$JIRA_PROJECT_KEY" \
+            --arg dedupe_label "$DEDUPE_LABEL" \
+            '$proj + " AND labels = " + "\"" + $dedupe_label + "\""')
+
+          SEARCH_RESP_BODY=$(mktemp)
+          SEARCH_HTTP_CODE=$(curl -sS -o "$SEARCH_RESP_BODY" -w "%{http_code}" "${JIRA_CURL_OPTS[@]}" \
+            -G \
+            -H "$AUTH_HEADER" \
+            --data-urlencode "jql=${SEARCH_JQL}" \
+            --data-urlencode "maxResults=1" \
+            "$JIRA_BASE_URL/rest/api/3/search")
+
+          if [ "$SEARCH_HTTP_CODE" != "200" ]; then
+            echo "Jira search failed with HTTP $SEARCH_HTTP_CODE"
+            cat "$SEARCH_RESP_BODY"
+            echo "failure_class=dedupe_query" >> "$GITHUB_OUTPUT"
+            if is_soft_fail_class "dedupe_query"; then
+              echo "action=soft_failed_dedupe_query" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            exit 1
+          fi
+
+          EXISTING_KEY=$(jq -r '.issues[0].key // empty' "$SEARCH_RESP_BODY")
+          EXISTING_ID=$(jq -r '.issues[0].id // empty' "$SEARCH_RESP_BODY")
+
+          if [ -n "$EXISTING_KEY" ]; then
+            echo "issue_key=$EXISTING_KEY" >> "$GITHUB_OUTPUT"
+            echo "issue_id=$EXISTING_ID" >> "$GITHUB_OUTPUT"
+            echo "action=deduped" >> "$GITHUB_OUTPUT"
+            echo "Jira issue already exists for latest tag $LATEST_TAG: $EXISTING_KEY"
+            exit 0
+          fi
+
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "action=dry_run" >> "$GITHUB_OUTPUT"
+            echo "Dry-run mode enabled. Would create issue for ${REPO_FULL} @ ${LATEST_TAG}."
+            exit 0
+          fi
+
+          LABEL_SLUG=$(echo "$REPO_FULL" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9-' '-' | sed 's/-*$//')
+
+          ADF_DESC=$(jq -n \
+            --arg repo_display "$REPO_DISPLAY" \
+            --arg latest "$LATEST_TAG" \
+            --arg signal_source "$SIGNAL_SOURCE" \
+            --arg run_url "$RUN_URL" \
+            'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
+             def linkPara($label; $url):
+               { type:"paragraph", content:[
+                   {type:"text", text:$label},
+                   {type:"text", text:$url, marks:[{type:"link", attrs:{href:$url}}]}
+                 ]};
+
+             {
+               type:"doc", version:1,
+               content:[
+                 para("A new release was detected for " + $repo_display + "."),
+                 para("Latest upstream tag: " + $latest),
+                 para("Signal source: " + $signal_source),
+                 para("Repository: " + $repo_display),
+                 linkPara("Workflow run URL: "; $run_url),
+                 para("This ticket was created automatically by GitHub Actions for documentation triage.")
+               ]
+             }')
+
+          PAYLOAD=$(jq -n \
+            --arg proj "$JIRA_PROJECT_KEY" \
+            --arg summary "$SUMMARY" \
+            --argjson adf "$ADF_DESC" \
+            --arg label_slug "$LABEL_SLUG" \
+            --arg dedupe_label "$DEDUPE_LABEL" \
+            '{
+              fields: {
+                project: { key: $proj },
+                summary: $summary,
+                description: $adf,
+                issuetype: { name: "Task" },
+                labels: ["documentation","akeyless-public-repos",$label_slug,"scheduled",$dedupe_label]
+              }
+            }')
+
+          CREATE_RESP_BODY=$(mktemp)
+          CREATE_HTTP_CODE=$(curl -sS -o "$CREATE_RESP_BODY" -w "%{http_code}" "${JIRA_CURL_OPTS[@]}" -X POST \
+            -H "$AUTH_HEADER" \
+            -H "Content-Type: application/json" \
+            --data "$PAYLOAD" \
+            "$JIRA_BASE_URL/rest/api/3/issue")
+
+          if [ "$CREATE_HTTP_CODE" != "201" ]; then
+            echo "Failed to create Jira issue. HTTP $CREATE_HTTP_CODE"
+            cat "$CREATE_RESP_BODY"
+            echo "failure_class=jira_create" >> "$GITHUB_OUTPUT"
+            if is_soft_fail_class "jira_create"; then
+              echo "action=soft_failed_jira_create" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            exit 1
+          fi
+
+          ISSUE_KEY=$(jq -r '.key // empty' "$CREATE_RESP_BODY")
+          ISSUE_ID=$(jq -r '.id // empty' "$CREATE_RESP_BODY")
+
+          if [ -z "$ISSUE_KEY" ]; then
+            echo "Failed to create Jira issue. Response:"
+            cat "$CREATE_RESP_BODY"
+            exit 1
+          fi
+
+          echo "issue_key=$ISSUE_KEY" >> "$GITHUB_OUTPUT"
+          echo "issue_id=$ISSUE_ID" >> "$GITHUB_OUTPUT"
+          echo "action=created" >> "$GITHUB_OUTPUT"
+          echo "Created Jira issue: $ISSUE_KEY"
+
+      - name: Write per-repo result
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p .github/workflow-results
+
+          ACTION="${{ steps.jira.outputs.action || '' }}"
+          if [ -z "$ACTION" ]; then
+            if [ "${{ steps.scope.outputs.in_scope }}" != "true" ]; then
+              ACTION="out_of_scope"
+            elif [ "${{ steps.detect.outputs.has_signal || 'false' }}" != "true" ]; then
+              ACTION="skipped_no_signal"
+            elif [ "${{ steps.detect.conclusion }}" = "failure" ]; then
+              ACTION="failed_detect"
+            else
+              ACTION="unknown"
+            fi
+          fi
+
+          RESULT_FILE=".github/workflow-results/${{ replace(matrix.repo_full, '/', '__') }}.json"
+          jq -n \
+            --arg repo "${{ matrix.repo_full }}" \
+            --arg in_scope "${{ steps.scope.outputs.in_scope }}" \
+            --arg action "$ACTION" \
+            --arg latest_tag "${{ steps.detect.outputs.latest_tag || '' }}" \
+            --arg signal_source "${{ steps.detect.outputs.signal_source || '' }}" \
+            --arg detect_failure_class "${{ steps.detect.outputs.failure_class || '' }}" \
+            --arg jira_failure_class "${{ steps.jira.outputs.failure_class || '' }}" \
+            --arg issue_key "${{ steps.jira.outputs.issue_key || '' }}" \
+            --arg dedupe_label "${{ steps.jira.outputs.dedupe_label || '' }}" \
+            '{
+              repo: $repo,
+              in_scope: ($in_scope == "true"),
+              action: $action,
+              latest_tag: $latest_tag,
+              signal_source: $signal_source,
+              detect_failure_class: $detect_failure_class,
+              jira_failure_class: $jira_failure_class,
+              issue_key: $issue_key,
+              dedupe_label: $dedupe_label
+            }' > "$RESULT_FILE"
+
+      - name: Upload per-repo result artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: repo-scan-${{ replace(matrix.repo_full, '/', '__') }}
+          path: .github/workflow-results/*.json
+          if-no-files-found: error
+
+  summarize-run:
+    if: always()
+    needs:
+      - check-repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download per-repo artifacts
+        uses: actions/download-artifact@v8
+        with:
+          pattern: repo-scan-*
+          path: .github/workflow-results
+          merge-multiple: true
+
+      - name: Build run summary
+        run: |
+          set -euo pipefail
+          mkdir -p .github/workflow-results
+
+          python3 - <<'PY'
+          import glob
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          files = sorted(glob.glob('.github/workflow-results/*.json'))
+          results = []
+          for path in files:
+            with open(path, encoding='utf-8') as f:
+              results.append(json.load(f))
+
+          action_counts = Counter(r.get('action', 'unknown') for r in results)
+          detect_failures = Counter(r.get('detect_failure_class') for r in results if r.get('detect_failure_class'))
+          jira_failures = Counter(r.get('jira_failure_class') for r in results if r.get('jira_failure_class'))
+
+          summary = {
+            'repos_total': len(results),
+            'actions': dict(action_counts),
+            'detect_failure_classes': dict(detect_failures),
+            'jira_failure_classes': dict(jira_failures),
+          }
+
+          Path('.github/workflow-results/run-summary.json').write_text(
+            json.dumps(summary, indent=2), encoding='utf-8'
+          )
+
+          lines = [
+            '# Akeyless Public Repos Update Summary',
+            '',
+            f"- Repos evaluated: {len(results)}",
+            '',
+            '## Actions',
+            '',
+          ]
+          for k, v in sorted(action_counts.items()):
+            lines.append(f"- {k}: {v}")
+
+          if detect_failures:
+            lines.extend(['', '## Detect failure classes', ''])
+            for k, v in sorted(detect_failures.items()):
+              lines.append(f"- {k}: {v}")
+
+          if jira_failures:
+            lines.extend(['', '## Jira failure classes', ''])
+            for k, v in sorted(jira_failures.items()):
+              lines.append(f"- {k}: {v}")
+
+          Path('.github/workflow-results/run-summary.md').write_text(
+            '\n'.join(lines) + '\n', encoding='utf-8'
+          )
+          PY
+
+          cat .github/workflow-results/run-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload run summary artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: akeyless-public-repos-run-summary
+          path: |
+            .github/workflow-results/run-summary.json
+            .github/workflow-results/run-summary.md
+          if-no-files-found: error
