@@ -19,7 +19,6 @@
     "akeyless-community/akeyless-ui-webhook-builder",
     "akeyless-community/awx-plugins",
     "akeyless-community/custom-server-ui-payload-generator",
-    "akeyless-community/dapr",
     "akeyless-community/dapr-docs",
     "akeyless-community/external-secrets",
     "akeyless-community/heimdal",
