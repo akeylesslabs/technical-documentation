@@ -93,49 +93,9 @@ Resources can be imported from Akeyless, for example, import a static secret:
 terraform import akeyless_static_secret.resource-name /full-secret-name-in-akeyless
 ```
 
-## DigiCert Target
+## New in v2.0.1
 
-Provider version 2.0.1 introduces the `akeyless_target_digicert` resource, which allows you to manage a DigiCert ACME target in Akeyless.
-
-### Required arguments
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `name` | String | Target name |
-| `email` | String | Email address for ACME account registration |
-
-### Optional arguments
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `acme_challenge` | String | ACME challenge type. Options: `dns` |
-| `description` | String | Description of the object |
-| `digicert_url` | String | DigiCert ACME endpoint. Options: `us-production`, `eu-production`, `us-demo`, `eu-demo` |
-| `dns_target_creds` | String | Name of an existing cloud target for DNS credentials. Required when challenge type is `dns`. Supported providers: AWS, Azure, GCP |
-| `eab_hmac_key` | String (Sensitive) | External Account Binding HMAC key (required for ACME account bootstrap on create) |
-| `eab_key_id` | String | External Account Binding key identifier (required for ACME account bootstrap on create) |
-| `gcp_project` | String | GCP Cloud DNS project ID (optional; can be derived from service account) |
-| `hosted_zone` | String | AWS Route53 hosted zone ID. Required when DNS credentials target is AWS |
-| `keep_prev_version` | String | Whether to keep the previous version (`true`/`false`). If not set, uses account default |
-| `key` | String | Name of a key used to encrypt the target secret value. If empty, the account default protection key is used |
-| `max_versions` | String | Maximum number of versions, limited by account settings defaults |
-| `resource_group` | String | Azure resource group name. Required when DNS credentials target is Azure |
-| `timeout` | String | Timeout for challenge validation |
-
-### Example
-
-```shell
-resource "akeyless_target_digicert" "digicert_target" {
-  name           = "/targets/digicert-prod"
-  email          = "admin@example.com"
-  digicert_url   = "us-production"
-  acme_challenge = "dns"
-  dns_target_creds = "/targets/aws-dns-creds"
-  hosted_zone    = "Z1234567890ABC"
-  eab_key_id     = "your-eab-key-id"
-  eab_hmac_key   = "your-eab-hmac-key"
-}
-```
+Provider version 2.0.1 introduces the `akeyless_target_digicert` resource for managing a DigiCert ACME target in Akeyless. For the full argument reference, see the [akeyless_target_digicert](https://registry.terraform.io/providers/akeyless-community/akeyless/latest/docs/resources/target_digicert) entry in the Terraform Registry.
 
 ## Upgrading to v2.0
 
