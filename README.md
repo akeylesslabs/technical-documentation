@@ -1,1 +1,1 @@
-Please visit [https://docs.akeyless.io/].
+Please visit https://docs.akeyless.io/.
