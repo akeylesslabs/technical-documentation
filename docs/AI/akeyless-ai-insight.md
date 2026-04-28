@@ -212,4 +212,5 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 
 ## Related AI Guides
 
+* <Anchor label="Prompt Injection Protection for AI Agents" href="doc:prompt-injection-protection-for-ai-agents" />
 * [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
