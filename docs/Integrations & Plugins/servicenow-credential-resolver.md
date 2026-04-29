@@ -34,15 +34,15 @@ For cloud-based methods, the resolver detects CloudID using the cloud environmen
 This is a Maven project. Build a versioned JAR so the filename is stable in MID:
 
 ```shell
-mvn -Drevision=1.0.0 clean package
+mvn -Drevision=1.1.0 clean package
 ```
 
-The default build runs Maven Shade so the main JAR includes Jackson JR and CloudID lightweight dependencies (required on the MID). For a thin JAR only, use `mvn -Pthin -Drevision=1.0.0 clean package`.
+The default build runs Maven Shade so the main JAR includes Jackson JR and CloudID lightweight dependencies (required on the MID). For a thin JAR only, use `mvn -Pthin -Drevision=1.1.0 clean package`.
 
 ### Artifacts
 
-* With `-Drevision=1.0.0`: `target/akeyless-servicenow-credential-resolver-1.0.0.jar`
-    * [https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar](https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar)
+* With `-Drevision=1.1.0`: `target/akeyless-servicenow-credential-resolver-1.1.0.jar`
+    * [https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.1.0/akeyless-servicenow-credential-resolver-1.1.0.jar](https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.1.0/akeyless-servicenow-credential-resolver-1.1.0.jar)
 * Without a revision property, Maven produces `akeyless-servicenow-credential-resolver-null.jar`.
 * The file in `target/` is the shaded artifact. `target/original-*.jar` is the pre-shade JAR.
 
@@ -149,14 +149,17 @@ net start mid
 
 ## Configure a Discovery Credential to Use This Resolver
 
-1. Create a new credential
-   * Navigate: Discovery → Credentials → New
-   * Choose a credential Type (For example, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, SNMPv3)
-   * Select “External credential store”
-   * Fully Qualified Class Name (FQCN): com.snc.discovery.CredentialResolver
-   * Credential ID: The Akeyless secret path (For example, /prod/app/db) to fetch
-2. Save and test
-   * Click “Test credential”, select a MID Server and a target if required by the type.
+1. Navigate to Discovery → Credentials → New.
+2. Choose a credential Type (For example, LDAP, RDP, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, or SNMPv3).
+3. Select `External credential store`.
+4. Set the fully qualified class name (FQCN) to `com.snc.discovery.CredentialResolver`.
+5. Set the Credential ID to the Akeyless secret path (For example, `/prod/app/db`).
+6. Click `Test credential`, then select a MID Server and a target if required by the type.
+
+Version 1.1.0 covers the following credential scenarios:
+
+* LDAP, RDP, Windows, Basic, SSH Password, VMware, JDBC, and JMS credentials that use username and password fields.
+* SSH Private Key credentials that use username, private key, and passphrase fields.
 
 ## What to Store in Akeyless and How It’s Mapped
 
@@ -185,7 +188,7 @@ Per-Type mapping summary
 
 <!-- cspell:ignore certmgmt infoblox authprotocol authkey privprotocol privkey pswd -->
 
-* Windows, Basic, SSH Password, VMware, JDBC, JMS:
+* LDAP, RDP, Windows, Basic, SSH Password, VMware, JDBC, JMS:
     * Uses JSON fields: username, password (or your overridden names)
 * SSH Private Key:
     * Uses JSON fields: username, private_key, passphrase
@@ -198,7 +201,7 @@ Per-Type mapping summary
 
 Examples
 
-Basic / Windows / SSH Password (JSON in Akeyless):
+Basic / LDAP / RDP / Windows / SSH Password (JSON in Akeyless):
 
 ```json
 {
@@ -278,7 +281,7 @@ will map to ServiceNow user = alice, pswd = secret.
 You can run unit tests locally:
 
 ```shell
-mvn test
+mvn test -Drevision=1.1.0-TEST
 ```
 
 To quickly sanity-check end-to-end against Akeyless, set environment variables and create a Discovery credential that points to a known secret path. For cloud-based auth types, run the MID on a host with a valid cloud identity.
