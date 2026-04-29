@@ -25,7 +25,7 @@ For more information on the Terraform provider, see the [Akeyless GitHub Reposit
     required_providers {
         akeyless = {
         source = "akeyless-community/akeyless"
-        version = "1.3.1"
+        version = "2.0.1"
         }
     }
     }
@@ -43,7 +43,7 @@ For more information on the Terraform provider, see the [Akeyless GitHub Reposit
 
 The following example creates an API Key authentication method called **auth-method-api-key-demo** in the **terraform-tests** folder, and a static secret called **secret** in the same folder. It uses **AWS IAM** for authentication.
 
-To use your own [Gateway](https://docs.akeyless.io/docs/gateway-overview), set the `api_gateway_address` to your Gateway API port, which is `8081` or `8000/api/v2`:
+To use your own [Gateway](https://docs.akeyless.io/docs/gateway-overview), set the `api_gateway_address` to your Gateway API endpoint on port `8081`:
 
 ```shell
 provider "akeyless" {
@@ -81,7 +81,7 @@ output "auth_method" {
 }
 ```
 
-To apply this request, run:
+To apply this configuration, run:
 
 ```shell
 terraform apply
@@ -90,5 +90,19 @@ terraform apply
 Resources can be imported from Akeyless, for example, import a static secret:
 
 ```shell
-terraform import akeyless_static_secret.resorce-name /full-secret-name-in-akeyless
+terraform import akeyless_static_secret.resource-name /full-secret-name-in-akeyless
 ```
+
+## Upgrading to v2.0
+
+Provider v2.0.0 removed resources and parameters that were deprecated in v1.5.0. Before upgrading from v1.x, update your configuration as follows:
+
+| Deprecated (removed in v2.0) | Replacement |
+| --- | --- |
+| `akeyless_producer_*` resources | `akeyless_dynamic_secret_*` resources |
+| `akeyless_rotated_secret` (generic) | `akeyless_rotated_secret_<type>` resources |
+| `metadata` and `comment` parameters | `description` parameter |
+
+## Changelog
+
+For the full version history, see the [Akeyless Terraform Provider Changelog](https://changelog.akeyless.io/tf).
