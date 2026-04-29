@@ -125,6 +125,10 @@ The next step will be the creation of an **Intermediate Signer Key** with a sign
 
 Intermediate certificates act as a middle-man between the secure root certificates and the server certificates distributed to the public. While a chain will always include at least one intermediate certificate, it may contain multiple ones as well.
 
+> ℹ️ **Note:**
+>
+> Akeyless does not impose a limit on the number of intermediate CAs per root CA. You can create as many intermediates as your PKI design requires. Chain depth is controlled by the `--max-path-len` setting on each issuer.
+
 ### Create an Intermediate Signer Key
 
 Run the following command to create a **CSR** and a **Key** that will be used as our **Intermediate Signer Key**:
@@ -178,7 +182,11 @@ akeyless create-pki-cert-issuer \
 --locality NY 
 ```
 
-Where **only** certificates with the domain `myexample.com` will be accepted and valid for 30 days, and they will be automatically stored under the `/MyChain/Intermediate/Leaf/` folder, with the **Extended key Usage** of `client auth`, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
+Where **only** certificates with the domain `myexample.com` will be accepted and valid for 30 days, and they will be automatically stored under the `/MyChain/Intermediate/Leaf/` folder, with the **Extended Key Usage** of `client auth`, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
+
+> ℹ️ **Note:**
+>
+> The `--client-flag true` setting permits leaf certificate requesters to explicitly include the Client Authentication Extended Key Usage (EKU) when calling `get-pki-certificate`. It does not automatically add `clientAuth` EKU to all issued certificates, nor does it prevent issuing certificates without any EKU. Automatic EKU application and stricter issuance enforcement are planned for a future release.
 
 ## Issuing a Leaf Certificate
 
@@ -202,3 +210,23 @@ akeyless get-pki-certificate \
 --cert-issuer-name /Chain/Intermediate/InterPKIIssuer \
 --csr-file-path leaf.csr
 ```
+
+## Intermediate CA Expiry and Sunset Behavior
+
+When an intermediate CA's certificate expires, any leaf certificates it has signed become invalid per standard PKI validation rules, because the chain of trust can no longer be verified up to a trusted root. Some relying-party applications may be configured to ignore expired intermediates, but this is not standard behavior and should not be relied upon.
+
+To replace an expired or retiring intermediate CA:
+
+1. Create a new intermediate signer key and have it signed by the root PKI issuer.
+2. Create a new intermediate PKI cert issuer using the new signer key.
+3. Begin issuing new leaf certificates from the new issuer.
+
+Because the root CA and its trust anchor remain in place, only the intermediate signing key needs to be replaced — not the root. This limits the blast radius of an intermediate expiry or compromise to the scope of that intermediate alone.
+
+> ℹ️ **Note:**
+>
+> Akeyless plans to add validation to prevent issuing leaf certificates with a validity period longer than their issuer's remaining lifetime. This check is not yet enforced; plan your intermediate and leaf TTLs accordingly to avoid unexpected expiry scenarios.
+
+## Rate Limits for Certificate Issuance
+
+Standard Akeyless API rate limits apply to all certificate signing requests, including `get-pki-certificate`. For high-volume use cases — such as a large fleet of devices enrolling in parallel — plan request batching or staggered enrollment to avoid hitting rate limits. Contact [Akeyless support](mailto:support@akeyless.io) if you need guidance on rate limit thresholds for your account tier.
