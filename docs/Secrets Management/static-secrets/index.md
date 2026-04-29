@@ -15,7 +15,6 @@ next:
       type: basic
 ---
 Static Secrets are key/value pairs created and updated manually, such as passwords and API tokens. Text-based items can be stored in their original format, including configuration files, JSON formatted data, and YAML formatted data.
-In the key/value editor, multi-line values are preserved as entered.
 
 The typical process for working with Static Secrets includes:
 

@@ -113,7 +113,7 @@ globalConfig:
 ```
 
 `allowedAccessPermissions` also supports wildcard matching in `access_id`.
-Use `*` to apply a permission set to all identities that are not otherwise defined in explicit entries.
+Use `*` to apply a permission set to any access ID.
 
 ```yaml values.yaml
 globalConfig:
