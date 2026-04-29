@@ -125,6 +125,8 @@ globalConfig:
         - general
 ```
 
+In this example, all users in the current account can perform actions on this Gateway according to their existing RBAC permissions. For example, if a user has RBAC permissions to create Dynamic Secrets or Rotated Secrets for a specific path, they can create items associated with this Gateway for that path.
+
 ## Permission Scope Guidance
 
 Use the minimum permissions required for each operational role.
