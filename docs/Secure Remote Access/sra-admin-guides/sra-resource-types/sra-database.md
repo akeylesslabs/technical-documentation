@@ -103,6 +103,10 @@ Let's set up remote access to a database from the Akeyless Console. If you'd pre
 
 2. Select the database hostname or IP address, then select **Web**. Adminer opens in a new tab, from which you can interact with the database according to your permissions.
 
+> ℹ️ **Note (Adminer version):**
+>
+> Starting with SRA v2.9.0, the web-based database interface uses Adminer v5.4.2.
+
 ## Access a Database Using CLI from the Secure Remote Access Portal
 
 1. [Log in](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select the database type to which you want to connect.
