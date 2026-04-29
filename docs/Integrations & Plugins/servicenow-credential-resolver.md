@@ -192,7 +192,7 @@ Per-Type mapping summary
     * The same mapping also applies to `sn_cfg_ansible`, `sn_disco_certmgmt_certificate_ca`, `cfg_chef_credentials`, `infoblox`, and `api_key`.
 * SNMPv3:
     * Uses JSON fields: username, auth_protocol, auth_key, privacy_protocol, privacy_key
-    * Mapped to ServiceNow fields: `username`, `auth-protocol`, `auth-key`, `privacy-protocol`, `privacy-key`
+    * Mapped to ServiceNow fields: `user`, `authprotocol`, `authkey`, `privprotocol`, `privkey`
 * Other unlisted types:
     * Best-effort: username and password if present
 
