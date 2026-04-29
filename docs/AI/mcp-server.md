@@ -300,6 +300,8 @@ The Akeyless MCP server supports multiple [Authentication Methods](https://docs.
 * Secure Storage: Use secure credential storage solutions
 * Network Security: Use HTTPS endpoints and consider VPN access
 
+For prompt injection risk reduction guidance for agent-based workflows, see <Anchor label="Prompt Injection Protection for AI Agents" href="doc:prompt-injection-protection-for-ai-agents" />.
+
 ### Configuration Management
 
 * Version Control: Keep MCP configuration files in version control (excluding secrets)
@@ -385,3 +387,7 @@ x-frame-options: SAMEORIGIN
 * Check file paths are correct
 * Verify command arguments
 * Review environment variables
+
+## Related AI Guides
+
+* <Anchor label="Prompt Injection Protection for AI Agents" href="doc:prompt-injection-protection-for-ai-agents" />

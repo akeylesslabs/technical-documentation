@@ -17,29 +17,23 @@ The Akeyless node for n8n integrates with Akeyless Secrets Management. Use it to
 
 ## Installation
 
-1. For n8n Cloud (SaaS)
+### n8n Cloud (SaaS)
 
-2. Open your n8n instance
+1. Open the n8n instance.
+2. Go to **Settings** → **Community Nodes**.
+3. Enter `n8n-nodes-akeyless-io` as the npm package name.
+4. Accept the risk notice, and click **Install**.
+5. Reload or restart the editor if prompted.
 
-3. Go to Settings → Community Nodes
+### Self-hosted n8n
 
-4. Search for `n8n-nodes-akeyless-io`
-
-5. Click Install
-
-6. Refresh your workflow editor
-
-### For Self-Hosted N8n
-
-Install by way of npm in your n8n installation directory:
+On the host where n8n loads custom nodes, run:
 
 ```shell
-npm install @n8n-nodes-akeyless-io
+cd ~/.n8n/nodes && npm install n8n-nodes-akeyless-io
 ```
 
-Then restart your n8n instance.
-
-Or by way of the N8N UI
+Restart n8n.
 
 ## Getting Started
 

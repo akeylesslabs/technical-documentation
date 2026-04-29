@@ -12,10 +12,16 @@ next:
 ---
 The Cloud Development Kit for Terraform (CDKTF) allows you to manage your Akeyless resources, such as secrets, roles, and authentication methods, using Terraform without needing to write HashiCorp Configuration Language (HCL). Instead, you can define and manage these resources using **Python**.
 
+> **Deprecation notice:** HashiCorp deprecated CDKTF on 2025-12-10 and no longer supports or maintains it. The `akeyless-cdktf` package remains available on PyPI, but the upstream CDKTF framework is end-of-life. Consider these alternatives for new projects:
+>
+> * [Terraform provider with HCL](https://docs.akeyless.io/docs/terraform-provider) — manage Akeyless resources using standard HCL configuration
+> * [Pulumi Akeyless provider](https://www.pulumi.com/registry/packages/akeyless/) — manage Akeyless resources using Python or other languages
+> * [Akeyless Python SDK](https://docs.akeyless.io/docs/python-sdk-1) — programmatic access to Akeyless without an IaC framework
+
 ## Prerequisites
 
 * [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (1.2+)
-* [Node.js](https://nodejs.org/en) and npm (v16)+
+* [Node.js](https://nodejs.org/en) (v17–v20) and npm
 * [CDK for Terraform](https://developer.hashicorp.com/terraform/cdktf/cli-reference/cli-configuration)
 
 ## Configuration
@@ -24,8 +30,8 @@ The Cloud Development Kit for Terraform (CDKTF) allows you to manage your Akeyle
 
 Install the CDKTF for Akeyless [package](https://pypi.org/project/akeyless-cdktf/#files)
 
-```python
-pip install akeyless-cdktf==1.6.3
+```shell
+pip install akeyless-cdktf==2.0.1
 ```
 
 Once the package is installed, configure the `main.py` and `cdktf.json` files:
