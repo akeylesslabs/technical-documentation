@@ -1,6 +1,4 @@
 ---
-title: /auth-method-update-universal-identity
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodUpdateUniversalIdentity

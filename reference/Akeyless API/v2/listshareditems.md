@@ -1,6 +1,4 @@
 ---
-title: /list-shared-items
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: listSharedItems

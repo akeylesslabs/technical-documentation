@@ -1,6 +1,4 @@
 ---
-title: /create-passkey
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: CreatePasskey

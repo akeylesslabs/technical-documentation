@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-postgresql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerPostgreSQL

@@ -1,6 +1,4 @@
 ---
-title: /update-auth-method-ldap
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateAuthMethodLDAP

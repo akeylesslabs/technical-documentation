@@ -1,6 +1,4 @@
 ---
-title: /auth-method-create-universal-identity
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodCreateUniversalIdentity

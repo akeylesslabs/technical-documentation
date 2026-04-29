@@ -1,6 +1,4 @@
 ---
-title: /kubeconfig-generate
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: KubeconfigGenerate

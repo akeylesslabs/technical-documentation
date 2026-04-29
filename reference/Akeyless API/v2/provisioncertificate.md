@@ -1,6 +1,4 @@
 ---
-title: /provision-certificate
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: provisionCertificate

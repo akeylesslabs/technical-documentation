@@ -1,6 +1,4 @@
 ---
-title: /list-group
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: listGroups

@@ -1,6 +1,4 @@
 ---
-title: /get-account-settings
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: getAccountSettings

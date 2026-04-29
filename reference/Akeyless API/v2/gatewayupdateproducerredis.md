@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-redis
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerRedis

@@ -1,6 +1,4 @@
 ---
-title: /derive-key
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: DeriveKey

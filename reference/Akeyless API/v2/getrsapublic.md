@@ -1,6 +1,4 @@
 ---
-title: /get-rsa-public
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: getRSAPublic

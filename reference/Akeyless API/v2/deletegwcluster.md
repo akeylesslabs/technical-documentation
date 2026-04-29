@@ -1,6 +1,4 @@
 ---
-title: /delete-gateway-cluster
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: deleteGwCluster

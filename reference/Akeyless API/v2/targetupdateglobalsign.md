@@ -1,6 +1,4 @@
 ---
-title: /target-update-globalsign
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateGlobalSign

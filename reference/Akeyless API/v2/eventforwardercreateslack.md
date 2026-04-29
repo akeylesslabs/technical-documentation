@@ -1,6 +1,4 @@
 ---
-title: /event-forwarder-create-slack
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: eventForwarderCreateSlack

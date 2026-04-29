@@ -1,6 +1,4 @@
 ---
-title: /connect
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: Connect

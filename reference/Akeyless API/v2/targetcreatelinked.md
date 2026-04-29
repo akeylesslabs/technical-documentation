@@ -1,6 +1,4 @@
 ---
-title: /target-create-linked
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateLinked

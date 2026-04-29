@@ -1,6 +1,4 @@
 ---
-title: /get-pki-certificate
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: GetPKICertificate

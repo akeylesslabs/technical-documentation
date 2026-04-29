@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-item
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateItem

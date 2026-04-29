@@ -1,6 +1,4 @@
 ---
-title: /decrypt
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: decrypt

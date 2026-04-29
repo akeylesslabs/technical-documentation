@@ -1,6 +1,4 @@
 ---
-title: /list-gateways
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: listGateways

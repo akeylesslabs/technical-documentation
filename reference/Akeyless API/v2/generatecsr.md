@@ -1,6 +1,4 @@
 ---
-title: /generate-csr
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: generateCsr

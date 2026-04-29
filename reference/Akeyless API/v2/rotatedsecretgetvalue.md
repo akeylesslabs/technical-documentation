@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-get-value
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretGetValue

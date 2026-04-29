@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-azure
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerAzure

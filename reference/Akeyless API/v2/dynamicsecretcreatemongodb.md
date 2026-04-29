@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-mongodb
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateMongoDb

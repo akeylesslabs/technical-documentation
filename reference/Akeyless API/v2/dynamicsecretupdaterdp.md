@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-rdp
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateRdp

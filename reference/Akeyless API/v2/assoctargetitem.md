@@ -1,6 +1,4 @@
 ---
-title: /assoc-target-item
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: assocTargetItem

@@ -1,6 +1,4 @@
 ---
-title: /get-cert-challenge
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: get-cert-challenge

@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-chef
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerChef

@@ -1,6 +1,4 @@
 ---
-title: /create-globalsign-atlas-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createGlobalSignAtlasTarget

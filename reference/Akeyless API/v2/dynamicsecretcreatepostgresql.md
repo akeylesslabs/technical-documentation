@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-postgresql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreatePostgreSql

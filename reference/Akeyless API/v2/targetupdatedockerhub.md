@@ -1,6 +1,4 @@
 ---
-title: /target-update-dockerhub
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateDockerhub

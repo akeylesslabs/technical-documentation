@@ -1,6 +1,4 @@
 ---
-title: /uid-generate-token
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uidGenerateToken

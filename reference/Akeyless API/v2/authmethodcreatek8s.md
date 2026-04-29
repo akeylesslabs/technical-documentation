@@ -1,6 +1,4 @@
 ---
-title: /auth-method-create-k8s
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodCreateK8s

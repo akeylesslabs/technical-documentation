@@ -1,6 +1,4 @@
 ---
-title: /create-tokenizer
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createTokenizer

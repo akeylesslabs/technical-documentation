@@ -1,6 +1,4 @@
 ---
-title: /get-account-logo
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: getAccountLogo

@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-create-redshift
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretCreateRedshift

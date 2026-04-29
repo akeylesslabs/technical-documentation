@@ -1,6 +1,4 @@
 ---
-title: /upload-rsa
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uploadRSA

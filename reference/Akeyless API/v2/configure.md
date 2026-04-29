@@ -1,6 +1,4 @@
 ---
-title: /configure
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: configure

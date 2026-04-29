@@ -1,6 +1,4 @@
 ---
-title: /auth-method-update-email
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodUpdateEmail

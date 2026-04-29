@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-mysql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateMySql

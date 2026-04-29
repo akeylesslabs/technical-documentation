@@ -1,6 +1,4 @@
 ---
-title: /create-gitlab-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createGitlabTarget

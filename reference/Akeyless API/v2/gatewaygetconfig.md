@@ -1,6 +1,4 @@
 ---
-title: /gateway-get-config
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayGetConfig

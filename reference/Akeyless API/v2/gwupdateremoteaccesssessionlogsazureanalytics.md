@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-remote-access-session-forwarding-azure-analytics
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gwUpdateRemoteAccessSessionLogsAzureAnalytics

@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-postgresql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerPostgreSQL

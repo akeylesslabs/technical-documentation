@@ -1,6 +1,4 @@
 ---
-title: /gateway-list-rotated-secrets
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayListRotatedSecrets

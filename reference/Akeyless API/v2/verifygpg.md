@@ -1,6 +1,4 @@
 ---
-title: /verify-gpg
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: verifyGPG

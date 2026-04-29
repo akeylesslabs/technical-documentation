@@ -1,6 +1,4 @@
 ---
-title: /update-rotation-settings
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateRotationSettings

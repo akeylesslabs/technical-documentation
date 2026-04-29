@@ -1,6 +1,4 @@
 ---
-title: /update-secret-val
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateSecretVal

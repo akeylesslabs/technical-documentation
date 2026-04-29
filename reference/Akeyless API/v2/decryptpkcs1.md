@@ -1,6 +1,4 @@
 ---
-title: /decrypt-pkcs1
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: decryptPKCS1

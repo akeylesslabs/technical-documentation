@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-custom
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerCustom

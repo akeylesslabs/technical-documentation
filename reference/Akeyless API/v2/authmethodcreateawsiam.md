@@ -1,6 +1,4 @@
 ---
-title: /auth-method-create-aws-iam
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodCreateAwsIam

@@ -1,6 +1,4 @@
 ---
-title: /update-role
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateRole

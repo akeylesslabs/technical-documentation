@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-create-ldap
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretCreateLdap

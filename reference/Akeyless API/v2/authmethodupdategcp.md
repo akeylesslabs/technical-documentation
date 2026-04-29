@@ -1,6 +1,4 @@
 ---
-title: /auth-method-update-gcp
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodUpdateGcp

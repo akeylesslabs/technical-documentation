@@ -1,6 +1,4 @@
 ---
-title: /target-get-details
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetGetDetails

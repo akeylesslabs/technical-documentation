@@ -1,6 +1,4 @@
 ---
-title: /update-azure-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateAzureTarget

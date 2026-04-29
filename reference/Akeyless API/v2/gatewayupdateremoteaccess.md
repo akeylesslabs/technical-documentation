@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-remote-access
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateRemoteAccess

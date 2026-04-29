@@ -1,6 +1,4 @@
 ---
-title: /auth-method-update-oidc
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodUpdateOIDC

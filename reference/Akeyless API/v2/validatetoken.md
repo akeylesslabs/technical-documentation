@@ -1,6 +1,4 @@
 ---
-title: /validate-token
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: validateToken

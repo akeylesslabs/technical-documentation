@@ -1,6 +1,4 @@
 ---
-title: /kmip-set-environment-state
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: kmipSetServerState

@@ -1,6 +1,4 @@
 ---
-title: /import-passwords
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: importPasswords

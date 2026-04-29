@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-list
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretList

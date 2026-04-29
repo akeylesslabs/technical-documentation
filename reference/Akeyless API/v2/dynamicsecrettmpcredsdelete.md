@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-tmp-creds-delete
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretTmpCredsDelete

@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-create-mongodb
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretCreateMongodb

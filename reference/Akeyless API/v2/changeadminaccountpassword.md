@@ -1,6 +1,4 @@
 ---
-title: /change-admin-account-password
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: changeAdminAccountPassword

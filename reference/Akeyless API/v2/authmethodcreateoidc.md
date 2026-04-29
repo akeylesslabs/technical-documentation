@@ -1,6 +1,4 @@
 ---
-title: /auth-method-create-oidc
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodCreateOIDC

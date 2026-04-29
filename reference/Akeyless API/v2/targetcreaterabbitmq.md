@@ -1,6 +1,4 @@
 ---
-title: /target-create-rabbitmq
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateRabbitMq

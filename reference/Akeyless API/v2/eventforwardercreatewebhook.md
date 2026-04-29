@@ -1,6 +1,4 @@
 ---
-title: /event-forwarder-create-webhook
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: eventForwarderCreateWebhook

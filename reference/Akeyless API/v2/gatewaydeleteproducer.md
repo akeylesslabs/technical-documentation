@@ -1,6 +1,4 @@
 ---
-title: /gateway-delete-producer
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayDeleteProducer

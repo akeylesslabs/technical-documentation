@@ -1,6 +1,4 @@
 ---
-title: /delete-targets
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: deleteTargets

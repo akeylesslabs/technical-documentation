@@ -1,6 +1,4 @@
 ---
-title: /gateway-sync-migration
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewaySyncMigration

@@ -1,6 +1,4 @@
 ---
-title: /get-role
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: getRole

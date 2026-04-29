@@ -1,6 +1,4 @@
 ---
-title: /verify-pkcs1
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: verifyPKCS1

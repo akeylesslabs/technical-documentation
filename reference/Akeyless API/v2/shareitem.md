@@ -1,6 +1,4 @@
 ---
-title: /share-item
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: shareItem

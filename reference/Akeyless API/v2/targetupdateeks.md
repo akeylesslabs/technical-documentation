@@ -1,6 +1,4 @@
 ---
-title: /target-update-eks
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateEks
