@@ -49,8 +49,8 @@ Once created, you will see output similar to this:
 ```shell
 {
   "name": "My OIDC App",
-  "client_id": "c-rchjo3266adeoufb1hj3",
-  "client_secret": "1dd4ec958947ff5f85374b011e173e8a6d292cacd4fbb9466ffdf5da260728c3"
+  "client_id": "<OIDC_CLIENT_ID>",
+  "client_secret": "<OIDC_CLIENT_SECRET>"
 }
 ```
 
@@ -70,7 +70,7 @@ This will return a `token`:
 
 ```shell
 Authentication succeeded.
-Token: t-84e46b1ef69c617d0cd4b15aaeba10da
+Token: <AKEYLESS_ACCESS_TOKEN>
 ```
 
 You will need this token for the next step as well.
@@ -90,9 +90,9 @@ Once authorized, make a `POST` request to the `Token Endpoint` to get your OIDC 
 ```shell
 curl --location 'https://auth.akeyless.io/oidc/provider/<your-account-id>/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'client_id=c-rchjo3266adeoufb1hj3' \
---data-urlencode 'client_secret=1dd4ec958947ff5f85374b011e173e8a6d292cacd4fbb9466ffdf5da260728c3' \
---data-urlencode 'assertion=t-84e46b1ef69c617d0cd4b15aaeba10da' \
+--data-urlencode 'client_id=<OIDC_CLIENT_ID>' \
+--data-urlencode 'client_secret=<OIDC_CLIENT_SECRET>' \
+--data-urlencode 'assertion=<AKEYLESS_ACCESS_TOKEN>' \
 --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
 --data-urlencode 'scope=openid email' #example scopes
 ```
@@ -115,9 +115,9 @@ After running this **POST** request, you will receive an OIDC token back:
 
 ```shell
 {
-    "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImstNHVqMWl0OHdrOGQwIiwidHlwIjoiSldUIn0.eyJDbGllbnRVbmlxdWVJZCI6InAtenJzMzdpeTBuZWh6IiwiYXVkIjpbXSwiZXhwIjoxNjg3OTUzMDc1LCJleHQiOnsiQ2xpZW50VW5pcXVlSWQiOiJwLXpyczM3aXkwbmVoeiJ9LCJpYXQiOjE2ODc5NDk0NzUsImlzcyI6Imh0dHBzOi8vYzkwNS04OS0xMzgtMTY2LTE5My5uZ3Jvay5pby9vaWRjL3Byb3ZpZGVyL2FjYy1nZDk1Y284MmdpMTQiLCJqdGkiOiJkZDJlMjRkNS03MzVhLTRlYzktYjNjNS1mMTRjZTI2OGFiNzMiLCJuYmYiOjE2ODc5NDk0NzUsInNjcCI6WyJvcGVuaWQiLCJDbGllbnRVbmlxdWVJZCJdLCJzdWIiOiJwLXpyczM3aXkwbmVoei9wLXpyczM3aXkwbmVoeiJ9.RxrvPdIShJB4jr75dg-QGvMy6z8GXC3Hf1_zRNFSTj6eMgBANF8hXWJ5JLCD1jK410lRjYgFMpZ0TrzsHqSUt7Q3I8D_805JqbJ0QYSnPRlFlJUGuwK0uvSdBjR_4U5sWPjNL_qDbVlNMAueWbkTkp83ciqBP4SYH0gpevp0JmfDCw8750u7DYM_QU2g4MbGeqBuvrJo7QJI_2tYdU8HiU7n25SRvF5ilRZTlePvUmhXCIgW6UP-jjtyfFKveBnyTdF_698kVQDD2NwvrufchnYH6qCRMJ7OA8n2m1G4nO3Qrz7TqSzkT-_tgB8udat4kqbc5ftNSiBE2JF7RQSiG_vt1Jkf7fEs0svtni6n_nGfyKUH6OsQFIJOH_jc6Gp2_3p-vlxIaxLZ2f1g-Wb8vUAliyJuisP3W-uzxUGFMIU_xv8-FqOXjpXHSa92EBsdMXFUPy-S6o57GmdLdvKlIiAr9KDSTTmyiUHi5wFnsFJ0seh3I9QTBhe6vywKFkBs1jL38hqT_gXopkxvgV1MQvX1H09C12sGVNfLElqU8GAfmALHaXWv0azsWNcQUGhmKPbTe89VzRCpmf0dgG0QmFEu68ogyD5WBBwENejJnqGUeejfH13uui6yXYssnIPRJuzQGqKOWSnLvVFSGomOl7JXt-IekTykW4uA2ylPahc",
+  "access_token": "<OIDC_ACCESS_TOKEN_JWT>",
     "expires_in": 3599,
-    "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImstNHVqMWl0OHdrOGQwIiwidHlwIjoiSldUIn0.eyJDbGllbnRVbmlxdWVJZCI6InAtenJzMzdpeTBuZWh6IiwiYXVkIjpbIm9pZGMtY2xpZW50Z2tjNzN1MmJ3dTF3NGI4ajEwOGgiXSwiYXV0aF90aW1lIjoxNjg3OTQ5NDc1LCJleHAiOjE2ODc5NTMwNzUsImlhdCI6MTY4Nzk0OTQ3NSwiaXNzIjoiaHR0cHM6Ly9jOTA1LTg5LTEzOC0xNjYtMTkzLm5ncm9rLmlvL29pZGMvcHJvdmlkZXIvYWNjLWdkOTVjbzgyZ2kxNCIsImp0aSI6IjAzY2FlZWVmLTdkODAtNDdkOC04NjNmLWIxZDhlYjVhMDI2MSIsInN1YiI6InAtenJzMzdpeTBuZWh6L3AtenJzMzdpeTBuZWh6In0.FoNRBvn4jcCl0mwq5D3symqPSjEJuTPgBoaQuUIIq2PZTDtHyZ1oCNEOtQk1v_426-5OCs0K2eep1obba8RJ9N5SXi4iva1kdXikxUMER-ONmUvMzwQlevw8CXSvtVb-HZ8ok26b0frB4MaiVZUc7ICKodOXLKTfWALTIozLZsha1hs7EmkKWl0zniqzkYtegg5LKANt3BUabdSNjTS6vcpJIETHvbyHYKs9nn7YwB_Ptt-7sDQUJfwz-1Mlr-C79xwCTLdLaJTxS4zTkDMM2unJ9OD945SDFYDdCj9BeqcYyoRdKpzYHToIGcGE0z_DTia42UPlhyVIGj4lvsLqTFIhEb1mU4k_q6-42UZ6SSKOPmzXjlF2GrlUIiNN48b8HocLUQl3N0h6TiQSa_G2GFLXoHpCv_Ca6PXRs9nfR7XzyuQ1P7i8IgQYqsWYUJopO_ypZM2XOElZ41gSWGnANzdElirLoLdPKJQyHEV7AuKTzQrdUEbndKZEDrHqz-Al5r10uRdVclo90cOByQOB8yTvrLCfIrate5VnMg-bgDjzNqlladxCO8YeD-B5nCEPRUAfQRV3Quadm0Jx4lm28UkUD0iNdPEcZm7eYafvqcvkekLoVbWgb6Ua7YtLIeTf4i8Uh0GzdM7mphPYjXiszO_spvJQQBLOzEGm7obGmss",
+  "id_token": "<OIDC_ID_TOKEN_JWT>",
     "scope": "openid email",
     "token_type": "bearer"
 }
