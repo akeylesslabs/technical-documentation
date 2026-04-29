@@ -584,7 +584,7 @@ subjects:
     "clusterUsername": "k8s-native-cluster",
     "kind": "ExecCredential",
     "status": {
-        "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InNmMmZhbXgyRC1KT1pzUTBSVll0RFMzQjk1dGJXV19sRnd0b3FhYnBBRTgifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiLCJrM3MiXSwiZXhwIjoxNjI0MTg4MTY5LCJpYXQiOjE2MjQxODQ1NjksImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInVpZCI6IjI5MGU4M2IwLTc1MTItNDZiOC1hYWIxLWViN2IxOTIxNmY2NyJ9fSwibmJmIjoxNjI0MTg0NTY5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQifQ.oflUcXwzFF2Kcyi45_SNrdGmAk_2abqAz0nE7AyUU_-W2-l7ZxPovtM2pfcfHm_dmW9wCDxM3zK4Zh39ruWnvjqIB_uxWQGAtQnU3TBlHSY2knQdZ7lNop-ylvQMdh4rTNf07BM_zKoKVh1w1__nE-esghwOe6mtRuKIy3Xj5Ijk2aamx3DFbFcyizHyZVst_PSbm1fdxdSLFzBy0vXmI8-Lx-KbJsUM5yO2MGmEk-oX28YCG0hgF0NkPbyjyEtIPBrRKbbdyo8lM_dGQ5Hk7D1P5Vo56f14oKUHRJDdzyd-jFSH_dtxD0FxazuNPlmuE9lRdJzeSgvuGp6S-MsksQ"
+      "token": "<K8S_SERVICE_ACCOUNT_JWT_TOKEN>"
     }
     }
     ```

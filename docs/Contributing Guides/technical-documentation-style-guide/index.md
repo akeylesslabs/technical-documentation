@@ -203,7 +203,56 @@ With context:
 * Include working, tested examples.
 * Show expected input and output when relevant.
 * Use realistic values wherever possible, not placeholders, unless security-sensitive.
+* For security-sensitive values, always use placeholders and never use real-looking identifiers. For example, use `<service-account-name>@<project-id>.iam.gserviceaccount.com`, `arn:aws:iam::<aws-account-id>:root`, `<azure-tenant-id>`, and `<resource-ocid>` instead of real account values.
 * When formatting inputs and output pairs, precede the input with a ">" and the output following on the next line.
+
+### Sensitive Examples and Placeholders
+
+All credential-like values in examples must use semantic placeholders. This prevents accidental secret leaks and makes the expected format clear to readers.
+
+#### Placeholder Conventions
+
+Use these formats for common sensitive values:
+
+| Category | Format | Example |
+|----------|--------|---------|
+| **API Keys** | `<API_KEY>` or `<YOUR_API_KEY>` | `curl -H "Authorization: Bearer <API_KEY>"` |
+| **JWT Tokens** | `<JWT_TOKEN>` or `<ACCESS_TOKEN>` | `"token": "<JWT_TOKEN>"` |
+| **Passwords** | `<PASSWORD>` or `<DB_PASSWORD>` | `password: <DB_PASSWORD>` |
+| **Private Keys (PEM)** | `<PRIVATE_KEY_PEM_CONTENT>` | In XML/config: `value="<PRIVATE_KEY_PEM_CONTENT>"` |
+| **AWS Account IDs** | `<AWS_ACCOUNT_ID>` | `arn:aws:iam::<AWS_ACCOUNT_ID>:root` |
+| **AWS Access Keys** | `AKIA<PLACEHOLDER_ID>` or `<AWS_ACCESS_KEY>` | `AKIAIOSFODNN7EXAMPLE` (clearly marked as example) |
+| **GCP Project IDs** | `<GCP_PROJECT_ID>` | `gcloud config set project <GCP_PROJECT_ID>` |
+| **GCP Service Accounts** | Format is non-sensitive; use account name + project | `sa-name@project-id.iam.gserviceaccount.com` |
+| **Azure Tenant/Subscription IDs** | `<AZURE_TENANT_ID>` or `<SUBSCRIPTION_ID>` | `--tenant-id <AZURE_TENANT_ID>` |
+| **Environment Variables** | Use the variable name directly | `export AKEYLESS_ACCESS_KEY=$YOUR_KEY` |
+
+#### Guiding Rules
+
+1. **Never commit real or real-looking credentials** (API keys, tokens, certificates, account IDs derived from real resources).
+2. **Use angle brackets** `<PLACEHOLDER>` for required user-supplied values.
+3. **Use UPPERCASE** for all environment variable names and placeholder names.
+4. **Add explanatory comments** above sensitive examples:
+   ```yaml
+   # Replace <API_KEY> with your actual Akeyless API key from the admin console
+   api_key: <API_KEY>
+   ```
+5. **Reference documentation** instead of embedding credentials:
+   > "Set the `AKEYLESS_ACCESS_KEY` environment variable to your API key (see [Getting Started](link))."
+
+#### Testing Placeholders Locally
+
+Before committing, verify that your examples do not trigger secret-scan checks:
+
+```bash
+# Run pre-commit gitleaks hook on your file
+pre-commit run gitleaks --files docs/your-file.md
+
+# Or run full-repo scan
+docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.24.2 dir /repo --redact --no-banner
+```
+
+If the scan reports findings, see [.github/LEAK_RESPONSE.md](../../LEAK_RESPONSE.md) for remediation.
 
 ## CLI Reference Structure
 
