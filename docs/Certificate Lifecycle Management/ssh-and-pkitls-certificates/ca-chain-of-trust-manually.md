@@ -125,10 +125,6 @@ The next step will be the creation of an **Intermediate Signer Key** with a sign
 
 Intermediate certificates act as a middle-man between the secure root certificates and the server certificates distributed to the public. While a chain will always include at least one intermediate certificate, it may contain multiple ones as well.
 
-> ℹ️ **Note:**
->
-> Akeyless does not impose a limit on the number of intermediate CAs per root CA. You can create as many intermediates as your PKI design requires. Chain depth is controlled by the `--max-path-len` setting on each issuer.
-
 ### Create an Intermediate Signer Key
 
 Run the following command to create a **CSR** and a **Key** that will be used as our **Intermediate Signer Key**:
