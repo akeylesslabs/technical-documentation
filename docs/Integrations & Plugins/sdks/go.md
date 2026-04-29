@@ -19,13 +19,13 @@ The following guide shows a typical integration.
 Get the Akeyless package for **Go**:
 
 ```go
-go get github.com/akeylesslabs/akeyless-go/v3
+go get github.com/akeylesslabs/akeyless-go/v5
 ```
 
 Import the package into your project:
 
 ```go
-go import "github.com/akeylesslabs/akeyless-go/v3"
+go import "github.com/akeylesslabs/akeyless-go/v5"
 ```
 
 ## Configuration

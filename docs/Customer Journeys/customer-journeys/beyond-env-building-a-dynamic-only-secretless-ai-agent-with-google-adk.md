@@ -276,3 +276,7 @@ The benefits of this approach are profound:
 * Fully Auditable: Every time the agent fetches a key or generates a credential, it creates an Audit Log in Akeyless. You have a complete, real-time record of all secret access.
 
 By building our agents this way, we move from a defensive security model (protecting secrets) to a proactive one (eliminating them entirely).
+
+## Related AI Guides
+
+* <Anchor label="Prompt Injection Protection for AI Agents" href="doc:prompt-injection-protection-for-ai-agents" />
