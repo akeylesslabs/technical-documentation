@@ -150,16 +150,11 @@ net start mid
 ## Configure a Discovery Credential to Use This Resolver
 
 1. Navigate to Discovery → Credentials → New.
-2. Choose a credential Type (For example, LDAP, RDP, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, or SNMPv3).
+2. Choose a credential Type (For example, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, or SNMPv3).
 3. Select `External credential store`.
 4. Set the fully qualified class name (FQCN) to `com.snc.discovery.CredentialResolver`.
 5. Set the Credential ID to the Akeyless secret path (For example, `/prod/app/db`).
 6. Click `Test credential`, then select a MID Server and a target if required by the type.
-
-Version 1.1.0 covers the following credential scenarios:
-
-* LDAP, RDP, Windows, Basic, SSH Password, VMware, JDBC, and JMS credentials that use username and password fields.
-* SSH Private Key credentials that use username, private key, and passphrase fields.
 
 ## What to Store in Akeyless and How It’s Mapped
 
@@ -188,7 +183,7 @@ Per-Type mapping summary
 
 <!-- cspell:ignore certmgmt infoblox authprotocol authkey privprotocol privkey pswd -->
 
-* LDAP, RDP, Windows, Basic, SSH Password, VMware, JDBC, JMS:
+* Windows, Basic, SSH Password, VMware, JDBC, JMS:
     * Uses JSON fields: username, password (or your overridden names)
 * SSH Private Key:
     * Uses JSON fields: username, private_key, passphrase
@@ -197,11 +192,11 @@ Per-Type mapping summary
     * Uses JSON fields: username, auth_protocol, auth_key, privacy_protocol, privacy_key
     * Mapped to ServiceNow fields: `user`, `authprotocol`, `authkey`, `privprotocol`, `privkey`
 * Other unlisted types:
-    * Best-effort: username and password if present
+    * Best-effort: username and password if present (for example, `ldap`)
 
 Examples
 
-Basic / LDAP / RDP / Windows / SSH Password (JSON in Akeyless):
+Basic / Windows / SSH Password (JSON in Akeyless):
 
 ```json
 {
@@ -281,7 +276,7 @@ will map to ServiceNow user = alice, pswd = secret.
 You can run unit tests locally:
 
 ```shell
-mvn test -Drevision=1.1.0-TEST
+mvn test -Drevision=1.0.0-TEST
 ```
 
 To quickly sanity-check end-to-end against Akeyless, set environment variables and create a Discovery credential that points to a known secret path. For cloud-based auth types, run the MID on a host with a valid cloud identity.
