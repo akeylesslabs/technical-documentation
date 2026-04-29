@@ -201,7 +201,6 @@ jobs:
           id_token_audience: akeyless.io
           id_token_include_email: true
           workload_identity_provider: projects/${{ secrets.GCP_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider
-          service_account: akeyless-wif-sa@customer-success-391112.iam.gserviceaccount.com
 
       - name: Fetch static secrets from Akeyless
         uses: akeyless-community/akeyless-github-action@v1.1.5
@@ -250,7 +249,6 @@ jobs:
           token_format: id_token
           id_token_audience: akeyless.io
           id_token_include_email: true
-          service_account: akeyless-wif-sa@customer-success-391112.iam.gserviceaccount.com
 
       - name: Fetch static secrets from Akeyless
         uses: akeyless-community/akeyless-github-action@v1.1.5
