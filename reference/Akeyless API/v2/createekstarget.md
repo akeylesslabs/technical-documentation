@@ -1,6 +1,4 @@
 ---
-title: /create-eks-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createEKSTarget

@@ -1,6 +1,4 @@
 ---
-title: /update-windows-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateWindowsTarget

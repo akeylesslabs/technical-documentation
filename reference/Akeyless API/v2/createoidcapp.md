@@ -1,6 +1,4 @@
 ---
-title: /create-oidc-app
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createOidcApp

@@ -1,6 +1,4 @@
 ---
-title: /uid-revoke-token
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uidRevokeToken

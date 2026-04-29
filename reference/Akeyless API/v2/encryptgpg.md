@@ -1,6 +1,4 @@
 ---
-title: /encrypt-gpg
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: encryptGPG

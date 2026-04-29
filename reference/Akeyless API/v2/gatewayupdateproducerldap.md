@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-ldap
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerLdap

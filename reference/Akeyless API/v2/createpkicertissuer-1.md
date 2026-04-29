@@ -1,6 +1,4 @@
 ---
-title: /create-pki-cert-issuer
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: CreatePKICertIssuer

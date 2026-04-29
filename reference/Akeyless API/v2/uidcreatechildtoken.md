@@ -1,6 +1,4 @@
 ---
-title: /uid-create-child-token
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uidCreateChildToken

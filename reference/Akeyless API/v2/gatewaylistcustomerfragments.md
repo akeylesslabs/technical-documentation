@@ -1,6 +1,4 @@
 ---
-title: /gateway-list-customer-fragments
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayListCustomerFragments

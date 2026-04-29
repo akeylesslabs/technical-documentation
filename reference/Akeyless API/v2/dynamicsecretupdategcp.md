@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-gcp
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateGcp

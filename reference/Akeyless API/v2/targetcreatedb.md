@@ -1,6 +1,4 @@
 ---
-title: /target-create-db
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateDB

@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-oracle
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerOracleDb

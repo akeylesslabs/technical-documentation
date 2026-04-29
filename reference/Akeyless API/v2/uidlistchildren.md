@@ -1,6 +1,4 @@
 ---
-title: /uid-list-children
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uidListChildren

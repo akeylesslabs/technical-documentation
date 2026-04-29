@@ -1,6 +1,4 @@
 ---
-title: /move-objects
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: moveObjects

@@ -1,6 +1,4 @@
 ---
-title: /create-zerossl-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createZeroSSLTarget

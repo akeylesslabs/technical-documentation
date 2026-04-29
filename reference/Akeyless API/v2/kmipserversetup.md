@@ -1,6 +1,4 @@
 ---
-title: /kmip-create-environment
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: kmipServerSetup

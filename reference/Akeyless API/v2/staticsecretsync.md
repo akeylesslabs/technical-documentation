@@ -1,6 +1,4 @@
 ---
-title: /static-secret-sync
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: staticSecretSync

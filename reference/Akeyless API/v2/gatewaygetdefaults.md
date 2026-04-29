@@ -1,6 +1,4 @@
 ---
-title: /gateway-get-defaults
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayGetDefaults

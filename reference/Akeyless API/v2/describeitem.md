@@ -1,6 +1,4 @@
 ---
-title: /describe-item
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: describeItem

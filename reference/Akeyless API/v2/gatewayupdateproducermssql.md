@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-mssql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerMSSQL

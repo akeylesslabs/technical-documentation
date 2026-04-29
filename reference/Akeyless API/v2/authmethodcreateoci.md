@@ -1,6 +1,4 @@
 ---
-title: /auth-method-create-oci
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodCreateOCI

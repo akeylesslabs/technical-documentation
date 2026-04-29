@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-mssql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerMSSQL

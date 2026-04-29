@@ -1,6 +1,4 @@
 ---
-title: /sign-rsassa-pss
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: signRsaSsaPss

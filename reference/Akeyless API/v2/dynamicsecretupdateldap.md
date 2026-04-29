@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-ldap
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateLdap

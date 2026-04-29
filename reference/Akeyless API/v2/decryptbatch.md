@@ -1,6 +1,4 @@
 ---
-title: /decrypt-batch
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: decryptBatch

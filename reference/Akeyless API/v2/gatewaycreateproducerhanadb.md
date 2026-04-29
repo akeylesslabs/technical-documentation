@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-hanadb
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerHanaDb

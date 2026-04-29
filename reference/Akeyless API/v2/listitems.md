@@ -1,6 +1,4 @@
 ---
-title: /list-items
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: listItems

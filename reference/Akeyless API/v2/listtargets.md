@@ -1,6 +1,4 @@
 ---
-title: /list-targets
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: listTargets

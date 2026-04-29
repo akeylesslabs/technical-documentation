@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-gke
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerGke

@@ -1,6 +1,4 @@
 ---
-title: /deactivate-acme-account
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: deactivateAcmeAccount

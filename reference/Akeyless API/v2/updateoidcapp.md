@@ -1,6 +1,4 @@
 ---
-title: /update-oidc-app
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateOidcApp

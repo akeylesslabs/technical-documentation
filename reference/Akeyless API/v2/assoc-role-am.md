@@ -1,6 +1,4 @@
 ---
-title: /assoc-role-am
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: assocRoleAuthMethod

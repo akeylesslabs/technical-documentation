@@ -1,6 +1,4 @@
 ---
-title: /target-create-web
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateWeb

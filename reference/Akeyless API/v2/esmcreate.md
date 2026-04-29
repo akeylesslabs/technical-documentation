@@ -1,6 +1,4 @@
 ---
-title: /esm-create
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: esmCreate

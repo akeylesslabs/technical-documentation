@@ -1,6 +1,4 @@
 ---
-title: /target-create-artifactory
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateArtifactory

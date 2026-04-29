@@ -1,6 +1,4 @@
 ---
-title: /unwrap-token
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: unwrapToken

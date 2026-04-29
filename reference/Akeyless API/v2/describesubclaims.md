@@ -1,6 +1,4 @@
 ---
-title: /describe-sub-claims
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: describeSubClaims

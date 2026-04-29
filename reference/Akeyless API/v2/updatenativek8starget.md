@@ -1,6 +1,4 @@
 ---
-title: /update-k8s-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateNativeK8STarget

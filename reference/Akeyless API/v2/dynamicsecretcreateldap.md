@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-ldap
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateLdap

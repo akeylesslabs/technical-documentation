@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-mysql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerMySQL

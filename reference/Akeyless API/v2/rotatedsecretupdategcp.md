@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-update-gcp
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretUpdateGcp

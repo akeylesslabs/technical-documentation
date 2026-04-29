@@ -1,6 +1,4 @@
 ---
-title: /auth-method-create-azure-ad
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodCreateAzureAD

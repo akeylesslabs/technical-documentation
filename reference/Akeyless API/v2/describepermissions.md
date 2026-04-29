@@ -1,6 +1,4 @@
 ---
-title: /describe-permissions
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: describePermissions

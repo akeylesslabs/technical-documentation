@@ -1,6 +1,4 @@
 ---
-title: /create-secret
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createSecret

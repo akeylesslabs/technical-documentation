@@ -1,6 +1,4 @@
 ---
-title: /delete-item
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: deleteItem

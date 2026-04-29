@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-artifactory
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerArtifactory

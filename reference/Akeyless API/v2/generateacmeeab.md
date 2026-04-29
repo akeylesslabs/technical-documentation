@@ -1,6 +1,4 @@
 ---
-title: /generate-acme-eab
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: generateAcmeEab

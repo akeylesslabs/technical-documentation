@@ -1,6 +1,4 @@
 ---
-title: /target-update-db
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateDB

@@ -1,6 +1,4 @@
 ---
-title: /gateway-stop-producer
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayStopProducer

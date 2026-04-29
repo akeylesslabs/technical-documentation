@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-redis
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateRedis

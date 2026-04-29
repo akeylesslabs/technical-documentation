@@ -1,6 +1,4 @@
 ---
-title: /create-ping-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createPingTarget

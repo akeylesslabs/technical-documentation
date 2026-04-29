@@ -1,6 +1,4 @@
 ---
-title: /delete-role
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: deleteRole

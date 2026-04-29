@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-update-hanadb
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretUpdateHanadb

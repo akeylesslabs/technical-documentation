@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-log-forwarding-stdout
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateLogForwardingStdout

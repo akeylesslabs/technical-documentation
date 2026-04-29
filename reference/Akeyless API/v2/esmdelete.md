@@ -1,6 +1,4 @@
 ---
-title: /esm-delete
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: esmDelete

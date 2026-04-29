@@ -1,6 +1,4 @@
 ---
-title: /kmip-renew-environment
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: kmipRenewServerCertificate

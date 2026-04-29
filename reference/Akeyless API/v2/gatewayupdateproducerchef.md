@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-chef
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerChef

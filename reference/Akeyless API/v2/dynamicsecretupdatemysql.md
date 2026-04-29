@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-mysql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateMySql

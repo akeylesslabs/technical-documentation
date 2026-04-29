@@ -1,6 +1,4 @@
 ---
-title: /usc-list
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uscList

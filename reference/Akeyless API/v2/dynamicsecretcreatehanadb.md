@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-hanadb
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateHanaDb

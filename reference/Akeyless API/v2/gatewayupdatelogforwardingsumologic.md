@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-log-forwarding-sumologic
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateLogForwardingSumologic

@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-dockerhub
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateDockerhub

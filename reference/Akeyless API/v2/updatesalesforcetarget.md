@@ -1,6 +1,4 @@
 ---
-title: /update-salesforce-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateSalesforceTarget

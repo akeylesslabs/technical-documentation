@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-mongo
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerMongo

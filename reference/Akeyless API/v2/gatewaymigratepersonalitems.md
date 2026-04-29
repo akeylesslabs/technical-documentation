@@ -1,6 +1,4 @@
 ---
-title: /gateway-migrate-personal-items
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayMigratePersonalItems

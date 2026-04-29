@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-k8s
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerNativeK8S

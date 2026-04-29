@@ -1,6 +1,4 @@
 ---
-title: /update-ssh-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateSSHTarget

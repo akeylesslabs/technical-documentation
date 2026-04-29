@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-ldap-auth-config
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: GatewayUpdateLdapAuthConfig

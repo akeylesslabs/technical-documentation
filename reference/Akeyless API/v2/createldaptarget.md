@@ -1,6 +1,4 @@
 ---
-title: /create-ldap-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createldapTarget

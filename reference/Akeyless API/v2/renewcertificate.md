@@ -1,6 +1,4 @@
 ---
-title: /renew-certificate
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: RenewCertificate

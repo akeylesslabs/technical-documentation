@@ -1,6 +1,4 @@
 ---
-title: /tokenize
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: tokenize

@@ -1,6 +1,4 @@
 ---
-title: /auth-method-create-cert
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodCreateCert

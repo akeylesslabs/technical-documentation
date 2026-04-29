@@ -1,6 +1,4 @@
 ---
-title: /rotate-oidc-client-secret
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotateOidcClientSecret

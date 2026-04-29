@@ -1,6 +1,4 @@
 ---
-title: /update-gke-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateGKETarget
