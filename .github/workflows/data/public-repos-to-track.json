@@ -34,7 +34,6 @@
     "akeylesslabs/helm-charts",
     "akeylesslabs/homebrew-tap",
     "akeylesslabs/jwt-go",
-    "akeylesslabs/keda",
     "akeylesslabs/sigstore",
   ],
   "third_party_repos": [
