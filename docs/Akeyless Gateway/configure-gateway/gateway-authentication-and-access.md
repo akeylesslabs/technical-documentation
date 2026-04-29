@@ -112,6 +112,19 @@ globalConfig:
         - admin
 ```
 
+`allowedAccessPermissions` also supports wildcard matching in `access_id`.
+Use `*` to apply a permission set to all identities that are not otherwise defined in explicit entries.
+
+```yaml values.yaml
+globalConfig:
+  allowedAccessPermissions:
+    - name: Default read-only
+      access_id: "*"
+      permissions:
+        - defaults
+        - general
+```
+
 ## Permission Scope Guidance
 
 Use the minimum permissions required for each operational role.
