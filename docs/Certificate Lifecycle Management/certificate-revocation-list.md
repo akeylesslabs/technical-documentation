@@ -44,7 +44,7 @@ To revoke a certificate from the console:
 
 ## Revocation List
 
-Once the certificate is revoked, it is added to the **Certificate Revocation List**. For each issuer the following formats are maintaining the revocation list when applicable:
+Once the certificate is revoked, it is added to the **Certificate Revocation List**. The CRL is updated automatically when a certificate is revoked using either the CLI command or the console — no manual CRL refresh step is required. For each issuer the following formats are maintaining the revocation list when applicable:
 
 **Public CRL** at: `https://vault.akeyless.io/crl/<account-id>/<cert-issuer-display-id>`.
 
@@ -53,5 +53,9 @@ Once the certificate is revoked, it is added to the **Certificate Revocation Lis
 **Public OCSP** at: `https://vault.akeyless.io/ocsp/<account-id>/<cert-issuer-display-id>`.
 
 **Private OCSP** endpoint on the [Gateway](https://docs.akeyless.io/docs/gateway-overview) at `https://<gatewayURL>:8000/ocsp/<cert-issuer-display-id>`.
+
+> ℹ️ **Note:**
+>
+> OCSP support is optional. Applications that do not implement OCSP can rely on CRL-based revocation checking alone. Both mechanisms reflect the same revocation state; you do not need to implement OCSP unless your environment or compliance requirements specifically call for it.
 
 To view any existing **Certificate Revocation List** information on a **Certificate Item** click the **View Certificate Details** and scroll down to **CRL Distribution points**, where the **CRL Endpoints** will be listed.
