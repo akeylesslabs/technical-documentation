@@ -11,6 +11,8 @@ metadata:
 
 This project provides a ServiceNow MID external credential resolver that retrieves secrets from Akeyless and maps them to ServiceNow Discovery credential fields. The resolver class is com.snc.discovery.CredentialResolver.
 
+Source repository: [https://github.com/akeylesslabs/akeyless-servicenow-credential-resolver](https://github.com/akeylesslabs/akeyless-servicenow-credential-resolver)
+
 ## Prerequisites
 
 * ServiceNow instance (Quebec+ recommended) with Discovery and External Credentials enabled.
@@ -151,10 +153,10 @@ net start mid
 
 1. Navigate to Discovery → Credentials → New.
 2. Choose a credential Type (For example, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, or SNMPv3).
-3. Select `External credential store`.
+3. Select **External credential store**.
 4. Set the fully qualified class name (FQCN) to `com.snc.discovery.CredentialResolver`.
 5. Set the Credential ID to the Akeyless secret path (For example, `/prod/app/db`).
-6. Click `Test credential`, then select a MID Server and a target if required by the type.
+6. Click **Test credential**, then select a MID Server and a target if required by the type.
 
 ## What to Store in Akeyless and How It’s Mapped
 
@@ -276,7 +278,7 @@ will map to ServiceNow user = alice, pswd = secret.
 You can run unit tests locally:
 
 ```shell
-mvn test -Drevision=1.0.0-TEST
+mvn test
 ```
 
 To quickly sanity-check end-to-end against Akeyless, set environment variables and create a Discovery credential that points to a known secret path. For cloud-based auth types, run the MID on a host with a valid cloud identity.
