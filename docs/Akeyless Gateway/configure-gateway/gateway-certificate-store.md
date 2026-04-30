@@ -14,7 +14,7 @@ Use Certificate Store to add private CA certificates to Akeyless Gateway so serv
 
 > ℹ️ **Note:**
 >
-> After uploading a private CA to Certificate Store, some services may require a restart or reconnection before the new certificate authority is recognized.
+> After uploading a private CA to Certificate Store, some services may require a restart or reconnection before the new certificate authority is recognized. Starting with SRA v2.9.0, the SRA service dynamically loads custom CA certificates from the Gateway Certificate Store without requiring an SRA restart.
 
 ## Manage Certificates Using the CLI
 
