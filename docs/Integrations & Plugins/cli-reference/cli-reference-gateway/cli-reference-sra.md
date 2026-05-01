@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page lists Secure Remote Access (SRA) commands under the Gateway CLI command group.
+This page lists Secure Remote Access (SRA) commands for gateway update flows and SRA inventory commands.
 
 <CLIGeneralFlags />
 
@@ -20,7 +20,7 @@ This page lists Secure Remote Access (SRA) commands under the Gateway CLI comman
 
 ## Command Group
 
-SRA commands are available under the `gateway update` command group and by alias commands.
+Gateway SRA update commands are available under the `gateway update` command group and by alias commands.
 
 Examples:
 
@@ -167,9 +167,13 @@ akeyless gateway update remote-access-session-forwarding <provider>
 
 > ℹ️ **Note:**
 >
-> Each provider command has provider-specific flags. For detailed provider flag definitions, see [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding).
+> Each provider command has provider-specific flags. For exact flags per provider, run:
+>
+> `akeyless gateway update remote-access-session-forwarding <provider> --help`
 
 ## Session and Bastion Inventory Commands
+
+The following commands are top-level CLI commands and are not under `gateway update`.
 
 ### `list-sra-sessions`
 
