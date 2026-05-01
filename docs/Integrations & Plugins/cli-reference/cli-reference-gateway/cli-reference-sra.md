@@ -291,7 +291,7 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `stdout`
 
-No provider-specific flags.
+The `stdout` provider writes session logs directly to the gateway process standard output. It requires no provider-specific connection or credential flags; only the common flags (`--enable`, `--output-format`, `--pull-interval`, `--gateway-url`) apply.
 
 `sumologic`
 
