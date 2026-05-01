@@ -143,30 +143,6 @@ akeyless gateway update remote-access-session-forwarding <provider>
 akeyless gateway-update-remote-access-session-forwarding-<provider>
 ```
 
-#### Supported providers
-
-`aws-s3`
-
-`azure-analytics`
-
-`datadog`
-
-`elasticsearch`
-
-`google-chronicle`
-
-`logstash`
-
-`logz-io`
-
-`splunk`
-
-`stdout`
-
-`sumologic`
-
-`syslog`
-
 #### Common flags (all providers)
 
 `--enable[=true]`: Enable or disable forwarding
@@ -177,9 +153,7 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-#### Provider flags
-
-`aws-s3`
+##### `aws-s3`
 
 `--bucket-name`: Target S3 bucket name
 
@@ -195,7 +169,7 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `--role-arn`: Required when `--auth-type assume_role`
 
-`azure-analytics`
+##### `azure-analytics`
 
 `--workspace-id`: Azure workspace ID
 
@@ -203,7 +177,7 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `--enable-batch[=true]`: Enable or disable batch forwarding
 
-`datadog`
+##### `datadog`
 
 `--host`: Datadog host
 
@@ -215,7 +189,7 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `--log-service[=use-existing]`: Datadog service field
 
-`elasticsearch`
+##### `elasticsearch`
 
 `--index`: Elasticsearch index
 
@@ -239,7 +213,7 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `--tls-certificate[=use-existing]`: Base64 PEM certificate value
 
-`google-chronicle`
+##### `google-chronicle`
 
 `--customer-id`: Google Chronicle customer ID
 
@@ -251,7 +225,7 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `--gcp-key`: Base64-encoded GCP service-account private key text
 
-`logstash`
+##### `logstash`
 
 `--dns`: Logstash DNS or host endpoint
 
@@ -263,13 +237,13 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `--tls-certificate[=use-existing]`: Base64 PEM certificate value
 
-`logz-io`
+##### `logz-io`
 
 `--logz-io-token`: Logz.io token
 
 `--protocol`: Protocol (`tcp` or `https`)
 
-`splunk`
+##### `splunk`
 
 `--splunk-url`: Splunk server URL
 
@@ -289,11 +263,11 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `--tls-certificate[=use-existing]`: Base64 PEM certificate value
 
-`stdout`
+##### `stdout`
 
 The `stdout` provider writes session logs directly to the gateway process standard output. It requires no provider-specific connection or credential flags; only the common flags (`--enable`, `--output-format`, `--pull-interval`, `--gateway-url`) apply.
 
-`sumologic`
+##### `sumologic`
 
 `--endpoint`: Sumo Logic endpoint URL
 
@@ -301,7 +275,7 @@ The `stdout` provider writes session logs directly to the gateway process standa
 
 `--host[=use-existing]`: Sumo Logic host
 
-`syslog`
+##### `syslog`
 
 `--host`: Syslog host
 
