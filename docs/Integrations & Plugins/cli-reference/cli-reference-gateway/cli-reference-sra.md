@@ -95,9 +95,27 @@ akeyless gateway update remote-access-rdp-recording
 
 `--rdp-session-recording-encryption-key`: Encryption key item name for uploaded recordings
 
-`--aws-storage-*`: AWS storage settings
+`--aws-storage-region`: AWS region where the S3 bucket is located
 
-`--azure-storage-*`: Azure storage settings
+`--aws-storage-bucket-name`: S3 bucket name
+
+`--aws-storage-bucket-prefix`: Folder path inside the S3 bucket
+
+`--aws-storage-access-key-id`: AWS access key ID (explicit credentials)
+
+`--aws-storage-secret-access-key`: AWS secret access key (explicit credentials)
+
+`--aws-storage-endpoint-url`: Custom endpoint URL for S3-compatible storage
+
+`--azure-storage-account-name`: Azure Storage account name
+
+`--azure-storage-container-name`: Azure Storage container name
+
+`--azure-storage-client-id`: Azure client ID (explicit credentials)
+
+`--azure-storage-client-secret`: Azure client secret (explicit credentials)
+
+`--azure-storage-tenant-id`: Azure tenant ID (explicit credentials)
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
@@ -291,6 +309,28 @@ The `stdout` provider writes session logs directly to the gateway process standa
 
 `--tls-certificate[=use-existing]`: Base64 PEM certificate value
 
+## Get Command
+
+### `gateway-get-remote-access`
+
+Returns the current SRA configuration for the gateway.
+
+#### Alias command
+
+```shell
+akeyless gateway-get-remote-access
+```
+
+#### Command-group form
+
+```shell
+akeyless gateway get remote-access
+```
+
+#### Key flags
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
 ## Session and Bastion Inventory Commands
 
 The following commands are top-level CLI commands and are not under `gateway update`.
@@ -307,13 +347,15 @@ akeyless list-sra-sessions
 
 #### Key flags
 
-`--status-type`: Session status types. If omitted, defaults to active statuses only (`connecting`, `connected`)
+`--status-type`: Session status types. If omitted, defaults to active statuses only (`connecting`, `connected`). Options: `connecting`, `connected`, `failed`, `completed`, `terminated`
 
-`--resource-type`: Connection type filter, for example `ssh`, `k8s`, `mysql`, `rdp`
+`--resource-type`: Connection type filter. Options: `aws`, `eks`, `gke`, `k8s`, `mongodb`, `mssql`, `mysql`, `postgres`, `rdp`, `ssh`
 
 #### Behavior notes
 
 By default, this command is own-only scoped in the command implementation.
+
+This command does not appear in `akeyless --help` output; invoke it directly by name.
 
 ### `list-sra-bastions`
 
