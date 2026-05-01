@@ -137,6 +137,12 @@ Updates SRA session log forwarding configuration for a specific provider.
 akeyless gateway update remote-access-session-forwarding <provider>
 ```
 
+#### Alias form
+
+```shell
+akeyless gateway-update-remote-access-session-forwarding-<provider>
+```
+
 #### Supported providers
 
 `aws-s3`
@@ -161,11 +167,155 @@ akeyless gateway update remote-access-session-forwarding <provider>
 
 `syslog`
 
-> ℹ️ **Note:**
->
-> Each provider command has provider-specific flags. For exact flags per provider, run:
->
-> `akeyless gateway update remote-access-session-forwarding <provider> --help`
+#### Common flags (all providers)
+
+`--enable[=true]`: Enable or disable forwarding
+
+`--output-format[=text]`: Log format (`text` or `json`)
+
+`--pull-interval[=10]`: Pull interval in seconds
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+#### Provider flags
+
+`aws-s3`
+
+`--bucket-name`: Target S3 bucket name
+
+`--auth-type`: AWS auth type (`access_key`, `cloud_id`, `assume_role`)
+
+`--region`: AWS region
+
+`--log-folder[=use-existing]`: Destination folder in the S3 bucket
+
+`--access-id`: Required when `--auth-type access_key`
+
+`--access-key`: Required when `--auth-type access_key`
+
+`--role-arn`: Required when `--auth-type assume_role`
+
+`azure-analytics`
+
+`--workspace-id`: Azure workspace ID
+
+`--workspace-key`: Azure workspace key
+
+`--enable-batch[=true]`: Enable or disable batch forwarding
+
+`datadog`
+
+`--host`: Datadog host
+
+`--api-key`: Datadog API key
+
+`--log-source[=use-existing]`: Datadog source field
+
+`--log-tags[=use-existing]`: Comma-separated tags (`key:value`)
+
+`--log-service[=use-existing]`: Datadog service field
+
+`elasticsearch`
+
+`--index`: Elasticsearch index
+
+`--server-type`: Server type (`nodes` or `cloud`)
+
+`--auth-type`: Auth type (`api_key` or `password`)
+
+`--nodes`: Required when `--server-type nodes`
+
+`--cloud-id`: Required when `--server-type cloud`
+
+`--api-key`: Required when `--auth-type api_key`
+
+`--user-name`: Required when `--auth-type password`
+
+`--password`: Required when `--auth-type password`
+
+`--enable-tls`: Enable or disable TLS
+
+`--certificate-file`: Path to a PEM certificate file
+
+`--tls-certificate[=use-existing]`: Base64 PEM certificate value
+
+`google-chronicle`
+
+`--customer-id`: Google Chronicle customer ID
+
+`--region`: Region (`eu_multi_region`, `london`, `us_multi_region`, `singapore`, `tel_aviv`)
+
+`--log-type`: Chronicle log type
+
+`--gcp-key-file-path`: Path to a GCP service-account private key file
+
+`--gcp-key`: Base64-encoded GCP service-account private key text
+
+`logstash`
+
+`--dns`: Logstash DNS or host endpoint
+
+`--protocol`: Protocol (`tcp` or `udp`)
+
+`--enable-tls`: Enable or disable TLS
+
+`--certificate-file`: Path to a PEM certificate file
+
+`--tls-certificate[=use-existing]`: Base64 PEM certificate value
+
+`logz-io`
+
+`--logz-io-token`: Logz.io token
+
+`--protocol`: Protocol (`tcp` or `https`)
+
+`splunk`
+
+`--splunk-url`: Splunk server URL
+
+`--splunk-token`: Splunk token
+
+`--index`: Splunk index
+
+`--source[=use-existing]`: Splunk source
+
+`--source-type[=use-existing]`: Splunk source type
+
+`--enable-batch[=true]`: Enable or disable batch forwarding
+
+`--enable-tls`: Enable or disable TLS
+
+`--certificate-file`: Path to a PEM certificate file
+
+`--tls-certificate[=use-existing]`: Base64 PEM certificate value
+
+`stdout`
+
+No provider-specific flags.
+
+`sumologic`
+
+`--endpoint`: Sumo Logic endpoint URL
+
+`--sumologic-tags[=use-existing]`: Comma-separated Sumo Logic tags
+
+`--host[=use-existing]`: Sumo Logic host
+
+`syslog`
+
+`--host`: Syslog host
+
+`--network[=tcp]`: Network (`tcp` or `udp`)
+
+`--formatter[=text]`: Formatter (`text` or `cef`)
+
+`--target-tag[=use-existing]`: Syslog target tag
+
+`--enable-tls`: Enable or disable TLS (TCP only)
+
+`--certificate-file`: Path to a PEM certificate file
+
+`--tls-certificate[=use-existing]`: Base64 PEM certificate value
 
 ## Session and Bastion Inventory Commands
 
