@@ -18,7 +18,7 @@ If you do not already have a Gateway deployment, start with [Deploying Gateway o
 
 * Akeyless Gateway deployed on [Kubernetes](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#/). If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported for SRA.
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for Remote CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for remote CLI access.
 
 * Minimum 1 vCPU and 2 GiB memory per SRA component.
 
@@ -84,13 +84,12 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
 2. Enable **Remote Access** on your Gateway values file, and add the public key of your SSH Cert Issuer using `CAPublicKey` as follows. You can provide one or more CA public keys:
 
     ```yaml values.yaml
-    sra:
-    enabled: true
-
-    sshConfig:
-        CAPublicKey: |
-            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAPzDVmeABzsGd0lEl9m2fdgmCzOLVmEGcLxNkn...
-            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDz0v4zyj4d1m7K9w7j2qQ5B1v8bH0ArK...
+        sra:
+            enabled: true
+            sshConfig:
+                CAPublicKey: |
+                    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAPzDVmeABzsGd0lEl9m2fdgmCzOLVmEGcLxNkn...
+                    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDz0v4zyj4d1m7K9w7j2qQ5B1v8bH0ArK...
     ```
 
 ## Upgrade Gateway
@@ -101,7 +100,7 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
     helm upgrade --install <deployment name> akeyless/akeyless-gateway -f values.yaml
     ```
 
-2. Once upgraded, check if the pods are running, In addition to the Gateway pods, two new pods for Remote Access will be created: `web` and `ssh`:
+2. Once upgraded, check if the pods are running. In addition to the Gateway pods, two new pods for Remote Access are created: `web` and `ssh`.
 
     ```shell
     kubectl get pods
@@ -117,10 +116,12 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
 
 ## SRA Portal Access
 
-To login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`, using one of the [supported authentication methods](https://docs.akeyless.io/docs/sra-portal).
+To log in to the **Secure Remote Access** portal, open your browser and use the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`, with one of the [supported authentication methods](https://docs.akeyless.io/docs/sra-portal).
 
 Once logged in, you will see Secrets with **Secure Remote Access** enabled.
 
 ## Advanced Configuration
 
 For keyboard layouts, session log forwarding, RDP recording configuration, SSH fingerprint behavior, and `CONFIG_MAX_STARTUPS`, see [Advanced Configuration on Kubernetes](https://docs.akeyless.io/docs/sra-advanced-configuration-k8s).
+
+If web application isolation is required, continue with [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology).

@@ -12,6 +12,8 @@ next:
 ---
 Use this page to validate infrastructure requirements before deploying Akeyless Gateway with Secure Remote Access (SRA) and Zero Trust Web Access (ZTWA).
 
+Port values below are default values from the official Helm charts and Docker Compose examples.
+
 ## Port Inventory
 
 The following table lists the primary ports by component.
@@ -19,12 +21,12 @@ The following table lists the primary ports by component.
 | Component | Port(s) | Purpose |
 | --- | --- | --- |
 | Gateway | `8000` | External API and SRA portal/web paths |
-| Gateway | `8080` | Health endpoint |
-| Gateway | `8889` | Metrics endpoint |
+| Gateway | `8080` | Internal API and health endpoint |
+| Gateway | `8889` | Metrics endpoint when metrics are enabled and exposed |
 | SRA web bastion | `8888` | Web bastion service |
-| SRA SSH bastion | `22`, `9900` | SSH data plane and control proxy |
-| ZTWA dispatcher | `9000`, `19414` | Dispatcher listener and proxy mode |
-| ZTWA web-worker | `5800` | Isolated browser worker service |
+| SRA SSH bastion | `22` (Kubernetes service), `2222` (Docker host mapping), `9900` (control proxy) | SSH data plane and control proxy |
+| ZTWA dispatcher | `9000`, `19414` | Dispatcher listener and web proxy mode |
+| ZTWA web-worker | `5800` | Isolated browser worker service (internal service) |
 | Redis | `6379` | Cache and session support |
 
 ## Outbound Connectivity
@@ -37,7 +39,7 @@ Allow outbound connectivity to the following destinations:
 
 ## Redis Dependency
 
-Redis or equivalent cache support is required for SRA components. For Gateway-only deployments without SRA, cache is optional.
+Redis cache support is required for SRA components. For Gateway-only deployments without SRA, cache is optional.
 
 ## Minimum Resources
 

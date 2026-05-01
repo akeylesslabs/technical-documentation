@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This section covers how to deploy Akeyless Secure Remote Access (SRA) and Zero Trust Web Access (ZTWA) components.
+This section covers deployment requirements and setup flows for Akeyless Secure Remote Access (SRA) and Zero Trust Web Access (ZTWA).
 
 Use these pages in order:
 
@@ -19,6 +19,8 @@ Use these pages in order:
 * [Kubernetes (Gateway + SRA)](https://docs.akeyless.io/docs/sra-setup-k8s)
 * [Docker Compose (Gateway + SRA)](https://docs.akeyless.io/docs/sra-docker)
 * [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology)
+
+Use this section for deployment and topology. For day-2 operations, use the related operations pages below.
 
 Related operations:
 

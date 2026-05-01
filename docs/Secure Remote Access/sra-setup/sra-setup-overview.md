@@ -25,6 +25,8 @@ Choose one deployment model for Gateway + SRA:
 
 If you also need isolated browser access for web applications, follow [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology).
 
+If Gateway is already deployed, continue with the Kubernetes or Docker setup page to enable SRA components on that deployment.
+
 ## Before You Deploy
 
 Review [Requirements](https://docs.akeyless.io/docs/sra-requirements) first for port inventory, outbound connectivity, Redis dependency, minimum resources, and platform-specific constraints.

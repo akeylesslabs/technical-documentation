@@ -38,7 +38,7 @@ This guide assumes you already have a Gateway deployment and focuses on SRA-rela
 
 * Akeyless Gateway deployed on [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#/).
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for CLI Access with `session_ username` allowed.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for CLI access with `session_username` allowed.
 
 * Minimum 1 vCPU and 2 GiB memory per SRA component.
 
@@ -95,10 +95,10 @@ To deploy a gateway with the SRA utility, run the following steps:
 
 ## Installation
 
-To deploy the Gateway with the SRA utility, run this command from the directory where your **Gateway** and **SRA** configuration files are located.
+To deploy Gateway and SRA services, run this command from the directory where your configuration files are located.
 
 ```shell
-docker compose --profile sra up -d
+docker compose --profile gateway --profile sra up -d
 ```
 
 To verify the deployment, run:
@@ -128,3 +128,5 @@ Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs
 ## Advanced Configuration
 
 For keyboard layouts, session log forwarding, RDP recording configuration, SSH fingerprint behavior, and `CONFIG_MAX_STARTUPS`, see [Advanced Configuration on Docker Compose](https://docs.akeyless.io/docs/sra-advanced-configuration-docker).
+
+If web application isolation is required, continue with [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology).
