@@ -20,10 +20,10 @@ Gateway SRA update commands are available under the `gateway update` command gro
 
 Examples:
 
-```shell
+```shell Command group
 akeyless gateway update remote-access
 ```
-```shell
+```shell Alias
 akeyless gateway-update-remote-access
 ```
 
