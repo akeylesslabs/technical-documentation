@@ -67,6 +67,15 @@ akeyless gateway update remote-access
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
+#### Example
+
+```shell
+akeyless gateway-update-remote-access \
+  --allowed-urls https://bastion.example.com \
+  --default-session-ttl-minutes 60 \
+  --gateway-url https://my-gw.example.com:8000
+```
+
 ### `gateway-update-remote-access-rdp-recording`
 
 Updates RDP recording configuration for SRA.
@@ -119,6 +128,17 @@ akeyless gateway update remote-access-rdp-recording
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
+#### Example
+
+```shell
+akeyless gateway-update-remote-access-rdp-recording \
+  --rdp-session-recording true \
+  --rdp-session-storage aws \
+  --aws-storage-region us-east-1 \
+  --aws-storage-bucket-name <your-s3-bucket-name> \
+  --gateway-url https://my-gw.example.com:8000
+```
+
 ### `gateway-update-remote-access-desktop-app`
 
 Updates desktop application settings used by SRA.
@@ -144,6 +164,14 @@ akeyless gateway update remote-access-desktop-app
 `--desktop-app-secure-web-proxy`: Secure web proxy URL for desktop application
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+#### Example
+
+```shell
+akeyless gateway-update-remote-access-desktop-app \
+  --desktop-app-ssh-cert-issuer /SRA/my-ssh-cert-issuer \
+  --gateway-url https://my-gw.example.com:8000
+```
 
 ### `gateway-update-remote-access-session-forwarding-<provider>`
 
@@ -171,11 +199,21 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
+#### Example
+
+```shell
+akeyless gateway-update-remote-access-session-forwarding-splunk \
+  --splunk-url https://splunk.example.com:8088 \
+  --splunk-token <your-splunk-hec-token> \
+  --index main \
+  --gateway-url https://my-gw.example.com:8000
+```
+
 ##### `aws-s3`
 
-`--bucket-name`: Target S3 bucket name
+`--bucket-name`: Required. Target S3 bucket name
 
-`--auth-type`: AWS auth type (`access_key`, `cloud_id`, `assume_role`)
+`--auth-type`: Required. AWS auth type (`access_key`, `cloud_id`, `assume_role`)
 
 `--region`: AWS region
 
@@ -189,17 +227,17 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 ##### `azure-analytics`
 
-`--workspace-id`: Azure workspace ID
+`--workspace-id`: Required. Azure workspace ID
 
-`--workspace-key`: Azure workspace key
+`--workspace-key`: Required. Azure workspace key
 
 `--enable-batch[=true]`: Enable or disable batch forwarding
 
 ##### `datadog`
 
-`--host`: Datadog host
+`--host`: Required. Datadog host
 
-`--api-key`: Datadog API key
+`--api-key`: Required. Datadog API key
 
 `--log-source[=use-existing]`: Datadog source field
 
@@ -209,11 +247,11 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 ##### `elasticsearch`
 
-`--index`: Elasticsearch index
+`--index`: Required. Elasticsearch index
 
-`--server-type`: Server type (`nodes` or `cloud`)
+`--server-type`: Required. Server type (`nodes` or `cloud`)
 
-`--auth-type`: Auth type (`api_key` or `password`)
+`--auth-type`: Required. Auth type (`api_key` or `password`)
 
 `--nodes`: Required when `--server-type nodes`
 
@@ -233,21 +271,21 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 ##### `google-chronicle`
 
-`--customer-id`: Google Chronicle customer ID
+`--customer-id`: Required. Google Chronicle customer ID
 
-`--region`: Region (`eu_multi_region`, `london`, `us_multi_region`, `singapore`, `tel_aviv`)
+`--region`: Required. Region (`eu_multi_region`, `london`, `us_multi_region`, `singapore`, `tel_aviv`)
 
-`--log-type`: Chronicle log type
+`--log-type`: Required. Chronicle log type
 
-`--gcp-key-file-path`: Path to a GCP service-account private key file
+`--gcp-key-file-path`: Path to a GCP service-account private key file (alternative to `--gcp-key`)
 
-`--gcp-key`: Base64-encoded GCP service-account private key text
+`--gcp-key`: Required. Base64-encoded GCP service-account private key text (or supply via `--gcp-key-file-path`)
 
 ##### `logstash`
 
-`--dns`: Logstash DNS or host endpoint
+`--dns`: Required. Logstash DNS or host endpoint
 
-`--protocol`: Protocol (`tcp` or `udp`)
+`--protocol`: Required. Protocol (`tcp` or `udp`)
 
 `--enable-tls`: Enable or disable TLS
 
@@ -257,17 +295,17 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 
 ##### `logz-io`
 
-`--logz-io-token`: Logz.io token
+`--logz-io-token`: Required. Logz.io token
 
-`--protocol`: Protocol (`tcp` or `https`)
+`--protocol`: Required. Protocol (`tcp` or `https`)
 
 ##### `splunk`
 
-`--splunk-url`: Splunk server URL
+`--splunk-url`: Required. Splunk server URL
 
-`--splunk-token`: Splunk token
+`--splunk-token`: Required. Splunk token
 
-`--index`: Splunk index
+`--index`: Required. Splunk index
 
 `--source[=use-existing]`: Splunk source
 
@@ -287,7 +325,7 @@ The `stdout` provider writes session logs directly to the gateway process standa
 
 ##### `sumologic`
 
-`--endpoint`: Sumo Logic endpoint URL
+`--endpoint`: Required. Sumo Logic endpoint URL
 
 `--sumologic-tags[=use-existing]`: Comma-separated Sumo Logic tags
 
@@ -313,7 +351,7 @@ The `stdout` provider writes session logs directly to the gateway process standa
 
 ### `gateway-get-remote-access`
 
-Returns the current SRA configuration for the gateway.
+Returns the current SRA configuration for the gateway as a JSON object with four sub-objects: `global` (allowed URLs, session TTL, keyboard layout, and legacy SSH settings), `ssh_bastion` (SSH-specific settings), `web_bastion` (web access and RDP recording settings), and `desktop_app` (desktop application settings).
 
 #### Alias command
 
@@ -330,6 +368,12 @@ akeyless gateway get remote-access
 #### Key flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+#### Example
+
+```shell
+akeyless gateway-get-remote-access --gateway-url https://my-gw.example.com:8000
+```
 
 ## Session and Bastion Inventory Commands
 
@@ -351,6 +395,12 @@ akeyless list-sra-sessions
 
 `--resource-type`: Connection type filter. Options: `aws`, `eks`, `gke`, `k8s`, `mongodb`, `mssql`, `mysql`, `postgres`, `rdp`, `ssh`
 
+#### Example
+
+```shell
+akeyless list-sra-sessions --status-type connected --resource-type ssh
+```
+
 #### Behavior notes
 
 By default, this command is own-only scoped in the command implementation.
@@ -359,7 +409,7 @@ This command does not appear in `akeyless --help` output; invoke it directly by 
 
 ### `list-sra-bastions`
 
-Lists SRA bastions.
+Lists gateways registered to serve SRA connections (bastions), including their allowed URL configuration.
 
 #### Usage
 
@@ -370,6 +420,12 @@ akeyless list-sra-bastions
 #### Key flags
 
 `--allowed-urls-only[=false]`: Show only bastion allowed URL configuration
+
+#### Example
+
+```shell
+akeyless list-sra-bastions --allowed-urls-only true
+```
 
 #### Behavior notes
 
@@ -385,3 +441,4 @@ For HTTP endpoint details that map to these commands, see:
 * [Update Gateway Remote Access Desktop App](https://docs.akeyless.io/reference/gatewayupdateremoteaccessdesktopapp)
 * [List SRA Sessions](https://docs.akeyless.io/reference/listsrasessions)
 * [List SRA Bastions](https://docs.akeyless.io/reference/listsrabastions)
+* For `gateway-update-remote-access-session-forwarding-<provider>` REST endpoints, see the [Akeyless API Reference](https://docs.akeyless.io/reference) and search for `gateway-update-remote-access-session-forwarding`.
