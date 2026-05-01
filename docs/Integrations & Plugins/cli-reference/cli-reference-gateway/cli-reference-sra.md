@@ -14,10 +14,6 @@ This page lists Secure Remote Access (SRA) commands for gateway update flows and
 
 <CLIGeneralFlags />
 
-> ℹ️ **Note:**
->
-> Command names in this page are aligned with source code command registration and command handlers.
-
 ## Command Group
 
 Gateway SRA update commands are available under the `gateway update` command group and by alias commands.
