@@ -33,15 +33,10 @@ akeyless gateway-update-remote-access
 
 Configures global SRA behavior for the gateway: which bastion redirect URLs and SSH tunnel URLs are allowed, the default session time-to-live, SSH certificate signing settings (legacy algorithm and key exchange algorithms), the RDP/SSH username sub-claim mapping used for externally provided usernames, keyboard layout for web sessions, and whether the session recording indicator is shown to users.
 
-#### Alias command
-
-```shell
+```shell Alias
 akeyless gateway-update-remote-access
 ```
-
-#### Command-group form
-
-```shell
+```shell Command group
 akeyless gateway update remote-access
 ```
 
@@ -80,15 +75,10 @@ akeyless gateway-update-remote-access \
 
 Configures video recording of RDP sessions on this gateway. Controls whether recording is enabled, the storage backend (local gateway storage, AWS S3, or Azure Blob Storage), recording quality, optional compression, and optional encryption of uploaded recordings.
 
-#### Alias command
-
-```shell
+```shell Alias
 akeyless gateway-update-remote-access-rdp-recording
 ```
-
-#### Command-group form
-
-```shell
+```shell Command group
 akeyless gateway update remote-access-rdp-recording
 ```
 
@@ -143,15 +133,10 @@ akeyless gateway-update-remote-access-rdp-recording \
 
 Configures the Akeyless Desktop App's connection settings for this gateway. Sets the default SSH certificate issuer used when the desktop app initiates sessions, the secure web access URL users are directed to, and the secure web proxy URL.
 
-#### Alias command
-
-```shell
+```shell Alias
 akeyless gateway-update-remote-access-desktop-app
 ```
-
-#### Command-group form
-
-```shell
+```shell Command group
 akeyless gateway update remote-access-desktop-app
 ```
 
@@ -177,15 +162,10 @@ akeyless gateway-update-remote-access-desktop-app \
 
 Configures forwarding of SRA session logs to an external logging system. Session logs capture CLI input and output from SSH and database sessions. Each provider variant targets a specific logging backend. Settings include connection credentials for the target system, the log format, and a pull interval. Changes apply per-gateway and per-provider.
 
-#### Base command-group form
-
-```shell
+```shell Command group
 akeyless gateway update remote-access-session-forwarding <provider>
 ```
-
-#### Alias form
-
-```shell
+```shell Alias
 akeyless gateway-update-remote-access-session-forwarding-<provider>
 ```
 
@@ -353,15 +333,10 @@ The `stdout` provider writes session logs directly to the gateway process standa
 
 Returns the current SRA configuration for the gateway as a JSON object with four sub-objects: `global` (allowed URLs, session TTL, keyboard layout, and legacy SSH settings), `ssh_bastion` (SSH-specific settings), `web_bastion` (web access and RDP recording settings), and `desktop_app` (desktop application settings).
 
-#### Alias command
-
-```shell
+```shell Alias
 akeyless gateway-get-remote-access
 ```
-
-#### Command-group form
-
-```shell
+```shell Command group
 akeyless gateway get remote-access
 ```
 
