@@ -43,7 +43,7 @@ This model combines external identity providers for authentication, role-based a
 SRA supports more than one deployment pattern depending on operational requirements:
 
 * Unified deployment: Deploy SRA by using the `akeyless-gateway` chart with SRA enabled.
-* Legacy split deployment: Existing environments might still use a separate SRA deployment model and migrate over time.
+* Legacy split deployment: Existing environments might still use a separate SRA deployment model, but migration to the unified deployment is recommended.
 * Topology variants: Kubernetes and Docker Compose are both supported, including Zero Trust Web Access patterns for browser-isolated access.
 
 For implementation details, start with [Setup Overview](https://docs.akeyless.io/docs/sra-setup-overview).
