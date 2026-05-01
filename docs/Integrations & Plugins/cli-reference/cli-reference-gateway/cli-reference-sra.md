@@ -31,7 +31,7 @@ akeyless gateway-update-remote-access
 
 ### `gateway-update-remote-access`
 
-Updates core SRA configuration.
+Configures global SRA behavior for the gateway: which bastion redirect URLs and SSH tunnel URLs are allowed, the default session time-to-live, SSH certificate signing settings (legacy algorithm and key exchange algorithms), the RDP/SSH username sub-claim mapping used for externally provided usernames, keyboard layout for web sessions, and whether the session recording indicator is shown to users.
 
 #### Alias command
 
@@ -78,7 +78,7 @@ akeyless gateway-update-remote-access \
 
 ### `gateway-update-remote-access-rdp-recording`
 
-Updates RDP recording configuration for SRA.
+Configures video recording of RDP sessions on this gateway. Controls whether recording is enabled, the storage backend (local gateway storage, AWS S3, or Azure Blob Storage), recording quality, optional compression, and optional encryption of uploaded recordings.
 
 #### Alias command
 
@@ -141,7 +141,7 @@ akeyless gateway-update-remote-access-rdp-recording \
 
 ### `gateway-update-remote-access-desktop-app`
 
-Updates desktop application settings used by SRA.
+Configures the Akeyless Desktop App's connection settings for this gateway. Sets the default SSH certificate issuer used when the desktop app initiates sessions, the secure web access URL users are directed to, and the secure web proxy URL.
 
 #### Alias command
 
@@ -175,7 +175,7 @@ akeyless gateway-update-remote-access-desktop-app \
 
 ### `gateway-update-remote-access-session-forwarding-<provider>`
 
-Updates SRA session log forwarding configuration for a specific provider.
+Configures forwarding of SRA session logs to an external logging system. Session logs capture CLI input and output from SSH and database sessions. Each provider variant targets a specific logging backend. Settings include connection credentials for the target system, the log format, and a pull interval. Changes apply per-gateway and per-provider.
 
 #### Base command-group form
 
@@ -381,7 +381,7 @@ The following commands are top-level CLI commands and are not under `gateway upd
 
 ### `list-sra-sessions`
 
-Lists SRA sessions for the calling user.
+Lists SRA connection sessions associated with the authenticated user. Returns session metadata including resource type, connection status, and session identifiers. Useful for auditing active or recent connections. Results can be filtered by connection status and resource type.
 
 #### Usage
 
