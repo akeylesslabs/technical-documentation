@@ -1,0 +1,42 @@
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.2
+    hooks:
+      - id: gitleaks
+        name: gitleaks (secret scan)
+        args: ["protect", "--staged", "--redact"]
+
+  # Local hooks: markdownlint, cspell, lychee
+  # Note: These run sequentially on edited markdown files. Markdownlint uses --fix to auto-correct issues.
+  # To preview changes without modifying files, run:
+  #   pre-commit run --files <file> --hook-stage manual
+  # To skip these hooks for a commit (not recommended):
+  #   git commit --no-verify
+  - repo: local
+    hooks:
+      - id: markdownlint
+        name: markdownlint (edited markdown files)
+        language: system
+        entry: npx markdownlint-cli2 --fix --config .github/markdownlint/.markdownlint-cli2.yaml --no-globs
+        files: \.md$
+        pass_filenames: true
+        require_serial: true
+        stages: [commit]
+
+      - id: cspell
+        name: cspell (edited markdown files)
+        language: system
+        entry: npx cspell --config cspell.config.yaml --no-progress
+        files: \.md$
+        pass_filenames: true
+        require_serial: true
+        stages: [commit]
+
+      - id: lychee
+        name: lychee (edited markdown files)
+        language: system
+        entry: lychee --verbose --no-progress --exclude-file .github/lychee/.lycheeignore --exclude-path .github --exclude-link-local --exclude-loopback --include-mail
+        files: \.md$
+        pass_filenames: true
+        require_serial: true
+        stages: [commit]

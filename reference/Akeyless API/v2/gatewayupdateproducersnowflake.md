@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-snowflake
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerSnowflake

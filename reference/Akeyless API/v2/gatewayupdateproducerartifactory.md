@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-artifactory
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerArtifactory

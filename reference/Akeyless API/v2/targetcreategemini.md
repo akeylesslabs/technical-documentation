@@ -1,6 +1,4 @@
 ---
-title: /target-create-gemini
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateGemini

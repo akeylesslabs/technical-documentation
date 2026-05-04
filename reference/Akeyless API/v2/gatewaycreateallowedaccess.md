@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-allowed-access
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateAllowedAccess

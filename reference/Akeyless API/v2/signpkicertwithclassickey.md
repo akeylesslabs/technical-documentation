@@ -1,6 +1,4 @@
 ---
-title: /sign-pki-cert-with-classic-key
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: signPKICertWithClassicKey

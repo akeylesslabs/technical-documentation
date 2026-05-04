@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-cassandra
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerCassandra

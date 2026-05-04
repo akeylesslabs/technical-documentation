@@ -1,6 +1,4 @@
 ---
-title: /create-auth-method-gcp
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createAuthMethodGCP

@@ -1,6 +1,4 @@
 ---
-title: /list-sra-sessions
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: listSRASessions

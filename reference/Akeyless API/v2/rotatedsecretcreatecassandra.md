@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-create-cassandra
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretCreateCassandra

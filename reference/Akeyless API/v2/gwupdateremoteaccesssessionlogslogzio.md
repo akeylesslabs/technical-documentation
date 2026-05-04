@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-remote-access-session-forwarding-logz-io
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gwUpdateRemoteAccessSessionLogsLogzIo

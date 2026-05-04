@@ -239,6 +239,14 @@ akeyless target create db \
 
 `--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
+`--enable-mtls[=false]`: Enable/Disable mTLS [true/false]. Relevant only when `--ssl=true`
+
+`--client-certificate`: Client certificate in Base64 format. Relevant only when `--enable-mtls=true`
+
+`--client-private-key`: Client private key in Base64 format. Relevant only when `--enable-mtls=true`
+
+`--client-key-passphrase`: Optional private key passphrase. Relevant only when `--enable-mtls=true`
+
 `--snowflake-account`: Snowflake account name
 
 `--oracle-service-name`: Oracle DB service name

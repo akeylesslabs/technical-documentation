@@ -1,6 +1,4 @@
 ---
-title: /create-dynamic-secret
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createDynamicSecret

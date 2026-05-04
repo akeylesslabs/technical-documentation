@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-delete
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretDelete

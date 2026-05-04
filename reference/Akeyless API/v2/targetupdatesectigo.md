@@ -1,6 +1,4 @@
 ---
-title: /target-update-sectigo
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateSectigo

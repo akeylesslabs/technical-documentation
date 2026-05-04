@@ -1,6 +1,4 @@
 ---
-title: /reverse-rbac
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: reverseRBAC

@@ -1,6 +1,4 @@
 ---
-title: /target-create-gke
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateGke

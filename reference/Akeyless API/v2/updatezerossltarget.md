@@ -1,6 +1,4 @@
 ---
-title: /update-zerossl-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateZeroSSLTarget

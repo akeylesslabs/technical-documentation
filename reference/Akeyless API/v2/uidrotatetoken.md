@@ -1,6 +1,4 @@
 ---
-title: /uid-rotate-token
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uidRotateToken

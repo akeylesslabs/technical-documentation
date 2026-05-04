@@ -1,6 +1,4 @@
 ---
-title: /auth-method-list
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodList

@@ -1,6 +1,4 @@
 ---
-title: /get-analytics-data
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: getAnalyticsData

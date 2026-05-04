@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-google-workspace
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateGoogleWorkspace

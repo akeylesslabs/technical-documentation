@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-log-forwarding-google-chronicle
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateLogForwardingGoogleChronicle

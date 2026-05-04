@@ -1,6 +1,4 @@
 ---
-title: /create-ssh-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createSSHTarget

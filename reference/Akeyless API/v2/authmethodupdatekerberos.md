@@ -1,6 +1,4 @@
 ---
-title: /auth-method-update-kerberos
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodUpdateKerberos

@@ -56,7 +56,11 @@ akeyless target create db \
 --host <Database host> \
 --port <Database port> \
 --user-name <Database user name> \
---db-name <Database name>
+--db-name <Database name> \
+--ssl[=true] \
+--enable-mtls[=true] \
+--client-certificate <Client certificate in Base64> \
+--client-private-key <Client private key in Base64>
 ```
 ```shell PostgreSQL
 akeyless target create db \
@@ -66,7 +70,11 @@ akeyless target create db \
 --host <Database host> \
 --port <Database port> \
 --user-name <Database user name> \
---db-name <Database name>
+--db-name <Database name> \
+--ssl[=true] \
+--enable-mtls[=true] \
+--client-certificate <Client certificate in Base64> \
+--client-private-key <Client private key in Base64>
 ```
 ```shell MSSQL
 akeyless target create db \
@@ -177,9 +185,17 @@ For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-kno
 
 **DB Name:** Target database name.
 
-**SSL:** Check to enable SSL, requires SSL certificate.
+**SSL:** Check to enable SSL.
 
-**DB Server Certificate:** Set of root certificate authorities in Base64 encoding used by clients to verify server certificates.
+**DB Server Certificate:** Optional. Set of root certificate authorities in Base64 encoding used by clients to verify server certificates.
+
+**mTLS:** Enable mTLS to present a client certificate and key during authentication.
+
+**Client Certificate:** Client certificate in Base64 format. Relevant only when **mTLS** is enabled.
+
+**Client Private Key:** Client private key in Base64 format. Relevant only when **mTLS** is enabled.
+
+**Client Private Key Passphrase:** Optional passphrase for the client private key. Relevant only when **mTLS** is enabled.
 
 **DB Server Name:** The server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
@@ -204,7 +220,17 @@ For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-kno
 
 **DB Name:** Target database name.
 
-**SSL:** Check to enable SSL, requires SSL certificate.
+**SSL:** Check to enable SSL.
+
+**DB Server Certificate:** Optional. Set of root certificate authorities in Base64 encoding used by clients to verify server certificates.
+
+**mTLS:** Enable mTLS to present a client certificate and key during authentication.
+
+**Client Certificate:** Client certificate in Base64 format. Relevant only when **mTLS** is enabled.
+
+**Client Private Key:** Client private key in Base64 format. Relevant only when **mTLS** is enabled.
+
+**Client Private Key Passphrase:** Optional passphrase for the client private key. Relevant only when **mTLS** is enabled.
 
 Click **Finish**.
 

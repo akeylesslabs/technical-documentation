@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-azure
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateAzure

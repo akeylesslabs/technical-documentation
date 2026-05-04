@@ -343,6 +343,8 @@ metricsExistingSecret:
 encryptionKeyExistingSecret:
 ```
 
+When using `allowedAccessPermissions`, wildcard access IDs are supported with `access_id: "*"`.
+
 More options for using K8s Secrets can be found directly within the chart values file.
 
 ### Gateway Image Defaults and Override

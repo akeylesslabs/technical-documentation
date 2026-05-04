@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-postgresql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdatePostgreSql

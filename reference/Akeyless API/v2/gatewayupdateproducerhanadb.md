@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-hana
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerHanaDb

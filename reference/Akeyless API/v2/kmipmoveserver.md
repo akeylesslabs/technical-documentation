@@ -1,6 +1,4 @@
 ---
-title: /kmip-move-environment
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: kmipMoveServer

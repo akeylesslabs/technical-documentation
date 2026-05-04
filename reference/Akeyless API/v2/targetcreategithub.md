@@ -1,6 +1,4 @@
 ---
-title: /target-create-github
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateGithub

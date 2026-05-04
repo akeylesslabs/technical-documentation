@@ -1,6 +1,4 @@
 ---
-title: /update-certificate-value
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateCertificateValue

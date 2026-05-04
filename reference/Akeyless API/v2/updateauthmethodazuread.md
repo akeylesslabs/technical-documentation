@@ -1,6 +1,4 @@
 ---
-title: /update-auth-method-azure-ad
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateAuthMethodAzureAD

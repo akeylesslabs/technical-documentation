@@ -31,6 +31,7 @@ Use this style guide as permanent context for all documentation work in this rep
 * Keep edits minimal and scoped to the requested task; do not rewrite unaffected sections.
 * When creating a branch for this repository, always use a branch name prefixed with `v1.0_`.
 * Preserve front matter and metadata unless the task explicitly requires changes.
+* **Sensitive examples and placeholders**: All credential-like values (API keys, passwords, tokens, cloud account IDs) in documentation examples **must use semantic placeholders**. See the style guide's "Sensitive Examples and Placeholders" section for conventions and examples. Never commit real or real-looking credentials, and verify with `pre-commit run gitleaks` before pushing.
 * For ReadMe.com pages, ensure front matter is present and complete. Use this baseline unless a nearby file requires an exception:
 
     ```yaml
@@ -68,11 +69,15 @@ Use this style guide as permanent context for all documentation work in this rep
       Code 2.
       ```
 * Run validation only against edited Markdown pages, not the full repository, unless explicitly requested.
+* Default to pre-commit validation for edited files:
+
+    * `pre-commit run --files "<edited-file>.md"`
+    * Use `pre-commit run --all-files` only when full-repository validation is explicitly requested.
 * For local validation in VS Code, use workspace tasks in `.vscode/tasks.json` as the default path instead of running validator commands/scripts directly:
 
     * `Docs: Validate Edited File (full)` to run markdownlint (`--fix` and verify), cspell, and lychee for one file.
     * `Docs: Link Check (token-aware)` or `Docs: Link Check (token-aware, file)` for token-aware lychee checks that reduce GitHub rate-limit noise.
-* Use direct CLI commands only as a fallback when tasks cannot be run. When needed, run markdownlint against each edited file before finalizing:
+* Use direct CLI commands only as a fallback when pre-commit or tasks cannot be run. When needed, run markdownlint against each edited file before finalizing:
 
     * `npx markdownlint-cli2 --fix --config .github/markdownlint/.markdownlint-cli2.yaml "<edited-file>.md"`
     * Then verify with: `npx markdownlint-cli2 --config .github/markdownlint/.markdownlint-cli2.yaml "<edited-file>.md"`

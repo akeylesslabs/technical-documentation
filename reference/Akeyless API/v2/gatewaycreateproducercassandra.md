@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-cassandra
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerCassandra

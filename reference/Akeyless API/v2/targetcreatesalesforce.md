@@ -1,6 +1,4 @@
 ---
-title: /target-create-salesforce
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateSalesforce

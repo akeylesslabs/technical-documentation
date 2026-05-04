@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-k8s
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateK8s

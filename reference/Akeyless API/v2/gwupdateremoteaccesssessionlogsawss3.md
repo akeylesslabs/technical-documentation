@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-remote-access-session-forwarding-aws-s3
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gwUpdateRemoteAccessSessionLogsAwsS3

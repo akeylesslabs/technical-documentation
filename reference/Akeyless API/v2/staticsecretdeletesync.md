@@ -1,6 +1,4 @@
 ---
-title: /static-secret-delete-sync
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: staticSecretDeleteSync

@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-rdp
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateRdp

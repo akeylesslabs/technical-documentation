@@ -67,13 +67,8 @@ jobs:
             RESOLVED_VERSION="$(curl -sS "https://dl.k8s.io/release/stable-${MINOR}.txt" 2>/dev/null || echo "")"
             if [ -z "$RESOLVED_VERSION" ] || [[ "$RESOLVED_VERSION" =~ \<\?xml ]]; then
               echo "⚠ Kubernetes 1.$MINOR: stable version file not available; falling back to GitHub releases"
-              RESOLVED_VERSION="$(python3 -c "import json, urllib.request, urllib.error; minor=${MINOR}; req=urllib.request.Request('https://api.github.com/repos/kubernetes/kubernetes/releases?per_page=100', headers={'Accept':'application/vnd.github+json','User-Agent':'akeyless-ci'});\
-try:\
-  releases=json.load(urllib.request.urlopen(req, timeout=30));\
-except (urllib.error.URLError, TimeoutError):\
-  releases=[];\
-prefix=f'v1.{minor}.'; tags=[str(r.get('tag_name') or '').strip() for r in releases if not r.get('prerelease') and not r.get('draft') and str(r.get('tag_name') or '').strip().startswith(prefix)];\
-print(tags[0] if tags else '')" 2>/dev/null || true)"
+              RELEASES_JSON="$(curl -sS "https://api.github.com/repos/kubernetes/kubernetes/releases?per_page=100" 2>/dev/null || echo '[]')"
+              RESOLVED_VERSION="$(echo "$RELEASES_JSON" | jq -r --arg prefix "v1.${MINOR}." '[.[] | select((.prerelease | not) and (.draft | not) and (.tag_name | startswith($prefix))) | .tag_name][0] // empty')"
             fi
 
             if [ -z "$RESOLVED_VERSION" ]; then

@@ -1,6 +1,4 @@
 ---
-title: /get-certificate-value
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: getCertificateValue

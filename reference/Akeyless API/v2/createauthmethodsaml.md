@@ -1,6 +1,4 @@
 ---
-title: /create-auth-method-saml
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createAuthMethodSAML

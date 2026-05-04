@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-gitlab
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateGitlab

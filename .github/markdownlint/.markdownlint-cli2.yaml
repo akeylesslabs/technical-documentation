@@ -653,6 +653,14 @@ config:
     languages_file: .github/markdownlint/fence-languages.txt
     tabs_file: .github/markdownlint/fence-tabs.txt
 
+  # AKY023: Disallow real-looking cloud account identifiers in docs examples
+  # Required placeholders when needed:
+  #   <service-account-name>@<project-id>.iam.gserviceaccount.com
+  #   arn:aws:iam::<aws-account-id>:root
+  #   <azure-tenant-id>, <azure-subscription-id>, <azure-client-id>
+  #   <resource-ocid>
+  AKY023: true
+
   # =========================
   # Core markdownlint Rules
   # =========================

@@ -1,6 +1,4 @@
 ---
-title: /tokenize-batch
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: tokenizeBatch

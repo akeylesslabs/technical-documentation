@@ -1,6 +1,4 @@
 ---
-title: /gateway-get-cache
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayGetCache

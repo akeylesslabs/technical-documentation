@@ -1,6 +1,4 @@
 ---
-title: /auth-method-create-kerberos
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodCreateKerberos

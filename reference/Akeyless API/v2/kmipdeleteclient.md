@@ -1,6 +1,4 @@
 ---
-title: /kmip-delete-client
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: kmipDeleteClient

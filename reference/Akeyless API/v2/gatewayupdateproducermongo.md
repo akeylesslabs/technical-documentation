@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-mongo
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerMongo

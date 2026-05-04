@@ -1,6 +1,4 @@
 ---
-title: /auth-method-update-aws-iam
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodUpdateAwsIam

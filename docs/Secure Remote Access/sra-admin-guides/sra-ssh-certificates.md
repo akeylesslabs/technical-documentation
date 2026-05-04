@@ -162,7 +162,18 @@ akeyless create-ssh-cert-issuer --name /prod/ssh-cert-issuer --signer-key-name /
 > Starting with Gateway **v4.45.0**, Secure Remote Access (SRA) works out of the box with any **SSH Cert Issuer** where Secure Remote Access is enabled.
 >
 > If you’re using an older Gateway version, make sure the SSH Cert Issuer `allowed_users` includes `session_*`, so JIT (session) users are authorized. Also ensure **Secure Remote Access is enabled** on the SSH Cert Issuer.
-
+> ℹ️ **Note (Connection Allowlist):**
+>
+> When SRA is enabled on an SSH Cert Issuer, you can restrict which hosts users may connect to by using the `--secure-access-host` and `--secure-access-enforce-hosts-restriction` flags. Starting with SRA v2.9.0, `--secure-access-host` accepts CIDR notation in addition to individual hostnames and IP addresses, for example:
+>
+> ```shell
+> akeyless update-ssh-cert-issuer \
+> --name /prod/ssh-cert-issuer \
+> --secure-access-enforce-hosts-restriction true \
+> --secure-access-host 10.0.0.5 \
+> --secure-access-host 192.168.1.0/24
+> ```
+>
 ### Issuing a Certificate
 
 After setting up a key and a certificate issuer, the following command will generate a certificate signed by the CA.

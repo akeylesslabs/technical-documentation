@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-Redis
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerRedis

@@ -65,6 +65,34 @@ jobs:
       branch_name: automation/cli-command-path-check
     secrets: inherit
 
+  secret-scan:
+    name: Secret Scan
+    runs-on: ubuntu-latest
+    outputs:
+      scan_summary: ${{ steps.scan.outputs.summary }}
+      leaks_found: ${{ steps.scan.outputs.leaks_found }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Run gitleaks secret scan
+        id: scan
+        run: |
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.24.2 dir /repo --redact --no-banner --exit-code 0 2>&1 | tee /tmp/gitleaks-output.txt || true
+
+          LEAKS_FOUND=$(grep -o "leaks found: [0-9]*" /tmp/gitleaks-output.txt | grep -o "[0-9]*" || echo "0")
+          if grep -q "no leaks found" /tmp/gitleaks-output.txt; then
+            LEAKS_FOUND=0
+          fi
+
+          SUMMARY="Gitleaks secret scan completed: ${LEAKS_FOUND} potential leaks found"
+          echo "summary=${SUMMARY}" >> "$GITHUB_OUTPUT"
+          echo "leaks_found=${LEAKS_FOUND}" >> "$GITHUB_OUTPUT"
+          echo "$SUMMARY"
+
   dependency-change-monitor:
     runs-on: ubuntu-latest
     outputs:
@@ -351,6 +379,7 @@ jobs:
       - markdownlint
       - spell-check
       - cli-path-check
+      - secret-scan
       - dependency-change-monitor
     if: always()
 
@@ -382,6 +411,10 @@ jobs:
           CLI_PATH_TOP5: ${{ needs.cli-path-check.outputs.cli_path_top5 }}
           CLI_PATH_COMMIT_URL: ${{ needs.cli-path-check.outputs.commit_url }}
 
+          SECRET_SCAN_SUMMARY: ${{ needs.secret-scan.outputs.scan_summary }}
+          SECRET_SCAN_LEAKS: ${{ needs.secret-scan.outputs.leaks_found }}
+          SECRET_SCAN_RULES: ${{ needs.secret-scan.outputs.rule_breakdown }}
+
           DEP_SUMMARY: ${{ needs.dependency-change-monitor.outputs.dep_summary }}
           DEP_FINDINGS: ${{ needs.dependency-change-monitor.outputs.dep_findings }}
           DEP_TOP5: ${{ needs.dependency-change-monitor.outputs.dep_top5 }}
@@ -397,9 +430,10 @@ jobs:
           MARKDOWNLINT_VIOLATIONS="${MARKDOWNLINT_VIOLATIONS:-0}"
           CSPELL_ISSUE_COUNT="${CSPELL_ISSUE_COUNT:-0}"
           CLI_PATH_FAILURES="${CLI_PATH_FAILURES:-0}"
+          SECRET_SCAN_LEAKS="${SECRET_SCAN_LEAKS:-0}"
           DEP_FINDINGS="${DEP_FINDINGS:-0}"
 
-          FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES + DEP_FINDINGS))
+          FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES + SECRET_SCAN_LEAKS + DEP_FINDINGS))
 
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_OUTPUT"
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_ENV"
@@ -436,6 +470,9 @@ jobs:
 
           ### Top CLI Command Path Findings
           ${CLI_PATH_TOP5}
+
+          ## Secret Scan
+          - ${SECRET_SCAN_SUMMARY}
 
           ## Dependency Change Monitor
           - ${DEP_SUMMARY}
@@ -481,6 +518,10 @@ jobs:
           CLI_PATH_FAILURES: ${{ needs.cli-path-check.outputs.cli_path_failures }}
           CLI_PATH_TOP5: ${{ needs.cli-path-check.outputs.cli_path_top5 }}
 
+          SECRET_SCAN_SUMMARY: ${{ needs.secret-scan.outputs.scan_summary }}
+          SECRET_SCAN_LEAKS: ${{ needs.secret-scan.outputs.leaks_found }}
+          SECRET_SCAN_RULES: ${{ needs.secret-scan.outputs.rule_breakdown }}
+
           FINDINGS_TOTAL: ${{ steps.aggregate.outputs.findings_total }}
         run: |
           set -e
@@ -513,6 +554,9 @@ jobs:
             --arg c1 "$CLI_PATH_SUMMARY" \
             --arg c2 "$CLI_PATH_FAILURES" \
             --arg c3 "$CLI_PATH_TOP5" \
+            --arg sec1 "$SECRET_SCAN_SUMMARY" \
+            --arg sec2 "$SECRET_SCAN_LEAKS" \
+            --arg sec3 "$SECRET_SCAN_RULES" \
             --arg total "$FINDINGS_TOTAL" \
             'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
              def linkPara($label; $url):
@@ -544,6 +588,9 @@ jobs:
                  para("CLI command path failures: " + $c2),
                  para("Top CLI command path findings:"),
                  codeBlock($c3),
+                 para("Secret scan: " + $sec1),
+                 para("Potential leaks found: " + $sec2),
+                 (if ($sec3 != "" and $sec3 != "No leaks detected") then para("Rule breakdown: " + $sec3) else empty end),
                  para("This ticket was created automatically by GitHub Actions.")
                ]
              }')

@@ -1,6 +1,4 @@
 ---
-title: /decrypt-with-classic-key
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: decryptWithClassicKey

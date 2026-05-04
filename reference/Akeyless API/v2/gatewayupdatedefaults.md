@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-defaults
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateDefaults

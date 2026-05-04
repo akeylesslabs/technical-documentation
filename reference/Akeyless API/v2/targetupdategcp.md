@@ -1,6 +1,4 @@
 ---
-title: /target-update-gcp
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateGcp

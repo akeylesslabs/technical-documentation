@@ -1,6 +1,4 @@
 ---
-title: /gateway-get-producer
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayGetProducer

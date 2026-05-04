@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-tls-cert
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: GatewayUpdateTlsCert

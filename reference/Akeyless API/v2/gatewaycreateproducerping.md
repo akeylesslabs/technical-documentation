@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-ping
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerPing

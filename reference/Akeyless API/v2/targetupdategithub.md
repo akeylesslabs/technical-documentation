@@ -1,6 +1,4 @@
 ---
-title: /target-update-github
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateGithub

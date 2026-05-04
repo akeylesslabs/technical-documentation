@@ -1,6 +1,4 @@
 ---
-title: /update-linked-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateLinkedTarget

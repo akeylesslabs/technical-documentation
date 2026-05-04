@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-github
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateGithub

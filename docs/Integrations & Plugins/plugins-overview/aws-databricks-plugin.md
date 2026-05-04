@@ -174,7 +174,7 @@ Example trust policy (cross-account):
 {
   "Effect": "Allow",
   "Principal": {
-    "AWS": "arn:aws:iam::414351767826:root"
+    "AWS": "arn:aws:iam::<aws-account-id>:root"
   },
   "Action": "sts:AssumeRole",
   "Condition": {

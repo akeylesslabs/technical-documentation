@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-rdp
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerRdp

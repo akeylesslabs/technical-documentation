@@ -1,6 +1,4 @@
 ---
-title: /raw-creds
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rawCreds

@@ -1,6 +1,4 @@
 ---
-title: /update-pki-cert-issuer
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: UpdatePKICertIssuer

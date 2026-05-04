@@ -1,6 +1,4 @@
 ---
-title: /update-assoc
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateAssoc

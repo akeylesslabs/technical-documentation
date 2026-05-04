@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-update-azure
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretUpdateAzure

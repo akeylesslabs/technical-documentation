@@ -1,6 +1,4 @@
 ---
-title: /hmac
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: hmac

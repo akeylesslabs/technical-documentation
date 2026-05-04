@@ -1,6 +1,4 @@
 ---
-title: /event-forwarder-update-email
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: eventForwarderUpdateEmail

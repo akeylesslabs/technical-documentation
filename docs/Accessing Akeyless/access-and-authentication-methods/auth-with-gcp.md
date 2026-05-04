@@ -131,6 +131,8 @@ akeyless auth \
   --gcp-audience akeyless.io
 ```
 
+For GitHub Actions-specific GCP Workload Identity Federation (WIF) workflows (including keyless OIDC and static service account JSON key examples), see [GitHub Actions Plugin](https://docs.akeyless.io/docs/github-action#gcp-workload-identity-federation).
+
 ## Optional Features
 
 For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).

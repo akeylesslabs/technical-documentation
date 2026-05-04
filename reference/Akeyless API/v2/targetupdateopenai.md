@@ -1,6 +1,4 @@
 ---
-title: /target-update-openai
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateOpenAI

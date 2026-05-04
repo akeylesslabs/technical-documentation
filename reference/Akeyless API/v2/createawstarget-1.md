@@ -1,6 +1,4 @@
 ---
-title: /create-aws-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createAWSTarget

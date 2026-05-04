@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-ping
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreatePing

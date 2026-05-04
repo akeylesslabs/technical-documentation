@@ -1,6 +1,4 @@
 ---
-title: /esm-update
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: esmUpdate

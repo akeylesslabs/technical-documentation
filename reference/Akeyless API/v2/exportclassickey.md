@@ -1,6 +1,4 @@
 ---
-title: /export-classic-key
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: ExportClassicKey
