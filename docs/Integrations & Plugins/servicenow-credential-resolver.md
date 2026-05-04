@@ -122,7 +122,7 @@ Insert your parameters inside the `<parameters>` block:
     <!-- Certificate authentication with inline material -->
     <!-- <parameter name="ext.cred.akeyless.access_type" value="certificate" /> -->
     <!-- <parameter name="ext.cred.akeyless.cert_data" value="-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----" secure="true" /> -->
-    <!-- <parameter name="ext.cred.akeyless.key_data" value="-----BEGIN PRIVATE KEY-----...-----END PRIVATE KEY-----" secure="true" /> -->
+    <!-- <parameter name="ext.cred.akeyless.key_data" value="<PRIVATE_KEY_PEM_CONTENT>" secure="true" /> -->
 
     <!-- Certificate authentication with file-based material -->
     <!-- <parameter name="ext.cred.akeyless.cert_file_name" value="/opt/agent/certs/client.crt" /> -->

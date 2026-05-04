@@ -1615,5 +1615,130 @@ module.exports = [
         }
       }
     }
+  },
+
+  /**
+   * AKY023: Disallow real-looking cloud account identifiers and hardcoded secrets in examples
+   *
+   * Detects:
+   * - Cloud account identifiers (GCP, AWS, Azure, OCI)
+   * - Hardcoded environment variables (e.g., DATABASE_PASSWORD=hardcoded123)
+   * - Environment file patterns (export VAR=value)
+   *
+   * Required placeholders:
+   * - GCP service account: <service-account-name>@<project-id>.iam.gserviceaccount.com
+   * - AWS account in ARN: arn:aws:iam::<aws-account-id>:root
+   * - Azure IDs: <azure-tenant-id>, <azure-subscription-id>, <azure-client-id>
+   * - OCI OCID: <resource-ocid>
+   * - Env vars: export VAR_NAME=<VALUE> or VAR_NAME=<VALUE>
+   */
+  {
+    names: ["AKY023", "no-real-cloud-identifiers"],
+    description: "Disallow real-looking cloud account identifiers and hardcoded secrets in documentation examples",
+    tags: ["security", "examples", "privacy"],
+    function: function (params, onError) {
+      const lines = params.lines || [];
+      const codeLines = getCodeBlockLineSet(params.tokens);
+      
+      const serviceAccountRe = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.iam\.gserviceaccount\.com\b/g;
+      const gcpPlaceholder = "<service-account-name>@<project-id>.iam.gserviceaccount.com";
+      const awsRootArnRe = /\barn:aws:iam::(\d{12}):root\b/g;
+      const azureFlagValueRe = /--(?:tenant-id|bound-tenant-id|bound-sub-id|subscription-id|client-id|object-id|principal-id)\s+([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})\b/g;
+      const azureLabelValueRe = /\b(?:tenant id|subscription id|client id|object id|principal id)\b\s*[:=]?\s*([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})\b/gi;
+      const ociOcidRe = /\bocid1\.(?:tenancy|user|compartment|instance|dynamicgroup|apikey)\.[A-Za-z0-9._-]+\b/g;
+      // Detect hardcoded env vars: DATABASE_PASSWORD=hardcoded_value or export VAR=value (avoid placeholders in angle brackets)
+      const hardcodedEnvVarRe = /\b(?:export\s+)?([A-Z_][A-Z0-9_]*)=(?!<)([^\s<>"']+)/g;
+      const sensitiveEnvNames = /^(PASSWORD|SECRET|KEY|TOKEN|CREDENTIAL|API_KEY|ACCESS_KEY|PRIVATE_KEY|ENCRYPTION_KEY)$/i;
+
+      for (let i = 0; i < lines.length; i++) {
+        const lineNumber = i + 1;
+        const raw = String(lines[i] || "");
+        const cleaned = stripUrls(raw);
+
+        serviceAccountRe.lastIndex = 0;
+        awsRootArnRe.lastIndex = 0;
+        azureFlagValueRe.lastIndex = 0;
+        azureLabelValueRe.lastIndex = 0;
+        ociOcidRe.lastIndex = 0;
+        hardcodedEnvVarRe.lastIndex = 0;
+
+        // GCP service account identifiers
+        if (cleaned.includes("iam.gserviceaccount.com")) {
+          let match;
+          while ((match = serviceAccountRe.exec(cleaned)) !== null) {
+            const found = match[0];
+
+            if (found === gcpPlaceholder) continue;
+
+            report(
+              onError,
+              lineNumber,
+              "Use placeholder GCP service account identifiers in docs examples.",
+              `${found} -> ${gcpPlaceholder}`
+            );
+          }
+        }
+
+        // AWS root principal ARN account IDs
+        let match;
+        while ((match = awsRootArnRe.exec(cleaned)) !== null) {
+          const found = match[0];
+          report(
+            onError,
+            lineNumber,
+            "Use placeholder AWS account identifiers in ARN examples.",
+            `${found} -> arn:aws:iam::<aws-account-id>:root`
+          );
+        }
+
+        // Azure GUID-like IDs in identity-related contexts
+        while ((match = azureFlagValueRe.exec(cleaned)) !== null) {
+          const found = match[1];
+          report(
+            onError,
+            lineNumber,
+            "Use placeholder Azure identity IDs in examples.",
+            `${found} -> <azure-tenant-id|azure-subscription-id|azure-client-id>`
+          );
+        }
+
+        while ((match = azureLabelValueRe.exec(cleaned)) !== null) {
+          const found = match[1];
+          report(
+            onError,
+            lineNumber,
+            "Use placeholder Azure identity IDs in examples.",
+            `${found} -> <azure-tenant-id|azure-subscription-id|azure-client-id>`
+          );
+        }
+
+        // OCI OCIDs in prose/examples
+        while ((match = ociOcidRe.exec(cleaned)) !== null) {
+          const found = match[0];
+          report(
+            onError,
+            lineNumber,
+            "Use placeholder OCI identifiers in examples.",
+            `${found} -> <resource-ocid>`
+          );
+        }
+
+        // Hardcoded environment variables with sensitive names
+        while ((match = hardcodedEnvVarRe.exec(cleaned)) !== null) {
+          const varName = match[1] || "";
+          const varValue = match[2] || "";
+          
+          // Only flag if the variable name is sensitive AND the value doesn't look like a placeholder
+          if (sensitiveEnvNames.test(varName) && !varValue.match(/^<.*>$/)) {
+            report(
+              onError,
+              lineNumber,
+              `Use placeholder for sensitive environment variable '${varName}' in examples.`,
+              `${varName}=${varValue} -> ${varName}=<${varName}>`
+            );
+          }
+        }
+      }
+    }
   }
 ]

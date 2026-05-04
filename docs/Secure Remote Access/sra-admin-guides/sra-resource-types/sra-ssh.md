@@ -56,6 +56,10 @@ where:
 
 * `host-provider`: Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
 
+* `secure-access-host`: Target servers for connections. Repeat this flag for multiple values. Starting with SRA v2.9.0, CIDR notation is supported in addition to individual hostnames and IP addresses (for example, `192.168.1.0/24`).
+
+* `secure-access-enforce-hosts-restriction`: When set to `true`, restricts SRA connections to only the hosts specified in `--secure-access-host`. Users attempting to connect to unlisted hosts are denied.
+
 ## Set Up Certificate-Based SSH Access from the Akeyless Console
 
 Let's set up remote access to an SSH host from the Akeyless Console.

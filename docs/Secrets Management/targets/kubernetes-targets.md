@@ -142,7 +142,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 5. Define the remaining parameters as follows:
 
-    * **GKE Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the email of the service account (`service_account@something.iam.gserviceaccount.com`).
+    * **GKE Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the email of the service account (`<service-account-name>@<project-id>.iam.gserviceaccount.com`).
 
     * **GKE Service Account Key:** Provide the RSA private key generated for this service account to access. This must be a proper PEM encoded PKCS1 or PKCS8 private key. (available under the "private_key" field within the service-account's downloaded key JSON-file from GCP IAM. **Make sure** to replace all its escaped new-lines, \n, with actual new lines to avoid parsing errors)
 
