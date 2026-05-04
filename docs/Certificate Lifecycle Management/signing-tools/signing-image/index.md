@@ -104,13 +104,17 @@ Where:
 
 * `akeyless_url` - Your Akeyless Gateway `API v2` endpoint `8000/api/v2` (or using your gateway URL at port `8081`). If not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`.
 
-* `access_type` - The [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type, supporting:`access_key`, `aws_iam`, `gcp`, `azure_ad`, `certificate`, `jwt` and `k8s`.
+* `access_type` - The [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type, supporting:`access_key`, `aws_iam`, `gcp`, `azure_ad`, `cert`, `jwt` and `k8s`.
 
 * `access_id` - The Auth Method **Access ID**.  
 
 * `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method.
 
 * `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Method.
+
+* `cert_file_name` - The path to the certificate PEM file. Relevant only for [Certificate](https://docs.akeyless.io/docs/auth-with-certificate) Auth Method.
+
+* `key_file_name` - The path to the private PEM file. Relevant only for [Certificate](https://docs.akeyless.io/docs/auth-with-certificate) Auth Method.
 
 ### Create a Self-Signed Certificate
 
