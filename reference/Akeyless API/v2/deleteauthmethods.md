@@ -1,6 +1,4 @@
 ---
-title: /delete-auth-methods
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: deleteAuthMethods

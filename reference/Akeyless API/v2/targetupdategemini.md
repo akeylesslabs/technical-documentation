@@ -1,6 +1,4 @@
 ---
-title: /target-update-gemini
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateGemini

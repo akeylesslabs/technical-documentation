@@ -1,6 +1,4 @@
 ---
-title: /esm-list
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: esmList

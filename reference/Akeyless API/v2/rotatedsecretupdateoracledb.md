@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-update-oracledb
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretUpdateOracledb

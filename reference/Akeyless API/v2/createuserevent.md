@@ -1,6 +1,4 @@
 ---
-title: /create-user-event
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createUserEvent

@@ -1,6 +1,4 @@
 ---
-title: /gateway-revoke-producer-tmp-creds
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayRevokeTmpUsers

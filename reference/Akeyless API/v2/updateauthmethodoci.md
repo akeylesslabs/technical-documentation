@@ -1,6 +1,4 @@
 ---
-title: /update-auth-method-oci
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateAuthMethodOCI

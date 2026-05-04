@@ -1,6 +1,4 @@
 ---
-title: /kmip-get-environment
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: kmipDescribeServer

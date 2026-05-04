@@ -37,10 +37,14 @@ This is a Maven project. Build a versioned JAR so the filename is stable in MID:
 mvn -Drevision=1.0.0 clean package
 ```
 
+The default build runs Maven Shade so the main JAR includes Jackson JR and CloudID lightweight dependencies (required on the MID). For a thin JAR only, use `mvn -Pthin -Drevision=1.0.0 clean package`.
+
 ### Artifacts
 
-* With `-Drevision=1.0.0: target/akeyless-servicenow-credential-resolver-1.0.0.jar`
+* With `-Drevision=1.0.0`: `target/akeyless-servicenow-credential-resolver-1.0.0.jar`
     * [https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar](https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar)
+* Without a revision property, Maven produces `akeyless-servicenow-credential-resolver-null.jar`.
+* The file in `target/` is the shaded artifact. `target/original-*.jar` is the pre-shade JAR.
 
 ## Install the Resolver on the MID Server
 
@@ -67,6 +71,7 @@ Set the following MID properties on your instance (System Properties or MID Prop
 * `ext.cred.akeyless.key_data` (string): Inline private key PEM content for `cert`
 * `ext.cred.akeyless.cert_file_name` (string): Path to the certificate PEM file on the MID host for `cert`
 * `ext.cred.akeyless.key_file_name` (string): Path to the private key PEM file on the MID host for `cert`
+* `ext.cred.akeyless.ignore_cache` (boolean `true` or `false`): For rotated secrets only, passes `ignore-cache` when fetching values. Default: `false`
 
 Optional field mapping overrides for JSON secrets (see Mapping section below):
 
@@ -115,7 +120,7 @@ Insert your parameters inside the `<parameters>` block:
     <!-- Certificate authentication with inline material -->
     <!-- <parameter name="ext.cred.akeyless.access_type" value="certificate" /> -->
     <!-- <parameter name="ext.cred.akeyless.cert_data" value="-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----" secure="true" /> -->
-    <!-- <parameter name="ext.cred.akeyless.key_data" value="-----BEGIN PRIVATE KEY-----...-----END PRIVATE KEY-----" secure="true" /> -->
+    <!-- <parameter name="ext.cred.akeyless.key_data" value="<PRIVATE_KEY_PEM_CONTENT>" secure="true" /> -->
 
     <!-- Certificate authentication with file-based material -->
     <!-- <parameter name="ext.cred.akeyless.cert_file_name" value="/opt/agent/certs/client.crt" /> -->
@@ -159,6 +164,15 @@ The resolver accepts either:
 
 * A plain string secret → mapped as a password/token
 * A JSON object → fields are mapped to ServiceNow credential fields as per the credential Type
+
+Item types (Static, Rotated, Dynamic)
+
+* The resolver first calls `describe-item` to determine `item_type`.
+* Based on `item_type`, it then calls:
+    * `STATIC_SECRET` → `get-secret-value`
+    * `ROTATED_SECRET` → `get-rotated-secret-value` (also sends `ignore-cache` when `ext.cred.akeyless.ignore_cache=true`)
+    * `DYNAMIC_SECRET` → `get-dynamic-secret-value`
+* If ServiceNow provides an `ip` argument for the credential test/run, the resolver passes it as `host` when fetching rotated secrets.
 
 Default mapping (can be overridden by way of `ext.cred.akeyless.map.*`):
 
@@ -254,6 +268,8 @@ will map to ServiceNow user = alice, pswd = secret.
     * Confirm the Credential ID (secret path) is correct and the Akeyless identity has permission to read it.
 * JSON secret looks correct but everything maps to a single password field:
     * This can happen when certificate or key content is stored in JSON with literal line breaks inside quoted strings. Prefer `\n` inside the JSON string values.
+* JSON secret looks correct but everything maps to `pswd` as one blob:
+    * This often means the secret is not strict JSON because PEM or key content was pasted with real line breaks inside quoted values. Prefer `\n` inside JSON string values. If PEM markers are still present, the resolver retries parsing with a lenient Jackson mode.
 * Logging:
     * Resolver logs go through Commons Logging. Check the MID Server logs for entries containing “Akeyless resolver”.
 

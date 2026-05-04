@@ -1,6 +1,4 @@
 ---
-title: /target-create-globalsign
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateGlobalSign

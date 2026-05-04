@@ -1,6 +1,4 @@
 ---
-title: /target-create-azure
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateAzure

@@ -1,6 +1,4 @@
 ---
-title: /event-forwarder-update-servicenow
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: eventForwarderUpdateServiceNow

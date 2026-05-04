@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-cassandra
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateCassandra

@@ -1,6 +1,4 @@
 ---
-title: /target-create-dockerhub
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateDockerhub

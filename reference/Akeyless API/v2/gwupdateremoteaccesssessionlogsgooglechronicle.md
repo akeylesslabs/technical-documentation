@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-remote-access-session-forwarding-google-chronicle
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gwUpdateRemoteAccessSessionLogsGoogleChronicle

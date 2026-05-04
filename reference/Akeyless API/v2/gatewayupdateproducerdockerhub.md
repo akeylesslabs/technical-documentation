@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-dockerhub
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerDockerhub

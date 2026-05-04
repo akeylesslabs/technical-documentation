@@ -1,6 +1,4 @@
 ---
-title: /create-classic-key
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: CreateClassicKey

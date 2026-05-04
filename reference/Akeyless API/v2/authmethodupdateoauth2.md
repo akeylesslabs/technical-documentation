@@ -1,6 +1,4 @@
 ---
-title: /auth-method-update-oauth2
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodUpdateOauth2

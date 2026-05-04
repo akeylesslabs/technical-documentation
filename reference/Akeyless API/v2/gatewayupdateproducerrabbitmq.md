@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-rabbitmq
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerRabbitMQ

@@ -93,8 +93,8 @@ default_aes_mechanism="CBC"
 base_item_path="/DB/Oracle/TDE-pkcs11"
 [auth]
 access_type="access_key"
-access_id="p-9ss1....l83am"
-access_key="oLw05FzH3Rgmca.............lcijrsReM="
+access_id="<AKEYLESS_ACCESS_ID>"
+access_key="<AKEYLESS_ACCESS_KEY>"
 ```
 
 ##### Explanation

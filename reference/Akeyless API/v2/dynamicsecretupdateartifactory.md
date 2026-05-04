@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-artifactory
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateArtifactory

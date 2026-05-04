@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-gcp
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateGcp

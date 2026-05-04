@@ -1,6 +1,4 @@
 ---
-title: /gateway-list-migration
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayListMigration

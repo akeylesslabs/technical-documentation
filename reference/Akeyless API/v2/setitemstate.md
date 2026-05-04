@@ -1,6 +1,4 @@
 ---
-title: /set-item-state
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: setItemState

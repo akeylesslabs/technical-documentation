@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-rabbitmq
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateRabbitMq

@@ -1,6 +1,4 @@
 ---
-title: /usc-create
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uscCreate

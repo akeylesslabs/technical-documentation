@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-venafi
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateVenafi

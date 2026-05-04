@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-create-ssh
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretCreateSsh

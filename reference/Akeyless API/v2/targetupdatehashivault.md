@@ -1,6 +1,4 @@
 ---
-title: /target-update-hashi-vault
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateHashiVault

@@ -1,6 +1,4 @@
 ---
-title: /get-secret-value
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: GetSecretValue

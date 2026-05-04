@@ -1,6 +1,4 @@
 ---
-title: /sign-data-with-classic-key
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: signDataWithClassicKey

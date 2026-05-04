@@ -1,6 +1,4 @@
 ---
-title: /create-ssh-cert-issuer
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createSSHCertIssuer

@@ -1,6 +1,4 @@
 ---
-title: /target-update-ldap
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateLdap

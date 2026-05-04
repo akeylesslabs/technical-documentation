@@ -1,6 +1,4 @@
 ---
-title: /create-certificate
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createCertificate

@@ -1,6 +1,4 @@
 ---
-title: /usc-delete
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uscDelete

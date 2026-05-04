@@ -1,6 +1,4 @@
 ---
-title: /get-dynamic-secret-value
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: getDynamicSecretValue

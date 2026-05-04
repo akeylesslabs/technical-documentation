@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-redshift
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerRedshift

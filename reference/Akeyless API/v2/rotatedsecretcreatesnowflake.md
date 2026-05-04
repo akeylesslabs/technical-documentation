@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-create-snowflake
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretCreateSnowflake

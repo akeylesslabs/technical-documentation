@@ -1,6 +1,4 @@
 ---
-title: /list-sra-bastions
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: listSRABastions

@@ -1,6 +1,4 @@
 ---
-title: /update-gitlab-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: updateGitlabTarget

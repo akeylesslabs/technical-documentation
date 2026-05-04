@@ -1,6 +1,4 @@
 ---
-title: /target-create-godaddy
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateGodaddy

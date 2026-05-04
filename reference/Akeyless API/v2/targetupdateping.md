@@ -1,6 +1,4 @@
 ---
-title: /target-update-ping
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdatePing

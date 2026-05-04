@@ -1,6 +1,4 @@
 ---
-title: /delete-assoc
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: deleteRoleAssociation

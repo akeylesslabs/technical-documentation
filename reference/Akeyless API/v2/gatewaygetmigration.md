@@ -1,6 +1,4 @@
 ---
-title: /gateway-get-migration
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayGetMigration

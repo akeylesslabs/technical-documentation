@@ -1,6 +1,4 @@
 ---
-title: /user-event-last-status
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: getLastUserEventStatus

@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-redshift
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateRedshift

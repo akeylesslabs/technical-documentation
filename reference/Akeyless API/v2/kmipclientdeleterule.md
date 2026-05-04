@@ -1,6 +1,4 @@
 ---
-title: /kmip-client-delete-rule
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: kmipClientDeleteRule

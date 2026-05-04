@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-create-windows
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretCreateWindows

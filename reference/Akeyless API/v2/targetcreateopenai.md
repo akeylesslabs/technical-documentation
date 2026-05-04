@@ -1,6 +1,4 @@
 ---
-title: /target-create-openai
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetCreateOpenAI

@@ -1,5 +1,4 @@
 ---
-title: /policy-delete
 api:
   file: akeyless-api.json
   operationId: policiesDelete

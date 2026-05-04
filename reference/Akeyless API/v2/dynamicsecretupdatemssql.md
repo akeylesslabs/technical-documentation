@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-mssql
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateMsSql

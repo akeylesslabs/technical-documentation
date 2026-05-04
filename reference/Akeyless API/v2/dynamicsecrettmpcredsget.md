@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-tmp-creds-Get
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretTmpCredsGet

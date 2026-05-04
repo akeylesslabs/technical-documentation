@@ -1,6 +1,4 @@
 ---
-title: /rotate-key
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotateKey

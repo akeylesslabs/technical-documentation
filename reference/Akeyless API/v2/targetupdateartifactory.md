@@ -1,6 +1,4 @@
 ---
-title: /target-update-artifactory
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateArtifactory

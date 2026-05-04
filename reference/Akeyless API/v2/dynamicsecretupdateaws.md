@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-aws
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateAws

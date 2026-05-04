@@ -1,6 +1,4 @@
 ---
-title: /static-creds-auth
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: staticCredsAuth

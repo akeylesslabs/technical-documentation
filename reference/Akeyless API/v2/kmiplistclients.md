@@ -1,6 +1,4 @@
 ---
-title: /kmip-list-clients
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: kmipListClients

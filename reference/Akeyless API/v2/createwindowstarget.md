@@ -1,6 +1,4 @@
 ---
-title: /create-windows-target
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createWindowsTarget

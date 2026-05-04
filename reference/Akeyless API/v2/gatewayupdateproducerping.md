@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-producer-ping
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateProducerPing

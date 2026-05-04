@@ -1,6 +1,4 @@
 ---
-title: /detokenize
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: detokenize

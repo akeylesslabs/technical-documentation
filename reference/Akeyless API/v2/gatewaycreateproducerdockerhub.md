@@ -1,6 +1,4 @@
 ---
-title: /gateway-create-producer-dockerhub
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayCreateProducerDockerhub

@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-log-forwarding-splunk
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateLogForwardingSplunk

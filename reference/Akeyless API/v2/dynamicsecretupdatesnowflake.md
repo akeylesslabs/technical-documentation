@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-update-snowflake
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretUpdateSnowflake

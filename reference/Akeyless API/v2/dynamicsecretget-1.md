@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-get
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretGet

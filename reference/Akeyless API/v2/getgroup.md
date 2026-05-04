@@ -1,6 +1,4 @@
 ---
-title: /get-group
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: getGroup

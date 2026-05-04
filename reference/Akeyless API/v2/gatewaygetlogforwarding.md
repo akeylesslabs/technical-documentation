@@ -1,6 +1,4 @@
 ---
-title: /gateway-get-log-forwarding
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayGetLogForwarding

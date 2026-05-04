@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-remote-access-rdp-recording
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateRemoteAccessRdpRecordings

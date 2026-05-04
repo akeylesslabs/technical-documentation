@@ -1,6 +1,4 @@
 ---
-title: /target-update-aws
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateAws

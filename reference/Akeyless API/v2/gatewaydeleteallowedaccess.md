@@ -1,6 +1,4 @@
 ---
-title: /gateway-delete-allowed-access
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayDeleteAllowedAccess

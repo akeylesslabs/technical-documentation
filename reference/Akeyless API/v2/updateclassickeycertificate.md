@@ -1,6 +1,4 @@
 ---
-title: /update-classic-key-certificate
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: UpdateClassicKeyCertificate

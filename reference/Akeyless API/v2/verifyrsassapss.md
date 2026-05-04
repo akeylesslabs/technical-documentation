@@ -1,6 +1,4 @@
 ---
-title: /verify-rsassa-pss
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: verifyRsaSsaPss

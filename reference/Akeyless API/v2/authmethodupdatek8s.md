@@ -1,6 +1,4 @@
 ---
-title: /auth-method-update-k8s
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodUpdateK8s

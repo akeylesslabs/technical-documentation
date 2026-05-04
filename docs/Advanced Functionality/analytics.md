@@ -21,6 +21,8 @@ The main screen tab provides information about items, such as Secrets and Keys w
 
 The user can change the timeframe for which the data is presented.
 
+Usage Reports include a contract start date indicator for the requested product.
+
 ![Illustration for: Request volume in the allocated timeframe](https://files.readme.io/7469f53-Screenshot_at_Nov_23_14-36-38.png)
 
 Navigate to the **Certificates** tab to get an immediate overview of your certificate's status with additional details on future expiration.

@@ -1,6 +1,4 @@
 ---
-title: /delete-assoc-target-item
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: deleteTargetAssociation

@@ -176,6 +176,12 @@ Use `akeyless-community/akeyless-github-action@v1.1.5` or later for Google Cloud
 
 When GitHub Actions uses `google-github-actions/auth` with `token_format: id_token`, run that authentication step before the Akeyless action so cloud identity is available in the runner environment.
 
+Required IAM roles for the Google service account used in this flow:
+
+* `roles/iam.workloadIdentityUser`: Allows the GitHub OIDC principal to impersonate the service account.
+* `roles/iam.serviceAccountTokenCreator`: Allows token signing during impersonation.
+* `roles/iam.serviceAccountOpenIdTokenCreator`: Allows OpenID token generation for `gcp-audience: akeyless.io`.
+
 Example workflow:
 
 ```yaml
@@ -195,7 +201,7 @@ jobs:
           id_token_audience: akeyless.io
           id_token_include_email: true
           workload_identity_provider: projects/${{ secrets.GCP_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-pool/providers/github-provider
-          service_account: akeyless-wif-sa@customer-success-391112.iam.gserviceaccount.com
+          service_account: <service-account-name>@<project-id>.iam.gserviceaccount.com
 
       - name: Fetch static secrets from Akeyless
         uses: akeyless-community/akeyless-github-action@v1.1.5
@@ -220,6 +226,50 @@ jobs:
 > ℹ️ **Note:**
 >
 > For GCP login, this action uses cloud identity retrieval through `akeyless-cloud-id` and sends `gcp-audience` with `access-type: gcp`.
+
+### GCP WIF with Service Account Static JSON Key
+
+If your workflow uses a static service account JSON key, authenticate with `google-github-actions/auth` using `credentials_json`, then run the Akeyless action with `access-type: gcp`.
+
+Example workflow:
+
+```yaml
+jobs:
+  fetch_secrets:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Authenticate to Google Cloud with a static service account key
+        id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY_JSON }}
+          token_format: id_token
+          id_token_audience: akeyless.io
+          id_token_include_email: true
+
+      - name: Fetch static secrets from Akeyless
+        uses: akeyless-community/akeyless-github-action@v1.1.5
+        id: fetch-secrets
+        with:
+          access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
+          access-type: gcp
+          api-url: https://api.akeyless.io
+          gcp-audience: akeyless.io
+          static-secrets: |
+            - name: "/Cloud/GCP/gcp_iam_wif/static_secret"
+              output-name: "my_first_secret"
+
+      - name: Use Akeyless secret
+        run: |
+          echo "Step Outputs"
+          echo "my_first_secret: ${{ steps.fetch-secrets.outputs.my_first_secret }}" >> secrets.txt
+          echo "Environment Variables"
+          echo "my_first_secret: ${{ env.my_first_secret }}" >> secrets.txt
+```
 
 ### Static Secrets Example
 

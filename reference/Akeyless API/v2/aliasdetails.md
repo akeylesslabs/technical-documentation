@@ -1,6 +1,4 @@
 ---
-title: /alias-details
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: aliasDetails

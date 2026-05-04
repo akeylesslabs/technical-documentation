@@ -1,6 +1,4 @@
 ---
-title: /usc-update
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: uscUpdate

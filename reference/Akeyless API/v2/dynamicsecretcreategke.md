@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-create-gke
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretCreateGke

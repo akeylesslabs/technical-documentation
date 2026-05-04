@@ -1,6 +1,4 @@
 ---
-title: /create-key
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createKey

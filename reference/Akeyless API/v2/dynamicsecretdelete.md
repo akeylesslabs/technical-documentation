@@ -1,6 +1,4 @@
 ---
-title: /dynamic-secret-delete
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: dynamicSecretDelete

@@ -1,6 +1,4 @@
 ---
-title: /auth-method-create-email
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodCreateEmail

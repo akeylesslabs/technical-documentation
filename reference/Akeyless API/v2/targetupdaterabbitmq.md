@@ -1,6 +1,4 @@
 ---
-title: /target-update-rabbitmq
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: targetUpdateRabbitMq

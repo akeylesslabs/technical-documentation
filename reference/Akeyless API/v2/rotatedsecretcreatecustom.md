@@ -1,6 +1,4 @@
 ---
-title: /rotated-secret-create-custom
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: rotatedSecretCreateCustom

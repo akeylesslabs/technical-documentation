@@ -1,6 +1,4 @@
 ---
-title: /auth-method-update-saml
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: authMethodUpdateSAML

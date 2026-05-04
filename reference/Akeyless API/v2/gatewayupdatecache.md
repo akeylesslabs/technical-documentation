@@ -1,6 +1,4 @@
 ---
-title: /gateway-update-cache
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateCache

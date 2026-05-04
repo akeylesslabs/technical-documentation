@@ -1,6 +1,4 @@
 ---
-title: /create-event-forwarder
-excerpt: ''
 api:
   file: akeyless-api.json
   operationId: createEventForwarder
