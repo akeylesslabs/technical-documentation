@@ -856,11 +856,13 @@ For operational metrics and alerting baselines, monitor Injector metrics in [Met
 
 ## Pod scheduling for high availability
 
-The `akeyless-k8s-secrets-injection` chart supports the same pod scheduling controls as the Gateway chart (`deployment.nodeSelector`, `deployment.tolerations`, `deployment.affinity`, `deployment.topologySpreadConstraints`). For configuration guidance and examples, see [Pod scheduling for high availability](https://docs.akeyless.io/docs/gateway-best-practices#pod-scheduling-for-high-availability-kubernetes).
+The `akeyless-k8s-secrets-injection` chart exposes pod scheduling controls under the `deployment` key (`nodeSelector`, `tolerations`, `affinity`, `topologySpreadConstraints`). For conceptual guidance and examples, see [Pod scheduling for high availability](https://docs.akeyless.io/docs/gateway-best-practices#pod-scheduling-for-high-availability-kubernetes).
 
-> ℹ️ **Note:**
->
-> The Injector chart assigns pods an `app` label whose value is computed from the Helm release name (typically `<release-name>-akeyless-k8s-secrets-injection`). Verify the label value against a running pod before configuring label selectors in affinity or spread rules.
+When applying those examples to the Injector chart, note the following schema differences from the Gateway chart:
+
+* `tolerations` and `topologySpreadConstraints` each use `enabled`/`data` sub-keys instead of a flat list. To enable `tolerations`, set `deployment.tolerations.enabled: true` and add entries under `deployment.tolerations.data`. Apply the same pattern for `deployment.topologySpreadConstraints`.
+* `topologySpreadConstraints` is rendered independently — it does not require `affinity.enabled: true` (unlike the Gateway chart).
+* Injector pods carry an `app` label computed from the Helm release name (typically `<release-name>-akeyless-k8s-secrets-injection`). Verify this label against a running pod before using it in affinity or spread rule label selectors.
 
 ## Troubleshooting
 
