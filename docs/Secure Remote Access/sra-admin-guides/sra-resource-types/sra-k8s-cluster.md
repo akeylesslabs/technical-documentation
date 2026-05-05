@@ -46,7 +46,7 @@ Where:
 For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) you can have Secure Remote Access for your Kubernetes Dashboard URL:
 
 * `secure-access-dashboard-url`: The Kubernetes Dashboard URL available only for Generic Kubernetes.
-* `secure-access-web-browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `secure-access-web-browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 ## Set Up Remote Access to a Kubernetes Cluster from the Akeyless Console
 
@@ -72,7 +72,7 @@ For **Web Access**:
 
 * `Dashboard URL`: Required to enable Secure Remote Access to your Kubernetes Dashboard.
 
-* `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 For **CLI Access**:
 

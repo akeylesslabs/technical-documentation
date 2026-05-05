@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can be used to connect with various native and thick clients to remote hosts by way of Akeyless SRA SSH server, supported with a complete Audit Trail.
+Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can be used to connect with various native and thick clients to remote hosts by way of Akeyless SRA SSH server, supported with connection-level audit events.
 
 While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) CLI, any thick client can be used to establish the connection to a remote server within your internal network by way of the Akeyless SRA SSH server.
 
@@ -18,7 +18,7 @@ While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/do
 
 * [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) configured.
 
-* The [Secure Remote Access server](https://docs.akeyless.io/docs/remote-access-setup-k8s) deployed.
+* The [Secure Remote Access server](https://docs.akeyless.io/docs/sra-setup-k8s) deployed.
 
 ## Limitations
 
