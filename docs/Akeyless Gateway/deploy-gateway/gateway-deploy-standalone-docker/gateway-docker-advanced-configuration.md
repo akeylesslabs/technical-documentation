@@ -346,7 +346,7 @@ docker run -d \
 akeyless/base:latest-akeyless
 ```
 
-The variables `MIN_TLS_VERSION=TLSv1.3` and `GODEBUG=tlsmlkem=1` enable hybrid PQC support (`X25519 + MLKEM-768`) on the Gateway container.
+Setting `MIN_TLS_VERSION=TLSv1.3` enables hybrid PQC support (X25519 + ML-KEM 768) on the Gateway container.
 
 > ℹ️ **Info:**
 >
