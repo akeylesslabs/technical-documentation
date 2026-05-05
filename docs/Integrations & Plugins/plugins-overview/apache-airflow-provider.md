@@ -15,11 +15,11 @@ The `apache-airflow-providers-akeyless` package integrates the Akeyless identity
 
 The provider is maintained in the [apache/airflow](https://github.com/apache/airflow/tree/main/providers/akeyless) repository.
 
-| Capability | Class |
-| --- | --- |
-| **Hook** | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook` |
-| **Connection type** | `akeyless` |
-| **Secrets Backend** | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend` |
+| Capability | Class | Description |
+| --- | --- | --- |
+| **Hook** | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook` | Interact with Akeyless directly from DAG code — fetch static, dynamic, and rotated secrets; create or delete items; list paths. |
+| **Connection type** | `akeyless` | Airflow connection type identifier. Create a connection with this type in the Airflow UI or environment to supply credentials to the hook. |
+| **Secrets Backend** | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend` | Transparently resolve Airflow Connections, Variables, and Config from Akeyless — no DAG code changes required. Supports `api_key` and `uid` authentication only. |
 
 ## Requirements
 
