@@ -72,7 +72,7 @@ akeyless auth \
 
 ## Optional Features
 
-For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).
+For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methodss#common-optional-features).
 
 * **Two-Factor Authentication:** When creating an email-based authentication method, **Two-Factor Authentication** can be optionally enabled. The second factor can use either **Email** or an **Authenticator App**. Only Google Authenticator is supported as an Authenticator App. The Two-Factor Authentication configuration can be enabled, edited, or disabled on an existing email-based authentication method.
 * **Forgot Password:** On the Console login screen, select **Forgot Password** below the **Email** field. This opens the **Forgot Your Credentials?** page. Enter the email address, then select **Reset Credentials**.

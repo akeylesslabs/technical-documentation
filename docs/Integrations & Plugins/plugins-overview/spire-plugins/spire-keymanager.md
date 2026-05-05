@@ -15,7 +15,7 @@ This guide covers the Akeyless SPIRE Key Manager plugin, which manages signing k
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.40.0` or later
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Create`, `Read`, and `List` permissions for **Items**, as well as [Gateway Access Permission](https://docs.akeyless.io/docs/gateway-authentication-and-access) to manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) attached to a role with `Create`, `Read`, and `List` permissions for **Items**, as well as [Gateway Access Permission](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access) to manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
 
 ## Authentication
 

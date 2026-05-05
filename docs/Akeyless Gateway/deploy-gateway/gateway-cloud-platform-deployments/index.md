@@ -72,5 +72,5 @@ Across EKS, AKS, GKE, and Azure Container Apps, the core Gateway model is consis
 
 After deployment, continue with:
 
-* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access)
+* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access)
 * [Telemetry and Monitoring](https://docs.akeyless.io/docs/monitor-akeyless)

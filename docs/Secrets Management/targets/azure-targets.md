@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define an Azure AD target to be used with [Azure AD Dynamic Secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD Rotated Secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret). Having an Azure AD target will allow you to conserve the credentials chain between all of your Dynamic Secrets, as it is possible to point a target at a rotated secret, or to manually edit credentials in the target instead of having to change them individually for connecting items. Creating an Azure AD target requires an [Azure App](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal) to be configured in your Azure environment.
+You can define an Azure AD target to be used with [Azure AD Dynamic Secrets](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-ad-dynamic-secrets) or [Azure AD Rotated Secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret). Having an Azure AD target will allow you to conserve the credentials chain between all of your Dynamic Secrets, as it is possible to point a target at a rotated secret, or to manually edit credentials in the target instead of having to change them individually for connecting items. Creating an Azure AD target requires an [Azure App](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal) to be configured in your Azure environment.
 
 ## Create an Azure AD Target with the CLI
 
@@ -95,7 +95,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
    > 👍 Note
    >
-   > **Use Gateway's Cloud Identity** is relevant for cases where your Gateway uses Azure service principal to authenticate against Akeyless. For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) for Azure AD, the target can be used for the temporary Azure service principals creation.
+   > **Use Gateway's Cloud Identity** is relevant for cases where your Gateway uses Azure service principal to authenticate against Akeyless. For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-ad-dynamic-secrets) for Azure AD, the target can be used for the temporary Azure service principals creation.
 
    * If you selected the **Use Credentials**, provide the following:
 

@@ -42,7 +42,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 * **Avoid API Key Authentication on production** - Due to the secret zero problem and management challenges, [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) should be used on production for on-premise environments or any CSP IAM on cloud environments for workloads or automated services, as well as SAML or OIDC for human access.  
 
-* [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) - Shared authentication methods such as SAML, OIDC, LDAP, IAM, JWT, or Kubernetes should be used with sub-claims on role association to avoid mistakes and overriding existing Access Roles.
+* [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) - Shared authentication methods such as SAML, OIDC, LDAP, IAM, JWT, or Kubernetes should be used with sub-claims on role association to avoid mistakes and overriding existing Access Roles.
 
 * [Access Roles (RBAC)](https://docs.akeyless.io/docs/rbac) - In general, regular users do not have permission to change their Access Role or Authentication method settings. Make sure your Access Roles are not granting regular users permission to view or create neither Access Roles nor Authentication methods. In addition, avoid creating multiple different [Access Roles](https://docs.akeyless.io/docs/rbac) with a single path. Instead, create an access role for multiple paths.
 
@@ -54,7 +54,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 * [SSH certificates](https://docs.akeyless.io/docs/sra-ssh-certificates) - Should **not** be set with `*` on the `principals` field. Instead, this field should be used for special use cases where your users need special permissions. In addition, SSH certificates should be used with a `list of allowed users` who can log in using those certificates.
 
-* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) - Should be used and set while following the Principle Of Least Privileges (PoLP). Each Dynamic Secret has its permission profile which will determine your temporary users' access level. For example, a database's Dynamic Secret should be used with the minimum permissions for your users based on the `creation statement`, where you should limit the access to a specific database and table.
+* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) - Should be used and set while following the Principle Of Least Privileges (PoLP). Each Dynamic Secret has its permission profile which will determine your temporary users' access level. For example, a database's Dynamic Secret should be used with the minimum permissions for your users based on the `creation statement`, where you should limit the access to a specific database and table.
 
 ```sql
 CREATE USER '{{name}}'@'%' IDENTIFIED WITH mysql_native_password BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON <DATABASE NAME>.<TABLE_NAME> TO '{{name}}'@'%';

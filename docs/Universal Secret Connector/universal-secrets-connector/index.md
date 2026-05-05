@@ -26,13 +26,13 @@ Setting up Universal Secret Connector requires the **Defaults** permission on th
 
 Akeyless currently supports creating Universal Secrets Connectors for the following services:
 
-* [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector)
+* [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-universal-secrets-connector)
 
 * [GCP Universal Secrets Connector](https://docs.akeyless.io/docs/gcp-universal-secrets-connector)
 
-* [Azure Universal Secrets Connector](https://docs.akeyless.io/docs/azure-universal-secrets-connector)
+* [Azure Universal Secrets Connector](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-universal-secrets-connector)
 
-* [Kubernetes Universal Secrets Connector](https://docs.akeyless.io/docs/kubernetes-universal-secrets-connector)
+* [Kubernetes Universal Secrets Connector](https://docs.akeyless.io/docs/kubernetes-pluginss-universal-secrets-connector)
 
 * [HashiCorp Vault Universal Secret Connector](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
 

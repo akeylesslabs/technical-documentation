@@ -173,14 +173,14 @@ Current guidance snapshots:
     * Reference: [Universal Secret Connector](https://docs.akeyless.io/docs/universal-secrets-connector)
 * Gateway administrative users:
     * Assign only required Gateway access permissions per admin group.
-    * Reference: [Gateway access permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access)
+    * Reference: [Gateway access permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access)
 
 ## Gateway administrators
 
 * Define a controlled list of human Access IDs (for example, SAML or OIDC) that can administer Gateway configuration.
 * Configure administrator sub-claims and only the Gateway access permissions required for each admin group.
 * Use separate admin groups for operations, security, and read-only review when possible.
-* Review the permissions matrix in [Gateway access permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+* Review the permissions matrix in [Gateway access permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access).
 
 ## Resource planning for Kubernetes proactive cache
 

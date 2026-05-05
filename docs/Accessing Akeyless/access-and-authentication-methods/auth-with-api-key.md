@@ -84,7 +84,7 @@ akeyless auth \
 
 ## Optional Features
 
-For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).
+For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methodss#common-optional-features).
 
 ### Reset Access Key
 

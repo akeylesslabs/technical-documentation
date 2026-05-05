@@ -18,7 +18,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
 > ℹ️ **Note:**
 >
-> You can use any of the [authentication methods](https://docs.akeyless.io/docs/access-and-authentication-methods) supported by Akeyless. Ensure that the authentication method you use is associated with an [access role](https://docs.akeyless.io/docs/rbac) with access to the required secrets.
+> You can use any of the [authentication methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) supported by Akeyless. Ensure that the authentication method you use is associated with an [access role](https://docs.akeyless.io/docs/rbac) with access to the required secrets.
 
 ## Configure the Akeyless Plugin in Jenkins
 
@@ -42,7 +42,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
     > 📘 Info
     >
-    > If you are using a customer [key fragment](https://docs.akeyless.io/docs/dfc-overview) with your Akeyless Platform, set your Vault URL with the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) on port `8200`.
+    > If you are using a customer [key fragment](https://docs.akeyless.io/docs/dfc-overview-overview) with your Akeyless Platform, set your Vault URL with the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) on port `8200`.
 
     ![Illustration for: > If you are using a customer key fragment with your Akeyless Platform, set your Vault URL with the Akeyless Gateway on port 8200.](https://files.readme.io/a390eba-Screenshot_at_Feb_24_17-42-02.png)
 
@@ -63,7 +63,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
     > 👍 Note
     >
-    > The Credential Kind you select determines which authentication backend will be used. If you wish to use another [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), see the different [Credential Types supported using the Vault plugin](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-plugin-usage).
+    > The Credential Kind you select determines which authentication backend will be used. If you wish to use another [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss), see the different [Credential Types supported using the Vault plugin](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-plugin-usage).
     >
     > Note that you can always use any of the Akeyless authentication methods by way of the [Vault Token File Credential](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-vault-token-file-credential) where the temporary token is read from a file on your Jenkins host. You can use this in combination with a script (using the `akeyless auth` [CLI command](https://docs.akeyless.io/docs/cli-ref-auth#auth) for example) to output a periodically refreshing **temporary access token** into the file in question.
 

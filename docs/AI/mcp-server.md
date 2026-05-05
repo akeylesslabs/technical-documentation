@@ -125,20 +125,20 @@ If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains 
 
 Acceptable values for `args.--access-type`:
 
-* [access_key](https://docs.akeyless.io/docs/api-key/)
-* [aws_iam](https://docs.akeyless.io/docs/aws-iam/)
-* [azure_ad](https://docs.akeyless.io/docs/azure-ad/)
-* [cert](https://docs.akeyless.io/docs/certificate-based-authentication/)
-* [gcp](https://docs.akeyless.io/docs/gcp-auth-method/)
-* [jwt](https://docs.akeyless.io/docs/oauth20jwt/)
-* [k8s](https://docs.akeyless.io/docs/kubernetes-auth/)
-* [kerberos](https://docs.akeyless.io/docs/kerberos/)
-* [ldap](https://docs.akeyless.io/docs/ldap/)
-* [oci](https://docs.akeyless.io/docs/oci-iam/)
-* [oidc](https://docs.akeyless.io/docs/openid/)
-* [password](https://docs.akeyless.io/docs/email/)
-* [saml](https://docs.akeyless.io/docs/saml/)
-* [universal_identity](https://docs.akeyless.io/docs/universal-identity/)
+* [access_key](https://docs.akeyless.io/docs/auth-with-api-key/)
+* [aws_iam](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-iam/)
+* [azure_ad](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-ad/)
+* [cert](https://docs.akeyless.io/docs/auth-with-certificate/)
+* [gcp](https://docs.akeyless.io/docs/auth-with-gcp/)
+* [jwt](https://docs.akeyless.io/docs/auth-with-oauth-jwt/)
+* [k8s](https://docs.akeyless.io/docs/kubernetes-pluginss-auth/)
+* [kerberos](https://docs.akeyless.io/docs/auth-with-kerberos/)
+* [ldap](https://docs.akeyless.io/docs/auth-with-ldap/)
+* [oci](https://docs.akeyless.io/docs/auth-with-oci/)
+* [oidc](https://docs.akeyless.io/docs/auth-with-oidc/)
+* [password](https://docs.akeyless.io/docs/auth-with-email/)
+* [saml](https://docs.akeyless.io/docs/auth-with-saml/)
+* [universal_identity](https://docs.akeyless.io/docs/auth-with-universal-identity/)
 
 ##### Cloud ID values
 
@@ -159,7 +159,7 @@ Acceptable values for `args.--oci-auth-type`:
 
 #### Example Authentication Method Configurations
 
-The Akeyless MCP server supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
+The Akeyless MCP server supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss):
 
 ##### Access Key Authentication (Default)
 

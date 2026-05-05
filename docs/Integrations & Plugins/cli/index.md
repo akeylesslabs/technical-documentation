@@ -119,7 +119,7 @@ Would you like to configure a profile? (Y/n) Y
 Profile Name: (Default: default)
 ```
 
-Choose an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/auth-with-api-key) method. Set the relevant **Access ID** and **Access Key**:
+Choose an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/auth-with-api-key) method. Set the relevant **Access ID** and **Access Key**:
 
 ```shell
 Access ID: '<Access-ID>'
@@ -203,7 +203,7 @@ For example, to work with the `eu` tenant:
 
 ## Authentication
 
-The CLI supports various types of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
+The CLI supports various types of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss):
 
 1. [API Key](https://docs.akeyless.io/docs/auth-with-api-key) (`access_key`)
 2. [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) (`aws_iam`)

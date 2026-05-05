@@ -38,7 +38,7 @@ To work with Your [Gateway](https://docs.akeyless.io/docs/gateway-overview) set 
 
 ## Authentication
 
-The Akeyless **JavaScript** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
+The Akeyless **JavaScript** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss).
 
 ### Using Cloud ID
 

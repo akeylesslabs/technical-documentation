@@ -144,7 +144,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
    * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
 
-   * **Target:** Select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets).
+   * **Target:** Select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-pluginss-targets).
 
    * **Gateway:** Select the desired corresponding Gateway.
 

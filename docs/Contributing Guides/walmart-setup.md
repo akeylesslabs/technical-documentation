@@ -118,7 +118,7 @@ You can configure different types of authentication methods with the CLI:
 Use the authentication mode that you also used when you signed up and signed in to the UI, use your username and password credentials, or use the API Key Akeyless assigned to you when you signed in for the first time.
 
 If you're not sure what authentication method to use, consult your administrator.  
-For more information about authentication methods, see [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
+For more information about authentication methods, see [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss).
 
 In the following example, you'll find both the API-key and the LDAP authentication methods: API-Key and LDAP.
 

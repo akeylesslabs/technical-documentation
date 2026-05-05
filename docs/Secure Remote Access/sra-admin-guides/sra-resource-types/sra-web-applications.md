@@ -28,7 +28,7 @@ The following browsing modes are available:
 
 * The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) deployed.
 
-* Akeyless [Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
+* Akeyless [Browser Extension](https://docs.akeyless.io/docs/password-manager-overview-web-extension).
 
 This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: `username..password`. that is a concatenation of your username and password, with double dots as a delimiter.
 

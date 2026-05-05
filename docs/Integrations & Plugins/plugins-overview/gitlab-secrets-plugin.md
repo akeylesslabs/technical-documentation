@@ -130,7 +130,7 @@ Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.
 
 ### Secret Example
 
-In the following example, we will fetch a [Static Secret](https://docs.akeyless.io/docs/static-secrets), this example will also work with [Rotated](https://docs.akeyless.io/docs/rotated-secrets) or [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) Secrets:
+In the following example, we will fetch a [Static Secret](https://docs.akeyless.io/docs/static-secrets), this example will also work with [Rotated](https://docs.akeyless.io/docs/rotated-secrets) or [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) Secrets:
 
 ```yaml .gitlab-ci.yml
 job:

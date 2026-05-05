@@ -16,7 +16,7 @@ next:
 ---
 ## Overview
 
-The Akeyless Kubernetes Secrets Injector plugin enables Kubernetes applications and workloads to use [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets), and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets as well as [Certificates](https://docs.akeyless.io/docs/certificate-storage) and [USC](https://docs.akeyless.io/docs/universal-secrets-connector) sourced from the Akeyless Platform.
+The Akeyless Kubernetes Secrets Injector plugin enables Kubernetes applications and workloads to use [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets), and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) secrets as well as [Certificates](https://docs.akeyless.io/docs/certificate-storage) and [USC](https://docs.akeyless.io/docs/universal-secrets-connector) sourced from the Akeyless Platform.
 
 This injector leverages the Kubernetes `MutatingAdmissionWebhook` to intercept and augment specifically annotated pod configurations for secrets injection. By doing so, the user benefits as the applications remain ״Akeyless unaware״ as the secrets are stored either as an **environment variable** or as a file at a **filesystem path** in their container.
 

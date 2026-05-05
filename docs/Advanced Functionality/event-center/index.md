@@ -26,8 +26,8 @@ On the upper left-hand side of the table, you will see a few interactive buttons
 
 Akeyless events are defined by object types, supporting:
 
-* **Items** events, for all items types, for example, [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
-* [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
+* **Items** events, for all items types, for example, [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
+* [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss)
 * [Targets](https://docs.akeyless.io/docs/targets)
 * Gateway
 
@@ -55,7 +55,7 @@ For `items-event-source-locations`:
 
 * `secret-sync`: Upon **automatic** sync failure, including the error details.
 
-* `dynamic-secret-failure`: On general failure of a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
+* `dynamic-secret-failure`: On general failure of a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett).
 
 * `static-secret-updated`: When a [Static Secret](https://docs.akeyless.io/docs/static-secrets) is set to trigger events on value changes.
 
@@ -71,9 +71,9 @@ For `auth-methods-event-source-locations`:
 
 * `uid-rotation-failure`: On [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) rotation failure, to track the automatic rotation.
 
-* `auth-method-pending-expiration`: by default **30 days** in advance before an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is about to expire can be customized.
+* `auth-method-pending-expiration`: by default **30 days** in advance before an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) is about to expire can be customized.
 
-* `auth-method-expired`: When an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is expired.
+* `auth-method-expired`: When an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) is expired.
 
 * `email-auth-method-approved`: When the invite of user based on [Email](https://docs.akeyless.io/docs/auth-with-email) Auth Method is approved.
 
@@ -99,7 +99,7 @@ Event Forwarders can only be managed by **Admins** or by users with explicit [pe
 
 > ℹ️ **Note:**
 >
-> Event Forwarders require a running [Gateway](https://docs.akeyless.io/docs/gateway-overview). Both **Admins** and authorized users need to have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) on at least one [Gateway](https://docs.akeyless.io/docs/gateway-overview) to create and manage Event Forwarders.
+> Event Forwarders require a running [Gateway](https://docs.akeyless.io/docs/gateway-overview). Both **Admins** and authorized users need to have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access) on at least one [Gateway](https://docs.akeyless.io/docs/gateway-overview) to create and manage Event Forwarders.
 
 ### Forwarded Events Format
 
@@ -145,7 +145,7 @@ The following JSON structure describes the forwarded event's format:
 
 For more information about creating and configuring event forwarders, refer to:
 
-[Email Event Forwarder](https://docs.akeyless.io/docs/email-event-forwarder)
+[Email Event Forwarder](https://docs.akeyless.io/docs/auth-with-email-event-forwarder)
 
 [Webhook Event Forwarder](https://docs.akeyless.io/docs/webhook-event-forwarder)
 

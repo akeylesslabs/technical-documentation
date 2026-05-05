@@ -18,7 +18,7 @@ next:
 
 > ℹ️ **Info (Required Gateway Access Permissions):**
 >
-> To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) on your Gateway to manage the Kubernetes Auth.
+> To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access) on your Gateway to manage the Kubernetes Auth.
 
 ## Dedicated ServiceAccount
 

@@ -34,7 +34,7 @@ The result: The agent's database credentials only exist for the few seconds they
 Before using this architecture, configure these Akeyless prerequisites:
 
 * [GCP authentication method](https://docs.akeyless.io/docs/auth-with-gcp)
-* [Dynamic Secrets overview](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
+* [Dynamic Secrets overview](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett)
 * [Database Dynamic Secrets setup (including MongoDB)](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db)
 
 ## Code Deep Dive: The Secretless Engine

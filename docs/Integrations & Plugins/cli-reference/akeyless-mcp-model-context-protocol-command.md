@@ -51,7 +51,7 @@ akeyless mcp --access-id <your-access-id> --access-type saml --gateway-url https
 (access_key / password / saml / ldap / k8s / azure_ad / oidc / aws_iam / universal_identity / jwt / gcp / cert / oci / kerberos)
 ```
 
-The `mcp` command accepts the same authentication parameters as standard Akeyless CLI auth commands. For more details, see [Akeyless Authentication Documentation](https://docs.akeyless.io/docs/access-and-authentication-methods)
+The `mcp` command accepts the same authentication parameters as standard Akeyless CLI auth commands. For more details, see [Akeyless Authentication Documentation](https://docs.akeyless.io/docs/access-and-authentication-methodss)
 
 ## Common Parameters
 

@@ -22,7 +22,7 @@ To enable Secure Remote Access to the GCP Portal you need:
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
-* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
+* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-overview-web-extension).
 
 * The [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 

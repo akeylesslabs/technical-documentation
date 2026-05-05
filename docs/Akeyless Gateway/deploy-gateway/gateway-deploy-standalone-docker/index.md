@@ -22,9 +22,9 @@ next:
 ---
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). For Gateway Console (UI) access, the admin role must include an RBAC Administrative rule scoped to Gateway management, with permission scope set to `scope` or `all`. CLI and API management can still be allowed when the role grants the required permissions.
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss). For Gateway Console (UI) access, the admin role must include an RBAC Administrative rule scoped to Gateway management, with permission scope set to `scope` or `all`. CLI and API management can still be allowed when the role grants the required permissions.
 
-> ℹ️ **Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), using the account owner's email and password with superuser privileges on the account.
+> ℹ️ **Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss), using the account owner's email and password with superuser privileges on the account.
 
 * A Linux or a Windows machine with [Docker Engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2 GB RAM.
 

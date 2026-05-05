@@ -26,7 +26,7 @@ It covers:
 The Akeyless ESO provider supports all Akeyless secret types:
 
 * [Static Secrets](https://docs.akeyless.io/docs/static-secrets)
-* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
+* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett)
 * [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets)
 * [Certificates](https://docs.akeyless.io/docs/certificate-storage)
 

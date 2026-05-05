@@ -12,7 +12,7 @@ next:
 ---
 This page documents the HashiCorp Vault-compatible TeamCity integration path through the Akeyless HashiCorp Vault Proxy.
 
-For the native TeamCity plugin that integrates directly with the Akeyless API, see [TeamCity Plugin](https://docs.akeyless.io/docs/teamcity-plugins).
+For the native TeamCity plugin that integrates directly with the Akeyless API, see [TeamCity Plugin](https://docs.akeyless.io/docs/teamcity-pluginss).
 
 When performing integration tests and deployments, build scripts need credentials to access external servers and services. The [TeamCity plugin](https://blog.jetbrains.com/teamcity/2017/09/vault/) allows connecting TeamCity to the Akeyless Platform, requesting new credentials when a build starts, passing them to the build script, and revoking them immediately when it finishes.
 
@@ -24,7 +24,7 @@ When performing integration tests and deployments, build scripts need credential
 
 1. A TeamCity server with an authorized BuildAgent.
 
-2. An [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) configured in the Akeyless Platform with access to secrets that will be used by the build agent.
+2. An [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) configured in the Akeyless Platform with access to secrets that will be used by the build agent.
 
 > ℹ️ **Info:**
 >
@@ -34,7 +34,7 @@ When performing integration tests and deployments, build scripts need credential
 > * [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
 > * Akeyless [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 >
-> Ensure that your [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is associated with an [access role](https://docs.akeyless.io/docs/rbac) that has sufficient permissions to access the required secrets.
+> Ensure that your [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) is associated with an [access role](https://docs.akeyless.io/docs/rbac) that has sufficient permissions to access the required secrets.
 
 ## Configure The TeamCity Plugin
 

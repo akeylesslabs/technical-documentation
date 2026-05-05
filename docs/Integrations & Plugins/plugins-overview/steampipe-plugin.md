@@ -15,7 +15,7 @@ Steampipe is an open source tool to instantly query cloud services with SQL. Thi
 ## Prerequisites
 
 * [Steampipe](https://steampipe.io/) installed
-* A supported Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods)
+* A supported Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss)
 
 ## Installation
 

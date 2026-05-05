@@ -18,7 +18,7 @@ To enable Secure Remote Access to Azure Portal you need:
 
 * [Remote Access on Kubernetes](https://docs.akeyless.io/docs/sra-setup-k8s) deployed.
 
-* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
+* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-overview-web-extension).
 
 In addition, for users to access the Azure Portal in Isolated mode, you need:
 
@@ -27,7 +27,7 @@ In addition, for users to access the Azure Portal in Isolated mode, you need:
 
 ## Create an Azure Secret
 
-If you don't already have an Azure AD secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-azure-rotated-secret) that specifies the Azure AD account details and access credentials.
+If you don't already have an Azure AD secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-ad-dynamic-secrets) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-azure-rotated-secret) that specifies the Azure AD account details and access credentials.
 
 If you already have a relevant secret, continue below.
 

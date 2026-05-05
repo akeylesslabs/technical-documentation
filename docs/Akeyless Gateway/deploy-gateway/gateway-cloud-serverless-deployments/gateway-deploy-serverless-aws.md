@@ -44,7 +44,7 @@ Edit the `akeyless-serverless-gateway/terraform/AWS/serverless-gateway/lambda_en
 
 ### Authentication
 
-Set your Akeyless Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Akeyless Gateway will have to your Akeyless account.
+Set your Akeyless Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) to control the level of access your Akeyless Gateway will have to your Akeyless account.
 
 The following Authentication Methods are supported for serverless mode:
 
@@ -105,7 +105,7 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 ### Customer Fragment
 

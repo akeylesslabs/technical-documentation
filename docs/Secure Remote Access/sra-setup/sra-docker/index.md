@@ -119,4 +119,4 @@ To start working with SRA, open your browser and login to the **Secure Remote Ac
 
 Log in with one of the [supported authentication methods](https://docs.akeyless.io/docs/sra-portal).
 
-Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret#/) with Secure Remote Access enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or by way of an SSH connection.
+Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett#/) with Secure Remote Access enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or by way of an SSH connection.

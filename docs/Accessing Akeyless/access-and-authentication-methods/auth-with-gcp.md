@@ -136,7 +136,7 @@ For GitHub Actions-specific GCP Workload Identity Federation (WIF) workflows (in
 
 ## Optional Features
 
-For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).
+For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methodss#common-optional-features).
 
 ### GCP-Specific Optional Features
 
@@ -158,8 +158,8 @@ For setup guidance, follow the [GKE Workload Identity guide](https://cloud.googl
 
 ## Related Pages
 
-* [Access and Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
+* [Access and Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss)
 * [Access Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac)
 * [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
 * [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-deploy-google-kubernetes-engine)
-* [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access)
+* [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access)

@@ -16,7 +16,7 @@ GitHub Actions enables you to automate workflows for your GitHub-hosted reposito
 
 With [this](https://github.com/LanceMcCarthy/akeyless-action) **community** plugin, you can fetch secrets directly from the Akeyless Platform into your workflows.
 
-This guide will demonstrate the use of [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) and [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) **Authentication Methods** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
+This guide will demonstrate the use of [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) and [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) **Authentication Methods** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) secrets from Akeyless.
 
 ## Prerequisites
 
@@ -139,7 +139,7 @@ In the following examples, instead of explicitly specifying the `AccessID` of th
 
 ## Usage
 
-The following examples will demonstrate how to fetch [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
+The following examples will demonstrate how to fetch [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) secrets from Akeyless.
 
 ### Fetching Static Secrets
 

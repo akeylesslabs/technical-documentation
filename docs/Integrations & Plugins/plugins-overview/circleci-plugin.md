@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless plugin for CircleCI enables a secure, easy, and integrative way to fetch [Secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview) into [CircleCI](https://circleci.com/docs/pipelines/) pipelines, either integrating the native CircleCI short-lived [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication tokens, or using any other [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with Akeyless native [RBAC](https://docs.akeyless.io/docs/rbac).
+The Akeyless plugin for CircleCI enables a secure, easy, and integrative way to fetch [Secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview) into [CircleCI](https://circleci.com/docs/pipelines/) pipelines, either integrating the native CircleCI short-lived [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication tokens, or using any other [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) with Akeyless native [RBAC](https://docs.akeyless.io/docs/rbac).
 
 ## Prerequisites
 

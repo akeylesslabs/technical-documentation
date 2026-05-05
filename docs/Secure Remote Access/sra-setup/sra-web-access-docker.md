@@ -93,7 +93,7 @@ services:
 
 ### Authentication
 
-The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported:
+The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) are supported:
 
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 

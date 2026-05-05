@@ -62,6 +62,6 @@ Across AWS and Azure cloud-managed serverless platforms, the operational model r
 
 After deployment, continue with:
 
-* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access)
+* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access)
 * [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
 * [Telemetry and Monitoring](https://docs.akeyless.io/docs/monitor-akeyless)

@@ -32,7 +32,7 @@ Akeyless offers a comprehensive suite of password management features, including
 
 * Centralized Password Storage: Store and manage all passwords in a single, secure location.
 * [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac): Define granular access permissions to control who can access specific passwords and secrets.
-* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret): Automatically rotate and update passwords for privileged accounts, eliminating the need for manual intervention.
+* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett): Automatically rotate and update passwords for privileged accounts, eliminating the need for manual intervention.
 * Password Injection: Seamlessly inject passwords into websites and applications using the Akeyless browser extension.
 * [Audit Logging](https://docs.akeyless.io/docs/audit-logs): Track all password activities and user access for comprehensive auditing and compliance purposes.
 
@@ -62,7 +62,7 @@ Exert granular control over your team's access to Akeyless by leveraging compreh
 
 ## Unified Akeyless Experience Across Devices
 
-Maintain a consistent and secure experience for your team by enforcing regular updates to the Akeyless [browser extension](https://docs.akeyless.io/docs/password-manager-web-extension) and [mobile application](https://docs.akeyless.io/docs/password-manager-mobile-application) across all devices. This ensures that your team always has access to the latest security features and protection.
+Maintain a consistent and secure experience for your team by enforcing regular updates to the Akeyless [browser extension](https://docs.akeyless.io/docs/password-manager-overview-web-extension) and [mobile application](https://docs.akeyless.io/docs/password-manager-overview-mobile-application) across all devices. This ensures that your team always has access to the latest security features and protection.
 
 ## Securely Share Secrets With Anyone, Anytime
 

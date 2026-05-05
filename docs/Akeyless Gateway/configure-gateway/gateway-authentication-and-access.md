@@ -168,7 +168,7 @@ After applying authentication and access configuration:
 
 ## Related Pages
 
-* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access)
-* [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access)
+* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access)
+* [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access)
 * [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
 * [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration)

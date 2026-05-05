@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-By way of a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods), while using existing Access Groups and Policies in your environment.
+By way of a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss), while using existing Access Groups and Policies in your environment.
 
 Instead of issuing a public and private SSH key pair, Akeyless provides temporary SSH certificates to allow access over the standard SSH protocol while eliminating the need for public SSH keys on the server side.
 
@@ -221,7 +221,7 @@ This guide includes the steps needed for the necessary prerequisites. If you wan
 
    * **Type:** The encryption algorithm used for the key.
 
-   * **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#gen-customer-fragment).
+   * **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#gen-customer-fragment).
 
 4. Go to the folder in Akeyless where you saved the desired key, select it, and tap **get public RSA key**.
 

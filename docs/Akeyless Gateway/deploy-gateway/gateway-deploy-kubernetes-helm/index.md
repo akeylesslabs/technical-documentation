@@ -34,7 +34,7 @@ Use this page for shared Helm setup and installation, then apply provider-specif
 
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with an [Access Role](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview), and [Targets](https://docs.akeyless.io/docs/targets)
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) with an [Access Role](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview), and [Targets](https://docs.akeyless.io/docs/targets)
 
 * [Helm](https://helm.sh/) Installed
 
@@ -75,9 +75,9 @@ Use this page for shared Helm setup and installation, then apply provider-specif
 
 ## Authentication
 
-Configure the Akeyless Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Gateway instance will have to your Akeyless account.
+Configure the Akeyless Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) to control the level of access your Gateway instance will have to your Akeyless account.
 
-The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported for Kubernetes deployments:
+The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) are supported for Kubernetes deployments:
 
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
@@ -135,7 +135,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [admin users](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#gateway-admins) who can manage your Gateway.
 
-Set the `gatewayAccessId` with your IAM [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you can define a list of users who can manage your Gateway settings by way of the `allowedAccessPermissions` setting with any other `Access ID` of your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), as described [here](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#access-permissions).
+Set the `gatewayAccessId` with your IAM [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) `Access ID`, where you can define a list of users who can manage your Gateway settings by way of the `allowedAccessPermissions` setting with any other `Access ID` of your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), as described [here](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#access-permissions).
 
 ### AWS IAM
 
@@ -147,7 +147,7 @@ AWS IAM can be used in the following approaches:
 
 In both cases, provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Authentication Method's Access ID as your `gatewayAccessId`, and at least one other Access ID in the `allowedAccessPermissions` section to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm):
 
-`allowedAccessPermissions` also supports wildcard access IDs with `access_id: "*"`. For details, see [Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+`allowedAccessPermissions` also supports wildcard access IDs with `access_id: "*"`. For details, see [Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access).
 
 ```yaml values.yaml
 globalConfig:
@@ -427,11 +427,11 @@ Full list of available permissions:
 | `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
 | `defaults` | Management of the defaults settings of your Gateway, including `GatewayUrl`, `TLS`, `Default Encryption Key`, and `Default AccessID` for login. |
 | `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
-| `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) |
+| `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) |
 | `rotated_secret` | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
 | `rotate-secret-value` | Permission to only rotate the secret value without editing it. |
 | `targets` | Management of all Targets items that were created using your Gateway |
-| `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings |
+| `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) settings |
 | `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings |
 | `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
 | `caching` | Management of [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) settings |

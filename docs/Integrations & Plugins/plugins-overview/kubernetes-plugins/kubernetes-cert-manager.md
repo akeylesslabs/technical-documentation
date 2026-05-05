@@ -129,7 +129,7 @@ Create the Issuer:
 kubectl apply -f issuer.yaml
 ```
 
-At this stage, all the configuration for Kubernetes authentication is set and it is possible to proceed to the next step to [create the certificate request](https://docs.akeyless.io/docs/kubernetes-cert-manager#create-a-certificate-request).
+At this stage, all the configuration for Kubernetes authentication is set and it is possible to proceed to the next step to [create the certificate request](https://docs.akeyless.io/docs/kubernetes-pluginss-cert-manager#create-a-certificate-request).
 
 ### API Key Auth Method
 

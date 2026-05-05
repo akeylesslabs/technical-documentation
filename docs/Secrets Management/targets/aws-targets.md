@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define an AWS target that contains an AWS IAM principal to be used with an [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer) or an [AWS Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
+You can define an AWS target that contains an AWS IAM principal to be used with an [AWS Dynamic Secrets](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-producer) or an [AWS Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 
 If you are working with an explicit **Access Key**, to follow [AWS best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#update-access-keys), ensure you create automatic rotation for this **Access Key** using [AWS Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 
@@ -57,7 +57,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > ℹ️ **Note (Use Gateway's Cloud Identity):**
 >
-> This is relevant for cases where your Gateway is hosted on an AWS resource (such as, EC2, EKS, ECS Fargate) that has some IAM role associated to it. Make sure the relevant IAM Role has enough permissions to perform the required actions as described in the relevant guides, for example, [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), and [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector).
+> This is relevant for cases where your Gateway is hosted on an AWS resource (such as, EC2, EKS, ECS Fargate) that has some IAM role associated to it. Make sure the relevant IAM Role has enough permissions to perform the required actions as described in the relevant guides, for example, [AWS Dynamic Secrets](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-producer), [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), and [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-universal-secrets-connector).
 >
 > If you are working with explicit credentials, make sure to set a [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret) to meet AWS best practices.
 
@@ -77,7 +77,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     > 👍 Note
     >
-    > **Use Gateway's Cloud Identity** is relevant for cases where your Gateway is hosted on an AWS resource (for example, Amazon EC2, Amazon EKS, and Amazon ECS Fargate) that has some IAM role associated to it. Make sure the relevant IAM Role has enough permissions to perform the required actions as described in the relevant guides, for example, [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector) and so on.
+    > **Use Gateway's Cloud Identity** is relevant for cases where your Gateway is hosted on an AWS resource (for example, Amazon EC2, Amazon EKS, and Amazon ECS Fargate) that has some IAM role associated to it. Make sure the relevant IAM Role has enough permissions to perform the required actions as described in the relevant guides, for example, [AWS Dynamic Secrets](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-producer), [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-universal-secrets-connector) and so on.
 
 5. Define the remaining parameters as follows:
 

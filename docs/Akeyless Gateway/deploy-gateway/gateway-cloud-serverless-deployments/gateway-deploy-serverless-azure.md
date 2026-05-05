@@ -48,7 +48,7 @@ Edit the `akeyless-serverless-gateway/bicep/Azure/serverless-gateway/params.bice
 
 ### Authentication
 
-Set your Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Gateway will have inside your Akeyless account.
+Set your Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) to control the level of access your Gateway will have inside your Akeyless account.
 
 The following Authentication Methods are supported for Azure Serverless:
 
@@ -76,7 +76,7 @@ param akeyless_url = 'https://vault.akeyless.io'
 @description('Cluster Name')
 param cluster_name = 'Azure Serverless'
 
-@description('Allowed values are azure_ad or access_key https://docs.akeyless.io/docs/access-and-authentication-methods')
+@description('Allowed values are azure_ad or access_key https://docs.akeyless.io/docs/access-and-authentication-methodss')
 param admin_access_id_type = 'azure'
 
 @description('Akeyless Admin Access ID')
@@ -130,7 +130,7 @@ param akeyless_url = 'https://vault.akeyless.io'
 @description('Cluster Name')
 param cluster_name = 'Azure Serverless'
 
-@description('Allowed values are azure or access_key https://docs.akeyless.io/docs/access-and-authentication-methods')
+@description('Allowed values are azure or access_key https://docs.akeyless.io/docs/access-and-authentication-methodss')
 param admin_access_id_type = 'access_key'
 
 @description('Akeyless Admin Access ID')
@@ -181,7 +181,7 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 * `functionAppName`: The name for the [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) that will be created in Azure.
 

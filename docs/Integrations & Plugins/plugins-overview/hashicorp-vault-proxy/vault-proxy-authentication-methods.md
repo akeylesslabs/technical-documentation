@@ -65,7 +65,7 @@ job:
       aud: https://gitlab.com
 ```
 
-set the `VAULT_AUTH_ROLE` with your Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID` and the `VAULT_AUTH_PATH` with `jwt`. In general, the Vault role should be set with your `Access ID`.
+set the `VAULT_AUTH_ROLE` with your Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) `Access ID` and the `VAULT_AUTH_PATH` with `jwt`. In general, the Vault role should be set with your `Access ID`.
 
 ## Kubernetes
 
@@ -79,7 +79,7 @@ vault write auth/kubernetes/login \
   jwt="<kubernetes-serviceaccount-jwt>"
 ```
 
-For a full implementation example with cert-manager, see [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager).
+For a full implementation example with cert-manager, see [Cert Manager](https://docs.akeyless.io/docs/kubernetes-pluginss-cert-manager).
 
 > ℹ️ **Note:**
 >

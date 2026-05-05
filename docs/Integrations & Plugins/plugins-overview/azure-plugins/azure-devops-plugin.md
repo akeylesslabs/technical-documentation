@@ -127,7 +127,7 @@ akeyless auth --access-type access_key --access-id <Access ID> --access-key <Acc
 
 Related authentication references:
 
-* [Authentication methods overview](https://docs.akeyless.io/docs/access-and-authentication-methods)
+* [Authentication methods overview](https://docs.akeyless.io/docs/access-and-authentication-methodss)
 * [API Key authentication](https://docs.akeyless.io/docs/auth-with-api-key)
 
 For the Vault Interaction extension itself, review its task options and caveats (for example, recursive discovery and variable prefix behavior) in the [Vault Interaction Marketplace page](https://marketplace.visualstudio.com/items?itemName=Fizcko.azure-devops-vault-interaction).

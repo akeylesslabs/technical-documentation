@@ -36,7 +36,7 @@ The whole chain of trust can be generated using one dedicated CLI command, which
 
 > ⚠️ **Warning:**
 >
-> Automatic creation of a Chain of Trust is not supported if the Item Naming Convention configured in Global Settings contains a literal space character. In this case, follow the [manual guide](https://docs.akeyless.io/docs/ca-chain-of-trust-manually) to build the Chain of Trust.
+> Automatic creation of a Chain of Trust is not supported if the Item Naming Convention configured in Global Settings contains a literal space character. In this case, follow the [manual guide](https://docs.akeyless.io/docs/ca-chain-of-trust-manually-manually) to build the Chain of Trust.
 
 Example for generating a **Chain of Trust** where the `common-name` for the **Root** issuer will be: `My-First-Chain root CA` and the `common-name` for the **Intermediate** issuer will be: `My-First-Chain intermediate CA` (You can customize the maximum path length by using the `--max-path-len` flag):
 

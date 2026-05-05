@@ -27,7 +27,7 @@ The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Hel
 
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with an [Access Role](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview), and [Targets](https://docs.akeyless.io/docs/targets)
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) with an [Access Role](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview), and [Targets](https://docs.akeyless.io/docs/targets)
 
 * [Helm](https://helm.sh/) Installed
 
@@ -75,9 +75,9 @@ The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Hel
 
 ## Authentication
 
-Set a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) for the Gateway to control the level of access the Gateway instance will have inside your Akeyless account.
+Set a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) for the Gateway to control the level of access the Gateway instance will have inside your Akeyless account.
 
-The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported for Kubernetes deployments:
+The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) are supported for Kubernetes deployments:
 
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
@@ -106,7 +106,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [admin users](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#gateway-admins) who can manage your Gateway.
 
-Set the `adminAccessId` with your IAM [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you can define a list of users who can manage your Gateway by setting the `allowedAccessPermissions` field with any other `Access ID` of your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), as described [here](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#access-permissions).
+Set the `adminAccessId` with your IAM [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) `Access ID`, where you can define a list of users who can manage your Gateway by setting the `allowedAccessPermissions` field with any other `Access ID` of your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), as described [here](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#access-permissions).
 
 ### AWS IAM
 
@@ -335,8 +335,8 @@ Full list of available permissions:
 | `defaults` | Management of the defaults settings of your Gateway including `Default Encryption Key` and `Default AccessID` for login. |
 | `targets` | Management of all Targets items that were created using your Gateway |
 | `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
-| `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings |
-| `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) |
+| `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) settings |
+| `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) |
 | `rotated_secret` | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
 | `rotate_secret_value` | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item |
 | `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings |
