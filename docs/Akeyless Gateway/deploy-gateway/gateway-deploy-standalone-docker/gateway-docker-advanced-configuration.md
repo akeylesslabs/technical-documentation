@@ -132,6 +132,10 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -v $PWD/
 
 To support local management of your Gateway configuration, you can set a list of `Access ID` values that can log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
 
+> ℹ️ **Note:**
+>
+> Older documentation and example configurations may reference `GATEWAY_AUTHORIZED_ACCESS_ID` for this setting. That name is deprecated. Use `ALLOWED_ACCESS_PERMISSIONS` for all current deployments.
+
 For example:
 
 ```shell
@@ -368,6 +372,9 @@ For behavior, topology semantics, and recommended proactive cache settings, see 
 | `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME` | Integer (minutes) | Minimum interval between background refresh attempts per secret. |
 | `PROACTIVE_CACHE_WORKERS` | Integer | Number of parallel workers used to refresh the proactive cache. |
 | `PROACTIVE_CACHE_DUMP_INTERVAL` | Integer (minutes) | Legacy: interval for periodic secure cache backup. Retained for backwards compatibility; prefer the `NEW_PROACTIVE_CACHE_ENABLE` model. |
+| `USE_CLUSTER_CACHE` | `true`/`false` | Enables the Redis-backed cluster cache. Required alongside `GATEWAY_CLUSTER_CACHE`. |
+| `GATEWAY_CLUSTER_CACHE` | `"enable"` | Activates cluster cache mode. Set to `"enable"` when using a Redis-backed cluster cache. If left set after removing the Redis instance, the Gateway may fail to start until the container is recreated. |
+| `REDIS_ADDR` | `host:port` | Address of the Redis instance used for the cluster cache, for example `akeyless-cache:6379`. |
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e NEW_PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="60" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="5" -e PROACTIVE_CACHE_WORKERS="3" --name akeyless-gw akeyless/base:latest-akeyless
@@ -491,10 +498,10 @@ When deploying SRA alongside the Gateway using Docker Compose, note the followin
 >
 > The Docker-based SRA deployment supports a subset of the configuration options available in Kubernetes. Review these constraints before deploying SRA in a Docker Compose environment.
 
-* **SRA container image**: SRA requires a separate container image. Refer to the [Secure Remote Access setup guide](https://docs.akeyless.io/docs/remote-access-setup-k8s) for the image and required environment variables.
+* **SRA container image**: SRA requires separate container images for the web and SSH proxy components. Refer to the [Remote Access on Docker Compose guide](https://docs.akeyless.io/docs/sra-docker) for image references and required environment variables.
 * **Networking**: The SRA container and the Gateway container must share a Docker network so that SRA can reach the Gateway on port `8000`. Define a named network in your `docker-compose.yaml` and attach both containers to it.
 * **Port exposure**: The SRA SSH service listens on port `2222` by default. Expose this port to allow inbound SRA connections from user workstations.
 * **Volume mounts**: If you configure SRA with TLS certificates or SSH host keys, mount those files consistently across container restarts using a named volume or bind mount.
-* **Environment variables**: The SRA container requires at minimum `GATEWAY_URL` (pointing to the Gateway container) and the same `GATEWAY_ACCESS_ID` used by the Gateway. Refer to your SRA release notes for the full variable reference.
+* **Environment variables**: The SRA `sra.env` file requires at minimum `GATEWAY_URL` (the Gateway API endpoint, for example `http://akeyless-gateway:8000`) and `INTERNAL_GATEWAY_API` (the Gateway internal/health endpoint, for example `http://akeyless-gateway:8080`). For the full variable reference, see [Docker Compose Advanced Configuration](https://docs.akeyless.io/docs/sra-advanced-configuration-docker).
 
-For a reference Docker Compose file that includes both the Gateway and SRA containers, see the [Akeyless Helm Charts repository](https://github.com/akeylesslabs/helm-charts/tree/main/docker-compose).
+For a reference Docker Compose file that includes both the Gateway and SRA containers, see the [Akeyless Docker Compose repository](https://github.com/akeylesslabs/docker-compose).
