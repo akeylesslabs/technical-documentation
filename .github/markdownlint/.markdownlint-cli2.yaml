@@ -177,6 +177,10 @@ config:
       - path: "plugins-overview/kubernetes-plugins/auth-meth-k8s.md"
         phrases:
           - "policy segregation"
+      - path: "plugins-overview/kubernetes-plugins/akeyless-kubernetes-secrets-injector.md"
+        phrases:
+          - "full and flexible segregation"
+          - "policy segregation"
     terms:
       # Akeyless Marketing Requests/Changes
       - term: "Vaultless"
