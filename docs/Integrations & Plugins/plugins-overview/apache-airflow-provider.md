@@ -11,7 +11,9 @@ next:
   description: ''
 ---
 
-The `airflow-provider-akeyless` package integrates the Akeyless identity security platform with [Apache Airflow](https://airflow.apache.org/). It lets you fetch secrets, manage credentials, and use Akeyless as a native Airflow Secrets Backend.
+The `apache-airflow-providers-akeyless` package integrates the Akeyless identity security platform with [Apache Airflow](https://airflow.apache.org/). It lets you fetch secrets, manage credentials, and use Akeyless as a native Airflow Secrets Backend.
+
+The provider is maintained in the [apache/airflow](https://github.com/apache/airflow/tree/main/providers/akeyless) repository.
 
 | Capability | Class |
 | --- | --- |
@@ -23,21 +25,23 @@ The `airflow-provider-akeyless` package integrates the Akeyless identity securit
 
 | Package | Minimum version |
 | --- | --- |
-| `apache-airflow` | 2.7.0 |
+| `apache-airflow` | 2.11.0 |
 | `akeyless` | 5.0.0 |
+
+> 📘 `akeyless>=5.0.0` is a declared dependency of the provider package. It installs automatically when you install `apache-airflow-providers-akeyless`.
 
 ## Installation
 
 Install the base package:
 
 ```shell
-pip install airflow-provider-akeyless
+pip install apache-airflow-providers-akeyless
 ```
 
 For cloud-based authentication (AWS IAM, GCP, Azure AD) also install the cloud ID extras:
 
 ```shell
-pip install airflow-provider-akeyless[cloud_id]
+pip install apache-airflow-providers-akeyless[cloud_id]
 ```
 
 ## Authentication Methods
@@ -116,7 +120,7 @@ backend_kwargs = {
 }
 ```
 
-Or via environment variables:
+Or with environment variables:
 
 ```shell
 export AIRFLOW__SECRETS__BACKEND="airflow.providers.akeyless.secrets.akeyless.AkeylessBackend"
@@ -168,18 +172,15 @@ JSON with `conn_uri`:
 
 For AWS IAM, GCP, or Azure AD, omit `access_key` and set the appropriate `access_type`. The provider uses the workload's cloud identity automatically.
 
-Example using AWS IAM:
+> ⚠️ **Secrets Backend limitation:** `AkeylessBackend` only supports `api_key` and `uid` authentication. For cloud-based authentication (AWS IAM, GCP, Azure AD) use `AkeylessHook` directly in your DAGs.
 
-```text
-[secrets]
-backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
-backend_kwargs = {
-    "api_url": "https://api.akeyless.io",
-    "access_id": "<Access ID>",
-    "access_type": "aws_iam",
-    "connections_path": "/airflow/connections",
-    "variables_path": "/airflow/variables"
-}
+Example using AWS IAM with the hook:
+
+```python
+from airflow.providers.akeyless.hooks.akeyless import AkeylessHook
+
+hook = AkeylessHook(akeyless_conn_id="akeyless_aws_iam")
+value = hook.get_secret_value("/my/secret")
 ```
 
-This authenticates using the workload's AWS IAM identity (EC2 instance profile, ECS task role, and so on) — no static credentials required.
+Set the connection `access_type` extra field to `aws_iam` and install the `cloud_id` extras. The hook authenticates using the workload's AWS IAM identity (EC2 instance profile, ECS task role, and so on) — no static credentials required.
