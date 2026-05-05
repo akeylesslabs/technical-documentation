@@ -23,3 +23,6 @@ pnpm-debug.log*
 
 # Python cache
 .github/scripts/__pycache__/
+
+# Temporary files
+*.tmp
