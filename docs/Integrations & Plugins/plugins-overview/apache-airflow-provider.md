@@ -28,8 +28,6 @@ The provider is maintained in the [apache/airflow](https://github.com/apache/air
 | `apache-airflow` | 2.11.0 |
 | `akeyless` | 5.0.0 |
 
-> 📘 `akeyless>=5.0.0` is a declared dependency of the provider package. It installs automatically when you install `apache-airflow-providers-akeyless`.
-
 ## Installation
 
 Install the base package:
