@@ -18,11 +18,26 @@ on:
       - ".github/scripts/check_readme_docs_constraints.py"
       - ".github/workflows/readme-docs-constraints.yml"
   workflow_dispatch:
+  workflow_call:
+    outputs:
+      constraints_summary:
+        description: "One-line summary of ReadMe docs constraints check"
+        value: ${{ jobs.validate-readme-docs-constraints.outputs.constraints_summary }}
+      violations_total:
+        description: "Total number of constraint violations found"
+        value: ${{ jobs.validate-readme-docs-constraints.outputs.violations_total }}
+      failed:
+        description: "Whether the constraints check failed (true/false)"
+        value: ${{ jobs.validate-readme-docs-constraints.outputs.failed }}
 
 jobs:
   validate-readme-docs-constraints:
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    outputs:
+      constraints_summary: ${{ steps.capture.outputs.constraints_summary }}
+      violations_total: ${{ steps.capture.outputs.violations_total }}
+      failed: ${{ steps.capture.outputs.failed }}
 
     steps:
       - name: Checkout repository
@@ -78,6 +93,22 @@ jobs:
             --max-depth 3 \
             --out-json .github/automation-reports/readme-constraints-report.json \
             --out-md .github/automation-reports/readme-constraints-report.md
+
+      - name: Capture constraint outputs
+        id: capture
+        if: always()
+        run: |
+          if [ -f .github/automation-reports/readme-constraints-report.json ]; then
+            FAILED=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print('true' if r.get('failed') else 'false')")
+            TOTAL=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print(r.get('duplicate_violations',0)+r.get('depth_violations',0)+r.get('front_matter_violations',0)+r.get('navigation_violations',0))")
+          else
+            FAILED=false
+            TOTAL=0
+          fi
+          SUMMARY="ReadMe docs constraints: ${TOTAL} violation(s) found (failed=${FAILED})"
+          echo "failed=${FAILED}" >> "$GITHUB_OUTPUT"
+          echo "violations_total=${TOTAL}" >> "$GITHUB_OUTPUT"
+          echo "constraints_summary=${SUMMARY}" >> "$GITHUB_OUTPUT"
 
       - name: Add or update PR comment
         if: always() && github.event_name == 'pull_request'

@@ -65,6 +65,10 @@ jobs:
       branch_name: automation/cli-command-path-check
     secrets: inherit
 
+  readme-constraints:
+    uses: ./.github/workflows/readme-docs-constraints.yml
+    secrets: inherit
+
   secret-scan:
     name: Secret Scan
     runs-on: ubuntu-latest
@@ -379,6 +383,7 @@ jobs:
       - markdownlint
       - spell-check
       - cli-path-check
+      - readme-constraints
       - secret-scan
       - dependency-change-monitor
     if: always()
@@ -415,6 +420,9 @@ jobs:
           SECRET_SCAN_LEAKS: ${{ needs.secret-scan.outputs.leaks_found }}
           SECRET_SCAN_RULES: ${{ needs.secret-scan.outputs.rule_breakdown }}
 
+          README_CONSTRAINTS_SUMMARY: ${{ needs.readme-constraints.outputs.constraints_summary }}
+          README_VIOLATIONS_TOTAL: ${{ needs.readme-constraints.outputs.violations_total }}
+
           DEP_SUMMARY: ${{ needs.dependency-change-monitor.outputs.dep_summary }}
           DEP_FINDINGS: ${{ needs.dependency-change-monitor.outputs.dep_findings }}
           DEP_TOP5: ${{ needs.dependency-change-monitor.outputs.dep_top5 }}
@@ -431,9 +439,10 @@ jobs:
           CSPELL_ISSUE_COUNT="${CSPELL_ISSUE_COUNT:-0}"
           CLI_PATH_FAILURES="${CLI_PATH_FAILURES:-0}"
           SECRET_SCAN_LEAKS="${SECRET_SCAN_LEAKS:-0}"
+          README_VIOLATIONS_TOTAL="${README_VIOLATIONS_TOTAL:-0}"
           DEP_FINDINGS="${DEP_FINDINGS:-0}"
 
-          FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES + SECRET_SCAN_LEAKS + DEP_FINDINGS))
+          FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES + SECRET_SCAN_LEAKS + README_VIOLATIONS_TOTAL + DEP_FINDINGS))
 
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_OUTPUT"
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_ENV"
@@ -473,6 +482,10 @@ jobs:
 
           ## Secret Scan
           - ${SECRET_SCAN_SUMMARY}
+
+          ## ReadMe Docs Constraints
+          - ${README_CONSTRAINTS_SUMMARY}
+          - Violations: ${README_VIOLATIONS_TOTAL}
 
           ## Dependency Change Monitor
           - ${DEP_SUMMARY}
@@ -526,6 +539,9 @@ jobs:
           SECRET_SCAN_LEAKS: ${{ needs.secret-scan.outputs.leaks_found }}
           SECRET_SCAN_RULES: ${{ needs.secret-scan.outputs.rule_breakdown }}
 
+          README_CONSTRAINTS_SUMMARY: ${{ needs.readme-constraints.outputs.constraints_summary }}
+          README_VIOLATIONS_TOTAL: ${{ needs.readme-constraints.outputs.violations_total }}
+
           FINDINGS_TOTAL: ${{ steps.aggregate.outputs.findings_total }}
         run: |
           set -e
@@ -569,6 +585,8 @@ jobs:
             --arg sec1 "$SECRET_SCAN_SUMMARY" \
             --arg sec2 "$SECRET_SCAN_LEAKS" \
             --arg sec3 "$SECRET_SCAN_RULES" \
+            --arg rdme1 "$README_CONSTRAINTS_SUMMARY" \
+            --arg rdme2 "$README_VIOLATIONS_TOTAL" \
             --arg total "$FINDINGS_TOTAL" \
             'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
              def linkPara($label; $url):
@@ -608,6 +626,8 @@ jobs:
                  para("Secret scan: " + $sec1),
                  para("Potential leaks found: " + $sec2),
                  (if ($sec3 != "" and $sec3 != "No leaks detected") then para("Rule breakdown: " + $sec3) else empty end),
+                 para("ReadMe docs constraints: " + $rdme1),
+                 para("ReadMe constraint violations: " + $rdme2),
                  para("This ticket was created automatically by GitHub Actions.")
                ]
              }')
