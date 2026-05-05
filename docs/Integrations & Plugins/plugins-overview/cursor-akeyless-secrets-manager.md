@@ -54,6 +54,7 @@ Use Cursor’s command palette to scan your entire codebase for hardcoded secret
 
 Before using the extension, you must have the Akeyless CLI installed and be authenticated.
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 # Install Akeyless CLI (macOS)
 brew install akeylesslabs/tap/akeyless
