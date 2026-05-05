@@ -85,7 +85,7 @@ Use the following deployment-specific options to configure standalone cluster ca
 | Gateway Console | Not supported. Standalone cluster cache topology is deployment-level and is configured in infrastructure manifests. |
 | [Kubernetes (Helm)](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) | Set `globalConfig.clusterCache.enabled=true` in `values.yaml`. Configure persistence with `globalConfig.clusterCache.persistence.*` as needed, then [apply a Helm upgrade](https://helm.sh/docs/helm/helm_upgrade/). |
 | [Standalone Docker](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker) | Not supported. Standalone cluster cache topology is not configured as a Docker-only deployment option. |
-| [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose) | Not supported as a documented deployment mode for standalone cluster cache topology. |
+| [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose) | Standalone cluster cache topology is not provisioned by Docker Compose. Docker Compose supports cache behavior tuning through Gateway environment variables (see [Cluster Cache Environment Variables (Docker Compose)](https://docs.akeyless.io/docs/cluster-cache-standalone#cluster-cache-environment-variables-docker-compose)). |
 | [Serverless AWS](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws) and [Serverless Azure](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure) | Not supported. Standalone cluster cache topology requires Kubernetes deployment resources. |
 
 Example (`values.yaml`):
@@ -120,7 +120,7 @@ For the full key reference, see [Helm Values Reference](https://docs.akeyless.io
 
 ### Cluster Cache Environment Variables (Docker Compose)
 
-When deploying with [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose), configure standalone cluster cache using environment variables in `gateway.env` rather than Helm values:
+When deploying with [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose), use the following environment variables in `gateway.env` to control Redis-backed cache behavior. These variables do not provision standalone cluster cache topology resources.
 
 * `USE_CLUSTER_CACHE`: Set to `true` to enable the Redis-backed cluster cache for the curl proxy (proactive cache) layer. In a full Gateway deployment, set this together with `GATEWAY_CLUSTER_CACHE`; the SRA process uses `USE_CLUSTER_CACHE` alone.
 * `GATEWAY_CLUSTER_CACHE`: Set to `"enable"` to activate cluster cache mode for the Gateway configuration layer. Any non-empty value enables this; `"enable"` is the conventional value. If this variable remains set after the Redis instance is removed, the Gateway may fail to start until the container is recreated.
