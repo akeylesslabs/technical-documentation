@@ -78,12 +78,21 @@ readonly OPEN_FENCE_RE='^[[:space:]]{0,3}(`{3,}|~{3,})'
 # Argument parsing
 # ---------------------------------------------------------------------------
 FILES_FROM=""
+JSON_OUT_FILE=""
 if [[ "${1:-}" == "--files" ]]; then
   if [[ -z "${2:-}" ]]; then
     echo "Error: --files requires a path argument." >&2
     exit 2
   fi
   FILES_FROM="$2"
+  shift 2
+fi
+if [[ "${1:-}" == "--json-out" ]]; then
+  if [[ -z "${2:-}" ]]; then
+    echo "Error: --json-out requires a path argument." >&2
+    exit 2
+  fi
+  JSON_OUT_FILE="$2"
   shift 2
 fi
 
@@ -192,6 +201,24 @@ done
 # ---------------------------------------------------------------------------
 # Report results
 # ---------------------------------------------------------------------------
+
+# Optionally write a JSON file for machine consumption (e.g. PR comments).
+# Format: {"violation_count": N, "violations": [{"file": "...", "line": N, "content": "..."}, ...]}
+if [[ -n "$JSON_OUT_FILE" ]]; then
+  {
+    printf '{"violation_count":%d,"violations":[' "$VIOLATION_COUNT"
+    for (( i = 0; i < VIOLATION_COUNT; i++ )); do
+      [[ $i -gt 0 ]] && printf ','
+      # Escape backslashes and double-quotes so the output is valid JSON.
+      vc_escaped="${VIO_CONTENT[$i]//\\/\\\\}"
+      vc_escaped="${vc_escaped//\"/\\\"}"
+      printf '{"file":"%s","line":%d,"content":"%s"}' \
+        "${VIO_FILE[$i]}" "${VIO_LINE[$i]}" "$vc_escaped"
+    done
+    printf ']}'
+  } > "$JSON_OUT_FILE"
+fi
+
 if [[ "$VIOLATION_COUNT" -gt 0 ]]; then
   echo "CLI stdout scan found ${VIOLATION_COUNT} violation(s) — commands that print secret material to stdout:"
   echo ""
