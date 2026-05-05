@@ -28,4 +28,4 @@ You can also configure session forwarding by using the CLI:
 akeyless gateway update remote-access-session-forwarding <provider>
 ```
 
-For provider-specific commands and flags, see **CLI Reference - Gateway Secure Remote Access**.
+For provider-specific commands and flags, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).

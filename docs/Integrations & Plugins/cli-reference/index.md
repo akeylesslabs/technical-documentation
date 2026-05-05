@@ -183,7 +183,7 @@ List of all accessible items
 
 Lists all Secure Remote Access (SRA) bastions in the account.
 
-For command usage, flags, and behavior notes, see **CLI Reference - Gateway Secure Remote Access**.
+For command usage, flags, and behavior notes, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
 
 ### `move-objects`
 
