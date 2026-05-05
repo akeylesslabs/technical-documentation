@@ -24,7 +24,7 @@ Akeyless supports multiple options to authenticate your Kubernetes cluster with 
 
 > ℹ️ **Note:**
 >
-> Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy isolation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/auth-with-kubernetes).
+> Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/auth-with-kubernetes).
 
 To use the Kubernetes Auth Method for authentication:
 
