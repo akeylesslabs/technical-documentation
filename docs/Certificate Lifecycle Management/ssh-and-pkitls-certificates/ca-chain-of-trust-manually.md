@@ -74,7 +74,6 @@ Where:
 * `name`: A unique name for the DFC Key. The name can include a path to the virtual folder where you want to create a new DFC Key using the slash / separators. If the folder does not exist, it will be created together with the item.
 
 * `alg`: DFC Key type, options: `AES128GCM`, `AES256GCM`, `AES128SIV`, `AES256SIV`, `AES128CBC`, `AES256CBC`, `RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`.
-  .
 
 * `generate-self-signed-certificate`: Whether to generate a self signed certificate with the key. If set, `--certificate-ttl` must be provided.
 
@@ -115,7 +114,7 @@ At this point, we have created the following:
 * **Root CA Key**: A Signer Key with a Self Signed Certificate.
 * **Root PKI Cert Issuer**: To sign new Intermediate CA.
 
-Where **only** certificates with the domain `example.com` will be accepted and valid for 100 days, they will be automatically stored under the `/MyChain/IntermediateCertificates/` folder, with basic constraints of `CA: TRUE` and the mentioned **KeyUsage**, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
+Where **only** certificates with the domain `example.com` will be accepted and valid for 100 days, they will be automatically stored under the `/Chain/Intermediate/Certificates` folder, with basic constraints of `CA: TRUE` and the mentioned **KeyUsage**, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
@@ -186,7 +185,7 @@ akeyless create-pki-cert-issuer \
 --locality NY 
 ```
 
-Where **only** certificates with the domain `myexample.com` will be accepted and valid for 30 days, and they will be automatically stored under the `/MyChain/Intermediate/Leaf/` folder, with the **Extended Key Usage** of `client auth`, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
+Where **only** certificates with the domain `myexample.com` will be accepted and valid for 30 days, and they will be automatically stored under the `/MyChain/Intermediate/Leaf/` folder, with the **Extended Key Usage** of `client auth`, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 10 days before expiration.
 
 > ℹ️ **Note:**
 >

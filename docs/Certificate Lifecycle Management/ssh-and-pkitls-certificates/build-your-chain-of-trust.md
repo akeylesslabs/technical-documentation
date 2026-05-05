@@ -26,7 +26,7 @@ The certificate chain includes the following components:
 
 The whole chain of trust can be generated using one dedicated CLI command, which automatically creates:
 
-* **Root** and **Intermediate**PKI Issuers.
+* **Root** and **Intermediate** PKI Issuers.
 
 * **Signer key** with a signed certificate for each issuer which includes the following parameters:
 
@@ -65,7 +65,7 @@ Running the command above will create a **Certificate Chain** under **/My-First-
 
 > ✅ **Tip:**
 >
-> The `pathlen` value can be change by using the `--max-path-len` flag.
+> You can change the `pathlen` value by using the `--max-path-len` flag.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates section.](https://docs.akeyless.io/docs/cli-reference-certificates#chain-of-trust)
 
@@ -112,7 +112,7 @@ Where:
 
 * `csr-file-path`: Path to the CSR that was created earlier.
 
-Running the command above will create a certificate with the called `example.com`, where clicking the **View Certificate Details** button will show the full certificate chain.
+Running the command above will create a certificate with the `example.com` Common Name. Clicking **View Certificate Details** shows the full certificate chain.
 
 ## Multi-Intermediate PKI Chains
 
@@ -141,7 +141,7 @@ For example, to create an intermediate issuer that allows subdomains:
 ```shell
 akeyless create-pki-cert-issuer \
 --name /My-First-Chain/pki/issuers/intermediate-2/issuer \
---signer-key-name /My-First-Chain/pki/keys/intermediate-1/key \
+--signer-key-name /My-First-Chain/pki/keys/intermediate/key \
 --allowed-domains example.com \
 --allow-subdomains \
 --ttl 10d \
