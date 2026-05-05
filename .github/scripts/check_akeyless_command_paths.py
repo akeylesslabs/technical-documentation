@@ -139,6 +139,20 @@ def parse_args() -> argparse.Namespace:
         default=".github/cli-command-paths/command-path-check.md",
         help="Path to markdown report",
     )
+    parser.add_argument(
+        "--only-cli",
+        action="append",
+        choices=SUPPORTED_COMMANDS,
+        default=[],
+        help="Validate only these CLI names (repeatable)",
+    )
+    parser.add_argument(
+        "--exclude-cli",
+        action="append",
+        choices=SUPPORTED_COMMANDS,
+        default=[],
+        help="Exclude these CLI names from validation (repeatable)",
+    )
     return parser.parse_args()
 
 
@@ -255,14 +269,14 @@ def extract_path_tokens(tokens: list[str]) -> tuple[str, ...]:
     return tuple(path)
 
 
-def collect_commands(md_file: Path) -> list[CommandOccurrence]:
+def collect_commands(md_file: Path, allowed_clis: set[str]) -> list[CommandOccurrence]:
     text = md_file.read_text(encoding="utf-8")
     occurrences: list[CommandOccurrence] = []
 
     for line_number, normalized in iter_logical_command_lines(text):
         tokens = tokenize_command(normalized)
         tokens = strip_wrappers(tokens)
-        if not tokens or tokens[0] not in SUPPORTED_COMMANDS:
+        if not tokens or tokens[0] not in allowed_clis:
             continue
 
         cli_name = tokens[0]
@@ -361,15 +375,21 @@ def main() -> int:
     files_scanned = 0
     checked_paths = 0
     failures: list[dict] = []
+    included_clis = set(args.only_cli) if args.only_cli else set(SUPPORTED_COMMANDS)
+    excluded_clis = set(args.exclude_cli)
+    effective_clis = sorted(included_clis - excluded_clis)
 
     try:
         if not docs_root.exists():
             raise RuntimeError(f"Docs root does not exist: {docs_root}")
 
+        if not effective_clis:
+            raise RuntimeError("No CLI commands selected for validation")
+
         # Use PATH resolution to verify presence. Some CLIs (for example, aws/ssh)
         # can return non-zero for "-h" even when they are installed and usable.
         missing_clis = [
-            cli_name for cli_name in SUPPORTED_COMMANDS if shutil.which(cli_name) is None
+            cli_name for cli_name in effective_clis if shutil.which(cli_name) is None
         ]
         if missing_clis:
             raise RuntimeError(
@@ -382,7 +402,7 @@ def main() -> int:
 
         occurrences: list[CommandOccurrence] = []
         for md_file in md_files:
-            occurrences.extend(collect_commands(md_file))
+            occurrences.extend(collect_commands(md_file, set(effective_clis)))
 
         unique_paths = sorted({(occ.cli_name, occ.path_tokens) for occ in occurrences})
         checked_paths = len(unique_paths)
