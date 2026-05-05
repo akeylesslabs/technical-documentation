@@ -147,8 +147,15 @@ Run the following:
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
 ```shell
+docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-csp-access-id" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "access1", "access_id": "p-xxxxxxx", "sub_claims": {"username": ["username1", "username2"], "group": ["IT"]}, "permissions": ["admin"]},\n {"name": "access2", "access_id": "p-yyyyyy", "sub_claims": {"username": ["username1"], "group": ["rnd"]}, "permissions": ["targets", "defaults"]}, {"name": "access3", "access_id": "p-zzzzzzz", "sub_claims": {"email": ["xxx@example.com", "zzz@example.com"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
+```
+```shell Legacy
 docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-csp-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[ {"name": "access1", "access_id": "p-xxxxxxx", "sub_claims": {"username": ["username1", "username2"], "group": ["IT"]}, "permissions": ["admin"]},\n {"name": "access2", "access_id": "p-yyyyyy", "sub_claims": {"username": ["username1"], "group": ["rnd"]}, "permissions": ["targets", "defaults"]}, {"name": "access3", "access_id": "p-zzzzzzz", "sub_claims": {"email": ["xxx@example.com", "zzz@example.com"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
+
+> ℹ️ **Note (`GATEWAY_AUTHORIZED_ACCESS_ID`):**
+>
+> `GATEWAY_AUTHORIZED_ACCESS_ID` is the legacy name for `ALLOWED_ACCESS_PERMISSIONS`. Both variables are accepted, but `ALLOWED_ACCESS_PERMISSIONS` is the current standard. New deployments should use `ALLOWED_ACCESS_PERMISSIONS`. The Legacy tab above shows the deprecated form for reference only.
 
 In this case, the above creates an **Access Permission** object named **Administrators**, associated with an Auth Method `p-yyyyyy`, which is, for example, your [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) `Access ID`. A user that matches at least one [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) attribute is authorized to access the Gateway with **Admin** permissions:
 
@@ -359,6 +366,16 @@ Use these environment variables to enable runtime and proactive cache features f
 
 For behavior, topology semantics, and recommended proactive cache settings, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
 
+| Variable | Type | Description |
+| --- | --- | --- |
+| `CACHE_ENABLE` | `true`/`false` | Enables the runtime cache. When `true`, the Gateway caches secret values locally to reduce SaaS round-trips. |
+| `CACHE_TTL` | Integer (minutes) | How long cached values are retained before expiry. |
+| `PROACTIVE_CACHE_ENABLE` | `true`/`false` | Enables the legacy proactive cache mode (periodic background fetch). Set `NEW_PROACTIVE_CACHE_ENABLE` instead for new deployments. |
+| `NEW_PROACTIVE_CACHE_ENABLE` | `true`/`false` | Enables the current proactive cache implementation. Recommended over `PROACTIVE_CACHE_ENABLE`. |
+| `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME` | Integer (minutes) | Minimum interval between background refresh attempts per secret. |
+| `PROACTIVE_CACHE_WORKERS` | Integer | Number of parallel workers used to refresh the proactive cache. |
+| `PROACTIVE_CACHE_DUMP_INTERVAL` | Integer (minutes) | Legacy: interval for periodic secure cache backup. Retained for backwards compatibility; prefer the `NEW_PROACTIVE_CACHE_ENABLE` model. |
+
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e NEW_PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="60" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="5" -e PROACTIVE_CACHE_WORKERS="3" --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -472,3 +489,19 @@ To enable **gRPC** on your Gateway set the following environment variable `ENABL
 ```shell
 docker run -d -p 8000:8000 -p 8085:8085 -p 5696:5696 -e ENABLE_GRPC=true --name akeyless-gw akeyless/base:latest-akeyless
 ```
+
+## Secure Remote Access (SRA) with Docker Compose
+
+When deploying SRA alongside the Gateway using Docker Compose, note the following requirements and limitations.
+
+> ❗ **Important:**
+>
+> The Docker-based SRA deployment supports a subset of the configuration options available in Kubernetes. Review these constraints before deploying SRA in a Docker Compose environment.
+
+* **SRA container image**: SRA requires a separate container image. Refer to the [Secure Remote Access setup guide](https://docs.akeyless.io/docs/remote-access-setup-k8s) for the image and required environment variables.
+* **Networking**: The SRA container and the Gateway container must share a Docker network so that SRA can reach the Gateway on port `8000`. Define a named network in your `docker-compose.yaml` and attach both containers to it.
+* **Port exposure**: The SRA SSH service listens on port `2222` by default. Expose this port to allow inbound SRA connections from user workstations.
+* **Volume mounts**: If you configure SRA with TLS certificates or SSH host keys, mount those files consistently across container restarts using a named volume or bind mount.
+* **Environment variables**: The SRA container requires at minimum `GATEWAY_URL` (pointing to the Gateway container) and the same `GATEWAY_ACCESS_ID` used by the Gateway. Refer to your SRA release notes for the full variable reference.
+
+For a reference Docker Compose file that includes both the Gateway and SRA containers, see the [Akeyless Helm Charts repository](https://github.com/akeylesslabs/helm-charts/tree/main/docker-compose).
