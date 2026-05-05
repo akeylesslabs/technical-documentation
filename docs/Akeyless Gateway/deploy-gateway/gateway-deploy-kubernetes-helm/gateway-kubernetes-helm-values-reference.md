@@ -328,16 +328,21 @@ Accepted Values:
 
 ### Pod Scheduling
 
-Use the following values to control pod placement, distribution, and scheduling constraints for the Gateway deployment. These settings apply to the `akeyless-gateway` chart and follow the same pattern in the `akeyless-k8s-secrets-injection` chart.
+Use the following values to control pod placement, distribution, and scheduling constraints for the Gateway deployment. These settings all live under `gateway.deployment` in the chart.
+
+> ℹ️ **Note:**
+>
+> The Gateway chart renders `topologySpreadConstraints` only when `affinity.enabled: true`. To use topology spread constraints without affinity rules, set `affinity.enabled: true` and leave `affinity.data` empty (`{}`).
 
 #### Node selector
 
 Schedule pods only on nodes that match a label selector. Replace the example label with a real node label from your cluster.
 
 ```yaml values.yaml
-deployment:
-  nodeSelector:
-    kubernetes.io/os: linux
+gateway:
+  deployment:
+    nodeSelector:
+      kubernetes.io/os: linux
 ```
 
 #### Toleration configuration
@@ -345,31 +350,34 @@ deployment:
 Allow pods to be scheduled on tainted nodes. This is required when your Gateway node pool uses taints for isolation.
 
 ```yaml values.yaml
-deployment:
-  tolerations:
-    - key: "dedicated"
-      operator: "Equal"
-      value: "gateway"
-      effect: "NoSchedule"
+gateway:
+  deployment:
+    tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "gateway"
+        effect: "NoSchedule"
 ```
 
 #### Affinity
 
-Use pod affinity or anti-affinity to control co-location of pods. The example below uses soft pod anti-affinity to prefer spreading pods across nodes.
+Use pod affinity or anti-affinity to control co-location of pods. The example below uses soft pod anti-affinity to prefer spreading pods across nodes. Replace `<release-name>` with your Helm release name.
 
 ```yaml values.yaml
-deployment:
-  affinity:
-    enabled: true
-    data:
-      podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchLabels:
-                  app: akeyless-gateway
-              topologyKey: kubernetes.io/hostname
+gateway:
+  deployment:
+    affinity:
+      enabled: true
+      data:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app.kubernetes.io/name: akeyless-gateway
+                    app.kubernetes.io/instance: <release-name>
+                topologyKey: kubernetes.io/hostname
 ```
 
 For required (hard) scheduling rules, use `requiredDuringSchedulingIgnoredDuringExecution` instead. See the [Kubernetes affinity documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) for full reference.
@@ -378,21 +386,30 @@ For required (hard) scheduling rules, use `requiredDuringSchedulingIgnoredDuring
 
 Spread pods across zones or nodes to improve availability. Akeyless recommends configuring topology spread constraints in any multi-pod production deployment.
 
+Because `topologySpreadConstraints` is rendered inside the `affinity` block in this chart, `affinity.enabled` must be `true`. Replace `<release-name>` with your Helm release name.
+
 ```yaml values.yaml
-deployment:
-  topologySpreadConstraints:
-    - maxSkew: 1
-      topologyKey: topology.kubernetes.io/zone
-      whenUnsatisfiable: ScheduleAnyway
-      labelSelector:
-        matchLabels:
-          app: akeyless-gateway
-    - maxSkew: 1
-      topologyKey: kubernetes.io/hostname
-      whenUnsatisfiable: ScheduleAnyway
-      labelSelector:
-        matchLabels:
-          app: akeyless-gateway
+gateway:
+  deployment:
+    affinity:
+      enabled: true
+      data: {}
+
+    topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: akeyless-gateway
+            app.kubernetes.io/instance: <release-name>
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: akeyless-gateway
+            app.kubernetes.io/instance: <release-name>
 ```
 
 Use `DoNotSchedule` instead of `ScheduleAnyway` for stricter placement enforcement. For full details, see the [Kubernetes topology spread constraints documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/).

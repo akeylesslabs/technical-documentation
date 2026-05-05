@@ -85,37 +85,41 @@ Configuration details vary by cloud provider and cluster topology:
 * [GCP: GKE multi-zone node pools](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#multi-zonal_and_regional_clusters)
 * On-premises: consult your Kubernetes distribution documentation for zone and node topology configuration.
 
-The following example shows a generic, platform-agnostic configuration for pod anti-affinity and topology spread constraints. Replace the label selector values with those that match your Gateway deployment:
+The following example shows a generic, platform-agnostic configuration for pod anti-affinity and topology spread constraints. The Gateway Helm chart requires `affinity.enabled: true` for `topologySpreadConstraints` to be applied. Replace `<release-name>` with your Helm release name:
 
 ```yaml values.yaml
-deployment:
-  replicaCount: 3
+gateway:
+  deployment:
+    replicaCount: 3
 
-  affinity:
-    enabled: true
-    data:
-      podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchLabels:
-                  app: akeyless-gateway
-              topologyKey: kubernetes.io/hostname
+    affinity:
+      enabled: true
+      data:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app.kubernetes.io/name: akeyless-gateway
+                    app.kubernetes.io/instance: <release-name>
+                topologyKey: kubernetes.io/hostname
 
-  topologySpreadConstraints:
-    - maxSkew: 1
-      topologyKey: topology.kubernetes.io/zone
-      whenUnsatisfiable: ScheduleAnyway
-      labelSelector:
-        matchLabels:
-          app: akeyless-gateway
-    - maxSkew: 1
-      topologyKey: kubernetes.io/hostname
-      whenUnsatisfiable: ScheduleAnyway
-      labelSelector:
-        matchLabels:
-          app: akeyless-gateway
+    topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: akeyless-gateway
+            app.kubernetes.io/instance: <release-name>
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: akeyless-gateway
+            app.kubernetes.io/instance: <release-name>
 ```
 
 For the complete set of scheduling values and chart options, see [Helm Values Reference](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference#pod-scheduling).

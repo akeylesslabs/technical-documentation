@@ -858,7 +858,7 @@ For operational metrics and alerting baselines, monitor Injector metrics in [Met
 
 Akeyless recommends using Kubernetes [topology spread constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/) and [pod anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) to improve availability when running multiple Injector replicas. The `akeyless-k8s-secrets-injection` chart exposes these settings under the `deployment` key.
 
-The following example spreads Injector pods across nodes and availability zones:
+The following example spreads Injector pods across nodes and availability zones. The Injector chart assigns each pod an `app` label whose value is computed from the Helm release name (typically `<release-name>-akeyless-k8s-secrets-injection`). Replace `<release-name>` with your actual release name and verify the `app` label value against a running pod before applying anti-affinity or spread rules:
 
 ```yaml values.yaml
 replicaCount: 2
@@ -873,7 +873,7 @@ deployment:
             podAffinityTerm:
               labelSelector:
                 matchLabels:
-                  app: akeyless-k8s-secrets-injection
+                  app: <release-name>-akeyless-k8s-secrets-injection
               topologyKey: kubernetes.io/hostname
 
   topologySpreadConstraints:
@@ -884,16 +884,16 @@ deployment:
         whenUnsatisfiable: ScheduleAnyway
         labelSelector:
           matchLabels:
-            app: akeyless-k8s-secrets-injection
+            app: <release-name>-akeyless-k8s-secrets-injection
       - maxSkew: 1
         topologyKey: kubernetes.io/hostname
         whenUnsatisfiable: ScheduleAnyway
         labelSelector:
           matchLabels:
-            app: akeyless-k8s-secrets-injection
+            app: <release-name>-akeyless-k8s-secrets-injection
 ```
 
-For node selection and taint tolerance, configure `deployment.nodeSelector` and `deployment.tolerations` as needed for your node pool. For additional guidance on pod scheduling for Gateway, see [Pod scheduling for high availability](https://docs.akeyless.io/docs/gateway-best-practices#pod-scheduling-for-high-availability-kubernetes).
+For node selection and taint tolerance, configure `deployment.nodeSelector` and `deployment.tolerations.data` as needed for your node pool. For additional guidance on pod scheduling for Gateway, see [Pod scheduling for high availability](https://docs.akeyless.io/docs/gateway-best-practices#pod-scheduling-for-high-availability-kubernetes).
 
 ## Troubleshooting
 
