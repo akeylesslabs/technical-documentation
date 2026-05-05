@@ -14,6 +14,7 @@ on:
       - ready_for_review
     paths:
       - "docs/**/*.md"
+      - "docs/**/_order.yaml"
       - ".github/scripts/check_readme_docs_constraints.py"
       - ".github/workflows/readme-docs-constraints.yml"
   workflow_dispatch:
