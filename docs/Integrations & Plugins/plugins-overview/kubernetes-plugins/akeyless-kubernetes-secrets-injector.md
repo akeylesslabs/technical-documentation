@@ -856,44 +856,11 @@ For operational metrics and alerting baselines, monitor Injector metrics in [Met
 
 ## Pod scheduling for high availability
 
-Akeyless recommends using Kubernetes [topology spread constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/) and [pod anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) to improve availability when running multiple Injector replicas. The `akeyless-k8s-secrets-injection` chart exposes these settings under the `deployment` key.
+The `akeyless-k8s-secrets-injection` chart supports the same pod scheduling controls as the Gateway chart (`deployment.nodeSelector`, `deployment.tolerations`, `deployment.affinity`, `deployment.topologySpreadConstraints`). For configuration guidance and examples, see [Pod scheduling for high availability](https://docs.akeyless.io/docs/gateway-best-practices#pod-scheduling-for-high-availability-kubernetes).
 
-The following example spreads Injector pods across nodes and availability zones. The Injector chart assigns each pod an `app` label whose value is computed from the Helm release name (typically `<release-name>-akeyless-k8s-secrets-injection`). Replace `<release-name>` with your actual release name and verify the `app` label value against a running pod before applying anti-affinity or spread rules:
-
-```yaml values.yaml
-replicaCount: 2
-
-deployment:
-  affinity:
-    enabled: true
-    data:
-      podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchLabels:
-                  app: <release-name>-akeyless-k8s-secrets-injection
-              topologyKey: kubernetes.io/hostname
-
-  topologySpreadConstraints:
-    enabled: true
-    data:
-      - maxSkew: 1
-        topologyKey: topology.kubernetes.io/zone
-        whenUnsatisfiable: ScheduleAnyway
-        labelSelector:
-          matchLabels:
-            app: <release-name>-akeyless-k8s-secrets-injection
-      - maxSkew: 1
-        topologyKey: kubernetes.io/hostname
-        whenUnsatisfiable: ScheduleAnyway
-        labelSelector:
-          matchLabels:
-            app: <release-name>-akeyless-k8s-secrets-injection
-```
-
-For node selection and taint tolerance, configure `deployment.nodeSelector` and `deployment.tolerations.data` as needed for your node pool. For additional guidance on pod scheduling for Gateway, see [Pod scheduling for high availability](https://docs.akeyless.io/docs/gateway-best-practices#pod-scheduling-for-high-availability-kubernetes).
+> ℹ️ **Note:**
+>
+> The Injector chart assigns pods an `app` label whose value is computed from the Helm release name (typically `<release-name>-akeyless-k8s-secrets-injection`). Verify the label value against a running pod before configuring label selectors in affinity or spread rules.
 
 ## Troubleshooting
 
