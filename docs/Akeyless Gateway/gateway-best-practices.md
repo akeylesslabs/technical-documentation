@@ -80,9 +80,9 @@ Akeyless recommends using Kubernetes [topology spread constraints](https://kuber
 
 Configuration details vary by cloud provider and cluster topology:
 
-* [AWS: EKS topology spread](https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html)
-* [Azure: AKS node pools and zones](https://learn.microsoft.com/en-us/azure/aks/availability-zones)
-* [GCP: GKE multi-zone node pools](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#multi-zonal_and_regional_clusters)
+* [AWS: EKS reliability best practices](https://docs.aws.amazon.com/eks/latest/best-practices/reliability.html)
+* [Azure: Configure availability zones in AKS](https://learn.microsoft.com/en-us/azure/aks/reliability-availability-zones-configure)
+* [GCP: GKE regional clusters](https://cloud.google.com/kubernetes-engine/docs/concepts/regional-clusters)
 * On-premises: consult your Kubernetes distribution documentation for zone and node topology configuration.
 
 The following example shows a generic, platform-agnostic configuration for pod anti-affinity and topology spread constraints. The Gateway Helm chart requires `affinity.enabled: true` for `topologySpreadConstraints` to be applied. Replace `<release-name>` with your Helm release name:
