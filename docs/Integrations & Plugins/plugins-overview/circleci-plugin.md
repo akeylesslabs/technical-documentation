@@ -111,7 +111,7 @@ jobs:
       - checkout
       - run:
           name: "Authenticate To Akeyless"
-          command: export TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CIRCLE_OIDC_TOKEN) >> $BASH_ENV
+          command: export ACCESS_TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CIRCLE_OIDC_TOKEN) >> $BASH_ENV
       - run:
           name: "Fetch Akeyless secrets"
           command: akeyless get-secret-value -n /CI/CircleCI-secret
