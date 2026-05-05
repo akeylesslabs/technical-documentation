@@ -15,6 +15,13 @@ The `apache-airflow-providers-akeyless` package integrates the Akeyless identity
 
 The provider is maintained in the [apache/airflow](https://github.com/apache/airflow/tree/main/providers/akeyless) repository.
 
+## Before you begin
+
+* You have an Akeyless account with at least one [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) configured.
+* For `api_key` auth, you have your Access ID and Access Key.
+* For cloud-based auth (AWS IAM, GCP, Azure AD), the `cloud_id` extras package is required (see [Installation](#installation)).
+* Apache Airflow 2.11.0 or later is installed.
+
 | Capability | Class | Description |
 | --- | --- | --- |
 | **Hook** | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook` | Interact with Akeyless directly from Directed Acyclic Graph (DAG) code — fetch static, dynamic, and rotated secrets; create or delete items; list paths. |
@@ -46,16 +53,16 @@ pip install apache-airflow-providers-akeyless[cloud_id]
 
 The provider supports all Akeyless [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
-| `access_type` | Required fields |
-| --- | --- |
-| `api_key` _default_ | `access_id`, `access_key` |
-| `aws_iam` | `access_id` + `cloud_id` extras package |
-| `gcp` | `access_id` + `cloud_id` extras package |
-| `azure_ad` | `access_id` + `cloud_id` extras package |
-| `uid` | `uid_token` |
-| `jwt` | `access_id`, `jwt` |
-| `k8s` | `access_id`, `k8s_auth_config_name` |
-| `certificate` | `access_id`, `certificate_data`, `private_key_data` |
+| `access_type` | Required fields | Supported by |
+| --- | --- | --- |
+| `api_key` _default_ | `access_id`, `access_key` | Hook, Secrets Backend |
+| `aws_iam` | `access_id` + `cloud_id` extras package | Hook only |
+| `gcp` | `access_id` + `cloud_id` extras package | Hook only |
+| `azure_ad` | `access_id` + `cloud_id` extras package | Hook only |
+| `uid` | `uid_token` | Hook, Secrets Backend |
+| `jwt` | `access_id`, `jwt` | Hook only |
+| `k8s` | `access_id`, `k8s_auth_config_name` | Hook only |
+| `certificate` | `access_id`, `certificate_data`, `private_key_data` | Hook only |
 
 ## Usage
 
@@ -67,8 +74,19 @@ Create an Airflow Connection with **Connection Type** = `akeyless`:
 | --- | --- |
 | Host | `https://api.akeyless.io` (or your Gateway URL) |
 | Login | Your Akeyless Access ID |
-| Password | Your Akeyless Access Key |
-| Extra | `{"access_type": "api_key"}` |
+| Password | Your Akeyless Access Key (for `api_key` auth; leave blank for other types) |
+| Extra | JSON object with `access_type` and any auth-specific fields (refer to the next section) |
+
+The `Extra` field controls authentication. Examples by auth type:
+
+| `access_type` | `Extra` JSON |
+| --- | --- |
+| `api_key` (default) | `{"access_type": "api_key"}` |
+| `uid` | `{"access_type": "uid", "uid_token": "<UID token>"}` — `Login` and `Password` are unused |
+| `jwt` | `{"access_type": "jwt", "jwt": "<JWT>"}` |
+| `k8s` | `{"access_type": "k8s", "k8s_auth_config_name": "<config name>"}` |
+| `aws_iam` / `gcp` / `azure_ad` | `{"access_type": "aws_iam"}` — cloud identity is resolved automatically |
+| `certificate` | `{"access_type": "certificate", "certificate_data": "<PEM>", "private_key_data": "<PEM>"}` |
 
 Then use the hook in a DAG:
 
@@ -76,25 +94,35 @@ Then use the hook in a DAG:
 from airflow.providers.akeyless.hooks.akeyless import AkeylessHook
 
 hook = AkeylessHook(akeyless_conn_id="akeyless_default")
+```
 
+#### Fetching secrets
+
+```python
 # Static secret
 value = hook.get_secret_value("/my/secret")
 
-# Multiple secrets at once
+# Multiple static secrets at once
 values = hook.get_secret_values(["/secret/a", "/secret/b"])
 
-# Create a new secret
-hook.create_secret("/new/secret", "my-value", description="Created by Airflow")
-
-# Dynamic secret (e.g., database credentials producer)
+# Dynamic secret (for example, a database credentials producer)
 creds = hook.get_dynamic_secret_value("/dynamic/db-producer")
-print(creds["username"], creds["password"])
+username, password = creds["username"], creds["password"]
 
 # Rotated secret
 rotated = hook.get_rotated_secret_value("/rotated/db-creds")
+```
 
-# List and describe
+#### Managing secrets
+
+```python
+# Create a static secret
+hook.create_secret("/new/secret", "my-value", description="Created by Airflow")
+
+# List items under a path
 items = hook.list_items("/path/prefix")
+
+# Describe an item (returns metadata)
 meta = hook.describe_item("/my/secret")
 ```
 
@@ -115,14 +143,16 @@ backend_kwargs = {
     "access_id": "<Access ID>",
     "access_key": "<Access Key>",
     "access_type": "api_key"
-}
+    }
 ```
+
+> ℹ️ In `airflow.cfg`, multi-line `backend_kwargs` values must have each continuation line indented with at least one space. Alternatively, provide the value as a single-line JSON string.
 
 Or with environment variables:
 
 ```shell
 export AIRFLOW__SECRETS__BACKEND="airflow.providers.akeyless.secrets.akeyless.AkeylessBackend"
-export AIRFLOW__SECRETS__BACKEND_KWARGS='{"connections_path": "/airflow/connections", "variables_path": "/airflow/variables", "api_url": "https://api.akeyless.io", "access_id": "<Access ID>", "access_key": "<Access Key>"}'
+export AIRFLOW__SECRETS__BACKEND_KWARGS='{"connections_path": "/airflow/connections", "variables_path": "/airflow/variables", "config_path": "/airflow/config", "api_url": "https://api.akeyless.io", "access_id": "<Access ID>", "access_key": "<Access Key>", "access_type": "api_key"}'
 ```
 
 #### Naming Convention
@@ -182,3 +212,27 @@ value = hook.get_secret_value("/my/secret")
 ```
 
 Set the connection `access_type` extra field to `aws_iam` and install the `cloud_id` extras. The hook authenticates using the workload's AWS IAM identity (EC2 instance profile, ECS task role, and so on) — no static credentials required.
+
+## Troubleshooting
+
+### `ImportError: akeyless_cloud_id is required`
+
+You are using `aws_iam`, `gcp`, or `azure_ad` authentication without the cloud ID extras package. Install it:
+
+```shell
+pip install apache-airflow-providers-akeyless[cloud_id]
+```
+
+### `ValueError: Unsupported access_type for AkeylessBackend`
+
+`AkeylessBackend` only supports `api_key` and `uid`. For cloud-based authentication in the Secrets Backend, use `AkeylessHook` directly in your DAGs instead.
+
+### Secret not found when using Secrets Backend
+
+Verify that the secret path in Akeyless matches the expected naming convention: `<base_path>/<key>`. For example, a Connection with `conn_id = postgres_default` is looked up at `<connections_path>/postgres_default`. Confirm the path and value are present in Akeyless, then restart Airflow for the configuration to take effect.
+
+### Authentication fails with `401 Unauthorized`
+
+* For `api_key`: confirm the Access ID in **Login** and the Access Key in **Password** are correct.
+* For `uid`: confirm the `uid_token` in the `Extra` field is valid and not expired.
+* For cloud-based auth: confirm the workload has the expected IAM role or service account attached.
