@@ -203,6 +203,15 @@ You may also edit this parameter on your console, by going to the Gateways tab a
 
 Use `GATEWAY_AUTHORIZED_ACCESS_ID` to restrict which access IDs can call the Gateway API at all. This is a transport-layer allowlist enforced before any permission check: if the variable is set, the Gateway rejects requests from any access ID not on the list (the Gateway's own `GATEWAY_ACCESS_ID` is always implicitly allowed).
 
+#### Warning: Access Control Variable Comparison
+
+Use the table below to avoid mixing variables that serve different control planes:
+
+| Variable | Control plane | Purpose | Format | Legacy predecessor |
+| --- | --- | --- | --- | --- |
+| `ALLOWED_ACCESS_PERMISSIONS` | Gateway authorization (Gator access permissions) | Grants component-level permissions (for example, `admin`, `targets`, `log_forwarding`) to identities that can manage Gateway settings | JSON array of objects (`name`, `access_id`, optional `sub_claims`, `permissions`) | `ALLOWED_ACCESS_IDS` |
+| `GATEWAY_AUTHORIZED_ACCESS_ID` | Gateway ingress allowlist (transport layer) | Restricts which access IDs can call the Gateway API at all, before permission evaluation | Comma-separated list of access IDs | `RESTRICT_SERVICE_TO_ACCESS_IDS` |
+
 Set the value to a comma-separated list of access IDs:
 
 ```shell
