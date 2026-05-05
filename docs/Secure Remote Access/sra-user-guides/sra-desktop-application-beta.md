@@ -30,6 +30,10 @@ Who benefits from using this application?
 
 The Desktop Application creates a tunnel to the designated resource and securely injects the password. To support this process, any user working with the Desktop Application must have [read permission](https://docs.akeyless.io/docs/rbac#permissions-for-items-access-roles-auth-methods-and-targets) on the Secret Item.
 
+> ℹ️ **Note (Tunnel-Based Connections):**
+>
+> The Desktop Application establishes connections by way of an encrypted tunnel. Because the bastion cannot inspect tunnel traffic, **session recordings are not captured** for Desktop Application sessions. Additionally, **secretless access does not apply**—users must have explicit `Read` permission on the secret item. See [Tunnels](https://docs.akeyless.io/docs/sra-tunnels) for details.
+
 ## Installation Guide
 
 Download the relevant Desktop Application installer from ([https://download.akeyless.io/Akeyless_Artifacts/](https://download.akeyless.io/Akeyless_Artifacts/)).
