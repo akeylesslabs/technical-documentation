@@ -125,6 +125,14 @@ The next step will be the creation of an **Intermediate Signer Key** with a sign
 
 Intermediate certificates act as a middle-man between the secure root certificates and the server certificates distributed to the public. While a chain will always include at least one intermediate certificate, it may contain multiple ones as well.
 
+### If You Started with `generate-ca`
+
+If you used `generate-ca` as an initial bootstrap, continue this manual flow to add additional intermediate layers.
+
+`generate-ca` creates a single Root → Intermediate chain in one step and does not expose all PKI issuer options. For example, flags such as `--allow-subdomains` must be set manually on `create-pki-cert-issuer`.
+
+For full details, see [Build Your Chain of Trust](https://docs.akeyless.io/docs/build-your-chain-of-trust#multi-intermediate-pki-chains).
+
 ### Create an Intermediate Signer Key
 
 Run the following command to create a **CSR** and a **Key** that will be used as our **Intermediate Signer Key**:
