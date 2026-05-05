@@ -61,10 +61,24 @@ def docs_relative_violation(url: str) -> str | None:
     if lower.startswith("../docs/") or lower.startswith("./docs/"):
         return "Use an absolute docs URL instead of relative docs/..."
 
-    # Disallow docs.akeyless.io links that are not /docs/ paths.
+    # Non-/docs/ sections of docs.akeyless.io (reference, changelog, etc.) are valid absolute
+    # https links and must not be flagged. Only flag http:// links and staging /update/docs/ paths.
+    _ALLOWED_SECTIONS = (
+        "https://docs.akeyless.io/reference",
+        "https://docs.akeyless.io/changelog",
+        "https://docs.akeyless.io/page/",
+        "https://docs.akeyless.io/recipes",
+        "https://docs.akeyless.io/v",  # versioned paths
+    )
     if lower.startswith("http://docs.akeyless.io/"):
-        return "Use https://docs.akeyless.io/docs/... URLs for docs links"
-    if lower.startswith("https://docs.akeyless.io/") and not lower.startswith("https://docs.akeyless.io/docs/"):
+        return "Use https://docs.akeyless.io/docs/... URLs for docs links (http not allowed)"
+    if lower.startswith("https://docs.akeyless.io/update/docs/"):
+        return "Use https://docs.akeyless.io/docs/... production URLs instead of /update/docs/ staging paths"
+    if (
+        lower.startswith("https://docs.akeyless.io/")
+        and not lower.startswith("https://docs.akeyless.io/docs/")
+        and not any(lower.startswith(s) for s in _ALLOWED_SECTIONS)
+    ):
         return "Use https://docs.akeyless.io/docs/... URLs for docs links"
 
     return None
