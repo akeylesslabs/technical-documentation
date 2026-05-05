@@ -113,3 +113,39 @@ Where:
 * `csr-file-path`: Path to the CSR that was created earlier.
 
 Running the command above will create a certificate with the called `example.com`, where clicking the **View Certificate Details** button will show the full certificate chain.
+
+## Multi-Intermediate PKI Chains
+
+In some compliance environments you may need a deeper PKI hierarchy, for example:
+
+```text
+Root CA → Intermediate CA 1 → Intermediate CA 2 → Leaf Certificate
+```
+
+`generate-ca` creates a single Root → Intermediate chain in one step. To build a deeper chain, repeat the intermediate layer manually:
+
+1. Run `generate-ca` to create the Root CA and the first Intermediate CA (Intermediate 1).
+2. Use `generate-pki` to create a second PKI issuer (Intermediate 2) and sign it using Intermediate 1 as the issuing CA.
+3. Issue leaf certificates from Intermediate 2.
+
+### Known Limitation: `--allow-subdomains` and Other Flags
+
+When `generate-ca` creates the chain internally, it calls `generate-pki` to create the Root and Intermediate issuers. Flags such as `--allow-subdomains` that you pass to `generate-ca` are **not** forwarded to the internal `generate-pki` call.
+
+> ❗ **Important:**
+>
+> If your intermediate issuer requires `--allow-subdomains` or similar flags, you must create the intermediate issuer manually using `generate-pki` and pass the flags directly, rather than relying on `generate-ca` to set them automatically.
+
+For example, to create an intermediate issuer that allows subdomains:
+
+```shell
+akeyless generate-pki \
+--name /My-First-Chain/pki/issuers/intermediate-2/issuer \
+--signer-key-name /My-First-Chain/pki/keys/intermediate-1/key \
+--allowed-domains example.com \
+--allow-subdomains \
+--ttl 10d \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+Refer to the [CLI Reference — Certificates section](https://docs.akeyless.io/docs/cli-reference-certificates) for the full list of `generate-pki` parameters.
