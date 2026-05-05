@@ -118,6 +118,7 @@ Get static secret value
 
 ### Usage
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless get-secret-value --name <Secret Name>
 ```

@@ -334,6 +334,7 @@ For prompt injection risk reduction guidance for agent-based workflows, see <Anc
 3. Ensure proper permissions are assigned
 4. Verify gateway URL is accessible
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 # Test authentication manually
 akeyless auth --access-id "your-access-id" --access-key "your-access-key"

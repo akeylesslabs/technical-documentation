@@ -77,6 +77,7 @@ Tokens used by Akeyless Authenticator must include user’s email address.
 
 The token can be extracted by way of SAML authentication, and then retrieving the token from temporary credentials file:
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 $ akeyless auth --access-type saml --access-id <saml-access-id>
 Authentication succeeded.
