@@ -24,7 +24,7 @@ Before the application starts, the injector deploys an **init** container to fet
 
 If the application consumes secrets which regularly change, an annotation can be used to deploy an additional **Sidecar** container which runs alongside the application to monitor changes in secrets. The **Sidecar** tracks and updates secrets within injected files inside the pods, according to specifically annotated pod configurations, and will remain up for the entire application lifecycle. Relevant for cases where the app can watch for live changes in files.
 
-Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible segregation using Kubernetes policies together with the Akeyless Platform's [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).  
+Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible isolation using Kubernetes policies together with the Akeyless Platform's [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).  
 For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/docs/policy-segregation-for-kubernetes).
 
 ![Illustration for: Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible segregation using Kubernetes policies together…](https://files.readme.io/dd531a9-Akeyless_Rebranded_Infographics_1.png)
@@ -853,6 +853,47 @@ containers:
 ```
 
 For operational metrics and alerting baselines, monitor Injector metrics in [Metrics](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#metrics) together with Gateway metrics in [Gateway telemetry and metrics](https://docs.akeyless.io/docs/gateway-telemetry-and-metrics).
+
+## Pod scheduling for high availability
+
+Akeyless recommends using Kubernetes [topology spread constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/) and [pod anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) to improve availability when running multiple Injector replicas. The `akeyless-k8s-secrets-injection` chart exposes these settings under the `deployment` key.
+
+The following example spreads Injector pods across nodes and availability zones:
+
+```yaml values.yaml
+replicaCount: 2
+
+deployment:
+  affinity:
+    enabled: true
+    data:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: akeyless-k8s-secrets-injection
+              topologyKey: kubernetes.io/hostname
+
+  topologySpreadConstraints:
+    enabled: true
+    data:
+      - maxSkew: 1
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app: akeyless-k8s-secrets-injection
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app: akeyless-k8s-secrets-injection
+```
+
+For node selection and taint tolerance, configure `deployment.nodeSelector` and `deployment.tolerations` as needed for your node pool. For additional guidance on pod scheduling for Gateway, see [Pod scheduling for high availability](https://docs.akeyless.io/docs/gateway-best-practices#pod-scheduling-for-high-availability-kubernetes).
 
 ## Troubleshooting
 

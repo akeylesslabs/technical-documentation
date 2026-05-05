@@ -74,6 +74,52 @@ Apply these controls according to the selected platform:
     * Use workload identity where available instead of static long-lived secrets.
     * Enforce least-privilege egress and private networking controls.
 
+## Pod scheduling for high availability (Kubernetes)
+
+Akeyless recommends using Kubernetes [topology spread constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/) and [pod anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) to improve availability when running multiple Gateway or Injector pods. Spreading pods across nodes and availability zones reduces the blast radius of node or zone failures.
+
+Configuration details vary by cloud provider and cluster topology:
+
+* [AWS: EKS topology spread](https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html)
+* [Azure: AKS node pools and zones](https://learn.microsoft.com/en-us/azure/aks/availability-zones)
+* [GCP: GKE multi-zone node pools](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#multi-zonal_and_regional_clusters)
+* On-premises: consult your Kubernetes distribution documentation for zone and node topology configuration.
+
+The following example shows a generic, platform-agnostic configuration for pod anti-affinity and topology spread constraints. Replace the label selector values with those that match your Gateway deployment:
+
+```yaml values.yaml
+deployment:
+  replicaCount: 3
+
+  affinity:
+    enabled: true
+    data:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: akeyless-gateway
+              topologyKey: kubernetes.io/hostname
+
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: topology.kubernetes.io/zone
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          app: akeyless-gateway
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          app: akeyless-gateway
+```
+
+For the complete set of scheduling values and chart options, see [Helm Values Reference](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference#pod-scheduling).
+
 ## Gateway application settings
 
 * A Gateway cluster identity is defined by the combination of Gateway authentication method `Access ID` and `clusterName`.

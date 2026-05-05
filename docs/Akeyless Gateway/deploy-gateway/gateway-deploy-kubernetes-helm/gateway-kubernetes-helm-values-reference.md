@@ -326,6 +326,79 @@ Accepted Values:
 
 ## Operational Settings
 
+### Pod Scheduling
+
+Use the following values to control pod placement, distribution, and scheduling constraints for the Gateway deployment. These settings apply to the `akeyless-gateway` chart and follow the same pattern in the `akeyless-k8s-secrets-injection` chart.
+
+#### Node selector
+
+Schedule pods only on nodes that match a label selector. Replace the example label with a real node label from your cluster.
+
+```yaml values.yaml
+deployment:
+  nodeSelector:
+    kubernetes.io/os: linux
+```
+
+#### Toleration configuration
+
+Allow pods to be scheduled on tainted nodes. This is required when your Gateway node pool uses taints for isolation.
+
+```yaml values.yaml
+deployment:
+  tolerations:
+    - key: "dedicated"
+      operator: "Equal"
+      value: "gateway"
+      effect: "NoSchedule"
+```
+
+#### Affinity
+
+Use pod affinity or anti-affinity to control co-location of pods. The example below uses soft pod anti-affinity to prefer spreading pods across nodes.
+
+```yaml values.yaml
+deployment:
+  affinity:
+    enabled: true
+    data:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: akeyless-gateway
+              topologyKey: kubernetes.io/hostname
+```
+
+For required (hard) scheduling rules, use `requiredDuringSchedulingIgnoredDuringExecution` instead. See the [Kubernetes affinity documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) for full reference.
+
+#### Topology spread constraints
+
+Spread pods across zones or nodes to improve availability. Akeyless recommends configuring topology spread constraints in any multi-pod production deployment.
+
+```yaml values.yaml
+deployment:
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: topology.kubernetes.io/zone
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          app: akeyless-gateway
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          app: akeyless-gateway
+```
+
+Use `DoNotSchedule` instead of `ScheduleAnyway` for stricter placement enforcement. For full details, see the [Kubernetes topology spread constraints documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/).
+
+For a broader discussion of pod scheduling and HA best practices for Gateway, see [Pod scheduling for high availability](https://docs.akeyless.io/docs/gateway-best-practices#pod-scheduling-for-high-availability-kubernetes).
+
 ### Working with Kubernetes Secrets
 
 To provide the settings of your Gateway deployment directly from your local Kubernetes secrets store, you can set the following settings
