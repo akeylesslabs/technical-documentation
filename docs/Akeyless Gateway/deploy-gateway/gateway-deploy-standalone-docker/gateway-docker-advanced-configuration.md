@@ -149,13 +149,6 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e ALLO
 ```shell
 docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-csp-access-id" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "access1", "access_id": "p-xxxxxxx", "sub_claims": {"username": ["username1", "username2"], "group": ["IT"]}, "permissions": ["admin"]},\n {"name": "access2", "access_id": "p-yyyyyy", "sub_claims": {"username": ["username1"], "group": ["rnd"]}, "permissions": ["targets", "defaults"]}, {"name": "access3", "access_id": "p-zzzzzzz", "sub_claims": {"email": ["xxx@example.com", "zzz@example.com"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
-```shell Legacy
-docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-csp-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[ {"name": "access1", "access_id": "p-xxxxxxx", "sub_claims": {"username": ["username1", "username2"], "group": ["IT"]}, "permissions": ["admin"]},\n {"name": "access2", "access_id": "p-yyyyyy", "sub_claims": {"username": ["username1"], "group": ["rnd"]}, "permissions": ["targets", "defaults"]}, {"name": "access3", "access_id": "p-zzzzzzz", "sub_claims": {"email": ["xxx@example.com", "zzz@example.com"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
-```
-
-> ℹ️ **Note (`GATEWAY_AUTHORIZED_ACCESS_ID`):**
->
-> `GATEWAY_AUTHORIZED_ACCESS_ID` is the legacy name for `ALLOWED_ACCESS_PERMISSIONS`. Both variables are accepted, but `ALLOWED_ACCESS_PERMISSIONS` is the current standard. New deployments should use `ALLOWED_ACCESS_PERMISSIONS`. The Legacy tab above shows the deprecated form for reference only.
 
 In this case, the above creates an **Access Permission** object named **Administrators**, associated with an Auth Method `p-yyyyyy`, which is, for example, your [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) `Access ID`. A user that matches at least one [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) attribute is authorized to access the Gateway with **Admin** permissions:
 
