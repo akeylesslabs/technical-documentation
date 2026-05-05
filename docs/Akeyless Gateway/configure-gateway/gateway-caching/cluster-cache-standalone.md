@@ -117,3 +117,12 @@ For the full key reference, see [Helm Values Reference](https://docs.akeyless.io
 * `globalConfig.clusterCache.persistence.storageClass`: Sets the Kubernetes [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the PVC.
 * `globalConfig.clusterCache.persistence.size`: Sets the requested PVC size. See [Kubernetes Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory).
 * `globalConfig.clusterCache.extraArgs`: Passes Redis runtime arguments to the standalone cache container. For supported options, see [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/) and [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/).
+
+### Cluster Cache Environment Variables (Docker Compose)
+
+When deploying with [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose), configure standalone cluster cache using environment variables in `gateway.env` rather than Helm values:
+
+* `USE_CLUSTER_CACHE`: Set to `true` to enable the Redis-backed cluster cache. Required alongside `GATEWAY_CLUSTER_CACHE`.
+* `GATEWAY_CLUSTER_CACHE`: Set to `"enable"` to activate cluster cache mode. If this remains set after the Redis instance is removed, the Gateway may fail to start until the container is recreated.
+* `REDIS_ADDR`: Address of the Redis instance, for example `akeyless-cache:6379`.
+* `PREFER_CLUSTER_CACHE_FIRST`: Controls read preference between the local in-memory cache and the Redis cache. For value behavior, see [Local Cache and Cluster Cache Read Preference](https://docs.akeyless.io/docs/cluster-cache-standalone#local-cache-and-cluster-cache-read-preference).

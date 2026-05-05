@@ -12,6 +12,10 @@ next:
 ---
 In this guide, we will deploy the SRA utility using Docker Compose and the most basic configuration.
 
+> ℹ️ **Note:**
+>
+> The Docker Compose SRA deployment supports a subset of the configuration options available in Kubernetes. For production workloads or advanced configuration requirements, see [Remote Access on Kubernetes](https://docs.akeyless.io/docs/sra-setup-k8s).
+
 You can get the [configuration files](https://github.com/akeylesslabs/docker-compose/blob/main/README.md) that will be used to deploy the gateway with the SRA by cloning the following repository to your environment:
 
 ```shell
