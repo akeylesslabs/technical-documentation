@@ -118,9 +118,8 @@ akeyless:
   before_script:
     - export AKEYLESS_API_GW_URL=https://Your-Akeyless-GW-URL:8000/api/v1
     - export MY_SECRET=akeyless://gitlab/mySecret
-    - export AKEYLESS_TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $FIRST_ID_TOKEN --json --jq-expression='.token')
-    # Initialize the token file required by the injection wrapper script
-    - echo "$AKEYLESS_TOKEN" > ~/.akeyless/latest_token
+    # Initialize the token file required by the injection wrapper script (token is piped directly to avoid printing to stdout)
+    - akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $FIRST_ID_TOKEN --json --jq-expression='.token' > ~/.akeyless/latest_token
     # Script will replace any env var with prefix of "akeyless://" like above
     - source ~/.akeyless/akeyless_env.sh
   script:
