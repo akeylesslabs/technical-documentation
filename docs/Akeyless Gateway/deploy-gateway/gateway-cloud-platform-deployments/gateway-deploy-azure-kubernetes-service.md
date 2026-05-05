@@ -41,7 +41,7 @@ This page focuses on AKS workload identity and AKS-specific `values.yaml` change
 Complete all baseline prerequisites from the main Helm deployment page, and add:
 
 * An [Azure Active Directory authentication method](https://docs.akeyless.io/docs/auth-with-azure) in Akeyless.
-* AKS cluster workload identity configured as documented in the [AKS workload identity guide](https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity).
+* AKS cluster workload identity configured as documented in the [AKS workload identity guide](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster).
 * A user-assigned managed identity client ID for ServiceAccount annotation.
 
 ## AKS Identity Delta
