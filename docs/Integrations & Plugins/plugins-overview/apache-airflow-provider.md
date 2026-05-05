@@ -64,6 +64,8 @@ The provider supports the following Akeyless [Authentication Methods](https://do
 | `k8s` | `access_id`, `k8s_auth_config_name` | Hook only |
 | `certificate` | `access_id`, `certificate_data`, `private_key_data` | Hook only |
 
+> ⚠️ **Unsupported authentication methods:** The following Akeyless authentication methods are **not** supported by this provider: OCI IAM, Kerberos, LDAP, SAML, OIDC, and Email.
+
 ## Usage
 
 ### Airflow Connection (Hook)
