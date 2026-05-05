@@ -24,14 +24,15 @@ The provider is maintained in the [apache/airflow](https://github.com/apache/air
 
 | Capability | Class | Description |
 | --- | --- | --- |
-| **Hook** | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook` | Interact with Akeyless directly from Directed Acyclic Graph (DAG) code — fetch static, dynamic, and rotated secrets; create or delete items; list paths. |
+| **Hook** | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook` | Interact with Akeyless directly from Directed Acyclic Graph (DAG) code — fetch static, dynamic, and rotated secrets; create, update, or delete items; list paths. |
 | **Connection type** | `akeyless` | Airflow connection type identifier. Create a connection with this type in the Airflow UI or environment to supply credentials to the hook. |
 | **Secrets Backend** | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend` | Transparently resolve Airflow Connections, Variables, and Config from Akeyless — no DAG code changes required. Supports `api_key` and `uid` authentication only. |
 
 ## Requirements
 
-| Package | Minimum version |
+| Requirement | Minimum version |
 | --- | --- |
+| Python | 3.10 |
 | `apache-airflow` | 2.11.0 |
 | `akeyless` | 5.0.0 |
 
@@ -57,8 +58,8 @@ The provider supports the following Akeyless [Authentication Methods](https://do
 | --- | --- | --- |
 | `api_key` _default_ | `access_id`, `access_key` | Hook, Secrets Backend |
 | `aws_iam` | `access_id` + `cloud_id` extras package | Hook only |
-| `gcp` | `access_id` + `cloud_id` extras package | Hook only |
-| `azure_ad` | `access_id` + `cloud_id` extras package | Hook only |
+| `gcp` | `access_id` + `cloud_id` extras package; optional: `gcp_audience` | Hook only |
+| `azure_ad` | `access_id` + `cloud_id` extras package; optional: `azure_object_id` | Hook only |
 | `uid` | `uid_token` | Hook, Secrets Backend |
 | `jwt` | `access_id`, `jwt` | Hook only |
 | `k8s` | `access_id`, `k8s_auth_config_name` | Hook only |
@@ -70,24 +71,34 @@ The provider supports the following Akeyless [Authentication Methods](https://do
 
 ### Airflow Connection (Hook)
 
-Create an Airflow Connection with **Connection Type** = `akeyless`:
+Create an Airflow Connection with **Connection Type** = `akeyless`.
 
-| Field | Value |
+#### Via the Airflow UI
+
+In the Airflow UI connection form, the following fields are available:
+
+| UI field | Value |
 | --- | --- |
-| Host | `https://api.akeyless.io` (or your Gateway URL) |
-| Login | Your Akeyless Access ID |
-| Password | Your Akeyless Access Key (for `api_key` authentication; leave blank for other types) |
-| Extra | JSON object with `access_type` and any authentication-method-specific fields (refer to the next section) |
+| API URL | `https://api.akeyless.io` (or your Gateway URL) |
+| Access ID | Your Akeyless Access ID |
+| Access Key | Your Akeyless Access Key (for `api_key` authentication; leave blank for other types) |
+| Access type | One of the `access_type` values from [Authentication Methods](#authentication-methods) (default: `api_key`) |
 
-The `Extra` field controls authentication. Examples by authentication method:
+The form also shows dedicated fields for each authentication-method-specific parameter: **UID Token**, **JWT**, **K8s Auth Config Name**, **Certificate Data (PEM)**, **Private Key Data (PEM)**, **GCP Audience**, and **Azure Object ID**. The raw **Extra**, **Schema**, and **Port** fields are hidden.
 
-| `access_type` | `Extra` JSON |
+#### Via environment variable or CLI
+
+When defining connections outside the UI (for example, with `AIRFLOW_CONN_*` environment variables), provide the `extra` field as a JSON object:
+
+| `access_type` | `extra` JSON |
 | --- | --- |
 | `api_key` (default) | `{"access_type": "api_key"}` |
-| `uid` | `{"access_type": "uid", "uid_token": "<UID token>"}` — `Login` and `Password` are unused |
+| `uid` | `{"access_type": "uid", "uid_token": "<UID token>"}` — `login` and `password` are unused |
 | `jwt` | `{"access_type": "jwt", "jwt": "<JWT>"}` |
 | `k8s` | `{"access_type": "k8s", "k8s_auth_config_name": "<config name>"}` |
-| `aws_iam` / `gcp` / `azure_ad` | `{"access_type": "aws_iam"}` — cloud identity is resolved automatically |
+| `aws_iam` | `{"access_type": "aws_iam"}` — cloud identity resolved automatically |
+| `gcp` | `{"access_type": "gcp"}` or `{"access_type": "gcp", "gcp_audience": "<audience>"}` |
+| `azure_ad` | `{"access_type": "azure_ad"}` or `{"access_type": "azure_ad", "azure_object_id": "<object ID>"}` |
 | `certificate` | `{"access_type": "certificate", "certificate_data": "<PEM>", "private_key_data": "<PEM>"}` |
 
 Then use the hook in a DAG:
@@ -120,6 +131,9 @@ rotated = hook.get_rotated_secret_value("/rotated/db-creds")
 ```python
 # Create a static secret
 hook.create_secret("/new/secret", "my-value", description="Created by Airflow")
+
+# Update a static secret's value
+hook.update_secret_value("/new/secret", "updated-value")
 
 # List items under a path
 items = hook.list_items("/path/prefix")
@@ -236,5 +250,5 @@ Verify that the secret path in Akeyless matches the expected naming convention: 
 ### Authentication fails with `401 Unauthorized`
 
 * For `api_key`: confirm the Access ID in **Login** and the Access Key in **Password** are correct.
-* For `uid`: confirm the `uid_token` in the `Extra` field is valid and not expired.
+* For `uid`: confirm the `uid_token` value is valid and not expired.
 * For cloud-based authentication methods: confirm the workload has the expected IAM role or service account attached.
