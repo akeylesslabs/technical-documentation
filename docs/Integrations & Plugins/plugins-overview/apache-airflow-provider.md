@@ -51,7 +51,7 @@ pip install apache-airflow-providers-akeyless[cloud_id]
 
 ## Authentication Methods
 
-The provider supports all Akeyless [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
+The provider supports the following Akeyless [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
 | `access_type` | Required fields | Supported by |
 | --- | --- | --- |
