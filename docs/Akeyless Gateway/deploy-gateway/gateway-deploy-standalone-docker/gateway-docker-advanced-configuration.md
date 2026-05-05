@@ -134,7 +134,7 @@ To support local management of your Gateway configuration, you can set a list of
 
 > ℹ️ **Note:**
 >
-> Older documentation and example configurations may reference `GATEWAY_AUTHORIZED_ACCESS_ID` for this setting. That name is deprecated. Use `ALLOWED_ACCESS_PERMISSIONS` for all current deployments.
+> Older deployments may use `ALLOWED_ACCESS_IDS`, which accepts a comma-separated list of access IDs but does not support per-entry permissions or sub-claims. `ALLOWED_ACCESS_PERMISSIONS` is the current variable and supersedes `ALLOWED_ACCESS_IDS`.
 
 For example:
 
@@ -198,6 +198,26 @@ Full list of available permissions:
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
 You may also edit this parameter on your console, by going to the Gateways tab and selecting the desired Gateway. On the right of the screen, you will see the Gateway details, including **Access Permissions**.
+
+### Restrict Gateway Callers by Access ID
+
+Use `GATEWAY_AUTHORIZED_ACCESS_ID` to restrict which access IDs can call the Gateway API at all. This is a transport-layer allowlist enforced before any permission check: if the variable is set, the Gateway rejects requests from any access ID not on the list (the Gateway's own `GATEWAY_ACCESS_ID` is always implicitly allowed).
+
+Set the value to a comma-separated list of access IDs:
+
+```shell
+docker run -d -p 8000:8000 -p 5696:5696 \
+  -e GATEWAY_ACCESS_ID="p-xxxxxxx" \
+  -e GATEWAY_ACCESS_KEY="matching-access-key" \
+  -e GATEWAY_AUTHORIZED_ACCESS_ID="p-aaaaaa,p-bbbbbb" \
+  --name akeyless-gw akeyless/base:latest-akeyless
+```
+
+> ℹ️ **Note:**
+>
+> `GATEWAY_AUTHORIZED_ACCESS_ID` replaces the legacy `RESTRICT_SERVICE_TO_ACCESS_IDS`. Both names are accepted, but `GATEWAY_AUTHORIZED_ACCESS_ID` is preferred for current deployments.
+
+`GATEWAY_AUTHORIZED_ACCESS_ID` and `ALLOWED_ACCESS_PERMISSIONS` serve different purposes and can be used together. `GATEWAY_AUTHORIZED_ACCESS_ID` controls **who can reach the Gateway**, while `ALLOWED_ACCESS_PERMISSIONS` controls **what those callers are permitted to do inside the Gateway**.
 
 ## Cluster Identity and Encryption
 
