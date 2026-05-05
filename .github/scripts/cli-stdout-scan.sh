@@ -52,18 +52,22 @@ fi
 readonly -a FLAGGED_PATTERNS=(
   # Static and dynamic secrets
   'akeyless[[:space:]]+(get-secret-value|get-dynamic-secret-value)([[:space:]]|$)'
-  # Authentication and configuration — both commands emit a plaintext access token
-  'akeyless[[:space:]]+(auth|configure)([[:space:]]|$)'
+  # Authentication — akeyless auth prints the access token as plaintext to stdout
+  # Note: akeyless configure is intentionally excluded; it writes config to disk
+  # and does not echo secret material to stdout.
+  'akeyless[[:space:]]+auth([[:space:]]|$)'
   # PKI / SSH credentials
   'akeyless[[:space:]]+get-ssh-certificate([[:space:]]|$)'
 )
 
 # ERE that identifies output-safe invocations and suppresses the violation:
 #   (a) Output captured in a shell variable:   VAR=$(akeyless ...) or export VAR=$(...)
+#       Also handles YAML list-item and key-value prefixes, e.g.:
+#         - export VAR=$(...)          (YAML sequence item)
+#         command: export VAR=$(...)   (YAML mapping value)
 #   (b) Output redirected to a file:           akeyless ... > /tmp/out  or  >> file
 #       Note: >&2 (stderr-only redirect) is intentionally NOT treated as safe.
-readonly SAFE_OUTPUT_PATTERN='^[[:space:]]*(export[[:space:]]+)?[A-Za-z_][A-Za-z_0-9]*=[[:space:]]*\$\(|>[[:space:]]*[^&[:space:]][^[:space:]]*'
-
+readonly SAFE_OUTPUT_PATTERN='^[[:space:]]*(-[[:space:]]+|[A-Za-z_][A-Za-z_0-9]*:[[:space:]]*)?(export[[:space:]]+)?[A-Za-z_][A-Za-z_0-9]*=[[:space:]]*\$\(|>[[:space:]]*[^&[:space:]][^[:space:]]*'
 readonly SUPPRESS_MARKER='<!-- secret-stdout-scan:ok -->'
 
 # ERE for a CommonMark fenced code block opening:
@@ -159,6 +163,12 @@ for file in "${FILES[@]}"; do
 
       # ---- Check for dangerous patterns (unless suppressed) ----
       if ! $suppress_block; then
+        # Skip shell/script comment lines — they document usage but never execute it.
+        trimmed="${line#"${line%%[! ]*}"}"
+        if [[ "$trimmed" == \#* ]]; then
+          prev_content_line="$line"
+          continue
+        fi
         for pattern in "${FLAGGED_PATTERNS[@]}"; do
           # Use bash built-in ERE ([[ =~ ]]) instead of spawning grep per line.
           if [[ "$line" =~ $pattern ]]; then

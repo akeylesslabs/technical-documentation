@@ -61,6 +61,7 @@ You can find the complete list of additional parameters for this command in the 
 
 To authenticate using the new certificate-based authentication method, run the following command:
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless auth \
 --access-id <Access ID> \

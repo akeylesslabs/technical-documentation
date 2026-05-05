@@ -142,7 +142,6 @@ The following CLI commands are flagged when they appear inside a fenced code blo
 | `akeyless get-secret-value` | Raw plaintext secret value |
 | `akeyless get-dynamic-secret-value` | Dynamic credential set (username, password, etc.) |
 | `akeyless auth` | Plaintext access token |
-| `akeyless configure` | Access key / token written during configuration |
 | `akeyless get-ssh-certificate` | SSH certificate contents |
 
 Invocations that are **not** flagged — output is not sent to stdout:

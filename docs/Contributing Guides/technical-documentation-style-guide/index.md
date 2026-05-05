@@ -265,7 +265,6 @@ Never include unredirected Akeyless CLI commands in code examples when their out
 | `akeyless get-secret-value` | Raw plaintext secret value |
 | `akeyless get-dynamic-secret-value` | Dynamic credential set (username, password, etc.) |
 | `akeyless auth` | Plaintext access token |
-| `akeyless configure` | Access key / token written during configuration |
 | `akeyless get-ssh-certificate` | SSH certificate contents |
 
 **Preferred alternatives:**
@@ -285,6 +284,7 @@ Never include unredirected Akeyless CLI commands in code examples when their out
 
 2. **Use a placeholder comment** when showing expected output:
 
+   <!-- secret-stdout-scan:ok -->
    ```bash
    akeyless get-secret-value --name /path/to/secret
    # Output: <YOUR_SECRET_VALUE>
@@ -292,6 +292,7 @@ Never include unredirected Akeyless CLI commands in code examples when their out
 
 3. **Add an inline suppress annotation** for intentional illustrative examples where showing raw output is the explicit teaching goal. Place `<!-- secret-stdout-scan:ok -->` immediately before the fenced code block and include a warning comment in the example:
 
+   <!-- secret-stdout-scan:ok -->
    ```markdown
    <!-- secret-stdout-scan:ok -->
    ```bash
