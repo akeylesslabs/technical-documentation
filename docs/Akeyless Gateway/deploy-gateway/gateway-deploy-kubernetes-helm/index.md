@@ -31,6 +31,7 @@ Use this page for shared Helm setup and installation, then apply provider-specif
 | Amazon EKS | The cluster runs in Amazon EKS and uses AWS IAM or IRSA for workload identity. | [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-deploy-amazon-eks) |
 | Azure Kubernetes Service (AKS) | The cluster runs in AKS and uses Microsoft Entra workload identity. | [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-kubernetes-service) |
 | Google Kubernetes Engine (GKE) | The cluster runs in GKE and uses Google Workload Identity. | [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-deploy-google-kubernetes-engine) |
+| Oracle Kubernetes Engine (OKE) | The cluster runs in OKE and uses OCI IAM for workload identity. | See [OCI IAM Authentication](#oci-iam) below. |
 
 ## Prerequisites
 
@@ -88,6 +89,8 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 * [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+
+* [OCI IAM](https://docs.akeyless.io/docs/auth-with-oci)
 
 * [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
 
@@ -332,6 +335,26 @@ globalConfig:
     gatewayAccessId: <Access ID>
     gatewayAccessType: certificate
     gatewayCredentialsExistingSecret: certificate-auth
+  allowedAccessPermissions: {}
+```
+
+Save the file and proceed with the [installation](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#installation) instructions.
+
+### OCI IAM
+
+[OCI IAM](https://docs.akeyless.io/docs/auth-with-oci) authentication is supported for Gateway deployments on Oracle Kubernetes Engine (OKE). Akeyless verifies the identity of OKE workloads using OCI instance principals, allowing the Gateway to authenticate without static credentials.
+
+> ℹ️ **Note (OKE-Specific Helm Guide):**
+>
+> A dedicated OKE deployment guide covering OCI workload identity configuration is not yet available. If you are deploying on OKE, configure the [OCI IAM Authentication Method](https://docs.akeyless.io/docs/auth-with-oci) in your Akeyless account, then set `gatewayAccessType: oci` and your OCI IAM `Access ID` as `gatewayAccessId` in your `values.yaml`. Contact [Akeyless Support](https://www.akeyless.io/contact/) for OKE-specific configuration assistance.
+
+Set your [OCI IAM](https://docs.akeyless.io/docs/auth-with-oci) `Access ID` as your `gatewayAccessId` and at least one other `Access ID` in the `allowedAccessPermissions` section to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm):
+
+```yaml values.yaml
+globalConfig:
+  gatewayAuth:
+    gatewayAccessId: <Access ID>
+    gatewayAccessType: oci
   allowedAccessPermissions: {}
 ```
 
