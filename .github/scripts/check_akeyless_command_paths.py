@@ -139,7 +139,7 @@ def parse_args() -> argparse.Namespace:
         default=".github/cli-command-paths/command-path-check.md",
         help="Path to markdown report",
     )
-    parser.add_argument(
+th    parser.add_argument(
         "--only-cli",
         action="append",
         choices=SUPPORTED_COMMANDS,
