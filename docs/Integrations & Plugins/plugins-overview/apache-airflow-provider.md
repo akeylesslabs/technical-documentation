@@ -18,8 +18,8 @@ The provider is maintained in the [apache/airflow](https://github.com/apache/air
 ## Before you begin
 
 * You have an Akeyless account with at least one [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) configured.
-* For `api_key` auth, you have your Access ID and Access Key.
-* For cloud-based auth (AWS IAM, GCP, Azure AD), the `cloud_id` extras package is required (see [Installation](#installation)).
+* If using `api_key` authentication, you have your Access ID and Access Key ready.
+* If using a cloud-based authentication method (AWS IAM, GCP, or Azure AD), install the `cloud_id` extras package (see [Installation](#installation)).
 * Apache Airflow 2.11.0 or later is installed.
 
 | Capability | Class | Description |
@@ -74,10 +74,10 @@ Create an Airflow Connection with **Connection Type** = `akeyless`:
 | --- | --- |
 | Host | `https://api.akeyless.io` (or your Gateway URL) |
 | Login | Your Akeyless Access ID |
-| Password | Your Akeyless Access Key (for `api_key` auth; leave blank for other types) |
-| Extra | JSON object with `access_type` and any auth-specific fields (refer to the next section) |
+| Password | Your Akeyless Access Key (for `api_key` authentication; leave blank for other types) |
+| Extra | JSON object with `access_type` and any authentication-method-specific fields (refer to the next section) |
 
-The `Extra` field controls authentication. Examples by auth type:
+The `Extra` field controls authentication. Examples by authentication method:
 
 | `access_type` | `Extra` JSON |
 | --- | --- |
@@ -235,4 +235,4 @@ Verify that the secret path in Akeyless matches the expected naming convention: 
 
 * For `api_key`: confirm the Access ID in **Login** and the Access Key in **Password** are correct.
 * For `uid`: confirm the `uid_token` in the `Extra` field is valid and not expired.
-* For cloud-based auth: confirm the workload has the expected IAM role or service account attached.
+* For cloud-based authentication methods: confirm the workload has the expected IAM role or service account attached.
