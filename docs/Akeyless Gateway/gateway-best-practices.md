@@ -83,6 +83,7 @@ Configuration details vary by cloud provider and cluster topology:
 * [AWS: EKS reliability best practices](https://docs.aws.amazon.com/eks/latest/best-practices/reliability.html)
 * [Azure: Configure availability zones in AKS](https://learn.microsoft.com/en-us/azure/aks/reliability-availability-zones-configure)
 * [GCP: GKE regional clusters](https://cloud.google.com/kubernetes-engine/docs/concepts/regional-clusters)
+* [OCI: OKE node placement across availability domains and fault domains](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/create-cluster.htm)
 * On-premises: consult your Kubernetes distribution documentation for zone and node topology configuration.
 
 The following example shows a generic, platform-agnostic configuration for pod anti-affinity and topology spread constraints. The Gateway Helm chart requires `affinity.enabled: true` for `topologySpreadConstraints` to be applied. Replace `<release-name>` with your Helm release name:
