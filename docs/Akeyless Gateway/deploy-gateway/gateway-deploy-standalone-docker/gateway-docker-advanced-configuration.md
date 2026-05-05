@@ -410,7 +410,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e DEFAULT_SECRET_LOCATION="path to rele
 
 ### Setting a Default Login
 
-When using OIDC or SAML authentication to connect to the Gateway web UI on endpoint `/console`, a user is usually asked to supply an access ID before being transferred to a login screen. This can also be done from the Gateway UI as described in [Gateway SAML and OIDC](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access).
+When using OIDC or SAML authentication to connect to the Gateway web UI on endpoint `/console`, a user is usually asked to supply an access ID before being transferred to a login screen. This can also be done from the Gateway UI as described in [Gateway SAML and OIDC](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 When configuring your Gateway, you may supply a default value for either OIDC, SAML, or both, using the following parameters:
 
 * `-e DEFAULT_SAML_ACCESS_ID=<SAML Access ID>`

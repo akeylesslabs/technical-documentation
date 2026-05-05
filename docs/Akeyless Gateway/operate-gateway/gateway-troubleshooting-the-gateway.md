@@ -47,7 +47,7 @@ Check:
 
 Reference:
 
-* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access)
+* [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access)
 
 ## 3. TLS and Certificate Trust
 

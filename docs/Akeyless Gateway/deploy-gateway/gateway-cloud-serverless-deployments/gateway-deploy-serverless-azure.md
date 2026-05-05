@@ -181,7 +181,7 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 * `functionAppName`: The name for the [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) that will be created in Azure.
 

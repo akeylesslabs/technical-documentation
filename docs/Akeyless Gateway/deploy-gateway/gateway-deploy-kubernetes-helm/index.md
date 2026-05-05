@@ -147,7 +147,7 @@ AWS IAM can be used in the following approaches:
 
 In both cases, provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Authentication Method's Access ID as your `gatewayAccessId`, and at least one other Access ID in the `allowedAccessPermissions` section to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm):
 
-`allowedAccessPermissions` also supports wildcard access IDs with `access_id: "*"`. For details, see [Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access).
+`allowedAccessPermissions` also supports wildcard access IDs with `access_id: "*"`. For details, see [Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
 ```yaml values.yaml
 globalConfig:

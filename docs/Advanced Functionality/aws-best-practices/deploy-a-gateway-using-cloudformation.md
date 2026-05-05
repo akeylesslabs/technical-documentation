@@ -69,7 +69,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
 2. Select **Upload a template file**, then upload the `yaml` file containing the CloudFormation template.
 
-    Set the `AccessId` with your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Auth Method's `Access ID`, where you can define a list of users who can manage your Gateway settings by way of the `AllowedAccessID` setting with any other `Access ID`. In our example, we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) we created earlier; alternatively, you can use your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) as described [here](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access).
+    Set the `AccessId` with your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Auth Method's `Access ID`, where you can define a list of users who can manage your Gateway settings by way of the `AllowedAccessID` setting with any other `Access ID`. In our example, we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) we created earlier; alternatively, you can use your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) as described [here](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
     ```yaml Gateway
     AWSTemplateFormatVersion: '2010-09-09'

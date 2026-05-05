@@ -162,4 +162,4 @@ For setup guidance, follow the [GKE Workload Identity guide](https://cloud.googl
 * [Access Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac)
 * [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
 * [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-deploy-google-kubernetes-engine)
-* [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access)
+* [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access)

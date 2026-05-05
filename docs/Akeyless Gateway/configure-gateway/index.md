@@ -26,7 +26,7 @@ To see a Gateway in the **Gateway** list and use **Manage Gateway**, the user mu
 
 Use HTTPS for remote management whenever possible.
 
-For permission requirements, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access).
+For permission requirements, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
 For inbound port and endpoint behavior, including Configure App deprecation and redirect details, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
 
@@ -34,7 +34,7 @@ For inbound port and endpoint behavior, including Configure App deprecation and 
 
 The following configuration features are available:
 
-* Configure identity and authorization controls in [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access-and-access).
+* Configure identity and authorization controls in [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
 * Configure HTTPS behavior and certificate usage in [TLS Settings](https://docs.akeyless.io/docs/gateway-tls-settings).
 
