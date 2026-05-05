@@ -68,7 +68,7 @@ jobs:
             if [ -z "$RESOLVED_VERSION" ] || [[ "$RESOLVED_VERSION" =~ \<\?xml ]]; then
               echo "⚠ Kubernetes 1.$MINOR: stable version file not available; falling back to GitHub releases"
               RELEASES_JSON="$(curl -sS "https://api.github.com/repos/kubernetes/kubernetes/releases?per_page=100" 2>/dev/null || echo '[]')"
-              RESOLVED_VERSION="$(echo "$RELEASES_JSON" | jq -r --arg prefix "v1.${MINOR}." '[.[] | select((.prerelease | not) and (.draft | not) and (.tag_name | startswith($prefix))) | .tag_name][0] // empty')"
+              RESOLVED_VERSION="$(echo "$RELEASES_JSON" | jq -r --arg prefix "v1.${MINOR}." 'if type == "array" then [.[] | select((.prerelease | not) and (.draft | not) and (.tag_name | startswith($prefix))) | .tag_name][0] else empty end // empty')"
             fi
 
             if [ -z "$RESOLVED_VERSION" ]; then
