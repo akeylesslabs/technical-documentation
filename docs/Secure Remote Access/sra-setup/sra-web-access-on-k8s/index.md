@@ -53,6 +53,10 @@ persistence:
 
 For security reasons, please limit the `PersistentVolumes` mount permissions to `0650`.
 
+For current Zero Trust Web Access (ZTWA) versions, configure the shared volume so the volume root is owned by group `10000`.
+
+When using Amazon EFS, configure and mount through an EFS access point with the required ownership and permissions.
+
 ### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.  
@@ -79,13 +83,101 @@ Or run the following Helm command to generate the values file locally:
 helm show values akeyless/akeyless-zero-trust-web-access > values.yaml
 ```
 
-## Configuration
+### Resource limits and non-root runtime
 
-To connect to Akeyless private repository, set the `dockerRepositoryCreds` field to access the Akeyless internal image and the relevant `apiGatewayURL` to point your Gateway REST API port `8080`.
+The chart exposes resource requests and limits for the main workloads and bootstrap init containers.
+
+The chart templates also configure non-root execution for Web Dispatcher and Web Worker containers.
+
+Do not override the chart's default user or group security context values unless instructed by Akeyless support.
+
+Use the following example as a baseline for environments with strict Kubernetes admission policies:
 
 ```yaml
-dockerRepositoryCreds:
-apiGatewayURL: https://rest.akeyless.io
+dispatcher:
+  resources:
+    requests:
+      cpu: 1000m
+      memory: 1Gi
+    limits:
+      memory: 2Gi
+  initContainer:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        memory: 512Mi
+
+webWorker:
+  resources:
+    requests:
+      cpu: 1000m
+      memory: 1Gi
+    limits:
+      memory: 2Gi
+  initContainer:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        memory: 512Mi
+```
+
+After installation, verify the effective runtime security context from the resulting pod specs:
+
+```shell
+kubectl get deploy web-dispatcher-deployment -n <namespace> -o yaml
+kubectl get deploy web-worker-deployment -n <namespace> -o yaml
+```
+
+## Configuration
+
+### Private registry credentials
+
+To pull images from the Akeyless private registry, use `imagePullSecrets`. This is the recommended approach because credentials are stored in a Kubernetes Secret and are never embedded in the chart values.
+
+Before installing the chart, create a Kubernetes Secret of type `kubernetes.io/dockerconfigjson` with the Akeyless private registry credentials:
+
+```shell
+kubectl create secret docker-registry <secret-name> \
+  --docker-server=<AKEYLESS_REGISTRY_SERVER> \
+  --docker-username=<AKEYLESS_REGISTRY_USERNAME> \
+  --docker-password=<AKEYLESS_REGISTRY_PASSWORD> \
+  --namespace <namespace>
+```
+
+Then reference that secret in `values.yaml` under each component that pulls from the private registry:
+
+```yaml
+dispatcher:
+  image:
+    imagePullSecrets:
+      - name: <secret-name>
+  initContainer:
+    imagePullSecrets:
+      - name: <secret-name>
+
+webWorker:
+  image:
+    imagePullSecrets:
+      - name: <secret-name>
+  initContainer:
+    imagePullSecrets:
+      - name: <secret-name>
+```
+
+> ℹ️ **Note:**
+>
+> The `dockerRepositoryCreds` field is an alternative method for supplying registry credentials inline. Use `imagePullSecrets` instead wherever possible.
+
+Set `apiGatewayURL` to the Gateway REST API endpoint.
+
+For current ZTWA versions, set `apiGatewayURL` with the `/api/v2` path.
+
+```yaml
+apiGatewayURL: https://rest.akeyless.io/api/v2
 
 # Optional, to Work with a specifc enviorement set the relevant URL.
   env:
