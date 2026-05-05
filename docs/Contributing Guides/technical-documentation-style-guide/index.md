@@ -252,7 +252,48 @@ pre-commit run gitleaks --files docs/your-file.md
 docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.24.2 dir /repo --redact --no-banner
 ```
 
-If the scan reports findings, see [.github/LEAK_RESPONSE.md](../../LEAK_RESPONSE.md) for remediation.
+If the scan reports findings, see [.github/LEAK_RESPONSE.md](https://docs.akeyless.io/docs/contributing) for remediation.
+
+### CLI Output Safety
+
+Never include unredirected Akeyless CLI commands in code examples when their output is secret or token material. Running such commands prints sensitive values directly to the reader's terminal and creates a documentation-induced credential-exposure risk.
+
+**Prohibited patterns** (flagged automatically by the `cli-stdout-scan` CI check):
+
+| Command | Issue |
+|---------|-------|
+| `akeyless get-secret-value --name /path` | Prints the raw plaintext secret value to stdout |
+| `akeyless get-dynamic-secret-value --name /path` | Prints dynamic secret credentials to stdout |
+
+**Preferred alternatives:**
+
+1. **Capture output into a variable** when showing how to use the value:
+
+   ```bash
+   # Store the value — do not echo it
+   SECRET_VALUE=$(akeyless get-secret-value --name /path/to/secret)
+   ```
+
+2. **Use a placeholder comment** when showing expected output:
+
+   ```bash
+   akeyless get-secret-value --name /path/to/secret
+   # Output: <YOUR_SECRET_VALUE>
+   ```
+
+3. **Add an inline suppress annotation** for intentional illustrative examples where showing raw output is the explicit teaching goal. Place `<!-- secret-stdout-scan:ok -->` immediately before the fenced code block and include a warning comment in the example:
+
+   ```markdown
+   <!-- secret-stdout-scan:ok -->
+   ```bash
+   # WARNING: The command below prints the secret value to stdout.
+   # In production scripts, capture the output instead:
+   #   SECRET=$(akeyless get-secret-value ...)
+   akeyless get-secret-value --name /path/to/secret
+   ```
+   ```
+
+The CI check runs automatically on every pull request. See [.github/LEAK_RESPONSE.md CLI Output Safety](https://docs.akeyless.io/docs/contributing) for full remediation guidance.
 
 ## CLI Reference Structure
 
