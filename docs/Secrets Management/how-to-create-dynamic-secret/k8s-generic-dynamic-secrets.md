@@ -550,7 +550,7 @@ subjects:
 1. Extract the `token-request-sa` service account token by running:
 
   ```shell
-  TOKEN=$(kubectl -n kubernetes-dashboard create token token-request-sa)
+  ACCESS_TOKEN=$(kubectl -n kubernetes-dashboard create token token-request-sa)
   ```
 
   This command uses the Kubernetes TokenRequest flow, which works on current Kubernetes versions and does not depend on auto-generated service account token secrets.
@@ -564,7 +564,7 @@ subjects:
     --k8s-cluster-ca-cert <base 64 encoding of the cluster certificate> \
     --k8s-namespace kubernetes-dashboard \
     --k8s-service-account kubernetes-dashboard \
-    --k8s-cluster-token ${TOKEN}
+    --k8s-cluster-token ${ACCESS_TOKEN}
     ```
 
 1. Get the **K8s-dashboard-producer** dynamic secret value by running:
