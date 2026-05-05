@@ -44,7 +44,7 @@ Edit the `akeyless-serverless-gateway/terraform/AWS/serverless-gateway/lambda_en
 
 ### Authentication
 
-Set your Akeyless Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) to control the level of access your Akeyless Gateway will have to your Akeyless account.
+Set your Akeyless Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Akeyless Gateway will have to your Akeyless account.
 
 The following Authentication Methods are supported for serverless mode:
 

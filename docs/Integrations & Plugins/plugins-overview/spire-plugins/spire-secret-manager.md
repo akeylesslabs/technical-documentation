@@ -15,7 +15,7 @@ This guide covers the Akeyless SPIRE Secret Manager plugin, which stores workloa
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.40.0` or later
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) attached to a role with `Create`, `Update`, and `List` permissions for **Items**
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Create`, `Update`, and `List` permissions for **Items**
 
 ## Authentication
 

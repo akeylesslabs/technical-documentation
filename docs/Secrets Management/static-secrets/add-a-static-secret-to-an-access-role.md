@@ -18,7 +18,7 @@ Access Roles provide clients (users or machines) with permissions to work with s
 
 > ℹ️ **Info:**
 >
-> By default, the account owner has privilege permissions in Akeyless. Managing users' Access Roles and permissions can be done using Akeyless Platform [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) with [Access Roles](https://docs.akeyless.io/docs/rbac) to grant users the minimum permissions they need.
+> By default, the account owner has privilege permissions in Akeyless. Managing users' Access Roles and permissions can be done using Akeyless Platform [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with [Access Roles](https://docs.akeyless.io/docs/rbac) to grant users the minimum permissions they need.
 
 ## Add a Static Secret to a Role from the Akeyless CLI
 

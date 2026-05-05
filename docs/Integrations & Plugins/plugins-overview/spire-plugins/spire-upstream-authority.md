@@ -16,7 +16,7 @@ This guide covers how to configure the Akeyless SPIRE Upstream Authority plugin 
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) `v3.40.0` or later
 * A running SPIRE Server and SPIRE Agent deployment
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) attached to a role with:
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with:
     * `Create` and `List` on relevant item paths for X.509 CA operations
     * `Read` on the item used for JWT signing keys (for JWT-SVID support)
 

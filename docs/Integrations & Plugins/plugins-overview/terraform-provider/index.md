@@ -37,7 +37,7 @@ For more information on the Terraform provider, see the [Akeyless GitHub Reposit
     terraform init
     ```
 
-3. Select an Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) to use with the Terraform Provider, such as an **API Key** or Cloud Identity (CSP IAM) like **AWS IAM**, **Azure AD**.
+3. Select an Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to use with the Terraform Provider, such as an **API Key** or Cloud Identity (CSP IAM) like **AWS IAM**, **Azure AD**.
 
 ## Usage Example
 

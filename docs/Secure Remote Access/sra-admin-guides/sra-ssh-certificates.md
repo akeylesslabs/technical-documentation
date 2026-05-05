@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-By way of a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss), while using existing Access Groups and Policies in your environment.
+By way of a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods), while using existing Access Groups and Policies in your environment.
 
 Instead of issuing a public and private SSH key pair, Akeyless provides temporary SSH certificates to allow access over the standard SSH protocol while eliminating the need for public SSH keys on the server side.
 

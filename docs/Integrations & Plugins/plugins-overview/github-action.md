@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless [GitHub Actions plugin](https://github.com/marketplace/actions/akeyless-authentication-and-fetching-secrets) enables workflow automation for GitHub-hosted repositories. This guide describes how to use supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) to fetch [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett), and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets, as well as [SSH](https://docs.akeyless.io/docs/sra-ssh-certificates) and [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) certificates, from Akeyless.
+The Akeyless [GitHub Actions plugin](https://github.com/marketplace/actions/akeyless-authentication-and-fetching-secrets) enables workflow automation for GitHub-hosted repositories. This guide describes how to use supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) to fetch [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets, as well as [SSH](https://docs.akeyless.io/docs/sra-ssh-certificates) and [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) certificates, from Akeyless.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This section outlines the CLI commands relevant to [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett).
+This section outlines the CLI commands relevant to [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
 Dynamic Secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a temporary period with a defined set of permissions.
 

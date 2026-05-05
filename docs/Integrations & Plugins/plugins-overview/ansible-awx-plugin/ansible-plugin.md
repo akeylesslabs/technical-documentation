@@ -269,7 +269,7 @@ Additional parameters for this module can be found in the [official Ansible Repo
 
 ### Dynamic Secret Example
 
-The following will fetch a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett) named `Ansible/MyDynamicSecret`:
+The following will fetch a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) named `Ansible/MyDynamicSecret`:
 
 ```yaml dynamic_secret.yaml
 - name: Get secret value

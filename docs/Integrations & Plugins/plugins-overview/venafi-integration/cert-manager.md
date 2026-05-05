@@ -57,7 +57,7 @@ access_id..access_key | base64
 >
 > The API Key token should be a concatenation of your `access_id` and your `access_key` with double dots as a delimiter.
 >
-> Make sure this [Authentication method](https://docs.akeyless.io/docs/access-and-authentication-methodss) is set with the appropriate [RBAC](https://docs.akeyless.io/docs/rbac) in Akeyless, to grant access to your dynamic secret.
+> Make sure this [Authentication method](https://docs.akeyless.io/docs/access-and-authentication-methods) is set with the appropriate [RBAC](https://docs.akeyless.io/docs/rbac) in Akeyless, to grant access to your dynamic secret.
 > The path in the YAML should always start with the prefix `pki/sign/` prior to the item path in Akeyless.
 
 The Issuer object is what allows the cert-manager to call Akeyless with the appropriate dynamic secret.

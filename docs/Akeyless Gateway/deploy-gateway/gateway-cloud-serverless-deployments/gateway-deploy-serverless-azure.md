@@ -48,7 +48,7 @@ Edit the `akeyless-serverless-gateway/bicep/Azure/serverless-gateway/params.bice
 
 ### Authentication
 
-Set your Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) to control the level of access your Gateway will have inside your Akeyless account.
+Set your Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Gateway will have inside your Akeyless account.
 
 The following Authentication Methods are supported for Azure Serverless:
 
@@ -76,7 +76,7 @@ param akeyless_url = 'https://vault.akeyless.io'
 @description('Cluster Name')
 param cluster_name = 'Azure Serverless'
 
-@description('Allowed values are azure_ad or access_key https://docs.akeyless.io/docs/access-and-authentication-methodss')
+@description('Allowed values are azure_ad or access_key https://docs.akeyless.io/docs/access-and-authentication-methods')
 param admin_access_id_type = 'azure'
 
 @description('Akeyless Admin Access ID')
@@ -130,7 +130,7 @@ param akeyless_url = 'https://vault.akeyless.io'
 @description('Cluster Name')
 param cluster_name = 'Azure Serverless'
 
-@description('Allowed values are azure or access_key https://docs.akeyless.io/docs/access-and-authentication-methodss')
+@description('Allowed values are azure or access_key https://docs.akeyless.io/docs/access-and-authentication-methods')
 param admin_access_id_type = 'access_key'
 
 @description('Akeyless Admin Access ID')

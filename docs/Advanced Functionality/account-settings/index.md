@@ -44,7 +44,7 @@ Users can update the name of their company by clicking the pencil next to that f
 
 #### Account Alias
 
-Option to set an alias for the account, this requires **Akeyless Customer Success** help, to provide end users an option to sign in to Akeyless using a human-friendly string, with an [Auth Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) full name instead of Access IDs.
+Option to set an alias for the account, this requires **Akeyless Customer Success** help, to provide end users an option to sign in to Akeyless using a human-friendly string, with an [Auth Method](https://docs.akeyless.io/docs/access-and-authentication-methods) full name instead of Access IDs.
 
 #### Password Expiration Policy
 

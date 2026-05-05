@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Groups enable administrators to manage and reuse [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss) more easily by associating them to an Akeyless [OIDC Application](https://docs.akeyless.io/docs/oidc-app-provider) as a Group rather than manually associating multiple individual Authentication Methods.
+Groups enable administrators to manage and reuse [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) more easily by associating them to an Akeyless [OIDC Application](https://docs.akeyless.io/docs/oidc-app-provider) as a Group rather than manually associating multiple individual Authentication Methods.
 
 ## Creating a Group with the CLI
 

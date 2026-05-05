@@ -20,7 +20,7 @@ Access Roles can be configured to grant permissions on Secrets, Encryption Keys,
 
 To set permission for a user to work with any item in the Platform, an appropriate Access Role must be assigned to the Authentication Method that represents this user. By default, users don't have any permissions in Akeyless unless explicitly granted.
 
-To associate an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/auth-with-api-key):
+To associate an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/auth-with-api-key):
 
 ```shell
 akeyless auth-method create api-key --name client1
@@ -73,7 +73,7 @@ The built-in admin role has full access to all parts of the accounts.
 
 > ⚠️ **Warning:**
 >
-> It is considered a best practice **not** to use an API Key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methodss)
+> It is considered a best practice **not** to use an API Key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
 ### Permissions for Items, Access Roles, Auth Methods, and Targets
 
@@ -216,7 +216,7 @@ Where the relevant Akeyless paths, for example, `secret/foo` and `secret/bar` co
 
 To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.  
 Click your account logo in the top-right corner of your console, and select **Impersonate As**.  
-In the dialog, choose from the drop-down menu an existing [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
+In the dialog, choose from the drop-down menu an existing [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
 
 ## Tutorial
 

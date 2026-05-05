@@ -159,7 +159,7 @@ Acceptable values for `args.--oci-auth-type`:
 
 #### Example Authentication Method Configurations
 
-The Akeyless MCP server supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methodss):
+The Akeyless MCP server supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
 ##### Access Key Authentication (Default)
 

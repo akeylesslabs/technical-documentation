@@ -49,7 +49,7 @@ The logs will show up as a line of text, from which you can read the following i
 | `duration` | The duration of the action in milliseconds. |
 | `request_parameters` | More details about the action, for example, the name and details of a dynamic secret if one was fetched. |
 | `unique_id` | Identifier for the specific user ID under the account (mostly relevant for human-to-machine auth methods). |
-| `access_type` | [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss) type from which the action was performed. |
+| `access_type` | [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type from which the action was performed. |
 | `product` | Which Akeyless product does this log concern. For example, currently this could be **Secrets Management**, **Secure Remote Access**, or **Password Management**. |
 
 ## Tutorial

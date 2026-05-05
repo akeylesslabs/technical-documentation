@@ -81,4 +81,4 @@ Once you've installed the Akeyless browser extension. Simply locate the distinct
     * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url-1) by way of advanced settings then login with Email option as a login type.
 * Account Alias: Support for using an account alias to simplify identification and enhance user experience.
 
-For more details about Akeyless Authentication Methods please visit this [link](https://docs.akeyless.io/docs/access-and-authentication-methodss).
+For more details about Akeyless Authentication Methods please visit this [link](https://docs.akeyless.io/docs/access-and-authentication-methods).

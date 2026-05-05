@@ -20,7 +20,7 @@ Akeyless Gateway is a customer-hosted runtime component that sits between intern
 
 In practice, the Gateway is a stateless service that receives requests from applications, authenticates and authorizes those requests, brokers access to Akeyless services, and enforces local controls such as TLS settings, caching, and forwarding rules.
 
-This allows internal systems to consume Akeyless capabilities such as [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secrett), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [KMIP Server](https://docs.akeyless.io/docs/kmip-server), and [Classic Keys](https://docs.akeyless.io/docs/classic-keys) without directly exposing internal resources to the public network.
+This allows internal systems to consume Akeyless capabilities such as [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [KMIP Server](https://docs.akeyless.io/docs/kmip-server), and [Classic Keys](https://docs.akeyless.io/docs/classic-keys) without directly exposing internal resources to the public network.
 
 Gateway management access is configured explicitly through the default Gateway identity and `allowedAccessPermissions`. The primary Gateway identity must have an RBAC Administrative rule scoped to Gateway management with permission scope set to `scope` or `all` for Gateway Console (UI) access. CLI and API management can still be allowed when the role grants the required permissions.
 

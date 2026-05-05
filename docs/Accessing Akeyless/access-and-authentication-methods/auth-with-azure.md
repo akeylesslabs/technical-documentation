@@ -98,7 +98,7 @@ For Azure US Government or Azure China, also set `--azure-cloud` to `AzureUSGove
 
 ## Optional Features
 
-For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methodss#common-optional-features).
+For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).
 
 ### Azure AD-Specific Optional Features
 

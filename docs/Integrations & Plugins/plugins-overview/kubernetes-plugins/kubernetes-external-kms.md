@@ -22,7 +22,7 @@ By default, Secrets are not encrypted at rest and are open to attack, either by 
 
 * `kube-apiserver` must be restarted after the External KMS plugin has been configured and started.
 
-* For `kubernetes-external-secrets` to be able to retrieve your secrets it will need access to your Akeyless Platform by way of Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) associated with an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methodss).
+* For `kubernetes-external-secrets` to be able to retrieve your secrets it will need access to your Akeyless Platform by way of Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) associated with an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
 * An AES [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) in Akeyless Platform.
 
