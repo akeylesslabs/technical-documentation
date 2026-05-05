@@ -120,7 +120,7 @@ For the full key reference, see [Helm Values Reference](https://docs.akeyless.io
 
 ### Cluster Cache Environment Variables (Docker Compose)
 
-When deploying with [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose), use the following environment variables in `gateway.env` to control Redis-backed cache behavior. These variables do not provision standalone cluster cache topology resources.
+When deploying with [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose), set these `gateway.env` variables to control how Gateway uses Redis for caching (enablement and read preference). These settings tune runtime cache behavior only; they do not create, deploy, or manage standalone cluster cache topology resources.
 
 * `USE_CLUSTER_CACHE`: Set to `true` to enable the Redis-backed cluster cache for the curl proxy (proactive cache) layer. In a full Gateway deployment, set this together with `GATEWAY_CLUSTER_CACHE`; the SRA process uses `USE_CLUSTER_CACHE` alone.
 * `GATEWAY_CLUSTER_CACHE`: Set to `"enable"` to activate cluster cache mode for the Gateway configuration layer. Any non-empty value enables this; `"enable"` is the conventional value. If this variable remains set after the Redis instance is removed, the Gateway may fail to start until the container is recreated.
