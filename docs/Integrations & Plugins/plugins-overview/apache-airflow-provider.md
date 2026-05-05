@@ -164,6 +164,22 @@ backend_kwargs = {
 
 > ℹ️ In `airflow.cfg`, multi-line `backend_kwargs` values must have each continuation line indented with at least one space. Alternatively, provide the value as a single-line JSON string.
 
+For `uid` authentication, omit `access_key` and include `uid_token` in `backend_kwargs` instead:
+
+```text
+[secrets]
+backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
+backend_kwargs = {
+    "connections_path": "/airflow/connections",
+    "variables_path": "/airflow/variables",
+    "config_path": "/airflow/config",
+    "api_url": "https://api.akeyless.io",
+    "access_id": "<Access ID>",
+    "access_type": "uid",
+    "uid_token": "<UID token>"
+    }
+```
+
 Or with environment variables:
 
 ```shell
@@ -249,6 +265,6 @@ Verify that the secret path in Akeyless matches the expected naming convention: 
 
 ### Authentication fails with `401 Unauthorized`
 
-* For `api_key`: confirm the Access ID in **Login** and the Access Key in **Password** are correct.
+* For `api_key`: confirm the **Access ID** and **Access Key** fields in the connection are correct.
 * For `uid`: confirm the `uid_token` value is valid and not expired.
 * For cloud-based authentication methods: confirm the workload has the expected IAM role or service account attached.
