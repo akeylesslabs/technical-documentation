@@ -134,12 +134,49 @@ kubectl get deploy web-worker-deployment -n <namespace> -o yaml
 
 ## Configuration
 
-To connect to Akeyless private repository, set the `dockerRepositoryCreds` field to access the Akeyless internal image and set `apiGatewayURL` to the Gateway REST API endpoint.
+### Private registry credentials
+
+To pull images from the Akeyless private registry, use `imagePullSecrets`. This is the recommended approach because credentials are stored in a Kubernetes Secret and are never embedded in the chart values.
+
+Before installing the chart, create a Kubernetes Secret of type `kubernetes.io/dockerconfigjson` with the Akeyless private registry credentials:
+
+```shell
+kubectl create secret docker-registry <secret-name> \
+  --docker-server=<AKEYLESS_REGISTRY_SERVER> \
+  --docker-username=<AKEYLESS_REGISTRY_USERNAME> \
+  --docker-password=<AKEYLESS_REGISTRY_PASSWORD> \
+  --namespace <namespace>
+```
+
+Then reference that secret in `values.yaml` under each component that pulls from the private registry:
+
+```yaml
+dispatcher:
+  image:
+    imagePullSecrets:
+      - name: <secret-name>
+  initContainer:
+    imagePullSecrets:
+      - name: <secret-name>
+
+webWorker:
+  image:
+    imagePullSecrets:
+      - name: <secret-name>
+  initContainer:
+    imagePullSecrets:
+      - name: <secret-name>
+```
+
+> ℹ️ **Note:**
+>
+> The `dockerRepositoryCreds` field is an alternative method for supplying registry credentials inline. Use `imagePullSecrets` instead wherever possible.
+
+Set `apiGatewayURL` to the Gateway REST API endpoint.
 
 For current ZTWA versions, set `apiGatewayURL` with the `/api/v2` path.
 
 ```yaml
-dockerRepositoryCreds:
 apiGatewayURL: https://rest.akeyless.io/api/v2
 
 # Optional, to Work with a specifc enviorement set the relevant URL.
