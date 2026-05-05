@@ -17,7 +17,7 @@ The provider is maintained in the [apache/airflow](https://github.com/apache/air
 
 | Capability | Class | Description |
 | --- | --- | --- |
-| **Hook** | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook` | Interact with Akeyless directly from DAG code — fetch static, dynamic, and rotated secrets; create or delete items; list paths. |
+| **Hook** | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook` | Interact with Akeyless directly from Directed Acyclic Graph (DAG) code — fetch static, dynamic, and rotated secrets; create or delete items; list paths. |
 | **Connection type** | `akeyless` | Airflow connection type identifier. Create a connection with this type in the Airflow UI or environment to supply credentials to the hook. |
 | **Secrets Backend** | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend` | Transparently resolve Airflow Connections, Variables, and Config from Akeyless — no DAG code changes required. Supports `api_key` and `uid` authentication only. |
 
