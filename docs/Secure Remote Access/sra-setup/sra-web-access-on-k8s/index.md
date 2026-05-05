@@ -53,7 +53,7 @@ persistence:
 
 For security reasons, please limit the `PersistentVolumes` mount permissions to `0650`.
 
-For current ZTWA versions, configure the shared volume so the volume root is owned by group `10000`.
+For current Zero Trust Web Access (ZTWA) versions, configure the shared volume so the volume root is owned by group `10000`.
 
 When using Amazon EFS, configure and mount through an EFS access point with the required ownership and permissions.
 
