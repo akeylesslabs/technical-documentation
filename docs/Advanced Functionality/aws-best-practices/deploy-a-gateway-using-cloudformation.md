@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This guide explains how to automate the integration with Akeyless using an [Amazon CloudFormation](https://aws.amazon.com/cloudformation/) template. The template provisions an Amazon EC2 instance with the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview), creates an AWS IAM Role with permissions to manage IAM users and secrets, and can generate both an [AWS Target](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-targets) and a [Dynamic Secret](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-producer) in Akeyless. The entire setup, from infrastructure deployment to integration configuration, is handled end to end.
+This guide explains how to automate the integration with Akeyless using an [Amazon CloudFormation](https://aws.amazon.com/cloudformation/) template. The template provisions an Amazon EC2 instance with the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview), creates an AWS IAM Role with permissions to manage IAM users and secrets, and can generate both an [AWS Target](https://docs.akeyless.io/docs/aws-targets) and a [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) in Akeyless. The entire setup, from infrastructure deployment to integration configuration, is handled end to end.
 
 ## General Configuration
 
@@ -581,7 +581,7 @@ The following steps will create the required resources in Akeyless to generate a
 
 ### Get a Temporary User Credentials
 
-1. Navigate to **Items**, search for the [Dynamic Secret](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-producer) named `AWS-Dynamic-Secret` (created by the script), and click **Get Dynamic Secret**.
+1. Navigate to **Items**, search for the [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) named `AWS-Dynamic-Secret` (created by the script), and click **Get Dynamic Secret**.
 
 2. This will generate temporary AWS credentials for a user, which will later be used by the [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 

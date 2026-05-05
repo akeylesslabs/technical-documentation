@@ -20,7 +20,7 @@ To create a dynamic secret, you must configure the required account and access c
 
 * [Database Dynamic Secrets](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db)
 * [Artifactory Dynamic Secrets](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer)
-* [AWS Dynamic Secrets](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-producer)
+* [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer)
 * [Azure AD Dynamic Secrets](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-ad-dynamic-secrets)
 * [GCP Dynamic Secrets](https://docs.akeyless.io/docs/gcp-dynamic-secrets)
 * [EKS Dynamic Secrets](https://docs.akeyless.io/docs/eks-dynamic-secret-producer)

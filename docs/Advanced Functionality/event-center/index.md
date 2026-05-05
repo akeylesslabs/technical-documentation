@@ -145,7 +145,7 @@ The following JSON structure describes the forwarded event's format:
 
 For more information about creating and configuring event forwarders, refer to:
 
-[Email Event Forwarder](https://docs.akeyless.io/docs/auth-with-email-event-forwarder)
+[Email Event Forwarder](https://docs.akeyless.io/docs/email-event-forwarder)
 
 [Webhook Event Forwarder](https://docs.akeyless.io/docs/webhook-event-forwarder)
 

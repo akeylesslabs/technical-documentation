@@ -16,7 +16,7 @@ next:
 ---
 To set up Akeyless KMS Integration with AWS KMS, follow these steps:
 
-1. Create a new [AWS Target](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-targets) in the Akeyless Platform. You can do it either from the [Akeyless CLI](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-targets#create-an-aws-target-from-the-cli) or in the [Akeyless Console](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-targets#create-an-aws-target-in-the-akeyless-console).
+1. Create a new [AWS Target](https://docs.akeyless.io/docs/aws-targets) in the Akeyless Platform. You can do it either from the [Akeyless CLI](https://docs.akeyless.io/docs/aws-targets#create-an-aws-target-from-the-cli) or in the [Akeyless Console](https://docs.akeyless.io/docs/aws-targets#create-an-aws-target-in-the-akeyless-console).
 
     > 👍 Note
     >
@@ -36,7 +36,7 @@ To set up Akeyless KMS Integration with AWS KMS, follow these steps:
     >
     > When you associate a key with AWS, make sure to reference the **alias** when using the key in AWS. Otherwise, the association will break when you rotate the key.
 
-You can export the key into multiple regions within AWS KMS. The default region is based on the [AWS Target](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-targets) region. For later replication, you can set the option without specifying extra regions. For example:
+You can export the key into multiple regions within AWS KMS. The default region is based on the [AWS Target](https://docs.akeyless.io/docs/aws-targets) region. For later replication, you can set the option without specifying extra regions. For example:
 
 ```shell Multi region
 akeyless assoc-target-item --target-name <target-name> --name <classic key name> --multi-region="true" --regions us-east-1 --regions us-west-1

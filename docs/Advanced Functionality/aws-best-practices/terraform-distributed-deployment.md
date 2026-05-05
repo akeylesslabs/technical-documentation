@@ -32,9 +32,9 @@ For Organization integration, ensure you have an existing AWS environment with A
 
 In this step, you will connect to your AWS management account to apply using a Terraform template that will create the IAM role that enables the **Akeyless Gateway** to:
 
-* Create and manage [AWS Dynamic Secrets](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-producer)
+* Create and manage [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer)
 * Rotate existing IAM credentials using [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret)
-* Operate the [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-universal-secrets-connector)
+* Operate the [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector)
 
 ### Provide the Parameters to Identify Your AWS Organization
 
@@ -72,7 +72,7 @@ variable "management_account" {
 
 ### Terraform Module
 
-The `main.tf` file will create an AWS Role with permissions for managing secrets using [USC](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-universal-secrets-connector) as well as creating [Dynamic](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-producer) and [Rotated](https://docs.akeyless.io/docs/create-an-aws-rotated-secret) secrets:
+The `main.tf` file will create an AWS Role with permissions for managing secrets using [USC](https://docs.akeyless.io/docs/aws-universal-secrets-connector) as well as creating [Dynamic](https://docs.akeyless.io/docs/aws-producer) and [Rotated](https://docs.akeyless.io/docs/create-an-aws-rotated-secret) secrets:
 
 ```yaml main.tf
 data "aws_iam_policy_document" "trust" {
@@ -185,5 +185,5 @@ resource "aws_iam_role_policy_attachment" "attach" {
 ### Run the Deployment
 
 1. Run `terraform init && terraform apply`.  
-2. Create an [AWS Target](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-targets) in Akeyless using the **Gateway Cloud ID** option.  
+2. Create an [AWS Target](https://docs.akeyless.io/docs/aws-targets) in Akeyless using the **Gateway Cloud ID** option.  
 3. Use that target whenever you create a **Dynamic Secret**, **Rotated Secret**, or **USC** .

@@ -218,7 +218,7 @@ Run `terraform init` and `terraform apply`.
 
 Once finish, you will have a new role in the source Account that trusts itself and the role from Account B.
 
-To work with this role from Akeyless, an [AWS Target](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-targets) is required:
+To work with this role from Akeyless, an [AWS Target](https://docs.akeyless.io/docs/aws-targets) is required:
 
 1. Navigate to **Targets** > **New** > **AWS**. Press **Next**.
 2. Give the Target a **Name** and optionally, a **Location**. Press **Next**.

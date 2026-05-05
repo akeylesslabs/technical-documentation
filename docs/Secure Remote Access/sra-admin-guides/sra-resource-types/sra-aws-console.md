@@ -30,7 +30,7 @@ In addition, for users to access the AWS Console using the CLI, you need:
 
 ## Create an AWS Secret
 
-If you don't already have an AWS secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-producer) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret) that specifies the AWS account details and access credentials.
+If you don't already have an AWS secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret) that specifies the AWS account details and access credentials.
 
 If you already have a relevant secret, continue below.
 
