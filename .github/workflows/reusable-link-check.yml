@@ -35,6 +35,7 @@ on:
       - 'docs/**/*.md'
       - '.github/workflows/reusable-link-check.yml'
       - '.github/lychee/**'
+      - '.github/scripts/check_absolute_docs_links.py'
 
 jobs:
   link-check:
@@ -73,6 +74,14 @@ jobs:
 
           echo "$TIMESTAMP - Replaced doc: links. Total replacements so far: $COUNT" >> .github/lychee/readme-link-replacer.log
           echo "replacer_summary=$SUMMARY" >> "$GITHUB_OUTPUT"
+
+      - name: Enforce absolute docs link policy
+        run: |
+          set -e
+          python3 .github/scripts/check_absolute_docs_links.py \
+            --root . \
+            --out-json .github/lychee/absolute-docs-link-policy.json \
+            --out-md .github/lychee/absolute-docs-link-policy.md
 
       - name: Run Lychee (discovery)
         uses: lycheeverse/lychee-action@v2.8.0
@@ -235,7 +244,7 @@ jobs:
           git checkout -B "$BRANCH"
 
           git add "**/*.md" || true
-          git add .github/lychee/lychee-discovery.md .github/lychee/lychee-out.md .github/lychee/readme-link-replacer.log .github/lychee/docs-redirect-normalizer.log .github/lychee/docs-redirect-normalizer.json || true
+          git add .github/lychee/lychee-discovery.md .github/lychee/lychee-out.md .github/lychee/readme-link-replacer.log .github/lychee/docs-redirect-normalizer.log .github/lychee/docs-redirect-normalizer.json .github/lychee/absolute-docs-link-policy.json .github/lychee/absolute-docs-link-policy.md || true
 
           if git diff --cached --quiet; then
             echo "has_commit=false" >> "$GITHUB_OUTPUT"
@@ -263,4 +272,6 @@ jobs:
             .github/lychee/readme-link-replacer.log
             .github/lychee/docs-redirect-normalizer.log
             .github/lychee/docs-redirect-normalizer.json
+            .github/lychee/absolute-docs-link-policy.json
+            .github/lychee/absolute-docs-link-policy.md
           if-no-files-found: ignore
