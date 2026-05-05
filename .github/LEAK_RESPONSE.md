@@ -135,18 +135,24 @@ The `cli-stdout-scan` job in `secret-scan.yml` scans Markdown code blocks for Ak
 
 ### Flagged Patterns
 
-The following CLI commands are flagged when they appear inside a fenced code block and their output is not captured into a shell variable:
+The following CLI commands are flagged when they appear inside a fenced code block and their output is not captured into a variable or redirected to a file:
 
-| Command | Reason |
-|---------|--------|
-| `akeyless get-secret-value` | Prints the raw plaintext secret value to stdout |
-| `akeyless get-dynamic-secret-value` | Prints dynamic secret credentials (username, password, etc.) to stdout |
+| Command | Output that is sensitive |
+|---------|-------------------------|
+| `akeyless get-secret-value` | Raw plaintext secret value |
+| `akeyless get-dynamic-secret-value` | Dynamic credential set (username, password, etc.) |
+| `akeyless auth` | Plaintext access token |
+| `akeyless configure` | Access key / token written during configuration |
+| `akeyless get-ssh-certificate` | SSH certificate contents |
 
-Commands captured into shell variables are **not** flagged:
+Invocations that are **not** flagged — output is not sent to stdout:
 
 ```bash
-# OK — value is captured, not echoed
+# Variable capture
 SECRET=$(akeyless get-secret-value --name /my/secret)
+
+# File redirect (stdout to file; >&2 stderr-only redirects are NOT treated as safe)
+akeyless get-secret-value --name /my/secret > /tmp/secret.txt
 ```
 
 ### Remediation Options
@@ -197,11 +203,19 @@ Run the scanner locally against a file before pushing:
 bash .github/scripts/cli-stdout-scan.sh docs/your-file.md
 ```
 
-Or against all docs files:
+Pass a newline-delimited list of files (mirrors the CI path):
+
+```bash
+bash .github/scripts/cli-stdout-scan.sh --files /tmp/changed-files.txt
+```
+
+Or scan all docs files:
 
 ```bash
 bash .github/scripts/cli-stdout-scan.sh
 ```
+
+GitHub Actions `::error` annotations are only emitted when the script runs inside GitHub Actions (`GITHUB_ACTIONS=true`). Local runs print plain-text output only.
 
 ---
 

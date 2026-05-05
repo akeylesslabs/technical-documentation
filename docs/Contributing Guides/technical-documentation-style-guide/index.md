@@ -260,10 +260,13 @@ Never include unredirected Akeyless CLI commands in code examples when their out
 
 **Prohibited patterns** (flagged automatically by the `cli-stdout-scan` CI check):
 
-| Command | Issue |
-|---------|-------|
-| `akeyless get-secret-value --name /path` | Prints the raw plaintext secret value to stdout |
-| `akeyless get-dynamic-secret-value --name /path` | Prints dynamic secret credentials to stdout |
+| Command | Output that is sensitive |
+|---------|-------------------------|
+| `akeyless get-secret-value` | Raw plaintext secret value |
+| `akeyless get-dynamic-secret-value` | Dynamic credential set (username, password, etc.) |
+| `akeyless auth` | Plaintext access token |
+| `akeyless configure` | Access key / token written during configuration |
+| `akeyless get-ssh-certificate` | SSH certificate contents |
 
 **Preferred alternatives:**
 
@@ -272,6 +275,12 @@ Never include unredirected Akeyless CLI commands in code examples when their out
    ```bash
    # Store the value — do not echo it
    SECRET_VALUE=$(akeyless get-secret-value --name /path/to/secret)
+   ```
+
+   Redirecting to a file is also accepted:
+
+   ```bash
+   akeyless get-secret-value --name /path/to/secret > /tmp/secret.txt
    ```
 
 2. **Use a placeholder comment** when showing expected output:
