@@ -86,7 +86,7 @@ Configuration details vary by cloud provider and cluster topology:
 * [OCI: OKE node placement across availability domains and fault domains](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/create-cluster.htm)
 * On-premises: consult your Kubernetes distribution documentation for zone and node topology configuration.
 
-The following example shows a generic, platform-agnostic configuration for pod anti-affinity and topology spread constraints. The Gateway Helm chart requires `affinity.enabled: true` for `topologySpreadConstraints` to be applied. Replace `<release-name>` with your Helm release name:
+The following example shows a generic, platform-agnostic configuration for pod anti-affinity and topology spread constraints. For effective zone spread, set `replicaCount` to at least 3 — with fewer replicas, spread constraints may schedule unevenly across zones. The Gateway Helm chart requires `affinity.enabled: true` for `topologySpreadConstraints` to be applied. Replace `<release-name>` with your Helm release name:
 
 ```yaml values.yaml
 gateway:

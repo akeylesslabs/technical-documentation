@@ -330,10 +330,6 @@ Accepted Values:
 
 Use the following values to control pod placement, distribution, and scheduling constraints for the Gateway deployment. These settings all live under `gateway.deployment` in the chart.
 
-> ℹ️ **Note:**
->
-> The Gateway chart renders `topologySpreadConstraints` only when `affinity.enabled: true`. To use topology spread constraints without affinity rules, set `affinity.enabled: true` and leave `affinity.data` empty (`{}`).
-
 #### Node selector
 
 Schedule pods only on nodes that match a label selector. Replace the example label with a real node label from your cluster.
@@ -345,7 +341,7 @@ gateway:
       kubernetes.io/os: linux
 ```
 
-#### Toleration configuration
+#### Tolerations
 
 Allow pods to be scheduled on tainted nodes. This is required when your Gateway node pool uses taints for isolation.
 

@@ -864,6 +864,34 @@ When applying those examples to the Injector chart, note the following schema di
 * `topologySpreadConstraints` is rendered independently — it does not require `affinity.enabled: true` (unlike the Gateway chart).
 * Injector pods carry an `app` label computed from the Helm release name (typically `<release-name>-akeyless-k8s-secrets-injection`). Verify this label against a running pod before using it in affinity or spread rule label selectors.
 
+The following example shows the `enabled`/`data` schema for `tolerations` and `topologySpreadConstraints` in the Injector chart. Replace `<release-name>` with your Helm release name:
+
+```yaml values.yaml
+deployment:
+  tolerations:
+    enabled: true
+    data:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "injector"
+        effect: "NoSchedule"
+  topologySpreadConstraints:
+    enabled: true
+    data:
+      - maxSkew: 1
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app: <release-name>-akeyless-k8s-secrets-injection
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app: <release-name>-akeyless-k8s-secrets-injection
+```
+
 ## Troubleshooting
 
 When you are working with a GKE cluster, make sure that port **8443** is opened in your firewall rules, This port is needed by the Akeyless Secret Injection mutating webhook. Update your firewall rule as follows:
