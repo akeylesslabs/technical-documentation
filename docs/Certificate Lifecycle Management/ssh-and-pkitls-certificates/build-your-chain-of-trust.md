@@ -125,8 +125,10 @@ Root CA → Intermediate CA 1 → Intermediate CA 2 → Leaf Certificate
 `generate-ca` creates a single Root → Intermediate chain in one step. To build a deeper chain, repeat the intermediate layer manually:
 
 1. Run `generate-ca` to create the Root CA and the first Intermediate CA (Intermediate 1).
-2. Use `create-pki-cert-issuer` to create a second PKI issuer (Intermediate 2), setting `--signer-key-name` to the key of Intermediate 1 as the issuing CA.
-3. Issue leaf certificates from Intermediate 2.
+2. Create an Intermediate 2 signer key and CSR, then sign that CSR using the Intermediate 1 issuer.
+3. Attach the signed certificate to the Intermediate 2 signer key.
+4. Use `create-pki-cert-issuer` to create a second PKI issuer (Intermediate 2), setting `--signer-key-name` to the Intermediate 2 signer key.
+5. Issue leaf certificates from Intermediate 2.
 
 ### Known Limitation: `--allow-subdomains` and Other Flags
 
@@ -139,11 +141,15 @@ Root CA → Intermediate CA 1 → Intermediate CA 2 → Leaf Certificate
 For example, to create an intermediate issuer that allows subdomains:
 
 ```shell
+# Prerequisite: /My-First-Chain/pki/keys/intermediate-2/key already exists
+# and has a certificate signed by /My-First-Chain/pki/issuers/intermediate/issuer.
+
 akeyless create-pki-cert-issuer \
 --name /My-First-Chain/pki/issuers/intermediate-2/issuer \
---signer-key-name /My-First-Chain/pki/keys/intermediate/key \
+--signer-key-name /My-First-Chain/pki/keys/intermediate-2/key \
 --allowed-domains example.com \
 --allow-subdomains \
+--is-ca true \
 --ttl 10d \
 --gw-cluster-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
