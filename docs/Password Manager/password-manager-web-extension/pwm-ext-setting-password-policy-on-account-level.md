@@ -1,5 +1,5 @@
 ---
-title: Setting Password Policy On Account Level
+title: Setting Password Policy
 
 slug: pwm-ext-setting-password-policy-on-account-level
 excerpt: ''
@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-## Accessing Secret Generation Policy
+## Access the Password Generation Policy
 
 ![Illustration for: Accessing Secret Generation Policy](https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png)
 
@@ -21,7 +21,7 @@ next:
 3. Select **Password Generation Policy**.
 4. Review and update the default password-generation settings.
 
-## Define the Following Parameters
+## Set the Account-Level Default Policy
 
 **Character Length**: Set the default password length.
 
@@ -36,3 +36,28 @@ next:
 PWM 2.0 also improves password-generation guidance and supports tuning allowed special characters during generation.
 
 These settings provide the default generation behavior. Users can still work within the limits allowed by the configured policy.
+
+## Set the Policy for a Specific Password
+
+You can adjust password-generation settings while creating or editing an individual password, as long as the selected values stay within the organization-level policy.
+
+![Illustration for: How It Works](https://files.readme.io/c6ca311-Screenshot_2024-01-10_at_16.41.08.png)
+
+### Configure Password Settings During Creation
+
+1. Start creating a new password.
+2. Open the password-generation settings.
+3. Adjust the available password parameters.
+4. Generate or enter the password.
+5. Save the item.
+
+### Update Password Settings During Editing
+
+1. Open the existing password.
+2. Select **Edit**.
+3. Adjust the password-related settings that are available for the item.
+4. Save the changes.
+
+## Important
+
+Item-level password settings cannot reduce the effective requirements below the account-level policy.

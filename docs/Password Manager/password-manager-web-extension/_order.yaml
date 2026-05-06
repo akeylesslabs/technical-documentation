@@ -10,7 +10,6 @@
 - pwm-ext-use-filters-and-tags
 - pwm-ext-create-password
 - pwm-ext-setting-password-policy-on-account-level
-- pwm-ext-setting-password-policy-on-password-level
 - pwm-ext-create-secret
 - pwm-ext-csv-password-importer
 - pwm-ext-editing-password-details

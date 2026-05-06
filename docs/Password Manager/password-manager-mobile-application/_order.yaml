@@ -10,7 +10,6 @@
 - pwm-mobile-copy-and-paste-passwords
 - pwm-mobile-configure-ldap-gateway-url
 - pwm-mobile-configure-custom-specific-tenant
-- pwm-mobile-create-secret
 - pwm-mobile-manage-favorites
 - pwm-mobile-home-screen-frequently-used-items
 - pwm-mobile-create-static-secret
