@@ -51,6 +51,7 @@ To use a Universal Identity token, it must be associated with a Role.
 
 To use it with the Akeyless CLI, add it to your Akeyless commands in one of the following ways:
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless list-items --uid-token u-XXXXXXXX
 akeyless get-secret-value -n MyFirstSecret --uid-token u-XXXXXXXX

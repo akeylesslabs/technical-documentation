@@ -33,7 +33,7 @@
     "akeylesslabs/docker-compose",
     "akeylesslabs/helm-charts",
     "akeylesslabs/homebrew-tap",
-    "akeylesslabs/sigstore",
+    "akeylesslabs/sigstore"
   ],
   "third_party_repos": [
     "helm/helm",
