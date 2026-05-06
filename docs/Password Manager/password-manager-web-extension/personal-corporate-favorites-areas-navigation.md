@@ -16,6 +16,10 @@ The Personal Area is designed for storing and managing passwords and secrets tha
 
 The Personal Area is typically the default area where new passwords and secrets are saved. You can also manually add passwords and secrets to the Personal Area by clicking on the "Add New Password" or "Add New Secret" button.
 
+> ℹ️ **Note:**
+>
+> PWM 2.0 respects account-level controls for Password Manager access. Depending on account settings, the Personal area might be unavailable.
+
 ## Corporate Area
 
 The Corporate Area is designed for storing and managing passwords and secrets that are for your work use. This could include passwords for your company's email, intranet, VPN, and other work-related applications.

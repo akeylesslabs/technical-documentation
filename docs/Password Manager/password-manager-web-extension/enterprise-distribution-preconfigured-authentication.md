@@ -14,7 +14,7 @@ next:
 
 This page describes an enterprise deployment pattern for the Akeyless Password Manager browser extension where authentication fields are prefilled for users. This pattern helps IT teams reduce first-login friction and guide users to approved authentication methods.
 
-The workflow in this page is based on internal guidance captured in DOCS-688. The Chromium example uses a local configuration file inside the extension package.
+The workflow in this page is based on internal guidance captured in DOCS-688. Treat it as a validated first-pass pattern for managed Chromium deployments, not as a complete browser-administration reference.
 
 ## Prerequisites
 
@@ -57,11 +57,13 @@ Use this flow for Chrome, Edge, and other Chromium-based browsers:
 >
 > Repackaged browser extensions should be distributed only through approved internal enterprise channels.
 
+This page does not define browser-signing requirements, update-channel behavior, or endpoint-management policy configuration.
+
 ## Firefox
 
-Use the same configuration intent for Firefox (prefilled Access ID and constrained authentication methods), but apply it through the Firefox enterprise packaging and deployment process used by the organization.
+Firefox support should be validated separately through the organization's Firefox enterprise deployment process.
 
-Because Firefox enterprise deployment methods vary by environment, validate the final deployment method with browser-administration policy and signing requirements before production rollout.
+At this stage, this page does not prescribe a Firefox-specific file path, packaging method, or policy key set.
 
 ## Validation Checklist
 

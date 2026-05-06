@@ -12,7 +12,7 @@ next:
 ---
 ## Passkey Management Overview
 
-This documentation provides an overview of the Passkey management system, including how to view passkey details, use a passkey for login, and create a new passkey. The instructions below describe the key functionalities and flow for managing passkeys.
+This page describes how PWM 2.0 handles passkeys in the browser extension, including viewing saved passkeys, using them for sign-in, and creating new passkeys for supported websites.
 
 ## Viewing Passkey Details
 
@@ -25,6 +25,8 @@ The Passkey Details section allows users to view information about their saved p
 * Creation Date: The date when the passkey was created.
 * Related Website: The website the passkey is linked to for login.
 * Option to Delete Passkey: Allows users to remove the passkey from the system.
+
+PWM 2.0 also improves passkey lookup and suggestion behavior for supported sites.
 
 ## Using a Passkey for Login
 
@@ -39,6 +41,8 @@ The following steps guide users on how to log in using an existing passkey for a
 * If a passkey exists for the website:
     * A list of available passkeys will be shown.
     * Users can select the relevant passkey to sign in.
+
+PWM 2.0 improves this flow by better matching passkeys to supported sites and login contexts.
 
 ### Example Flow
 
@@ -63,6 +67,8 @@ Users can create a new passkey for a supported website. Follow the steps below t
     * If saving the passkey is successful, a Success Message will be shown.
     * If there is an error during the process, an Error Message will be displayed.
 
+PWM 2.0 adds support for choosing the account default protection key or a specific protection key when creating supported passkeys.
+
 #### Example Flow
 
 * Navigate to the website → Click on "Add Passkey" → Authenticate (if needed) → Check passkey existence → Create or update passkey → Save passkey → Success/Error message.
@@ -71,6 +77,14 @@ Users can create a new passkey for a supported website. Follow the steps below t
 
 * Error Message: Shown when the passkey creation or update process fails.
 * Success Message: Displayed when the passkey is successfully created or updated.
+
+## Reliability Improvements in PWM 2.0
+
+Recent PWM 2.0 updates improve passkey support in these areas:
+
+* Better site matching for supported relying parties.
+* Better tab and context selection when the browser has multiple matching pages open.
+* Better fallback handling when a page is slow or strict about passkey communication.
 
 ## Toggling Passkey Authentication in the Web Extension
 

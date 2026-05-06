@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+PWM 2.0 keeps the same create-password flow while improving password generation and password-strength feedback.
+
 ## Step 1: Launch the Akeyless Web Extension
 
 1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar.
@@ -27,7 +29,7 @@ Enter a name for the password in the "Password Name" field.
 
 Optionally, enter a description for the password in the "Description" field.
 
-Optionally, Click on the "Generate Password" button. This will generate a strong and secure password or you can enter the password manually.
+Optionally, click on the "Generate Password" button. This will generate a strong password, or you can enter the password manually.
 
 ## Step 3: Define Password Name and Location
 
@@ -36,6 +38,10 @@ In the "Password Name" field, enter a unique and easily recognizable name for th
 Optionally, you can specify the "Password Location" using the drop-down menu. to choose between "Corporate" and "Personal" areas to store the password.
 
 If you want to store the password in a folder, you can create a new folder by providing the name in the location field.
+
+> ℹ️ **Note:**
+>
+> Access to the Personal area depends on account settings. If the Personal area is not available, save the password in the Corporate area.
 
 ![Illustration for: Optionally, you can specify the "Password Location" using the drop-down menu. to choose between "Corporate" and "Personal" areas to store the password. If you want to store the…](https://files.readme.io/d75a38d-Screenshot_2024-02-22_at_14.22.54.png)
 
@@ -49,7 +55,9 @@ To safeguard the password from accidental or unauthorized deletion, select the "
 
 Click on the "Generate Password" button.
 
-The Akeyless Web Extension will generate a strong and secure password according to your predefined preferences.
+The Akeyless Web Extension will generate a password according to the active password rules and generation preferences.
+
+PWM 2.0 adds stronger generation guidance, including improved password-strength feedback and support for tuning allowed special characters.
 
 Once satisfied, click on the "Save" button.
 
@@ -65,13 +73,13 @@ Click on the desired password to view its details or copy it to your clipboard.
 
 ## Password Strength Policy
 
-The "Password Strength Policy" feature is like the guardian at the gate, ensuring that users' passwords meet the organization's security standards.
+The Password Strength Policy feature helps ensure that new passwords meet organizational requirements.
 
 ![Illustration for: Password Strength Policy The "Password Strength Policy" feature is like the guardian at the gate, ensuring that users' passwords meet the organization's security standards.](https://files.readme.io/91fa4a2-Screenshot_2024-04-11_at_14.21.32.png)
 
-Users can customize their password strength policies, but, they can't go below the minimum standards set by the organization.
+Users can customize password settings, but they cannot go below the minimum standards set by the organization.
 
-Password Strength Policy indicator will ensure that while allowing users to set their password strength, they will only be able to set a password that is stronger than the policy set by the company.
+PWM 2.0 also improves the password-strength experience with clearer feedback during password creation.
 
 Password Strength Evaluation Criteria:
 

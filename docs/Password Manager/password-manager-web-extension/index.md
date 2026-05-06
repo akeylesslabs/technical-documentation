@@ -10,23 +10,68 @@ metadata:
 next:
   description: ''
 ---
-## Introduction
+## Overview
 
-### Empowering Seamless Password Management With Akeyless Browser Extension
+The Akeyless Password Manager Web Extension provides browser-based access to passwords, secrets, one-time passwords (OTPs), and passkeys. PWM 2.0 expands this experience with improved password generation, stronger autofill support for multi-step sign-in flows, passkey enhancements, Security Health insights, and enterprise deployment options.
 
-In today's digital landscape, managing an ever-growing array of passwords and sensitive information can be a daunting task. Introducing the Akeyless browser extension, your gateway to streamlined password management and enhanced security. This powerful tool seamlessly integrates with your Akeyless account, enabling you to access, use, and securely store your credentials with unparalleled ease.
+## Recommended Reading Order
 
-### Unleash the Convenience of On-the-Go Access
+Use this section as the starting point for PWM 2.0 workflows:
 
-Whether you're working remotely or simply away from your primary device, the Akeyless browser extension ensures you're never without your crucial password information. With a few clicks, you can access and use select items from your Akeyless account, empowering you to stay productive and connected wherever you go.
+1. Install the extension and sign in.
+2. Configure tenant, LDAP, or enterprise deployment settings if needed.
+3. Create or import passwords.
+4. Use autofill, OTP, and passkey features during sign-in.
+5. Review Security Health in the personal vault.
 
-### Securely Inject Passwords Into Remote Access Sessions
+## PWM 2.0 Capabilities
 
-Maintaining secure connections is paramount in today's interconnected world. The Akeyless browser extension seamlessly integrates with Secure Remote Access sessions, enabling you to inject passwords directly into these sessions without compromising your credentials. This added layer of security safeguards your sensitive information and protects your privacy.
+### Password creation and import
 
-### Experience the Power of Akeyless Browser Extension
+PWM 2.0 includes the following updates for password management workflows:
 
-With its intuitive interface, user-friendly features, and unwavering commitment to security, the Akeyless browser extension stands out as an indispensable tool for managing your passwords and sensitive information. Download the extension today and embark on a journey of effortless password management and enhanced security.
+* Strong password generation with improved feedback.
+* Tuning for allowed special characters when generating passwords.
+* Import behavior that uses current account settings when a new import session starts.
+* Support for account-level controls that can limit access to the personal vault area.
+
+### Sign-in assistance
+
+PWM 2.0 improves sign-in support for browser workflows:
+
+* Username and password autofill for supported pages.
+* OTP support for scanned and manually added `otpauth://` values.
+* Better handling for pages that split username, password, and OTP across multiple steps.
+* Better handling for masked OTP and other MFA-style fields.
+
+### Passkeys
+
+PWM 2.0 expands passkey support with:
+
+* Passkey creation and sign-in flows from the extension.
+* A passkey toggle in advanced settings.
+* Reliability improvements for site matching and passkey suggestions on supported relying parties.
+
+### Security Health
+
+PWM 2.0 adds Security Health for personal-vault review, including:
+
+* A protection score view.
+* Visual breakdowns of password hygiene metrics.
+* Breach-related insights and actionable follow-up.
+
+### Enterprise deployment
+
+PWM 2.0 documentation now includes a first-pass enterprise deployment pattern for preconfigured authentication in managed browser deployments.
+
+## Current Documentation Gaps
+
+The following PWM 2.0 areas still need additional validation or assets before the documentation can be considered complete:
+
+* Firefox-specific enterprise deployment validation.
+* Confirmed supported values for preconfigured authentication fields.
+* Updated screenshots for Security Health, passkey workflows, and multi-step OTP injection.
+* Source-verified setup details for browser-admin deployment patterns beyond the current Chromium example.
 
 ## Tutorial
 
