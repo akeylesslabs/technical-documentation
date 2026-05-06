@@ -1,5 +1,6 @@
 ---
-title: Password Manager Web Extension
+title: Password Manager Web Extension
+
 slug: pwm-overview
 excerpt: ''
 deprecated: false

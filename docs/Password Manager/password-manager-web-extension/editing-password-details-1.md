@@ -1,5 +1,6 @@
 ---
-title: Editing Password / Secret Details
+title: Editing Password / Secret Details
+
 slug: pwm-editing-password-details
 excerpt: ''
 deprecated: false

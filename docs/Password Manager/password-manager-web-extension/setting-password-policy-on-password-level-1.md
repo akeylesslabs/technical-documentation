@@ -1,5 +1,6 @@
 ---
-title: Setting Password Policy On Password Level
+title: Setting Password Policy On Password Level
+
 slug: pwm-setting-password-policy-on-password-level
 excerpt: ''
 deprecated: false

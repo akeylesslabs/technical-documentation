@@ -1,5 +1,6 @@
 ---
-title: Password / Secrets List Switching Between Folders & Flat View
+title: Password / Secrets List Switching Between Folders & Flat View
+
 slug: pwm-password-list-switching-between-folders-flat-view
 excerpt: ''
 deprecated: false

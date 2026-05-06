@@ -1,5 +1,6 @@
 ---
-title: Folder Navigation within Personal & Corporate Areas
+title: Folder Navigation within Personal & Corporate Areas
+
 slug: pwm-folder-navigation-within-personal-corporate-areas
 excerpt: ''
 deprecated: false

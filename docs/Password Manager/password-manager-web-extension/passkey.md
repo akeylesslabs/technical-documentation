@@ -1,5 +1,6 @@
 ---
-title: Passkey
+title: Passkey
+
 slug: pwm-passkey
 excerpt: Web Extension
 deprecated: false

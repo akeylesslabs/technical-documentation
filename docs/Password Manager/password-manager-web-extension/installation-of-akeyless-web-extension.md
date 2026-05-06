@@ -1,5 +1,6 @@
 ---
-title: Password Manager Web Extension
+title: Password Manager Web Extension
+
 slug: pwm-installation-of-akeyless-web-extension
 excerpt: ''
 deprecated: false
