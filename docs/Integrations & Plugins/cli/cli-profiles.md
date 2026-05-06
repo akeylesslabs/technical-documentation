@@ -62,6 +62,7 @@ The CLI also stores default-profile settings in `.akeyless/settings`.
 
 After creating an additional profile, add the `--profile` flag with the profile name to any `akeyless` command:
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless get-secret-value --name /path/to/secret --profile <profile name>
 ```

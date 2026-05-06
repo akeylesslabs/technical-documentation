@@ -414,6 +414,7 @@ users:
 
 To get the dynamic generic Kubernetes Secret value with the CLI, you should run the following command:
 
+<!-- secret-stdout-scan:ok -->
 ```shell Fixed
 akeyless get-dynamic-secret-value --name <Path to the dynamic secret>
 ```

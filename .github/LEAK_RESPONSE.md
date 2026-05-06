@@ -129,6 +129,95 @@ If the gitleaks rule is too broad and is matching non-sensitive text (e.g., docu
 
 ---
 
+## CLI Output Safety
+
+The `cli-stdout-scan` job in `secret-scan.yml` scans Markdown code blocks for Akeyless CLI commands that would print secret or token material to stdout when executed. This check runs alongside Gitleaks on every pull request and push to `v1.0`.
+
+### Flagged Patterns
+
+The following CLI commands are flagged when they appear inside a fenced code block and their output is not captured into a variable or redirected to a file:
+
+| Command | Output that is sensitive |
+|---------|-------------------------|
+| `akeyless get-secret-value` | Raw plaintext secret value |
+| `akeyless get-dynamic-secret-value` | Dynamic credential set (username, password, etc.) |
+| `akeyless auth` | Plaintext access token |
+| `akeyless get-ssh-certificate` | SSH certificate contents |
+
+Invocations that are **not** flagged — output is not sent to stdout:
+
+```bash
+# Variable capture
+SECRET=$(akeyless get-secret-value --name /my/secret)
+
+# File redirect (stdout to file; >&2 stderr-only redirects are NOT treated as safe)
+akeyless get-secret-value --name /my/secret > /tmp/secret.txt
+```
+
+### Remediation Options
+
+Choose the option that best fits the documentation context:
+
+**Option 1 — Redirect output to a variable (preferred for instructional examples)**
+
+Replace bare command invocations with variable capture:
+
+```bash
+# Before (flagged)
+akeyless get-secret-value --name /path/to/secret
+
+# After (allowed)
+SECRET_VALUE=$(akeyless get-secret-value --name /path/to/secret)
+```
+
+**Option 2 — Use a placeholder to represent expected output**
+
+If the example is illustrating what a command returns rather than how to use its output:
+
+```bash
+akeyless get-secret-value --name /path/to/secret
+# Output: <YOUR_SECRET_VALUE>
+```
+
+**Option 3 — Suppress the check for intentional illustrative examples**
+
+Place `<!-- secret-stdout-scan:ok -->` on the line immediately before the fenced code block opening. Reserve this for cases where showing raw output is the explicit teaching goal and a note in the example clarifies the security implication.
+
+```markdown
+<!-- secret-stdout-scan:ok -->
+```bash
+# The command below prints the secret value directly. In production,
+# capture the output instead: SECRET=$(akeyless get-secret-value ...)
+akeyless get-secret-value --name /path/to/secret
+```
+```
+
+The suppress annotation exempts the entire block that follows it.
+
+### Local Testing
+
+Run the scanner locally against a file before pushing:
+
+```bash
+bash .github/scripts/cli-stdout-scan.sh docs/your-file.md
+```
+
+Pass a newline-delimited list of files (mirrors the CI path):
+
+```bash
+bash .github/scripts/cli-stdout-scan.sh --files /tmp/changed-files.txt
+```
+
+Or scan all docs files:
+
+```bash
+bash .github/scripts/cli-stdout-scan.sh
+```
+
+GitHub Actions `::error` annotations are only emitted when the script runs inside GitHub Actions (`GITHUB_ACTIONS=true`). Local runs print plain-text output only.
+
+---
+
 ## Escalation
 
 If you have questions or encounter issues:
@@ -140,5 +229,5 @@ If you have questions or encounter issues:
 
 ---
 
-**Last Updated**: 2026-04-29  
-**Related Issues**: DOCS-668, DOCS-669
+**Last Updated**: 2026-05-05  
+**Related Issues**: DOCS-668, DOCS-669, DOCS-692

@@ -42,7 +42,7 @@ The typical flow for working with Rotated Secrets is:
 
 3. [Add a Rotated Secret to a Role](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role): Enable clients to access the rotated secret by adding it to a role, with the appropriate permissions.
 
-4. [Retrieve a Rotated Secret Value](https://docs.akeyless.io/docs/retrievestatic): Get the value of a rotated secret when you need it.
+4. [Retrieve a Rotated Secret Value](https://docs.akeyless.io/docs/retrieve-secret): Get the value of a rotated secret when you need it.
 
 If required, you can manually rotate a secret. When a rotated secret becomes obsolete, you can delete it.
 

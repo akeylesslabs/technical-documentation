@@ -184,6 +184,7 @@ After setting up a key and a certificate issuer, the following command will gene
 
 * `public-key-file-path`: The path to the file containing your SSH public key.
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless get-ssh-certificate --cert-username ubuntu --cert-issuer-name /prod/ssh-cert-issuer --public-key-file-path ~/.ssh/id_rsa.pub
 ```
