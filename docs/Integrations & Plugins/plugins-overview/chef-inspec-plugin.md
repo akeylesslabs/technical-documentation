@@ -46,6 +46,7 @@ An [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates)
 
 ## Example
 
+<!-- secret-stdout-scan:ok -->
 ```ruby
 # Sign public ssh key by Akeyless to get ssh certificate
 akeyless get-ssh-certificate -s ubuntu -c ssh-cert-issuer-demo -p ~/.ssh/id_rsa.pub --profile inspec && echo

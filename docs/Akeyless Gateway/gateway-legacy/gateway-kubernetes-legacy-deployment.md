@@ -222,7 +222,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
-To use [Azure workload identity](https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity) for your Gateway deployment, add the following label: `azure.workload.identity/use: "true"`, set the AKS Service Account name and the Azure Client ID using the annotation `azure.workload.identity/client-id`, and set your [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) `Access ID` as your `adminAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [config and manage your Gateway](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#gateway-admins):
+To use [Azure workload identity](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster) for your Gateway deployment, add the following label: `azure.workload.identity/use: "true"`, set the AKS Service Account name and the Azure Client ID using the annotation `azure.workload.identity/client-id`, and set your [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) `Access ID` as your `adminAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [config and manage your Gateway](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#gateway-admins):
 
 ```yaml
 deployment:
