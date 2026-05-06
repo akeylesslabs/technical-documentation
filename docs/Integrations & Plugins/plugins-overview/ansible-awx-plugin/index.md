@@ -23,7 +23,7 @@ Use the following guidance to select the best integration path.
 | Option | Best for | Authentication pattern | Secret and certificate operations |
 | --- | --- | --- | --- |
 | [Ansible Plugin](https://docs.akeyless.io/docs/ansible-plugin) | Teams running playbooks directly with Ansible CLI or automation pipelines that execute native Ansible modules | Direct login in playbooks through `akeyless.secrets_management.login` using supported `access_type` values (including `cert`) | Full module-level workflow, including login, secret retrieval, secret creation, and certificate operations |
-| [Ansible AWX Plugin](https://docs.akeyless.io/docs/ansible-awx-plugin-secret-fetch-via-playbook-using-universal-identity-using-universal-identity) | Teams using AWX or Ansible Automation Platform custom credential workflows | Token-based Vault lookup flow with `VAULT_ADDR` and `VAULT_TOKEN`; token can be generated with API key, Certificate, or other supported auth methods before AWX execution | Optimized for lookup and secret injection into AWX jobs through the Vault Secret Lookup credential type |
+| [Ansible AWX Plugin](https://docs.akeyless.io/docs/ansible-awx-plugin-secret-fetch-via-playbook-using-universal-identity) | Teams using AWX or Ansible Automation Platform custom credential workflows | Token-based Vault lookup flow with `VAULT_ADDR` and `VAULT_TOKEN`; token can be generated with API key, Certificate, or other supported auth methods before AWX execution | Optimized for lookup and secret injection into AWX jobs through the Vault Secret Lookup credential type |
 
 ## Key differences
 
