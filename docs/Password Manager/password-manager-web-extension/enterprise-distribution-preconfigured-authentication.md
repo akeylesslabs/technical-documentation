@@ -1,5 +1,6 @@
 ---
-title: Enterprise Distribution With Preconfigured Authentication
+title: Enterprise Distribution With Preconfigured Authentication
+slug: pwm-enterprise-distribution-preconfigured-authentication
 excerpt: ''
 deprecated: false
 hidden: false

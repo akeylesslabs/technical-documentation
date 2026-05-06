@@ -1,5 +1,6 @@
 ---
-title: Personal, Corporate & Favorites Areas Navigation
+title: Personal, Corporate & Favorites Areas Navigation
+slug: pwm-personal-corporate-favorites-areas-navigation
 excerpt: ''
 deprecated: false
 hidden: false

@@ -1,5 +1,6 @@
 ---
-title: Searching for Passwords and Secrets
+title: Searching for Passwords and Secrets
+slug: pwm-using-search
 excerpt: ''
 deprecated: false
 hidden: false

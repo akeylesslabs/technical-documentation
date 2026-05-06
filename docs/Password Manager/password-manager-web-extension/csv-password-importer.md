@@ -1,5 +1,6 @@
 ---
-title: CSV Password Importer
+title: CSV Password Importer
+slug: pwm-csv-password-importer
 excerpt: ''
 deprecated: false
 hidden: false

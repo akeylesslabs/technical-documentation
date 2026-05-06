@@ -1,5 +1,6 @@
 ---
-title: Deleting Password / Secret
+title: Deleting Password / Secret
+slug: pwm-deleting-password
 excerpt: ''
 deprecated: false
 hidden: false

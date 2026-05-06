@@ -1,5 +1,6 @@
 ---
-title: Using Autofill/Password Injection Functionality
+title: Using Autofill/Password Injection Functionality
+slug: pwm-using-autofillpassword-injection-functionality
 excerpt: ''
 deprecated: false
 hidden: false

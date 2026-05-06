@@ -1,5 +1,6 @@
 ---
-title: Sharing Password / Secret
+title: Sharing Password / Secret
+slug: pwm-sharing-password
 excerpt: ''
 deprecated: false
 hidden: false
