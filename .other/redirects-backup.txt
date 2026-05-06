@@ -885,7 +885,7 @@
 /docs/setting-password-policy-on-account-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
 /docs/setting-password-policy-on-account-level-1 -> /docs/pwm-ext-setting-password-policy-on-account-level
 /docs/setting-password-policy-on-password-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
-/docs/setting-password-policy-on-password-level-1 -> /docs/pwm-ext-setting-password-policy-on-password-level
+/docs/setting-password-policy-on-password-level-1 -> /docs/pwm-ext-setting-password-policy-on-account-level
 /docs/sharing-password -> /docs/pwm-mobile-sharing-password
 /docs/sharing-password-1 -> /docs/pwm-ext-sharing-password
 /docs/using-autofill-and-password-injection-functionality -> /docs/pwm-mobile-autofill-and-password-injection
@@ -943,7 +943,7 @@
 /v2/docs/setting-password-policy-on-account-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
 /v2/docs/setting-password-policy-on-account-level-1 -> /docs/pwm-ext-setting-password-policy-on-account-level
 /v2/docs/setting-password-policy-on-password-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
-/v2/docs/setting-password-policy-on-password-level-1 -> /docs/pwm-ext-setting-password-policy-on-password-level
+/v2/docs/setting-password-policy-on-password-level-1 -> /docs/pwm-ext-setting-password-policy-on-account-level
 /v2/docs/sharing-password -> /docs/pwm-mobile-sharing-password
 /v2/docs/sharing-password-1 -> /docs/pwm-ext-sharing-password
 /v2/docs/using-autofill-and-password-injection-functionality -> /docs/pwm-mobile-autofill-and-password-injection
@@ -979,7 +979,7 @@
 /docs/password-list-switching-between-folders-flat-view -> /docs/pwm-ext-switch-between-folder-and-flat-views
 /docs/security-health -> /docs/pwm-ext-security-health
 /docs/setting-password-policy-on-account-level -> /docs/pwm-ext-setting-password-policy-on-account-level
-/docs/setting-password-policy-on-password-level -> /docs/pwm-ext-setting-password-policy-on-password-level
+/docs/setting-password-policy-on-password-level -> /docs/pwm-ext-setting-password-policy-on-account-level
 /docs/sharing-password -> /docs/pwm-ext-sharing-password
 /docs/using-autofill-and-password-injection-functionality -> /docs/pwm-ext-autofill-and-password-injection
 /v2/docs/adding-manual-otp -> /docs/pwm-mobile-add-manual-otp
@@ -1009,7 +1009,7 @@
 /v2/docs/password-list-switching-between-folders-flat-view -> /docs/pwm-ext-switch-between-folder-and-flat-views
 /v2/docs/security-health -> /docs/pwm-ext-security-health
 /v2/docs/setting-password-policy-on-account-level -> /docs/pwm-ext-setting-password-policy-on-account-level
-/v2/docs/setting-password-policy-on-password-level -> /docs/pwm-ext-setting-password-policy-on-password-level
+/v2/docs/setting-password-policy-on-password-level -> /docs/pwm-ext-setting-password-policy-on-account-level
 /v2/docs/sharing-password -> /docs/pwm-ext-sharing-password
 /v2/docs/using-autofill-and-password-injection-functionality -> /docs/pwm-ext-autofill-and-password-injection
 /docs/pwm-ext-otp-overview -> /docs/pwm-ext-otp
