@@ -99,7 +99,7 @@ akeyless:
     name: akeyless/ci_base:latest-alpine
   before_script:
     - export MY_SECRET=akeyless://path/to/secret # Static / Dynamic secret
-    - akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CI_JOB_JWT_V2
+    - akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CI_JOB_JWT_V2 > /dev/null
     # Script will replace any env var with prefix of "akeyless://" like above
     - source ~/.akeyless/akeyless_env.sh
   script:
