@@ -832,8 +832,6 @@
 /v2/docs/remote-access-desktop-application-beta -> /docs/sra-desktop-application-beta
 /docs/copy-of-remote-access-on-k8s -> /docs/sra-setup-k8s
 /v2/docs/copy-of-remote-access-on-k8s -> /docs/sra-setup-k8s
-
-# PWM slug migration
 /docs/adding-and-using-otp -> /docs/pwm-mobile-otp
 /docs/adding-and-using-otp-1 -> /docs/pwm-ext-otp
 /docs/adding-manual-otp -> /docs/pwm-ext-add-manual-otp
