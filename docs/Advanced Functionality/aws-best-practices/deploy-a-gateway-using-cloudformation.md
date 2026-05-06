@@ -445,7 +445,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
                 sleep 90
 
-                TOKEN=$(curl --silent --request POST \
+                ACCESS_TOKEN=$(curl --silent --request POST \
                     --url http://127.0.0.1:8081/auth \
                     --header 'accept: application/json' \
                     --header 'content-type: application/json' \
@@ -455,7 +455,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
                     \"access-id\": \"${AccessId}\"
                     }" | jq -r '.token')
 
-                echo $TOKEN
+                echo $ACCESS_TOKEN
 
                 curl --request POST \
                     --url http://127.0.0.1:8081/create-aws-target \
@@ -468,7 +468,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
                     \"generate-external-id\": true,
                     \"Role-arn\": \"${RoleArn}\",
                     \"name\": \"AWS-Target\",
-                    \"token\": \"$TOKEN\"
+                    \"token\": \"$ACCESS_TOKEN\"
                     }"
 
                 curl --request POST \
@@ -483,7 +483,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
                     \"region\": \"us-east-2\",
                     \"user-ttl\": \"60m\",
                     \"access-mode\": \"iam_user\",
-                    \"token\": \"$TOKEN\",
+                    \"token\": \"$ACCESS_TOKEN\",
                     \"name\": \"AWS-Dynamic-Secret\",
                     \"target-name\": \"AWS-Target\"
                 }"
@@ -500,7 +500,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
                     \"region\": \"us-east-2\",
                     \"user-ttl\": \"60m\",
                     \"access-mode\": \"assume_role\",
-                    \"token\": \"$TOKEN\",
+                    \"token\": \"$ACCESS_TOKEN\",
                     \"name\": \"AWS-Dynamic-Secret-Assume-Role\",
                     \"aws-role-arns\": \"${AssumeRoleArn}\",
                     \"target-name\": \"AWS-Target\"
