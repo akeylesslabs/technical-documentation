@@ -24,7 +24,7 @@ You can define a dynamic LDAP secret to dynamically generate LDAP access credent
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/auth-with-ldap-dynamic-secret#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic LDAP secret with the CLI using an existing [LDAP Target](https://docs.akeyless.io/docs/auth-with-ldap-target), run the following command:
+To create a dynamic LDAP secret with the CLI using an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target), run the following command:
 
 ```shell
 akeyless dynamic-secret create ldap \
@@ -66,7 +66,7 @@ Where:
 
 ### Inline Connection String
 
-If you don't have [LDAP Target](https://docs.akeyless.io/docs/auth-with-ldap-target) yet, you can use the command with your LDAP target server connection string:
+If you don't have [LDAP Target](https://docs.akeyless.io/docs/ldap-target) yet, you can use the command with your LDAP target server connection string:
 
 * `ldap-url`: The LDAP server URL.
 
@@ -101,9 +101,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining parameters as follows:
 
     * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-    * **Target mode:** In this section, you can either select an existing [LDAP Target](https://docs.akeyless.io/docs/auth-with-ldap-target) or specify details of the target LDAP server explicitly.
+    * **Target mode:** In this section, you can either select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) or specify details of the target LDAP server explicitly.
 
-        * Use the **Choose an existing target** drop-down list to select the existing [LDAP Target](https://docs.akeyless.io/docs/auth-with-ldap-target).
+        * Use the **Choose an existing target** drop-down list to select the existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
         * Check the **Explicitly specify target properties** to provide details of the target LDAP Server in the next step.
     * **User Base DN:** Specify user base DN settings.

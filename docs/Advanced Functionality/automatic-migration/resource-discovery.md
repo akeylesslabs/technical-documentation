@@ -12,9 +12,9 @@ next:
 ---
 Akeyless Resource Discovery enables importing and managing all domain and local Users into [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) in Akeyless Platform, while domain Servers will be imported as [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Targets in Akeyless based on the Migration **Target Type** setting.
 
-The discovery process will search for domain users and migrate them as [LDAP Rotated Secrets](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret) for the given [LDAP Target](https://docs.akeyless.io/docs/auth-with-ldap-target). Such as Active Directory, based on the `User Base DN`, `Domain Name`, and `Privileged Users Groups`.
+The discovery process will search for domain users and migrate them as [LDAP Rotated Secrets](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret) for the given [LDAP Target](https://docs.akeyless.io/docs/ldap-target). Such as Active Directory, based on the `User Base DN`, `Domain Name`, and `Privileged Users Groups`.
 
-The [LDAP Target](https://docs.akeyless.io/docs/auth-with-ldap-target) should contain a **Privilege Domain User** that has permission to perform the following:
+The [LDAP Target](https://docs.akeyless.io/docs/ldap-target) should contain a **Privilege Domain User** that has permission to perform the following:
 
 * Run LDAP search query
 
@@ -44,7 +44,7 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 
 * **Name:** A unique name for the migration object.
 
-* **Target:** Select an existing [LDAP Target](https://docs.akeyless.io/docs/auth-with-ldap-target) in Akeyless, where the `Server type` should be `Active Directory`.
+* **Target:** Select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) in Akeyless, where the `Server type` should be `Active Directory`.
 
 * **Discovery Type**: Set the desired discovery mode. Supported options are **Domain Users**, **Local Users**, **Computers** and **Certificates**.
 
