@@ -1,6 +1,7 @@
 ---
-title: Adding and Using One-Time Passwords
-slug: pwm-ext-otp-overview
+title: Adding and Using One-Time Passwords
+
+slug: pwm-ext-otp
 excerpt: ''
 deprecated: false
 hidden: false
@@ -38,8 +39,20 @@ PWM 2.0 expands OTP support in these areas:
 * Better field detection helps distinguish OTP and MFA fields from standard password fields.
 * Multi-step sign-in pages can keep the OTP field as the active target during injection.
 
-## Related Topic
+## Add an OTP Manually
 
-If the OTP secret is provided as a setup string instead of a QR code, use the manual OTP workflow.
+Use the manual workflow when the OTP secret is provided as a setup key or `otpauth://`-compatible value instead of a QR code.
+
+1. Open the extension.
+2. Open the three-dot menu.
+3. Select **Manual OTP**.
+4. Open the password edit screen for the target item.
+5. In the custom-field flow, use the `otpauth` field.
+6. Enter the setup key or related OTP value.
+7. Save the item.
+
+![Illustration for: Setup Key Option: There is an option to enter the setup key associated with the OTPAuth secret. Input Secret: Enter the OTPAuth secret into the designated field.](https://files.readme.io/8ad8ef4-Screenshot_2024-08-19_at_16.25.10.png)
+
+After saving, the OTP value becomes available as part of the item and can be used in supported OTP-related workflows.
 
 ![Illustration for: Verify Addition: The OTP code will be added as a custom field to the selected password entry. Access OTP Code: You can view the OTP code by clicking the eye icon next to the…](https://files.readme.io/f962648-Screenshot_2024-06-16_at_11.08.08.png)

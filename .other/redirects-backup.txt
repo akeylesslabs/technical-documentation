@@ -258,6 +258,8 @@
 /v2/docs/upgrading-to-the-new-gateway-with-remote-access -> /docs/sra-setup-k8s
 /docs/cloud -> /docs/venafi-cloud
 /v2/docs/cloud -> /docs/venafi-cloud
+/docs/pwm-mobile-setting-password-policy-on-password-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
+/v2/docs/pwm-mobile-setting-password-policy-on-password-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
 /docs/globalsign-atlas-target-copy -> /docs/venafi-target
 /v2/docs/globalsign-atlas-target-copy -> /docs/venafi-target
 /docs/tpp -> /docs/venafi-tpp
@@ -861,7 +863,7 @@
 /docs/enterprise-distribution-preconfigured-authentication -> /docs/pwm-ext-enterprise-distribution-preconfigured-authentication
 /docs/favorites-add-remove-and-view-items -> /docs/pwm-mobile-manage-favorites
 /docs/folder-navigation-within-personal-corporate-areas-1 -> /docs/pwm-ext-folder-navigation-within-personal-corporate-areas
-/docs/for-ios-devices -> /docs/pwm-mobile-enable-autofill-ios
+/docs/for-ios-devices -> /docs/pwm-mobile-autofill-and-password-injection
 /docs/home-screen-frequently-used-items -> /docs/pwm-mobile-home-screen-frequently-used-items
 /docs/installation-of-akeyless-mobile-application -> /docs/pwm-mobile-install-and-sign-in
 /docs/installation-of-akeyless-web-extension -> /docs/pwm-ext-install-and-sign-in
@@ -879,10 +881,10 @@
 /docs/personal-corporate-favorites-areas-navigation -> /docs/pwm-ext-navigate-personal-corporate-favorites
 /docs/security-health -> /docs/pwm-console-security-health
 /docs/security-health-1 -> /docs/pwm-ext-security-health
-/docs/set-autofill-for-android-devices -> /docs/pwm-mobile-enable-autofill-android
+/docs/set-autofill-for-android-devices -> /docs/pwm-mobile-autofill-and-password-injection
 /docs/setting-password-policy-on-account-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
 /docs/setting-password-policy-on-account-level-1 -> /docs/pwm-ext-setting-password-policy-on-account-level
-/docs/setting-password-policy-on-password-level -> /docs/pwm-mobile-setting-password-policy-on-password-level
+/docs/setting-password-policy-on-password-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
 /docs/setting-password-policy-on-password-level-1 -> /docs/pwm-ext-setting-password-policy-on-password-level
 /docs/sharing-password -> /docs/pwm-mobile-sharing-password
 /docs/sharing-password-1 -> /docs/pwm-ext-sharing-password
@@ -919,7 +921,7 @@
 /v2/docs/enterprise-distribution-preconfigured-authentication -> /docs/pwm-ext-enterprise-distribution-preconfigured-authentication
 /v2/docs/favorites-add-remove-and-view-items -> /docs/pwm-mobile-manage-favorites
 /v2/docs/folder-navigation-within-personal-corporate-areas-1 -> /docs/pwm-ext-folder-navigation-within-personal-corporate-areas
-/v2/docs/for-ios-devices -> /docs/pwm-mobile-enable-autofill-ios
+/v2/docs/for-ios-devices -> /docs/pwm-mobile-autofill-and-password-injection
 /v2/docs/home-screen-frequently-used-items -> /docs/pwm-mobile-home-screen-frequently-used-items
 /v2/docs/installation-of-akeyless-mobile-application -> /docs/pwm-mobile-install-and-sign-in
 /v2/docs/installation-of-akeyless-web-extension -> /docs/pwm-ext-install-and-sign-in
@@ -937,10 +939,10 @@
 /v2/docs/personal-corporate-favorites-areas-navigation -> /docs/pwm-ext-navigate-personal-corporate-favorites
 /v2/docs/security-health -> /docs/pwm-console-security-health
 /v2/docs/security-health-1 -> /docs/pwm-ext-security-health
-/v2/docs/set-autofill-for-android-devices -> /docs/pwm-mobile-enable-autofill-android
+/v2/docs/set-autofill-for-android-devices -> /docs/pwm-mobile-autofill-and-password-injection
 /v2/docs/setting-password-policy-on-account-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
 /v2/docs/setting-password-policy-on-account-level-1 -> /docs/pwm-ext-setting-password-policy-on-account-level
-/v2/docs/setting-password-policy-on-password-level -> /docs/pwm-mobile-setting-password-policy-on-password-level
+/v2/docs/setting-password-policy-on-password-level -> /docs/pwm-mobile-setting-password-policy-on-account-level
 /v2/docs/setting-password-policy-on-password-level-1 -> /docs/pwm-ext-setting-password-policy-on-password-level
 /v2/docs/sharing-password -> /docs/pwm-mobile-sharing-password
 /v2/docs/sharing-password-1 -> /docs/pwm-ext-sharing-password
@@ -1010,3 +1012,7 @@
 /v2/docs/setting-password-policy-on-password-level -> /docs/pwm-ext-setting-password-policy-on-password-level
 /v2/docs/sharing-password -> /docs/pwm-ext-sharing-password
 /v2/docs/using-autofill-and-password-injection-functionality -> /docs/pwm-ext-autofill-and-password-injection
+/docs/pwm-ext-otp-overview -> /docs/pwm-ext-otp
+/v2/docs/pwm-ext-otp-overview -> /docs/pwm-ext-otp
+/docs/pwm-mobile-otp-overview -> /docs/pwm-mobile-otp
+/v2/docs/pwm-mobile-otp-overview -> /docs/pwm-mobile-otp

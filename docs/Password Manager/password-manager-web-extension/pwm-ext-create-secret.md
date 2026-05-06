@@ -1,5 +1,6 @@
 ---
-title: Creating New Secret
+title: Creating New Secret
+
 slug: pwm-ext-create-secret
 excerpt: ''
 deprecated: false
@@ -45,6 +46,12 @@ Then choose the target location:
 
 After entering the value and location, click **Save**.
 
-## Related Topic
+## Secret Value Types
 
-For structured values, see the page about supported value formats.
+The secret value field supports both plain text and JSON values.
+
+Use plain text for single-value items such as tokens, notes, or one-value credentials.
+
+Use JSON when the secret needs structured key-value data in one item.
+
+![Illustration for: The 'Value' field can also store structured data in JSON format. This is particularly useful for storing configuration settings or multiple pieces of related information in a…](https://files.readme.io/55cdb8e-Screenshot_2024-03-21_at_13.50.43.png)

@@ -1,5 +1,6 @@
 ---
-title: Setting Password Policy On Account Level
+title: Setting Password Policy
+
 slug: pwm-mobile-setting-password-policy-on-account-level
 excerpt: ''
 deprecated: false
@@ -25,7 +26,7 @@ Locate and click on "Password Generation Policy" in the displayed "More" screen.
 
 A bottom action menu will appear, providing options to configure the password generation policy.
 
-## Define the Following Parameters
+## Set the Account-Level Default Policy
 
 **Character Length:** Set the desired default length for passwords created within your account.
 
@@ -38,3 +39,29 @@ A bottom action menu will appear, providing options to configure the password ge
 **Include Special Characters (!@#):** Check this box to ensure at least one special character is included in the password. If solely selected, the password will consist exclusively of special characters.
 
 By configuring these settings, you establish a standardized default for password generation in your organization's account. Users can still modify parameters during password creation, but the defaults will adhere to the rules you've set.
+
+## Set the Policy for a Specific Password
+
+You can also define password rules for an individual password while creating it or editing it later.
+
+![Illustration for: In our Password Manager application, you have the flexibility to define specific password policies for individual passwords during creation or editing. This ensures that your security requirements align with the uniqueness of each password.](https://files.readme.io/8b6ade4-Screenshot_2024-01-10_at_16.16.47.png)
+
+### During Password Creation or Editing
+
+Use the same password policy controls shown under the password field:
+
+**Character Length:** Set the required length for the specific password.
+
+**Include Uppercase Letters (A-Z):** Require at least one uppercase letter. If this is the only enabled option, the password contains only uppercase letters.
+
+**Include Lowercase Letters (a-z):** Require at least one lowercase letter. If this is the only enabled option, the password contains only lowercase letters.
+
+**Include Numbers (0-9):** Require at least one number. If this is the only enabled option, the password contains only numbers.
+
+**Include Special Characters (!@#):** Require at least one special character. If this is the only enabled option, the password contains only special characters.
+
+### How It Works
+
+When creating a new password, adjust these settings under the password field before saving.
+
+When editing an existing password, open the password editing screen and update the same settings to match the new requirements.

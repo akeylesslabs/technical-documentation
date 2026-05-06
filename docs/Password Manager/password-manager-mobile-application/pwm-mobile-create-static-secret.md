@@ -1,5 +1,6 @@
 ---
-title: Creating New Secret
+title: Creating New Secret
+
 slug: pwm-mobile-create-static-secret
 excerpt: ''
 deprecated: false
@@ -29,3 +30,13 @@ Once installed, tap on the Akeyless Password Manager app icon on your mobile dev
 In the "Var" field, enter a unique combination of letters, symbols, and numbers. The value length should be 16 KB.
 
 Optionally, you can specify the "Password Location" using the drop-down menu to choose between "Corporate" and "Personal" areas to store the password.
+
+## Secret Value Types
+
+The Value field supports both plain-text values and JSON values.
+
+Use plain text for straightforward secret data such as a token, note, or API key.
+
+Use JSON when the secret should store structured key-value data in a single item.
+
+![Illustration for: Akeyless Password Manager Mobile Application is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can…](https://files.readme.io/4bb02a9-IMG_0055.png)

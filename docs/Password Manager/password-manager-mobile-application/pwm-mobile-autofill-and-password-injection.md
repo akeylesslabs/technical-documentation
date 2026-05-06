@@ -1,5 +1,6 @@
 ---
-title: Using Autofill and Password Injection Functionality
+title: Using Autofill and Password Injection Functionality
+
 slug: pwm-mobile-autofill-and-password-injection
 excerpt: ''
 deprecated: false
@@ -10,19 +11,55 @@ metadata:
   robots: index
 next:
   description: ''
-  pages:
-    - type: basic
-      slug: for-ios-devices
-      title: Set Autofill For iOS Devices
 ---
-Enable the autofill feature in the Password Manager app. This will allow the app to autofill your login credentials in websites and apps.
+Enable autofill in the Password Manager app to fill saved credentials in supported websites and apps.
 
-There are two ways to enable it:
+## When Users Are Prompted to Enable Autofill
 
-During the installation process, the user will be prompted to enable the autofill functionality immediately after a successful login.
+Users can be prompted to enable autofill in two common situations:
 
-Once the Password Manager app is installed, users will be prompted to enable the autofill functionality to automatically fill in their login credentials in websites and apps.
+* During installation, immediately after a successful sign-in.
+* Later, from the app after installation is complete.
 
-To autofill your login credentials in a website or app, tap on the username and password fields. The Password Manager app will automatically suggest your saved login credentials.  
+## Use Autofill in an App or Website
 
-Select your saved login credentials from the suggestions. The Password Manager app will autofill your login credentials in the username and password fields
+1. Open the target app or website.
+2. Tap the username or password field.
+3. Select the suggested credential from Akeyless Password Manager.
+4. Complete any required biometric or device-authentication prompt.
+
+## Enable Autofill on iOS
+
+1. Open **Settings** on the iOS device.
+2. Open **Passwords** or **Passwords & Accounts**, depending on the iOS version.
+3. Open **Autofill Passwords**.
+4. Turn on the autofill option.
+5. Under **Allow Filling From**, select **Akeyless Password Manager**.
+
+When you open a login screen in Safari or an app, iOS can offer saved credentials from Akeyless Password Manager above the keyboard or inside the sign-in field.
+
+![Illustration for: With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure.](https://files.readme.io/c309879-File_3.jpg)
+
+## Enable Autofill on Android
+
+1. Open **Settings** on the Android device.
+2. Open **System** and then **Languages & Input**. On some devices, these labels can vary.
+3. Open **Autofill service**.
+4. Select **Akeyless Password Manager** as the autofill service.
+5. If needed, open the Akeyless Password Manager app and enable autofill from its settings flow.
+
+When autofill is enabled, supported apps and browsers can prompt for saved credentials when users tap a sign-in field.
+
+![Illustration for: 1. When logging into an app or website, tap on the login field. The Akeyless Password Manager autofill popup should appear, suggesting login credentials for that site. If you…](https://files.readme.io/229e403-Screenshot_20240221-112137_Firefox.jpg)
+
+## Browser Support Notes
+
+The following Android browsers are documented as providing strong autofill support:
+
+* Firefox
+* Firefox Focus
+* Microsoft Edge
+* DuckDuckGo
+* Brave
+
+Chrome can support autofill, but behavior can be less consistent than in the browsers listed above.
