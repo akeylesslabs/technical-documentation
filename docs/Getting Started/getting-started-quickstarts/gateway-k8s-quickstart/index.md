@@ -33,7 +33,7 @@ You will need:
 
 <ApiKeyWarning />
 
-> ✅ **Tip:** We have created a [Setup Kubernetes Quickstart](https://docs.akeyless.io/docs/kubernetes-pluginss-setup-quickstart) to assist you if you're unfamiliar with setting up a Kubernetes cluster.
+> ✅ **Tip:** We have created a [Setup Kubernetes Quickstart](https://docs.akeyless.io/docs/kubernetes-setup-quickstart) to assist you if you're unfamiliar with setting up a Kubernetes cluster.
 
 ## Step 1: Create Namespace
 
