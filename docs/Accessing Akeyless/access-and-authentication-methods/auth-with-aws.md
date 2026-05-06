@@ -74,6 +74,7 @@ akeyless get-cloud-identity \
 
 To authenticate and retrieve a temporary Akeyless token, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless auth \
   --access-id <Access ID> \

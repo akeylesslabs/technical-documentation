@@ -72,6 +72,7 @@ Generate SSH certificate using Akeyless certificate issuer
 
 #### Usage
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless get-ssh-certificate \
 --cert-username <Username to sign> \

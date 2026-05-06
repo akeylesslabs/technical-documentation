@@ -1,4 +1,5 @@
 - ansible-awx-plugin
+- apache-airflow-provider
 - aws-databricks-plugin
 - azure-plugins
 - butbucket-plugin

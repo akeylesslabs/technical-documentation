@@ -49,7 +49,7 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 ### Prerequisites
 
 * The Akeyless CLI must be successfully installed and **updated to version 1.130.0** or newer.
-    * Read more about the [Akeyless CLI](https://docs.akeyless.io/update/docs/cli).
+    * Read more about the [Akeyless CLI](https://docs.akeyless.io/docs/cli).
     * Learn about [updating the Akeyless CLI](https://docs.akeyless.io/docs/cli-reference#/update).
 * An Akeyless account must be created and a corresponding profile configured with the Akeyless CLI.
 
@@ -125,20 +125,20 @@ If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains 
 
 Acceptable values for `args.--access-type`:
 
-* [access_key](https://docs.akeyless.io/update/docs/api-key/)
-* [aws_iam](https://docs.akeyless.io/update/docs/aws-iam/)
-* [azure_ad](http://docs.akeyless.io/update/docs/azure-ad/)
-* [cert](https://docs.akeyless.io/update/docs/certificate-based-authentication/)
-* [gcp](https://docs.akeyless.io/update/docs/gcp-auth-method/)
-* [jwt](https://docs.akeyless.io/update/docs/oauth20jwt/)
-* [k8s](https://docs.akeyless.io/update/docs/kubernetes-auth/)
-* [kerberos](https://docs.akeyless.io/update/docs/kerberos/)
-* [ldap](https://docs.akeyless.io/update/docs/ldap/)
-* [oci](https://docs.akeyless.io/update/docs/oci-iam/)
-* [oidc](https://docs.akeyless.io/update/docs/openid/)
-* [password](https://docs.akeyless.io/update/docs/email/)
-* [saml](https://docs.akeyless.io/update/docs/saml/)
-* [universal_identity](https://docs.akeyless.io/update/docs/universal-identity/)
+* [access_key](https://docs.akeyless.io/docs/api-key/)
+* [aws_iam](https://docs.akeyless.io/docs/aws-iam/)
+* [azure_ad](https://docs.akeyless.io/docs/azure-ad/)
+* [cert](https://docs.akeyless.io/docs/certificate-based-authentication/)
+* [gcp](https://docs.akeyless.io/docs/gcp-auth-method/)
+* [jwt](https://docs.akeyless.io/docs/oauth20jwt/)
+* [k8s](https://docs.akeyless.io/docs/kubernetes-auth/)
+* [kerberos](https://docs.akeyless.io/docs/kerberos/)
+* [ldap](https://docs.akeyless.io/docs/ldap/)
+* [oci](https://docs.akeyless.io/docs/oci-iam/)
+* [oidc](https://docs.akeyless.io/docs/openid/)
+* [password](https://docs.akeyless.io/docs/email/)
+* [saml](https://docs.akeyless.io/docs/saml/)
+* [universal_identity](https://docs.akeyless.io/docs/universal-identity/)
 
 ##### Cloud ID values
 
@@ -334,6 +334,7 @@ For prompt injection risk reduction guidance for agent-based workflows, see <Anc
 3. Ensure proper permissions are assigned
 4. Verify gateway URL is accessible
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 # Test authentication manually
 akeyless auth --access-id "your-access-id" --access-key "your-access-key"
