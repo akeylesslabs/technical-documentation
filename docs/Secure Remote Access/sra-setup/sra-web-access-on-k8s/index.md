@@ -275,3 +275,22 @@ Verify that both deployments are up and running:
 kubectl describe deploy web-worker-deployment -n <namespace>
 kubectl describe deploy web-dispatcher-deployment -n <namespace>
 ```
+
+## Get the Dispatcher Service URL
+
+After installation, retrieve the external URL of the dispatcher service. This URL is required when configuring the **Web Application Dispatcher** field in the [SRA Portal](https://docs.akeyless.io/docs/sra-portal).
+
+Run the following command to list the dispatcher service and its assigned external address:
+
+```shell
+kubectl get svc -n <namespace> | grep dispatcher
+```
+
+Once the load balancer has finished provisioning, the `EXTERNAL-IP` column will show the public IP address or hostname. Use these URLs in the SRA Portal configuration:
+
+* **Web Application Dispatcher** (main sessions): `http://<EXTERNAL-IP>:9000`
+* **Web Proxy URL** (Secure Proxy / HTTP proxy mode sessions): `http://<EXTERNAL-IP>:19414`
+
+> ℹ️ **Note:** If `EXTERNAL-IP` shows `<pending>`, the cloud load balancer is still provisioning. Wait a few moments and re-run the command.
+
+If you deployed with an Ingress instead of a `LoadBalancer` service, use the hostname set in `dispatcher.ingress.hostname` in your `values.yaml`.
