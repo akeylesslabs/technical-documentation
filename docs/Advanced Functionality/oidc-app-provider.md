@@ -62,6 +62,7 @@ Once you have created your OIDC App, you will need to authenticate against Akeyl
 
 For example, if you assigned an [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Authentication Method, authenticate to Akeyless using the `auth` command:
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless auth --access-type=aws_iam --access-id <Access ID>
 ```

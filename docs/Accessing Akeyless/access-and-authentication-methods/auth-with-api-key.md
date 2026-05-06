@@ -74,6 +74,7 @@ akeyless configure \
 
 To authenticate with an Access ID and Access Key using the CLI, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless auth \
   --access-type access_key \

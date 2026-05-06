@@ -18,7 +18,7 @@ While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/do
 
 * [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) configured.
 
-* The [Secure Remote Access server](https://docs.akeyless.io/docs/remote-access-setup-k8s) deployed.
+* The [Secure Remote Access server](https://docs.akeyless.io/docs/sra-setup-k8s) deployed.
 
 ## Usage
 
@@ -113,7 +113,7 @@ Once that's done, **in a new terminal tab** you can run `kubectl` commands as no
 
 #### Lens
 
-Similarly, after having run the `akeyless connect` command as in the previous section, to work with [Lens](https://k8slens.dev/) Kubernetes IDE, open your Lens Settings > Proxy and set the proxy server with your localhost interface in the following format: [http://127.0.0.1:2345](http://127.0.0.1:2345).
+Similarly, after having run the `akeyless connect` command as in the previous section, to work with [Lens](https://lenshq.io/) Kubernetes IDE, open your Lens Settings > Proxy and set the proxy server with your localhost interface in the following format: [http://127.0.0.1:2345](http://127.0.0.1:2345).
 
 Now, you can start interacting with your remote Kubernetes API server using the tunnel.
 

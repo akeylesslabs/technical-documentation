@@ -9,7 +9,9 @@ metadata:
 ---
 ## Overview
 
-This project provides a ServiceNow MID external credential resolver that retrieves secrets from Akeyless and maps them to ServiceNow Discovery credential fields. The resolver class is com.snc.discovery.CredentialResolver.
+This project provides a ServiceNow MID external credential resolver that retrieves secrets from Akeyless and maps them to ServiceNow Discovery credential fields. The resolver class is `com.snc.discovery.CredentialResolver`.
+
+Source repository: [https://github.com/akeylesslabs/akeyless-servicenow-credential-resolver](https://github.com/akeylesslabs/akeyless-servicenow-credential-resolver)
 
 ## Prerequisites
 
@@ -34,26 +36,26 @@ For cloud-based methods, the resolver detects CloudID using the cloud environmen
 This is a Maven project. Build a versioned JAR so the filename is stable in MID:
 
 ```shell
-mvn -Drevision=1.0.0 clean package
+mvn -Drevision=1.1.0 clean package
 ```
 
-The default build runs Maven Shade so the main JAR includes Jackson JR and CloudID lightweight dependencies (required on the MID). For a thin JAR only, use `mvn -Pthin -Drevision=1.0.0 clean package`.
+The default build runs Maven Shade so the main JAR includes Jackson JR and CloudID lightweight dependencies (required on the MID). For a thin JAR only, use `mvn -Pthin -Drevision=1.1.0 clean package`.
 
 ### Artifacts
 
-* With `-Drevision=1.0.0`: `target/akeyless-servicenow-credential-resolver-1.0.0.jar`
-    * [https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar](https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar)
+* With `-Drevision=1.1.0`: `target/akeyless-servicenow-credential-resolver-1.1.0.jar`
+    * [https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.1.0/akeyless-servicenow-credential-resolver-1.1.0.jar](https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.1.0/akeyless-servicenow-credential-resolver-1.1.0.jar)
 * Without a revision property, Maven produces `akeyless-servicenow-credential-resolver-null.jar`.
 * The file in `target/` is the shaded artifact. `target/original-*.jar` is the pre-shade JAR.
 
 ## Install the Resolver on the MID Server
 
-1. Upload the JAR to the MID Server by way of the instance UI
-   * Navigate: MID Server → JAR files → New
-   * Set a descriptive Name (For example, akeyless-servicenow-credential-resolver)
-   * Manage Attachments → upload the built JAR from target/
-   * Submit
-2. Ensure the MID downloads the JAR
+1. Upload the JAR to the MID Server by using the instance UI.
+    * Navigate: MID Server → JAR files → New
+    * Set a descriptive Name (For example, akeyless-servicenow-credential-resolver)
+    * Manage Attachments → upload the built JAR from `target/`
+    * Submit
+2. Ensure the MID downloads the JAR.
 
 * The MID will sync and place the JAR in its agent lib cache.
 * If not picked up, restart the MID service to force a sync.
@@ -80,7 +82,7 @@ Optional field mapping overrides for JSON secrets (see Mapping section below):
 * `ext.cred.akeyless.map.private_key` (default: `private_key`)
 * `ext.cred.akeyless.map.passphrase` (default: `passphrase`)
 
-Environment/system property alternatives
+### Environment and System Property Alternatives
 
 * The resolver also supports the following system properties or environment variables:
     * `AKEYLESS_GW_URL`
@@ -149,14 +151,12 @@ net start mid
 
 ## Configure a Discovery Credential to Use This Resolver
 
-1. Create a new credential
-   * Navigate: Discovery → Credentials → New
-   * Choose a credential Type (For example, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, SNMPv3)
-   * Select “External credential store”
-   * Fully Qualified Class Name (FQCN): com.snc.discovery.CredentialResolver
-   * Credential ID: The Akeyless secret path (For example, /prod/app/db) to fetch
-2. Save and test
-   * Click “Test credential”, select a MID Server and a target if required by the type.
+1. Navigate to Discovery → Credentials → New.
+2. Choose a credential Type (For example, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, or SNMPv3).
+3. Select **External credential store**.
+4. Set the fully qualified class name (FQCN) to `com.snc.discovery.CredentialResolver`.
+5. Set the Credential ID to the Akeyless secret path (For example, `/prod/app/db`).
+6. Click **Test credential**, then select a MID Server and a target if required by the type.
 
 ## What to Store in Akeyless and How It’s Mapped
 
@@ -172,7 +172,7 @@ Item types (Static, Rotated, Dynamic)
     * `STATIC_SECRET` → `get-secret-value`
     * `ROTATED_SECRET` → `get-rotated-secret-value` (also sends `ignore-cache` when `ext.cred.akeyless.ignore_cache=true`)
     * `DYNAMIC_SECRET` → `get-dynamic-secret-value`
-* If ServiceNow provides an `ip` argument for the credential test/run, the resolver passes it as `host` when fetching rotated secrets.
+* If ServiceNow provides an `ip` argument for the credential test or run, the resolver passes it as `host` when fetching rotated secrets.
 
 Default mapping (can be overridden by way of `ext.cred.akeyless.map.*`):
 
@@ -194,7 +194,7 @@ Per-Type mapping summary
     * Uses JSON fields: username, auth_protocol, auth_key, privacy_protocol, privacy_key
     * Mapped to ServiceNow fields: `user`, `authprotocol`, `authkey`, `privprotocol`, `privkey`
 * Other unlisted types:
-    * Best-effort: username and password if present
+    * The resolver attempts to map `username` and `password` when those fields are present in the secret JSON. If one or both fields are missing, only available fields are mapped (for example, `ldap`).
 
 Examples
 
@@ -243,13 +243,13 @@ Then a JSON like:
 }
 ```
 
-will map to ServiceNow user = alice, pswd = secret.
+will map to ServiceNow `user = alice` and `pswd = secret`.
 
 ## CloudID Notes (Aws_iam / Azure_ad / Gcp)
 
-* When ext.cred.akeyless.access_type (or AKEYLESS_ACCESS_TYPE) is aws_iam, azure_ad, or gcp, the resolver fetches a CloudID and sends it to Akeyless during auth.
+* When `ext.cred.akeyless.access_type` (or `AKEYLESS_ACCESS_TYPE`) is `aws_iam`, `azure_ad`, or `gcp`, the resolver fetches a CloudID and sends it to Akeyless during authentication.
 * Ensure the MID Server host is running in the target cloud with the appropriate identity, or that cloud SDK environment is present to retrieve a CloudID.
-* Do not set access_key when using CloudID-based methods.
+* Do not set `access_key` when using CloudID-based methods.
 
 ## Universal Identity and Certificate Authentication Notes
 
@@ -260,10 +260,10 @@ will map to ServiceNow user = alice, pswd = secret.
 
 ## Troubleshooting
 
-* HTTP 400 “Missing required parameter - timestamp” on /auth:
-    * Usually indicates the wrong auth flow or missing parameters. Verify access_type is set correctly. For CloudID flows, do not set an access_key. For access_key flows, ensure both access_id and access_key are set. For `uid`, ensure `uid_token` is set. For `cert`, provide both certificate and key material, either inline or by file path.
-* HTTP 404 from /v2/* endpoints:
-    * The resolver automatically falls back to the non-/v2 endpoints. If both fail, verify the gateway URL and network reachability.
+* HTTP 400 "Missing required parameter - timestamp" on `/auth`:
+    * This usually indicates the wrong auth flow or missing parameters. Verify `access_type` is set correctly. For CloudID flows, do not set an `access_key`. For `access_key` flows, ensure both `access_id` and `access_key` are set. For `uid`, ensure `uid_token` is set. For `cert`, provide both certificate and key material, either inline or by file path.
+* HTTP 404 from `/v2/*` endpoints:
+    * The resolver automatically falls back to the non-`/v2` endpoints. If both fail, verify the gateway URL and network reachability.
 * “Secret value not found for name …”:
     * Confirm the Credential ID (secret path) is correct and the Akeyless identity has permission to read it.
 * JSON secret looks correct but everything maps to a single password field:
@@ -271,7 +271,7 @@ will map to ServiceNow user = alice, pswd = secret.
 * JSON secret looks correct but everything maps to `pswd` as one blob:
     * This often means the secret is not strict JSON because PEM or key content was pasted with real line breaks inside quoted values. Prefer `\n` inside JSON string values. If PEM markers are still present, the resolver retries parsing with a lenient Jackson mode.
 * Logging:
-    * Resolver logs go through Commons Logging. Check the MID Server logs for entries containing “Akeyless resolver”.
+    * Resolver logs go through Commons Logging. Check MID Server logs for entries containing "Akeyless resolver".
 
 ## Local/dev Testing (Optional)
 

@@ -114,6 +114,7 @@ Once your Venafi dynamic secret has been successfully created, you can request a
 
 Certificate request using **Common Name (CN)**:
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless get-dynamic-secret-value \
   -n my-venafi-dynamic-secret \
@@ -135,6 +136,7 @@ CSR=$(akeyless generate-csr \
 
 Get the Dynamic Secret using the **Certificate request:**
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless get-dynamic-secret-value \
   -n my-venafi-dynamic secret \
