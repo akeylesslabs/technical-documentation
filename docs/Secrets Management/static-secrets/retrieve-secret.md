@@ -34,6 +34,7 @@ where:
 
 For example, to retrieve the value of the **MyFirstSecret** secret, type:
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless get-secret-value --name MyFirstSecret
 ```

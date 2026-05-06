@@ -94,7 +94,7 @@ akeyless:
     name: akeyless/ci_base:latest-alpine
   before_script:
     - export MY_SECRET=akeyless://path/to/secret # Static / Dynamic secret
-    - export TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CI_JOB_JWT_V2 --json --jq-expression='.token') 
+    - export ACCESS_TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CI_JOB_JWT_V2 --json --jq-expression='.token') 
     # script will replace any env var with prefix of "akeyless:" like above
     - source ~/.akeyless/akeyless_env.sh
   script:
@@ -113,7 +113,7 @@ akeyless:
   before_script:
     - export AKEYLESS_API_GW_URL=https://Your-Akeyless-GW-URL:8000/api/v1
     - export MY_SECRET=akeyless://gitlab/mySecret
-    - export TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $FIRST_ID_TOKEN --json --jq-expression='.token')
+    - export ACCESS_TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $FIRST_ID_TOKEN --json --jq-expression='.token')
     # script will replace any env var with prefix of "akeyless:" like above
     - source ~/.akeyless/akeyless_env.sh
   script:
