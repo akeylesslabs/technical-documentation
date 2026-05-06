@@ -1,6 +1,6 @@
 /docs/kubernetes -> /docs/kubernetes-plugins
-/docs/password-manager -> /docs/password-manager-overview
-/docs/browser-extensions -> /docs/password-manager-web-extension
+/docs/password-manager -> /docs/pwm-overview
+/docs/browser-extensions -> /docs/pwm-ext-overview
 /docs/using-environment-variables -> /docs/gateway-docker-advanced-configuration
 /v2/docs/using-environment-variables -> /docs/gateway-docker-advanced-configuration
 /docs/advance-gw-docker-configuration -> /docs/gateway-docker-advanced-configuration
@@ -573,7 +573,7 @@
 /reference/connect -> /reference/connect-1
 /reference/gatewaydeleteallowedmanagementaccess -> /reference/deletegatewayallowedaccessid
 /recipes/python-aws_iam -> /docs/what-is-akeyless
-/docs/hide-personal-folder -> /docs/password-manager-hide-personal-folder
+/docs/hide-personal-folder -> /docs/pwm-console-hide-personal-folder
 /docs/opened -> /docs/auth-with-oidc
 /docs/ping-targets -> /docs/ping-target
 /docs/configuring-tls -> /docs/gateway-tls-settings
@@ -590,7 +590,7 @@
 /docs/web-access-on-k8s-advanced-configuration -> /docs/sra-web-access-on-k8s-adv-config
 /docs/remote-access-system-requirements -> /docs/sra-overview
 /docs/ansible-awx-plugin-secret-fetch-via-playbook-1 -> /docs/ansible-awx-plugin
-/docs/configure-1 -> /docs/configure-ldap-gateway-url-1
+/docs/configure-1 -> /docs/pwm-ext-configure-ldap-gateway-url
 /docs/customer-journey-scenarios-real-world-use-case-flows -> /docs/customer-journeys
 /docs/customer-use-case-access-request-via-sn -> /docs/access-requests-with-sn
 /docs/email -> /docs/auth-with-email
@@ -834,8 +834,8 @@
 /v2/docs/copy-of-remote-access-on-k8s -> /docs/sra-setup-k8s
 
 # PWM slug migration
-/docs/adding-and-using-otp -> /docs/pwm-mobile-otp-overview
-/docs/adding-and-using-otp-1 -> /docs/pwm-ext-otp-overview
+/docs/adding-and-using-otp -> /docs/pwm-mobile-otp
+/docs/adding-and-using-otp-1 -> /docs/pwm-ext-otp
 /docs/adding-manual-otp -> /docs/pwm-ext-add-manual-otp
 /docs/adding-manual-otp-1 -> /docs/pwm-mobile-add-manual-otp
 /docs/adding-password-to-favorites-1 -> /docs/pwm-ext-add-password-to-favorites
@@ -892,8 +892,8 @@
 /docs/using-autofillpassword-injection-functionality-1 -> /docs/pwm-ext-autofill-and-password-injection
 /docs/using-filters-tags -> /docs/pwm-ext-use-filters-and-tags
 /docs/using-search -> /docs/pwm-ext-search-passwords-and-secrets
-/v2/docs/adding-and-using-otp -> /docs/pwm-mobile-otp-overview
-/v2/docs/adding-and-using-otp-1 -> /docs/pwm-ext-otp-overview
+/v2/docs/adding-and-using-otp -> /docs/pwm-mobile-otp
+/v2/docs/adding-and-using-otp-1 -> /docs/pwm-ext-otp
 /v2/docs/adding-manual-otp -> /docs/pwm-ext-add-manual-otp
 /v2/docs/adding-manual-otp-1 -> /docs/pwm-mobile-add-manual-otp
 /v2/docs/adding-password-to-favorites-1 -> /docs/pwm-ext-add-password-to-favorites
@@ -969,12 +969,12 @@
 /docs/index -> /docs/pwm-console-admin-overview
 /docs/index -> /docs/pwm-console-overview
 /docs/index -> /docs/pwm-ext-create-secret
-/docs/index -> /docs/pwm-ext-otp-overview
+/docs/index -> /docs/pwm-ext-otp
 /docs/index -> /docs/pwm-ext-overview
 /docs/index -> /docs/pwm-mobile-autofill-and-password-injection
 /docs/index -> /docs/pwm-mobile-create-static-secret
 /docs/index -> /docs/pwm-mobile-create-static-secret
-/docs/index -> /docs/pwm-mobile-otp-overview
+/docs/index -> /docs/pwm-mobile-otp
 /docs/index -> /docs/pwm-mobile-overview
 /docs/password-list-switching-between-folders-flat-view -> /docs/pwm-ext-switch-between-folder-and-flat-views
 /docs/security-health -> /docs/pwm-ext-security-health
@@ -999,12 +999,12 @@
 /v2/docs/index -> /docs/pwm-console-admin-overview
 /v2/docs/index -> /docs/pwm-console-overview
 /v2/docs/index -> /docs/pwm-ext-create-secret
-/v2/docs/index -> /docs/pwm-ext-otp-overview
+/v2/docs/index -> /docs/pwm-ext-otp
 /v2/docs/index -> /docs/pwm-ext-overview
 /v2/docs/index -> /docs/pwm-mobile-autofill-and-password-injection
 /v2/docs/index -> /docs/pwm-mobile-create-static-secret
 /v2/docs/index -> /docs/pwm-mobile-create-static-secret
-/v2/docs/index -> /docs/pwm-mobile-otp-overview
+/v2/docs/index -> /docs/pwm-mobile-otp
 /v2/docs/index -> /docs/pwm-mobile-overview
 /v2/docs/password-list-switching-between-folders-flat-view -> /docs/pwm-ext-switch-between-folder-and-flat-views
 /v2/docs/security-health -> /docs/pwm-ext-security-health
