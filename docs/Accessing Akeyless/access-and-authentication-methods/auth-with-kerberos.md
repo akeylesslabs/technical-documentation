@@ -196,6 +196,7 @@ You can find the complete list of additional parameters for this command in the 
 
 Once created, you can use the `akeyless auth` command to authenticate a user by way of **Kerberos**:
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless auth \
 --access-id <Access ID> \

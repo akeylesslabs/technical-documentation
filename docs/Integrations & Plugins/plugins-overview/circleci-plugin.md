@@ -94,6 +94,7 @@ Name it `akeyless`, we will later add this context to a job by adding the contex
 
 Open your CircleCI project and create/update your `.circleci/config.yml` file for CircleCI.
 
+<!-- secret-stdout-scan:ok -->
 ```yaml config.yml
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/2.0/configuration-reference
@@ -111,7 +112,7 @@ jobs:
       - checkout
       - run:
           name: "Authenticate To Akeyless"
-          command: export TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CIRCLE_OIDC_TOKEN) >> $BASH_ENV
+          command: export ACCESS_TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CIRCLE_OIDC_TOKEN) >> $BASH_ENV
       - run:
           name: "Fetch Akeyless secrets"
           command: akeyless get-secret-value -n /CI/CircleCI-secret

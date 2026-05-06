@@ -63,6 +63,7 @@ To use an email-based authentication method with the Console:
 
 To authenticate with an email address and password using the CLI, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless auth \
   --admin-email email-address@sample.com \

@@ -69,6 +69,7 @@ $ akeyless describe-item -n /secret1 --show-versions
 
 ### Get a Secret Value Always Returns the Current Value
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 $ akeyless get-secret-value -n /secret1
 value2
@@ -76,6 +77,7 @@ value2
 
 ### Get a Specific Version of the Secret Value
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 $ akeyless get-secret-value -n /secret1 --version 1
 value1
@@ -85,6 +87,7 @@ value1
 
 To get the last **N** versions of a secret values, use `--version=-N`, where `-N` represents the last versions you wish to retrieve, supporting up to the last 20 versions of the secret.
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 $ akeyless get-secret-value -n /secret1  --version=-4
 {
@@ -120,6 +123,7 @@ $ akeyless describe-item -n /secret1 --show-versions
 
 ### Roll Back to a Previous Secret Version
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 $ akeyless update-secret-val -n /secret1 -v value3 --keep-prev-version=true
 The value of secret /secret1 was successfully updated

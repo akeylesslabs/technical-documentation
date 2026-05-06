@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-You can define an [OpenAI](https://openai.com/) target to be used with [OpenAI Dynamic Secret](https://docs.akeyless.io/update/docs/openai-dynamic-secrets#/).
+You can define an [OpenAI](https://openai.com/) target to be used with [OpenAI Dynamic Secret](https://docs.akeyless.io/docs/openai-dynamic-secrets).
 
 ## Create an OpenAI Target with the CLI
 

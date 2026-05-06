@@ -65,6 +65,10 @@ jobs:
       branch_name: automation/cli-command-path-check
     secrets: inherit
 
+  readme-constraints:
+    uses: ./.github/workflows/readme-docs-constraints.yml
+    secrets: inherit
+
   secret-scan:
     name: Secret Scan
     runs-on: ubuntu-latest
@@ -379,6 +383,7 @@ jobs:
       - markdownlint
       - spell-check
       - cli-path-check
+      - readme-constraints
       - secret-scan
       - dependency-change-monitor
     if: always()
@@ -415,6 +420,9 @@ jobs:
           SECRET_SCAN_LEAKS: ${{ needs.secret-scan.outputs.leaks_found }}
           SECRET_SCAN_RULES: ${{ needs.secret-scan.outputs.rule_breakdown }}
 
+          README_CONSTRAINTS_SUMMARY: ${{ needs.readme-constraints.outputs.constraints_summary }}
+          README_VIOLATIONS_TOTAL: ${{ needs.readme-constraints.outputs.violations_total }}
+
           DEP_SUMMARY: ${{ needs.dependency-change-monitor.outputs.dep_summary }}
           DEP_FINDINGS: ${{ needs.dependency-change-monitor.outputs.dep_findings }}
           DEP_TOP5: ${{ needs.dependency-change-monitor.outputs.dep_top5 }}
@@ -431,9 +439,10 @@ jobs:
           CSPELL_ISSUE_COUNT="${CSPELL_ISSUE_COUNT:-0}"
           CLI_PATH_FAILURES="${CLI_PATH_FAILURES:-0}"
           SECRET_SCAN_LEAKS="${SECRET_SCAN_LEAKS:-0}"
+          README_VIOLATIONS_TOTAL="${README_VIOLATIONS_TOTAL:-0}"
           DEP_FINDINGS="${DEP_FINDINGS:-0}"
 
-          FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES + SECRET_SCAN_LEAKS + DEP_FINDINGS))
+          FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES + SECRET_SCAN_LEAKS + README_VIOLATIONS_TOTAL + DEP_FINDINGS))
 
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_OUTPUT"
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_ENV"
@@ -474,6 +483,10 @@ jobs:
           ## Secret Scan
           - ${SECRET_SCAN_SUMMARY}
 
+          ## ReadMe Docs Constraints
+          - ${README_CONSTRAINTS_SUMMARY}
+          - Violations: ${README_VIOLATIONS_TOTAL}
+
           ## Dependency Change Monitor
           - ${DEP_SUMMARY}
           - Alert mode: ${DEP_ALERT_MODE}
@@ -506,21 +519,28 @@ jobs:
           REDIRECT_SUMMARY: ${{ needs.link-check.outputs.redirect_summary }}
           LYCHEE_SUMMARY: ${{ needs.link-check.outputs.lychee_summary }}
           LYCHEE_BROKEN: ${{ needs.link-check.outputs.lychee_broken }}
+          LYCHEE_COMMIT_URL: ${{ needs.link-check.outputs.commit_url }}
 
           MARKDOWNLINT_SUMMARY: ${{ needs.markdownlint.outputs.markdownlint_summary }}
           MARKDOWNLINT_VIOLATIONS: ${{ needs.markdownlint.outputs.markdownlint_violations }}
+          MARKDOWNLINT_COMMIT_URL: ${{ needs.markdownlint.outputs.commit_url }}
 
           CSPELL_SUMMARY: ${{ needs.spell-check.outputs.cspell_summary }}
           CSPELL_ISSUE_COUNT: ${{ needs.spell-check.outputs.cspell_issue_count }}
           CSPELL_TOP5: ${{ needs.spell-check.outputs.cspell_top5 }}
+          CSPELL_COMMIT_URL: ${{ needs.spell-check.outputs.commit_url }}
 
           CLI_PATH_SUMMARY: ${{ needs.cli-path-check.outputs.cli_path_summary }}
           CLI_PATH_FAILURES: ${{ needs.cli-path-check.outputs.cli_path_failures }}
           CLI_PATH_TOP5: ${{ needs.cli-path-check.outputs.cli_path_top5 }}
+          CLI_PATH_COMMIT_URL: ${{ needs.cli-path-check.outputs.commit_url }}
 
           SECRET_SCAN_SUMMARY: ${{ needs.secret-scan.outputs.scan_summary }}
           SECRET_SCAN_LEAKS: ${{ needs.secret-scan.outputs.leaks_found }}
           SECRET_SCAN_RULES: ${{ needs.secret-scan.outputs.rule_breakdown }}
+
+          README_CONSTRAINTS_SUMMARY: ${{ needs.readme-constraints.outputs.constraints_summary }}
+          README_VIOLATIONS_TOTAL: ${{ needs.readme-constraints.outputs.violations_total }}
 
           FINDINGS_TOTAL: ${{ steps.aggregate.outputs.findings_total }}
         run: |
@@ -542,6 +562,14 @@ jobs:
           ADF_DESC=$(jq -n \
             --arg run "$RUN_URL" \
             --arg artifacts "${RUN_URL}#artifacts" \
+            --arg linkBranch "automation/link-check" \
+            --arg markdownlintBranch "automation/markdownlint" \
+            --arg spellBranch "automation/spell-check" \
+            --arg cliBranch "automation/cli-command-path-check" \
+            --arg linkCommitUrl "$LYCHEE_COMMIT_URL" \
+            --arg markdownlintCommitUrl "$MARKDOWNLINT_COMMIT_URL" \
+            --arg spellCommitUrl "$CSPELL_COMMIT_URL" \
+            --arg cliCommitUrl "$CLI_PATH_COMMIT_URL" \
             --arg l1 "$REPLACER_SUMMARY" \
             --arg l2 "$REDIRECT_SUMMARY" \
             --arg l3 "$LYCHEE_SUMMARY" \
@@ -557,6 +585,8 @@ jobs:
             --arg sec1 "$SECRET_SCAN_SUMMARY" \
             --arg sec2 "$SECRET_SCAN_LEAKS" \
             --arg sec3 "$SECRET_SCAN_RULES" \
+            --arg rdme1 "$README_CONSTRAINTS_SUMMARY" \
+            --arg rdme2 "$README_VIOLATIONS_TOTAL" \
             --arg total "$FINDINGS_TOTAL" \
             'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
              def linkPara($label; $url):
@@ -573,6 +603,11 @@ jobs:
                  para("Weekly coordinator run for docs automation checks."),
                  linkPara("Workflow run: "; $run),
                  linkPara("Workflow artifacts: "; $artifacts),
+                 para("Automation branches used by this workflow:"),
+                 para("- Link check: " + $linkBranch + (if ($linkCommitUrl != "") then (" (commit: " + $linkCommitUrl + ")") else "" end)),
+                 para("- Markdown lint: " + $markdownlintBranch + (if ($markdownlintCommitUrl != "") then (" (commit: " + $markdownlintCommitUrl + ")") else "" end)),
+                 para("- Spell check: " + $spellBranch + (if ($spellCommitUrl != "") then (" (commit: " + $spellCommitUrl + ")") else "" end)),
+                 para("- CLI command path check: " + $cliBranch + (if ($cliCommitUrl != "") then (" (commit: " + $cliCommitUrl + ")") else "" end)),
                  para("Total findings: " + $total),
                  para("Link check: " + $l1),
                  para("Link redirects: " + $l2),
@@ -591,6 +626,8 @@ jobs:
                  para("Secret scan: " + $sec1),
                  para("Potential leaks found: " + $sec2),
                  (if ($sec3 != "" and $sec3 != "No leaks detected") then para("Rule breakdown: " + $sec3) else empty end),
+                 para("ReadMe docs constraints: " + $rdme1),
+                 para("ReadMe constraint violations: " + $rdme2),
                  para("This ticket was created automatically by GitHub Actions.")
                ]
              }')
@@ -625,3 +662,91 @@ jobs:
 
           echo "issue_key=$ISSUE_KEY" >> "$GITHUB_OUTPUT"
           echo "Created Jira issue: $ISSUE_KEY"
+
+  notify-on-failure:
+    name: Notify Jira on Workflow Failure
+    if: failure() && github.event_name == 'schedule'
+    needs:
+      - aggregate-and-jira
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Jira failure notification
+        continue-on-error: true
+        env:
+          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
+          JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+          RUN_ID: ${{ github.run_id }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          TS="$(date -u +'%Y-%m-%d %H:%M UTC')"
+          SUMMARY="Workflow failure: ${WORKFLOW_NAME} (${BRANCH}) – ${TS}"
+
+          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+          JIRA_CURL_OPTS=(
+            --retry 3
+            --retry-all-errors
+            --retry-delay 2
+            --retry-max-time 30
+            --connect-timeout 10
+            --max-time 45
+          )
+
+          ADF_DESC=$(jq -n \
+            --arg workflow "$WORKFLOW_NAME" \
+            --arg branch "$BRANCH" \
+            --arg run_id "$RUN_ID" \
+            --arg run_url "$RUN_URL" \
+            --arg ts "$TS" \
+            'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
+             def linkPara($label; $url):
+               {type:"paragraph", content:[
+                 {type:"text", text:$label},
+                 {type:"text", text:$url, marks:[{type:"link", attrs:{href:$url}}]}
+               ]};
+             {
+               type:"doc", version:1,
+               content:[
+                 para("A scheduled GitHub Actions workflow failed and requires investigation."),
+                 para("Workflow: " + $workflow),
+                 para("Branch: " + $branch),
+                 para("Run ID: " + $run_id),
+                 para("Timestamp: " + $ts),
+                 linkPara("Workflow run URL: "; $run_url),
+                 para("This ticket was created automatically because the scheduled run failed.")
+               ]
+             }')
+
+          PAYLOAD=$(jq -n \
+            --arg proj "$JIRA_PROJECT_KEY" \
+            --arg summary "$SUMMARY" \
+            --argjson adf "$ADF_DESC" \
+            '{
+              fields: {
+                project: {key: $proj},
+                summary: $summary,
+                description: $adf,
+                issuetype: {name: "Task"},
+                labels: ["automation","workflow-failure","scheduled"]
+              }
+            }')
+
+          RESP=$(curl -sS "${JIRA_CURL_OPTS[@]}" -X POST \
+            -H "$AUTH_HEADER" \
+            -H "Content-Type: application/json" \
+            --data "$PAYLOAD" \
+            "$JIRA_BASE_URL/rest/api/3/issue")
+
+          ISSUE_KEY=$(echo "$RESP" | jq -r '.key // empty')
+          if [ -z "$ISSUE_KEY" ]; then
+            echo "Failed to create failure notification Jira issue. Response:"
+            echo "$RESP"
+            exit 1
+          fi
+
+          echo "Created failure notification Jira issue: $ISSUE_KEY"
