@@ -258,6 +258,20 @@
       "suggested_docs": [
         "docs/Accessing Akeyless/"
       ]
+    },
+    {
+      "id": "provider-apache-airflow",
+      "name": "Apache Airflow (akeyless provider)",
+      "kind": "ecosystem",
+      "category": "targets-integrations",
+      "source_type": "github_latest_release",
+      "source": "apache/airflow",
+      "source_url": "https://github.com/apache/airflow/releases/latest",
+      "default_severity": "medium",
+      "impacted_capability": "Apache Airflow provider installation, authentication, and Secrets Backend configuration",
+      "suggested_docs": [
+        "docs/Integrations & Plugins/plugins-overview/apache-airflow-provider.md"
+      ]
     }
   ]
 }
