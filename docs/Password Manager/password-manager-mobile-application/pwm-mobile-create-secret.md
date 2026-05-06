@@ -1,5 +1,6 @@
 ---
-title: Creating New Secret
+title: Creating New Secret
+
 slug: pwm-mobile-create-secret
 excerpt: ''
 deprecated: false
@@ -48,6 +49,16 @@ Activating Delete Protection: For added security, especially against accidental 
 You will enter the secret's value directly In the 'Value' field, input the information you wish to keep secret.
 
 This could be a secure note, an API Key, or any other sensitive information that requires secure storage.
+
+## Secret Value Types
+
+The Value field supports both plain-text values and JSON values.
+
+Use plain text for single-value secrets such as a secure note, password, or API key.
+
+Use JSON when the secret needs structured key-value data.
+
+![Illustration for: The 'Value' field can also store structured data in JSON format. This is particularly useful for storing configuration settings or multiple pieces of related information in a…](https://files.readme.io/2cac494-IMG_0050.png)
 
 ## Step 6: Save the Newly Created Secret
 
