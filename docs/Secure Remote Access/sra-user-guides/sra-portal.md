@@ -27,7 +27,7 @@ Currently, the SRA Portal supports the following authentication methods:
 
 1. Open the SRA Portal: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
 2. Select the relevant authentication method. The default is **SAML**. Enter your SAML **Access ID**, or choose a different method.
-3. If you are also working with [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s), set the **Web Application Dispatcher** with the URL of your `web-access-dispatcher` cluster service; the default is `9000`. If you are working with Secure Proxy, also set the **Web Proxy URL** with the `web-access-dispatcher` cluster service port; the default is `19414`.
+3. If you are also working with [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s), set the **Web Application Dispatcher** with the external URL of your dispatcher service on port `9000`. If you are working with Secure Proxy, also set the **Web Proxy URL** using port `19414`. For instructions on how to retrieve these URLs from your cluster, see [Get the Dispatcher Service URL](https://docs.akeyless.io/docs/web-access-on-k8s#get-the-dispatcher-service-url).
 4. Click the **Generate SAML Bookmark URL** to create a link to the completed form. The link is copied to your clipboard for you to save in a convenient place, such as your browser bookmarks, and use in the future to automatically complete the login details.
 5. Click **Sign in**.
 
