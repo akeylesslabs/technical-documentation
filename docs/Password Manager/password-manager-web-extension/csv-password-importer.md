@@ -58,4 +58,14 @@ PWM 2.0 improves import consistency in these areas:
 * Current account configuration is reflected in the import flow before submission.
 * Imported items follow the active destination and account defaults selected during import.
 
+## Import Progress
+
+The extension can display import progress while CSV import is running.
+
+During import, the status view can show:
+
+* The number of completed items.
+* The total number of items in the import batch.
+* A progress bar for the current import operation.
+
 ![Illustration for: Specify if you wish to create a dedicated folder within the target location by entering a folder name in the 'Target Folder Field'. Step 7: Submit the Import Once all…](https://files.readme.io/97988b1-Screenshot_2024-06-04_at_14.52.11.png)

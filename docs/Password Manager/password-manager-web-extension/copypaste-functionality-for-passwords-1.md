@@ -12,15 +12,21 @@ next:
 ---
 Our Password Manager app includes a convenient copy/paste feature, allowing you to securely transfer passwords from the app to web forms.
 
-## Copying the Password
+Use copy when a site or application cannot use autofill or injection.
 
 1. Tap on the password field next to the desired password.
 2. Look for a 'Copy' icon or button.
-3. Tap this icon.
-4. The password will be copied to your device's clipboard.
+3. Open the required item in the extension.
+4. Find the password field or relevant value.
+5. Click the copy action.
+6. Paste the value into the target form.
 
-## Pasting the Password into a Web Form
+7. Switch to the web browser or app where you need to enter the password.
+8. Tap on the password entry field.
+9. Switch to the target browser tab or application.
+10. Place the cursor in the required field.
+11. Paste the copied value.
 
-1. Switch to the web browser or app where you need to enter the password.
-2. Tap on the password entry field.
-3. Select 'Paste' to insert the password from the clipboard.
+## Recommendation
+
+Use autofill when possible. Use copy and paste as a fallback for unsupported or restricted input flows.

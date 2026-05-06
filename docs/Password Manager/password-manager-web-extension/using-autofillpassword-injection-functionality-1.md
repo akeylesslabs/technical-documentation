@@ -30,6 +30,10 @@ PWM 2.0 improves browser sign-in assistance in these areas:
 * OTP-style fields are handled more carefully so OTP inputs are less likely to be confused with password-update prompts.
 * Save-password flows better avoid treating short MFA values as account passwords.
 
+## Autofill Setting
+
+The extension settings include an autofill toggle. Depending on account controls, autofill can also be disabled by an administrator.
+
 ## Save or Update a Credential
 
 If the extension detects a new or updated credential on a supported page, it can prompt to save the item or update the existing item in the vault.

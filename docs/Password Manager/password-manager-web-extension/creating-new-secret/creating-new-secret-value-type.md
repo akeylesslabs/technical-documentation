@@ -12,14 +12,18 @@ next:
 ---
 ![An Akeyless Password Manager Screenshot of adding a Static Secret.](https://files.readme.io/0f66be8-Screenshot_2024-03-21_at_13.50.36.png)
 
-The Akeyless Password Manager Web Extension is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can store information not just in plain text but also in JSON format. This section will guide you on how to use the 'Value' field for both text and JSON data.
+The secret value field can store plain text or JSON content.
 
 ## Text Data
 
-For straightforward text data, such as passwords, secure notes, or API keys, simply enter the information directly into the 'Value' field. The application will securely encrypt and store this text, making it accessible only to authorized users.
+Use plain text for straightforward secret values such as tokens, notes, or single-value credentials.
 
 ## JSON Data
 
-The 'Value' field can also store structured data in JSON format. This is particularly useful for storing configuration settings or multiple pieces of related information in a structured and easily retrievable form.
+Use JSON when the secret should store structured key-value data in a single item.
+
+## Recommendation
+
+Use JSON only when a structured secret format is required for retrieval or organization.
 
 ![Illustration for: The 'Value' field can also store structured data in JSON format. This is particularly useful for storing configuration settings or multiple pieces of related information in a…](https://files.readme.io/55cdb8e-Screenshot_2024-03-21_at_13.50.43.png)

@@ -12,28 +12,24 @@ next:
 ---
 ## Installation Across Browsers
 
-The Akeyless browser extension seamlessly integrates with your favorite web browsers, including Firefox, Google Chrome, and Microsoft Edge. The installation process is straightforward and consistent across all supported browsers, ensuring a smooth and hassle-free experience.
+The Akeyless Password Manager Web Extension is available for Firefox, Google Chrome, and Microsoft Edge.
 
 > ℹ️ **Note (Installing Akeyless Extensions with SRA Support):**
 >
-> * To install the web extension for Akeyless Password Manager, please search for "**Akeyless Password Manager**" in your browser's extension store.
-> * If you require the web extension that supports SRA, search for "**Akeyless Password Manager**" instead.
+> Search for **Akeyless Password Manager** in the relevant browser extension store.
 
 ## Akeyless Password Manager Firefox Installation
 
 Supported Firefox: desktop version 91.1.0 or later.
 
-To embark on a journey of effortless password management on Firefox, follow these simple steps:
-
-1. Launch Firefox: Open your Firefox browser and navigate to the Firefox Add-ons website, [link](https://addons.mozilla.org/en-US/firefox/addon/akeyless-sra/).
-2. Search for Akeyless: In the search bar at the top of the page, type "Akeyless" and press Enter.
-3. Locate Akeyless Extension: From the search results, identify the Akeyless browser extension and click on the "Add to Firefox" button.
-4. Grant Permissions: Review the permissions requested by the extension and click on the "Add" button to proceed.
-5. Pin Extension for Quick Access: For convenient access, right-click on the Akeyless icon in the toolbar and select "Pin" to keep it permanently visible.
+1. Open Firefox and go to the Firefox Add-ons listing for Akeyless Password Manager: [link](https://addons.mozilla.org/en-US/firefox/addon/akeyless-sra/).
+2. Click **Add to Firefox**.
+3. Review the requested permissions, and confirm the installation.
+4. Pin the extension so it remains visible in the browser toolbar.
 
 > ℹ️ **Note:**
 >
-> **After installing or updating the Akeyless Password Manager extension on the Firefox browser**, please follow these steps to ensure all functionalities work as expected:
+> After installing or updating the extension on Firefox, verify that the extension can access website data:
 >
 > 1. Open the Extensions Manager: Go to the Firefox menu, select Add-ons and Themes > Extensions.
 > 2. Locate the Akeyless Password Manager Extension: Under the Enabled section, click the three dots (...) next to the extension.
@@ -44,31 +40,30 @@ To embark on a journey of effortless password management on Firefox, follow thes
 
 ![Illustration for: Akeyless Password Manager Google Chrome Installation](https://files.readme.io/3d3d29c-Screenshot_2024-05-07_at_16.02.38.png)
 
-Elevate your password management efficiency within Google Chrome by following these steps:
-
 Supported Google Chrome: Version 88+
 
-1. Open Chrome Web Store: Launch your Google Chrome browser and access the Chrome Web Store, [link](https://chromewebstore.google.com/search/akeyless?hl=en-US).
-2. Search for Akeyless: In the search bar at the top of the page, type "Akeyless" and press Enter.
-3. Choose Akeyless Extension: From the search results, identify the Akeyless browser extension and click on the "Add to Chrome" button.
-4. Review and Confirm Installation: Review the extension's requested permissions and click on the "Add extension" button to proceed.
-5. Pin Extension for Easy Access: For convenient access, right-click on the Akeyless icon in the toolbar and select "Pin" to keep it permanently visible.
+1. Open the Chrome Web Store search results for Akeyless: [link](https://chromewebstore.google.com/search/akeyless?hl=en-US).
+2. Select the Akeyless Password Manager extension.
+3. Click **Add to Chrome**.
+4. Review the requested permissions, and confirm the installation.
+5. Pin the extension so it remains visible in the browser toolbar.
 
 ## Akeyless Password Manager Microsoft Edge Installation
 
 Supported Microsoft Edge: Version 88+
 
-Experience the transformative power of Akeyless on Microsoft Edge by following these steps:
+1. Open the Microsoft Edge Add-ons listing for Akeyless Password Manager: [link](https://microsoftedge.microsoft.com/addons/detail/akeyless-password-manager/bjgnnbhhfenmggpgnlbiilnoadoblmgo).
+2. Click **Get**.
+3. Review the requested permissions, and confirm the installation.
+4. Pin the extension so it remains visible in the browser toolbar.
 
-1. Open Microsoft Edge: Launch your Microsoft Edge browser and access the Microsoft Edge Add-ons website, [link](https://microsoftedge.microsoft.com/addons/detail/akeyless-password-manager/bjgnnbhhfenmggpgnlbiilnoadoblmgo).
-2. Search for Akeyless: In the search bar at the top of the page, type "Akeyless" and press Enter.
-3. Select Akeyless Extension: From the search results, identify the Akeyless browser extension and click on the "Get" button.
-4. Confirm Installation: Review the extension's requested permissions and click on the "Add extension" button to proceed.
-5. Pin Extension for Easy Access: For convenient access, right-click on the Akeyless icon in the toolbar and select "Pin" to keep it permanently visible.
+## Next Step
+
+After installation, sign in with the required authentication method. For environment-specific options, see the Advanced Options, tenant URL, LDAP, and enterprise deployment pages in this section.
 
 ## Authentication Methods Support
 
-Once you've installed the Akeyless browser extension. Simply locate the distinctive "K" icon in your browser's toolbar and initiate the login process. To securely access your Akeyless account, you can use one of the following authentication methods:
+After installation, click the Akeyless icon in the browser toolbar and start the sign-in flow. The extension supports these authentication methods:
 
 * Email and Password: Enter your registered email address and password to gain access.
 * Access-ID and Access-Key: Use your unique Access-ID and Access-Key combination for secure login.
@@ -77,8 +72,8 @@ Once you've installed the Akeyless browser extension. Simply locate the distinct
 * GitHub: Integrate your GitHub account for convenient access.
 * Google: Use your Google account for effortless login.
 * Code-ID: Enter the unique code ID provided by your IT administrator. This code serves as your primary identifier and ensures that only authorized individuals can initiate the login process.
-* LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
-    * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url-1) by way of advanced settings then login with Email option as a login type.
+* LDAP: For environments configured with LDAP, you can authenticate using LDAP credentials.
+  Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url-1) in Advanced Options, and then sign in with the Email option.
 * Account Alias: Support for using an account alias to simplify identification and enhance user experience.
 
-For more details about Akeyless Authentication Methods please visit this [link](https://docs.akeyless.io/docs/access-and-authentication-methods).
+For more details, see [Access and Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).

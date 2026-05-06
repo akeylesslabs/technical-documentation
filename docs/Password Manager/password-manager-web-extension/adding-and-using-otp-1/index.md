@@ -37,4 +37,8 @@ PWM 2.0 expands OTP support in these areas:
 * Better field detection helps distinguish OTP and MFA fields from standard password fields.
 * Multi-step sign-in pages can keep the OTP field as the active target during injection.
 
+## Related Topic
+
+If the OTP secret is provided as a setup string instead of a QR code, use the manual OTP workflow.
+
 ![Illustration for: Verify Addition: The OTP code will be added as a custom field to the selected password entry. Access OTP Code: You can view the OTP code by clicking the eye icon next to the…](https://files.readme.io/f962648-Screenshot_2024-06-16_at_11.08.08.png)

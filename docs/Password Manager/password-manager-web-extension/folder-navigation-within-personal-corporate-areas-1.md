@@ -12,16 +12,20 @@ next:
 ---
 ## Navigating Within the Folder Hierarchy
 
-The Akeyless Password Manager web browser extension allows you to organize your passwords and secrets into folders. This can be a helpful way to keep your passwords and secrets organized and easy to find.
+Use folder navigation to browse items within the Personal or Corporate area.
 
 ![Illustration for: The Akeyless Password Manager web browser extension allows you to organize your passwords and secrets into folders. This can be a helpful way to keep your passwords and secrets…](https://files.readme.io/b0ea2f8-Screenshot_2024-01-10_at_16.49.31.png)
 
-To navigate within the folder hierarchy, you can use the following methods:
+The extension supports these folder-navigation methods:
 
 ## Using the Folder Tree
 
-The folder tree is located on the left side of the Personal and Corporate Areas. The folder tree displays a list of all of your folders. To open a folder, simply click on the folder name.
+Use the folder tree to open nested folders in the current area.
 
 ## Using the Back Arrow
 
-The back arrow is located in the top left corner of the Personal and Corporate Areas. The back arrow allows you to go back to the previous folder in the folder hierarchy.
+Use the back arrow to move to the previous level in the folder hierarchy.
+
+## Tip
+
+Use folder navigation together with search and filters when the same item name appears in multiple locations.

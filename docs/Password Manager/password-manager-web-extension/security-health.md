@@ -18,8 +18,9 @@ Security Health provides a personal-vault view of password hygiene in PWM 2.0. I
 
 PWM 2.0 introduces the following Security Health concepts:
 
-* A protection score view for password hygiene review.
-* Visual breakdowns of password-health metrics.
+* An overall score view for password hygiene review.
+* Weak-password insight.
+* Reused-password insight.
 * Personal-vault analysis focused on the user's own stored credentials.
 * Breach-related insights to help identify passwords that should be updated.
 

@@ -12,6 +12,10 @@ next:
 ---
 PWM 2.0 keeps the same create-password flow while improving password generation and password-strength feedback.
 
+## Overview
+
+Use this workflow to create a password item in the Personal or Corporate area.
+
 ## Step 1: Launch the Akeyless Web Extension
 
 1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar.
@@ -23,21 +27,18 @@ PWM 2.0 keeps the same create-password flow while improving password generation 
 
 ![Illustration for: Step 2: Access the Password Creation Form](https://files.readme.io/9d80c86-Screenshot_2024-02-22_at_14.22.38.png)
 
-Click on the "New Item" button. This will open the Akeyless Password Creation form.
-
-Enter a name for the password in the "Password Name" field.
-
-Optionally, enter a description for the password in the "Description" field.
-
-Optionally, click on the "Generate Password" button. This will generate a strong password, or you can enter the password manually.
+1. Click **New Item**.
+2. Enter the password name.
+3. Optionally, add a description.
+4. Generate a password or enter one manually.
 
 ## Step 3: Define Password Name and Location
 
-In the "Password Name" field, enter a unique and easily recognizable name for the password.
+Choose the target location for the password:
 
-Optionally, you can specify the "Password Location" using the drop-down menu. to choose between "Corporate" and "Personal" areas to store the password.
-
-If you want to store the password in a folder, you can create a new folder by providing the name in the location field.
+* Personal area
+* Corporate area
+* A folder within the selected area
 
 > ℹ️ **Note:**
 >
@@ -47,29 +48,23 @@ If you want to store the password in a folder, you can create a new folder by pr
 
 ## Step 4: Enhance Security and Add Context
 
-In the "Description" field, you can optionally provide additional details about the password, such as the associated website, service, or application.
+Optionally, add supporting details such as the related website, service, or application.
 
-To safeguard the password from accidental or unauthorized deletion, select the "Delete Protection" checkbox.
+If needed, enable delete protection to reduce accidental deletion.
 
 ## Step 5: Generate and Save the Password
 
-Click on the "Generate Password" button.
-
-The Akeyless Web Extension will generate a password according to the active password rules and generation preferences.
+Generate the password according to the active password policy and generation preferences.
 
 PWM 2.0 adds stronger generation guidance, including improved password-strength feedback and support for tuning allowed special characters.
 
-Once satisfied, click on the "Save" button.
+When the password is ready, click **Save**.
 
-The Akeyless Web Extension will securely store the password and automatically fill it into the password field.
+The extension stores the item in the selected area.
 
 ## Step 6: Access Saved Passwords
 
-To access saved passwords, click on the Akeyless Web Extension icon in your browser's toolbar.
-
-The Akeyless Web Extension Password Manager will open, displaying a list of your saved passwords.
-
-Click on the desired password to view its details or copy it to your clipboard.
+Open the extension to view saved passwords, review item details, or copy values.
 
 ## Password Strength Policy
 
@@ -98,3 +93,11 @@ Meets at least 2 of the other 4 criteria (uppercase, lowercase, numbers, special
 ### Red: Weak Password
 
 Fails to meet the criteria for either green or yellow
+
+## Related Tasks
+
+After creating a password, you can:
+
+* Add it to Favorites.
+* Use it for autofill.
+* Add OTP data if the site requires MFA.

@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+## Overview
+
+Use this workflow to create a static secret item in the extension.
+
 ## Step 1: Launch the Akeyless Web Extension
 
 1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar.
@@ -19,20 +23,27 @@ next:
 
 ## Step 2: Access the Password Creation Form
 
-Click on the "New Item" button. This will open the Akeyless Password Creation form.
-
-Go to the Static Secret tab.
-
-Enter a name for the password in the "Secret Name" field
-
-Optionally, enter a description for the secret in the "Description" field.
+1. Click **New Item**.
+2. Open the **Static Secret** tab.
+3. Enter the secret name.
+4. Optionally, add a description.
 
 ## Step 3: Define Var and Location
 
-In the `Var` field, enter a unique combination of letters, symbols, and numbers. The value length should be 16 KB.
+Enter the secret value in the `Var` field.
 
 ![Illustration for: Step 3: Define Var and Location In the Var field, enter a unique combination of letters, symbols, and numbers. The value length should be 16 KB.](https://files.readme.io/774a6f9-Screenshot_2024-02-22_at_14.23.19.png)
 
-Optionally, you can specify the "Password Location" using the drop-down menu. to choose between "Corporate" and "Personal" areas to store the password.
+Then choose the target location:
 
-If you want to store the password in a folder, you can create a new folder by providing the name in the location field.
+* Personal area
+* Corporate area
+* A folder within the selected area
+
+## Save the Secret
+
+After entering the value and location, click **Save**.
+
+## Related Topic
+
+For structured values, see the page about supported value formats.

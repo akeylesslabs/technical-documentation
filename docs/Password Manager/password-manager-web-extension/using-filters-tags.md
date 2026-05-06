@@ -12,56 +12,45 @@ next:
 ---
 ## Filtering Passwords and Secrets
 
-The Akeyless Password Manager web browser extension provides a powerful filtering feature to help you quickly find the passwords and secrets you need. You can filter passwords and secrets by using types, tags, or a combination of both.
+Use filters to narrow the current item list by type, tags, or both.
 
 ## Using Types
 
 ![Illustration for: Using Types](https://files.readme.io/1525939-Screenshot_2024-01-10_at_16.51.06.png)
 
-Types are custom identifiers that you can assign to passwords and secrets. This can be helpful for organizing passwords and secrets according to their purpose or website.
+Types help group items by purpose or item category.
 
-### To Filter Passwords and Secrets by Labels
+### Filter by Types
 
-Click on the "Filter" button in the top right corner of the Personal or Corporate Area.
-
-Select the "Types" tab.
-
-Click on the checkbox next to the types you want to filter by.
-
-Click on the "Apply" button.
-
-The filtered passwords and secrets will be displayed in the Personal or Corporate Area.
+1. Click **Filter** in the current area.
+2. Open the **Types** tab.
+3. Select the required types.
+4. Click **Apply**.
 
 ## Using Tags
 
-Tags are predefined keywords that are associated with passwords and secrets. Tags can be used to further categorize passwords and secrets.
+Tags help categorize items beyond their basic type.
 
 ![Illustration for: Tags are predefined keywords that are associated with passwords and secrets. Tags can be used to further categorize passwords and secrets.](https://files.readme.io/c13164c-Screenshot_2024-01-10_at_16.50.58.png)
 
-### To Filter Passwords and Secrets by Tags
+### Filter by Tags
 
-Click on the "Filter" button in the top right corner of the Personal or Corporate Area.
-
-Select the "Tags" tab.
-
-Click on the checkbox next to the tags you want to filter by.
-
-Click on the "Apply" button.
-
-The filtered passwords and secrets will be displayed in the Personal or Corporate Area.
+1. Click **Filter** in the current area.
+2. Open the **Tags** tab.
+3. Select the required tags.
+4. Click **Apply**.
 
 ## Combining Types and Tags
 
-You can combine labels and tags to create even more powerful filters. For example, you could filter passwords and secrets that have the label "banking" and the tag "personal."
+You can combine types and tags in the same filter selection.
 
-### To Filter Passwords and Secrets by Labels and Tags
+### Combine Types and Tags
 
-Click on the "Filter" button in the top right corner of the Personal or Corporate Area.
+1. Click **Filter**.
+2. Select the required types.
+3. Select the required tags.
+4. Click **Apply**.
 
-Select the "Types" tab and select the desired labels.
+## Tip
 
-Select the "Tags" tab and select the desired tags.
-
-Click on the "Apply" button.
-
-The filtered passwords and secrets will be displayed in the Personal or Corporate Area.
+Use filters together with search when the same application or environment has multiple related items.

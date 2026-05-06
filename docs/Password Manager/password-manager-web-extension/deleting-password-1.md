@@ -10,42 +10,28 @@ metadata:
 next:
   description: ''
 ---
-There are two ways to delete passwords and secrets using the Akeyless Password Manager web browser extension:
+You can delete an item from the list view or from the item details view.
 
-## Method 1: Using the Quick Action Menu
+## Delete from the Item List
 
 ![Illustration for: Method 1: Using the Quick Action Menu](https://files.readme.io/62cf452-Screenshot_2024-01-10_at_16.46.49.png)
 
-Hover over the password or secret you want to delete in the password or secrets list.
-
-A small menu will appear.
-
-Click on the three dots icon to open the quick action menu.
-
-Select the "Delete" option.
-
-A pop-up window will appear asking you to confirm that you want to delete the password or secret.
-
-Click on the "Delete" button.
-
-The password or secret will be deleted.
+1. Locate the password or secret in the list.
+2. Open the item actions menu.
+3. Select **Delete**.
+4. Confirm the deletion.
 
 ![Illustration for: A pop-up window will appear asking you to confirm that you want to delete the password or secret. Click on the "Delete" button. The password or secret will be deleted.](https://files.readme.io/cc914f5-Screenshot_2024-01-10_at_16.47.07.png)
 
-## Method 2: Using the Delete Action Button
+## Delete from the Item Details View
 
-Open the password or secret item you want to delete.
+1. Open the password or secret.
+2. Scroll to the bottom of the item details view.
+3. Click **Delete**.
+4. Confirm the deletion.
 
-Scroll down to the bottom of the page.
+## Important
 
-Click on the "Delete" button.
-
-A pop-up window will appear asking you to confirm that you want to delete the password or secret.
-
-Click on the "Delete" button.
-
-The password or secret will be deleted.
-
-## Additional Note
-
-Once a password or secret is deleted, it cannot be recovered.
+> ⚠️ **Warning:**
+>
+> Once an item is deleted, it cannot be recovered from the extension workflow.

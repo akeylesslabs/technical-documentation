@@ -19,7 +19,7 @@ The Akeyless Password Manager Web Extension provides browser-based access to pas
 Use this section as the starting point for PWM 2.0 workflows:
 
 1. Install the extension and sign in.
-2. Configure tenant, LDAP, or enterprise deployment settings if needed.
+2. Configure Advanced Options, tenant, LDAP, or enterprise deployment settings if needed.
 3. Create or import passwords.
 4. Use autofill, OTP, and passkey features during sign-in.
 5. Review Security Health in the personal vault.
@@ -72,6 +72,17 @@ The following PWM 2.0 areas still need additional validation or assets before th
 * Confirmed supported values for preconfigured authentication fields.
 * Updated screenshots for Security Health, passkey workflows, and multi-step OTP injection.
 * Source-verified setup details for browser-admin deployment patterns beyond the current Chromium example.
+
+## Suggested Entry Points
+
+Use these pages for common tasks:
+
+* Installation and sign-in.
+* Advanced Options and environment configuration.
+* Password and secret creation.
+* CSV import.
+* Autofill, OTP, and passkeys.
+* Security Health.
 
 ## Tutorial
 

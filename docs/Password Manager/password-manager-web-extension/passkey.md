@@ -94,9 +94,9 @@ Steps:
 
 1. Open the web extension.
 2. Click on the three-dot menu in the upper-right corner of the extension.
-3. Locate the Passkey Authentication Toggle option.
-4. Use the toggle button to enable or disable Passkey Authentication:
-5. When enabled, the extension will use passkeys for supported logins.
-6. When disabled, passkey functionality will be turned off.
+3. Locate the Passkey Authentication toggle in settings.
+4. Turn the setting on or off.
+5. When enabled, the extension can provide passkey-based login suggestions on supported pages.
+6. When disabled, passkey functionality is not used for sign-in suggestions.
 
 * Note: Disabling Passkey Authentication does not delete saved passkeys but prevents them from being used until re-enabled.

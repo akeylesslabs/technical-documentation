@@ -14,24 +14,23 @@ next:
 
 ![Illustration for: Accessing Secret Generation Policy](https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png)
 
-Open the Akeyless browser extension.
-
-Navigate to the "Settings" menu on the bottom represented as 3 dots on the upper top part of the screen.
-
-Locate and click on "Password Generation Policy" in the displayed, click on this option.
-
-A Password Generation Policy screen will appear, providing options to configure the secret generation policy.
+1. Open the extension.
+2. Open the three-dot menu.
+3. Select **Password Generation Policy**.
+4. Review and update the default password-generation settings.
 
 ## Define the Following Parameters
 
-**Character Length**: Set the desired default length for secrets created within your account.
+**Character Length**: Set the default password length.
 
-**Include Uppercase Letters (A-Z):** Check this box to require at least one uppercase letter in the secret. If solely selected, the secret will consist exclusively of uppercase letters.
+**Include Uppercase Letters (A-Z):** Require uppercase letters.
 
-**Include Lowercase Letters (a-z):** Check this box to ensure at least one lowercase letter is included in the secret. If solely selected, the secret will consist exclusively of lowercase letters.
+**Include Lowercase Letters (a-z):** Require lowercase letters.
 
-**Include Numbers (0-9):** Check this box to mandate at least one numeric character in the secret. If solely selected, the secret will consist exclusively of numeric characters.
+**Include Numbers (0-9):** Require numbers.
 
-**Include Special Characters (!@#):** Check this box to ensure at least one special character is included in the secret. If solely selected, the secret will consist exclusively of special characters.
+**Include Special Characters (!@#):** Require special characters.
 
-By configuring these settings, you establish a standardized default for secret generation in your organization's account. Users can still modify parameters during secret creation, but the defaults will adhere to the rules you've set.
+PWM 2.0 also improves password-generation guidance and supports tuning allowed special characters during generation.
+
+These settings provide the default generation behavior. Users can still work within the limits allowed by the configured policy.
