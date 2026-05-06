@@ -7,7 +7,7 @@ metadata:
 ---
 Encryption Key Policies let you centrally control how encryption keys are created and used across your Akeyless account. With these policies, you can define guardrails, such as:
 
-* Which key types are allowed as protection keys ([Classic Keys](https://docs.akeyless.io/docs/classic-keys) or [DFC](https://docs.akeyless.io/docs/dfc-overview-overview))
+* Which key types are allowed as protection keys ([Classic Keys](https://docs.akeyless.io/docs/classic-keys) or [DFC](https://docs.akeyless.io/docs/dfc-overview))
 * Which encryption algorithms may be used
 * The maximum supported rotation interval for symmetric keys so teams can move fast without drifting from your security standards.
 

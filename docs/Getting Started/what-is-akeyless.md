@@ -39,7 +39,7 @@ A deeper explanation of the architecture and its security properties is availabl
 
 Distributed Fragments Cryptography (DFC) is the cryptographic framework that enables the Zero-Knowledge Encryption architecture. Instead of storing full encryption keys, DFC divides key material into multiple independent fragments. No single system ever holds the complete key, and an optional customer-held fragment allows organizations to retain exclusive control over critical operations.
 
-[Read more about Distributed Fragments Cryptography (DFC).](https://docs.akeyless.io/docs/dfc-overview-overview)
+[Read more about Distributed Fragments Cryptography (DFC).](https://docs.akeyless.io/docs/dfc-overview)
 
 ***
 
