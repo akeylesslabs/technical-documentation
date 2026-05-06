@@ -18,7 +18,7 @@ To start on your Akeyless journey, follow these steps to initiate the setup proc
 * Navigate to Akeyless Sign-In Page: Access the Akeyless sign-in page by entering the provided URL in your web browser's address bar.
 * Enter Your Credentials: Enter your Akeyless account credentials, including your username and password. Ensure that the credentials are accurate and correspond to your Akeyless account.
 * Initiate Setup Process: Upon entering your credentials, click the "Sign In" button to initiate the setup process. Akeyless will guide you through the setup steps, providing clear instructions and prompts.
-* Complete Setup: Follow the on-screen instructions to complete the setup process. This may involve configuring your preferred Akeyless settings, enabling two-factor authentication, and installing the [Akeyless browser extension](https://docs.akeyless.io/docs/password-manager-overview-web-extension).
+* Complete Setup: Follow the on-screen instructions to complete the setup process. This may involve configuring your preferred Akeyless settings, enabling two-factor authentication, and installing the [Akeyless browser extension](https://docs.akeyless.io/docs/password-manager-web-extension).
 
 Get to know your [Personal and Corporate folders](https://docs.akeyless.io/docs/personal-corporate-favorites-areas-navigation)
 

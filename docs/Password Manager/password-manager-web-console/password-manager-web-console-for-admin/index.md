@@ -62,7 +62,7 @@ Exert granular control over your team's access to Akeyless by leveraging compreh
 
 ## Unified Akeyless Experience Across Devices
 
-Maintain a consistent and secure experience for your team by enforcing regular updates to the Akeyless [browser extension](https://docs.akeyless.io/docs/password-manager-overview-web-extension) and [mobile application](https://docs.akeyless.io/docs/password-manager-overview-mobile-application) across all devices. This ensures that your team always has access to the latest security features and protection.
+Maintain a consistent and secure experience for your team by enforcing regular updates to the Akeyless [browser extension](https://docs.akeyless.io/docs/password-manager-web-extension) and [mobile application](https://docs.akeyless.io/docs/password-manager-mobile-application) across all devices. This ensures that your team always has access to the latest security features and protection.
 
 ## Securely Share Secrets With Anyone, Anytime
 

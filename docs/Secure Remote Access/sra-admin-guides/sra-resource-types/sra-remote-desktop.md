@@ -98,7 +98,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 ## Inject a Fixed User Password Automatically
 
-While working with fixed users, Secure Remote Access can automatically inject your **own** password if stored under your **[personal folder](https://docs.akeyless.io/docs/password-manager-overview-overview)**.
+While working with fixed users, Secure Remote Access can automatically inject your **own** password if stored under your **[personal folder](https://docs.akeyless.io/docs/password-manager-overview)**.
 
 Create a new [Static Secret](https://docs.akeyless.io/docs/static-secrets) under your **personal** folder with the exact full name of the relevant [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 

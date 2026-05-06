@@ -50,8 +50,8 @@ When you share a key with one of the supported Cloud KMS providers, a copy of th
 
 Akeyless KMS integrates with the following Cloud KMS providers:
 
-* [AWS KMS](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws-kms)
-* [Azure Key Vault](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-kms)
+* [AWS KMS](https://docs.akeyless.io/docs/aws-kms)
+* [Azure Key Vault](https://docs.akeyless.io/docs/azure-kms)
 * [Google Cloud EKM](https://docs.akeyless.io/docs/gcp-kms)
 * [Salesforce Shield](https://docs.akeyless.io/docs/salesforce-shield)
 

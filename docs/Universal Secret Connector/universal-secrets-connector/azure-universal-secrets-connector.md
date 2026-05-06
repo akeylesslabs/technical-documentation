@@ -43,7 +43,7 @@ Use this sequence when onboarding an Azure Key Vault to Universal Secrets Connec
    * **Required for secrets:** Key Vault Secrets Officer or similar role.
    * **Optional for certificate operations:** Key Vault Certificates Officer or similar role.
 
-4. Create an Akeyless Azure target. For detailed target setup instructions, see [Azure AD Targets](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-targets).
+4. Create an Akeyless Azure target. For detailed target setup instructions, see [Azure AD Targets](https://docs.akeyless.io/docs/azure-targets).
 
 5. Create the Azure USC and associate it to the target.
 
@@ -363,7 +363,7 @@ Resolution:
 
    * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
 
-   * **Target:** Select an existing [Azure Target](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-targets).
+   * **Target:** Select an existing [Azure Target](https://docs.akeyless.io/docs/azure-targets).
 
    * **Gateway:** Select the desired corresponding Gateway.
 

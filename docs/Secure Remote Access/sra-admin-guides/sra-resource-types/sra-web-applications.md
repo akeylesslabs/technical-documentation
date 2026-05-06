@@ -26,9 +26,9 @@ The following browsing modes are available:
 
 ## Prerequisites
 
-* The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) deployed.
+* The [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s) deployed.
 
-* Akeyless [Browser Extension](https://docs.akeyless.io/docs/password-manager-overview-web-extension).
+* Akeyless [Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
 
 This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: `username..password`. that is a concatenation of your username and password, with double dots as a delimiter.
 
@@ -48,8 +48,8 @@ akeyless update-item --name <static secret name> /
 Where:
 
 * `secure-access-url`: The web application login URL to inject secret.
-* `secure-access-web-browsing`: Optional, secure web browsing over isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
-* `secure-access-web-proxy`: Optional, secure web-proxy, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `secure-access-web-browsing`: Optional, secure web browsing over isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
+* `secure-access-web-proxy`: Optional, secure web-proxy, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 > ⚠️ **Warning:**
 >
@@ -71,12 +71,12 @@ Let's set up remote access to the web application from the Akeyless Console. If 
 
 * `Injection URL`: The web application login URL to inject secrets.
 
-* `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
-* `Secure Web Proxy`: Optional, secure web proxy by way of the bastion, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `Secure Web Proxy`: Optional, secure web proxy by way of the bastion, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 ### Secure Web Browsing (Isolated)
 
-Secure Web Browsing available for applications any web application, includes, self managed Kubernetes dashboard URL, AWS and Azure Portal, those application can be accessed in isolated mode. This method adds an extra layer of security in the usage of credentials injection. This mode requires A [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+Secure Web Browsing available for applications any web application, includes, self managed Kubernetes dashboard URL, AWS and Azure Portal, those application can be accessed in isolated mode. This method adds an extra layer of security in the usage of credentials injection. This mode requires A [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 All secrets which have **Secure Web Browsing** option enabled are marked with a badge in the Akeyless Secure Remote Access Portal.

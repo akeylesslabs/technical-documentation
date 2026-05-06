@@ -20,7 +20,7 @@ To enable Secure Remote Access to an LDAP server you need:
 
 ## Create an LDAP Secret
 
-If you don't already have an LDAP secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/auth-with-ldap-dynamic-secret) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret) that specifies the server details and access credentials.
+If you don't already have an LDAP secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/ldap-dynamic-secret) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret) that specifies the server details and access credentials.
 
 If you already have a relevant secret, continue below.
 

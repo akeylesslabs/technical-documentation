@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define an LDAP target to be used with [LDAP Dynamic Secrets](https://docs.akeyless.io/docs/auth-with-ldap-dynamic-secret) or [LDAP Rotated Secrets](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret).
+You can define an LDAP target to be used with [LDAP Dynamic Secrets](https://docs.akeyless.io/docs/ldap-dynamic-secret) or [LDAP Rotated Secrets](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret).
 
 ## Create an LDAP Target with the CLI
 

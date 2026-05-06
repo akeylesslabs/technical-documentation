@@ -12,9 +12,9 @@ next:
 ---
 You can define Kubernetes (K8s) targets to be used with Dynamic Secrets for the following supported Kubernetes types:
 
-* [Amazon Elastic Kubernetes Service (EKS)](https://docs.akeyless.io/docs/kubernetes-pluginss-targets#eks)
-* [Google Kubernetes Engine (GKE)](https://docs.akeyless.io/docs/kubernetes-pluginss-targets#gke)
-* [Kubernetes (K8s) Generic](https://docs.akeyless.io/docs/kubernetes-pluginss-targets#k8s-generic)
+* [Amazon Elastic Kubernetes Service (EKS)](https://docs.akeyless.io/docs/kubernetes-targets#eks)
+* [Google Kubernetes Engine (GKE)](https://docs.akeyless.io/docs/kubernetes-targets#gke)
+* [Kubernetes (K8s) Generic](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic)
 
 ## Amazon EKS
 

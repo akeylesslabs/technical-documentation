@@ -45,9 +45,9 @@ For example, the `microsoft.directory/applications/credentials/update` permissio
 
 > ℹ️ **Note:**
 >
-> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-targets). It both saves time for multiple secret-level configurations (by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-targets#create-an-azure-target-from-the-cli) each time), and it's also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/azure-targets). It both saves time for multiple secret-level configurations (by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/azure-targets#create-an-azure-target-from-the-cli) each time), and it's also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Azure AD secret with the CLI using an existing [Azure Target](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-targets), run the following command:
+To create a dynamic Azure AD secret with the CLI using an existing [Azure Target](https://docs.akeyless.io/docs/azure-targets), run the following command:
 
 ```shell
 akeyless dynamic-secret create azure \
@@ -104,7 +104,7 @@ Where:
 
 ### Inline Connection String
 
-If you don't have an [Azure AD Target](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-targets) yet, you can use the command with your Azure AD connection settings:
+If you don't have an [Azure AD Target](https://docs.akeyless.io/docs/azure-targets) yet, you can use the command with your Azure AD connection settings:
 
 * `azure-tenant-id`: Azure Tenant ID.
 
@@ -126,7 +126,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 > ℹ️ **Note:**
 >
-> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-ad-dynamic-secrets#create-a-dynamic-azure-ad-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets#create-a-dynamic-azure-ad-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
@@ -140,7 +140,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (for example, if you are not authorized to create and access Targets in the Akeyless Console).
 
-        * Use the **Choose an existing target** drop-down list to select the existing [Azure AD Target](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-targets).
+        * Use the **Choose an existing target** drop-down list to select the existing [Azure AD Target](https://docs.akeyless.io/docs/azure-targets).
 
         * Check the **Explicitly specify target properties** to provide details of the target Azure AD in the next step.
 

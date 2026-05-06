@@ -18,7 +18,7 @@ To enable Secure Remote Access to Azure Portal you need:
 
 * [Remote Access on Kubernetes](https://docs.akeyless.io/docs/sra-setup-k8s) deployed.
 
-* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-overview-web-extension).
+* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
 
 In addition, for users to access the Azure Portal in Isolated mode, you need:
 
@@ -27,7 +27,7 @@ In addition, for users to access the Azure Portal in Isolated mode, you need:
 
 ## Create an Azure Secret
 
-If you don't already have an Azure AD secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure-ad-dynamic-secrets) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-azure-rotated-secret) that specifies the Azure AD account details and access credentials.
+If you don't already have an Azure AD secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-azure-rotated-secret) that specifies the Azure AD account details and access credentials.
 
 If you already have a relevant secret, continue below.
 
@@ -54,7 +54,7 @@ akeyless rotated-secret update azure \
 
 where:
 
-By default, access to the Azure portal will use direct network access mode. To work with Akeyless [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) for session isolation or as a secure proxy entry point, please set **one** of the following:
+By default, access to the Azure portal will use direct network access mode. To work with Akeyless [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s) for session isolation or as a secure proxy entry point, please set **one** of the following:
 
 * `secure-access-web-browsing`: Optional, secure browser by way of Akeyless Web Access Bastion.
 
@@ -83,9 +83,9 @@ Let's set up remote access to the Azure Portal from the Akeyless Console. If you
 
     * `Direct connection`: Default, using a direct connection to AWS portal by way of Akeyless Secure Remote Access Bastion.
 
-    * `Secure Web Browsing`: Optional, only required to enable access to the Azure Portal in Isolated mode, which restricts user access to other websites while they are logged in to the portal. **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+    * `Secure Web Browsing`: Optional, only required to enable access to the Azure Portal in Isolated mode, which restricts user access to other websites while they are logged in to the portal. **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
-    * `Secure Web Proxy`: Optional, secure web proxy mode **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+    * `Secure Web Proxy`: Optional, secure web proxy mode **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
