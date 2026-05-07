@@ -28,7 +28,9 @@ Users can be prompted to enable autofill in two common situations:
 3. Select the suggested credential from Akeyless Password Manager.
 4. Complete any required biometric or device-authentication prompt.
 
-## Enable Autofill on iOS
+## Enable Autofill
+
+### On iOS
 
 1. Open **Settings** on the iOS device.
 2. Open **Passwords** or **Passwords & Accounts**, depending on the iOS version.
@@ -40,7 +42,7 @@ When you open a login screen in Safari or an app, iOS can offer saved credential
 
 ![Illustration for: With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure.](https://files.readme.io/c309879-File_3.jpg)
 
-## Enable Autofill on Android
+### On Android
 
 1. Open **Settings** on the Android device.
 2. Open **System** and then **Languages & Input**. On some devices, these labels can vary.
