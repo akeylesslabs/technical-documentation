@@ -1,5 +1,6 @@
 ---
-title: Configure Custom/Specific Tenant
+title: Configure Custom and Specific Tenant
+
 slug: pwm-ext-configure-custom-specific-tenant
 excerpt: ''
 deprecated: false

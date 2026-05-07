@@ -1,5 +1,5 @@
 ---
-title: Sharing Password / Secret
+title: Sharing Password or Secret
 
 slug: pwm-ext-sharing-password
 excerpt: ''

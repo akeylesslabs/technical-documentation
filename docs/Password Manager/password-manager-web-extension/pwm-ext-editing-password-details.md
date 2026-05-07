@@ -1,5 +1,5 @@
 ---
-title: Editing Password / Secret Details
+title: Editing Password or Secret Details
 
 slug: pwm-ext-editing-password-details
 excerpt: ''

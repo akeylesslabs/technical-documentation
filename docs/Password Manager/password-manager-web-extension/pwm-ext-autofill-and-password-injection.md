@@ -1,5 +1,5 @@
 ---
-title: Using Autofill/Password Injection Functionality
+title: Using Autofill and Password Injection Functionality
 
 slug: pwm-ext-autofill-and-password-injection
 excerpt: ''

@@ -1,5 +1,5 @@
 ---
-title: Configure Custom/Specific Tenant
+title: Configure Custom and Specific Tenant
 
 slug: pwm-mobile-configure-custom-specific-tenant
 excerpt: ''
@@ -16,15 +16,17 @@ Use this workflow to configure a custom tenant URL for mobile sign-in.
 
 ![Illustration for: This innovative feature allows users of the Password Manager application to enhance their experience by setting up a custom or specific tenant URL. This functionality is…](https://files.readme.io/e2cd65b-Screenshot_2024-03-20_at_11.16.36.png)
 
-## Detailed Instructions for Configuring Your Custom/Specific Tenant URL in the Password Manager Application
+## Detailed Instructions for Configuring Your Custom and Specific Tenant URL in the Password Manager Application
 
 1. Open the mobile app.
 2. Open settings.
 3. Open tenant URL configuration.
 
-## Entering the Custom/Specific Tenant URL
+## Entering the Custom and Specific Tenant URL
 
 Enter the tenant URL provided by your administrator.
+
+For administrator-managed tenant URL setup guidance, see [Configure Custom and Specific Tenant (Web Extension)](https://docs.akeyless.io/docs/pwm-ext-configure-custom-specific-tenant).
 
 ## Saving Your Configuration
 

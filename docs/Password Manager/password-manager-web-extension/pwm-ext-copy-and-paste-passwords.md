@@ -1,5 +1,6 @@
 ---
-title: Copy/Paste Functionality for Passwords
+title: Copy and Paste Functionality for Passwords
+
 slug: pwm-ext-copy-and-paste-passwords
 excerpt: ''
 deprecated: false

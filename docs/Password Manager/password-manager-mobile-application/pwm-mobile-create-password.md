@@ -1,5 +1,6 @@
 ---
-title: Creating New Password
+title: Creating New Password
+
 slug: pwm-mobile-create-password
 excerpt: ''
 deprecated: false
@@ -64,7 +65,7 @@ Confirmation: The app will confirm that your password has been saved. It's now s
 
 ![Illustration for: Confirmation: The app will confirm that your password has been saved. It's now securely stored and accessible within the app, ready for use whenever you need it.](https://files.readme.io/7569fe6-Screenshot_2023-11-05_at_14.07.50.png)
 
-## Creating a New Password from Akeyless Injection / Autofill Window
+## Creating a New Password from Akeyless Injection and Autofill Window
 
 ![Illustration for: Creating a New Password from Akeyless Injection / Autofill Window](https://files.readme.io/e26ea04-Screenshot_2023-11-05_at_14.55.06.png)
 

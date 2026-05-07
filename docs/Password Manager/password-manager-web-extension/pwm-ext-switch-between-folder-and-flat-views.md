@@ -1,5 +1,5 @@
 ---
-title: Password / Secrets List Switching Between Folders & Flat View
+title: Password and Secrets List Switching Between Folders and Flat View
 
 slug: pwm-ext-switch-between-folder-and-flat-views
 excerpt: ''

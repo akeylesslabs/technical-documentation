@@ -1,5 +1,5 @@
 ---
-title: Choosing Password Location/Folder
+title: Choosing Password Location and Folder
 
 slug: pwm-mobile-choose-password-location-folder
 excerpt: ''
