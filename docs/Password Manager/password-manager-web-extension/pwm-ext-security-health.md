@@ -12,8 +12,6 @@ metadata:
 next:
   description: ''
 ---
-## Overview
-
 Security Health provides a personal-vault view of password hygiene. It helps users review password strength, breach exposure, and other signals that can indicate elevated account risk.
 
 ## What Security Health Shows

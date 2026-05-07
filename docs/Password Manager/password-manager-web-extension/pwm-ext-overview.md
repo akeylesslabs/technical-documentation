@@ -12,8 +12,6 @@ metadata:
 next:
   description: ''
 ---
-## Overview
-
 The Akeyless Password Manager Web Extension provides browser-based access to passwords, secrets, one-time passwords (OTPs), and passkeys.
 
 ## Recommended Reading Order

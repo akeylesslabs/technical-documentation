@@ -12,8 +12,6 @@ metadata:
 next:
   description: ''
 ---
-## Overview
-
 Advanced Options provides environment-specific settings for the Password Manager Web Extension.
 
 ## Available Settings

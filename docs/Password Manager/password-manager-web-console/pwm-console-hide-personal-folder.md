@@ -12,8 +12,6 @@ metadata:
 next:
   description: ''
 ---
-## Overview
-
 The Hide Personal Folder feature provides administrators with the ability to control the visibility of the Personal Folder for end users. This setting is accessible through a simple toggle in the Akeyless Password Manager console, and is also configurable by way of the [CLI](https://docs.akeyless.io/docs/cli-reference#update-account-settings).
 
 Use this control to enforce organization-wide folder visibility policy.

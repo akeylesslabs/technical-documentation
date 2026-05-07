@@ -12,8 +12,6 @@ metadata:
 next:
   description: ''
 ---
-## Overview
-
 The extension supports OTP workflows for saved credentials. OTP values can be added from QR content or from manual `otpauth://`-compatible data, and supported sign-in pages can use those values during autofill and injection flows.
 
 ## Add an OTP by Scanning QR Content

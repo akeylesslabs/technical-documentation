@@ -12,8 +12,6 @@ metadata:
 next:
   description: ''
 ---
-## Overview
-
 Use this enterprise deployment pattern to prefill authentication fields in the Akeyless Password Manager browser extension. The workflow helps IT teams reduce first-login friction and guide users to approved authentication methods.
 
 The workflow in this page is based on internal guidance captured in DOCS-688 and is validated for managed Chromium deployments.

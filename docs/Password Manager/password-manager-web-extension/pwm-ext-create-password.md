@@ -14,8 +14,6 @@ next:
 ---
 This create-password flow includes improved password generation and password-strength feedback.
 
-## Overview
-
 Use this workflow to create a password item in the Personal or Corporate area.
 
 ## Step 1: Launch the Akeyless Web Extension

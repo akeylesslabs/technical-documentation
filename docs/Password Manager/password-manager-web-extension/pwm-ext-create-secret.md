@@ -12,8 +12,6 @@ metadata:
 next:
   description: ''
 ---
-## Overview
-
 Use this workflow to create a static secret item in the extension.
 
 ## Step 1: Launch the Akeyless Web Extension
