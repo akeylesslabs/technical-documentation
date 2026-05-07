@@ -14,7 +14,9 @@ next:
 ---
 ## Overview
 
-The Akeyless Password Manager Web Extension provides browser-based access to passwords, secrets, one-time passwords (OTPs), and passkeys. PWM 2.0 expands this experience with improved password generation, stronger autofill support for multi-step sign-in flows, passkey enhancements, Security Health insights, and enterprise deployment options.
+The Akeyless Password Manager Web Extension provides browser-based access to passwords, secrets, one-time passwords (OTPs), and passkeys.
+
+This page separates currently documented-and-verified capabilities from items that still require validation.
 
 ## Recommended Reading Order
 
@@ -26,11 +28,11 @@ Use this section as the starting point for PWM 2.0 workflows:
 4. Use autofill, OTP, and passkey features during sign-in.
 5. Review Security Health in the personal vault.
 
-## PWM 2.0 Capabilities
+## Verified Capabilities
 
 ### Password creation and import
 
-PWM 2.0 includes the following updates for password management workflows:
+The extension documentation currently supports the following password-management workflows:
 
 * Strong password generation with improved feedback.
 * Tuning for allowed special characters when generating passwords.
@@ -39,24 +41,22 @@ PWM 2.0 includes the following updates for password management workflows:
 
 ### Sign-in assistance
 
-PWM 2.0 improves sign-in support for browser workflows:
+The extension supports these sign-in workflows:
 
 * Username and password autofill for supported pages.
 * OTP support for scanned and manually added `otpauth://` values.
-* Better handling for pages that split username, password, and OTP across multiple steps.
-* Better handling for masked OTP and other MFA-style fields.
 
 ### Passkeys
 
-PWM 2.0 expands passkey support with:
+The extension supports passkey workflows including:
 
 * Passkey creation and sign-in flows from the extension.
 * A passkey toggle in advanced settings.
-* Reliability improvements for site matching and passkey suggestions on supported relying parties.
+* Site-matching and suggestion behavior on supported relying parties.
 
 ### Security Health
 
-PWM 2.0 adds Security Health for personal-vault review, including:
+Security Health support for personal-vault review includes:
 
 * A protection score view.
 * Visual breakdowns of password hygiene metrics.
@@ -75,6 +75,14 @@ The following PWM 2.0 areas still need additional validation or assets before th
 * Updated screenshots for Security Health, passkey workflows, and multi-step OTP injection.
 * Source-verified setup details for browser-admin deployment patterns beyond the current Chromium example.
 
+## Pending Validation Items
+
+The following claims should remain provisional until validation artifacts are added:
+
+* Detailed behavior for multi-step sign-in flows that split username, password, and OTP across multiple screens.
+* Exact behavior for masked OTP and MFA-style fields across target websites.
+* Passkey matching behavior details across relying-party edge cases.
+
 ## Suggested Entry Points
 
 Use these pages for common tasks:
@@ -85,6 +93,16 @@ Use these pages for common tasks:
 * CSV import.
 * Autofill, OTP, and passkeys.
 * Security Health.
+
+## Task-Based Cross-Platform Navigation
+
+Use these links when a workflow exists in both extension and mobile docs:
+
+* Create a password: [https://docs.akeyless.io/docs/pwm-ext-create-password](https://docs.akeyless.io/docs/pwm-ext-create-password) and [https://docs.akeyless.io/docs/pwm-mobile-create-password](https://docs.akeyless.io/docs/pwm-mobile-create-password)
+* Create a static secret: [https://docs.akeyless.io/docs/pwm-ext-create-secret](https://docs.akeyless.io/docs/pwm-ext-create-secret) and [https://docs.akeyless.io/docs/pwm-mobile-create-static-secret](https://docs.akeyless.io/docs/pwm-mobile-create-static-secret)
+* Autofill and injection: [https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection) and [https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
+* OTP workflows: [https://docs.akeyless.io/docs/pwm-ext-otp](https://docs.akeyless.io/docs/pwm-ext-otp) and [https://docs.akeyless.io/docs/pwm-mobile-otp](https://docs.akeyless.io/docs/pwm-mobile-otp)
+* Password policy settings: [https://docs.akeyless.io/docs/pwm-ext-setting-password-policy-on-account-level](https://docs.akeyless.io/docs/pwm-ext-setting-password-policy-on-account-level) and [https://docs.akeyless.io/docs/pwm-mobile-setting-password-policy-on-account-level](https://docs.akeyless.io/docs/pwm-mobile-setting-password-policy-on-account-level)
 
 ## Tutorial
 

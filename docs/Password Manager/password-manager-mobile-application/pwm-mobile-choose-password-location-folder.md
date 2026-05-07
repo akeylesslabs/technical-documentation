@@ -1,9 +1,10 @@
 ---
-title: Choosing Password Location/Folder
+title: Choosing Password Location/Folder
+
 slug: pwm-mobile-choose-password-location-folder
 excerpt: ''
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''

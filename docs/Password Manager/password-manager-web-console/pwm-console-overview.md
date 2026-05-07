@@ -1,5 +1,6 @@
 ---
-title: Password Manager Web Console
+title: Password Manager Web Console
+
 slug: pwm-console-overview
 excerpt: ''
 deprecated: false
@@ -13,29 +14,30 @@ next:
 ---
 ## As an Admin
 
-The Akeyless Password Manager Console provides a comprehensive overview of all user accounts, roles, and permissions within the organization. This centralized hub enables you to efficiently manage user access privileges, define granular permissions, and enforce security policies.
+The Password Manager web console provides password-focused visibility for admins, with emphasis on Security Health and usage-oriented monitoring workflows.
 
-The console also offers powerful tools for auditing and monitoring user activity, ensuring that your organization's password management practices adhere to compliance requirements. Additionally, the console's intuitive interface facilitates seamless integration with third-party systems, such as CI/CD pipelines and IT service management (ITSM) platforms.
+Use the admin pages in this section for:
 
-Here are some of the key features of the Akeyless Password Manager Console for admins:
+* Security Health review and risk follow-up.
+* Usage-report access for password-management activity.
+* Personal-folder visibility control where applicable.
 
-* Centralized user management: Create, manage, and delete user accounts, assign roles and permissions, and enforce security policies.
-* Audit and monitoring: Track user activity, identify anomalies, and generate reports for compliance purposes.
-* Third-party integrations: Seamlessly integrate with CI/CD pipelines and ITSM platforms to automate password management workflows.
-* Role-Based Access Control (RBAC): Define granular permissions and assign roles to users based on their specific needs.
-* Security policies: Implement and enforce security policies, such as password rotation and multi-factor authentication (MFA).
+For broader account administration topics such as global RBAC and non-Password-Manager settings, use the administration sections outside this Password Manager area.
 
 ## As a User
 
-The Akeyless Password Manager Console provides a convenient and secure way to store, manage, and access your passwords. The console's intuitive interface makes it easy to create, edit, and delete passwords, as well as organize them into folders and categories.
+For day-to-day password creation, autofill, OTP, and passkey workflows, the primary user surfaces are the web extension and mobile app.
 
-The console also offers a variety of features to help you strengthen your password security, such as password generation, password rotation, and password sharing. Additionally, the console integrates with the Akeyless browser extension, allowing you to automatically inject saved passwords into websites with ease.
+Use these pages as the primary user entry points:
 
-Here are some of the key features of the Akeyless Password Manager Console for regular users:
+* Web Extension overview: [https://docs.akeyless.io/docs/pwm-ext-overview](https://docs.akeyless.io/docs/pwm-ext-overview)
+* Mobile Application overview: [https://docs.akeyless.io/docs/pwm-mobile-overview](https://docs.akeyless.io/docs/pwm-mobile-overview)
 
-* Secure password storage: Encrypt and store your passwords in a secure vault.
-* Easy password management: Create, edit, and delete passwords with ease.
-* Password organization: Organize passwords into folders and categories.
-* Strong password generation: Generate strong, unique passwords for all your accounts.
-* Password sharing: Share passwords securely with authorized team members.
-* Browser extension integration: Automatically inject saved passwords into websites with the Akeyless browser extension.
+## Task-Based Navigation
+
+Use the following pages for console-specific tasks:
+
+* Admin overview: [https://docs.akeyless.io/docs/pwm-console-admin-overview](https://docs.akeyless.io/docs/pwm-console-admin-overview)
+* Admin usage report: [https://docs.akeyless.io/docs/pwm-console-admin-usage-report](https://docs.akeyless.io/docs/pwm-console-admin-usage-report)
+* Security Health: [https://docs.akeyless.io/docs/pwm-console-security-health](https://docs.akeyless.io/docs/pwm-console-security-health)
+* Hide personal folder: [https://docs.akeyless.io/docs/pwm-console-hide-personal-folder](https://docs.akeyless.io/docs/pwm-console-hide-personal-folder)

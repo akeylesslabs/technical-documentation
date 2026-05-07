@@ -1,5 +1,6 @@
 ---
-title: Password Manager Mobile Application
+title: Password Manager Mobile Application
+
 slug: pwm-mobile-overview
 excerpt: ''
 deprecated: false
@@ -13,17 +14,28 @@ next:
 ---
 ## Introduction
 
-### Empowering Seamless Password Management With Akeyless Mobile App
+The Akeyless Password Manager mobile app is the primary mobile surface for password and static-secret workflows, including autofill and OTP usage.
 
-In the rapidly evolving digital era, managing a diverse array of passwords and sensitive data presents a significant challenge. Enter the realm of effortless digital security with the Akeyless mobile app – a sophisticated solution designed to simplify password management and bolster your online security. This innovative app is more than just a tool; it's a gateway to a world where your digital credentials are managed with unparalleled precision and ease. By flawlessly integrating with your existing Akeyless account, it offers a streamlined experience for accessing, managing, and securely storing your passwords and sensitive information.
+## Core Workflows
 
-### Unleash the Convenience of On-the-Go Access
+Use the mobile section pages to complete these tasks:
 
-The Akeyless mobile app redefines convenience, ensuring that your essential passwords are always at your fingertips, irrespective of your location. Whether you're navigating the bustling streets of a city, relaxing at a café, or working remotely from a tranquil beach, this app keeps you connected to your most critical information. With just a few intuitive taps, you gain the ability to access, manage, and use select items from your Akeyless account. This feature empowers you with the freedom to remain productive and connected, seamlessly bridging the gap between your digital life and your on-the-go lifestyle.
+* Install and sign in.
+* Create and edit passwords.
+* Choose password location and folder hierarchy.
+* Configure password-policy behavior.
+* Use autofill and OTP workflows.
+* Manage favorites and frequently used items.
 
-### Experience the Power of Akeyless Mobile App
+## Task-Based Cross-Platform Navigation
 
-The Akeyless mobile app is a masterpiece of digital convenience, boasting an intuitive interface, user-friendly features, and a steadfast commitment to robust security. Its design caters to both tech-savvy users and those new to digital password management, ensuring a smooth and accessible experience for everyone. The app's advanced security protocols provide peace of mind, safeguarding your sensitive information against digital threats. By downloading the Akeyless mobile app, you embark on a transformative journey towards streamlined password management, enhanced security, and a more organized digital life. Embrace the future of password security and experience the unparalleled benefits of the Akeyless mobile app today.
+When users switch between mobile and extension experiences, use matching pages:
+
+* Create a password: [https://docs.akeyless.io/docs/pwm-mobile-create-password](https://docs.akeyless.io/docs/pwm-mobile-create-password) and [https://docs.akeyless.io/docs/pwm-ext-create-password](https://docs.akeyless.io/docs/pwm-ext-create-password)
+* Create a static secret: [https://docs.akeyless.io/docs/pwm-mobile-create-static-secret](https://docs.akeyless.io/docs/pwm-mobile-create-static-secret) and [https://docs.akeyless.io/docs/pwm-ext-create-secret](https://docs.akeyless.io/docs/pwm-ext-create-secret)
+* Autofill and injection: [https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection) and [https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection)
+* OTP workflows: [https://docs.akeyless.io/docs/pwm-mobile-otp](https://docs.akeyless.io/docs/pwm-mobile-otp) and [https://docs.akeyless.io/docs/pwm-ext-otp](https://docs.akeyless.io/docs/pwm-ext-otp)
+* Password policy settings: [https://docs.akeyless.io/docs/pwm-mobile-setting-password-policy-on-account-level](https://docs.akeyless.io/docs/pwm-mobile-setting-password-policy-on-account-level) and [https://docs.akeyless.io/docs/pwm-ext-setting-password-policy-on-account-level](https://docs.akeyless.io/docs/pwm-ext-setting-password-policy-on-account-level)
 
 ## Tutorial
 
