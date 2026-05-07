@@ -15,13 +15,8 @@ next:
 
 ## Admin Overview
 
-Use the links below to perform Password Manager web console admin workflows.
+Use these pages for core Password Manager web console admin tasks:
 
-## Admin Workflow Hub
-
-Use these pages for core admin tasks:
-
-* Password Manager admin overview tasks: [https://docs.akeyless.io/docs/pwm-console-admin-overview](https://docs.akeyless.io/docs/pwm-console-admin-overview)
 * Usage reporting: [https://docs.akeyless.io/docs/pwm-console-admin-usage-report](https://docs.akeyless.io/docs/pwm-console-admin-usage-report)
 * Security Health review: [https://docs.akeyless.io/docs/pwm-console-security-health](https://docs.akeyless.io/docs/pwm-console-security-health)
 * Personal folder visibility policy: [https://docs.akeyless.io/docs/pwm-console-hide-personal-folder](https://docs.akeyless.io/docs/pwm-console-hide-personal-folder)
