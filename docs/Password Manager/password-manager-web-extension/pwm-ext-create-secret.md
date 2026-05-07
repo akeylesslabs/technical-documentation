@@ -16,7 +16,7 @@ Use this workflow to create a static secret item in the extension.
 
 ## Step 1: Launch the Akeyless Web Extension
 
-1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar.
+1. Once installed (see [Install and Sign In to the Akeyless Web Extension](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in)), the Akeyless Web Extension icon will appear in your browser's toolbar.
 2. Click on the Akeyless Web Extension icon to launch the extension.
 
 ![Illustration for: Step 1: Launch the Akeyless Web Extension 1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar. 2. Click on the Akeyless Web Extension icon…](https://files.readme.io/8a3048e-Screenshot_2024-02-22_at_14.23.10.png)
