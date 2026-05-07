@@ -26,6 +26,8 @@ Use this workflow to configure the LDAP gateway URL for mobile sign-in.
 
 Enter the LDAP gateway URL provided by your administrator.
 
+For administrator configuration guidance, see [LDAP Authentication Method configuration](https://docs.akeyless.io/docs/auth-with-ldap).
+
 ## Save Your Settings and Enter LDAP Credentials
 
 ![Illustration for: Save Your Settings and Enter LDAP Credentials](https://files.readme.io/921c299-Screenshot_2024-03-20_at_10.57.16.png)
