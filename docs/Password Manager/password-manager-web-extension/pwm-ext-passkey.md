@@ -14,7 +14,7 @@ next:
 ---
 ## Passkey Management Overview
 
-This page describes how PWM 2.0 handles passkeys in the browser extension, including viewing saved passkeys, using them for sign-in, and creating new passkeys for supported websites.
+PWM 2.0 supports passkey workflows in the browser extension, including viewing saved passkeys, using them for sign-in, and creating new passkeys for supported websites.
 
 ## Viewing Passkey Details
 

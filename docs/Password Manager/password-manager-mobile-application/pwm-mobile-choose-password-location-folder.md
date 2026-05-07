@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-Use this page to choose where a password is stored and to manage the Personal or Corporate view in the mobile app.
+Choose where a password is stored and manage the Personal or Corporate view in the mobile app.
 
 ## Personal Folder
 

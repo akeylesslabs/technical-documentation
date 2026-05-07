@@ -15,8 +15,6 @@ next:
 
 ## Initiate the Setup on Your Preferred Web Browser
 
-Use this page to understand where non-admin users start in browser and mobile Password Manager flows.
-
 ## Browser Setup
 
 1. Open your browser.

@@ -16,11 +16,9 @@ next:
 
 The Akeyless Password Manager Web Extension provides browser-based access to passwords, secrets, one-time passwords (OTPs), and passkeys.
 
-This page summarizes documented extension capabilities and links to task-focused pages.
-
 ## Recommended Reading Order
 
-Use this section as the starting point for PWM 2.0 workflows:
+Start with this reading order for PWM 2.0 workflows:
 
 1. Install the extension and sign in.
 2. Configure Advanced Options, tenant, LDAP, or enterprise deployment settings if needed.

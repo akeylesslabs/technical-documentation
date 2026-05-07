@@ -15,7 +15,7 @@ next:
 
 ## Admin Overview
 
-Use this page as an admin entry point for Password Manager web console workflows.
+Use the links below to perform Password Manager web console admin workflows.
 
 ## Admin Workflow Hub
 
@@ -37,7 +37,7 @@ Use these pages when configuration extends beyond Password Manager-specific view
 
 ## Scope Note
 
-This section focuses on Password Manager console workflows. Product-wide identity platform administration is documented in the broader administration sections.
+Password Manager console workflows are listed in this section. Product-wide identity platform administration is documented in broader administration sections.
 
 ## Tutorial
 

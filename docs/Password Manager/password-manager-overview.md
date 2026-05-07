@@ -48,5 +48,3 @@ For common tasks, start here:
 * Autofill and injection: [https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection) and [https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
 * OTP workflows: [https://docs.akeyless.io/docs/pwm-ext-otp](https://docs.akeyless.io/docs/pwm-ext-otp) and [https://docs.akeyless.io/docs/pwm-mobile-otp](https://docs.akeyless.io/docs/pwm-mobile-otp)
 * Security Health: [https://docs.akeyless.io/docs/pwm-ext-security-health](https://docs.akeyless.io/docs/pwm-ext-security-health) and [https://docs.akeyless.io/docs/pwm-console-security-health](https://docs.akeyless.io/docs/pwm-console-security-health)
-
-This page is a navigation hub. Platform-specific behavior and prerequisites are documented in the dedicated platform pages.

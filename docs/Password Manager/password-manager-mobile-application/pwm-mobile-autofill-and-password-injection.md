@@ -62,4 +62,4 @@ The following Android browsers are documented as providing strong autofill suppo
 * DuckDuckGo
 * Brave
 
-Chrome can support autofill, but behavior can be less consistent than in the browsers listed above.
+Chrome supports Android autofill, but prompt behavior can differ by page. In Chrome, users might need to tap the credential suggestion above the keyboard or reopen the focused field to trigger the Akeyless suggestion.
