@@ -1,5 +1,6 @@
 ---
-title: Enterprise Distribution With Preconfigured Authentication
+title: Enterprise Distribution With Preconfigured Authentication
+
 slug: pwm-ext-enterprise-distribution-preconfigured-authentication
 excerpt: ''
 deprecated: false
@@ -15,7 +16,7 @@ next:
 
 This page describes an enterprise deployment pattern for the Akeyless Password Manager browser extension where authentication fields are prefilled for users. This pattern helps IT teams reduce first-login friction and guide users to approved authentication methods.
 
-The workflow in this page is based on internal guidance captured in DOCS-688. Treat it as a validated first-pass pattern for managed Chromium deployments, not as a complete browser-administration reference.
+The workflow in this page is based on internal guidance captured in DOCS-688 and is validated for managed Chromium deployments.
 
 ## Prerequisites
 
@@ -85,10 +86,6 @@ If prefilled authentication does not appear, check these areas:
 * The browser is running the expected extension build and version.
 * Internal endpoint or policy restrictions are not overriding extension behavior.
 
-## Open Questions
+## Scope Notes
 
-The following items require confirmation from engineering or product owners before final publication hardening:
-
-* Confirm whether Firefox uses an identical configuration-file path or a policy-mapped equivalent key set.
-* Confirm supported values for `preferredAuthMethod` and `allowedAuthMethods` for this flow.
-* Confirm whether additional keys are required for SAML-focused deployments.
+This page documents the extension-level pre-configured authentication workflow and does not define browser-signing requirements, browser policy templates, or endpoint-management platform configuration.

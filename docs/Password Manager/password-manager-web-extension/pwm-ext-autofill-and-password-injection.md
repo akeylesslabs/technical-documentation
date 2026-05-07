@@ -38,3 +38,7 @@ The extension settings include an autofill toggle. Depending on account controls
 ## Save or Update a Credential
 
 If the extension detects a new or updated credential on a supported page, it can prompt to save the item or update the existing item in the vault.
+
+When the save-suggestion dialog is shown, users can review the detected values and, where needed, add or adjust custom fields before saving.
+
+If a matching item already exists, users can update that item or choose to create a new item from the same dialog flow.

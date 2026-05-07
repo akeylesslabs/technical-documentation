@@ -1,5 +1,6 @@
 ---
-title: Install and Sign In to the Akeyless mobile app
+title: Install and Sign In to the Akeyless mobile app
+
 slug: pwm-mobile-install-and-sign-in
 excerpt: ''
 deprecated: false
@@ -13,35 +14,31 @@ next:
 ---
 ## Installation on Your Mobile Devices
 
-The Akeyless Password Manager mobile application offers a streamlined and user-friendly installation process, compatible with both Android and iOS platforms. Here's how you can effortlessly install and begin using Akeyless on your mobile device:
+Use the following steps to install and sign in to the mobile app on Android or iOS.
 
 ## Akeyless Password Manager Android Installation
 
-Open Google Play Store: On your Android device, navigate to the Google Play Store. This app is typically found on your device's home screen or app drawer. Tap on its icon to open it.
-
-Search for Akeyless: Once inside the Play Store, locate the search bar at the top of the screen. Here, type in "Akeyless" and press the Enter key on your device's keyboard. This action initiates a search for the app within the Google Play Store.
-
-Locate Akeyless Mobile App: Browse through the search results until you find the official Akeyless Password Manager mobile application. Look for the app with the recognizable Akeyless logo. Once located, tap on the "Install" button adjacent to the app.
-
-Grant Permissions: A prompt will appear, detailing the permissions required by the Akeyless app to function optimally on your device. Carefully review these permissions. If they seem appropriate and necessary for the app’s functionality, tap on the "Accept" button to begin the installation process.
+1. Open Google Play.
+2. Search for **Akeyless Password Manager**.
+3. Select the official app listing.
+4. Tap **Install**.
+5. Accept required Android prompts.
 
 ![Illustration for: Grant Permissions: A prompt will appear, detailing the permissions required by the Akeyless app to function optimally on your device. Carefully review these permissions. If…](https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg)
 
 ## Akeyless Password Manager iOS Installation
 
-Open Apple App Store: On your iOS device, locate and launch the Apple App Store. This is typically found on your home screen.
-
-Search for Akeyless: At the top of the App Store interface, you'll find a search bar. Tap on it and enter "Akeyless." Proceed by tapping the "Search" button on the keyboard.
-
-Choose Akeyless Mobile App: The search results will display various apps. Navigate to the official Akeyless Password Manager mobile application, recognizable by its logo. Once you've found it, tap the "Get" button next to the app.
-
-Confirm Installation: iOS may prompt you to confirm the installation. This might include reviewing the permissions the app requires and possibly entering your Apple ID password or using Face ID/Touch ID for verification. Follow these steps to finalize the installation.
+1. Open the Apple App Store.
+2. Search for **Akeyless Password Manager**.
+3. Select the official app listing.
+4. Tap **Get**.
+5. Complete iOS confirmation with Apple ID, Face ID, or Touch ID if prompted.
 
 ![Illustration for: Confirm Installation: iOS may prompt you to confirm the installation. This might include reviewing the permissions the app requires and possibly entering your Apple ID password…](https://files.readme.io/9f41004-File_5.jpg)
 
 ## Authentication Methods Support
 
-In the context of modern enterprise environments, where security is a top priority, the Akeyless Platform offers a highly secure login flow. This involves using a code ID provided by an IT admin combined with multi-factor authentication (MFA). This method is more secure than traditional master passwords or biometrics, as it introduces multiple verification layers and eliminates potential single points of failure.
+Use an authentication method allowed by account policy.
 
 ## VPN Requirement for Zero-Knowledge Keyless Mode
 
@@ -53,7 +50,7 @@ Therefore, requiring users to have a VPN installed on their phones before using 
 
 ## Authentication Methods Support
 
-Once you've installed the Akeyless browser extension. Simply locate the Akeyless Password Manager mobile app. To securely access your Akeyless account, you can use one of the following authentication methods:
+After installation, open the mobile app and complete sign-in with one of the supported methods:
 
 * Access-ID and Access-Key: Use your unique Access-ID and Access-Key combination for secure login.
 * SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
@@ -61,5 +58,12 @@ Once you've installed the Akeyless browser extension. Simply locate the Akeyless
 * LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
     * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url) by way of advanced settings then login with Email option as a login type.
 * Account Alias: Support for using an account alias to simplify identification and enhance user experience.
+
+## Post Sign-In Checklist
+
+1. Open the app Home or Secrets view.
+2. Confirm Personal or Corporate area selection.
+3. Configure autofill on device if required.
+4. Validate access to expected folders and items.
 
 For more details about Akeyless Authentication Methods please visit this [link](https://docs.akeyless.io/docs/access-and-authentication-methods)

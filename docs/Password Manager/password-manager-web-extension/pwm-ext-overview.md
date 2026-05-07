@@ -74,7 +74,7 @@ When a dynamic or rotated item is opened for value retrieval, the extension uses
 
 ### Enterprise deployment
 
-PWM 2.0 documentation now includes a first-pass enterprise deployment pattern for preconfigured authentication in managed browser deployments.
+PWM documentation includes an enterprise deployment workflow for preconfigured authentication in managed browser environments.
 
 ## Suggested Entry Points
 

@@ -81,6 +81,20 @@ Transport values can include:
 
 These values come from the authenticator and browser flow. They are used by the extension during passkey handling and are not configured as manual user inputs in Password Manager pages.
 
+## WebAuthn Metadata Handling
+
+During passkey create and assert flows, the extension normalizes WebAuthn request metadata from the browser before processing.
+
+Normalized metadata includes values such as:
+
+* Challenge and RP context.
+* Origin and client data payload.
+* User verification and resident-key requirements.
+* Credential include or exclude descriptors.
+* Supported public-key algorithm selection.
+
+These values are handled internally by the extension flow and are not directly edited by end users in Password Manager screens.
+
 ## Reliability Improvements in PWM 2.0
 
 Recent PWM 2.0 updates improve passkey support in these areas:
