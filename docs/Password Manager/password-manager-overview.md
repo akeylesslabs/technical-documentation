@@ -18,9 +18,7 @@ Akeyless Password Manager provides a unified way to store, manage, and use passw
 
 ![Akeyless Screenshot](https://files.readme.io/f851fd0-Screenshot_2024-02-18_at_10.27.50.png)
 
-## What This Section Covers
-
-Use the Password Manager documentation section to learn how to:
+Password Manager can:
 
 * Install and sign in to the web extension and mobile app.
 * Create and manage passwords and static secrets.
@@ -32,7 +30,7 @@ Use the Password Manager documentation section to learn how to:
 
 ## Choose a Platform
 
-Use these entry points based on where users perform the workflow:
+Explore these pages based on where users need passwords:
 
 * Web Extension: [https://docs.akeyless.io/docs/pwm-ext-overview](https://docs.akeyless.io/docs/pwm-ext-overview)
 * Mobile Application: [https://docs.akeyless.io/docs/pwm-mobile-overview](https://docs.akeyless.io/docs/pwm-mobile-overview)
