@@ -35,6 +35,12 @@ class NavigationViolation:
     reason: str
 
 
+@dataclass
+class RequiredOrderFileViolation:
+    path: str
+    reason: str
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -44,6 +50,12 @@ def parse_args() -> argparse.Namespace:
         )
     )
     parser.add_argument("--docs-root", default="docs", help="Docs root path")
+    parser.add_argument(
+        "--required-order-roots",
+        nargs="+",
+        default=["docs", "reference", "recipes"],
+        help="Root directories where every directory must contain _order.yaml",
+    )
     parser.add_argument(
         "--changed-files-json",
         required=True,
@@ -252,6 +264,28 @@ def order_entry_target_exists(order_file: Path, entry: str) -> bool:
     return (base_dir / entry).exists() or (base_dir / f"{entry}.md").exists()
 
 
+def collect_required_order_file_violations(roots: Iterable[str]) -> list[RequiredOrderFileViolation]:
+    violations: list[RequiredOrderFileViolation] = []
+
+    for root in roots:
+        root_path = Path(root)
+        if not root_path.exists() or not root_path.is_dir():
+            continue
+
+        dirs_to_check = [root_path] + [p for p in sorted(root_path.rglob("*")) if p.is_dir()]
+        for directory in dirs_to_check:
+            order_file = directory / "_order.yaml"
+            if not order_file.exists():
+                violations.append(
+                    RequiredOrderFileViolation(
+                        path=directory.as_posix(),
+                        reason="Missing required _order.yaml",
+                    )
+                )
+
+    return violations
+
+
 def main() -> int:
     args = parse_args()
     docs_root = Path(args.docs_root)
@@ -277,6 +311,7 @@ def main() -> int:
     depth_violations: list[DepthViolation] = []
     front_matter_violations: list[FrontMatterViolation] = []
     navigation_violations: list[NavigationViolation] = []
+    required_order_file_violations = collect_required_order_file_violations(args.required_order_roots)
 
     order_files_to_validate: set[Path] = set()
 
@@ -369,6 +404,7 @@ def main() -> int:
         or depth_violations
         or uniq_front_matter_violations
         or uniq_navigation_violations
+        or required_order_file_violations
     )
 
     report = {
@@ -405,6 +441,13 @@ def main() -> int:
                 "reason": item.reason,
             }
             for item in sorted(uniq_navigation_violations, key=lambda x: (x.path, x.reason))
+        ],
+        "required_order_file_violations": [
+            {
+                "path": item.path,
+                "reason": item.reason,
+            }
+            for item in sorted(required_order_file_violations, key=lambda x: x.path)
         ],
     }
 
@@ -454,11 +497,19 @@ def main() -> int:
             md_lines.append(f"- `{violation.path}`: {violation.reason}")
         md_lines.append("")
 
+    if required_order_file_violations:
+        md_lines.append("## Required _order.yaml Violations")
+        md_lines.append("")
+        for violation in sorted(required_order_file_violations, key=lambda x: x.path):
+            md_lines.append(f"- `{violation.path}`: {violation.reason}")
+        md_lines.append("")
+
     if (
         not uniq_duplicate_violations
         and not depth_violations
         and not uniq_front_matter_violations
         and not uniq_navigation_violations
+        and not required_order_file_violations
     ):
         md_lines.append("No violations detected.")
         md_lines.append("")
@@ -467,12 +518,13 @@ def main() -> int:
 
     print(
         "failed={failed} duplicate_violations={dupes} depth_violations={depth} "
-        "front_matter_violations={fm} navigation_violations={nav}".format(
+        "front_matter_violations={fm} navigation_violations={nav} required_order_file_violations={order}".format(
             failed=failed,
             dupes=len(uniq_duplicate_violations),
             depth=len(depth_violations),
             fm=len(uniq_front_matter_violations),
             nav=len(uniq_navigation_violations),
+            order=len(required_order_file_violations),
         )
     )
 

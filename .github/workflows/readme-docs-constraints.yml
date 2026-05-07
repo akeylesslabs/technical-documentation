@@ -13,8 +13,9 @@ on:
       - edited
       - ready_for_review
     paths:
-      - "docs/**/*.md"
-      - "docs/**/_order.yaml"
+      - "docs/**"
+      - "reference/**"
+      - "recipes/**"
       - ".github/scripts/check_readme_docs_constraints.py"
       - ".github/workflows/readme-docs-constraints.yml"
   workflow_dispatch:
@@ -89,6 +90,7 @@ jobs:
         run: |
           python .github/scripts/check_readme_docs_constraints.py \
             --docs-root docs \
+            --required-order-roots docs reference recipes \
             --changed-files-json .github/automation-reports/readme-constraints-pr-files.json \
             --max-depth 3 \
             --out-json .github/automation-reports/readme-constraints-report.json \
@@ -100,7 +102,7 @@ jobs:
         run: |
           if [ -f .github/automation-reports/readme-constraints-report.json ]; then
             FAILED=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print('true' if r.get('failed') else 'false')")
-            TOTAL=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print(r.get('duplicate_violations',0)+r.get('depth_violations',0)+r.get('front_matter_violations',0)+r.get('navigation_violations',0))")
+            TOTAL=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print(len(r.get('duplicate_violations',[]))+len(r.get('depth_violations',[]))+len(r.get('front_matter_violations',[]))+len(r.get('navigation_violations',[]))+len(r.get('required_order_file_violations',[])))")
           else
             FAILED=false
             TOTAL=0
