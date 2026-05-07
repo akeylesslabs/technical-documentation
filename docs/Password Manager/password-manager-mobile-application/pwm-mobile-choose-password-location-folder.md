@@ -18,7 +18,7 @@ Choose where a password is stored and manage the Personal or Corporate view in t
 
 Use the Personal folder for credentials that are private to your user account.
 
-Example: save your personal banking login, personal email account, or an individual social-media account in Personal.
+Example: save your personal work persona credentials, such as your individual Jira account, personal Slack workspace account, or personal GitHub account used for work, in Personal.
 
 ## Corporate Folder
 
