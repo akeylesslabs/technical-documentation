@@ -14,7 +14,7 @@ next:
 ---
 ## Overview
 
-PWM 2.0 supports OTP workflows for saved credentials in the browser extension. OTP values can be added from QR content or from manual `otpauth://`-compatible data, and supported sign-in pages can use those values during autofill and injection flows.
+The extension supports OTP workflows for saved credentials. OTP values can be added from QR content or from manual `otpauth://`-compatible data, and supported sign-in pages can use those values during autofill and injection flows.
 
 ## Add an OTP by Scanning QR Content
 
@@ -30,9 +30,9 @@ PWM 2.0 supports OTP workflows for saved credentials in the browser extension. O
 
 After the OTP value is saved, click the eye icon next to the custom field to reveal the current code.
 
-## OTP Behavior in PWM 2.0
+## OTP Behavior
 
-PWM 2.0 expands OTP support in these areas:
+The extension supports OTP workflows in these areas:
 
 * OTP values can be stored from QR-based flows and manual OTP entry.
 * Supported sign-in pages can use OTP values alongside username and password.

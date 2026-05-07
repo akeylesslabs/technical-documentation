@@ -14,11 +14,11 @@ next:
 ---
 ## Overview
 
-Security Health provides a personal-vault view of password hygiene in PWM 2.0. It helps users review password strength, breach exposure, and other signals that can indicate elevated account risk.
+Security Health provides a personal-vault view of password hygiene. It helps users review password strength, breach exposure, and other signals that can indicate elevated account risk.
 
 ## What Security Health Shows
 
-PWM 2.0 introduces the following Security Health concepts:
+Security Health includes the following concepts:
 
 * An overall score view for password hygiene review.
 * Weak-password insight.
@@ -41,7 +41,7 @@ Some account configurations can control whether password-score functionality is 
 
 ## Breach and Exposure Insights
 
-PWM 2.0 adds breach-related insight to Security Health so users can identify passwords that require attention.
+Security Health includes breach-related insight so users can identify passwords that require attention.
 
 Use these insights to prioritize follow-up on:
 
@@ -51,5 +51,5 @@ Use these insights to prioritize follow-up on:
 
 ## Notes
 
-* Security Health is documented here as a PWM 2.0 capability in the Password Manager Web Extension documentation set.
+* Security Health is documented here as a Password Manager Web Extension capability.
 * Additional screenshots and implementation-specific detail should be added as product assets become available.

@@ -1,5 +1,6 @@
 ---
-title: Creating New Password
+title: Creating New Password
+
 slug: pwm-ext-create-password
 excerpt: ''
 deprecated: false
@@ -11,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-PWM 2.0 keeps the same create-password flow while improving password generation and password-strength feedback.
+This create-password flow includes improved password generation and password-strength feedback.
 
 ## Overview
 
@@ -57,7 +58,7 @@ If needed, enable delete protection to reduce accidental deletion.
 
 Generate the password according to the active password policy and generation preferences.
 
-PWM 2.0 adds stronger generation guidance, including improved password-strength feedback and support for tuning allowed special characters.
+The extension provides stronger generation guidance, including improved password-strength feedback and support for tuning allowed special characters.
 
 When the password is ready, click **Save**.
 
@@ -75,7 +76,7 @@ The Password Strength Policy feature helps ensure that new passwords meet organi
 
 Users can customize password settings, but they cannot go below the minimum standards set by the organization.
 
-PWM 2.0 also improves the password-strength experience with clearer feedback during password creation.
+The password-strength experience includes clearer feedback during password creation.
 
 Password Strength Evaluation Criteria:
 

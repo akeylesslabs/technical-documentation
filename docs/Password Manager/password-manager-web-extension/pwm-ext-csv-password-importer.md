@@ -14,7 +14,7 @@ next:
 ---
 The CSV Password Import feature allows users to import passwords from a CSV file directly through the web extension. Passwords can be imported into the Personal or Corporate area, depending on account permissions.
 
-PWM 2.0 updates this workflow so the import experience reflects the current account configuration when a new import session starts.
+This workflow reflects the current account configuration when a new import session starts.
 
 ## How to Use the CSV Password Import Feature
 
@@ -52,9 +52,9 @@ PWM 2.0 updates this workflow so the import experience reflects the current acco
 
 * Once all settings are configured and the file is ready, click the 'Submit' button to finalize the import process.
 
-## Import Behavior in PWM 2.0
+## Import Behavior
 
-PWM 2.0 improves import consistency in these areas:
+The extension improves import consistency in these areas:
 
 * Import settings are refreshed when a new import session starts.
 * Current account configuration is reflected in the import flow before submission.

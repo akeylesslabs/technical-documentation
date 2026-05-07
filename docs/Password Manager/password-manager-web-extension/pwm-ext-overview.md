@@ -18,7 +18,7 @@ The Akeyless Password Manager Web Extension provides browser-based access to pas
 
 ## Recommended Reading Order
 
-Start with this reading order for PWM 2.0 workflows:
+Start with this reading order for Password Manager workflows:
 
 1. Install the extension and sign in.
 2. Configure Advanced Options, tenant, LDAP, or enterprise deployment settings if needed.

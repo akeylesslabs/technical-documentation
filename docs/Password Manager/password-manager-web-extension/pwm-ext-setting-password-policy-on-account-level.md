@@ -33,7 +33,7 @@ next:
 
 **Include Special Characters (!@#):** Require special characters.
 
-PWM 2.0 also improves password-generation guidance and supports tuning allowed special characters during generation.
+The extension supports password-generation guidance and tuning allowed special characters during generation.
 
 These settings provide the default generation behavior. Users can still work within the limits allowed by the configured policy.
 

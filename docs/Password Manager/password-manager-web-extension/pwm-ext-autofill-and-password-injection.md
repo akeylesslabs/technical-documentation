@@ -23,7 +23,7 @@ The Akeyless Password Manager Web Extension can detect supported sign-in forms a
 3. Select the suggested item from the Akeyless prompt when it appears.
 4. Confirm the filled values before submitting the sign-in form.
 
-## PWM 2.0 Autofill Improvements
+## Autofill Behavior
 
 The extension supports the following sign-in assistance behaviors:
 

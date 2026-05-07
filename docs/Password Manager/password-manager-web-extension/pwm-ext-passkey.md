@@ -14,7 +14,7 @@ next:
 ---
 ## Passkey Management Overview
 
-PWM 2.0 supports passkey workflows in the browser extension, including viewing saved passkeys, using them for sign-in, and creating new passkeys for supported websites.
+The extension supports passkey workflows, including viewing saved passkeys, using them for sign-in, and creating new passkeys for supported websites.
 
 ## Viewing Passkey Details
 
@@ -28,7 +28,7 @@ The Passkey Details section allows users to view information about their saved p
 * Related Website: The website the passkey is linked to for login.
 * Option to Delete Passkey: Allows users to remove the passkey from the system.
 
-PWM 2.0 also improves passkey lookup and suggestion behavior for supported sites.
+The extension improves passkey lookup and suggestion behavior for supported sites.
 
 ## Using a Passkey for Login
 
@@ -40,7 +40,7 @@ The following steps guide users on how to log in using an existing passkey for a
 2. Start the sign-in flow.
 3. If matching passkeys exist, select the passkey to continue authentication.
 
-PWM 2.0 improves this flow by better matching passkeys to supported sites and login contexts.
+This flow includes matching passkeys to supported sites and login contexts.
 
 ### Example Flow
 
@@ -58,7 +58,7 @@ Users can create a new passkey for a supported website. Follow the steps below t
 4. Complete the extension prompt to create or update the passkey.
 5. Confirm success message.
 
-PWM 2.0 adds support for choosing the account default protection key or a specific protection key when creating supported passkeys.
+The extension supports choosing the account default protection key or a specific protection key when creating supported passkeys.
 
 #### Example Flow
 
@@ -95,9 +95,9 @@ Normalized metadata includes values such as:
 
 These values are handled internally by the extension flow and are not directly edited by end users in Password Manager screens.
 
-## Reliability Improvements in PWM 2.0
+## Reliability Improvements
 
-Recent PWM 2.0 updates improve passkey support in these areas:
+Recent updates improve passkey support in these areas:
 
 * Better site matching for supported relying parties.
 * Better tab and context selection when the browser has multiple matching pages open.
