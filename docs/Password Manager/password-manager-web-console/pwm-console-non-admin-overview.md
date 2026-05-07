@@ -24,9 +24,9 @@ next:
 
 Use these browser pages next:
 
-* Extension install and sign-in: [https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in)
-* Personal and corporate navigation: [https://docs.akeyless.io/docs/pwm-ext-navigate-personal-corporate-favorites](https://docs.akeyless.io/docs/pwm-ext-navigate-personal-corporate-favorites)
-* Folder navigation: [https://docs.akeyless.io/docs/pwm-ext-folder-navigation-within-personal-corporate-areas](https://docs.akeyless.io/docs/pwm-ext-folder-navigation-within-personal-corporate-areas)
+* [Extension install and sign-in](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in)
+* [Personal and corporate navigation](https://docs.akeyless.io/docs/pwm-ext-navigate-personal-corporate-favorites)
+* [Folder navigation](https://docs.akeyless.io/docs/pwm-ext-folder-navigation-within-personal-corporate-areas)
 
 ## Start the Process on Your iOS or Android Device
 
@@ -37,9 +37,9 @@ Use these browser pages next:
 
 Use these mobile pages next:
 
-* Mobile install and sign-in: [https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in](https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in)
-* Choose password location: [https://docs.akeyless.io/docs/pwm-mobile-choose-password-location-folder](https://docs.akeyless.io/docs/pwm-mobile-choose-password-location-folder)
-* Mobile autofill: [https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
+* [Mobile install and sign-in](https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in)
+* [Choose password location](https://docs.akeyless.io/docs/pwm-mobile-choose-password-location-folder)
+* [Mobile autofill](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
 
 ## Personal and Corporate Areas
 

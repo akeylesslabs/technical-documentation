@@ -32,17 +32,17 @@ Password Manager can:
 
 Explore these pages based on where users need passwords:
 
-* Web Extension: [https://docs.akeyless.io/docs/pwm-ext-overview](https://docs.akeyless.io/docs/pwm-ext-overview)
-* Mobile Application: [https://docs.akeyless.io/docs/pwm-mobile-overview](https://docs.akeyless.io/docs/pwm-mobile-overview)
-* Web Console: [https://docs.akeyless.io/docs/pwm-console-overview](https://docs.akeyless.io/docs/pwm-console-overview)
+* [Web Extension](https://docs.akeyless.io/docs/pwm-ext-overview)
+* [Mobile Application](https://docs.akeyless.io/docs/pwm-mobile-overview)
+* [Web Console](https://docs.akeyless.io/docs/pwm-console-overview)
 
 ## Common Workflows
 
 For common tasks, start here:
 
-* Installation and sign-in: [https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in) and [https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in](https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in)
-* Create a password: [https://docs.akeyless.io/docs/pwm-ext-create-password](https://docs.akeyless.io/docs/pwm-ext-create-password) and [https://docs.akeyless.io/docs/pwm-mobile-create-password](https://docs.akeyless.io/docs/pwm-mobile-create-password)
-* Create a static secret: [https://docs.akeyless.io/docs/pwm-ext-create-secret](https://docs.akeyless.io/docs/pwm-ext-create-secret) and [https://docs.akeyless.io/docs/pwm-mobile-create-static-secret](https://docs.akeyless.io/docs/pwm-mobile-create-static-secret)
-* Autofill and injection: [https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection) and [https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
-* OTP workflows: [https://docs.akeyless.io/docs/pwm-ext-otp](https://docs.akeyless.io/docs/pwm-ext-otp) and [https://docs.akeyless.io/docs/pwm-mobile-otp](https://docs.akeyless.io/docs/pwm-mobile-otp)
-* Security Health: [https://docs.akeyless.io/docs/pwm-ext-security-health](https://docs.akeyless.io/docs/pwm-ext-security-health) and [https://docs.akeyless.io/docs/pwm-console-security-health](https://docs.akeyless.io/docs/pwm-console-security-health)
+* [Installation and sign-in](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in) and [https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in](https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in)
+* [Create a password](https://docs.akeyless.io/docs/pwm-ext-create-password) and [https://docs.akeyless.io/docs/pwm-mobile-create-password](https://docs.akeyless.io/docs/pwm-mobile-create-password)
+* [Create a static secret](https://docs.akeyless.io/docs/pwm-ext-create-secret) and [https://docs.akeyless.io/docs/pwm-mobile-create-static-secret](https://docs.akeyless.io/docs/pwm-mobile-create-static-secret)
+* [Autofill and injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection) and [https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
+* [OTP workflows](https://docs.akeyless.io/docs/pwm-ext-otp) and [https://docs.akeyless.io/docs/pwm-mobile-otp](https://docs.akeyless.io/docs/pwm-mobile-otp)
+* [Security Health](https://docs.akeyless.io/docs/pwm-ext-security-health) and [https://docs.akeyless.io/docs/pwm-console-security-health](https://docs.akeyless.io/docs/pwm-console-security-health)

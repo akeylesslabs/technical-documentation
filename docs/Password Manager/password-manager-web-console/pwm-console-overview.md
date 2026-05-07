@@ -18,10 +18,10 @@ The Password Manager web console provides password-focused visibility for admins
 
 Use the admin pages in this section for:
 
-* Security Health review and risk follow-up: [https://docs.akeyless.io/docs/pwm-console-security-health](https://docs.akeyless.io/docs/pwm-console-security-health)
-* Usage-report access for password-management activity: [https://docs.akeyless.io/docs/pwm-console-admin-usage-report](https://docs.akeyless.io/docs/pwm-console-admin-usage-report)
-* Personal-folder visibility control where applicable: [https://docs.akeyless.io/docs/pwm-console-hide-personal-folder](https://docs.akeyless.io/docs/pwm-console-hide-personal-folder)
-* Admin workflow entry point: [https://docs.akeyless.io/docs/pwm-console-admin-overview](https://docs.akeyless.io/docs/pwm-console-admin-overview)
+* [Security Health review and risk follow-up](https://docs.akeyless.io/docs/pwm-console-security-health)
+* [Usage-report access for password-management activity](https://docs.akeyless.io/docs/pwm-console-admin-usage-report)
+* [Personal-folder visibility control where applicable](https://docs.akeyless.io/docs/pwm-console-hide-personal-folder)
+* [Admin workflow entry point](https://docs.akeyless.io/docs/pwm-console-admin-overview)
 
 For broader account administration topics such as global RBAC and non-Password-Manager settings, use the administration sections outside this Password Manager area.
 
@@ -31,5 +31,5 @@ For day-to-day password creation, autofill, OTP, and passkey workflows, the prim
 
 Use these pages as the primary user entry points:
 
-* Web Extension overview: [https://docs.akeyless.io/docs/pwm-ext-overview](https://docs.akeyless.io/docs/pwm-ext-overview)
-* Mobile Application overview: [https://docs.akeyless.io/docs/pwm-mobile-overview](https://docs.akeyless.io/docs/pwm-mobile-overview)
+* [Web Extension overview](https://docs.akeyless.io/docs/pwm-ext-overview)
+* [Mobile Application overview](https://docs.akeyless.io/docs/pwm-mobile-overview)

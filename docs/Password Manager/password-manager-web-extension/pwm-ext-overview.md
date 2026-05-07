@@ -89,11 +89,11 @@ Use these pages for common tasks:
 
 Use these links when a workflow exists in both extension and mobile docs:
 
-* Create a password: [https://docs.akeyless.io/docs/pwm-ext-create-password](https://docs.akeyless.io/docs/pwm-ext-create-password) and [https://docs.akeyless.io/docs/pwm-mobile-create-password](https://docs.akeyless.io/docs/pwm-mobile-create-password)
-* Create a static secret: [https://docs.akeyless.io/docs/pwm-ext-create-secret](https://docs.akeyless.io/docs/pwm-ext-create-secret) and [https://docs.akeyless.io/docs/pwm-mobile-create-static-secret](https://docs.akeyless.io/docs/pwm-mobile-create-static-secret)
-* Autofill and injection: [https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection) and [https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
-* OTP workflows: [https://docs.akeyless.io/docs/pwm-ext-otp](https://docs.akeyless.io/docs/pwm-ext-otp) and [https://docs.akeyless.io/docs/pwm-mobile-otp](https://docs.akeyless.io/docs/pwm-mobile-otp)
-* Password policy settings: [https://docs.akeyless.io/docs/pwm-ext-setting-password-policy-on-account-level](https://docs.akeyless.io/docs/pwm-ext-setting-password-policy-on-account-level) and [https://docs.akeyless.io/docs/pwm-mobile-setting-password-policy-on-account-level](https://docs.akeyless.io/docs/pwm-mobile-setting-password-policy-on-account-level)
+* [Create a password](https://docs.akeyless.io/docs/pwm-ext-create-password) and [https://docs.akeyless.io/docs/pwm-mobile-create-password](https://docs.akeyless.io/docs/pwm-mobile-create-password)
+* [Create a static secret](https://docs.akeyless.io/docs/pwm-ext-create-secret) and [https://docs.akeyless.io/docs/pwm-mobile-create-static-secret](https://docs.akeyless.io/docs/pwm-mobile-create-static-secret)
+* [Autofill and injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection) and [https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
+* [OTP workflows](https://docs.akeyless.io/docs/pwm-ext-otp) and [https://docs.akeyless.io/docs/pwm-mobile-otp](https://docs.akeyless.io/docs/pwm-mobile-otp)
+* [Password policy settings](https://docs.akeyless.io/docs/pwm-ext-setting-password-policy-on-account-level) and [https://docs.akeyless.io/docs/pwm-mobile-setting-password-policy-on-account-level](https://docs.akeyless.io/docs/pwm-mobile-setting-password-policy-on-account-level)
 
 ## Tutorial
 

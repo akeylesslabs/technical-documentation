@@ -17,18 +17,18 @@ next:
 
 Use these pages for core Password Manager web console admin tasks:
 
-* Usage reporting: [https://docs.akeyless.io/docs/pwm-console-admin-usage-report](https://docs.akeyless.io/docs/pwm-console-admin-usage-report)
-* Security Health review: [https://docs.akeyless.io/docs/pwm-console-security-health](https://docs.akeyless.io/docs/pwm-console-security-health)
-* Personal folder visibility policy: [https://docs.akeyless.io/docs/pwm-console-hide-personal-folder](https://docs.akeyless.io/docs/pwm-console-hide-personal-folder)
+* [Usage reporting](https://docs.akeyless.io/docs/pwm-console-admin-usage-report)
+* [Security Health review](https://docs.akeyless.io/docs/pwm-console-security-health)
+* [Personal folder visibility policy](https://docs.akeyless.io/docs/pwm-console-hide-personal-folder)
 
 ## Related Administration Topics
 
 Use these pages when configuration extends beyond Password Manager-specific views:
 
-* RBAC policy model: [https://docs.akeyless.io/docs/rbac](https://docs.akeyless.io/docs/rbac)
-* Account settings: [https://docs.akeyless.io/docs/account-settings](https://docs.akeyless.io/docs/account-settings)
-* Audit logs: [https://docs.akeyless.io/docs/audit-logs](https://docs.akeyless.io/docs/audit-logs)
-* Sub-admin delegation: [https://docs.akeyless.io/docs/sub-admins](https://docs.akeyless.io/docs/sub-admins)
+* [RBAC policy model](https://docs.akeyless.io/docs/rbac)
+* [Account settings](https://docs.akeyless.io/docs/account-settings)
+* [Audit logs](https://docs.akeyless.io/docs/audit-logs)
+* [Sub-admin delegation](https://docs.akeyless.io/docs/sub-admins)
 
 ## Scope Note
 
