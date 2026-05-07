@@ -38,9 +38,9 @@ Explore these pages based on where users need passwords:
 
 For common tasks, start here:
 
-* [Installation and sign-in](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in) and [https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in](https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in)
-* [Create a password](https://docs.akeyless.io/docs/pwm-ext-create-password) and [https://docs.akeyless.io/docs/pwm-mobile-create-password](https://docs.akeyless.io/docs/pwm-mobile-create-password)
-* [Create a static secret](https://docs.akeyless.io/docs/pwm-ext-create-secret) and [https://docs.akeyless.io/docs/pwm-mobile-create-static-secret](https://docs.akeyless.io/docs/pwm-mobile-create-static-secret)
-* [Autofill and injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection) and [https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
-* [OTP workflows](https://docs.akeyless.io/docs/pwm-ext-otp) and [https://docs.akeyless.io/docs/pwm-mobile-otp](https://docs.akeyless.io/docs/pwm-mobile-otp)
-* [Security Health](https://docs.akeyless.io/docs/pwm-ext-security-health) and [https://docs.akeyless.io/docs/pwm-console-security-health](https://docs.akeyless.io/docs/pwm-console-security-health)
+* [Web Extension installation and sign-in](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in) and [Mobile installation and sign-in](https://docs.akeyless.io/docs/pwm-mobile-install-and-sign-in)
+* [Web Extension create a password](https://docs.akeyless.io/docs/pwm-ext-create-password) and [Mobile create a password](https://docs.akeyless.io/docs/pwm-mobile-create-password)
+* [Web Extension create a static secret](https://docs.akeyless.io/docs/pwm-ext-create-secret) and [Mobile create a static secret](https://docs.akeyless.io/docs/pwm-mobile-create-static-secret)
+* [Web Extension autofill and injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection) and [Mobile autofill and injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
+* [Web Extension OTP workflows](https://docs.akeyless.io/docs/pwm-ext-otp) and [Mobile OTP workflows](https://docs.akeyless.io/docs/pwm-mobile-otp)
+* [Web Extension Security Health](https://docs.akeyless.io/docs/pwm-ext-security-health) and [Web Console Security Health](https://docs.akeyless.io/docs/pwm-console-security-health)

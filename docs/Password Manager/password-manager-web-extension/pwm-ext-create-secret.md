@@ -40,7 +40,7 @@ You can add custom fields to store additional key-value data on the secret item.
 
 Field names must be unique per item.
 
-For OTP-specific custom field workflows, see [https://docs.akeyless.io/docs/pwm-ext-otp](https://docs.akeyless.io/docs/pwm-ext-otp).
+For OTP-specific custom field workflows, see [OTP workflows](https://docs.akeyless.io/docs/pwm-ext-otp).
 
 ## Step 4: Define Var and Location
 
