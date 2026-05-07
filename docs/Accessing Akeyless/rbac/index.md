@@ -98,7 +98,7 @@ Non-admin users cannot create or modify an access role to grant positive capabil
 
 Deny rules will be automatically added to a role only when the user creating the role has existing deny restrictions (that is non-admin users only). In such cases, all deny rules that apply to the user will also be applied to the newly created role. This is intended to prevent users from creating roles with broader permissions than they are allowed.
 
-After the role is created, it functions independently, and any user with sufficient permissions not affected by those deny rules, can modify or delete the role. Removing a deny role does not automatically remove it from other roles that were affected. If the rule was applied to multiple roles, it must be removed explicitly from each related role by an authorized user for security reasons.
+After the role is created, it functions independently, and any user with sufficient permissions not affected by those deny rules, can modify or delete the role. Removing a deny rule from a role does not automatically remove it from other roles that were affected. If the rule was applied to multiple roles, it must be removed explicitly from each related role by an authorized user for security reasons.
 
 This design ensures that the RBAC system remains resilient against permission elevation, upholding strict access control and enforcement standards.
 
