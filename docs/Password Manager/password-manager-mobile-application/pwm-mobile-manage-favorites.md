@@ -1,5 +1,6 @@
 ---
-title: Favorites (add, remove and view items)
+title: Favorites (add, remove and view items)
+
 slug: pwm-mobile-manage-favorites
 excerpt: ''
 deprecated: false
@@ -11,22 +12,31 @@ metadata:
 next:
   description: ''
 ---
-The Favorites Tab is crafted to offer you quick and easy access to select passwords and secrets that you deem most critical or use often. It acts as a personalized shortcut, streamlining your navigation and saving you time.
+Use Favorites to pin frequently used passwords and secrets for faster access.
 
 ![Illustration for: The Favorites Tab is crafted to offer you quick and easy access to select passwords and secrets that you deem most critical or use often. It acts as a personalized shortcut,…](https://files.readme.io/267b625-Screenshot_2024-04-11_at_15.25.13.png)
 
 ## Adding Items to Favorites
 
-How to Add: You can add any password or secret to the Favorites Tab by tapping the 'Add to Favorites' option available on each individual item.
+1. Open the item in Personal or Corporate area.
+2. Open item actions.
+3. Select **Add to Favorites**.
 
-How to Remove: You can easily remove any password or secret from the Favorites Tab. Simply locate the item you wish to remove and tap the 'Remove from Favorites' option found on the individual item's options menu.
+## Removing Items From Favorites
 
-Accessibility: Once added, these items are easily accessible, allowing for quick retrieval without the need to sift through your entire library.
+1. Open the Favorites tab.
+2. Locate the item.
+3. Open item actions.
+4. Select **Remove from Favorites**.
 
-## Layout and Display
+## Viewing Favorites
 
-View Options: The Favorites Tab organizes your chosen items in a user-friendly list or grid layout, ensuring you can view and access your favorites efficiently.
+1. Open the Favorites tab.
+2. Review the pinned list.
+3. Select an item to open details or actions.
 
 ## Search and Filter Functionality
 
-Quick Search: The integrated search bar enables you to rapidly locate specific entries within your Favorites Tab, eliminating the need for manual scrolling.
+1. Open Favorites.
+2. Enter a search term in the search bar.
+3. Review filtered results.

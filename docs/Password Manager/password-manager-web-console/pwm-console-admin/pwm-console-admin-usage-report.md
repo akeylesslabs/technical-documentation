@@ -1,5 +1,6 @@
 ---
-title: Password Manager Usage Report for Admins
+title: Password Manager Usage Report for Admins
+
 slug: pwm-console-admin-usage-report
 excerpt: ''
 deprecated: false
@@ -11,25 +12,34 @@ metadata:
 next:
   description: ''
 ---
-This report provides administrators with a comprehensive overview of user interaction with the password management system. It is designed to help admins monitor usage patterns, assess security protocols, and ensure efficient management of user credentials.
+Use the Password Manager Usage Report to review adoption and authentication usage trends.
 
 ## Overview of the Report
 
-The Password Manager Usage Report delivers critical metrics that help in understanding how the organization's password management system is being used. Below are the key components of the report:
+The report includes these core metrics:
 
-1. **Overall User Base**
-    This metric provides a quick snapshot of the total number of users or clients who are actively using the password management system.
+1. **Overall user base**
+   Total active users.
 
-2. **Total Number of Passwords**
-    Displays the total count of passwords stored within the system. This number reflects the cumulative security entries managed by the Password Manager.
+2. **Total number of passwords**
+   Total stored password items.
 
-3. **Total Users by Authentication Method**
-    1. Metric Description: This section counts and categorizes the total number of users based on their chosen authentication method.
-    2. Authentication Methods Covered:
-        1. SAML (Security Assertion Markup Language): For users authenticated through SAML-based identity providers.
-        2. OIDC (OpenID Connect): Reflects users leveraging this modern authentication protocol built on top of OAuth 2.0.
-        3. LDAP (Lightweight Directory Access Protocol): For users authenticated by way of traditional directory services.
-        4. EMAIL: Users who use email-based authentication.
-            Access ID: A unique identifier used for authentication within the system.
+3. **Users by authentication method**
+   Counts users by sign-in type, including SAML, OIDC, LDAP, and Email or Access ID based login.
+
+## How to Interpret the Metrics
+
+Use these patterns during review:
+
+* Growing user base with flat password totals can indicate low vault adoption.
+* High reliance on one sign-in method can indicate limited SSO diversification.
+* Unexpected sign-in distribution changes can indicate policy or rollout changes.
+
+## Recommended Admin Actions
+
+1. Compare usage report values across review periods.
+2. Identify low-adoption teams.
+3. Validate configured authentication methods against policy.
+4. Coordinate onboarding or policy updates where needed.
 
 ![Illustration for: 3. LDAP (Lightweight Directory Access Protocol): For users authenticated by way of traditional directory services. 4. EMAIL: Users who use email-based authentication. Access ID:…](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)

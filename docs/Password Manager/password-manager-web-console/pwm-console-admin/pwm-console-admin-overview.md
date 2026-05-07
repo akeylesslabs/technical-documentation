@@ -13,7 +13,7 @@ next:
   description: ''
 ---
 
-## Effortless Password Management for Enterprises With Akeyless
+## Admin Overview
 
 Use this page as an admin entry point for Password Manager web console workflows.
 

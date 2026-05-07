@@ -69,14 +69,14 @@ After installation, click the Akeyless icon in the browser toolbar and start the
 
 * Email and Password: Enter your registered email address and password to gain access.
 * Access-ID and Access-Key: Use your unique Access-ID and Access-Key combination for secure login.
-* SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
-* OIDC: Employ your preferred OIDC (OpenID Connect) identity provider for a seamless login experience.
+* SAML: Sign in with your configured SAML identity provider.
+* OIDC: Sign in with your configured OIDC identity provider.
 * GitHub: Sign in with GitHub when enabled by account policy.
 * Google: Sign in with Google when enabled by account policy.
 * Code-ID: Enter the unique code ID provided by your IT administrator. This code serves as your primary identifier and ensures that only authorized individuals can initiate the login process.
 * LDAP: For environments configured with LDAP, you can authenticate using LDAP credentials.
   Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/pwm-ext-configure-ldap-gateway-url) in Advanced Options, and then sign in with the Email option.
-* Account Alias: Support for using an account alias to simplify identification and enhance user experience.
+* Account Alias: Sign in with account alias when enabled by account policy.
 
 ## Sign-In Policy Notes
 

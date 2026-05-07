@@ -1,5 +1,6 @@
 ---
-title: Personal, Corporate & Favorites Areas Navigation
+title: Personal, Corporate & Favorites Areas Navigation
+
 slug: pwm-ext-navigate-personal-corporate-favorites
 excerpt: ''
 deprecated: false
@@ -13,22 +14,36 @@ next:
 ---
 ## Personal Area
 
-The Personal Area is designed for storing and managing passwords and secrets that are for your personal use. This could include passwords for your email, social media accounts, bank accounts, and other online services that you use personally.
-
-The Personal Area is typically the default area where new passwords and secrets are saved. You can also manually add passwords and secrets to the Personal Area by clicking on the "Add New Password" or "Add New Secret" button.
+Use the Personal area for credentials that are private to your user account.
 
 > ℹ️ **Note:**
 >
-> PWM 2.0 respects account-level controls for Password Manager access. Depending on account settings, the Personal area might be unavailable.
+> Account-level Password Manager policy controls visibility of the Personal area.
 
 ## Corporate Area
 
-The Corporate Area is designed for storing and managing passwords and secrets that are for your work use. This could include passwords for your company's email, intranet, VPN, and other work-related applications.
-
-The Corporate Area is typically separate from the Personal Area to help you keep your work passwords and secrets separate from your personal passwords and secrets. This can help to improve security and prevent accidental sharing of passwords.
+Use the Corporate area for credentials managed under organizational access policy.
 
 ## Favorites Area
 
-The Favorites Area is a place where you can store your most frequently used passwords and secrets. This can be a handy way to quickly access passwords for the websites and applications that you use most often.
+Use Favorites to pin frequently used items from either Personal or Corporate areas.
 
-You can add passwords and secrets to the Favorites Area by clicking on the star icon next to the password or secret in the Personal or Corporate Area.
+## Switch Between Personal and Corporate Areas
+
+1. Open the extension.
+2. Select **Personal** or **Corporate** in the area selector.
+3. Confirm that the displayed list matches the selected area.
+
+## Add an Item to Favorites
+
+1. Locate the item in Personal or Corporate area.
+2. Open item actions.
+3. Select **Add to Favorites**.
+
+## Remove an Item From Favorites
+
+1. Open the Favorites view.
+2. Open actions for the item.
+3. Select **Remove from Favorites**.
+
+Favorites updates immediately after add or remove actions.

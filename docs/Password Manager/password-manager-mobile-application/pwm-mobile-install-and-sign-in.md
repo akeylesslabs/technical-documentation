@@ -42,22 +42,18 @@ Use an authentication method allowed by account policy.
 
 ## VPN Requirement for Zero-Knowledge Keyless Mode
 
-Zero-knowledge keyless functionality is a security feature that allows users to access and manage their passwords or other sensitive information without revealing their credentials to the Service Provider. This is achieved through cryptographic techniques that ensure that only the user has knowledge of their credentials, while the Service Provider can only verify their identity without ever storing or seeing their passwords.
-
-A VPN establishes a secure tunnel between the user's mobile device and the VPN server, encrypting all network traffic and routing it through the VPN provider's secure infrastructure. This encrypted tunnel effectively shields the user's data from prying eyes, ensuring that their sensitive information, including their zero-knowledge keyless credentials, remains protected from interception and unauthorized access.
-
-Therefore, requiring users to have a VPN installed on their phones before using zero-knowledge keyless functionality is a necessary security measure to protect their sensitive information and maintain the integrity of the zero-knowledge authentication process. By routing all network traffic through a secure VPN tunnel, users can confidently use zero-knowledge keyless functionality without compromising their security.
+For environments that require zero-knowledge keyless mode, follow organizational policy for VPN prerequisites before sign-in.
 
 ## Authentication Methods Support
 
 After installation, open the mobile app and complete sign-in with one of the supported methods:
 
 * Access-ID and Access-Key: Use your unique Access-ID and Access-Key combination for secure login.
-* SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
-* OIDC: Employ your preferred OIDC (OpenID Connect) identity provider for a seamless login experience.
+* SAML: Sign in with your configured SAML identity provider.
+* OIDC: Sign in with your configured OIDC identity provider.
 * LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
     * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url) by way of advanced settings then login with Email option as a login type.
-* Account Alias: Support for using an account alias to simplify identification and enhance user experience.
+* Account Alias: Sign in with account alias when enabled by account policy.
 
 ## Post Sign-In Checklist
 
