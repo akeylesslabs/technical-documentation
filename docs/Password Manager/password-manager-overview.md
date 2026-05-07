@@ -38,7 +38,7 @@ Use these entry points based on where users perform the workflow:
 * Mobile Application: [https://docs.akeyless.io/docs/pwm-mobile-overview](https://docs.akeyless.io/docs/pwm-mobile-overview)
 * Web Console: [https://docs.akeyless.io/docs/pwm-console-overview](https://docs.akeyless.io/docs/pwm-console-overview)
 
-## Task-Based Navigation
+## Common Workflows
 
 For common tasks, start here:
 

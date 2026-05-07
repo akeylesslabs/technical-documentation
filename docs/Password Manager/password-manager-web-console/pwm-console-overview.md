@@ -33,7 +33,7 @@ Use these pages as the primary user entry points:
 * Web Extension overview: [https://docs.akeyless.io/docs/pwm-ext-overview](https://docs.akeyless.io/docs/pwm-ext-overview)
 * Mobile Application overview: [https://docs.akeyless.io/docs/pwm-mobile-overview](https://docs.akeyless.io/docs/pwm-mobile-overview)
 
-## Task-Based Navigation
+## Console Workflows
 
 Use the following pages for console-specific tasks:
 

@@ -28,7 +28,7 @@ Use the mobile section pages to complete these tasks:
 * Use autofill and OTP workflows.
 * Manage favorites and frequently used items.
 
-## Task-Based Cross-Platform Navigation
+## Cross-Platform Workflows
 
 When users switch between mobile and extension experiences, use matching pages:
 

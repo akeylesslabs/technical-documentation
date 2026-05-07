@@ -85,7 +85,7 @@ Use these pages for common tasks:
 * Autofill, OTP, and passkeys.
 * Security Health.
 
-## Task-Based Cross-Platform Navigation
+## Cross-Platform Workflows
 
 Use these links when a workflow exists in both extension and mobile docs:
 
