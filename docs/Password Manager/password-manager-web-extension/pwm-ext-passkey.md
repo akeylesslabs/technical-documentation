@@ -36,13 +36,9 @@ The following steps guide users on how to log in using an existing passkey for a
 
 ### Steps
 
-* Navigate to a Passkey-supported website:
-    * Example: Adobe Account Security
-* Attempt to Sign In:
-    * Try logging in to the website.
-* If a passkey exists for the website:
-    * A list of available passkeys will be shown.
-    * Users can select the relevant passkey to sign in.
+1. Navigate to a passkey-supported website.
+2. Start the sign-in flow.
+3. If matching passkeys exist, select the passkey to continue authentication.
 
 PWM 2.0 improves this flow by better matching passkeys to supported sites and login contexts.
 
@@ -56,18 +52,11 @@ Users can create a new passkey for a supported website. Follow the steps below t
 
 ### Steps
 
-* Navigate to the Passkey creation page on a supported website:
-    * Example: Adobe Account Security
-* Click on "Add Passkey".
-* Authenticate:
-    * If logged in to the website (For example, Adobe), proceed with passkey creation.
-    * If not logged in, authenticate first.
-* Passkey Status:
-    * If the passkey already exists for the website, the user will be given the option to update or create a new passkey.
-    * If no passkey exists, a new passkey will be created.
-* Save the Passkey:
-    * If saving the passkey is successful, a Success Message will be shown.
-    * If there is an error during the process, an Error Message will be displayed.
+1. Navigate to passkey creation on a supported website.
+2. Select the website option to add a passkey.
+3. Complete website authentication if required.
+4. Complete the extension prompt to create or update the passkey.
+5. Confirm success message.
 
 PWM 2.0 adds support for choosing the account default protection key or a specific protection key when creating supported passkeys.
 
@@ -79,6 +68,18 @@ PWM 2.0 adds support for choosing the account default protection key or a specif
 
 * Error Message: Shown when the passkey creation or update process fails.
 * Success Message: Displayed when the passkey is successfully created or updated.
+
+## Transport and Authenticator Behavior
+
+When a passkey is created, the extension processes browser-provided WebAuthn data, including authenticator transport metadata.
+
+Transport values can include:
+
+* `hybrid`
+* `internal`
+* `usb`
+
+These values come from the authenticator and browser flow. They are used by the extension during passkey handling and are not configured as manual user inputs in Password Manager pages.
 
 ## Reliability Improvements in PWM 2.0
 

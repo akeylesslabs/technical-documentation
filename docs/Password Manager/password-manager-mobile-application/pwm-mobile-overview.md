@@ -23,6 +23,7 @@ Use the mobile section pages to complete these tasks:
 * Install and sign in.
 * Create and edit passwords.
 * Choose password location and folder hierarchy.
+* Switch Personal and Corporate display modes in list and home views.
 * Configure password-policy behavior.
 * Use autofill and OTP workflows.
 * Manage favorites and frequently used items.

@@ -1,5 +1,6 @@
 ---
-title: Home Screen (Frequently used items)
+title: Home Screen (Frequently used items)
+
 slug: pwm-mobile-home-screen-frequently-used-items
 excerpt: ''
 deprecated: false
@@ -11,33 +12,40 @@ metadata:
 next:
   description: ''
 ---
-The revamped home screen brings a host of new features and improvements to ensure you have immediate access to the most relevant information and functionalities. Here's what you can expect:
+Use the Home screen to review high-priority updates and quickly access frequently used items.
 
 ![Illustration for: The revamped home screen brings a host of new features and improvements to ensure you have immediate access to the most relevant information and functionalities. Here's what…](https://files.readme.io/f53004f-Screenshot_2024-04-11_at_15.21.31.png)
 
 ## "What's New" Banner
 
-Location: Prominently displayed at the top of the screen.
+The banner appears at the top of the Home screen.
 
-Functionality: This banner is your go-to source for the latest app features, updates, and resolutions to any pesky bugs we've squashed.
+Use it to review product updates that can affect day-to-day Password Manager workflows, including features such as:
 
-Implementation Details: We've dedicated a specific view/layout to ensure this banner stands out from the rest of your content. It will introduce you to the latest additions such as:
+* Secure password and secret sharing.
+* OIDC sign-in support.
+* LDAP sign-in support.
+* Autofill enhancements.
 
-* Secure Password/Secret Sharing: Share your credentials securely with trusted contacts.
-* OIDC Support: We've bolstered security with OpenID Connect integration for authentication.
-* LDAP Integration: Seamlessly connect and authenticate with your network using LDAP.
-* Autofill Password Feature: Enjoy quick and secure autofill capabilities across websites and apps.
+## Personal and Corporate Navigation
 
-  Personal and Corporate Navigation
+Use the Personal or Corporate toggle on the Home screen to switch the displayed area.
 
-* Features: A streamlined header/navigator allows you to easily switch between your Personal and Corporate spaces, each tailored with specific options for an organized viewing experience.
+After switching, Home refreshes content for the selected area.
 
 ## Frequently Used Section
 
-This addition to the home screen is designed to put your most used passwords and secrets right at your fingertips, ensuring that your most critical credentials are always within easy reach.
+The Frequently Used section shows items the app identifies as high-frequency credentials.
 
-* Purpose: To provide quick access to the passwords and secrets you use most frequently, making your daily routines smoother and more efficient.
-* Criteria for "Most Used": This section dynamically updates based on your actions, including:
-    * Injected Passwords: Passwords you've used to log in automatically to websites and apps.
-    * Copied Passwords: Credentials you've copied to the clipboard for use in different contexts.
-    * Shared Passwords: Passwords and secrets you've shared with trusted contacts for collaborative work or emergency access.
+The list updates over time based on user actions such as:
+
+* Using items during injection/autofill flows.
+* Copying credential values.
+* Sharing items where sharing is supported.
+
+## Suggested Workflow
+
+1. Open Home.
+2. Review the latest banner update.
+3. Select Personal or Corporate.
+4. Open an item from Frequently Used for the next action.

@@ -16,7 +16,7 @@ next:
 
 The Akeyless Password Manager Web Extension provides browser-based access to passwords, secrets, one-time passwords (OTPs), and passkeys.
 
-This page separates currently documented-and-verified capabilities from items that still require validation.
+This page summarizes documented extension capabilities and links to task-focused pages.
 
 ## Recommended Reading Order
 
@@ -62,26 +62,19 @@ Security Health support for personal-vault review includes:
 * Visual breakdowns of password hygiene metrics.
 * Breach-related insights and actionable follow-up.
 
+### Secret value retrieval behavior
+
+The extension supports value retrieval for these secret types:
+
+* Static secrets.
+* Dynamic secrets.
+* Rotated secrets.
+
+When a dynamic or rotated item is opened for value retrieval, the extension uses the gateway defined on the item when available. If the item does not define a gateway, the extension falls back to the currently configured public gateway in Advanced Options.
+
 ### Enterprise deployment
 
 PWM 2.0 documentation now includes a first-pass enterprise deployment pattern for preconfigured authentication in managed browser deployments.
-
-## Current Documentation Gaps
-
-The following PWM 2.0 areas still need additional validation or assets before the documentation can be considered complete:
-
-* Firefox-specific enterprise deployment validation.
-* Confirmed supported values for preconfigured authentication fields.
-* Updated screenshots for Security Health, passkey workflows, and multi-step OTP injection.
-* Source-verified setup details for browser-admin deployment patterns beyond the current Chromium example.
-
-## Pending Validation Items
-
-The following claims should remain provisional until validation artifacts are added:
-
-* Detailed behavior for multi-step sign-in flows that split username, password, and OTP across multiple screens.
-* Exact behavior for masked OTP and MFA-style fields across target websites.
-* Passkey matching behavior details across relying-party edge cases.
 
 ## Suggested Entry Points
 

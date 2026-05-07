@@ -30,7 +30,19 @@ Use this workflow to create a static secret item in the extension.
 3. Enter the secret name.
 4. Optionally, add a description.
 
-## Step 3: Define Var and Location
+## Step 3: Add Custom Fields (Optional)
+
+You can add custom fields to store additional key-value data on the secret item.
+
+1. Select **Add Field**.
+2. Enter field name and value.
+3. Save the field.
+
+Field names must be unique per item.
+
+For OTP-specific custom field workflows, see [https://docs.akeyless.io/docs/pwm-ext-otp](https://docs.akeyless.io/docs/pwm-ext-otp).
+
+## Step 4: Define Var and Location
 
 Enter the secret value in the `Var` field.
 

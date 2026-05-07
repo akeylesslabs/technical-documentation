@@ -25,12 +25,11 @@ The Akeyless Password Manager Web Extension can detect supported sign-in forms a
 
 ## PWM 2.0 Autofill Improvements
 
-PWM 2.0 improves browser sign-in assistance in these areas:
+The extension supports the following sign-in assistance behaviors:
 
 * Supported pages can use username, password, and OTP values from the same saved item.
-* Multi-step login flows can continue targeting the active field when the next step asks for an OTP.
-* OTP-style fields are handled more carefully so OTP inputs are less likely to be confused with password-update prompts.
-* Save-password flows better avoid treating short MFA values as account passwords.
+* Dynamic and rotated secret items can be resolved through an Akeyless Gateway before injection.
+* Gateway selection for dynamic and rotated retrieval uses the item-configured gateway when present, or falls back to the current public gateway from Advanced Options.
 
 ## Autofill Setting
 

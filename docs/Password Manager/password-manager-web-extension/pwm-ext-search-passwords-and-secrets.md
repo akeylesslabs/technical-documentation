@@ -23,6 +23,14 @@ Search can help match items by:
 * Username.
 * Website context, where available.
 
+## Multi-Field Search Behavior
+
+The search input applies a multi-field filter across item metadata and not only item names.
+
+When a match is found in username or website fields, the extension can display that matched value in the item row to help explain why an item appeared in results.
+
+The same search term also applies to favorites in the extension view.
+
 ## Search Results Display
 
 Search results show key item details to help differentiate similar credentials:
