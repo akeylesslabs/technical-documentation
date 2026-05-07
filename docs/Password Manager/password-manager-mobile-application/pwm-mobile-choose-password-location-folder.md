@@ -18,20 +18,13 @@ Choose where a password is stored and manage the Personal or Corporate view in t
 
 Use the Personal folder for credentials that are private to your user account.
 
+Example: save your personal banking login, personal email account, or an individual social-media account in Personal.
+
 ## Corporate Folder
 
 Use the Corporate folder for credentials managed by organizational access policy.
 
-## Personal Area Display Controls
-
-In addition to selecting a save location during password creation, the mobile app supports Personal or Corporate display toggles in list-oriented views.
-
-Use the Personal or Corporate toggle to switch which area is displayed in:
-
-* The secrets list view.
-* The Home view.
-
-The selected mode is persisted and reused on subsequent app sessions.
+Example: save shared SaaS admin access, team service accounts, or environment credentials (for example, staging dashboards) in Corporate.
 
 ## Selecting Password Location
 
@@ -50,6 +43,17 @@ When creating a password, choose the save location with these steps:
 5. Enter folder name and tap **Create**.
 6. Confirm the selected location.
 7. Tap **Save**.
+
+## Personal Area Display Controls
+
+In addition to selecting a save location during password creation, the mobile app supports Personal or Corporate display toggles in list-oriented views.
+
+Use the Personal or Corporate toggle to switch which area is displayed in:
+
+* The secrets list view.
+* The Home view.
+
+The selected mode is persisted and reused on subsequent app sessions.
 
 ## Change Displayed Area in Lists and Home
 
