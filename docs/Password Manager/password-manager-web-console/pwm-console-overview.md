@@ -21,9 +21,25 @@ Use the admin pages in this section for:
 * [Security Health review and risk follow-up](https://docs.akeyless.io/docs/pwm-console-security-health)
 * [Usage-report access for password-management activity](https://docs.akeyless.io/docs/pwm-console-admin-usage-report)
 * [Personal-folder visibility control where applicable](https://docs.akeyless.io/docs/pwm-console-hide-personal-folder)
-* [Admin workflow entry point](https://docs.akeyless.io/docs/pwm-console-admin-overview)
 
 For broader account administration topics such as global RBAC and non-Password-Manager settings, use the administration sections outside this Password Manager area.
+
+### Related Administration Topics
+
+Use these pages when configuration extends beyond Password Manager-specific views:
+
+* [RBAC policy model](https://docs.akeyless.io/docs/rbac)
+* [Account settings](https://docs.akeyless.io/docs/account-settings)
+* [Audit logs](https://docs.akeyless.io/docs/audit-logs)
+* [Sub-admin delegation](https://docs.akeyless.io/docs/sub-admins)
+
+### Scope Note
+
+Password Manager console workflows are listed in this section. Product-wide identity platform administration is documented in broader administration sections.
+
+### Admin Tutorial
+
+Check out our tutorial video on [Configuring the Akeyless Password Manager as an Admin](https://tutorials.akeyless.io/docs/akeyless-password-manager-admins).
 
 ## As a User
 

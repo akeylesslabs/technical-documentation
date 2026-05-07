@@ -12,8 +12,6 @@ metadata:
 next:
   description: ''
 ---
-## Introduction
-
 Akeyless Password Manager provides a unified way to store, manage, and use passwords and related credentials across browser extension, mobile app, and web console experiences.
 
 ![Akeyless Screenshot](https://files.readme.io/f851fd0-Screenshot_2024-02-18_at_10.27.50.png)
