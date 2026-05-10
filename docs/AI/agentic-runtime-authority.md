@@ -53,8 +53,8 @@ Create the following file: `~/Library/"Application Support"/Claude/claude_deskto
       "command": "akeyless",
       "args": [
         "mcp-runtime-authority",
-        "--gateway-url", "http://3.14.113.198:8000",
-        "--profile", "staging"
+        "--gateway-url", 'https://<Your-Akeyless-GW-URL>:8000',
+        "--profile", "profile_name"
       ]
     }
 ```
