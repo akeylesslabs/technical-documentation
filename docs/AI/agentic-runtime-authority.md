@@ -7,11 +7,11 @@ metadata:
 ---
 Agentic Runtime Authority allows AI agents to securely communicate with your resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with protected environments without exposing long-lived credentials.
 
-Currently, the following secrets types are supported: 
+**Agentic Runtime Authority** currently supports the following dynamic secret types:
 
-* DB Secrets
-* Cloud Secrets
-* GitHub
+* **DB Dynamic Secrets** for database access. 
+* **Cloud Dynamic Secrets** for cloud environment access. 
+* **GitHub Dynamic Secrets** for GitHub repository access.
 
 # Prerequisites
 
@@ -48,6 +48,8 @@ Use the following configuration for both **Claude** and **Cursor**:
         "mcp-runtime-authority",
         "--gateway-url",
         "https://<Your-Akeyless-GW-URL>:8000",
+        "--secret-name",
+        "full/path/to/secret",
         "--profile",
         "profile_name"
       ]
@@ -75,6 +77,8 @@ Use the following configuration for both **Claude** and **Cursor**:
 Where:
 
 * `gateway-url`: The Gateway URL where the Dynamic Secret exists.
+
+* `secret-name`: The full path of a specific Dynamic Secret to expose to the AI agent. Use this parameter when you want the agent to access only one secret. To allow access to all supported Dynamic Secrets, remove this parameter. Multiple specific secrets are not supported.
 
 * `profile`: The CLI profile with the required RBAC permissions for working with Agentic Runtime Authority.
 
