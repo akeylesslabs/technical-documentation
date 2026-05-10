@@ -37,9 +37,11 @@ Create the following file: `~/Library/"Application Support"/Claude/claude_deskto
 
 **For Cursor**
 
+Create the following file: `~/.cursor/mcp.json`.
+
 Use the following configuration for both **Claude** and **Cursor**:
 
-```json Claude
+```json shell
 {
   "mcpServers": {
     "akeyless-connector": {
@@ -47,24 +49,8 @@ Use the following configuration for both **Claude** and **Cursor**:
       "args": [
         "mcp-runtime-authority",
         "--gateway-url",
-        "https://<Your-Akeyless-GW-URL>:8000",
         "--secret-name",
         "full/path/to/secret",
-        "--profile",
-        "profile_name"
-      ]
-    }
-  }
-}
-```
-```json Cursor
-{
-  "mcpServers": {
-    "akeyless-connector": {
-      "command": "akeyless",
-      "args": [
-        "mcp-runtime-authority",
-        "--gateway-url",
         "https://<Your-Akeyless-GW-URL>:8000",
         "--profile",
         "profile_name"
