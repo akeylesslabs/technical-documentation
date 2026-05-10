@@ -14,10 +14,15 @@ Agentic Runtime Authority allows AI agents to securely communicate with your res
 # Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.51.0`.
-* CLI version `1.144.0`
+
+* CLI version `1.144.0`.
+
 * [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) enabled on the Gateway.
+
 * Dynamic Secret with Agentic Runtime Authority enabled.
-* An authentication method associated with a role that has Agentic Runtime Authority permissions
+
+* An authentication method associated with a role that has Agentic Runtime Authority permissions.
+
 * Claude Desktop installed.
 
 # Setting up the AI Agent
@@ -57,6 +62,7 @@ Create the following file: `~/Library/"Application Support"/Claude/claude_deskto
 Where:
 
 * `gateway-url`: TThe Gateway URL where the Dynamic Secret exists.
+
 * `profile`: The CLI profile with the required RBAC permissions for working with Agentic Runtime Authority.
 
 After the `claude_desktop_config.json` file is configured, quit and reopen Claude Desktop. Then go to **Settings** > **Developer**. You should see the **Akeyless-Connector** MCP Server in a **running** state.
