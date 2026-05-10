@@ -7,6 +7,12 @@ metadata:
 ---
 Agentic Runtime Authority allows AI agents to securely communicate with your resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with protected environments without exposing long-lived credentials.
 
+Currently, the following secrets types are supported: 
+
+* DB Secrets
+* Cloud Secrets
+* GitHub
+
 # Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.51.0`.
@@ -23,36 +29,31 @@ Agentic Runtime Authority allows AI agents to securely communicate with your res
 
 # Setting up the AI Agent
 
-The following steps are required to integrate Akeyless with the AI agent. 
+To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file.
 
-Create the following file: `~/Library/"Application Support"/Claude/claude_desktop_config.json`:
+**For Claude**
+
+Create the following file: `~/Library/"Application Support"/Claude/claude_desktop_config.json`.
+
+**For Cursor**
+
+Use the following configuration for both **Claude** and **Cursor**:
 
 ```json Claude
 {
-  "preferences": {
-    "coworkWebSearchEnabled": true,
-    "coworkScheduledTasksEnabled": false,
-    "ccdScheduledTasksEnabled": false,
-    "epitaxyPrefs": {
-      "starred-local-code-sessions": [],
-      "starred-cowork-spaces": [],
-      "starred-session-groups": [],
-      "dframe-local-slice": {
-        "pinnedOrder": [],
-        "customGroupAssignments": {},
-        "customGroupOrder": {}
-      }
-    }
-  },
   "mcpServers": {
     "akeyless-connector": {
       "command": "akeyless",
       "args": [
         "mcp-runtime-authority",
-        "--gateway-url", 'https://<Your-Akeyless-GW-URL>:8000',
-        "--profile", "profile_name"
+        "--gateway-url",
+        "https://<Your-Akeyless-GW-URL>:8000",
+        "--profile",
+        "profile_name"
       ]
     }
+  }
+}
 ```
 ```json Cursor
 {
