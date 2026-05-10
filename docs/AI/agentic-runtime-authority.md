@@ -9,8 +9,8 @@ Agentic Runtime Authority allows AI agents to securely communicate with your res
 
 **Agentic Runtime Authority** currently supports the following dynamic secret types:
 
-* **DB Dynamic Secrets** for database access. 
-* **Cloud Dynamic Secrets** for cloud environment access. 
+* **DB Dynamic Secrets** for database access.
+* **Cloud Dynamic Secrets** for cloud environment access.
 * **GitHub Dynamic Secrets** for GitHub repository access.
 
 # Prerequisites
@@ -70,7 +70,7 @@ Where:
 
 # Querying the DB
 
-You can now use Claude to query your databases in natural language. Each session is logged under the **Agentic Runtime Authority** tab in the **Akeyless Console**.
+You can now use Claude/Cursor to query your resources in natural language. Each session is logged under the **Agentic Runtime Authority** tab in the **Akeyless Console**.
 
 You can also control what users are allowed to ask. For example, you may want to block questions that expose sensitive data, such as **personal information**, **credentials**, or **internal records**.
 
