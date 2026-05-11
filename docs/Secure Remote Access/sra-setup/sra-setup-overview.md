@@ -1,5 +1,5 @@
 ---
-title: Unified Gateway Setup
+title: SRA Setup
 excerpt: ''
 deprecated: false
 hidden: false
