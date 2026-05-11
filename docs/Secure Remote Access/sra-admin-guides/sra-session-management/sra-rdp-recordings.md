@@ -127,7 +127,7 @@ With this option, the user provides explicit credentials for Azure authenticatio
 * **Storage Account Name**: The name of the Azure Storage Account where the recordings will be uploaded.
 * **Storage Container Name**: The container within the Storage Account where recordings will be saved.
 
-This can also be done by way of the CLI:
+This can also be done by way of the CLI. For a full flag reference, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
 
 ```shell AWS S3
 akeyless gateway update remote-access-rdp-recording \
