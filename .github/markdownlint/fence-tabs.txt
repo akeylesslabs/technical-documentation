@@ -67,10 +67,12 @@ dnf
 DNS with AWS
 DNS with Azure
 DNS with GCP
+DNS with Cloudflare
 Docker
 Docker Hub Target
 docker-compose.yml
 Dynamic
+HTTP
 Dynamic Group
 Dynamic Mode
 Dynamic Secret

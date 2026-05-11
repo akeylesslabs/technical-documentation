@@ -55,7 +55,7 @@ akeyless target create lets-encrypt \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
 ```
-```shell
+```shell DNS with Cloudflare
 akeyless target create lets-encrypt \
 --name <Target Name> \
 --email <ACME Account Email> \
@@ -63,7 +63,7 @@ akeyless target create lets-encrypt \
 --dns-target-creds <Cloudflare DNS Target Name> \
 --dns-zone <Cloudflare DNS Zone>
 ```
-```shell
+```shell HTTP
 akeyless target create lets-encrypt \
 --name <Target Name> \
 --email <ACME Account Email> \

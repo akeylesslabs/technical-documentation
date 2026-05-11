@@ -52,7 +52,7 @@ akeyless target create digicert \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
 ```
-```shell
+```shell DNS with Cloudflare
 akeyless target create digicert \
 --name <Target Name> \
 --digicert-url <us-production / eu-production / us-demo / eu-demo> \
