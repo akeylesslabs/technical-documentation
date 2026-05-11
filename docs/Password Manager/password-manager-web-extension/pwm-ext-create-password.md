@@ -1,5 +1,5 @@
 ---
-title: Creating New Password
+title: Creating a New Password
 
 slug: pwm-ext-create-password
 excerpt: ''

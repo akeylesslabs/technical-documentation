@@ -1,5 +1,5 @@
 ---
-title: Configure LDAP gateway URL
+title: Configure LDAP Gateway URL
 
 slug: pwm-mobile-configure-ldap-gateway-url
 excerpt: ''

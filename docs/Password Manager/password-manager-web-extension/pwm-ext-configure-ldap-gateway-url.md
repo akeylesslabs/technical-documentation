@@ -1,5 +1,6 @@
 ---
-title: Configure LDAP gateway URL
+title: Configure LDAP Gateway URL
+
 slug: pwm-ext-configure-ldap-gateway-url
 excerpt: ''
 deprecated: false

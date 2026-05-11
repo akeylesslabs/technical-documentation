@@ -1,5 +1,5 @@
 ---
-title: Install and Sign In to the Akeyless mobile app
+title: Install and Sign In to the Akeyless Mobile App
 
 slug: pwm-mobile-install-and-sign-in
 excerpt: ''

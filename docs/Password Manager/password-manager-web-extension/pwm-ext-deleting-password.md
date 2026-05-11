@@ -1,5 +1,5 @@
 ---
-title: Deleting Password or Secret
+title: Deleting a Password or Secret
 
 slug: pwm-ext-deleting-password
 excerpt: ''

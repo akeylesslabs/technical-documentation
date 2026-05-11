@@ -1,5 +1,6 @@
 ---
-title: Sharing Password
+title: Sharing a Password
+
 slug: pwm-mobile-sharing-password
 excerpt: ''
 deprecated: false

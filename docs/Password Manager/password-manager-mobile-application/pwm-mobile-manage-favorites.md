@@ -1,5 +1,5 @@
 ---
-title: Favorites (add, remove and view items)
+title: Favorites (Add, Remove, and View Items)
 
 slug: pwm-mobile-manage-favorites
 excerpt: ''

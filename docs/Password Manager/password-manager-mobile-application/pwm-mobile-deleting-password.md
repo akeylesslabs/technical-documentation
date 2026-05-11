@@ -1,5 +1,5 @@
 ---
-title: Deleting Password
+title: Deleting a Password
 
 slug: pwm-mobile-deleting-password
 excerpt: ''

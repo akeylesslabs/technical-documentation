@@ -1,5 +1,5 @@
 ---
-title: Home Screen (Frequently used items)
+title: Home Screen (Frequently Used Items)
 
 slug: pwm-mobile-home-screen-frequently-used-items
 excerpt: ''

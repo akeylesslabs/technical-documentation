@@ -1,5 +1,5 @@
 ---
-title: Creating New Secret
+title: Creating a New Secret
 
 slug: pwm-ext-create-secret
 excerpt: ''
