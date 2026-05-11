@@ -69,4 +69,4 @@ Confirmation: The app will confirm that your password has been saved. It's now s
 
 1. Access the Autofill or Suggestion Field: When you tap on a password field on a website or app, your mobile device will present you with autofill or suggestion options for previously saved passwords.
 2. Initiate New Password Creation: Look for an option within the autofill or suggestion field to create a new password by clicking the "Open Akeyless" button.
-3. Follow the steps mentioned previously in the section "Creating a New Password from Akeyless Mobile Application"
+3. Follow the steps mentioned previously in the section [Creating a New Password from Akeyless Mobile Application](https://docs.akeyless.io/docs/pwm-mobile-create-password#creating-a-new-password-from-akeyless-mobile-application).

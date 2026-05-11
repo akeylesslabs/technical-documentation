@@ -16,16 +16,33 @@ Use Security Health to review password risk indicators and identify remediation 
 
 ![Illustration for: The Security Health Dashboard provides users with an overview of the strength and security of their stored passwords, offering real-time insights, improvement suggestions, and…](https://files.readme.io/c51dd3e02752d51b5d79e21377a2cc21270b2bb98962f694dacc5674b4347a87-Screenshot_2024-09-21_at_7.32.19.png)
 
+## Security Score
+
+The **Overall Security Score** is a 0–100 aggregate value calculated as the average of all individual password scores in the account. It reflects the overall strength of passwords stored in Password Manager.
+
+Each password in the account has its own score. That score is determined by factors such as password length and character variety. The Overall Security Score rolls up all individual scores into a single account-level indicator.
+
+The dashboard gauge shows the current score out of 100. Scores closer to 100 indicate a stronger password portfolio.
+
+> 📘 **Note:**
+>
+> The password score feature must be enabled in account settings before scores are calculated and displayed. When disabled, the Security Health page is not accessible. See [Toggle for Password Score Feature](#toggle-for-password-score-feature).
+
+When a password's score is low, the **Suggestion** column in the password list shows a remediation prompt, for example:
+
+* **Low score** — Strengthen password. Consider length or variety.
+* **Zero score** — Weak password. Use longer password and mix character types.
+
 ## Dashboard Layout
 
 1. **Gauges section**
-   * Security Score gauge.
-   * Weak Passwords gauge.
-   * Breached Passwords gauge.
+   * Overall Security Score gauge — aggregate average score across all passwords, out of 100.
+   * Weak gauge — number of weak passwords out of total passwords.
+   * Reused gauge — number of reused passwords out of total passwords.
 2. **Password list section**
-   * Password location.
    * Password name.
-   * Score.
+   * Password location.
+   * Risk Level.
    * Suggestion.
    * Last updated timestamp.
 
@@ -34,7 +51,7 @@ Use Security Health to review password risk indicators and identify remediation 
 Use filters to scope the password list:
 
 * Weak passwords.
-* Breached passwords.
+* Compromised passwords.
 * Update-required passwords.
 
 ## Toggle for Password Score Feature
