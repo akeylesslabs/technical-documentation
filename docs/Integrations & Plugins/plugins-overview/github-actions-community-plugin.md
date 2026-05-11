@@ -14,7 +14,7 @@ next:
 
 GitHub Actions enables you to automate workflows for your GitHub-hosted repositories.
 
-With [this](https://github.com/LanceMcCarthy/akeyless-action) **community** plugin, you can fetch secrets directly from the Akeyless Platform into your workflows.
+With [this](https://github.com/akeyless-community/akeyless-action) **community** plugin, you can fetch secrets directly from the Akeyless Platform into your workflows.
 
 This guide will demonstrate the use of [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) and [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) **Authentication Methods** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
@@ -165,7 +165,7 @@ jobs:
     steps:
     - name: Fetch secrets from AKeyless
       id: fetch-secrets
-      uses: LanceMcCarthy/akeyless-action@v3
+      uses: akeyless-community/akeyless-action@v3
       with:
         access-id: ${{ secrets.ACCESS_ID}}
         static-secrets: '{"/GitHub/MyGitSecret":"MY_SECRET"}'
@@ -188,7 +188,7 @@ jobs:
     steps:
     - name: Fetch secrets from AKeyless
       id: fetch-secrets
-      uses: LanceMcCarthy/akeyless-action@v3.1.1
+      uses: akeyless-community/akeyless-action@v3
       with:
         access-id: ${{ secrets.ACCESS_ID}}
         access-type: 'aws_iam'
@@ -224,7 +224,7 @@ jobs:
     steps:
     - name: Fetch dynamic secrets from Akeyless
       id: fetch-dynamic-secrets
-      uses: LanceMcCarthy/akeyless-action@v3
+      uses: akeyless-community/akeyless-action@v3
       with:
         access-id: ${{ secrets.ACCESS_ID }}
         dynamic-secrets: '{"/GitHub/MyGitSecret":"MY_SECRET"}'
@@ -256,7 +256,7 @@ jobs:
     steps:
     - name: Fetch dynamic secrets from Akeyless
       id: fetch-dynamic-secrets
-      uses: LanceMcCarthy/akeyless-action@v3.1.1
+      uses: akeyless-community/akeyless-action@v3
       with:
         access-id: ${{ secrets.ACCESS_ID }}
         dynamic-secrets: '{"/GitHub/MyGitSecret":"MY_SECRET"}'
@@ -277,7 +277,7 @@ jobs:
         echo "type: ${{ env.type }}"
 ```
 
-For additional information use this [link](https://github.com/LanceMcCarthy/akeyless-action).
+For additional information, see the [repository](https://github.com/akeyless-community/akeyless-action).
 
 ## Tutorial
 

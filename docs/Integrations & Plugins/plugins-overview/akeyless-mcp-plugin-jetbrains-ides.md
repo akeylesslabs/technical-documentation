@@ -14,6 +14,8 @@ Integrate Akeyless secrets management directly into your JetBrains IDE through t
 
 See also: <Anchor label="MCP Server" href="doc:mcp-server" />.
 
+Source repository: [https://github.com/akeyless-community/akeyless-mcp-plugin](https://github.com/akeyless-community/akeyless-mcp-plugin).
+
 ## Features
 
 * Hierarchical Tree View: Browse Akeyless items in a folder tree structure
@@ -112,30 +114,19 @@ Configuration fields:
 
 * **Server Command**
 
-  Examples:
+  Enter the command that starts the Akeyless MCP server. For example:
 
   ```text
-  /opt/homebrew/bin/akeyless
-  akeyless
   npx -y @akeyless/cli-mcp
   ```
-
-* **Command Arguments**
-
-  Example:
-
-  ```shell
-  mcp --gateway-url https://api.akeyless.io --profile default
-  ```
-
-  Explanation:
-    * `mcp` launches MCP server mode
-    * `--gateway-url` points to your gateway (SaaS default: `https://api.akeyless.io`)
-    * `--profile` selects the CLI profile used for authentication
 
 * **Working Directory**
 
   Optional. If empty, the plugin uses the current project directory.
+
+* **Akeyless Profile**
+
+  Optional. Enter the Akeyless CLI profile name to use for authentication. If this field is empty, the plugin uses the default profile.
 
 * **Auto-connect on IDE startup**
 
