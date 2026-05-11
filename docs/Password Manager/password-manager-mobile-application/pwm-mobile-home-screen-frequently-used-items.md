@@ -16,16 +16,16 @@ Use the Home screen to review high-priority updates and quickly access frequentl
 
 ![Illustration for: The revamped home screen brings a host of new features and improvements to ensure you have immediate access to the most relevant information and functionalities. Here's what…](https://files.readme.io/f53004f-Screenshot_2024-04-11_at_15.21.31.png)
 
-## "What's New" Banner
+## Feature Cards
 
-The banner appears at the top of the Home screen.
+At the top of the Home screen, a swipeable set of feature cards provides quick links to documentation for key Password Manager capabilities:
 
-Use it to review product updates that can affect day-to-day Password Manager workflows, including features such as:
+* Autofill and password injection
+* LDAP authentication
+* OIDC authentication
+* Password sharing
 
-* Secure password and secret sharing.
-* OIDC sign-in support.
-* LDAP sign-in support.
-* Autofill enhancements.
+Tap a card to open the relevant documentation page within the app.
 
 ## Personal and Corporate Navigation
 
@@ -35,17 +35,18 @@ After switching, Home refreshes content for the selected area.
 
 ## Frequently Used Section
 
-The Frequently Used section shows items the app identifies as high-frequency credentials.
+The Frequently Used section shows up to 7 items, ranked by how often they have been accessed. The list updates based on user actions such as:
 
-The list updates over time based on user actions such as:
-
+* Opening an item's details.
 * Using items during injection/autofill flows.
 * Copying credential values.
 * Sharing items where sharing is supported.
 
+Tap the collapse icon at the right of the section header to expand or collapse the list.
+
 ## Suggested Workflow
 
 1. Open Home.
-2. Review the latest banner update.
+2. Swipe through the feature cards if you need a quick link to feature documentation.
 3. Select Personal or Corporate.
 4. Open an item from Frequently Used for the next action.

@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+The Akeyless Password Manager mobile app is available for Android and iOS.
+
 ## Installation on Your Mobile Devices
 
 Use the following steps to install and sign in to the mobile app on Android or iOS.

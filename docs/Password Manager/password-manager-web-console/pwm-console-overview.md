@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+The Password Manager web console provides administration and security reporting tools for managing Password Manager at the account level.
+
 ## As a User
 
 For day-to-day password creation, autofill, OTP, and passkey workflows, the primary user surfaces are the web extension and mobile app.

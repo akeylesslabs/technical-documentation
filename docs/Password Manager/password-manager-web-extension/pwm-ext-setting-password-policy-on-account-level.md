@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+Use the following steps to view and configure the password generation policy for your account in the web extension.
+
 ## Access the Password Generation Policy
 
 ![Illustration for: Accessing Secret Generation Policy](https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png)

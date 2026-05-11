@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+Passwords and secrets in the extension can be organized into folders within the Personal and Corporate areas.
+
 ## Navigating Within the Folder Hierarchy
 
 Use folder navigation to browse items within the Personal or Corporate area.

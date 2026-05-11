@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+Use the following steps to install and sign in to the Akeyless Password Manager Web Extension in your browser.
+
 ## Installation Across Browsers
 
 The Akeyless Password Manager Web Extension is available for Firefox, Google Chrome, and Microsoft Edge.

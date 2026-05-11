@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+The extension supports filtering by item type and tags to help you locate specific items quickly.
+
 ## Filtering Passwords and Secrets
 
 Use filters to narrow the current item list by type, tags, or both.

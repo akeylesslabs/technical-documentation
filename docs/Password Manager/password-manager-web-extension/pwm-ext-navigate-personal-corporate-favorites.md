@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+The extension organizes items into Personal, Corporate, and Favorites areas.
+
 ## Personal Area
 
 Use the Personal area for credentials that are private to your user account.

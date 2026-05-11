@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+Use the following steps to locate a password and edit its details in the Akeyless mobile app.
+
 ## Locating the Password
 
 ![Illustration for: Locating the Password](https://files.readme.io/4d0810c-Screenshot_2024-01-10_at_16.15.37.png)

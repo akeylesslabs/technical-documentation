@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+Use the following steps to view and configure the password generation policy for your account in the Akeyless mobile app.
+
 ## Accessing Password Generation Policy
 
 ![Illustration for: Accessing Password Generation Policy](https://files.readme.io/fc0783d-Screenshot_2024-01-10_at_16.21.04.png)

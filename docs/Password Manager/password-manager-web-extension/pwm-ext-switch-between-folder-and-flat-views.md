@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+Use the following steps to switch between the folder and flat list views in the extension.
+
 ## Switching Between Views in Personal and Corporate Areas
 
 The extension provides two ways to view items in the Personal and Corporate areas.

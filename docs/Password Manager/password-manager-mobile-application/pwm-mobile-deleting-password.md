@@ -1,5 +1,6 @@
 ---
-title: Deleting Password
+title: Deleting Password
+
 slug: pwm-mobile-deleting-password
 excerpt: ''
 deprecated: false
@@ -11,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+Use the following steps to permanently delete a password from the Akeyless mobile app.
+
 ## To Delete a Password from Akeyless Password Manager
 
 1. Open the Akeyless Password Manager application.

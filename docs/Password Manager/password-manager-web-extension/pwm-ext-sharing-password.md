@@ -12,6 +12,8 @@ metadata:
 next:
   description: ''
 ---
+Use the following steps to share a password or secret with other users from the Akeyless Password Manager Web Extension.
+
 ## Share an Item
 
 ![Illustration for: Sharing a Password with the Quick Action Menu](https://files.readme.io/264d287-Screenshot_2024-01-10_at_16.44.54.png)
