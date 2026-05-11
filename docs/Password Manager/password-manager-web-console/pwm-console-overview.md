@@ -16,7 +16,7 @@ The Password Manager web console provides administration and security reporting 
 
 ## As a User
 
-For day-to-day password creation, autofill, OTP, and passkey workflows, the primary user surfaces are the web extension and mobile app.
+For day-to-day password creation, autofill, OTP, and passkey tasks, the primary user surfaces are the web extension and mobile app.
 
 Use these pages as the primary user entry points:
 
@@ -59,7 +59,7 @@ Check out our tutorial video on [Using the Akeyless Password Manager Web Extensi
 
 ## As an Admin
 
-The Password Manager web console provides password-focused visibility for admins, with emphasis on Security Health and usage-oriented monitoring workflows.
+The Password Manager web console provides password-focused visibility for admins, with emphasis on Security Health and usage-oriented monitoring tasks.
 
 Use the admin pages in this section for:
 

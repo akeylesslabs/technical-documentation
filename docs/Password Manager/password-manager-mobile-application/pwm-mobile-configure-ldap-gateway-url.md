@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-Use this workflow to configure the LDAP gateway URL for mobile sign-in.
+Use these steps to configure the LDAP gateway URL for mobile sign-in.
 
 ![LDAP Gateway URL field in the mobile app settings](https://files.readme.io/006da13-Screenshot_2024-03-20_at_10.53.34.png)
 

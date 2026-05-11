@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-The extension supports OTP workflows for saved credentials. OTP values can be added from QR content or from manual `otpauth://`-compatible data, and supported sign-in pages can use those values during autofill and injection flows.
+The extension supports OTP for saved credentials. OTP values can be added from QR content or from manual `otpauth://`-compatible data, and supported sign-in pages can use those values during autofill and injection flows.
 
 ## Add an OTP by Scanning QR Content
 
@@ -30,7 +30,7 @@ After the OTP value is saved, click the eye icon next to the custom field to rev
 
 ## OTP Behavior
 
-The extension supports OTP workflows in these areas:
+The extension supports OTP in these areas:
 
 * OTP values can be stored from QR-based flows and manual OTP entry.
 * Supported sign-in pages can use OTP values alongside username and password.
@@ -39,7 +39,7 @@ The extension supports OTP workflows in these areas:
 
 ## Add an OTP Manually
 
-Use the manual workflow when the OTP secret is provided as a setup key or `otpauth://`-compatible value instead of a QR code.
+Use manual entry when the OTP secret is provided as a setup key or `otpauth://`-compatible value instead of a QR code.
 
 1. Open the extension.
 2. Open the three-dot menu.
@@ -51,6 +51,6 @@ Use the manual workflow when the OTP secret is provided as a setup key or `otpau
 
 ![OTP setup key and secret input fields in the web extension](https://files.readme.io/8ad8ef4-Screenshot_2024-08-19_at_16.25.10.png)
 
-After saving, the OTP value becomes available as part of the item and can be used in supported OTP-related workflows.
+After saving, the OTP value becomes available as part of the item and can be used in supported OTP-related operations.
 
 ![OTP code added as a custom field to a password entry in the web extension](https://files.readme.io/f962648-Screenshot_2024-06-16_at_11.08.08.png)

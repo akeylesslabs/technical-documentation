@@ -16,7 +16,7 @@ The Akeyless Password Manager Web Extension provides browser-based access to pas
 
 ## Recommended Reading Order
 
-Start with this reading order for Password Manager workflows:
+Start with this reading order for the Password Manager documentation:
 
 1. Install the extension and sign in.
 2. Configure Advanced Options, tenant, LDAP, or enterprise deployment settings if needed.
@@ -28,7 +28,7 @@ Start with this reading order for Password Manager workflows:
 
 ### Password creation and import
 
-The extension supports the following password-management workflows:
+The extension supports the following password-management operations:
 
 * Strong password generation with improved feedback.
 * Tuning for allowed special characters when generating passwords.
@@ -37,14 +37,14 @@ The extension supports the following password-management workflows:
 
 ### Sign-in assistance
 
-The extension supports these sign-in workflows:
+The extension supports these sign-in options:
 
 * Username and password autofill for supported pages.
 * OTP support for scanned and manually added `otpauth://` values.
 
 ### Passkeys
 
-The extension supports passkey workflows including:
+The extension supports passkey capabilities including:
 
 * Passkey creation and sign-in flows from the extension.
 * A passkey toggle in advanced settings.
@@ -70,7 +70,7 @@ When a dynamic or rotated item is opened for value retrieval, the extension uses
 
 ### Enterprise deployment
 
-PWM documentation includes an enterprise deployment workflow for preconfigured authentication in managed browser environments.
+PWM documentation includes an enterprise deployment guide for preconfigured authentication in managed browser environments.
 
 ## Suggested Entry Points
 
@@ -83,14 +83,14 @@ Use these pages for common tasks:
 * Autofill, OTP, and passkeys.
 * Security Health.
 
-## Cross-Platform Workflows
+## Cross-Platform Features
 
-Use these links when a workflow exists in both extension and mobile docs:
+Use these links for features covered in both the extension and mobile app:
 
 * [Web Extension create a password](https://docs.akeyless.io/docs/pwm-ext-create-password) and [Mobile create a password](https://docs.akeyless.io/docs/pwm-mobile-create-password)
 * [Web Extension create a static secret](https://docs.akeyless.io/docs/pwm-ext-create-secret) and [Mobile create a static secret](https://docs.akeyless.io/docs/pwm-mobile-create-static-secret)
 * [Web Extension autofill and injection](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection) and [Mobile autofill and injection](https://docs.akeyless.io/docs/pwm-mobile-autofill-and-password-injection)
-* [Web Extension OTP workflows](https://docs.akeyless.io/docs/pwm-ext-otp) and [Mobile OTP workflows](https://docs.akeyless.io/docs/pwm-mobile-otp)
+* [Web Extension OTP setup](https://docs.akeyless.io/docs/pwm-ext-otp) and [Mobile OTP setup](https://docs.akeyless.io/docs/pwm-mobile-otp)
 * [Web Extension password policy settings](https://docs.akeyless.io/docs/pwm-ext-setting-password-policy-on-account-level) and [Mobile password policy settings](https://docs.akeyless.io/docs/pwm-mobile-setting-password-policy-on-account-level)
 
 ## Tutorial

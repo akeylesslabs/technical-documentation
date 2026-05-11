@@ -31,4 +31,4 @@ After the link is generated, copy it and deliver it through the required communi
 
 ## Recommendation
 
-Share only the specific item required for the workflow, and use the shortest practical link validity period.
+Share only the specific item needed for the task, and use the shortest practical link validity period.

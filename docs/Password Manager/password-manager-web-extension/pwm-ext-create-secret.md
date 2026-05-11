@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-Use this workflow to create a static secret item in the extension.
+Use these steps to create a static secret item in the extension.
 
 ## Step 1: Launch the Akeyless Web Extension
 
@@ -38,7 +38,7 @@ You can add custom fields to store additional key-value data on the secret item.
 
 Field names must be unique per item.
 
-For OTP-specific custom field workflows, see [OTP workflows](https://docs.akeyless.io/docs/pwm-ext-otp).
+For OTP-specific custom field setup, see [OTP setup and usage](https://docs.akeyless.io/docs/pwm-ext-otp).
 
 ## Step 4: Define Value and Location
 

@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-Use this workflow to configure a custom tenant URL for mobile sign-in.
+Use these steps to configure a custom tenant URL for mobile sign-in.
 
 ![Custom tenant URL field in the mobile app settings](https://files.readme.io/e2cd65b-Screenshot_2024-03-20_at_11.16.36.png)
 

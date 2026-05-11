@@ -32,8 +32,17 @@ You can delete an item from the list view or from the item details view.
 3. Click **Delete**.
 4. Confirm the deletion.
 
+## Delete Protection
+
+If Delete Protection is enabled on an item, you must disable it before you can delete it.
+
+1. Open the item details.
+2. Toggle off **Delete Protection**.
+3. Save the item.
+4. Follow the deletion steps above.
+
 ## Important
 
 > ⚠️ **Warning:**
 >
-> Once an item is deleted, it cannot be recovered from the extension workflow.
+> Once an item is deleted, it cannot be recovered from the extension.

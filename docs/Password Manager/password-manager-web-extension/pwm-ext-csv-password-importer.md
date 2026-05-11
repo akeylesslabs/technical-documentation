@@ -14,7 +14,7 @@ next:
 ---
 The CSV Password Import feature allows users to import passwords from a CSV file directly through the web extension. Passwords can be imported into the Personal or Corporate area, depending on account permissions.
 
-This workflow reflects the current account configuration when a new import session starts.
+The importer uses the current account configuration when a new import session starts.
 
 ## How to Use the CSV Password Import Feature
 

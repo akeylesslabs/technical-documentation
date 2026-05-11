@@ -12,11 +12,11 @@ metadata:
 next:
   description: ''
 ---
-Use the following workflows to view, create, and use passkeys with the Akeyless Password Manager Web Extension.
+Use the following steps to view, create, and use passkeys with the Akeyless Password Manager Web Extension.
 
 ## Passkey Management Overview
 
-The extension supports passkey workflows, including viewing saved passkeys, using them for sign-in, and creating new passkeys for supported websites.
+The extension supports passkey operations, including viewing saved passkeys, using them for sign-in, and creating new passkeys for supported websites.
 
 ## Viewing Passkey Details
 

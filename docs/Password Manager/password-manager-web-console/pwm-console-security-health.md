@@ -62,7 +62,7 @@ The account settings page includes a toggle for password scoring:
 * **Default Setting:** The feature is disabled by default.
 * **Functionality:** When enabled, password scores are calculated and displayed; when disabled, scores are hidden.
 
-## Recommended Workflow
+## Recommended Steps
 
 1. Open Security Health.
 2. Review gauges to identify highest-risk category.

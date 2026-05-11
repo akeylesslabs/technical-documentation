@@ -32,3 +32,12 @@ Use the following steps to permanently delete a password from the Akeyless mobil
 5. Confirm the deletion in the pop-up window\*.
 
 ![Delete button on the password details screen in the mobile app](https://files.readme.io/04ceb63-Screenshot_2024-01-10_at_16.23.13.png)
+
+## Delete Protection
+
+If Delete Protection is enabled on a password, you must disable it before you can delete it.
+
+1. Open the password details.
+2. Toggle off **Delete Protection**.
+3. Save the password.
+4. Follow the deletion steps above.

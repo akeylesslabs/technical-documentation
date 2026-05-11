@@ -30,7 +30,7 @@ Access OTP Code: You can view the OTP code by tapping the eye icon next to the c
 
 ## Add an OTP Manually
 
-Use the manual workflow when the OTP secret is provided as a setup key or `otpauth://`-compatible value instead of a QR code.
+Use manual entry when the OTP secret is provided as a setup key or `otpauth://`-compatible value instead of a QR code.
 
 1. Open the Password Manager mobile app and navigate to the saved password.
 2. Tap the three-dot menu for the target item.
@@ -41,6 +41,6 @@ Use the manual workflow when the OTP secret is provided as a setup key or `otpau
 7. Enter the OTPAuth secret string in the field value.
 8. Save the item.
 
-After saving, the OTP value becomes available for supported OTP-related workflows.
+After saving, the OTP value becomes available for supported OTP-related operations.
 
 ![OTP code added as a custom field to a password entry in the mobile app](https://files.readme.io/2d50b9c-Screenshot_2024-06-16_at_11.16.55.png)
