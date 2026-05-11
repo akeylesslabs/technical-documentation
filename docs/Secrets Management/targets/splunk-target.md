@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-You can define a [Splunk](https://www.splunk.com/en_us/download/splunk-enterprise.html) target to be used with Splunk Rotated Secret.
+You can define a [Splunk](https://www.splunk.com/en_us/download/splunk-enterprise.html) target to be used with [Splunk Rotated Secret](https://docs.akeyless.io/docs/splunk-rotated-secret).
 
 ## Create a Splunk Target with the CLI
 
