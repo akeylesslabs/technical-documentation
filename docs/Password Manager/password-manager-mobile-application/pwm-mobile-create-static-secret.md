@@ -1,5 +1,5 @@
 ---
-title: Creating New Secret
+title: Creating a New Secret
 
 slug: pwm-mobile-create-static-secret
 excerpt: ''
