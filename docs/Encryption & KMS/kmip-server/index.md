@@ -18,6 +18,19 @@ The [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) built-in 
 
 Cryptographic objects managed by the Akeyless KMIP server are stored under the `/kmip/default/` path, hence your [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) authentication method must have sufficient privileges, including `create`, `list`, `delete` and `read` rules, under the `/kmip/default/*` path. This path can be changed during the KMIP server setup.
 
+## KMIP Certificate Expiry Events
+
+KMIP server and KMIP client certificates are time-bound objects. To reduce renewal failures and service interruptions, monitor certificate expiration events in the [Event Center](https://docs.akeyless.io/docs/event-center).
+
+For KMIP certificate observability, use the following event types:
+
+* `certificate-pending-expiration`: Triggered before certificate expiration based on configured lead time.
+* `certificate-expired`: Triggered when a certificate has expired.
+
+To route these events to operational channels, configure an [Event Forwarder](https://docs.akeyless.io/docs/event-center).
+
+For audit action taxonomy, see [Log Actions](https://docs.akeyless.io/docs/log-actions).
+
 > ℹ️ **Note:**
 >
 > Only users from your Gateway admins list can configure the KMIP server.

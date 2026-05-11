@@ -37,7 +37,7 @@ The following Events are currently supported:
 
 For `items-event-source-locations`:
 
-* `certificate-pending-expiration`: When a certificate is about to expire, the users sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
+* `certificate-pending-expiration`: When a certificate is about to expire, the user sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
 
 * `certificate-expired`: When a certificate is expired.
 
@@ -66,6 +66,17 @@ For `items-event-source-locations`:
 * `request-access`: When a user requests access, either for privilege permission or for a Secure Remote Access session. **Note**: Relevant also for `targets-event-source-locations`.
 
 * `apply-justification`: When the user provides a connection justification as part of the Secure Remote Access session.
+
+### KMIP Certificate Expiry Coverage
+
+Certificate expiration events also apply to certificates used by the [KMIP Server](https://docs.akeyless.io/docs/kmip-server), including KMIP server and KMIP client certificates.
+
+Use the following event types to monitor KMIP certificate lifecycle:
+
+* `certificate-pending-expiration`
+* `certificate-expired`
+
+To notify operations teams, configure forwarding rules in [Event Forwarders](https://docs.akeyless.io/docs/event-center).
 
 For `auth-methods-event-source-locations`:
 
