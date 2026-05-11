@@ -38,7 +38,7 @@ on:
         default: false
         type: boolean
       create_head_commit_subtasks:
-        description: Create Jira subtasks for head commit fallback signals on quarterly manual runs only (Jan, Apr, Jul, Oct)
+        description: Automatically include Jira subtasks for head commit fallback signals during quarterly scheduled runs (Jan, Apr, Jul, Oct); manual dispatches can opt in during the same quarterly window
         required: false
         default: false
         type: boolean
@@ -334,20 +334,35 @@ jobs:
         run: |
           set -euo pipefail
 
-          EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="$CREATE_HEAD_COMMIT_SUBTASKS"
+          CURRENT_MONTH="$(date -u +%m)"
+          EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="false"
 
-          if [ "$CREATE_HEAD_COMMIT_SUBTASKS" = "true" ]; then
-            CURRENT_MONTH="$(date -u +%m)"
-            case "$CURRENT_MONTH" in
-              01|04|07|10)
-                echo "Quarterly head-commit subtask window is open for month $CURRENT_MONTH."
-                ;;
-              *)
-                EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="false"
-                echo "create_head_commit_subtasks is ignored outside the quarterly window (Jan, Apr, Jul, Oct)."
-                ;;
-            esac
-          fi
+          case "$GITHUB_EVENT_NAME" in
+            schedule)
+              case "$CURRENT_MONTH" in
+                01|04|07|10)
+                  EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="true"
+                  echo "Scheduled quarterly run will include head-commit subtasks for month $CURRENT_MONTH."
+                  ;;
+                *)
+                  echo "Scheduled run is outside the quarterly head-commit window (Jan, Apr, Jul, Oct)."
+                  ;;
+              esac
+              ;;
+            workflow_dispatch)
+              if [ "$CREATE_HEAD_COMMIT_SUBTASKS" = "true" ]; then
+                case "$CURRENT_MONTH" in
+                  01|04|07|10)
+                    EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="true"
+                    echo "Manual quarterly run will include head-commit subtasks for month $CURRENT_MONTH."
+                    ;;
+                  *)
+                    echo "create_head_commit_subtasks is ignored outside the quarterly window (Jan, Apr, Jul, Oct)."
+                    ;;
+                esac
+              fi
+              ;;
+          esac
 
           echo "effective_create_head_commit_subtasks=$EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS" >> "$GITHUB_OUTPUT"
 

@@ -12,6 +12,8 @@ next:
 ---
 The `akeyless mcp` command starts an MCP server that enables AI assistants such as Cursor and GitHub Copilot to securely interact with Akeyless services through a standardized interface.
 
+If you use JetBrains IDEs, see the <Anchor label="Akeyless MCP Plugin for JetBrains IDEs" href="doc:akeyless-mcp-plugin-jetbrains-ides" /> page for the IDE-specific setup flow.
+
 ## What Is MCP?
 
 Model Context Protocol (MCP) is an open standard that allows AI assistants to securely access external data sources and tools.
@@ -73,7 +75,7 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
 2. Update Cursor Settings:
     Open settings (Cmd/Ctrl + Shift + P → Preferences: Open Settings (JSON)) and add:
 
-    ```yaml
+    ```json
     {
       "mcp.servers": {
         "akeyless": {
@@ -110,7 +112,7 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
 
 2. Configure Copilot
 
-    Edit `\~/.copilot/config.yml` to include:
+    Edit `~/.copilot/config.yml` to include:
 
     ```yaml
     mcpServers:
@@ -132,6 +134,7 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
     ```
 
 4. Use Copilot
+
   You can now manage secrets, configure targets, and perform infrastructure tasks through Copilot.
 
 ## Examples
