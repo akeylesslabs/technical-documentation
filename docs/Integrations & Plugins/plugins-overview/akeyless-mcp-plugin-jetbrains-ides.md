@@ -100,11 +100,18 @@ For profile details and advanced options, see [CLI Profiles](https://docs.akeyle
 
 ### Step 3: Install the Plugin
 
-1. Open your JetBrains IDE (`2023.2+`).
-2. Go to **Settings → Plugins → Marketplace**.
-3. Search for **Akeyless MCP**.
-4. Select **Install**.
-5. Restart the IDE when prompted.
+1. Clone the [source repository](https://github.com/akeyless-community/akeyless-mcp-plugin).
+2. Open the project in IntelliJ IDEA.
+3. Build the plugin ZIP:
+
+  ```shell
+  ./gradlew buildPlugin
+  ```
+
+1. In your JetBrains IDE, go to **Settings → Plugins**.
+1. Select the gear icon, and then select **Install Plugin from Disk...**.
+1. Select the generated ZIP file from the `build/distributions/` directory.
+1. Restart the IDE when prompted.
 
 ### Step 4: Configure the Plugin
 

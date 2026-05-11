@@ -38,7 +38,7 @@ on:
         default: false
         type: boolean
       create_head_commit_subtasks:
-        description: Create Jira subtasks for head commit fallback signals
+        description: Create Jira subtasks for head commit fallback signals on quarterly manual runs only (Jan, Apr, Jul, Oct)
         required: false
         default: false
         type: boolean
@@ -329,6 +329,28 @@ jobs:
 
           echo "in_scope=$IN_SCOPE" >> "$GITHUB_OUTPUT"
 
+      - name: Apply head-commit cadence guard
+        id: cadence
+        run: |
+          set -euo pipefail
+
+          EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="$CREATE_HEAD_COMMIT_SUBTASKS"
+
+          if [ "$CREATE_HEAD_COMMIT_SUBTASKS" = "true" ]; then
+            CURRENT_MONTH="$(date -u +%m)"
+            case "$CURRENT_MONTH" in
+              01|04|07|10)
+                echo "Quarterly head-commit subtask window is open for month $CURRENT_MONTH."
+                ;;
+              *)
+                EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="false"
+                echo "create_head_commit_subtasks is ignored outside the quarterly window (Jan, Apr, Jul, Oct)."
+                ;;
+            esac
+          fi
+
+          echo "effective_create_head_commit_subtasks=$EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS" >> "$GITHUB_OUTPUT"
+
       - name: Get latest upstream release tag
         id: detect
         if: steps.scope.outputs.in_scope == 'true'
@@ -493,6 +515,7 @@ jobs:
           REPO_FULL: ${{ matrix.repo_full }}
           LATEST_TAG: ${{ steps.detect.outputs.latest_tag }}
           SIGNAL_SOURCE: ${{ steps.detect.outputs.signal_source }}
+          CREATE_HEAD_COMMIT_SUBTASKS: ${{ steps.cadence.outputs.effective_create_head_commit_subtasks || 'false' }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -e
