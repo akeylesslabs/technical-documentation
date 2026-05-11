@@ -24,7 +24,7 @@ KMIP server and KMIP client certificates are time-bound objects. To reduce renew
 
 For KMIP certificate observability, use the following event types:
 
-* `kmip-cert-pending-expiration`: Triggered before certificate expiration based on configured lead time.
+* `kmip-cert-pending-expiration`: Triggered before certificate expiration based on the certificate's configured expiration-notification window. Set that window when you create or update the certificate, then use [Event Forwarders](https://docs.akeyless.io/docs/event-center) to route the alert.
 * `kmip-cert-expired`: Triggered when a certificate has expired.
 
 To route these events to operational channels, configure an [Event Forwarder](https://docs.akeyless.io/docs/event-center).

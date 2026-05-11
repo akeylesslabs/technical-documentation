@@ -108,7 +108,13 @@ Configure automatic UID token rotation
 akeyless uid-auto-rotate <init|rotate|status|uninstall>
 ```
 
-Initialize automatic UID token rotation:
+The `init` subcommand initializes rotation and stores the token file. The `rotate`, `status`, and `uninstall` subcommands use the stored token file and the configured gateway URL.
+
+### `init`
+
+Initialize automatic UID token rotation.
+
+#### Usage
 
 ```shell
 akeyless uid-auto-rotate init \
@@ -116,19 +122,63 @@ akeyless uid-auto-rotate init \
 --uid-token <UID Token>
 ```
 
-### Flags
+#### Flags
 
-`-t, --uid-token`: Universal Identity token. If omitted, use the `AKEYLESS_UID_TOKEN` environment variable
+`-t, --uid-token`: Optional. Universal Identity token. If omitted, use the `AKEYLESS_UID_TOKEN` environment variable.
 
-`--rotation-interval`: **Required**, rotation interval in minutes. Supported values: `1`, `15`, `60`, `240`, `1440`
+`--rotation-interval`: **Required** for `init`. Rotation interval in minutes. Supported values: `1`, `15`, `60`, `240`, `1440`.
 
-`-i, --token-file-path`: Path to store the rotated UID token file
+`-i, --token-file-path`: Optional. Path to store the rotated UID token file. If omitted, Akeyless uses `~/.akeyless/uid_rotator/uid-token` on Unix-like systems or `PROGRAMDATA\akeyless\uid_rotator\uid-token` on Windows.
 
-`--gateway-api-url`: Gateway URL for rotation requests
+`--gateway-api-url`: Optional. Gateway URL for rotation requests. If omitted, Akeyless uses the configured `AKEYLESS_GATEWAY_URL` value.
 
-`--scheduling-mode[=cron]`: Scheduler mode. Supported values: `cron`, `systemd`, `windows-task`
+`--scheduling-mode[=cron]`: Scheduler mode. Supported values: `cron`, `systemd`, `windows-task`.
 
-`--cron-mode[=user]`: Cron installation mode when `--scheduling-mode=cron`. Supported values: `user`, `system`
+`--cron-mode[=user]`: Cron installation mode when `--scheduling-mode=cron`. Supported values: `user`, `system`.
+
+### `rotate`
+
+Rotate the current UID token on demand.
+
+#### Usage
+
+```shell
+akeyless uid-auto-rotate rotate
+```
+
+#### Flags
+
+`-i, --token-file-path`: Optional. Path to the rotated UID token file. If omitted, Akeyless uses `~/.akeyless/uid_rotator/uid-token` on Unix-like systems or `PROGRAMDATA\akeyless\uid_rotator\uid-token` on Windows.
+
+`--gateway-api-url`: Optional. Gateway URL for rotation requests. If omitted, Akeyless uses the configured `AKEYLESS_GATEWAY_URL` value.
+
+### `status`
+
+Check the current UID auto-rotate setup.
+
+#### Usage
+
+```shell
+akeyless uid-auto-rotate status
+```
+
+#### Flags
+
+`-i, --token-file-path`: Optional. Path to the rotated UID token file. If omitted, Akeyless uses `~/.akeyless/uid_rotator/uid-token` on Unix-like systems or `PROGRAMDATA\akeyless\uid_rotator\uid-token` on Windows.
+
+### `uninstall`
+
+Remove the UID auto-rotate setup and scheduled entry.
+
+#### Usage
+
+```shell
+akeyless uid-auto-rotate uninstall
+```
+
+#### Flags
+
+`-i, --token-file-path`: Optional. Path to the rotated UID token file. If omitted, Akeyless uses `~/.akeyless/uid_rotator/uid-token` on Unix-like systems or `PROGRAMDATA\akeyless\uid_rotator\uid-token` on Windows.
 
 ## `uid-revoke-token`
 
