@@ -14,7 +14,7 @@ next:
 ---
 Use the Home screen to review high-priority updates and quickly access frequently used items.
 
-![Illustration for: The revamped home screen brings a host of new features and improvements to ensure you have immediate access to the most relevant information and functionalities. Here's what…](https://files.readme.io/f53004f-Screenshot_2024-04-11_at_15.21.31.png)
+![Akeyless mobile app home screen showing frequently used items](https://files.readme.io/f53004f-Screenshot_2024-04-11_at_15.21.31.png)
 
 ## Feature Cards
 

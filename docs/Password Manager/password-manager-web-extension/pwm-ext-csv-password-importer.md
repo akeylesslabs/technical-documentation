@@ -23,7 +23,7 @@ This workflow reflects the current account configuration when a new import sessi
 * Open the web extension from your browser toolbar.
 * Navigate to the 'Settings' option within the extension menu.
 
-![Illustration for: Step 1: Access the Web Extension Settings Open the web extension from your browser toolbar. Navigate to the 'Settings' option within the extension menu.](https://files.readme.io/522836b-Screenshot_2024-07-01_at_16.09.35.png)
+![Settings option in the web extension menu](https://files.readme.io/522836b-Screenshot_2024-07-01_at_16.09.35.png)
 
 ## Step 2: Initiate the Import Process
 
@@ -46,7 +46,7 @@ This workflow reflects the current account configuration when a new import sessi
 
 * Specify if you wish to create a dedicated folder within the target location by entering a folder name in the 'Target Folder Field'.
 
-![Illustration for: Step 6: Create a Dedicated Folder Specify if you wish to create a dedicated folder within the target location by entering a folder name in the 'Target Folder Field'.](https://files.readme.io/8898628-Screenshot_2024-06-04_at_14.52.18.png)
+![Target Folder field in the CSV import screen](https://files.readme.io/8898628-Screenshot_2024-06-04_at_14.52.18.png)
 
 ## Step 7: Submit the Import
 
@@ -70,4 +70,4 @@ During import, the status view can show:
 * The total number of items in the import batch.
 * A progress bar for the current import operation.
 
-![Illustration for: Specify if you wish to create a dedicated folder within the target location by entering a folder name in the 'Target Folder Field'. Step 7: Submit the Import Once all…](https://files.readme.io/97988b1-Screenshot_2024-06-04_at_14.52.11.png)
+![CSV import progress screen](https://files.readme.io/97988b1-Screenshot_2024-06-04_at_14.52.11.png)

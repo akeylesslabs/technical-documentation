@@ -18,7 +18,7 @@ Static secrets let you securely store arbitrary text values, such as API keys, t
 
 Once installed, tap on the Akeyless Password Manager app icon on your mobile device to open it.
 
-![Illustration for: Step 1: Launch the Akeyless Password Manager Mobile App Once installed, tap on the Akeyless Password Manager app icon on your mobile device to open it.](https://files.readme.io/eef7865-IMG_0054.png)
+![Akeyless Password Manager app icon on a mobile device home screen](https://files.readme.io/eef7865-IMG_0054.png)
 
 ## Step 2: Start Creating a Static Secret
 
@@ -31,7 +31,7 @@ Once installed, tap on the Akeyless Password Manager app icon on your mobile dev
 
 In the **Value** field, enter the sensitive data that you want to store. The field accepts both plain-text and JSON values: use plain text for straightforward data such as a token, note, or API key; use JSON when the secret should store structured key-value data in a single item.
 
-![Illustration for: Akeyless Password Manager Mobile Application is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can…](https://files.readme.io/4bb02a9-IMG_0055.png)
+![Value field in the static secret creation form showing plain-text and JSON options](https://files.readme.io/4bb02a9-IMG_0055.png)
 
 Optionally, specify the location for the secret by using the drop-down menu to choose the target folder or area. If the required folder does not exist yet, create it inline from the location picker.
 

@@ -79,4 +79,4 @@ When the account's active client count reaches the configured threshold, Akeyles
 
 Route this event to any configured notification target (email, Slack, webhook, and so on) using the Event Center forwarder settings.
 
-![Illustration for: 3. LDAP (Lightweight Directory Access Protocol): For users authenticated by way of traditional directory services. 4. EMAIL: Users who use email-based authentication. Access ID:…](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)
+![Password Manager usage report showing authentication method breakdown](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)

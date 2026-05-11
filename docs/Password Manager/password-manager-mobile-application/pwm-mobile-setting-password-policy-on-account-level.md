@@ -16,7 +16,7 @@ Use the following steps to view and configure the password generation policy for
 
 ## Accessing Password Generator Policy
 
-![Illustration for: Accessing Password Generation Policy](https://files.readme.io/fc0783d-Screenshot_2024-01-10_at_16.21.04.png)
+![Password Generator Policy button in the mobile app settings](https://files.readme.io/fc0783d-Screenshot_2024-01-10_at_16.21.04.png)
 
 * Open the Akeyless Password Manager application.
 * Navigate to the **More** tab on the bottom navigation menu.
@@ -45,7 +45,7 @@ By configuring these settings, you establish a standardized default for password
 
 You can also define password rules for an individual password while creating it or editing it later.
 
-![Illustration for: In our Password Manager application, you have the flexibility to define specific password policies for individual passwords during creation or editing. This ensures that your security requirements align with the uniqueness of each password.](https://files.readme.io/8b6ade4-Screenshot_2024-01-10_at_16.16.47.png)
+![Password policy settings for an individual password in the mobile app](https://files.readme.io/8b6ade4-Screenshot_2024-01-10_at_16.16.47.png)
 
 ### During Password Creation or Editing
 

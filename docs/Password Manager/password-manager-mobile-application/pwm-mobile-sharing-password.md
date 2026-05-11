@@ -14,7 +14,7 @@ next:
 ---
 Akeyless Password Manager allows you to securely share passwords with others. This is useful for granting access to shared accounts or for providing temporary access to a specific password.
 
-![Illustration for: Akeyless Password Manager allows you to securely share passwords with others. This is useful for granting access to shared accounts or for providing temporary access to a…](https://files.readme.io/5308eb5-Screenshot_2024-03-20_at_10.47.42.png)
+![Share option in the mobile app password options menu](https://files.readme.io/5308eb5-Screenshot_2024-03-20_at_10.47.42.png)
 
 ## To Share a Password
 
@@ -32,7 +32,7 @@ From the displayed pop-up, select Copy Link.
 
 This will copy the link to the domain for which you want to share the password. You can then send the link to the user with whom you want to share the password.
 
-![Illustration for: From the displayed pop-up, select Copy Link. This will copy the link to the domain for which you want to share the password. You can then send the link to the user with whom…](https://files.readme.io/62c5b57-Screenshot_2024-03-20_at_10.48.52.png)
+![Copy Link option in the sharing pop-up](https://files.readme.io/62c5b57-Screenshot_2024-03-20_at_10.48.52.png)
 
 Sharing passwords is simple. Look for the "Share" option within the password details screen, typically found at the bottom of the screen. Selecting this option will initiate the password-sharing process.
 

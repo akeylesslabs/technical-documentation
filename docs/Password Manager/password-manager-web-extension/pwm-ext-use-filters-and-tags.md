@@ -20,7 +20,7 @@ Use filters to narrow the current item list by type, tags, or both.
 
 ## Using Types
 
-![Illustration for: Using Types](https://files.readme.io/1525939-Screenshot_2024-01-10_at_16.51.06.png)
+![Type filter options in the web extension](https://files.readme.io/1525939-Screenshot_2024-01-10_at_16.51.06.png)
 
 Types help group items by purpose or item category.
 
@@ -35,7 +35,7 @@ Types help group items by purpose or item category.
 
 Tags help categorize items beyond their basic type.
 
-![Illustration for: Tags are predefined keywords that are associated with passwords and secrets. Tags can be used to further categorize passwords and secrets.](https://files.readme.io/c13164c-Screenshot_2024-01-10_at_16.50.58.png)
+![Tag filter options in the web extension](https://files.readme.io/c13164c-Screenshot_2024-01-10_at_16.50.58.png)
 
 ### Filter by Tags
 

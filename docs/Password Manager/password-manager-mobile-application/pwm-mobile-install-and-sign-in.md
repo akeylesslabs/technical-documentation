@@ -26,7 +26,7 @@ Use the following steps to install and sign in to the mobile app on Android or i
 4. Tap **Install**.
 5. Accept required Android prompts.
 
-![Illustration for: Grant Permissions: A prompt will appear, detailing the permissions required by the Akeyless app to function optimally on your device. Carefully review these permissions. If…](https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg)
+![Akeyless app permissions prompt on Android](https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg)
 
 ## Akeyless Password Manager iOS Installation
 
@@ -36,7 +36,7 @@ Use the following steps to install and sign in to the mobile app on Android or i
 4. Tap **Get**.
 5. Complete iOS confirmation with Apple ID, Face ID, or Touch ID if prompted.
 
-![Illustration for: Confirm Installation: iOS may prompt you to confirm the installation. This might include reviewing the permissions the app requires and possibly entering your Apple ID password…](https://files.readme.io/9f41004-File_5.jpg)
+![Akeyless app installation confirmation prompt on iOS](https://files.readme.io/9f41004-File_5.jpg)
 
 ## Authentication Methods Support
 

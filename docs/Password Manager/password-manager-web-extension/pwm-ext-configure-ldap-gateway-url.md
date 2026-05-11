@@ -16,7 +16,7 @@ Use this setting when the extension should authenticate through an LDAP gateway.
 
 ## Configure the LDAP Gateway URL
 
-![Illustration for: Step-by-Step Guide to Configuring Your LDAP Gateway URL](https://files.readme.io/51e6e76-Screenshot_2024-02-25_at_14.48.30.png)
+![LDAP Gateway URL field in web extension settings](https://files.readme.io/51e6e76-Screenshot_2024-02-25_at_14.48.30.png)
 
 1. Open the extension sign-in screen.
 2. Open the three-dot menu.
@@ -25,7 +25,7 @@ Use this setting when the extension should authenticate through an LDAP gateway.
 5. Enter the required LDAP gateway URL.
 6. Click **Save**.
 
-![Illustration for: Save Your Settings](https://files.readme.io/2914cb3-Screenshot_2024-02-25_at_14.47.48.png)
+![Save button for LDAP gateway URL settings](https://files.readme.io/2914cb3-Screenshot_2024-02-25_at_14.47.48.png)
 
 ## Use the LDAP Sign-In Flow
 

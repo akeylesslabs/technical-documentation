@@ -16,7 +16,7 @@ Locate the Password: Navigate to the corporate or personal area where the desire
 
 Open Options Menu: Tap the three dots button next to the password entry to open the options menu.
 
-![Illustration for: Locate the Password: Navigate to the corporate or personal area where the desired password is stored. Open Options Menu: Tap the three dots button next to the password entry to…](https://files.readme.io/6da4508-Screenshot_2024-06-16_at_11.17.19.png)
+![Three-dot options menu next to a password entry in the mobile app](https://files.readme.io/6da4508-Screenshot_2024-06-16_at_11.17.19.png)
 
 Prepare OTP for Scanning: Ensure that the OTP (One-Time Password) code is visible on the screen in a scannable format.
 
@@ -43,4 +43,4 @@ Use the manual workflow when the OTP secret is provided as a setup key or `otpau
 
 After saving, the OTP value becomes available for supported OTP-related workflows.
 
-![Illustration for: Verify Addition: The OTP code will be added as a custom field to the selected password entry. Access OTP Code: You can view the OTP code by tapping the eye icon next to the…](https://files.readme.io/2d50b9c-Screenshot_2024-06-16_at_11.16.55.png)
+![OTP code added as a custom field to a password entry in the mobile app](https://files.readme.io/2d50b9c-Screenshot_2024-06-16_at_11.16.55.png)

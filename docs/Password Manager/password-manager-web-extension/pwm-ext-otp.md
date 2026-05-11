@@ -22,7 +22,7 @@ The extension supports OTP workflows for saved credentials. OTP values can be ad
 4. Select "Scan OTP" from the item menu.
 5. Confirm that the OTP value is added as a custom field on the selected item.
 
-![Illustration for: Locate the Password: Navigate to the corporate or personal area where the desired password is stored. Open Options Menu: Click the three dots button next to the password entry…](https://files.readme.io/ba937b7-Screenshot_2024-06-16_at_11.01.45.png)
+![Three-dot options menu next to a password entry in the web extension](https://files.readme.io/ba937b7-Screenshot_2024-06-16_at_11.01.45.png)
 
 ## View the OTP Value
 
@@ -49,8 +49,8 @@ Use the manual workflow when the OTP secret is provided as a setup key or `otpau
 6. Enter the setup key or related OTP value.
 7. Save the item.
 
-![Illustration for: Setup Key Option: There is an option to enter the setup key associated with the OTPAuth secret. Input Secret: Enter the OTPAuth secret into the designated field.](https://files.readme.io/8ad8ef4-Screenshot_2024-08-19_at_16.25.10.png)
+![OTP setup key and secret input fields in the web extension](https://files.readme.io/8ad8ef4-Screenshot_2024-08-19_at_16.25.10.png)
 
 After saving, the OTP value becomes available as part of the item and can be used in supported OTP-related workflows.
 
-![Illustration for: Verify Addition: The OTP code will be added as a custom field to the selected password entry. Access OTP Code: You can view the OTP code by clicking the eye icon next to the…](https://files.readme.io/f962648-Screenshot_2024-06-16_at_11.08.08.png)
+![OTP code added as a custom field to a password entry in the web extension](https://files.readme.io/f962648-Screenshot_2024-06-16_at_11.08.08.png)

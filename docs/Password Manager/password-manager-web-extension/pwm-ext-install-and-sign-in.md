@@ -42,7 +42,7 @@ Supported Firefox: desktop version 91.1.0 or later.
 
 ## Akeyless Password Manager Google Chrome Installation
 
-![Illustration for: Akeyless Password Manager Google Chrome Installation](https://files.readme.io/3d3d29c-Screenshot_2024-05-07_at_16.02.38.png)
+![Akeyless Password Manager in the Chrome Web Store](https://files.readme.io/3d3d29c-Screenshot_2024-05-07_at_16.02.38.png)
 
 Supported Google Chrome: Version 88+
 

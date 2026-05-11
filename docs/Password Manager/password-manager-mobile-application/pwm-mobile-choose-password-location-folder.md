@@ -32,12 +32,12 @@ When creating a password, choose the save location with these steps:
 
 1. While creating a new password, tap the location field.
 
-    ![Illustration for: When creating a new password in Akeyless, you can choose its location within the app's folder hierarchy. This choice is vital for maintaining an organized and efficient…](https://files.readme.io/53eef20-Screenshot_2024-01-10_at_14.53.26.png)
+    ![Password location selector showing the folder hierarchy in the mobile app](https://files.readme.io/53eef20-Screenshot_2024-01-10_at_14.53.26.png)
 
 2. Select Personal or Corporate area.
 3. Select an existing folder in the selected area.
 
-    ![Illustration for: 2. You will be redirected to a screen where you can choose between the personal and corporate areas (folders). 3. If you choose the personal folder, you will see your personal…](https://files.readme.io/7bd7af9-Screenshot_2024-01-10_at_14.54.06.png)
+    ![Area selection screen showing Personal and Corporate folders in the mobile app](https://files.readme.io/7bd7af9-Screenshot_2024-01-10_at_14.54.06.png)
 
 4. To create a folder, tap **Create New Folder**.
 5. Enter folder name and tap **Create**.

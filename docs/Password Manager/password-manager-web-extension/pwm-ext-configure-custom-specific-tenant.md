@@ -14,7 +14,7 @@ next:
 ---
 Use this setting when the extension should connect to a specific tenant URL instead of the default environment.
 
-![Illustration for: This innovative feature enables users to personalize their web browser extension by configuring a custom or specific tenant URL. This customization is designed to tailor the…](https://files.readme.io/72e4da3-Screenshot_2024-03-20_at_11.10.38.png)
+![Custom tenant URL field in web extension settings](https://files.readme.io/72e4da3-Screenshot_2024-03-20_at_11.10.38.png)
 
 ## Configure a Custom Tenant URL
 

@@ -19,7 +19,7 @@ Use this workflow to create a static secret item in the extension.
 1. Once installed (see [Install and Sign In to the Akeyless Web Extension](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in)), the Akeyless Web Extension icon will appear in your browser's toolbar.
 2. Click on the Akeyless Web Extension icon to launch the extension.
 
-![Illustration for: Step 1: Launch the Akeyless Web Extension 1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar. 2. Click on the Akeyless Web Extension icon…](https://files.readme.io/8a3048e-Screenshot_2024-02-22_at_14.23.10.png)
+![Akeyless Web Extension icon in the browser toolbar](https://files.readme.io/8a3048e-Screenshot_2024-02-22_at_14.23.10.png)
 
 ## Step 2: Access the Password Creation Form
 
@@ -44,7 +44,7 @@ For OTP-specific custom field workflows, see [OTP workflows](https://docs.akeyle
 
 Enter the secret value in the **Value** field.
 
-![Illustration for: Step 3: Define Var and Location In the Var field, enter a unique combination of letters, symbols, and numbers. The value length should be 16 KB.](https://files.readme.io/774a6f9-Screenshot_2024-02-22_at_14.23.19.png)
+![Value and Location fields in the secret creation form](https://files.readme.io/774a6f9-Screenshot_2024-02-22_at_14.23.19.png)
 
 Then choose the target location:
 
@@ -64,4 +64,4 @@ Use plain text for single-value items such as tokens, notes, or one-value creden
 
 Use JSON when the secret needs structured key-value data in one item.
 
-![Illustration for: The 'Value' field can also store structured data in JSON format. This is particularly useful for storing configuration settings or multiple pieces of related information in a…](https://files.readme.io/55cdb8e-Screenshot_2024-03-21_at_13.50.43.png)
+![Value field containing JSON data in the secret creation form](https://files.readme.io/55cdb8e-Screenshot_2024-03-21_at_13.50.43.png)

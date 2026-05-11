@@ -16,7 +16,7 @@ Use the following steps to view and configure the password generation policy for
 
 ## Access the Password Generation Policy
 
-![Illustration for: Accessing Secret Generation Policy](https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png)
+![Password generation policy setting in the web extension](https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png)
 
 1. Open the extension.
 2. Open the three-dot menu.
@@ -43,7 +43,7 @@ These settings provide the default generation behavior. Users can still work wit
 
 You can adjust password-generation settings while creating or editing an individual password, as long as the selected values stay within the organization-level policy.
 
-![Illustration for: How It Works](https://files.readme.io/c6ca311-Screenshot_2024-01-10_at_16.41.08.png)
+![Password policy configuration screen in the web extension](https://files.readme.io/c6ca311-Screenshot_2024-01-10_at_16.41.08.png)
 
 ### Configure Password Settings During Creation
 

@@ -16,7 +16,7 @@ Use the following steps to locate a password and edit its details in the Akeyles
 
 ## Locating the Password
 
-![Illustration for: Locating the Password](https://files.readme.io/4d0810c-Screenshot_2024-01-10_at_16.15.37.png)
+![Password list in the Akeyless mobile app](https://files.readme.io/4d0810c-Screenshot_2024-01-10_at_16.15.37.png)
 
 1. Open the **Secrets** section.
 2. Locate the password item to edit.

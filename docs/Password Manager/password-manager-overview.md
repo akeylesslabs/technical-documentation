@@ -14,7 +14,7 @@ next:
 ---
 Akeyless Password Manager provides a unified way to store, manage, and use passwords and related credentials across browser extension, mobile app, and web console experiences.
 
-![Akeyless Screenshot](https://files.readme.io/f851fd0-Screenshot_2024-02-18_at_10.27.50.png)
+![Akeyless Password Manager web console overview](https://files.readme.io/f851fd0-Screenshot_2024-02-18_at_10.27.50.png)
 
 Password Manager can:
 
@@ -24,7 +24,7 @@ Password Manager can:
 * Configure account and client-side password settings.
 * Review Security Health insights and related admin flows.
 
-![Akeyless Browser Extension Screenshot](https://files.readme.io/2c80505-Screenshot_2024-05-06_at_17.24.19.png)
+![Akeyless Password Manager browser extension](https://files.readme.io/2c80505-Screenshot_2024-05-06_at_17.24.19.png)
 
 ## Choose a Platform
 

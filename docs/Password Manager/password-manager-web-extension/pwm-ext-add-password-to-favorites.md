@@ -14,7 +14,7 @@ next:
 ---
 Use Favorites to keep frequently used items easy to reach.
 
-![Illustration for: The Akeyless Web Extension offers a convenient feature allowing users to mark their frequently used secrets or passwords as favorites. This functionality enables quick access…](https://files.readme.io/313aa73-Screenshot_2024-03-21_at_14.07.31.png)
+![Favorites icon highlighted on a password entry in the web extension](https://files.readme.io/313aa73-Screenshot_2024-03-21_at_14.07.31.png)
 
 ## Add an Item to Favorites
 
@@ -29,7 +29,7 @@ Open the Favorites area to review items marked for quick access.
 
 ## Remove an Item from Favorites
 
-![Illustration for: Remove from Favorites](https://files.readme.io/daa2c75-Screenshot_2024-03-21_at_14.08.18.png)
+![Remove from Favorites option on a password entry](https://files.readme.io/daa2c75-Screenshot_2024-03-21_at_14.08.18.png)
 
 1. Open the Favorites area or locate the item in another list view.
 2. Click the filled star icon.

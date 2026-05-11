@@ -40,7 +40,7 @@ Users can be prompted to enable autofill in two common situations:
 
 When you open a login screen in Safari or an app, iOS can offer saved credentials from Akeyless Password Manager above the keyboard or inside the sign-in field.
 
-![Illustration for: With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure.](https://files.readme.io/c309879-File_3.jpg)
+![Autofill settings enabled in the Akeyless mobile app](https://files.readme.io/c309879-File_3.jpg)
 
 ### On Android
 
@@ -52,7 +52,7 @@ When you open a login screen in Safari or an app, iOS can offer saved credential
 
 When autofill is enabled, supported apps and browsers can prompt for saved credentials when users tap a sign-in field.
 
-![Illustration for: 1. When logging into an app or website, tap on the login field. The Akeyless Password Manager autofill popup should appear, suggesting login credentials for that site. If you…](https://files.readme.io/229e403-Screenshot_20240221-112137_Firefox.jpg)
+![Akeyless autofill popup suggesting credentials on a login screen](https://files.readme.io/229e403-Screenshot_20240221-112137_Firefox.jpg)
 
 ## Browser Support Notes
 

@@ -14,7 +14,7 @@ next:
 ---
 Use this workflow to configure the LDAP gateway URL for mobile sign-in.
 
-![Illustration for: This functionality allows users to enhance their Password Manager application by integrating it with a specific LDAP gateway URL. This integration streamlines access management…](https://files.readme.io/006da13-Screenshot_2024-03-20_at_10.53.34.png)
+![LDAP Gateway URL field in the mobile app settings](https://files.readme.io/006da13-Screenshot_2024-03-20_at_10.53.34.png)
 
 ## Step-by-Step Guide to Configuring Your LDAP Gateway URL in the Password Manager Application
 
@@ -30,7 +30,7 @@ For administrator configuration guidance, see [LDAP Authentication Method config
 
 ## Save Your Settings and Enter LDAP Credentials
 
-![Illustration for: Save Your Settings and Enter LDAP Credentials](https://files.readme.io/921c299-Screenshot_2024-03-20_at_10.57.16.png)
+![LDAP credentials entry screen in the mobile app](https://files.readme.io/921c299-Screenshot_2024-03-20_at_10.57.16.png)
 
 1. Tap **Save**.
 2. Continue to sign-in.

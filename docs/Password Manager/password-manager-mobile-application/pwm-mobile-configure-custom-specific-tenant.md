@@ -14,7 +14,7 @@ next:
 ---
 Use this workflow to configure a custom tenant URL for mobile sign-in.
 
-![Illustration for: This innovative feature allows users of the Password Manager application to enhance their experience by setting up a custom or specific tenant URL. This functionality is…](https://files.readme.io/e2cd65b-Screenshot_2024-03-20_at_11.16.36.png)
+![Custom tenant URL field in the mobile app settings](https://files.readme.io/e2cd65b-Screenshot_2024-03-20_at_11.16.36.png)
 
 ## Detailed Instructions for Configuring Your Custom and Specific Tenant URL in the Password Manager Application
 
@@ -30,7 +30,7 @@ For administrator-managed tenant URL setup guidance, see [Configure Custom and S
 
 ## Saving Your Configuration
 
-![Illustration for: Saving Your Configuration](https://files.readme.io/180af2d-Screenshot_2024-03-20_at_11.17.16.png)
+![Save button for custom tenant URL configuration in the mobile app](https://files.readme.io/180af2d-Screenshot_2024-03-20_at_11.17.16.png)
 
 1. Tap **Save**.
 2. Continue to sign-in.

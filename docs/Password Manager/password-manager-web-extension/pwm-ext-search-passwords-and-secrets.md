@@ -14,7 +14,7 @@ next:
 ---
 Use search to find passwords and secrets across the current area in the extension.
 
-![Illustration for: The Akeyless Password Manager web browser extension enhances its functionality with an advanced multi-field search capability, designed to streamline your search process and…](https://files.readme.io/6f615f8-Screenshot_2024-04-11_at_14.12.10.png)
+![Search bar in the web extension showing multi-field search results](https://files.readme.io/6f615f8-Screenshot_2024-04-11_at_14.12.10.png)
 
 Search can help match items by:
 

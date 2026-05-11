@@ -14,7 +14,7 @@ next:
 ---
 The Akeyless Password Manager Web Extension can detect supported sign-in forms and help fill saved credentials.
 
-![Illustration for: Password AutoFill is a feature of many web browsers that allows you to automatically fill in your login credentials for websites.](https://files.readme.io/e491682-Screenshot_2024-01-10_at_16.55.04.png)
+![Autofill prompt appearing on a website login form](https://files.readme.io/e491682-Screenshot_2024-01-10_at_16.55.04.png)
 
 ## Use Autofill
 

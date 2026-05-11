@@ -16,7 +16,7 @@ Use the following steps to share a password or secret with other users from the 
 
 ## Share an Item
 
-![Illustration for: Sharing a Password with the Quick Action Menu](https://files.readme.io/264d287-Screenshot_2024-01-10_at_16.44.54.png)
+![Quick action menu with Share option next to a password entry](https://files.readme.io/264d287-Screenshot_2024-01-10_at_16.44.54.png)
 
 1. Locate the password or secret in the item list.
 2. Open the item actions menu.
@@ -27,7 +27,7 @@ Use the following steps to share a password or secret with other users from the 
 
 After the link is generated, copy it and deliver it through the required communication channel.
 
-![Illustration for: 5. Click on the "Get Link to Share" button. The link to share will be copied to your clipboard. You can then paste the link into an email or other message to send to the person…](https://files.readme.io/8101e3f-Screenshot_2024-01-10_at_16.46.00.png)
+![Get Link to Share button in the sharing dialog](https://files.readme.io/8101e3f-Screenshot_2024-01-10_at_16.46.00.png)
 
 ## Recommendation
 
