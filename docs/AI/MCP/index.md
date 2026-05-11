@@ -128,20 +128,20 @@ If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains 
 
 Acceptable values for `args.--access-type`:
 
-* [access_key](https://docs.akeyless.io/docs/auth-with-api-key/)
-* [aws_iam](https://docs.akeyless.io/docs/auth-with-aws/)
-* [azure_ad](https://docs.akeyless.io/docs/auth-with-azure/)
-* [cert](https://docs.akeyless.io/docs/auth-with-certificate/)
-* [gcp](https://docs.akeyless.io/docs/auth-with-gcp/)
-* [jwt](https://docs.akeyless.io/docs/auth-with-oauth-jwt/)
-* [k8s](https://docs.akeyless.io/docs/auth-with-kubernetes/)
-* [kerberos](https://docs.akeyless.io/docs/auth-with-kerberos/)
-* [ldap](https://docs.akeyless.io/docs/auth-with-ldap/)
-* [oci](https://docs.akeyless.io/docs/auth-with-oci/)
-* [oidc](https://docs.akeyless.io/docs/auth-with-oidc/)
-* [password](https://docs.akeyless.io/docs/auth-with-email/)
-* [saml](https://docs.akeyless.io/docs/auth-with-saml/)
-* [universal_identity](https://docs.akeyless.io/docs/auth-with-universal-identity/)
+* [access_key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [aws_iam](https://docs.akeyless.io/docs/auth-with-aws)
+* [azure_ad](https://docs.akeyless.io/docs/auth-with-azure)
+* [cert](https://docs.akeyless.io/docs/auth-with-certificate)
+* [gcp](https://docs.akeyless.io/docs/auth-with-gcp)
+* [jwt](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
+* [k8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [kerberos](https://docs.akeyless.io/docs/auth-with-kerberos)
+* [ldap](https://docs.akeyless.io/docs/auth-with-ldap)
+* [oci](https://docs.akeyless.io/docs/auth-with-oci)
+* [oidc](https://docs.akeyless.io/docs/auth-with-oidc)
+* [password](https://docs.akeyless.io/docs/auth-with-email)
+* [saml](https://docs.akeyless.io/docs/auth-with-saml)
+* [universal_identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
 
 ##### Cloud ID values
 
