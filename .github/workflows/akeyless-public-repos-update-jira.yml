@@ -37,6 +37,11 @@ on:
         required: false
         default: false
         type: boolean
+      create_head_commit_subtasks:
+        description: Create Jira subtasks for head commit fallback signals
+        required: false
+        default: false
+        type: boolean
       dry_run:
         description: Do not create Jira issues; only report what would happen
         required: false
@@ -276,6 +281,7 @@ jobs:
       EXCLUDE_PATTERN: ${{ inputs.exclude_pattern || '^$' }}
       SPECIFIC_REPOS: ${{ inputs.specific_repos || '' }}
       INCLUDE_PRERELEASES: ${{ inputs.include_prereleases && 'true' || 'false' }}
+      CREATE_HEAD_COMMIT_SUBTASKS: ${{ inputs.create_head_commit_subtasks && 'true' || 'false' }}
       DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
       SOFT_FAIL_CLASSES: ${{ inputs.soft_fail_classes || 'no_signal,api_transient' }}
       RETRY_COUNT: ${{ inputs.retry_count || '3' }}
@@ -518,6 +524,12 @@ jobs:
           if [ -z "$SUMMARY_ISSUE_ID" ]; then
             echo "Missing run summary Jira issue ID for subtask creation."
             exit 1
+          fi
+
+          if [ "$SIGNAL_SOURCE" = "head_commit" ] && [ "$CREATE_HEAD_COMMIT_SUBTASKS" != "true" ]; then
+            echo "action=skipped_head_commit" >> "$GITHUB_OUTPUT"
+            echo "Skipping Jira issue creation for head commit fallback signal: ${REPO_FULL} @ ${LATEST_TAG}"
+            exit 0
           fi
 
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
