@@ -16,6 +16,7 @@ next:
 
 * Cursor
 * Visual Studio Code
+* Google Antigravity
 * Windsurf
 
 This extension helps you find and fix hardcoded secrets, such as API keys and passwords, by integrating directly with Akeyless.
