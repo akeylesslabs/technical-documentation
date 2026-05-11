@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-Our Password Manager app includes a convenient copy/paste feature, allowing you to securely transfer passwords from the app to web forms.
+The Akeyless Password Manager extension includes a copy and paste feature for transferring passwords from the extension to web forms.
 
 Use copy when a site or application cannot use autofill or injection.
 
