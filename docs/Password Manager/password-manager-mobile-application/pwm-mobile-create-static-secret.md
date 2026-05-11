@@ -29,23 +29,13 @@ Once installed, tap on the Akeyless Password Manager app icon on your mobile dev
 
 ## Step 3: Define the Secret Details
 
-In the **Value** field, enter the sensitive data that you want to store.
-
-Optionally, specify the location for the secret by using the drop-down menu to choose the target folder or area.
-
-If the required folder does not exist yet, create it inline from the location picker.
-
-You can also add a description and enable delete protection if you want to reduce the risk of accidental deletion.
-
-## Secret Value Types
-
-The Value field supports both plain-text values and JSON values.
-
-Use plain text for straightforward secret data such as a token, note, or API key.
-
-Use JSON when the secret should store structured key-value data in a single item.
+In the **Value** field, enter the sensitive data that you want to store. The field accepts both plain-text and JSON values: use plain text for straightforward data such as a token, note, or API key; use JSON when the secret should store structured key-value data in a single item.
 
 ![Illustration for: Akeyless Password Manager Mobile Application is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can…](https://files.readme.io/4bb02a9-IMG_0055.png)
+
+Optionally, specify the location for the secret by using the drop-down menu to choose the target folder or area. If the required folder does not exist yet, create it inline from the location picker.
+
+You can also add a description and enable delete protection to reduce the risk of accidental deletion.
 
 ## Step 4: Save the Secret
 
