@@ -1,5 +1,6 @@
 ---
-title: Adding Password To Favorites
+title: Adding Password To Favorites
+
 slug: pwm-ext-add-password-to-favorites
 excerpt: ''
 deprecated: false
@@ -28,7 +29,7 @@ Open the Favorites area to review items marked for quick access.
 
 ## Remove an Item from Favorites
 
-![Illustration for: Step 4: Remove from Favorites](https://files.readme.io/daa2c75-Screenshot_2024-03-21_at_14.08.18.png)
+![Illustration for: Remove from Favorites](https://files.readme.io/daa2c75-Screenshot_2024-03-21_at_14.08.18.png)
 
 1. Open the Favorites area or locate the item in another list view.
 2. Click the filled star icon.
