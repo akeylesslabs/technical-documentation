@@ -24,7 +24,7 @@ Start with this reading order for the Password Manager documentation:
 4. Use autofill, OTP, and passkey features during sign-in.
 5. Review Security Health in the personal vault.
 
-## Verified Capabilities
+## Capabilities
 
 ### Password creation and import
 
