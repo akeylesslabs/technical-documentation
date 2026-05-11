@@ -1,5 +1,5 @@
 ---
-title: Personal, Corporate & Favorites Areas Navigation
+title: Personal, Corporate, & Favorites Areas Navigation
 
 slug: pwm-ext-navigate-personal-corporate-favorites
 excerpt: ''
