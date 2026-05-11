@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-Our Password Manager app includes a convenient copy/paste feature, allowing you to securely transfer passwords from the app to web forms.
+Our Password Manager app includes a convenient copy and paste feature, allowing you to securely transfer passwords from the app to web forms.
 
 ## Copying the Password
 

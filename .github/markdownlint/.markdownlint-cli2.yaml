@@ -259,6 +259,7 @@ config:
         example_from: "After installing the Gateway, verify the container status."
         example_to: "After deploying the Gateway, verify the container status."
 
+
       - term: "once installed, the Gateway"
         replacement: "once deployed, the Gateway"
         example_from: "Once installed, the Gateway can serve requests."
@@ -594,6 +595,12 @@ config:
         replacement: "cheat"
         example_from: "These vendors try to gyp customers."
         example_to: "These vendors try to cheat customers."
+
+      # Slash-separated compound verbs
+      - term: "copy/paste"
+        replacement: "copy and paste"
+        example_from: "copy/paste the token into the field"
+        example_to: "copy and paste the token into the field"
 
   # AKY018: Require canonical Markdown table separator rows
   #

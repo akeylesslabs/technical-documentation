@@ -1,5 +1,5 @@
 ---
-title: Creating New Password
+title: Creating a New Password
 
 slug: pwm-mobile-create-password
 excerpt: ''
@@ -53,9 +53,9 @@ In the 'Username' field, enter the username or login ID associated with the pass
 In the 'Password' field, you have two options:
 
 1. Manually type in the desired password.
-2. Use the password generation feature by tapping on the icon located at the end of the 'Password' field.
-   1. You can also adjust the password parameters, such as length and character types, using the provided options with the password generation settings provided below the password field.
-   2. Once satisfied, tap on the icon again to generate a strong and secure password according to your specifications.
+2. Use the password generation feature by tapping on the icon at the end of the 'Password' field.
+   * Adjust password parameters (length, character types) using the options below the password field.
+   * Tap the icon again to generate a strong, secure password according to your specifications.
 
 ### Step 6: Save the Newly Created Password
 
@@ -67,8 +67,8 @@ Confirmation: The app will confirm that your password has been saved. It's now s
 
 ## Creating a New Password from Akeyless Injection and Autofill Window
 
-![Illustration for: Creating a New Password from Akeyless Injection / Autofill Window](https://files.readme.io/e26ea04-Screenshot_2023-11-05_at_14.55.06.png)
+![Illustration for: Creating a New Password from Akeyless Autofill Window](https://files.readme.io/e26ea04-Screenshot_2023-11-05_at_14.55.06.png)
 
 1. Access the Autofill or Suggestion Field: When you tap on a password field on a website or app, your mobile device will present you with autofill or suggestion options for previously saved passwords.
 2. Initiate New Password Creation: Look for an option within the autofill or suggestion field to create a new password by clicking the "Open Akeyless" button.
-3. Follow the steps mentioned previously in the section "Creating a new password from Akeyless Mobile Application"
+3. Follow the steps mentioned previously in the section "Creating a New Password from Akeyless Mobile Application"
