@@ -1,5 +1,5 @@
 ---
-title: Cloudflare and Akeyless Targets
+title: Cloudflare Usage
 excerpt: ''
 deprecated: false
 hidden: false
