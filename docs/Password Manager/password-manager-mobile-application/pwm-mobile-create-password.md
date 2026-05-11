@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-Use the following steps to create a new password in the Akeyless mobile app — either from the main interface or directly from the autofill window.
+Use the following steps to create a new password in the Akeyless mobile app, either from the main interface or directly from the autofill window.
 
 ## Creating a New Password from Akeyless Mobile Application
 

@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-Static secrets let you securely store arbitrary text values — such as API keys, tokens, or notes — alongside your passwords in the Akeyless mobile app. Use the steps below to create one.
+Static secrets let you securely store arbitrary text values, such as API keys, tokens, or notes, alongside your passwords in the Akeyless mobile app. Use the steps below to create one.
 
 ## Step 1: Launch the Akeyless Password Manager Mobile App
 

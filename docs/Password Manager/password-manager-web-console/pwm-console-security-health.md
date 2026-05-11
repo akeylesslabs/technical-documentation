@@ -30,15 +30,15 @@ The dashboard gauge shows the current score out of 100. Scores closer to 100 ind
 
 When a password's score is low, the **Suggestion** column in the password list shows a remediation prompt, for example:
 
-* **Low score** — Strengthen password. Consider length or variety.
-* **Zero score** — Weak password. Use longer password and mix character types.
+* **Low score**: Strengthen password. Consider length or variety.
+* **Zero score**: Weak password. Use longer password and mix character types.
 
 ## Dashboard Layout
 
 1. **Gauges section**
-   * Overall Security Score gauge — aggregate average score across all passwords, out of 100.
-   * Weak gauge — number of weak passwords out of total passwords.
-   * Reused gauge — number of reused passwords out of total passwords.
+   * Overall Security Score gauge: aggregate average score across all passwords, out of 100.
+   * Weak gauge: number of weak passwords out of total passwords.
+   * Reused gauge: number of reused passwords out of total passwords.
 2. **Password list section**
    * Password name.
    * Password location.
