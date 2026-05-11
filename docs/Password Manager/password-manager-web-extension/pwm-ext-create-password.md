@@ -18,7 +18,7 @@ Use these steps to create a password item in the Personal or Corporate area.
 
 > 📘 **Password items and secret items**
 >
-> **Password items** store structured credentials — a URL, username, and password — and integrate with autofill and OTP. **Secret items** store arbitrary text values such as API keys, tokens, or notes, and support custom key-value fields. To create a secret item instead, see [Creating a New Secret](https://docs.akeyless.io/docs/pwm-ext-create-secret). For the equivalent steps on mobile, see [Creating a New Password (mobile)](https://docs.akeyless.io/docs/pwm-mobile-create-password).
+> **Password items** store structured credentials — a URL, username, and password — and integrate with autofill and OTP. **Secret items** store arbitrary text values such as API keys, tokens, or notes, and support custom key-value fields. To create a secret item instead, see [Creating a New Secret](https://docs.akeyless.io/docs/pwm-ext-create-secret).
 
 ## Step 1: Launch the Akeyless Web Extension
 

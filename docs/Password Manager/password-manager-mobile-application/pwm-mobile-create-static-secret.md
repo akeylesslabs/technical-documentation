@@ -16,7 +16,7 @@ Static secrets let you securely store arbitrary text values, such as API keys, t
 
 > 📘 **Secret items and password items**
 >
-> **Secret items** store arbitrary text values such as API keys, tokens, or notes, and support custom key-value fields. **Password items** store structured credentials — a URL, username, and password — and integrate with autofill and OTP. To create a password item instead, see [Creating a New Password](https://docs.akeyless.io/docs/pwm-mobile-create-password). For the equivalent steps in the web extension, see [Creating a New Secret (web extension)](https://docs.akeyless.io/docs/pwm-ext-create-secret).
+> **Secret items** store arbitrary text values such as API keys, tokens, or notes, and support custom key-value fields. **Password items** store structured credentials — a URL, username, and password — and integrate with autofill and OTP. To create a password item instead, see [Creating a New Password](https://docs.akeyless.io/docs/pwm-mobile-create-password).
 
 ## Step 1: Launch the Akeyless Password Manager Mobile App
 
