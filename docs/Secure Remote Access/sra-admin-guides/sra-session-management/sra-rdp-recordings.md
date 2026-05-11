@@ -12,7 +12,7 @@ next:
 ---
 RDP Session Recording is managed entirely through your Gateway's console under the **Remote Access** section in the Gateway settings. These sessions generate video recordings that can be uploaded to **AWS S3**, **S3-compatible object storage** (for example, NetApp StorageGRID), or **Azure Blob Storage** for secure storage, or can be saved locally.
 
-Current releases support configurable recording quality, compression, and encryption for stored sessions.
+RDP recordings support configurable quality, compression, and encryption for stored sessions.
 
 ## Session Recording
 
