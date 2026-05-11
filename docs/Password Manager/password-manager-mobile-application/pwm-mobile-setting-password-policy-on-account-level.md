@@ -18,13 +18,10 @@ Use the following steps to view and configure the password generation policy for
 
 ![Illustration for: Accessing Password Generation Policy](https://files.readme.io/fc0783d-Screenshot_2024-01-10_at_16.21.04.png)
 
-Open the Akeyless Password Manager application.
-
-Navigate to the "More" tab on the bottom navigation menu.
-
-Press the "More" button to reveal additional options.
-
-Locate and click on "Password Generation Policy" in the displayed "More" screen.
+* Open the Akeyless Password Manager application.
+* Navigate to the "More" tab on the bottom navigation menu.
+* Press the "More" button to reveal additional options.
+* Locate and click on "Password Generation Policy" in the displayed "More" screen.
 
 A bottom action menu will appear, providing options to configure the password generation policy.
 
