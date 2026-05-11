@@ -50,5 +50,5 @@ Update only the fields required for the change, for example:
 
 ## Confirmation of Saved Changes
 
-1. Confirm the success indication in the UI.
+1. Confirm the success indication in the app.
 2. Reopen the item and verify the updated values.
