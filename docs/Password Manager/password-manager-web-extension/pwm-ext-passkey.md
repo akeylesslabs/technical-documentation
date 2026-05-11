@@ -97,14 +97,6 @@ Normalized metadata includes values such as:
 
 These values are handled internally by the extension flow and are not directly edited by end users in Password Manager screens.
 
-## Reliability Improvements
-
-Recent updates improve passkey support in these areas:
-
-* Better site matching for supported relying parties.
-* Better tab and context selection when the browser has multiple matching pages open.
-* Better fallback handling when a page is slow or strict about passkey communication.
-
 ## Toggling Passkey Authentication in the Web Extension
 
 Users can enable or disable Passkey Authentication directly through the web extension. This allows them to control when the extension uses passkeys for login.
