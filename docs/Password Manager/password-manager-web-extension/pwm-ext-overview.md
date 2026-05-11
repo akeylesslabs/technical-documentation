@@ -28,7 +28,7 @@ Start with this reading order for Password Manager workflows:
 
 ### Password creation and import
 
-The extension documentation currently supports the following password-management workflows:
+The extension supports the following password-management workflows:
 
 * Strong password generation with improved feedback.
 * Tuning for allowed special characters when generating passwords.
