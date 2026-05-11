@@ -18,11 +18,11 @@ The Akeyless Password Manager Web Extension provides browser-based access to pas
 
 Start with this reading order for the Password Manager documentation:
 
-1. Install the extension and sign in.
-2. Configure Advanced Options, tenant, LDAP, or enterprise deployment settings if needed.
-3. Create or import passwords.
-4. Use autofill, OTP, and passkey features during sign-in.
-5. Review Security Health in the personal vault.
+1. [Install the extension and sign in](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in).
+2. Configure settings if needed: [Advanced Options](https://docs.akeyless.io/docs/pwm-ext-advanced-options), [Tenant URL](https://docs.akeyless.io/docs/pwm-ext-configure-custom-specific-tenant), [LDAP](https://docs.akeyless.io/docs/pwm-ext-configure-ldap-gateway-url), or [Enterprise Deployment](https://docs.akeyless.io/docs/pwm-ext-enterprise-distribution-preconfigured-authentication).
+3. [Create passwords](https://docs.akeyless.io/docs/pwm-ext-create-password) or [import existing ones](https://docs.akeyless.io/docs/pwm-ext-csv-password-importer).
+4. Use [autofill](https://docs.akeyless.io/docs/pwm-ext-autofill-and-password-injection), [OTP](https://docs.akeyless.io/docs/pwm-ext-otp), and [passkey](https://docs.akeyless.io/docs/pwm-ext-passkey) features during sign-in.
+5. Review [Security Health](https://docs.akeyless.io/docs/pwm-security-health) in the personal vault.
 
 ## Capabilities
 
@@ -71,17 +71,6 @@ When a dynamic or rotated item is opened for value retrieval, the extension uses
 ### Enterprise deployment
 
 PWM documentation includes an enterprise deployment guide for preconfigured authentication in managed browser environments.
-
-## Suggested Entry Points
-
-Use these pages for common tasks:
-
-* Installation and sign-in.
-* Advanced Options and environment configuration.
-* Password and secret creation.
-* CSV import.
-* Autofill, OTP, and passkeys.
-* Security Health.
 
 ## Cross-Platform Features
 
