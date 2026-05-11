@@ -34,3 +34,7 @@ After saving the LDAP gateway URL, return to the sign-in flow and use the authen
 ## Validation
 
 Confirm that the extension reaches the expected LDAP-backed sign-in flow and that users can authenticate with the expected credentials.
+
+> 📘 **For admins**
+>
+> To configure the LDAP authentication method on the Akeyless platform, see [LDAP Authentication Method](https://docs.akeyless.io/docs/auth-with-ldap).

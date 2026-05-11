@@ -36,3 +36,7 @@ Use a custom tenant URL when:
 ## Validation
 
 After saving the setting, return to the sign-in flow and confirm that authentication uses the intended tenant endpoint.
+
+> 📘 **For admins**
+>
+> To pre-configure the tenant URL for managed browser deployments, see [Enterprise Distribution and Pre-Configured Authentication](https://docs.akeyless.io/docs/pwm-ext-enterprise-distribution-preconfigured-authentication).

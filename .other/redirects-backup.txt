@@ -1,4 +1,5 @@
 /docs/kubernetes -> /docs/kubernetes-plugins
+/docs/pwm-ext-add-password-to-favorites -> /docs/pwm-ext-managing-favorites
 /docs/password-manager -> /docs/pwm-overview
 /docs/browser-extensions -> /docs/pwm-ext-overview
 /docs/using-environment-variables -> /docs/gateway-docker-advanced-configuration

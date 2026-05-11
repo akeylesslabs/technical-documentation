@@ -1,7 +1,7 @@
 ---
-title: Adding a Password to Favorites
+title: Managing Favorites
 
-slug: pwm-ext-add-password-to-favorites
+slug: pwm-ext-managing-favorites
 excerpt: ''
 deprecated: false
 hidden: false
