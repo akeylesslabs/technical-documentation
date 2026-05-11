@@ -44,6 +44,8 @@ Optionally, enter the **Location** path to store the password in a specific fold
 
 Providing Context: Use the **Description** field to add any relevant information about the password, like its purpose or associated account details.
 
+Activating Delete Protection: For added security, especially against accidental deletions, toggle the **Delete Protection** option. This adds an extra layer of confirmation before any deletion can occur.
+
 ### Step 5: Define Credentials
 
 In the 'Username' field, enter the username or login ID associated with the password.

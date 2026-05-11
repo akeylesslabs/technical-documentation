@@ -43,10 +43,3 @@ The Frequently Used section shows up to 7 items, ranked by how often they have b
 * Sharing items where sharing is supported.
 
 Tap the collapse icon at the right of the section header to expand or collapse the list.
-
-## Suggested Workflow
-
-1. Open Home.
-2. Swipe through the feature cards if you need a quick link to feature documentation.
-3. Select Personal or Corporate.
-4. Open an item from Frequently Used for the next action.
