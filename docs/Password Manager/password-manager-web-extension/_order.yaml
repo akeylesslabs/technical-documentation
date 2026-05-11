@@ -13,11 +13,10 @@
 - pwm-ext-create-secret
 - pwm-ext-csv-password-importer
 - pwm-ext-editing-password-details
-- pwm-ext-add-password-to-favorites
+- pwm-ext-managing-favorites
 - pwm-ext-sharing-password
 - pwm-ext-deleting-password
 - pwm-ext-copy-and-paste-passwords
 - pwm-ext-autofill-and-password-injection
 - pwm-ext-otp
 - pwm-ext-passkey
-- pwm-ext-security-health

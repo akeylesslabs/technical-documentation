@@ -3,7 +3,7 @@ title: Security Health
 
 slug: pwm-console-security-health
 excerpt: ''
-deprecated: false
+deprecated: true
 hidden: false
 metadata:
   title: ''
