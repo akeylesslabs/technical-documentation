@@ -1,5 +1,5 @@
 ---
-title: AI powered IDE PlugIn
+title: Akeyless Secrets Manager for Cursor
 excerpt: >-
   Find and fix hardcoded secrets in your code by integrating directly with
   Akeyless
@@ -12,14 +12,14 @@ metadata:
 next:
   description: ''
 ---
-  Supported IDE:
+## Supported IDEs
 
 * Cursor
-* Virtual Studio Code
-* Google antigravity
+* Visual Studio Code
+* Google Antigravity
 * Windsurf
 
-This extension helps you find and fix hardcoded secrets (like API keys and passwords) in your code by integrating directly with Akeyless.
+This extension helps you find and fix hardcoded secrets, such as API keys and passwords, by integrating directly with Akeyless.
 
 ![Illustration for: Google antigravity Windsurf This extension helps you find and fix hardcoded secrets (like API keys and passwords) in your code by integrating directly with Akeyless.](https://files.readme.io/8f791b6d749c7143a20f17d544592b57aa3b04ffd690c75dfcbb113fe3470bcc-Screenshot_2025-08-04_at_14.24.37.png)
 
@@ -45,7 +45,8 @@ Right-click on a highlighted secret to move it securely to your Akeyless vault.
 
 View alerts in the “Problems” panel and manage all your Akeyless secrets from a dedicated sidebar within Cursor.
 
-Command Palette Integration
+### Command Palette Integration
+
 Use Cursor’s command palette to scan your entire codebase for hardcoded secrets.
 
 ## Getting Started
@@ -70,7 +71,7 @@ akeyless auth
 
 1. Open Cursor
 2. Go to Extensions (Ctrl+Shift+X)
-3. Search for “Akeyless Secrets Manager”
+3. Search for "Akeyless Secrets Manager"
 4. Click Install
 
 ### Step 3: Start Using
@@ -84,13 +85,13 @@ akeyless auth
 
 ### Scan for Secrets
 
-Press Ctrl + Shift + P and run “Akeyless: Scan for Hardcoded Secrets”, or simply save the file (Cmd + S) to trigger a scan on the edited file.
+Press Ctrl + Shift + P and run "Akeyless: Scan for Hardcoded Secrets", or simply save the file (Cmd + S) to trigger a scan on the edited file.
 
 ![Illustration for: Scan for Secrets Press Ctrl + Shift + P and run “Akeyless: Scan for Hardcoded Secrets”, or simply save the file (Cmd + S) to trigger a scan on the edited file.](https://files.readme.io/8c249761d389466aa3dcc9a5abfaee6740bc42ed689aa69d7d482c97db367187-Oct-06-2025_12-41-23.gif)
 
 ### Save to Akeyless
 
-Right-click a detected secret in your code and select “Save to Akeyless”.
+Right-click a detected secret in your code and select "Save to Akeyless".
 
 ### Manage Secrets
 
@@ -98,4 +99,4 @@ Click the Akeyless icon in the sidebar to browse, search, and copy secrets witho
 
 [Link to Akeyless Secrets Manager on open-vsx](https://open-vsx.org/extension/akeyless/akeyless-secrets-manager)
 
-[Link to Akeyless Secrets Manager on Visual-studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Akeyless.akeyless-secrets-manager)
+[Link to Akeyless Secrets Manager on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Akeyless.akeyless-secrets-manager)
