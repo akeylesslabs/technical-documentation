@@ -52,7 +52,7 @@ akeyless target create google-trust \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
 ```
-```shell
+```shell DNS with Cloudflare
 akeyless target create google-trust \
 --name <Target Name> \
 --google-trust-url <production / staging> \
@@ -111,18 +111,18 @@ Where:
 
    * **EAB HMAC Key**: External Account Binding HMAC Key from Google CA Services.
 
-* **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
+   * **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
 
-* **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
+   * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
-* **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+   * **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
 
-* **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
+   * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
-* **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+   * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
-* **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
+   * **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
 
-* **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
+   * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
 
-1. Click Finish.
+5. Click Finish.
