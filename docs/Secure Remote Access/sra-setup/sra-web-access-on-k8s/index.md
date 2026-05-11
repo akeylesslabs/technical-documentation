@@ -14,6 +14,8 @@ Akeyless Zero Trust Web Access Bastion provides Secure Remote Access to internal
 
 This deployment can route sessions through an isolated remote browser or directly to the target server, based on secret configuration and policy.
 
+Current releases also keep the non-privileged deployment model intact, so you do not need to add a port `80` binding for the chart to run.
+
 This chart bootstraps the `Akeyless-Web-Access-Bastion` deployment on Kubernetes with Helm.
 
 ## Before you begin
@@ -108,6 +110,8 @@ kubectl describe deploy web-dispatcher-deployment -n <NAMESPACE>
 The chart exposes resource requests and limits for workload and init containers.
 
 The chart templates also configure non-root execution for Web Dispatcher and Web Worker containers.
+
+Current releases also support recording workflows with configurable quality, compression, and encryption for stored sessions.
 
 Do not override default user or group security context values unless directed by Akeyless Support.
 

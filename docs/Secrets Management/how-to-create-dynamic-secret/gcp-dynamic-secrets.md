@@ -188,6 +188,8 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 3. Define a **Name** of the dynamic secret, and specify the **Location** as a path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
+    The Location determines where the dynamic secret appears in the Items hierarchy, so use the path that matches the folder structure you want users to see.
+
 4. Define the remaining parameters as follows:
 
     * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
