@@ -59,9 +59,9 @@ For `items-event-source-locations`:
 
 * `static-secret-updated`: When a [Static Secret](https://docs.akeyless.io/docs/static-secrets) is set to trigger events on value changes.
 
-* `usage_unused`: When a global event is set in the Account settings, for secrets that have not been used or changed within the defined interval.
+* `usage-unused`: When a global event is set in the Account settings, for secrets that have not been used or changed within the defined interval.
 
-* `usage_unrotated`: When a global event is set in the Account settings, for [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) that have not been rotated within the defined interval.
+* `usage-unrotated`: When a global event is set in the Account settings, for [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) that have not been rotated within the defined interval.
 
 * `request-access`: When a user requests access, either for privilege permission or for a Secure Remote Access session. **Note**: Relevant also for `targets-event-source-locations`.
 
@@ -98,9 +98,9 @@ For `gateways-event-source-locations`:
 
 * `gateway-inactive`: When a Gateway changes its state to inactive, it must be set on the Gateway.
 
-* `gateway-certificate-about-to-expire`: When a Gateway certificate (Gateway Certificate Store) is about to expire.
+* `gateway-cert-pending-expiration`: When a Gateway certificate (Gateway Certificate Store) is about to expire.
 
-* `gateway-certificate-expired`: When a Gateway certificate (Gateway Certificate Store) is expired.
+* `gateway-cert-expired`: When a Gateway certificate (Gateway Certificate Store) is expired.
 
 ## Event Forwarders
 
