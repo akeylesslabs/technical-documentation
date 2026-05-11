@@ -58,7 +58,7 @@ The Security Health dashboard displays:
 1. **Gauges section** — Overall Security Score, Weak passwords count, and Reused passwords count.
 2. **Password list section** — Password name, location, Risk Level, Suggestion, and Last updated timestamp.
 
-Use filters to scope the password list: Weak passwords, Compromised passwords, or Update-required passwords.
+[Use filters](https://docs.akeyless.io/docs/pwm-ext-use-filters-and-tags) to scope the password list: Weak passwords, Compromised passwords, or Update-required passwords.
 
 ### Compromised Password Detection
 
