@@ -74,7 +74,7 @@ You can now use Claude/Cursor to query your resources in natural language. Each 
 
 You can also control what users are allowed to ask. For example, you may want to block questions that expose sensitive data, such as **personal information**, **credentials**, or **internal records**.
 
-To do this, add an Input Rule to the [Dynamic Secret ](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)object. When a user sends a request that matches a blocked rule, the request is denied and the restricted information is not returned from the database.
+To do this, add an Input Rule to the [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)object. When a user sends a request that matches a blocked rule, the request is denied and the restricted information is not returned from the database.
 
 This helps keep the AI agent useful while still making sure access stays controlled and secure.
 
