@@ -51,3 +51,5 @@ To search for an item:
 ## Tip
 
 Use search together with filters, tags, and folder navigation when many similar items exist in the same area.
+
+For more advanced organization and filtering strategies, see [Using Filters and Tags](https://docs.akeyless.io/docs/pwm-ext-use-filters-and-tags).
