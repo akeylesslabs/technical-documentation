@@ -98,6 +98,26 @@ List the token children ids of Akeyless Universal Identity
 akeyless uid-list-children --auth-method-name <UID Auth Method Name>
 ```
 
+## `uid-auto-rotate`
+
+Configure automatic UID token rotation
+
+### Usage
+
+```shell
+akeyless uid-auto-rotate \
+--auth-method-name <UID Auth Method Name> \
+--uid-token <UID Token>
+```
+
+### Flags
+
+`-n, --auth-method-name`: Universal Identity auth method name
+
+`-t, --uid-token`: Universal Identity token. If omitted, use the `AKEYLESS_UID_TOKEN` environment variable
+
+`--install-cron-d`: Install or update a `cron.d` entry for automatic rotation (Linux)
+
 ## `uid-revoke-token`
 
 Revoke token using Akeyless Universal Identity

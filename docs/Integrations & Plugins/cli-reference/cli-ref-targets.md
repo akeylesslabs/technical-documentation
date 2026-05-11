@@ -725,6 +725,7 @@ akeyless target create lets-encrypt \
 --acme-challenge[=http] <http/dns> \
 --email <Email address for ACME account registration> \
 --dns-target-creds <Target Name> \
+--dns-zone <Cloudflare DNS zone> \
 --hosted-zone <Amazon Route 53 hosted zone> \
 --resource-group <Azure resource group name> \
 --gcp-project <GCP project ID> \
@@ -742,7 +743,9 @@ akeyless target create lets-encrypt \
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
-`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`]). Relevant only when `--acme-challenge=dns`
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`/`Cloudflare`]). Relevant only when `--acme-challenge=dns`
+
+`--dns-zone`: **Cloudflare DNS zone** name. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is Cloudflare
 
 `--hosted-zone`: **Amazon Route 53** hosted zone identifier. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is AWS
 
@@ -2007,6 +2010,7 @@ akeyless target update lets-encrypt \
 --acme-challenge[=http] <http/dns> \
 --email <Email address for ACME account registration> \
 --dns-target-creds <Target Name> \
+--dns-zone <Cloudflare DNS zone> \
 --hosted-zone <Amazon Route 53 hosted zone> \
 --resource-group <Azure resource group name> \
 --gcp-project <GCP project ID> \
@@ -2026,7 +2030,9 @@ akeyless target update lets-encrypt \
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
-`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`]). Relevant only when `--acme-challenge=dns`
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`/`Cloudflare`]). Relevant only when `--acme-challenge=dns`
+
+`--dns-zone`: **Cloudflare DNS zone** name. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is Cloudflare
 
 `--hosted-zone`: **Amazon Route 53** hosted zone identifier. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is AWS
 

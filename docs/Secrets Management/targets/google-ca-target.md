@@ -52,6 +52,17 @@ akeyless target create google-trust \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
 ```
+```shell
+akeyless target create google-trust \
+--name <Target Name> \
+--google-trust-url <production / staging> \
+--email <ACME Account Email> \
+--eab-key-id <EAB Key ID> \
+--eab-hmac-key <EAB HMAC Key> \
+--acme-challenge dns \
+--dns-target-creds <Cloudflare DNS Target Name> \
+--dns-zone <Cloudflare DNS Zone>
+```
 
 Where:
 
@@ -67,7 +78,9 @@ Where:
 
 * `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly.
 
-* `dns-target-creds`: Use this when `--acme-challenge=dns`. This is required for DNS validation. Supported target types are AWS, Azure, and GCP.
+* `dns-target-creds`: Use this when `--acme-challenge=dns`. This is required for DNS validation. Supported target types are AWS, Azure, GCP, and Cloudflare.
+
+* `dns-zone`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to a Cloudflare target.
 
 * `hosted-zone`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to an AWS target. This identifies the Route 53 hosted zone.
 
@@ -98,15 +111,17 @@ Where:
 
    * **EAB HMAC Key**: External Account Binding HMAC Key from Google CA Services.
 
-   * **DNS Provider**: Either **AWS**, **GCP**, or **Azure** (relevant only if **Challenge Type** is **DNS**).
+* **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
 
-   * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
+* **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
 * **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
 
 * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
 * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+
+* **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
 
 * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
 

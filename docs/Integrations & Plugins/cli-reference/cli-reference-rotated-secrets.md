@@ -166,6 +166,10 @@ akeyless rotated-secret create azure \
 
 `--resource-name`: The name of the Storage Account (only relevant when `explicitly-set-sa`=`true`)
 
+`--activation-date`: Secret activation date in `YYYY`-`MM`-`DD` format (relevant for Azure rotated secrets)
+
+`--expiration-date`: Secret expiration date in `YYYY`-`MM`-`DD` format (relevant for Azure rotated secrets)
+
 `--secure-access-disable-concurrent-connections[=false]`: Enable this flag to prevent simultaneous use of the same secret
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
@@ -383,6 +387,8 @@ akeyless rotated-secret create gcp \
 `--gcp-service-account-email`: The email of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
 
 `--gcp-service-account-key-id`: The key ID of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
+
+`--expiration-date`: Secret expiration date in `YYYY`-`MM`-`DD` format (relevant for GCP rotated secrets)
 
 `-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used)
 
@@ -1320,6 +1326,10 @@ akeyless rotated-secret update azure \
 
 `--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevant to `azure-storage-account`)
 
+`--activation-date`: Secret activation date in `YYYY`-`MM`-`DD` format (relevant for Azure rotated secrets)
+
+`--expiration-date`: Secret expiration date in `YYYY`-`MM`-`DD` format (relevant for Azure rotated secrets)
+
 `-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used)
 
 `--auto-rotate`: Whether to automatically rotate every `--rotation-interval` days, or disable existing automatic rotation
@@ -1543,6 +1553,8 @@ akeyless rotated-secret update gcp \
 `--gcp-service-account-email`: The email of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
 
 `--gcp-service-account-key-id`: The key ID of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
+
+`--expiration-date`: Secret expiration date in `YYYY`-`MM`-`DD` format (relevant for GCP rotated secrets)
 
 `-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used)
 
