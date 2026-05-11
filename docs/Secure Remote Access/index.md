@@ -16,7 +16,7 @@ next:
 ---
 ## What Is Secure Remote Access?
 
-Secure Remote Access (SRA) is part of the Akeyless identity security platform. It provides Zero Trust access to private resources by brokering access through gateway-managed services rather than exposing static credentials.
+Secure Remote Access (SRA) is part of the Akeyless identity security platform. It provides Zero Trust access to private resources by brokering access through gateway and SRA services with dynamic and rotated secret patterns, rather than long-lived static credentials. This model follows a Zero Standing Privileges (ZSP) approach by minimizing persistent credentials in access flows.
 
 SRA supports interactive access to servers, databases, Kubernetes clusters, web applications, and cloud consoles. Users can connect from the Gateway-hosted portal, the public [SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal), the desktop application, or CLI tools such as [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp).
 
@@ -31,7 +31,7 @@ Supported access patterns include SSH, RDP, SQL, `kubectl`, LDAP, and web access
 At a high level, SRA follows this flow:
 
 1. A user authenticates with a configured identity provider.
-2. The gateway enforces configured SRA policies and routes traffic to SRA services.
+2. Configured SRA access restrictions and policy settings, such as allowed access IDs and authentication controls, are applied through gateway and SRA components, and traffic is routed to SRA services.
 3. The session is established through SRA web or SSH bastion components.
 
 In gateway-managed deployments, SRA runtime and management paths include:
