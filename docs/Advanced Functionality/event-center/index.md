@@ -73,8 +73,8 @@ Certificate expiration events also apply to certificates used by the [KMIP Serve
 
 Use the following event types to monitor KMIP certificate lifecycle:
 
-* `certificate-pending-expiration`
-* `certificate-expired`
+* `kmip-cert-pending-expiration`
+* `kmip-cert-expired`
 
 To notify operations teams, configure forwarding rules in [Event Forwarders](https://docs.akeyless.io/docs/event-center).
 

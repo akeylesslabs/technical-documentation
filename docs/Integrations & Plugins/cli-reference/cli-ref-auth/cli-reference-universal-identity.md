@@ -105,18 +105,30 @@ Configure automatic UID token rotation
 ### Usage
 
 ```shell
-akeyless uid-auto-rotate \
---auth-method-name <UID Auth Method Name> \
+akeyless uid-auto-rotate <init|rotate|status|uninstall>
+```
+
+Initialize automatic UID token rotation:
+
+```shell
+akeyless uid-auto-rotate init \
+--rotation-interval <1|15|60|240|1440> \
 --uid-token <UID Token>
 ```
 
 ### Flags
 
-`-n, --auth-method-name`: Universal Identity auth method name
-
 `-t, --uid-token`: Universal Identity token. If omitted, use the `AKEYLESS_UID_TOKEN` environment variable
 
-`--install-cron-d`: Install or update a `cron.d` entry for automatic rotation (Linux)
+`--rotation-interval`: **Required**, rotation interval in minutes. Supported values: `1`, `15`, `60`, `240`, `1440`
+
+`-i, --token-file-path`: Path to store the rotated UID token file
+
+`--gateway-api-url`: Gateway URL for rotation requests
+
+`--scheduling-mode[=cron]`: Scheduler mode. Supported values: `cron`, `systemd`, `windows-task`
+
+`--cron-mode[=user]`: Cron installation mode when `--scheduling-mode=cron`. Supported values: `user`, `system`
 
 ## `uid-revoke-token`
 
