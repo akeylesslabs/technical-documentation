@@ -58,7 +58,7 @@ akeyless target create digicert \
 --digicert-url <us-production / eu-production / us-demo / eu-demo> \
 --email <ACME Account Email> \
 --eab-key-id <EAB Key ID> \
---eab-hmac-key <EAB HAMC Key> \
+--eab-hmac-key <EAB HMAC Key> \
 --acme-challenge dns \
 --dns-target-creds <Cloudflare DNS Target Name> \
 --dns-zone <Cloudflare DNS Zone>
