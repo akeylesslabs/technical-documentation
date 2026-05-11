@@ -20,21 +20,17 @@ Use the following steps to install and sign in to the mobile app on Android or i
 
 ## Akeyless Password Manager Android Installation
 
-1. Open Google Play.
-2. Search for **Akeyless Password Manager**.
-3. Select the official app listing.
-4. Tap **Install**.
-5. Accept required Android prompts.
+1. Open [Akeyless Password Manager on Google Play](https://play.google.com/store/apps/details?id=com.akeylessmobile).
+2. Tap **Install**.
+3. Accept required Android prompts.
 
 ![Akeyless app permissions prompt on Android](https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg)
 
 ## Akeyless Password Manager iOS Installation
 
-1. Open the Apple App Store.
-2. Search for **Akeyless Password Manager**.
-3. Select the official app listing.
-4. Tap **Get**.
-5. Complete iOS confirmation with Apple ID, Face ID, or Touch ID if prompted.
+1. Open [Akeyless Password Manager on the App Store](https://apps.apple.com/us/app/akeyless-password-manager/id6455634292).
+2. Tap **Get**.
+3. Complete iOS confirmation with Apple ID, Face ID, or Touch ID if prompted.
 
 ![Akeyless app installation confirmation prompt on iOS](https://files.readme.io/9f41004-File_5.jpg)
 
