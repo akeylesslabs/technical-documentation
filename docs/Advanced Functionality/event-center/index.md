@@ -67,17 +67,6 @@ For `items-event-source-locations`:
 
 * `apply-justification`: When the user provides a connection justification as part of the Secure Remote Access session.
 
-### KMIP Certificate Expiry Coverage
-
-Certificate expiration events also apply to certificates used by the [KMIP Server](https://docs.akeyless.io/docs/kmip-server), including KMIP server and KMIP client certificates.
-
-Use the following event types to monitor KMIP certificate lifecycle:
-
-* `kmip-cert-pending-expiration`
-* `kmip-cert-expired`
-
-To notify operations teams, configure forwarding rules in [Event Forwarders](https://docs.akeyless.io/docs/event-center).
-
 For `auth-methods-event-source-locations`:
 
 * `uid-rotation-failure`: On [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) rotation failure, to track the automatic rotation.
@@ -101,6 +90,17 @@ For `gateways-event-source-locations`:
 * `gateway-cert-pending-expiration`: When a Gateway certificate (Gateway Certificate Store) is about to expire.
 
 * `gateway-cert-expired`: When a Gateway certificate (Gateway Certificate Store) is expired.
+
+### KMIP Certificate Expiry Coverage
+
+Certificate expiration events also apply to certificates used by the [KMIP Server](https://docs.akeyless.io/docs/kmip-server), including KMIP server and KMIP client certificates. These events are emitted by the Gateway.
+
+Use the following event types to monitor KMIP certificate lifecycle:
+
+* `kmip-cert-pending-expiration`
+* `kmip-cert-expired`
+
+To notify operations teams, configure forwarding rules in [Event Forwarders](https://docs.akeyless.io/docs/event-center).
 
 ## Event Forwarders
 
