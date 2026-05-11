@@ -20,7 +20,7 @@ Use the following steps to view and configure the password generation policy for
 
 1. Open the extension.
 2. Open the three-dot menu.
-3. Select **Password Generation Policy**.
+3. Select **Password generation policy**.
 4. Review and update the default password-generation settings.
 
 ## Set the Account-Level Default Policy

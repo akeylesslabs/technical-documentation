@@ -22,14 +22,12 @@ Once installed, tap on the Akeyless Password Manager app icon on your mobile dev
 
 ## Step 2: Start Creating a Static Secret
 
-1. Tap on the "New Item" button. This will open the Akeyless secrets bottom navigation menu.
-2. Navigate to the Static Secret option by selecting it from the bottom navigation menu.
+1. Tap the orange **+** button. This opens an action sheet with item type options.
+2. Select **Static Secret** from the action sheet.
 3. Enter a unique and recognizable name in the **Secret Name** field.
 4. Optionally, enter a description for the secret.
 
 ## Step 3: Define the Secret Details
-
-In the **Var** field, enter the key name for the secret item.
 
 In the **Value** field, enter the sensitive data that you want to store.
 

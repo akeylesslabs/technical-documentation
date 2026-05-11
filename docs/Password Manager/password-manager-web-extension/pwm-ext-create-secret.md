@@ -40,9 +40,9 @@ Field names must be unique per item.
 
 For OTP-specific custom field workflows, see [OTP workflows](https://docs.akeyless.io/docs/pwm-ext-otp).
 
-## Step 4: Define Var and Location
+## Step 4: Define Value and Location
 
-Enter the secret value in the `Var` field.
+Enter the secret value in the **Value** field.
 
 ![Illustration for: Step 3: Define Var and Location In the Var field, enter a unique combination of letters, symbols, and numbers. The value length should be 16 KB.](https://files.readme.io/774a6f9-Screenshot_2024-02-22_at_14.23.19.png)
 

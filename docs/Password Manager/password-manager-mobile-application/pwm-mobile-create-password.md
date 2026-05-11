@@ -30,23 +30,19 @@ Accessing the Main Interface: Once the Akeyless application has fully loaded, yo
 
 Locating the Creation Button: At the bottom of the screen, you'll find a prominent orange plus button, typically designed to stand out for easy identification.
 
-Beginning the Process: Tap on this orange plus button. This action signals the app to enter the password creation mode.
+Beginning the Process: Tap on this orange plus button. An action sheet appears with two options. Select **Password** to open the password creation form.
 
 ### Step 3: Define the Password's Name and Location
 
 You will be redirected to a new screen dedicated to creating a new password.
 
-In the first field labeled 'Password Name,' enter a unique and easily recognizable name for the password.
+In the first field labeled **Name**, enter a unique and easily recognizable name for the password.
 
-Optionally, you can specify the 'Location' of the password by utilizing the drop-down button located on the right area of the 'Location' field.
-
-If the desired folder does not exist, you can create a new folder within the password location window. Select the "Create New Folder" button.
+Optionally, enter the **Location** path to store the password in a specific folder.
 
 ### Step 4: Enhance Security and Add Context
 
-Providing Context: Use the 'Description' field to add any relevant information about the password, like its purpose or associated account details. This information is not just for organization but can also serve as a reminder of the password’s use.
-
-Activating Delete Protection: For added security, especially against accidental deletions, toggle the 'Delete Protection' option. This adds an extra layer of confirmation before any deletion can occur.
+Providing Context: Use the **Description** field to add any relevant information about the password, like its purpose or associated account details.
 
 ### Step 5: Define Credentials
 
