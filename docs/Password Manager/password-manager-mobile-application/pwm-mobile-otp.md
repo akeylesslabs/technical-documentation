@@ -12,21 +12,19 @@ metadata:
 next:
   description: ''
 ---
-Locate the Password: Navigate to the corporate or personal area where the desired password is stored.
+The mobile app supports OTP for saved passwords. You can add OTP values by scanning a QR code or entering the secret manually.
 
-Open Options Menu: Tap the three dots button next to the password entry to open the options menu.
+## Add an OTP by Scanning a QR Code
+
+1. Navigate to the corporate or personal area where the password is stored.
+2. Tap the three-dot menu next to the password entry.
+3. Make sure the OTP QR code is visible on the screen in a scannable format.
+4. Select **Scan OTP** from the menu.
+5. Use the camera to scan the QR code.
 
 ![Three-dot options menu next to a password entry in the mobile app](https://files.readme.io/6da4508-Screenshot_2024-06-16_at_11.17.19.png)
 
-Prepare OTP for Scanning: Ensure that the OTP (One-Time Password) code is visible on the screen in a scannable format.
-
-Scan the Code: Use the camera to scan the OTP code.
-
-Select Scan OTP: Choose the "Scan OTP" option from the menu.
-
-Verify Addition: The OTP code will be added as a custom field to the selected password entry.
-
-Access OTP Code: You can view the OTP code by tapping the eye icon next to the custom field.
+The OTP value is added as a custom field to the selected password entry. Tap the eye icon next to the custom field to view the current code.
 
 ## Add an OTP Manually
 

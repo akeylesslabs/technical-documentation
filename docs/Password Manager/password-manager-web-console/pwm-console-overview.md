@@ -30,7 +30,7 @@ Use these pages as the primary user entry points:
 3. Open the Password Manager extension.
 4. Complete prompts shown for your account policy.
 
-Use these browser pages next:
+For next steps, see:
 
 * [Extension install and sign-in](https://docs.akeyless.io/docs/pwm-ext-install-and-sign-in)
 * [Personal and corporate navigation](https://docs.akeyless.io/docs/pwm-ext-navigate-personal-corporate-favorites)
