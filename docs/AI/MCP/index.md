@@ -1,10 +1,13 @@
 ---
 title: MCP Server
+excerpt: Use the Akeyless MCP Server with MCP clients and JetBrains IDE integration.
 deprecated: false
 hidden: false
 link:
   new_tab: false
 metadata:
+  title: Akeyless MCP Server
+  description: Use the Akeyless MCP Server with supported MCP clients and JetBrains IDE integration.
   robots: index
 ---
 ## Overview

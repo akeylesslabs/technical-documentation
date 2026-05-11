@@ -112,9 +112,9 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
 
 2. Configure Copilot
 
-    Edit `~/.copilot/config.yml` to include:
+    Edit `~/.copilot/mcp-config.json` to include:
 
-    ```yaml
+    ```json
     mcpServers:
       akeyless:
         command: akeyless
