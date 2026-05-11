@@ -62,20 +62,14 @@ The account settings page includes a toggle for password scoring:
 * **Default Setting:** The feature is disabled by default.
 * **Functionality:** When enabled, password scores are calculated and displayed; when disabled, scores are hidden.
 
-## Recommended Steps
-
-1. Open Security Health.
-2. Review gauges to identify highest-risk category.
-3. Apply the related filter.
-4. Review affected items and follow suggestions.
-5. Update credentials and recheck dashboard values.
-
 ## Compromised Password Check
 
-Security Health checks passwords against known compromised-credential data, including Have I Been Pwned.
+Security Health checks passwords against known compromised-credential data using the [Have I Been Pwned](https://haveibeenpwned.com/) database, which aggregates publicly disclosed password breaches.
 
-This check supports the following outcomes:
+This check provides the following signals:
 
-* Exposure detection for known breached passwords.
-* Reuse-risk indicators based on repeated breach appearances.
-* Security score enrichment with breach-related signals.
+* **Exposure detection**: Identifies whether a password has appeared in any known data breach, including credentials circulating on the dark web.
+* **Reuse-risk indicators**: Measures how many times the same password has been exposed across different breaches, highlighting patterns of weak or reused credentials.
+* **Security score enrichment**: Incorporates exposure and reuse metrics into each password's score, producing a more risk-aware Security Health assessment.
+
+Passwords flagged by this check appear in the dashboard password list with a **Compromised** risk level. Use the **Compromised passwords** filter to isolate them and prioritize remediation.
