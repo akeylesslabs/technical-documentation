@@ -110,9 +110,3 @@ Use Identity and Secrets Intelligence together with the other Akeyless AI surfac
 * [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) for natural-language interaction with the Akeyless identity security platform
 * [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority) for controlled runtime access to supported dynamic secrets
 * [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents) for guidance on reducing credential misuse risk in AI workflows
-
-## Related AI Guides
-
-* [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight)
-* [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority)
-* [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents)

@@ -115,9 +115,9 @@ For profile details and advanced options, see [CLI Profiles](https://docs.akeyle
    Note that the project uses a JDK 17 compile toolchain. If the Gradle wrapper fails to start because the default Java version is too new, set `org.gradle.java.home` in `gradle.properties` to a JDK 17 or JDK 21 installation.
 
 1. In your JetBrains IDE, go to **Settings → Plugins**.
-1. Select the gear icon, and then select **Install Plugin from Disk...**.
-1. Select the generated ZIP file from the `build/distributions/` directory.
-1. Restart the IDE when prompted.
+2. Select the gear icon, and then select **Install Plugin from Disk...**.
+3. Select the generated ZIP file from the `build/distributions/` directory.
+4. Restart the IDE when prompted.
 
 ### Step 4: Configure the Plugin
 

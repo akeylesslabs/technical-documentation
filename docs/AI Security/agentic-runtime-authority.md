@@ -137,7 +137,7 @@ To integrate Akeyless with your AI agent, add the **Akeyless MCP server** config
 
 ### For Claude
 
-Create the following file: `~/Library/"Application Support"/Claude/claude_desktop_config.json`.
+Create the following file: `~/Library/Application Support/Claude/claude_desktop_config.json`.
 
 ### For Cursor
 
@@ -202,15 +202,9 @@ akeyless mcp-runtime-authority \
   --profile <profile-name>
 ```
 
-## Query Protected Resources
-
-With Agentic Runtime Authority configured, you can now use Claude or Cursor to interact with your protected resources in natural language. The AI agent will authenticate requests and retrieve credentials dynamically without storing long-lived secrets.
-
 ## Monitoring Access
 
-Each session and resource query is logged by the runtime services.
-
-In the current Console implementation, the verified UI coverage for Agentic Runtime Authority is on Dynamic Secret configuration surfaces (the **Agentic Runtime Authority** tab and rules tables). A dedicated Agentic Runtime Authority reporting page is not exposed in the frontend-react Console routes.
+Each session and resource query is logged by the runtime services. Use the `ara-reports-access` role rule to grant access to Agentic Runtime Authority reporting data. See [Control Access With RBAC](#control-access-with-rbac) for role setup details.
 
 ## Control Agent Behavior With Rules
 

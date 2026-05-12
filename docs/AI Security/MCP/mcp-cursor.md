@@ -30,7 +30,7 @@ The following examples show common authentication configurations:
 
 ```json Default
 {
-  "mcp.servers": {
+  "mcpServers": {
     "akeyless": {
       "command": "akeyless",
       "args": [
@@ -44,7 +44,7 @@ The following examples show common authentication configurations:
 ```
 ```json SAML
 {
-  "mcp.servers": {
+  "mcpServers": {
     "akeyless-saml": {
       "command": "akeyless",
       "args": [
@@ -59,7 +59,7 @@ The following examples show common authentication configurations:
 ```
 ```json OIDC
 {
-  "mcp.servers": {
+  "mcpServers": {
     "akeyless-oidc": {
       "command": "akeyless",
       "args": [

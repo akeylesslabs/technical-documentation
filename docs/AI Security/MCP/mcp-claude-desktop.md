@@ -22,7 +22,7 @@ For general MCP background and command syntax, see [MCP Server](https://docs.ake
 ## Configure Claude Desktop
 
 1. Install and configure the Akeyless CLI.
-2. Edit `~/Library/"Application Support"/Claude/claude_desktop_config.json`.
+2. Edit `~/Library/Application Support/Claude/claude_desktop_config.json`.
 3. Add the Akeyless MCP server configuration.
 4. Restart Claude Desktop.
 

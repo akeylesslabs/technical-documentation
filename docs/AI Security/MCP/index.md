@@ -66,7 +66,7 @@ For Runtime Authority behavior, prerequisites, and tool semantics, see [Agentic 
 
 | Integration | Primary use case | Configuration surface |
 | --- | --- | --- |
-| [Claude Desktop](https://docs.akeyless.io/docs/mcp-claude-desktop) | Desktop AI assistant workflow with local MCP client configuration | `~/Library/"Application Support"/Claude/claude_desktop_config.json` |
+| [Claude Desktop](https://docs.akeyless.io/docs/mcp-claude-desktop) | Desktop AI assistant workflow with local MCP client configuration | `~/Library/Application Support/Claude/claude_desktop_config.json` |
 | [Cursor](https://docs.akeyless.io/docs/mcp-cursor) | Editor-based MCP workflow in Cursor | `~/.cursor/mcp.json` or Cursor settings JSON |
 | [GitHub Copilot](https://docs.akeyless.io/docs/mcp-github-copilot) | MCP workflow with GitHub Copilot CLI | `~/.copilot/mcp-config.json` |
 | [JetBrains IDEs](https://docs.akeyless.io/docs/mcp-jetbrains-ides) | IDE-native plugin workflow for JetBrains products | JetBrains plugin settings |

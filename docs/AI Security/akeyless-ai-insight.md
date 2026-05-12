@@ -161,7 +161,7 @@ To verify that AI Insights is enabled at the account level, run the following co
 akeyless get-account-settings
 ```
 
-#### Verify the Target
+### Verify the Target
 
 To verify that the OpenAI target is configured correctly, run the following command:
 
@@ -169,7 +169,7 @@ To verify that the OpenAI target is configured correctly, run the following comm
 akeyless get-target --name my-openai-target
 ```
 
-#### Verify the Gateway Configuration
+### Verify the Gateway Configuration
 
 To verify that the gateway is configured for AI Insights, run the following command:
 
