@@ -55,9 +55,13 @@ The Akeyless CLI currently exposes two MCP-related commands:
 | `akeyless mcp` | Starts the general Akeyless MCP server for standard Akeyless tools. |
 | `akeyless mcp-runtime-authority` | Starts the Agentic Runtime Authority MCP server for runtime query workflows (`list-secrets`, `query-db`, `service-execute`). |
 
+For full command flags and usage details, see [CLI Reference](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
+
 ## Command: akeyless mcp
 
 The `akeyless mcp` command starts an MCP server so AI assistants can securely interact with Akeyless services through a standardized interface.
+
+For complete command usage and flags, see [CLI Reference - mcp](https://docs.akeyless.io/docs/cli-reference#mcp).
 
 > Important: `akeyless mcp` does not use the `gateway_url` value configured in a CLI profile. You must pass `--gateway-url` directly in every `akeyless mcp` command (or MCP client args).
 
@@ -101,6 +105,8 @@ akeyless mcp --profile dev --gateway-url https://<your-gateway-url>:8000/api/v2
 ## Command: akeyless mcp-runtime-authority
 
 The `akeyless mcp-runtime-authority` command starts the MCP server for Agentic Runtime Authority runtime-query tools.
+
+For complete command usage and flags, see [CLI Reference - mcp-runtime-authority](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
 
 ### Runtime Authority Parameters
 
