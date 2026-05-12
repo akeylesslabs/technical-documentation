@@ -87,9 +87,9 @@ For `gateways-event-source-locations`:
 
 * `gateway-inactive`: When a Gateway changes its state to inactive, it must be set on the Gateway.
 
-* `gateway-cert-pending-expiration`: When a Gateway certificate (Gateway Certificate Store) is about to expire.
+* `gateway-cert-pending-expiration`: When a Gateway certificate (Gateway Certificate Store) is about to expire, it must be set on the Gateway.
 
-* `gateway-cert-expired`: When a Gateway certificate (Gateway Certificate Store) is expired.
+* `gateway-cert-expired`: When a Gateway certificate (Gateway Certificate Store) is expired, it must be set on the Gateway.
 
 ### KMIP Certificate Expiry Coverage
 
@@ -97,8 +97,8 @@ Certificate expiration events also apply to certificates used by the [KMIP Serve
 
 Use the following event types to monitor KMIP certificate lifecycle:
 
-* `kmip-cert-pending-expiration`
-* `kmip-cert-expired`
+* `kmip-cert-pending-expiration`: When a KMIP certificate is about to expire, it must be set on the Gateway.
+* `kmip-cert-expired`: When a KMIP certificate has expired, it must be set on the Gateway.
 
 To notify operations teams, configure forwarding rules in [Event Forwarders](https://docs.akeyless.io/docs/event-center).
 
