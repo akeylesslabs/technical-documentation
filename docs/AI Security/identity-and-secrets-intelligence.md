@@ -13,7 +13,7 @@ metadata:
 >
 > Identity and Secrets Intelligence is currently in early access. Features, behavior, and availability can change between releases.
 
-Identity and Secrets Intelligence is an alpha console surface for reviewing AI-related visibility and governance data in Akeyless.
+Identity and Secrets Intelligence is a console surface for reviewing AI-related visibility and governance data in Akeyless.
 
 In the current Akeyless Console, Identity and Secrets Intelligence includes these sections:
 
@@ -26,14 +26,12 @@ Identity and Secrets Intelligence complements the broader Akeyless AI security m
 
 ## Access And Availability
 
-Identity and Secrets Intelligence is currently shown as an alpha feature in the Akeyless Console.
-
 In the current Console implementation, the menu is shown only when the account has the feature enabled and the user has admin-level Console access. The backend and CLI also expose a dedicated `isi-access` role rule.
 
 ### Use Identity & Secrets Intelligence In The Console
 
 1. Sign in to the Akeyless Console.
-2. In the left navigation, open **Identity & Secrets Intelligence (Alpha)**.
+2. In the left navigation, open **Identity & Secrets Intelligence**.
 3. Use **Dashboard** for the high-level overview.
 4. Use **Inventory** to review findings and drill into finding details.
 5. Use **Scanners** to create scanners, start scans, stop running scans, and review scan history.
@@ -46,6 +44,8 @@ The current Scanner implementation supports creating scanners, starting scans, s
 ### Control Access With RBAC
 
 Use the `isi-access` administrative rule on a role to control access to Identity and Secrets Intelligence.
+
+For command syntax, see [CLI Reference - Access Roles](https://docs.akeyless.io/docs/cli-reference-access-roles).
 
 Supported values are:
 
@@ -84,7 +84,7 @@ The following example shows one minimal workflow for granting access and reviewi
 1. Create or update a role with `--isi-access scoped` or `--isi-access all`.
 2. Associate the role with the authentication method that your operators use.
 3. Sign in to the Akeyless Console.
-4. Open **Identity & Secrets Intelligence (Alpha)**.
+4. Open **Identity & Secrets Intelligence**.
 5. Review the **Dashboard**.
 6. Open **Scanners**, start a scan, and then use **Inventory** to review the findings.
 
@@ -99,7 +99,7 @@ akeyless create-role \
 ### Console Example
 
 1. Sign in to the Akeyless Console.
-2. Open **Identity & Secrets Intelligence (Alpha)**.
+2. Open **Identity & Secrets Intelligence**.
 3. Open **Scanners**, and start a scan.
 4. Open **Inventory**, and review the generated findings.
 
