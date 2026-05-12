@@ -26,6 +26,8 @@ Create a new Target
 
 `azure`
 
+`cloudflare`
+
 `db`
 
 `dockerhub`
@@ -179,6 +181,33 @@ akeyless target create azure \
 `-k, --key`: Key name. The key is used to encrypt the target secret value. If the key name is not specified, the account default protection key is used
 
 `--description`: Target description
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+### `cloudflare`
+
+Creates a new Cloudflare target in the current account
+
+#### Usage
+
+```shell
+akeyless target create cloudflare \
+--name <Target name> \
+--api-token <Cloudflare API token> \
+--account-id <Cloudflare account ID>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--api-token`: **Required**, Cloudflare API token
+
+`--account-id`: Cloudflare account ID
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--description`: Description of the object
+
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 ### `db`
@@ -1427,6 +1456,39 @@ akeyless target update azure \
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
 `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+
+#### `cloudflare`
+
+Updates an existing Cloudflare target in the current account
+
+##### Usage
+
+```shell
+akeyless target update cloudflare \
+--name <Target name> \
+--new-name <New target name> \
+--api-token <Cloudflare API token> \
+--account-id <Cloudflare account ID> \
+--key <Key name>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--api-token`: Cloudflare API token
+
+`--account-id`: Cloudflare account ID
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--description`: Description of the object
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
