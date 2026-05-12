@@ -24,8 +24,8 @@ Agentic Runtime Authority extends Akeyless AI security beyond secretless credent
 The current implementation exposes Agentic Runtime Authority in these places:
 
 * The **Agentic Runtime Authority** step or details tab on supported Dynamic Secrets in the Akeyless Console
-* The `runtime-authority` CLI command for direct runtime queries through the Gateway
-* The `mcp-runtime-authority` CLI command for MCP-based agent integrations
+* The [runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#runtime-authority) for direct runtime queries through the Gateway
+* The [mcp-runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority) for MCP-based agent integrations
 * The MCP tools exposed by `mcp-runtime-authority`: `list-secrets`, `query-db`, and `service-execute`
 * The `ara-reports-access` role rule for dashboard visibility
 * The **Agentic Runtime Authority** role-rule type with the **Allow Access** capability in the Console role editor
@@ -133,7 +133,7 @@ The current CLI parser requires both `name` and `rule` for each repeated flag.
 
 ## Set Up The AI Agent
 
-To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [MCP Server](https://docs.akeyless.io/docs/mcp-server). The configuration below is specific to the `mcp-runtime-authority` subcommand.
+To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [MCP Server](https://docs.akeyless.io/docs/mcp-server). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
 
 ### For Claude
 
@@ -182,7 +182,7 @@ For OAuth-backed service flows, `service-execute` can also require `auth-code` a
 
 ## Query Protected Resources With The CLI
 
-Use `runtime-authority` for direct runtime queries through the Gateway:
+Use the [runtime-authority command](https://docs.akeyless.io/docs/cli-reference#runtime-authority) for direct runtime queries through the Gateway:
 
 ```shell
 akeyless runtime-authority \
@@ -193,7 +193,7 @@ akeyless runtime-authority \
   --profile <profile-name>
 ```
 
-Use `mcp-runtime-authority` when the agent connects through MCP:
+Use the [mcp-runtime-authority command](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority) when the agent connects through MCP:
 
 ```shell
 akeyless mcp-runtime-authority \
