@@ -34,14 +34,12 @@ To configure TLS, on your [Gateway Configuration Manager](https://docs.akeyless.
 
 For Akeyless SaaS endpoints, hybrid post-quantum key exchange is enabled by default over TLS 1.3.
 
-For Akeyless Gateway endpoints, hybrid post-quantum key exchange is enabled after the Gateway deployment is configured with both TLS 1.3 and the Go runtime `tlsmlkem` flag.
+For Akeyless Gateway endpoints, hybrid post-quantum key exchange is enabled when the Gateway is configured to use TLS 1.3.
 
 For deployment-specific steps, see:
 
 * [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration)
 * [Gateway Kubernetes Helm Values Reference](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference)
-
-For a formal algorithm and coverage reference, see [PQC Support Reference](https://docs.akeyless.io/docs/gateway-pqc-support-reference).
 
 After deployment, verify that the browser connection details show `X25519MLKEM768`, which confirms a hybrid key exchange (X25519 + ML-KEM 768).
 
