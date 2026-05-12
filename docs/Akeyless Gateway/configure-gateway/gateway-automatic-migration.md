@@ -49,7 +49,7 @@ Automatic migration configuration usually includes:
 
 When migrating from HashiCorp Vault, Akeyless supports KV v2 secret engines, which store metadata alongside each secret value. The `--hashi-metadata-mode` flag controls how much of that metadata is carried over to Akeyless.
 
-If the flag is omitted, the mode defaults to `full`.
+If the flag is omitted on `gateway-create-migration`, the mode defaults to `full`. On `gateway-update-migration`, omitting the flag leaves the existing mode unchanged.
 
 | Mode | What is migrated |
 | --- | --- |
