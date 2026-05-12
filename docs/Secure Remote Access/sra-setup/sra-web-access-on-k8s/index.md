@@ -16,6 +16,8 @@ This deployment can route sessions through an isolated remote browser or directl
 
 The non-privileged deployment model is supported, so you do not need to add a port `80` binding for the chart to run.
 
+ZTWA session recording captures browser-based web access sessions and supports configurable quality, compression, and encryption for stored recordings.
+
 This chart bootstraps the `Akeyless-Web-Access-Bastion` deployment on Kubernetes with Helm.
 
 ## Before you begin
@@ -111,7 +113,7 @@ The chart exposes resource requests and limits for workload and init containers.
 
 The chart templates also configure non-root execution for Web Dispatcher and Web Worker containers.
 
-Recording workflows support configurable quality, compression, and encryption for stored sessions.
+ZTWA session recordings support configurable quality, compression, and encryption for stored sessions.
 
 Do not override default user or group security context values unless directed by Akeyless Support.
 

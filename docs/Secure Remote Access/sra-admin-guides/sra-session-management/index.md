@@ -12,7 +12,7 @@ next:
 ---
 Session Management provides users with full control over how session activities are recorded, stored, and forwarded for auditing and analysis. Through the platform’s UI, users can enable session recording and configure how session data is forwarded to external systems.
 
-Key actions include enabling session recording for various types of remote access sessions, configuring log forwarding for CLI-based sessions, and managing video recordings for RDP sessions.
+Key actions include enabling session recording for various types of remote access sessions, configuring log forwarding for CLI-based sessions, and managing video recordings for RDP and web-access sessions.
 
 ## Session Recording
 
@@ -21,6 +21,10 @@ Key actions include enabling session recording for various types of remote acces
 [RDP session recording](https://docs.akeyless.io/docs/sra-rdp-recordings) refers to the process of capturing and storing the activities that occur during a Remote Desktop Protocol (RDP) session. These recordings create a video file of the entire session, preserving all user interactions within the remote desktop environment.
 
 SRA allows you to automatically upload and store these video recordings in secure locations such as AWS S3 or Azure Blob Storage for long-term retention and review, or you can store them locally on the server.
+
+### Web Access Session Recording
+
+[Web access session recording](https://docs.akeyless.io/docs/sra-web-access-on-k8s) refers to the process of capturing browser-based web access sessions in Zero Trust Web Access (ZTWA). These recordings preserve the interactive web session and can be stored with the ZTWA deployment configuration.
 
 ### Terminal-Based Sessions
 
