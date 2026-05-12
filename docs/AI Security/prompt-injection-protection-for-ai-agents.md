@@ -86,12 +86,16 @@ Use secretless runtime retrieval together with the following controls:
 
 This pattern is relevant anywhere an agent or AI-assisted workflow can reach protected systems:
 
-* Akeyless AI Insights, when natural-language workflows interact with protected resources
-* Akeyless MCP Server, when external agent frameworks call Akeyless-managed tools and credentials
+* [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight), when natural-language workflows interact with protected resources
+* [Akeyless MCP Server](https://docs.akeyless.io/docs/mcp-server), when external agent frameworks call Akeyless-managed tools and credentials
+* [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority), when runtime agent access to protected resources needs enforcement and auditing
+* [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence), when teams need AI-related visibility and governance surfaces
 * custom agent implementations that retrieve secrets or dynamic credentials from Akeyless at runtime
 
 ## Related AI Guides
 
 * [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight)
+* [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority)
+* [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence)
 * [MCP Server](https://docs.akeyless.io/docs/mcp-server)
 * [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
