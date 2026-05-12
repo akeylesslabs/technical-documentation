@@ -1,5 +1,5 @@
 ---
-title: Setup Overview
+title: SRA Setup
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,20 +10,30 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access is part of the [Gateway](https://docs.akeyless.io/docs/gateway-overview). Users can deploy Remote Access components alongside the Gateway or can use the same chart to deploy Remote Access components after the Gateway is deployed.
+Akeyless Secure Remote Access (SRA) runs as part of a unified Gateway deployment. The same deployment pattern can host:
 
-The Remote Access solution can be deployed in one of two methods:
+* Gateway core services
+* SRA web and SSH bastion components
+* Zero Trust Web Access (ZTWA) components when needed
 
-1. [Kubernetes by way of Helm](https://docs.akeyless.io/docs/remote-access-setup-k8s)
-2. [Docker by way of Docker Compose](https://docs.akeyless.io/docs/remote-access-docker)
+## Deployment Models
 
-In this section, we will cover how to deploy Remote Access on each solution along with advanced configuration options.
+Choose one deployment model for Gateway + SRA:
 
-We will also cover deploying the [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s) component for connecting to web application targets from within an isolated browser.
+1. [Kubernetes (Gateway + SRA)](https://docs.akeyless.io/docs/sra-setup-k8s)
+2. [Docker Compose (Gateway + SRA)](https://docs.akeyless.io/docs/sra-docker)
 
-Other features in this section include:
+If you also need isolated browser access for web applications, follow [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology).
 
-* [Session Management](https://docs.akeyless.io/docs/remote-access-session-management) with Session Forwarding and RDP Recordings
-* [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) for native CLI remote SSH access
-* [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp) for native CLI Secure Copy access
-* [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates) for accessing remote machines using just-in-time, temporary certificates instead of SSH Keys.
+If Gateway is already deployed, continue with the Kubernetes or Docker setup page to enable SRA components on that deployment.
+
+## Before You Deploy
+
+Review [Requirements](https://docs.akeyless.io/docs/sra-requirements) first for port inventory, outbound connectivity, Redis dependency, minimum resources, and platform-specific constraints.
+
+## Related Features
+
+* [Session Management](https://docs.akeyless.io/docs/sra-session-management)
+* [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)
+* [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp)
+* [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates)
