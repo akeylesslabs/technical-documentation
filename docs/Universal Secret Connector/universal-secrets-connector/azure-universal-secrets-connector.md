@@ -243,6 +243,10 @@ The main parameters are:
 
 * `--object-type[=secret]`: Either `secret` or `certificate`, when set to `certificate` - Provide a Base64-encoded certificate file that includes the private key.
 
+* `--remote-secret-expires`: Optional. Expiration time for the secret in Azure Key Vault, in UTC format: `YYYY-MM-DDTHH:MM:SSZ`. Azure sets the `Expires` attribute on the secret version.
+
+* `--remote-secret-activation-date`: Optional. Activation date for the secret in Azure Key Vault, in UTC format: `YYYY-MM-DDTHH:MM:SSZ`. Azure sets the `NotBefore` attribute on the secret version. The activation date must be earlier than or equal to the expiration date.
+
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
 
 ### Updating an Existing USC Secret
@@ -252,6 +256,8 @@ To update an existing secret in your USC, use the following command:
 ```shell
 akeyless usc update --usc-name <usc name> --secret-id <secret id or name> --value <secret value>
 ```
+
+Use `--remote-secret-expires` to set or update the expiration time and `--remote-secret-activation-date` to set or update the activation date (Azure Key Vault `NotBefore`), both in UTC format: `YYYY-MM-DDTHH:MM:SSZ`. The activation date must be earlier than or equal to the expiration date.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#update).
 
