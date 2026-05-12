@@ -28,7 +28,7 @@ If you are looking for a specific target type, start with the family that matche
 
 * [Database Targets](https://docs.akeyless.io/docs/database-targets) for database credentials that applications and teams reuse across secrets.
 * Cloud provider targets: [AWS Targets](https://docs.akeyless.io/docs/aws-targets), [Azure Targets](https://docs.akeyless.io/docs/azure-targets), and [GCP Targets](https://docs.akeyless.io/docs/gcp-targets) for cloud platform credentials and cloud-specific integrations.
-* Certificate automation targets: [Let's Encrypt Target](https://docs.akeyless.io/docs/lets-encrypt), [DigiCert Target](https://docs.akeyless.io/docs/digicert-target), [Google CA Target](https://docs.akeyless.io/docs/google-ca-target), and Cloudflare DNS validation for certificate issuance with a public Certificate Authority (CA).
+* Certificate automation targets: [Let's Encrypt Target](https://docs.akeyless.io/docs/lets-encrypt), [DigiCert Target](https://docs.akeyless.io/docs/digicert-target), [Google CA Target](https://docs.akeyless.io/docs/google-ca-target), and [Cloudflare Target](https://docs.akeyless.io/docs/cloudflare-target) for DNS-01 validation with public Certificate Authority (CA) targets.
 * [SSH Targets](https://docs.akeyless.io/docs/ssh-target) and [Web Targets](https://docs.akeyless.io/docs/web-targets) for server access and web-facing endpoints.
 
 ## Delete protection for targets
