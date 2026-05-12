@@ -181,11 +181,9 @@ List of all accessible items
 
 ### `list-sra-bastions`
 
-Lists all Secure Remote Access (SRA) bastions in the account
+Lists all Secure Remote Access (SRA) bastions in the account.
 
-#### Flags
-
-`--allowed-urls-only[=false]`: Filter the response to show only bastions allowed URLs
+For command usage, flags, and behavior notes, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
 
 ### `move-objects`
 
