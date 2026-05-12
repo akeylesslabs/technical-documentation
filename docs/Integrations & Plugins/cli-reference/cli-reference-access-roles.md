@@ -66,7 +66,7 @@ akeyless create-role --name <Role Name>
 
 `--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
 
-`--isi-access`: Allow this role to access [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence). Currently only `none`, `scoped`, and `all` values are supported.
+`--isi-access`: Allow this role to access **Identity & Secrets Intelligence**. Currently only `none`, `scoped`, and `all` values are supported. For details, see [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence).
 
 `--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`own`', '`all`'.
 
@@ -291,7 +291,7 @@ akeyless update-role -n <Role name> \
 
 `--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
 
-`--isi-access`: Allow this role to access [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence). Currently only `none`, `scoped`, and `all` values are supported.
+`--isi-access`: Allow this role to access **Identity & Secrets Intelligence**. Currently only `none`, `scoped`, and `all` values are supported. For details, see [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence).
 
 `--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`own`', '`all`'.
 

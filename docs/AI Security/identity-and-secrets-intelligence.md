@@ -41,7 +41,7 @@ The current Inventory implementation exposes finding details for secret, identit
 
 The current Scanner implementation supports creating scanners, starting scans, stopping active scans, reviewing scan history, and navigating from a running scan directly to **Inventory**.
 
-### Control Access With RBAC
+### Control Access With Role-Based Access Control (RBAC)
 
 Use the `isi-access` administrative rule on a role to control access to Identity and Secrets Intelligence.
 

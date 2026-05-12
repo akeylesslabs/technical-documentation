@@ -1,8 +1,11 @@
 ---
 title: Prompt Injection Protection for AI Agents
+excerpt: Reduce prompt-injection credential risk in AI agents with secretless runtime access patterns.
 deprecated: false
 hidden: false
 metadata:
+  title: Prompt Injection Protection for AI Agents
+  description: Learn how secretless runtime access and layered controls reduce prompt-injection risk for AI agent workflows.
   robots: index
 ---
 ## Overview

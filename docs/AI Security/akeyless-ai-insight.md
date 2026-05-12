@@ -1,8 +1,11 @@
 ---
 title: Akeyless AI Insights
+excerpt: Configure Akeyless AI Insights with supported LLM targets and gateway settings.
 deprecated: false
 hidden: false
 metadata:
+  title: Akeyless AI Insights
+  description: Configure Akeyless AI Insights at account and gateway levels with supported LLM targets.
   robots: index
 ---
 ## Overview

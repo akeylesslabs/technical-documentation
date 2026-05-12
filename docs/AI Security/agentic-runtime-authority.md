@@ -1,8 +1,11 @@
 ---
 title: Agentic Runtime Authority
+excerpt: Configure Agentic Runtime Authority for controlled AI agent access and runtime query governance.
 deprecated: false
 hidden: false
 metadata:
+  title: Agentic Runtime Authority
+  description: Configure Agentic Runtime Authority to apply runtime controls, role-based access, and MCP workflows for AI agent access.
   robots: index
 ---
 
@@ -87,7 +90,7 @@ Use the role-rule workflow when you want a role to execute Agentic Runtime Autho
 
 1. Open the access role that should run Agentic Runtime Authority queries.
 2. Add a role rule with the type **Agentic Runtime Authority**.
-3. Set the path to the relevant ARA-enabled secret path.
+3. Set the path to the relevant Agentic Runtime Authority (ARA)-enabled secret path.
 4. Select the **Allow Access** capability.
 5. Save the role.
 

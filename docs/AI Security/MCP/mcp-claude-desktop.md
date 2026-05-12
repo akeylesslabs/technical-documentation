@@ -9,7 +9,7 @@ metadata:
   description: ''
   robots: index
 ---
-Connect Claude Desktop to the Akeyless MCP Server when you want Claude Desktop to access Akeyless tools through MCP.
+Connect Claude Desktop to the Akeyless Model Context Protocol (MCP) Server when you want Claude Desktop to access Akeyless tools through MCP.
 
 For general MCP background and command syntax, see [MCP Server](https://docs.akeyless.io/docs/mcp-server).
 
