@@ -86,7 +86,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 ### Creating a Classic Key
 
-1. In the Akeyless Console, select **Items** > **New** > **Encryption Key** > **Classic**.
+1. In the Akeyless Console, select **Items**, then **New**, then **Encryption Key**, then **Classic**.
 
 2. Define the following:
 

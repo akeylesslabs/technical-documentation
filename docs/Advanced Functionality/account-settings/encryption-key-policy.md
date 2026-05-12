@@ -47,7 +47,7 @@ Where:
 
 ## Set an Encryption Key Policy with the Console
 
-1. Log in to the Akeyless Console, and go to **Account Settings** > **Key Management**.
+1. Log in to the Akeyless Console, and go to **Account Settings**, then **Key Management**.
 2. In the **Key Management Policies** section, press **Add**.
 3. Define the remaining parameters as follows:
     * **Object Type**: Choose either **Item** or **Target**.

@@ -78,4 +78,4 @@ To remove certificates from your gateway using the UI, follow these steps:
 
 2. Go to **Certificate Store**.
 
-3. Choose the certificate you wish to remove and select the **Action Menu** > **Delete**.
+3. Choose the certificate you wish to remove and select the **Action Menu**, then **Delete**.
