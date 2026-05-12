@@ -10,7 +10,7 @@ metadata:
 >
 > Agentic Runtime Authority is currently in early access. Features, behavior, and availability can change between releases.
 
-Agentic Runtime Authority allows AI agents to securely communicate with protected resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with supported secrets without exposing long-lived credentials. In this context, runtime control means the authorization checks and input or output rules that Akeyless enforces when an agent sends a live request to a protected resource.
+Agentic Runtime Authority allows AI agents to securely communicate with protected resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with supported secrets without exposing long-lived credentials. In this context, **runtime control** means the authorization checks and input or output rules that Akeyless enforces when an agent sends a live request to a protected resource.
 
 **Agentic Runtime Authority** currently supports these target categories for runtime execution:
 
@@ -133,7 +133,7 @@ The current CLI parser requires both `name` and `rule` for each repeated flag.
 
 ## Set Up The AI Agent
 
-To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts and client setup patterns, including Claude Desktop and Cursor, see [MCP Server](https://docs.akeyless.io/docs/mcp-server) and [CLI Reference - MCP Server](https://docs.akeyless.io/docs/cli-reference-mcp-server). The configuration below is specific to the `mcp-runtime-authority` subcommand.
+To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [MCP Server](https://docs.akeyless.io/docs/mcp-server). The configuration below is specific to the `mcp-runtime-authority` subcommand.
 
 ### For Claude
 
