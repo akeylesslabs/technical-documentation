@@ -334,7 +334,7 @@
 /update-auth-method-ldap -> /reference/updateauthmethodldap
 /validate-token -> /reference/validatetoken
 /encrypt-gpg -> /reference/encryptgpg
-/get-secret-value -> /reference/getsecretvalue-1
+/get-secret-value -> /reference/getsecretvalue
 /kmip-set-environment-state -> /reference/kmipsetenvironmentstate
 /generate-csr -> /reference/generatecsr
 /static-creds-auth -> /reference/staticcredsauth
@@ -437,7 +437,7 @@
 /encrypt-pkcs1 -> /reference/encrypt
 /create-artifactory-target -> /reference/createartifactorytarget
 /create-rabbitmq-target -> /reference/createrabbitmqtarget
-/connect -> /reference/connect-1
+/connect -> /reference/connect
 /move-objects -> /reference/moveobjects
 /rollback-secret -> /reference/rollbacksecret
 /delete-gateway-cluster -> /reference/deletegatewaycluster
@@ -572,8 +572,13 @@
 /reference/encryptpkcs1 -> /reference/encrypt
 /reference/gatewaylistallowedmanagementaccess -> /reference/getting-started
 /reference/gatewaycreateproducercertificateautomation -> /reference/gatewaycreateproducervenafi
-/reference/getsecretvalue -> /reference/getsecretvalue-1
-/reference/connect -> /reference/connect-1
+/reference/getsecretvalue -> /reference/getsecretvalue
+/reference/connect -> /reference/connect
+/reference/connect-1 -> /reference/connect
+/reference/createawstarget-1 -> /reference/createawstarget
+/reference/createpkicertissuer-1 -> /reference/createpkicertissuer
+/reference/dynamicsecretget-1 -> /reference/dynamicsecretget
+/reference/getsecretvalue-1 -> /reference/getsecretvalue
 /reference/gatewaydeleteallowedmanagementaccess -> /reference/deletegatewayallowedaccessid
 /recipes/python-aws_iam -> /docs/what-is-akeyless
 /docs/hide-personal-folder -> /docs/pwm-console-hide-personal-folder
