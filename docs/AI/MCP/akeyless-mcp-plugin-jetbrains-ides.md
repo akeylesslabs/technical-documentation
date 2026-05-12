@@ -14,6 +14,10 @@ Integrate Akeyless secrets management directly into your JetBrains IDE through t
 
 See also: <Anchor label="MCP Server" href="doc:mcp-server" />.
 
+Source repository: [https://github.com/akeyless-community/akeyless-mcp-plugin](https://github.com/akeyless-community/akeyless-mcp-plugin).
+
+This plugin is currently installed by building it from source and loading the generated ZIP file into your JetBrains IDE.
+
 ## Features
 
 * Hierarchical Tree View: Browse Akeyless items in a folder tree structure
@@ -29,6 +33,7 @@ See also: <Anchor label="MCP Server" href="doc:mcp-server" />.
 * JetBrains IDE (IntelliJ IDEA, PyCharm, WebStorm, and others) version `2023.2` or higher
 * Akeyless CLI installed and configured
 * Node.js installed (if using `npx` to run the MCP server)
+* JDK 17 or higher to build the plugin from source
 * A valid Akeyless account
 
 ## Getting Started
@@ -88,21 +93,30 @@ The Akeyless CLI supports multiple authentication methods, including:
 Examples:
 
 ```shell API Key
-akeyless configure --profile default --access-id p-xxxx --access-key xxxx --access-type access_key
+akeyless configure --profile default --access-id <access-id> --access-key <access-key> --access-type access_key
 ```
 ```shell SAML
-akeyless configure --profile saml --access-id p-xxxx --access-type saml
+akeyless configure --profile saml --access-id <access-id> --access-type saml
 ```
 
 For profile details and advanced options, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
 
 ### Step 3: Install the Plugin
 
-1. Open your JetBrains IDE (`2023.2+`).
-2. Go to **Settings → Plugins → Marketplace**.
-3. Search for **Akeyless MCP**.
-4. Select **Install**.
-5. Restart the IDE when prompted.
+1. Clone the [source repository](https://github.com/akeyless-community/akeyless-mcp-plugin).
+2. Open the project in IntelliJ IDEA.
+3. Build the plugin ZIP:
+
+  ```shell
+  ./gradlew buildPlugin
+  ```
+
+   Note that the project uses a JDK 17 compile toolchain. If the Gradle wrapper fails to start because the default Java version is too new, set `org.gradle.java.home` in `gradle.properties` to a JDK 17 or JDK 21 installation.
+
+1. In your JetBrains IDE, go to **Settings → Plugins**.
+1. Select the gear icon, and then select **Install Plugin from Disk...**.
+1. Select the generated ZIP file from the `build/distributions/` directory.
+1. Restart the IDE when prompted.
 
 ### Step 4: Configure the Plugin
 
@@ -112,34 +126,29 @@ Configuration fields:
 
 * **Server Command**
 
-  Examples:
+  Enter the command that starts the Akeyless MCP server. For example:
 
   ```text
-  /opt/homebrew/bin/akeyless
-  akeyless
   npx -y @akeyless/cli-mcp
   ```
-
-* **Command Arguments**
-
-  Example:
-
-  ```shell
-  mcp --gateway-url https://api.akeyless.io --profile default
-  ```
-
-  Explanation:
-    * `mcp` launches MCP server mode
-    * `--gateway-url` points to your gateway (SaaS default: `https://api.akeyless.io`)
-    * `--profile` selects the CLI profile used for authentication
 
 * **Working Directory**
 
   Optional. If empty, the plugin uses the current project directory.
 
+* **Akeyless Profile**
+
+  Optional. Enter the Akeyless CLI profile name to use for authentication. If this field is empty, the plugin uses the default profile.
+
 * **Auto-connect on IDE startup**
 
   Automatically connects to the MCP server when the IDE starts.
+
+Connection notes:
+
+* The plugin connects to the Akeyless MCP server by using `stdio` transport.
+* Authentication is handled through the Akeyless CLI profile that you configure in the plugin.
+* If you need broader MCP setup guidance, see <Anchor label="MCP Server" href="doc:mcp-server" />.
 
 ### Step 5: Use the Plugin
 
@@ -157,6 +166,21 @@ Toolbar options:
 * Create new secret
 * Open settings
 
+## Troubleshooting
+
+### Connection issues
+
+* Verify that the **Server Command** starts the Akeyless MCP server successfully.
+* Verify that the Akeyless CLI is installed and authenticated.
+* Verify that the configured **Akeyless Profile** exists and can authenticate successfully.
+* Check the JetBrains IDE logs under **Help > Show Log in Explorer** or **Help > Show Log in Finder**.
+
+### Items do not load
+
+* Verify that the authenticated profile has permission to list items in the required paths.
+* Verify that the MCP server process starts without local environment or path errors.
+* Use the refresh action in the plugin toolbar after updating authentication or permissions.
+
 ## MCP Server Details
 
 The plugin connects to the Akeyless MCP server using `stdio` transport.
@@ -164,3 +188,9 @@ The plugin connects to the Akeyless MCP server using `stdio` transport.
 Communication uses JSON-RPC over `stdio`.
 
 Authentication is handled by the Akeyless CLI using configured profiles or environment variables.
+
+## Support
+
+* For plugin issues or feature requests, use the [source repository](https://github.com/akeyless-community/akeyless-mcp-plugin).
+* For MCP server behavior, see <Anchor label="MCP Server" href="doc:mcp-server" />.
+* For CLI installation and profile configuration, see [Akeyless CLI documentation](https://docs.akeyless.io/docs/cli) and [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).

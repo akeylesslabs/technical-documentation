@@ -37,6 +37,11 @@ on:
         required: false
         default: false
         type: boolean
+      create_head_commit_subtasks:
+        description: Automatically include Jira subtasks for head commit fallback signals during quarterly scheduled runs (Jan, Apr, Jul, Oct); manual dispatches can opt in during the same quarterly window
+        required: false
+        default: false
+        type: boolean
       dry_run:
         description: Do not create Jira issues; only report what would happen
         required: false
@@ -276,6 +281,7 @@ jobs:
       EXCLUDE_PATTERN: ${{ inputs.exclude_pattern || '^$' }}
       SPECIFIC_REPOS: ${{ inputs.specific_repos || '' }}
       INCLUDE_PRERELEASES: ${{ inputs.include_prereleases && 'true' || 'false' }}
+      CREATE_HEAD_COMMIT_SUBTASKS: ${{ inputs.create_head_commit_subtasks && 'true' || 'false' }}
       DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
       SOFT_FAIL_CLASSES: ${{ inputs.soft_fail_classes || 'no_signal,api_transient' }}
       RETRY_COUNT: ${{ inputs.retry_count || '3' }}
@@ -322,6 +328,43 @@ jobs:
           fi
 
           echo "in_scope=$IN_SCOPE" >> "$GITHUB_OUTPUT"
+
+      - name: Apply head-commit cadence guard
+        id: cadence
+        run: |
+          set -euo pipefail
+
+          CURRENT_MONTH="$(date -u +%m)"
+          EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="false"
+
+          case "$GITHUB_EVENT_NAME" in
+            schedule)
+              case "$CURRENT_MONTH" in
+                01|04|07|10)
+                  EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="true"
+                  echo "Scheduled quarterly run will include head-commit subtasks for month $CURRENT_MONTH."
+                  ;;
+                *)
+                  echo "Scheduled run is outside the quarterly head-commit window (Jan, Apr, Jul, Oct)."
+                  ;;
+              esac
+              ;;
+            workflow_dispatch)
+              if [ "$CREATE_HEAD_COMMIT_SUBTASKS" = "true" ]; then
+                case "$CURRENT_MONTH" in
+                  01|04|07|10)
+                    EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS="true"
+                    echo "Manual quarterly run will include head-commit subtasks for month $CURRENT_MONTH."
+                    ;;
+                  *)
+                    echo "create_head_commit_subtasks is ignored outside the quarterly window (Jan, Apr, Jul, Oct)."
+                    ;;
+                esac
+              fi
+              ;;
+          esac
+
+          echo "effective_create_head_commit_subtasks=$EFFECTIVE_CREATE_HEAD_COMMIT_SUBTASKS" >> "$GITHUB_OUTPUT"
 
       - name: Get latest upstream release tag
         id: detect
@@ -487,6 +530,7 @@ jobs:
           REPO_FULL: ${{ matrix.repo_full }}
           LATEST_TAG: ${{ steps.detect.outputs.latest_tag }}
           SIGNAL_SOURCE: ${{ steps.detect.outputs.signal_source }}
+          CREATE_HEAD_COMMIT_SUBTASKS: ${{ steps.cadence.outputs.effective_create_head_commit_subtasks || 'false' }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -e
@@ -518,6 +562,12 @@ jobs:
           if [ -z "$SUMMARY_ISSUE_ID" ]; then
             echo "Missing run summary Jira issue ID for subtask creation."
             exit 1
+          fi
+
+          if [ "$SIGNAL_SOURCE" = "head_commit" ] && [ "$CREATE_HEAD_COMMIT_SUBTASKS" != "true" ]; then
+            echo "action=skipped_head_commit" >> "$GITHUB_OUTPUT"
+            echo "Skipping Jira issue creation for head commit fallback signal: ${REPO_FULL} @ ${LATEST_TAG}"
+            exit 0
           fi
 
           AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
