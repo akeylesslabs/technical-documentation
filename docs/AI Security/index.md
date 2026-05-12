@@ -24,8 +24,4 @@ This page summarizes the current AI offerings and links to the detailed guides.
 
 ## MCP Documentation Pages
 
-For MCP-specific setup and usage, use these pages:
-
-* [MCP Server](https://docs.akeyless.io/docs/mcp-server)
-* [CLI Reference - MCP Server](https://docs.akeyless.io/docs/cli-reference-mcp-server)
-* [Akeyless MCP Plugin for JetBrains IDEs](https://docs.akeyless.io/docs/akeyless-mcp-plugin-jetbrains-ides)
+For MCP-specific setup and usage, see [MCP Server](https://docs.akeyless.io/docs/mcp-server).

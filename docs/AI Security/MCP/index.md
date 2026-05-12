@@ -1,403 +1,145 @@
 ---
 title: MCP Server
-excerpt: Use the Akeyless MCP Server with MCP clients and JetBrains IDE integration.
+excerpt: Overview of Akeyless MCP content, requirements, and supported integrations.
 deprecated: false
 hidden: false
 link:
   new_tab: false
 metadata:
   title: Akeyless MCP Server
-  description: Use the Akeyless MCP Server with supported MCP clients and JetBrains IDE integration.
+  description: Overview of Akeyless MCP content, requirements, and supported integrations.
   robots: index
 ---
 ## Overview
 
-The Akeyless Model Context Protocol (MCP) Server is a robust integration that enables AI systems to securely interact with your Akeyless Identity Security Platform. It provides a standardized interface for AI models to access, manage, and manipulate secrets, keys, certificates, and other sensitive data stored in Akeyless.
+The Akeyless Model Context Protocol (MCP) Server lets MCP-enabled tools connect to your Akeyless identity security platform through the Akeyless CLI. This section explains the MCP server, its command syntax, and the supported client integrations documented by Akeyless.
 
-## What Is the MCP?
+Model Context Protocol (MCP) is an open protocol that standardizes how an AI client discovers tools and sends tool calls to an external server. In this model, your MCP client (for example, Claude Desktop, Cursor, or GitHub Copilot) launches the Akeyless MCP server locally over `stdio`, then uses it to run authorized operations against Akeyless resources.
 
-The Model Context Protocol is a standardized protocol that allows AI systems to connect to external data sources and services. It provides a secure, authenticated method for AI models to:
+## What This Section Covers
 
-* Access external APIs and services
-* Retrieve and manage sensitive data
-* Perform operations on behalf of users
-* Maintain security boundaries and access controls
+Use the pages in this section for the following goals:
+
+* Understand what the Akeyless MCP Server does and when to use it.
+* Configure a supported MCP client integration.
+* Review the `akeyless mcp` command syntax and authentication options.
+* Follow the JetBrains IDE plugin flow when you need an IDE-native integration.
+
+## Common Requirements
+
+All documented MCP integrations share these requirements:
+
+* Akeyless CLI version `1.130.0` or later.
+* An Akeyless account and a configured CLI profile, or explicit authentication flags.
+* A Gateway URL passed directly in the client configuration or command arguments.
+* A client that can launch the Akeyless MCP server over `stdio`.
 
 Read more about the [Model Context Protocol](https://modelcontextprotocol.io/).
 
-## Akeyless MCP Server Features
+## General MCP Usage Flow
 
-The Akeyless MCP Server provides comprehensive access to Akeyless functionality, including:
+Use this high-level flow for any supported MCP integration:
 
-### Core Capabilities
+1. Install and configure the Akeyless CLI and authentication profile.
+2. Configure your MCP client to run the Akeyless MCP server command.
+3. Start or reload the MCP client so it discovers the Akeyless tools.
+4. Invoke Akeyless tools from the client prompt and review the response.
+5. Use RBAC and scoped secret permissions to control what the client can access.
 
-* Secrets Management: Create, read, update, and delete Static Secrets
-* Encryption and Key Management: Generate, rotate, and manage encryption keys
-* Certificate Lifecycle Management: Issue, renew, and manage PKI and SSH certificates
-* Dynamic Secrets: Generate temporary credentials for databases and cloud services
-* Access Control: Manage roles, permissions, and authentication methods
-* Analytics: Retrieve usage analytics and audit data
+## MCP-Related CLI Commands
 
-### Supported Operations
+The Akeyless CLI currently exposes two MCP-related commands:
 
-* List and describe items (such as secrets, keys, certificates)
-* Create and update secrets
-* Generate Dynamic Secrets
-* Manage authentication methods and roles
-* Retrieve analytics data
-* Handle targets and associations
+| Command | Purpose |
+| --- | --- |
+| `akeyless mcp` | Starts the general Akeyless MCP server for standard Akeyless tools. |
+| `akeyless mcp-runtime-authority` | Starts the Agentic Runtime Authority MCP server for runtime query workflows (`list-secrets`, `query-db`, `service-execute`). |
 
-## Configuration
+## Command: akeyless mcp
 
-### Prerequisites
+The `akeyless mcp` command starts an MCP server so AI assistants can securely interact with Akeyless services through a standardized interface.
 
-* The Akeyless CLI must be successfully installed and **updated to version 1.130.0** or newer.
-    * Read more about the [Akeyless CLI](https://docs.akeyless.io/docs/cli).
-    * Learn about [updating the Akeyless CLI](https://docs.akeyless.io/docs/cli-reference#/update).
-* An Akeyless account must be created and a corresponding profile configured with the Akeyless CLI.
+> Important: `akeyless mcp` does not use the `gateway_url` value configured in a CLI profile. You must pass `--gateway-url` directly in every `akeyless mcp` command (or MCP client args).
 
-### Client Setup
-
-Configure the Akeyless MCP server in your MCP client configuration file. For example, Cursor uses `~/.cursor/mcp.json`. A list of supported MCP clients is available at <Anchor label="MCP clients" target="_blank" href="https://modelcontextprotocol.io/clients">https://modelcontextprotocol.io/clients</Anchor>.
-
-If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains IDEs" href="doc:akeyless-mcp-plugin-jetbrains-ides" /> for the IDE-specific setup and usage flow.
-
-#### Sample Configuration Structure
-
-```json
-{
-  "mcpServers": {
-    "akeyless": {
-      "command": "/path/to/akeyless",
-      "args": [
-        "mcp",
-        "--access-id", "your-access-id",
-        "--access-key", "your-access-key",
-        "--access-type", "access_key",
-        "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-      ],
-      "env": {}
-    }
-  }
-}
-```
-
-#### Configuration Parameters
-
-| Configuration | Description | Required | Default Value |
-| --- | --- | --- | --- |
-| `command` | Path to the Akeyless CLI binary | Yes | (none) |
-| `args.--access-id` | The Akeyless access ID to authenticate with | Yes* (if using the `access_key` access type) | (none) |
-| `args.--access-key` | The Akeyless access key to authenticate with | Yes* (if using the `access_key` access type) | (none) |
-| `args.--access-type` | Authentication method type to use. See [Access type values](#access-type-values). | Yes | `access_key` |
-| `args.--account-id` | Used to select which Akeyless account to use if the `--admin-email` is associated with more than one account | No | (none) |
-| `args.--admin-password` | The Akeyless account password to authenticate with | Yes* (if using the `password` access type) | (none) |
-| `args.--admin-email` | The Akeyless account email address to authenticate with | Yes* (if using the `password` access type) | (none) |
-| `args.--cert-challenge` | Certificate challenge encoded in base64 (relevant only for the `cert` access type) | Yes* (if using the `cert` access type and `args.--key-file-name` or `args.--key-data` is not used) | (none) |
-| `args.--cert-data` | Certificate data encoded in base64, used if a file was not provided (relevant only for the `cert` access type) | Yes* (if using the `cert` access type and `args.--cert-file-name` is not used) | (none) |
-| `args.--cert-file-name` | Path to where the certificate file for certificate authentication is located | Yes* (if using the `cert` access type and `args.--cert-data` is not used) | (none) |
-| `args.--cloud-id` | The identity for the chosen cloud provider. See [Cloud ID values](#cloud-id-values). | Yes* (if using the `aws_iam`, `azure_id`, `gcp`, or `oci` access types) | (none) |
-| `args.--debug` | Enable debug logging | No | `false` |
-| `args.--disable-kerberos-fast` | Disable Kerberos FAST negotiation | No | `true` |
-| `args.--gateway-spn` | The service principal name of the gateway as registered in LDAP | No | (none) |
-| `args.--gateway-url` | Akeyless Gateway URL | Yes (must be passed in-line for `akeyless mcp`) | (none) |
-| `args.--gcp.audience` | GCP audience to use with signed JWT (relevant only for the `gcp` access type) | No | `akeyless.io` |
-| `args.--jwt` | The JSON Web Token | Yes* (if using the `jwt` or `oidc` access type) | (none) |
-| `args.--k8s-auth-config-name` | The Kubernetes Auth config name | Yes* (if using the `k8s` access type) | (none) |
-| `args.--k8s-service-account-token` | The Kubernetes ServiceAccount token | Yes* (if using the `k8s` access type) | (none) |
-| `args.--kerberos-token` | Kerberos token for the gateway SPN, used by SPNEGO for authentication | No | (none) |
-| `args.--kerberos-username` | The username for the entry within the keytab to authenticate by way of Kerberos | No | (none) |
-| `args.--key-data` | Private key data encoded in base64 | Yes* (if using the `cert` access type and `args.--key-file-name` or `args.--cert-challenge` is not used) | (none) |
-| `args.--key-file-name` | Path to where the key file is located | Yes* (if using the `cert` access type and `args.--key-data` or `args.--cert-challenge` is not used) | (none) |
-| `args.--keytab-file-data` | Base64-encoded content of a valid keytab file, containing the service account's entry | Yes* (if using the `kerberos` access type and `args.--keytab-file-path` is not used) | (none) |
-| `args.--keytab-file-path` | The path to a valid keytab file, containing the user entry | Yes* (if using the `kerberos` access type and `args.--keytab-file-data` is not used) | (none) |
-| `args.--krb5conf-file-data` | Base64-encoded content of a valid `krb5.conf` file, specifying the settings and parameters required for Kerberos authentication | Yes* (if using the `kerberos` access type and `args.--krb5conf-file-path` is not used) | (none) |
-| `args.--krb5conf-file-path` | Path to a valid `krb5.conf` file, specifying the settings and parameters required for Kerberos authentication | Yes* (if using the `kerberos` access type and `args.--krb5conf-file-data` is not used) | (none) |
-| `args.--ldap-proxy-url` | Address URL for LDAP proxy | Yes* (if using the `ldap` access type) | (none) |
-| `args.--oci-auth-type` | The type of the OCI configuration to use. See [OCI auth type values](#oci-auth-type-values). | No | `apikey` |
-| `args.--oci-group-ocid` | A list of Oracle Cloud IDs groups | Yes* (if using the `oci` access type) | (none) |
-| `args.--oidc-sp` | OIDC Service Provider (relevant only for the `oidc` access type). Inferred if empty. Supported SPs: `google`, `github`. | No | (inferred) |
-| `args.--password` | LDAP password | Yes* (if using the `ldap` access type) | (none) |
-| `args.--profile` | The CLI profile name to use for authentication context (the profile `gateway_url` is not used by `akeyless mcp`) | No | `default` |
-| `args.--signed-cert-challenge` | Signed certificate challenge encoded in base64 (relevant only for the `cert` access type) | No | (none) |
-| `args.--uid-token` | The Universal Identity token | Yes* (if using the `universal_identity` access type) | (none) |
-| `args.--use-remote-browser` | Returns a link to complete authentication remotely (relevant only for the `saml` and `oidc` access types) | No | (none) |
-| `args.--username` | LDAP username | Yes* (if using the `ldap` access type) | (none) |
-
-##### Access type values
-
-Acceptable values for `args.--access-type`:
-
-* [access_key](https://docs.akeyless.io/docs/auth-with-api-key)
-* [aws_iam](https://docs.akeyless.io/docs/auth-with-aws)
-* [azure_ad](https://docs.akeyless.io/docs/auth-with-azure)
-* [cert](https://docs.akeyless.io/docs/auth-with-certificate)
-* [gcp](https://docs.akeyless.io/docs/auth-with-gcp)
-* [jwt](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
-* [k8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
-* [kerberos](https://docs.akeyless.io/docs/auth-with-kerberos)
-* [ldap](https://docs.akeyless.io/docs/auth-with-ldap)
-* [oci](https://docs.akeyless.io/docs/auth-with-oci)
-* [oidc](https://docs.akeyless.io/docs/auth-with-oidc)
-* [password](https://docs.akeyless.io/docs/auth-with-email)
-* [saml](https://docs.akeyless.io/docs/auth-with-saml)
-* [universal_identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
-
-##### Cloud ID values
-
-Acceptable values for `args.--cloud-id`:
-
-* `aws_iam`
-* `azure_id`
-* `gcp`
-* `oci`
-
-##### OCI auth type values
-
-Acceptable values for `args.--oci-auth-type`:
-
-* `apikey`
-* `instance`
-* `resource`
-
-#### Example Authentication Method Configurations
-
-The Akeyless MCP server supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
-
-##### Access Key Authentication (Default)
-
-```json
-{
-  "args": [
-    "mcp",
-    "--access-id", "p-xxxxxxxxxxxxx",
-    "--access-key", "your-access-key",
-    "--access-type", "access_key",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-
-##### Certificate Authentication
-
-```json
-{
-  "args": [
-    "mcp",
-    "--access-type", "cert",
-    "--cert-file-name", "/path/to/cert.pem",
-    "--key-file-name", "/path/to/key.pem",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-
-##### Cloud Provider Authentication
-
-```json AWS
-{
-  "args": [
-    "mcp",
-    "--access-type", "aws_iam",
-    "--cloud-id", "your-aws-role-arn",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-```json Azure
-{
-  "args": [
-    "mcp",
-    "--access-type", "azure_ad",
-    "--cloud-id", "your-azure-client-id",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-```json GCP
-{
-  "args": [
-    "mcp",
-    "--access-type", "gcp",
-    "--cloud-id", "your-gcp-service-account",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-
-##### Kubernetes Authentication
-
-```json
-{
-  "args": [
-    "mcp",
-    "--access-type", "k8s",
-    "--k8s-auth-config-name", "your-config-object",
-    "--k8s-service-account-token", "your-service-account-token",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-
-##### LDAP Authentication
-
-```json
-{
-  "args": [
-    "mcp",
-    "--access-type", "ldap",
-    "--ldap-proxy-url", "ldap://your-ldap-server",
-    "--username", "your-username",
-    "--password", "your-password",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-
-##### OIDC/JWT Authentication
-
-```json
-{
-  "args": [
-    "mcp",
-    "--access-type", "oidc",
-    "--jwt", "your-jwt-token",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-
-##### Password Authentication
-
-```json
-{
-  "args": [
-    "mcp",
-    "--admin-email", "user@example.com",
-    "--admin-password", "your-password",
-    "--access-type", "password",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-
-##### SAML Authentication
-
-```json
-{
-  "args": [
-    "mcp",
-    "--access-type", "saml",
-    "--gateway-url", "https://<your-gateway-url>:8000/api/v2"
-  ]
-}
-```
-
-### Client Notes
-
-* Pass `--gateway-url` directly in the MCP client configuration or command line.
-* If you use JetBrains IDEs, install the dedicated plugin instead of wiring the server manually.
-* Keep the CLI profile name consistent across your MCP clients so authentication behavior stays predictable.
-
-## Best Practices
-
-### Security Best Practices
-
-* Use Environment Variables: Store sensitive credentials in environment variables rather than hardcoding them
-* Principle of Least Privilege: Create dedicated access keys with minimal required permissions
-* Regular Rotation: Rotate access keys regularly
-* Secure Storage: Use secure credential storage solutions
-* Network Security: Use HTTPS endpoints and consider VPN access
-
-For prompt injection risk reduction guidance for agent-based workflows, see <Anchor label="Prompt Injection Protection for AI Agents" href="doc:prompt-injection-protection-for-ai-agents" />.
-
-### Configuration Management
-
-* Version Control: Keep MCP configuration files in version control (excluding secrets)
-* Environment Separation: Use separate configurations for different environments
-* Documentation: Document your configuration choices and rationale
-* Testing: Test configurations in development before deploying to production
-
-### Monitoring and Logging
-
-* Enable Debug Mode: Use the `--debug` flag for troubleshooting
-* Monitor Access: Regularly review access logs and analytics
-* Set Up Alerts: Configure alerts for unusual access patterns
-* Audit Trail: Maintain audit trails for compliance requirements
-
-### Performance Optimization
-
-* Connection Pooling: Reuse connections when possible
-* Caching: Implement appropriate caching strategies
-* Batch Operations: Use batch operations for multiple items
-* Resource Limits: Set appropriate resource limits
-
-## Troubleshooting: Common Issues and Solutions
-
-### Authentication Failures
-
-#### Akeyless MCP Server Fails to Authenticate
-
-1. Verify access ID and access key are correct
-2. Check if credentials have expired
-3. Ensure proper permissions are assigned
-4. Verify gateway URL is accessible
-
-<!-- secret-stdout-scan:ok -->
-```shell
-# Test authentication manually
-akeyless auth --access-id "your-access-id" --access-key "your-access-key"
-```
-
-### Connection Issues
-
-#### Cannot Connect to the Akeyless Gateway
-
-* Check network connectivity
-* Verify gateway URL format
-* Check firewall settings
-* Test with curl or wget:
+### Basic Commands
 
 ```shell
-# Test connectivity
-curl -I https://<your-gateway-url>:8000/api/v2
-```
-```text Sample Output
-HTTP/2 405 
-date: Fri, 03 Oct 2025 20:36:32 GMT
-content-type: application/json
-content-length: 68
-cache-control: no-cache, no-store, must-revalidate, private
-content-security-policy: img-src 'self' data:;
-cross-origin-opener-policy: same-origin
-cross-origin-resource-policy: same-origin
-expires: 0
-permissions-policy: geolocation=(self), microphone=(self), camera=(self), payment=(self)
-pragma: no-cache
-referrer-policy: no-referrer-when-downgrade
-vary: Origin
-x-content-type-options: nosniff
-x-frame-options: SAMEORIGIN
+# Start MCP server with access key authentication
+akeyless mcp --access-id <your-access-id> --access-key <your-access-key> --access-type access_key --gateway-url https://<your-gateway-url>:8000/api/v2
+
+# Start MCP server with SAML authentication
+akeyless mcp --access-id <your-access-id> --access-type saml --gateway-url https://<your-gateway-url>:8000/api/v2
 ```
 
-### Permission Errors
+### Supported Authentication Methods
 
-#### Insufficient Permissions for Operations
+```shell
+--access-type [=access_key]
+(access_key / password / saml / ldap / k8s / azure_ad / oidc / aws_iam / universal_identity / jwt / gcp / cert / oci / kerberos)
+```
 
-* Review role assignments
-* Check item-level permissions
-* Verify authentication method permissions
-* Contact administrator for access
+The `mcp` command accepts the same authentication parameters as standard Akeyless CLI auth commands. For details, see [Access and Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
-### Configuration Errors
+### Common Parameters
 
-#### MCP Server Fails to Start
+* `--access-id`: Your Akeyless Access ID.
+* `--access-key`: Your Akeyless Access Key (for `access_key` auth).
+* `--access-type`: Authentication method.
+* `--gateway-url`: Gateway URL (required for `akeyless mcp`; must be supplied in-line).
+* `--profile`: Use an existing CLI profile.
 
-* Validate JSON configuration syntax
-* Check file paths are correct
-* Verify command arguments
-* Review environment variables
+### Examples
 
-## Related AI Guides
+```shell
+# Production
+akeyless mcp --profile prod --gateway-url https://<your-gateway-url>:8000/api/v2
 
-* <Anchor label="Prompt Injection Protection for AI Agents" href="doc:prompt-injection-protection-for-ai-agents" />
+# Development / Testing
+akeyless mcp --profile dev --gateway-url https://<your-gateway-url>:8000/api/v2
+```
+
+## Command: akeyless mcp-runtime-authority
+
+The `akeyless mcp-runtime-authority` command starts the MCP server for Agentic Runtime Authority runtime-query tools.
+
+### Runtime Authority Parameters
+
+* `--gateway-url`: Gateway URL (required).
+* `--profile`: Use an existing CLI profile.
+* `--secret-name`: Optional default secret path for `query-db`. If omitted, the client must provide `secret-name` in tool calls.
+* Authentication flags: Same auth model as `akeyless mcp`.
+
+### Runtime Authority Example
+
+```shell
+akeyless mcp-runtime-authority \
+  --gateway-url https://<your-gateway-url>:8000 \
+  --secret-name /demo/apps/analytics/postgres-ro \
+  --profile <profile-name>
+```
+
+For Runtime Authority behavior, prerequisites, and tool semantics, see [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority).
+
+## Supported Integrations
+
+| Integration | Primary use case | Configuration surface |
+| --- | --- | --- |
+| Claude Desktop | Desktop AI assistant workflow with local MCP client configuration | `~/Library/"Application Support"/Claude/claude_desktop_config.json` |
+| Cursor | Editor-based MCP workflow in Cursor | `~/.cursor/mcp.json` or Cursor settings JSON |
+| GitHub Copilot | MCP workflow with GitHub Copilot CLI | `~/.copilot/mcp-config.json` |
+| JetBrains IDEs | IDE-native plugin workflow for JetBrains products | JetBrains plugin settings |
+
+The dedicated integration pages in this section provide client-specific setup details for Claude Desktop, Cursor, GitHub Copilot, and JetBrains IDEs.
+
+Use these pages for client-specific configuration:
+
+* [Claude Desktop Integration](https://docs.akeyless.io/docs/mcp-claude-desktop)
+* [Cursor Integration](https://docs.akeyless.io/docs/mcp-cursor)
+* [GitHub Copilot Integration](https://docs.akeyless.io/docs/mcp-github-copilot)
+* [JetBrains IDEs Integration](https://docs.akeyless.io/docs/mcp-jetbrains-ides)
+
+## How To Use This Section
+
+1. Start with this page when you need to understand the MCP content set.
+2. Open the integration-specific page for the MCP client you plan to use.
+3. Use [Akeyless CLI](https://docs.akeyless.io/docs/cli) and [Access and Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) when you need installation or authentication background.

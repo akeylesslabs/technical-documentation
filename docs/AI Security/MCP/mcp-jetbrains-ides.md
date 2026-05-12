@@ -1,5 +1,6 @@
 ---
 title: Akeyless MCP Plugin for JetBrains IDEs
+slug: mcp-jetbrains-ides
 excerpt: Integrate Akeyless secrets management directly into JetBrains IDEs with MCP
 deprecated: false
 hidden: false

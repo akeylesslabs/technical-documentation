@@ -1,3 +1,5 @@
 - index
-- akeyless-mcp-plugin-jetbrains-ides
-- akeyless-mcp-model-context-protocol-command
+- mcp-claude-desktop
+- mcp-cursor
+- mcp-github-copilot
+- mcp-jetbrains-ides
