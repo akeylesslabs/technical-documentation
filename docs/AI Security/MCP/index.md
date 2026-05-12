@@ -10,20 +10,9 @@ metadata:
   description: Overview of Akeyless MCP content, requirements, and supported integrations.
   robots: index
 ---
-## Overview
-
 The Akeyless Model Context Protocol (MCP) Server lets MCP-enabled tools connect to your Akeyless identity security platform through the Akeyless CLI. This section explains the MCP server, its command syntax, and the supported client integrations documented by Akeyless.
 
 Model Context Protocol (MCP) is an open protocol that standardizes how an AI client discovers tools and sends tool calls to an external server. In this model, your MCP client (for example, Claude Desktop, Cursor, or GitHub Copilot) launches the Akeyless MCP server locally over `stdio`, then uses it to run authorized operations against Akeyless resources.
-
-## What This Section Covers
-
-Use the pages in this section for the following goals:
-
-* Understand what the Akeyless MCP Server does and when to use it.
-* Configure a supported MCP client integration.
-* Review the `akeyless mcp` command syntax and authentication options.
-* Follow the JetBrains IDE plugin flow when you need an IDE-native integration.
 
 ## Common Requirements
 
@@ -55,74 +44,21 @@ The Akeyless CLI currently exposes two MCP-related commands:
 | `akeyless mcp` | Starts the general Akeyless MCP server for standard Akeyless tools. |
 | `akeyless mcp-runtime-authority` | Starts the Agentic Runtime Authority MCP server for runtime query workflows (`list-secrets`, `query-db`, `service-execute`). |
 
-For full command flags and usage details, see [CLI Reference](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
+For full command flags and usage details, see [CLI Reference](https://docs.akeyless.io/docs/cli-reference#mcp).
 
 ## Command: akeyless mcp
 
-The `akeyless mcp` command starts an MCP server so AI assistants can securely interact with Akeyless services through a standardized interface.
-
-For complete command usage and flags, see [CLI Reference - mcp](https://docs.akeyless.io/docs/cli-reference#mcp).
+The `akeyless mcp` command starts an MCP server so AI assistants can securely interact with Akeyless services through a standardized interface. It accepts the same authentication flags as other Akeyless CLI commands. For details, see [Access and Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
 > Important: `akeyless mcp` does not use the `gateway_url` value configured in a CLI profile. You must pass `--gateway-url` directly in every `akeyless mcp` command (or MCP client args).
 
-### Basic Commands
-
-```shell
-# Start MCP server with access key authentication
-akeyless mcp --access-id <your-access-id> --access-key <your-access-key> --access-type access_key --gateway-url https://<your-gateway-url>:8000/api/v2
-
-# Start MCP server with SAML authentication
-akeyless mcp --access-id <your-access-id> --access-type saml --gateway-url https://<your-gateway-url>:8000/api/v2
-```
-
-### Supported Authentication Methods
-
-```shell
---access-type [=access_key]
-(access_key / password / saml / ldap / k8s / azure_ad / oidc / aws_iam / universal_identity / jwt / gcp / cert / oci / kerberos)
-```
-
-The `mcp` command accepts the same authentication parameters as standard Akeyless CLI auth commands. For details, see [Access and Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
-
-### Common Parameters
-
-* `--access-id`: Your Akeyless Access ID.
-* `--access-key`: Your Akeyless Access Key (for `access_key` auth).
-* `--access-type`: Authentication method.
-* `--gateway-url`: Gateway URL (required for `akeyless mcp`; must be supplied in-line).
-* `--profile`: Use an existing CLI profile.
-
-### Examples
-
-```shell
-# Production
-akeyless mcp --profile prod --gateway-url https://<your-gateway-url>:8000/api/v2
-
-# Development / Testing
-akeyless mcp --profile dev --gateway-url https://<your-gateway-url>:8000/api/v2
-```
+For full command syntax and flags, see [CLI Reference - mcp](https://docs.akeyless.io/docs/cli-reference#mcp).
 
 ## Command: akeyless mcp-runtime-authority
 
-The `akeyless mcp-runtime-authority` command starts the MCP server for Agentic Runtime Authority runtime-query tools.
+The `akeyless mcp-runtime-authority` command starts the MCP server for Agentic Runtime Authority runtime-query tools (`list-secrets`, `query-db`, `service-execute`). It uses the same authentication model as `akeyless mcp`, and accepts an optional `--secret-name` flag to set a default secret path for `query-db`.
 
-For complete command usage and flags, see [CLI Reference - mcp-runtime-authority](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
-
-### Runtime Authority Parameters
-
-* `--gateway-url`: Gateway URL (required).
-* `--profile`: Use an existing CLI profile.
-* `--secret-name`: Optional default secret path for `query-db`. If omitted, the client must provide `secret-name` in tool calls.
-* Authentication flags: Same auth model as `akeyless mcp`.
-
-### Runtime Authority Example
-
-```shell
-akeyless mcp-runtime-authority \
-  --gateway-url https://<your-gateway-url>:8000 \
-  --secret-name /demo/apps/analytics/postgres-ro \
-  --profile <profile-name>
-```
+For full command syntax and flags, see [CLI Reference - mcp-runtime-authority](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
 
 For Runtime Authority behavior, prerequisites, and tool semantics, see [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority).
 
