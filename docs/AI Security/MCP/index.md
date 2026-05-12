@@ -46,7 +46,7 @@ The Akeyless CLI currently exposes two MCP-related commands:
 
 For full command flags and usage details, see [CLI Reference](https://docs.akeyless.io/docs/cli-reference#mcp).
 
-## Command: akeyless mcp
+### Command: akeyless mcp
 
 The `akeyless mcp` command starts an MCP server so AI assistants can securely interact with Akeyless services through a standardized interface. It accepts the same authentication flags as other Akeyless CLI commands. For details, see [Access and Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
@@ -54,7 +54,7 @@ The `akeyless mcp` command starts an MCP server so AI assistants can securely in
 
 For full command syntax and flags, see [CLI Reference - mcp](https://docs.akeyless.io/docs/cli-reference#mcp).
 
-## Command: akeyless mcp-runtime-authority
+### Command: akeyless mcp-runtime-authority
 
 The `akeyless mcp-runtime-authority` command starts the MCP server for Agentic Runtime Authority runtime-query tools (`list-secrets`, `query-db`, `service-execute`). It uses the same authentication model as `akeyless mcp`, and accepts an optional `--secret-name` flag to set a default secret path for `query-db`.
 
@@ -66,22 +66,7 @@ For Runtime Authority behavior, prerequisites, and tool semantics, see [Agentic 
 
 | Integration | Primary use case | Configuration surface |
 | --- | --- | --- |
-| Claude Desktop | Desktop AI assistant workflow with local MCP client configuration | `~/Library/"Application Support"/Claude/claude_desktop_config.json` |
-| Cursor | Editor-based MCP workflow in Cursor | `~/.cursor/mcp.json` or Cursor settings JSON |
-| GitHub Copilot | MCP workflow with GitHub Copilot CLI | `~/.copilot/mcp-config.json` |
-| JetBrains IDEs | IDE-native plugin workflow for JetBrains products | JetBrains plugin settings |
-
-The dedicated integration pages in this section provide client-specific setup details for Claude Desktop, Cursor, GitHub Copilot, and JetBrains IDEs.
-
-Use these pages for client-specific configuration:
-
-* [Claude Desktop Integration](https://docs.akeyless.io/docs/mcp-claude-desktop)
-* [Cursor Integration](https://docs.akeyless.io/docs/mcp-cursor)
-* [GitHub Copilot Integration](https://docs.akeyless.io/docs/mcp-github-copilot)
-* [JetBrains IDEs Integration](https://docs.akeyless.io/docs/mcp-jetbrains-ides)
-
-## How To Use This Section
-
-1. Start with this page when you need to understand the MCP content set.
-2. Open the integration-specific page for the MCP client you plan to use.
-3. Use [Akeyless CLI](https://docs.akeyless.io/docs/cli) and [Access and Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) when you need installation or authentication background.
+| [Claude Desktop](https://docs.akeyless.io/docs/mcp-claude-desktop) | Desktop AI assistant workflow with local MCP client configuration | `~/Library/"Application Support"/Claude/claude_desktop_config.json` |
+| [Cursor](https://docs.akeyless.io/docs/mcp-cursor) | Editor-based MCP workflow in Cursor | `~/.cursor/mcp.json` or Cursor settings JSON |
+| [GitHub Copilot](https://docs.akeyless.io/docs/mcp-github-copilot) | MCP workflow with GitHub Copilot CLI | `~/.copilot/mcp-config.json` |
+| [JetBrains IDEs](https://docs.akeyless.io/docs/mcp-jetbrains-ides) | IDE-native plugin workflow for JetBrains products | JetBrains plugin settings |
