@@ -18,15 +18,15 @@ Key actions include enabling session recording for various types of remote acces
 
 ### RDP Session Recording
 
-[RDP session recording](https://docs.akeyless.io/docs/sra-rdp-session-recording) refers to the process of capturing and storing the activities that occur during a Remote Desktop Protocol (RDP) session. These recordings create a video file of the entire session, preserving all user interactions within the remote desktop environment.
+[RDP session recording](https://docs.akeyless.io/docs/sra-rdp-recordings) refers to the process of capturing and storing the activities that occur during a Remote Desktop Protocol (RDP) session. These recordings create a video file of the entire session, preserving all user interactions within the remote desktop environment.
 
 SRA allows you to automatically upload and store these video recordings in secure locations such as AWS S3 or Azure Blob Storage for long-term retention and review, or you can store them locally on the server.
 
 ### Web Access Session Recording
 
-[Web access session recording](https://docs.akeyless.io/docs/sra-web-access-session-recording) refers to the process of capturing browser-based web access sessions in Zero Trust Web Access (ZTWA). These recordings preserve the interactive web session and can be stored with the ZTWA deployment configuration.
+[Web access session recording](https://docs.akeyless.io/docs/sra-web-access-on-k8s) refers to the process of capturing browser-based web access sessions in Zero Trust Web Access (ZTWA). These recordings preserve the interactive web session and can be stored with the ZTWA deployment configuration.
 
-For full recording configuration options (quality, upload destination, compression, encryption, watchdog controls, and service-level overrides), see [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording).
+For full recording configuration options (quality, upload destination, compression, encryption, watchdog controls, and service-level overrides), see [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 ### Terminal-Based Sessions
 
@@ -34,7 +34,7 @@ For terminal-based sessions (such as SSH, DB, and Kubernetes), the system record
 
 > ℹ️ **Note:**
 >
-> Session recording and terminal session forwarding are different features. Use [RDP Session Recording](https://docs.akeyless.io/docs/sra-rdp-session-recording) for RDP video capture and [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording) for browser-based ZTWA video capture.
+> Session recording and terminal session forwarding are different features. Use [RDP Recordings](https://docs.akeyless.io/docs/sra-rdp-recordings) for RDP video capture and [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s) for browser-based ZTWA video capture.
 
 ## Secret Locking and Rotation Timing
 

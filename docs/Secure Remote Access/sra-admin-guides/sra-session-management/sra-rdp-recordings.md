@@ -14,7 +14,7 @@ RDP Session Recording is managed entirely through your Gateway's console under t
 
 > ℹ️ **Note:**
 >
-> For the complete, current RDP recording reference, use [RDP Session Recording](https://docs.akeyless.io/docs/sra-rdp-session-recording). If you are working with browser-based Zero Trust Web Access recordings, use [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording).
+> If you are working with browser-based Zero Trust Web Access recordings, use [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 RDP recordings support configurable quality, compression, and encryption for stored sessions.
 
@@ -109,6 +109,12 @@ Use the following values:
 * **Bucket Prefix** (optional): A folder path inside the bucket for organizing recordings.
 
 SRA uses the standard S3 API for this flow. This allows recording uploads to compatible object storage providers without requiring AWS-specific identity integration.
+
+## Related Pages
+
+* [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording)
+* [Session Management](https://docs.akeyless.io/docs/sra-session-management)
+* [Session Log Forwarding](https://docs.akeyless.io/docs/sra-session-forwarding)
 
 ### Azure Blob Storage
 
