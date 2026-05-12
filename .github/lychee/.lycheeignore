@@ -40,3 +40,8 @@ https://platform.openai.com/docs/api-reference/admin-api-keys
 ^https?://github\.com/akeylesslabs/akeyless-python-cloud-id(/|$)
 ^https?://github\.com/akeylesslabs/akeyless-grpc-java(/|$)
 ^https?://github\.com/akeylesslabs/akeyless-grpc-dotnet(/|$)
+
+# Docs pages not publicly published yet (linked intentionally from current docs)
+^https?://docs\.akeyless\.io/docs/identity-and-secrets-intelligence(/|$)
+^https?://docs\.akeyless\.io/docs/mcp-server(/|$)
+^https?://docs\.akeyless\.io/docs/cli-reference-mcp-server(/|$)
