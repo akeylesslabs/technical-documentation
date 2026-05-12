@@ -10,13 +10,14 @@ metadata:
 >
 > Agentic Runtime Authority is currently in early access. Features, behavior, and availability can change between releases.
 
-Agentic Runtime Authority allows AI agents to securely communicate with protected resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with supported Dynamic Secrets without exposing long-lived credentials.
+Agentic Runtime Authority allows AI agents to securely communicate with protected resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with supported secrets without exposing long-lived credentials. In this context, runtime control means the authorization checks and input or output rules that Akeyless enforces when an agent sends a live request to a protected resource.
 
-**Agentic Runtime Authority** currently supports the following dynamic secret types:
+**Agentic Runtime Authority** currently supports these target categories for runtime execution:
 
-* **DB Dynamic Secrets** for database access.
-* **Cloud Dynamic Secrets** for cloud environment access.
-* **GitHub Dynamic Secrets** for GitHub repository access.
+* **Database targets**: MySQL, PostgreSQL, MSSQL, Oracle, Snowflake, HanaDB, Redshift, MongoDB, Redis, and Cassandra.
+* **Service targets**: AWS, GCP, Azure, Kubernetes, EKS, GKE, and GitHub.
+
+The `runtime-authority` command and the MCP execution tools operate on supported dynamic or rotated secrets.
 
 Agentic Runtime Authority extends Akeyless AI security beyond secretless credential retrieval by adding runtime controls and reporting for agent access.
 
@@ -25,13 +26,15 @@ The current implementation exposes Agentic Runtime Authority in these places:
 * The **Agentic Runtime Authority** step or details tab on supported Dynamic Secrets in the Akeyless Console
 * The `runtime-authority` CLI command for direct runtime queries through the Gateway
 * The `mcp-runtime-authority` CLI command for MCP-based agent integrations
+* The MCP tools exposed by `mcp-runtime-authority`: `list-secrets`, `query-db`, and `service-execute`
 * The `ara-reports-access` role rule for dashboard visibility
+* The **Agentic Runtime Authority** role-rule type with the **Allow Access** capability in the Console role editor
 * Repeated `--input-rule` and `--output-rule` flags on Dynamic Secret create and update commands
 
 ## Prerequisites
 
-* [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.51.0`.
-* CLI version `1.144.0`.
+* [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.51.0` or later.
+* CLI version `1.144.0` or later.
 * [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) enabled on the Gateway when output rules are used.
 * A Dynamic Secret configured with Agentic Runtime Authority enabled.
 * A role with access to the relevant Dynamic Secret and, when required, reporting access to Agentic Runtime Authority.
@@ -39,6 +42,10 @@ The current implementation exposes Agentic Runtime Authority in these places:
 * A supported desktop client, such as Claude Desktop or Cursor, if you plan to use MCP.
 
 ## Control Access With RBAC
+
+Agentic Runtime Authority uses separate RBAC controls for dashboard visibility and runtime execution.
+
+### Control Dashboard Visibility
 
 Use the `ara-reports-access` administrative rule on a role to control access to the Agentic Runtime Authority dashboard.
 
@@ -48,7 +55,15 @@ Supported values are:
 * `scoped`
 * `all`
 
-Use `create-role` when creating a new role:
+Use the Console when you want to configure dashboard visibility on a role without using the CLI:
+
+1. Open the relevant access role in the Akeyless Console.
+2. Open the administrative rules section.
+3. Locate **Agentic Runtime Authority**.
+4. Set the reporting scope to `None`, `Scoped`, or `All`.
+5. Save the role.
+
+For command syntax, see [CLI Reference - Access Roles](https://docs.akeyless.io/docs/cli-reference-access-roles). Use the create role command when creating a new role:
 
 ```shell
 akeyless create-role \
@@ -56,7 +71,7 @@ akeyless create-role \
   --ara-reports-access <none|scoped|all>
 ```
 
-Use `update-role` when modifying an existing role:
+Use the update role command when modifying an existing role:
 
 ```shell
 akeyless update-role \
@@ -64,9 +79,19 @@ akeyless update-role \
   --ara-reports-access <none|scoped|all>
 ```
 
-This rule controls dashboard visibility. Access to the underlying Dynamic Secret still depends on the relevant secret permissions.
+This rule controls dashboard visibility. Runtime execution also depends on the relevant Agentic Runtime Authority role rule and underlying secret permissions.
 
-In the current Console role editor, the administrative rules form also exposes **Agentic Runtime Authority** as a selectable administrative rule.
+### Grant Runtime Execution Access
+
+Use the role-rule workflow when you want a role to execute Agentic Runtime Authority operations on a path.
+
+1. Open the access role that should run Agentic Runtime Authority queries.
+2. Add a role rule with the type **Agentic Runtime Authority**.
+3. Set the path to the relevant ARA-enabled secret path.
+4. Select the **Allow Access** capability.
+5. Save the role.
+
+Use the administrative rule separately when you also want reporting visibility.
 
 ## Configure Agentic Runtime Authority In The Console
 
@@ -95,7 +120,7 @@ These defaults are producer-specific. For example, SQL producers receive read-on
 
 ## Configure Agentic Runtime Authority With The CLI
 
-Dynamic Secret create and update commands accept repeated `--input-rule` and `--output-rule` flags in `name=...,rule=...` format.
+Dynamic Secret [create](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#create) and [update](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#update) commands accept repeated `--input-rule` and `--output-rule` flags in `name=...,rule=...` format.
 
 Example input and output rule values:
 
@@ -108,7 +133,7 @@ The current CLI parser requires both `name` and `rule` for each repeated flag.
 
 ## Set Up The AI Agent
 
-To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file.
+To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts and client setup patterns, including Claude Desktop and Cursor, see [MCP Server](https://docs.akeyless.io/docs/mcp-server) and [CLI Reference - MCP Server](https://docs.akeyless.io/docs/cli-reference-mcp-server). The configuration below is specific to the `mcp-runtime-authority` subcommand.
 
 ### For Claude
 
@@ -143,9 +168,17 @@ Where:
 
 * `gateway-url`: The Gateway URL where the Dynamic Secret exists.
 
-* `secret-name`: The full path of a specific Dynamic Secret to expose to the AI agent. Use this parameter when you want the agent to access only one secret. To allow access to all supported Dynamic Secrets, remove this parameter. Multiple specific secrets are not supported.
+* `secret-name`: An optional default secret path for the `query-db` MCP tool. This does not replace RBAC scoping for the server. Use role rules and secret permissions to restrict which secrets the profile can access.
 
 * `profile`: The CLI profile with the required RBAC permissions for working with Agentic Runtime Authority.
+
+When the MCP server is running, it exposes these workflows:
+
+* `list-secrets`: Lists ARA-supported secrets that the current profile can access.
+* `query-db`: Runs database queries. `payload` and `agent-id` are required, and `secret-name` is required unless the server was started with a default secret.
+* `service-execute`: Runs service actions against supported service targets. `secret-name`, `payload`, and `agent-id` are required.
+
+For OAuth-backed service flows, `service-execute` can also require `auth-code` and `state` on the follow-up call after the server returns an authorization URL.
 
 ## Query Protected Resources With The CLI
 
@@ -202,15 +235,12 @@ akeyless create-role \
   --ara-reports-access scoped
 ```
 
-Example input rule for SQL producers:
+Example input rules:
 
-```text
+```text PostgreSQL
 name=read-only-sql,rule=Only allow read-only SQL statements: SELECT, SHOW, DESCRIBE, DESC, EXPLAIN, WITH. Reject any DML or DDL statements such as INSERT, UPDATE, DELETE, DROP, ALTER, CREATE, TRUNCATE, GRANT, REVOKE.
 ```
-
-Example input rule for Redis producers:
-
-```text
+```text Redis
 name=denied-commands,rule=Deny the following Redis commands: KEYS, FLUSHALL, FLUSHDB, DEBUG, SHUTDOWN, BGSAVE, BGREWRITEAOF, SLAVEOF, REPLICAOF, CLUSTER, MIGRATE, MONITOR, SUBSCRIBE, PSUBSCRIBE, EVAL, EVALSHA, EVALRO, EVALSHA_RO, SCRIPT. Also deny CONFIG subcommands SET, REWRITE, and RESETSTAT.
 ```
 
