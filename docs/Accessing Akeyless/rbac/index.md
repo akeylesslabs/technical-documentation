@@ -90,11 +90,15 @@ The existing permissions for Items, Access Roles, Auth Methods, and Targets are 
 >
 > Some Akeyless permissions include others in them. For example, `list` is included under all other permissions, and `deny` has a complete override over any other permission.
 
+#### Privilege Elevation Prevention
+
+Non-admin users cannot create or modify an access role to grant positive capabilities (read, create, update, delete) that exceed their own effective permissions on any given path. This constraint applies to all permission types, ensuring that a user can only delegate what they themselves are authorized to do.
+
 #### Deny Rule Application and Role Management
 
 Deny rules will be automatically added to a role only when the user creating the role has existing deny restrictions (that is non-admin users only). In such cases, all deny rules that apply to the user will also be applied to the newly created role. This is intended to prevent users from creating roles with broader permissions than they are allowed.
 
-After the role is created, it functions independently, and any user with sufficient permissions not affected by those deny rules, can modify or delete the role. Removing a deny role does not automatically remove it from other roles that were affected. If the rule was applied to multiple roles, it must be removed explicitly from each related role by an authorized user for security reasons.
+After the role is created, it functions independently, and any user with sufficient permissions not affected by those deny rules, can modify or delete the role. Removing a deny rule from a role does not automatically remove it from other roles that were affected. If the rule was applied to multiple roles, it must be removed explicitly from each related role by an authorized user for security reasons.
 
 This design ensures that the RBAC system remains resilient against permission elevation, upholding strict access control and enforcement standards.
 
