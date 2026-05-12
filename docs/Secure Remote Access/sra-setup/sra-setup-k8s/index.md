@@ -1,5 +1,5 @@
 ---
-title: Remote Access on Kubernetes
+title: Kubernetes (Gateway + SRA)
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,21 +10,25 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access (SRA) is the Akeyless capability that enables controlled, auditable access to private infrastructure and resources without exposing your environments to the public internet or relying on traditional VPN jump-host models. Delivered as part of the Akeyless Gateway deployment, SRA uses the Gateway as a secure access plane inside your target networks (cloud VPC/VNet, data center, Kubernetes, and so on), so users can reach protected resources through a centrally governed policy layer.
+Use this page to deploy Akeyless Gateway with Secure Remote Access (SRA) components on Kubernetes by using Helm.
 
-In this guide, we will deploy SRA using the most basic configuration on a Kubernetes cluster with an **existing Gateway**. If you do not already have a Gateway, please [deploy](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#/) one first.
+If you do not already have a Gateway deployment, start with [Deploying Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm).
 
 ## Prerequisites
 
 * Akeyless Gateway deployed on [Kubernetes](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#/). If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported for SRA.
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for Remote CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for remote CLI access.
 
-* Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion `ztbConfig` section and the SSH bastion under `sshConfig`.
+* Minimum 1 vCPU and 2 GiB memory per SRA component.
+
+* SSH bastion service must be exposed with `type: LoadBalancer`.
+
+* SSH bastion container must run as privileged.
 
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/gateway-network-connectivity) from your cluster.
 
-* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
+* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services:
 
 | Service | Endpoint |
 | --- | --- |
@@ -32,19 +36,21 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 | Remote Access Web Client | `<gateway-url>:8000/sra/web-client` |
 | Remote Access SSH Config | `<gateway-url>:8000/sra/ssh-config` |
 
-* Network Settings:
+For a full list of ports and outbound dependencies, see [Requirements](https://docs.akeyless.io/docs/sra-requirements).
 
-  Proper network configuration is required to ensure correct traffic routing and session management for SRA components. Configure networking depending on whether you use an Ingress controller or a cloud load balancer.
+### Network Settings
 
-    * **Ingress** - When using an Ingress controller, sticky sessions are essential to maintain user connections to the same pod throughout their session. Make sure to use sticky session annotations, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"`.
+Configure sticky sessions and timeout settings based on your ingress or load balancer implementation.
 
-    * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html). For **GKE** environment the default service timeout is `30s`. Increase by way of [BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection) using `spec.timeoutSec`. [Read more](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) about the configuration and how to apply this to the SRA service.
+* **Ingress**: Keep a session pinned to a backend pod. For NGINX ingress, for example, set `nginx.ingress.kubernetes.io/affinity: "cookie"`.
+
+* **Cloud load balancer**: Ensure idle/response timeout values align with your expected SRA session duration.
 
 ### Horizontal Pod Autoscaler
 
 The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods in a Kubernetes Deployment based on real-time resource usage (like `CPU` or `memory`) to maintain optimal performance and efficiency.
 
-Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the `sshConfig` `StatefulSet` (HPA cannot support multiple pods without defining a shared persistent storage volume).
+Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, install the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server).
 
 > ⚠️ **Warning:**
 >
@@ -78,13 +84,12 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
 2. Enable **Remote Access** on your Gateway values file, and add the public key of your SSH Cert Issuer using `CAPublicKey` as follows. You can provide one or more CA public keys:
 
     ```yaml values.yaml
-    sra:
-    enabled: true
-
-    sshConfig:
-        CAPublicKey: |
-            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAPzDVmeABzsGd0lEl9m2fdgmCzOLVmEGcLxNkn...
-            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDz0v4zyj4d1m7K9w7j2qQ5B1v8bH0ArK...
+        sra:
+            enabled: true
+            sshConfig:
+                CAPublicKey: |
+                    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAPzDVmeABzsGd0lEl9m2fdgmCzOLVmEGcLxNkn...
+                    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDz0v4zyj4d1m7K9w7j2qQ5B1v8bH0ArK...
     ```
 
 ## Upgrade Gateway
@@ -95,7 +100,7 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
     helm upgrade --install <deployment name> akeyless/akeyless-gateway -f values.yaml
     ```
 
-2. Once upgraded, check if the pods are running, In addition to the Gateway pods, two new pods for Remote Access will be created: `web` and `ssh`:
+2. Once upgraded, check if the pods are running. In addition to the Gateway pods, two new pods for Remote Access are created: `web` and `ssh`.
 
     ```shell
     kubectl get pods
@@ -107,10 +112,16 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
     web-gw-akeyless-gateway-55c866c9fc-lztl7      1/1     Running   0          5s
     ```
 
-3. Log in to the Gateway using your browser (`http://Your-Akeyless-Gateway-URL:8000/console`)
+3. Log in to the Gateway using your browser (`http://Your-Akeyless-Gateway-URL:8000/console`).
 
 ## SRA Portal Access
 
-To login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`, using one of the [supported authentication methods](https://docs.akeyless.io/docs/sra-portal).
+To log in to the **Secure Remote Access** portal, open your browser and use the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`, with one of the [supported authentication methods](https://docs.akeyless.io/docs/sra-portal).
 
-Once logged in, you will see Secrets with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or by way of CLI.
+Once logged in, you will see Secrets with **Secure Remote Access** enabled.
+
+## Advanced Configuration
+
+For keyboard layouts, session log forwarding, RDP recording configuration, SSH fingerprint behavior, and `CONFIG_MAX_STARTUPS`, see [Advanced Configuration on Kubernetes](https://docs.akeyless.io/docs/sra-advanced-configuration-k8s).
+
+If web application isolation is required, continue with [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology).

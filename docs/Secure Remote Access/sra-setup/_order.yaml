@@ -1,5 +1,5 @@
 - sra-setup-overview
+- sra-requirements
 - sra-setup-k8s
 - sra-docker
-- sra-web-access-on-k8s
-- sra-web-access-docker
+- sra-web-access-topology
