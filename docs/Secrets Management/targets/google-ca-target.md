@@ -33,7 +33,7 @@ akeyless target create google-trust \
 ```shell DNS with GCP
 akeyless target create google-trust \
 --name <Target Name> \
---google-trust-url <production / staging>
+--google-trust-url <production / staging> \
 --email <ACME Account Email> \
 --eab-key-id <EAB Key ID> \
 --eab-hmac-key <EAB HMAC Key> \
@@ -44,10 +44,10 @@ akeyless target create google-trust \
 ```shell DNS with Azure
 akeyless target create google-trust \
 --name <Target Name> \
---google-trust-url <production / staging>
+--google-trust-url <production / staging> \
 --email <ACME Account Email> \
---eab-key-id <EAB Key ID>
---eab-hmac-key <EAB HMAC Key>
+--eab-key-id <EAB Key ID> \
+--eab-hmac-key <EAB HMAC Key> \
 --acme-challenge dns \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
@@ -72,9 +72,9 @@ Where:
 
 * `eab-key-id`: External Account Binding Key ID from Google CA Services.
 
-* `eab-hmac-key`: External Account Binding Key ID from Google CA Services.
+* `eab-hmac-key`: External Account Binding HMAC Key from Google CA Services.
 
-* `--google-trust-url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
+* `google-trust-url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
 
 * `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly.
 

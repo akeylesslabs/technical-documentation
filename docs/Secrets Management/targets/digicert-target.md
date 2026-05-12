@@ -74,7 +74,7 @@ Where:
 
 * `eab-key-id`: External Account Binding Key ID from DigiCert Services.
 
-  `eab-hmac-key`: External Account Binding Key ID from DigiCert Services.
+* `eab-hmac-key`: External Account Binding HMAC Key from DigiCert Services.
 
 * `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly. Supported values are `http` (default) and `dns`.
 
