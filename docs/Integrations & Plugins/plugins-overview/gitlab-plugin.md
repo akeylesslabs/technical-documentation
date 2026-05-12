@@ -16,7 +16,7 @@ The Akeyless plugin for GitLab enables a secure, easy, and integrative way to fe
 
 ## Authentication
 
-Each job has a [JSON Web Token (JWT)](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens) provided as CI/CD variable named `CI_JOB_JWT_V2` or `ID_TOKEN` on version 16 and higher.
+Each job has a [JSON Web Token (JWT)](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens). In GitLab v15 and below, this is provided as a predefined CI/CD variable named `CI_JOB_JWT_V2`. In v16 and higher, predefined JWT variables are removed; instead, you declare your own [ID tokens](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens) in the `id_tokens:` block with any variable name you choose.
 
 When a pipeline is about to run, GitLab uses the job token and generates a unique token for it.
 
@@ -35,7 +35,7 @@ In Akeyless Platform, create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/do
 ```shell
 akeyless create-auth-method-oauth2 --name /Dev/GitLabAuth \
 --jwks-uri https://gitlab.com/oauth/discovery/keys \
---unique-identifier user_login
+--unique-identifier user_login \
 --force-sub-claims
 ```
 
@@ -83,7 +83,12 @@ Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.
 >
 > In GitLab v16 and above, `CI_JOB_JWT_V2` is replaced by [ID tokens](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens).
 >
-> The image is `akeyless/ci_base` which is a public Docker image based on `ruby:2.4` that contains the Akeyless CLI as well as other essential components.
+> The image is `akeyless/ci_base` which is a public Docker image based on Alpine Linux that contains the Akeyless CLI as well as other essential components.
+>
+> **Token file initialization** - The `akeyless/ci_base` wrapper script (`~/.akeyless/akeyless_env.sh`) resolves `akeyless://`-prefixed environment variables using one of two paths:
+>
+> * **Gateway path** (when `AKEYLESS_API_GW_URL` is set): the script reads the auth token from `~/.akeyless/latest_token`. Because `akeyless auth` writes the token to a shell variable but does not create this file automatically, you must initialize it manually — `echo "$AKEYLESS_TOKEN" > ~/.akeyless/latest_token` — before sourcing the script. This step is required in the **v16 example** below.
+> * **SaaS path** (when `AKEYLESS_API_GW_URL` is not set): the script falls back to the most recently used profile in `~/.akeyless/profiles/`. No `latest_token` initialization is needed. This is the path used in the **v15 example** below.
 
 ```yaml .gitlab-ci.yml
 variables: 
@@ -94,8 +99,8 @@ akeyless:
     name: akeyless/ci_base:latest-alpine
   before_script:
     - export MY_SECRET=akeyless://path/to/secret # Static / Dynamic secret
-    - export ACCESS_TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CI_JOB_JWT_V2 --json --jq-expression='.token') 
-    # script will replace any env var with prefix of "akeyless:" like above
+    - akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CI_JOB_JWT_V2 > /dev/null
+    # Script will replace any env var with prefix of "akeyless://" like above
     - source ~/.akeyless/akeyless_env.sh
   script:
     - echo "Fetching Secrets is Easy [$MY_SECRET]"
@@ -113,8 +118,9 @@ akeyless:
   before_script:
     - export AKEYLESS_API_GW_URL=https://Your-Akeyless-GW-URL:8000/api/v1
     - export MY_SECRET=akeyless://gitlab/mySecret
-    - export ACCESS_TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $FIRST_ID_TOKEN --json --jq-expression='.token')
-    # script will replace any env var with prefix of "akeyless:" like above
+    # Initialize the token file required by the injection wrapper script (token is piped directly to avoid printing to stdout)
+    - akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $FIRST_ID_TOKEN --json --jq-expression='.token' > ~/.akeyless/latest_token
+    # Script will replace any env var with prefix of "akeyless://" like above
     - source ~/.akeyless/akeyless_env.sh
   script:
     - echo "Fetching Secrets is Easy [$MY_SECRET]"
