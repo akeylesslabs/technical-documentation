@@ -36,7 +36,7 @@
 - calcpasswordsecurityinfo
 - changeadminaccountpassword
 - configure
-- connect-1
+- connect
 - createartifactorytarget
 - createauthmethod
 - createauthmethodawsiam
@@ -52,7 +52,7 @@
 - createauthmethodoidc
 - createauthmethodsaml
 - createauthmethoduniversalidentity
-- createawstarget-1
+- createawstarget
 - createazuretarget
 - createcertificate
 - createclassickey
@@ -79,7 +79,7 @@
 - createoidcapp
 - createpasskey
 - createpingtarget
-- createpkicertissuer-1
+- createpkicertissuer
 - createrabbitmqtarget
 - createrole
 - createrotatedsecret
@@ -148,7 +148,7 @@
 - dynamicsecretcreatesnowflake
 - dynamicsecretcreatevenafi
 - dynamicsecretdelete
-- dynamicsecretget-1
+- dynamicsecretget
 - dynamicsecretgetvalue
 - dynamicsecretlist
 - dynamicsecrettmpcredsget
@@ -336,7 +336,7 @@
 - getrole
 - getrotatedsecretvalue
 - getrsapublic
-- getsecretvalue-1
+- getsecretvalue
 - getsshcertificate
 - gettags
 - gettarget

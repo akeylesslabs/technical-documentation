@@ -28,6 +28,11 @@ class FrontMatterViolation:
     path: str
     reason: str
 
+@dataclass
+class ApiReferenceSuffixViolation:
+    path: str
+    reason: str
+
 
 @dataclass
 class NavigationViolation:
@@ -285,6 +290,25 @@ def collect_required_order_file_violations(roots: Iterable[str]) -> list[Require
 
     return violations
 
+def collect_api_reference_suffix_violations(api_reference_root: Path) -> list[ApiReferenceSuffixViolation]:
+    violations: list[ApiReferenceSuffixViolation] = []
+
+    if not api_reference_root.exists() or not api_reference_root.is_dir():
+        return violations
+
+    for markdown_file in sorted(api_reference_root.rglob("*.md")):
+        if not markdown_file.is_file():
+            continue
+        if markdown_file.name.lower().endswith("-1.md"):
+            violations.append(
+                ApiReferenceSuffixViolation(
+                    path=markdown_file.as_posix(),
+                    reason="API reference page filenames must not end with '-1'",
+                )
+            )
+
+    return violations
+
 
 def main() -> int:
     args = parse_args()
@@ -312,6 +336,7 @@ def main() -> int:
     front_matter_violations: list[FrontMatterViolation] = []
     navigation_violations: list[NavigationViolation] = []
     required_order_file_violations = collect_required_order_file_violations(args.required_order_roots)
+    api_reference_suffix_violations = collect_api_reference_suffix_violations(Path("reference") / "Akeyless API")
 
     order_files_to_validate: set[Path] = set()
 
@@ -405,6 +430,7 @@ def main() -> int:
         or uniq_front_matter_violations
         or uniq_navigation_violations
         or required_order_file_violations
+        or api_reference_suffix_violations
     )
 
     report = {
@@ -448,6 +474,13 @@ def main() -> int:
                 "reason": item.reason,
             }
             for item in sorted(required_order_file_violations, key=lambda x: x.path)
+        ],
+        "api_reference_suffix_violations": [
+            {
+                "path": item.path,
+                "reason": item.reason,
+            }
+            for item in sorted(api_reference_suffix_violations, key=lambda x: x.path)
         ],
     }
 
@@ -504,12 +537,20 @@ def main() -> int:
             md_lines.append(f"- `{violation.path}`: {violation.reason}")
         md_lines.append("")
 
+    if api_reference_suffix_violations:
+        md_lines.append("## API Reference Suffix Violations")
+        md_lines.append("")
+        for violation in sorted(api_reference_suffix_violations, key=lambda x: x.path):
+            md_lines.append(f"- `{violation.path}`: {violation.reason}")
+        md_lines.append("")
+
     if (
         not uniq_duplicate_violations
         and not depth_violations
         and not uniq_front_matter_violations
         and not uniq_navigation_violations
         and not required_order_file_violations
+        and not api_reference_suffix_violations
     ):
         md_lines.append("No violations detected.")
         md_lines.append("")
@@ -518,13 +559,15 @@ def main() -> int:
 
     print(
         "failed={failed} duplicate_violations={dupes} depth_violations={depth} "
-        "front_matter_violations={fm} navigation_violations={nav} required_order_file_violations={order}".format(
+        "front_matter_violations={fm} navigation_violations={nav} "
+        "required_order_file_violations={order} api_reference_suffix_violations={api_suffix}".format(
             failed=failed,
             dupes=len(uniq_duplicate_violations),
             depth=len(depth_violations),
             fm=len(uniq_front_matter_violations),
             nav=len(uniq_navigation_violations),
             order=len(required_order_file_violations),
+            api_suffix=len(api_reference_suffix_violations),
         )
     )
 
