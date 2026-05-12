@@ -26,7 +26,7 @@ For general MCP background and command syntax, see [MCP Server](https://docs.ake
 3. Add the Akeyless MCP server configuration.
 4. Restart Cursor.
 
-Use one of the following examples:
+The following examples show common authentication configurations:
 
 ```json Default
 {

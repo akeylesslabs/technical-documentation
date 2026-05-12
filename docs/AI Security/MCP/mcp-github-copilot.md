@@ -33,7 +33,7 @@ npm install -g @githubnext/github-copilot-cli
 3. Add the Akeyless MCP server configuration.
 4. Start GitHub Copilot with MCP enabled.
 
-Use one of the following examples:
+The following examples show common authentication configurations:
 
 ```json Default
 {
