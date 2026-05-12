@@ -24,4 +24,10 @@ This page summarizes the current AI offerings and links to the detailed guides.
 
 ## MCP Documentation Pages
 
-For MCP-specific setup and usage, see [MCP Server](https://docs.akeyless.io/docs/mcp-server).
+For MCP-specific setup and usage, use these pages:
+
+* [MCP Server](https://docs.akeyless.io/docs/mcp-server)
+* [Claude Desktop Integration](https://docs.akeyless.io/docs/mcp-claude-desktop)
+* [Cursor Integration](https://docs.akeyless.io/docs/mcp-cursor)
+* [GitHub Copilot Integration](https://docs.akeyless.io/docs/mcp-github-copilot)
+* [Akeyless MCP Plugin for JetBrains IDEs](https://docs.akeyless.io/docs/mcp-jetbrains-ides)
