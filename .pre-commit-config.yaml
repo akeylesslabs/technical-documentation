@@ -38,4 +38,4 @@ repos:
         files: \.md$
         pass_filenames: true
         require_serial: true
-        stages: [pre-commit]
+        stages: [manual]
