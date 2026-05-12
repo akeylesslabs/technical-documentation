@@ -232,6 +232,77 @@ env:
     value: "https://vault.akeyless.io"
 ```
 
+### Web access session recording configuration
+
+Use the `sessionRecording` block to configure browser-based session recording for ZTWA.
+
+```yaml
+sessionRecording:
+  enabled: true
+  quality: "360p" # 144p | 240p | 360p | 480p | 720p | 1080p
+  upload:
+    enabled: true
+    s3Bucket: "<S3_BUCKET_NAME>"
+    s3Region: "<AWS_REGION>"
+    s3Prefix: "<OPTIONAL_PREFIX>"
+    s3Endpoint: "<OPTIONAL_S3_COMPATIBLE_ENDPOINT>"
+    compress: false
+    sse:
+      type: "" # "" | sse-s3 | sse-kms
+      kmsKeyId: "<OPTIONAL_KMS_KEY_ID_OR_ARN>"
+    existingSecretNames:
+      s3: "<S3_CREDENTIALS_SECRET_NAME>"
+      s3AccessKeyIdKey: "access-key-id"
+      s3SecretAccessKeyKey: "secret-access-key"
+```
+
+When enabled, the worker captures the browser session and the dispatcher prepares the upload artifact and uploads it to S3 or S3-compatible storage.
+
+#### Recording quality
+
+Set `sessionRecording.quality` to one of:
+
+* `144p`
+* `240p`
+* `360p`
+* `480p`
+* `720p`
+* `1080p`
+
+#### Upload and encryption options
+
+Use `sessionRecording.upload` to control destination and storage behavior:
+
+* `enabled`: Turn upload on or off.
+* `s3Bucket`, `s3Region`, `s3Prefix`: Destination bucket and object path.
+* `s3Endpoint`: Optional custom endpoint for S3-compatible platforms.
+* `compress`: Gzip-compress before upload.
+* `sse.type`: Server-side encryption mode (`sse-s3` or `sse-kms`).
+* `sse.kmsKeyId`: KMS key ID or ARN when `sse-kms` is used.
+
+#### Credentials source
+
+Provide S3 credentials by using `sessionRecording.upload.existingSecretNames.s3`.
+
+If the secret is not set, the deployment falls back to the AWS default credential chain.
+
+#### Worker lifecycle watchdog controls
+
+Use `sessionRecording.watchdog` to tune long-running recording behavior:
+
+* `clientConnectTimeoutSeconds`: Timeout for initial browser websocket connection.
+* `intervalSeconds`: How often watchdog checks run.
+* `maxDurationSeconds`: Maximum wall-clock duration for one recording.
+
+#### Service-specific recording overrides
+
+For advanced setups, service-level `recording` blocks can override part of the top-level `sessionRecording` config:
+
+* `dispatcher.config.recording`: upload-related override fields for the dispatcher.
+* `webWorker.config.recording`: capture-related override fields (`enabled`, `quality`) for workers.
+
+Use these only when you need per-service behavior that differs from the shared `sessionRecording` defaults.
+
 ### HTTP proxy mode
 
 To enable HTTP proxy mode for remote access, set `WEB_PROXY_TYPE` in dispatcher `env`.

@@ -26,6 +26,8 @@ SRA allows you to automatically upload and store these video recordings in secur
 
 [Web access session recording](https://docs.akeyless.io/docs/sra-web-access-on-k8s) refers to the process of capturing browser-based web access sessions in Zero Trust Web Access (ZTWA). These recordings preserve the interactive web session and can be stored with the ZTWA deployment configuration.
 
+For full recording configuration options (quality, upload destination, compression, encryption, watchdog controls, and service-level overrides), see [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
+
 ### Terminal-Based Sessions
 
 For terminal-based sessions (such as SSH, DB, and Kubernetes), the system records a full transcript of the commands entered and their corresponding outputs. This data can be forwarded to external systems like Splunk, Elasticsearch, or by way of Syslog for monitoring and archiving. See more [here](https://docs.akeyless.io/docs/sra-session-forwarding).
