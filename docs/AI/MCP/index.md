@@ -1,10 +1,13 @@
 ---
 title: MCP Server
+excerpt: Use the Akeyless MCP Server with MCP clients and JetBrains IDE integration.
 deprecated: false
 hidden: false
 link:
   new_tab: false
 metadata:
+  title: Akeyless MCP Server
+  description: Use the Akeyless MCP Server with supported MCP clients and JetBrains IDE integration.
   robots: index
 ---
 ## Overview
@@ -53,11 +56,11 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
     * Learn about [updating the Akeyless CLI](https://docs.akeyless.io/docs/cli-reference#/update).
 * An Akeyless account must be created and a corresponding profile configured with the Akeyless CLI.
 
-### Configuration and Setup
+### Client Setup
 
-Access to the Akeyless MCP server is set up for an MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of available MCP clients is available <Anchor label="here" target="_blank" href="https://modelcontextprotocol.io/clients">here</Anchor>.
+Configure the Akeyless MCP server in your MCP client configuration file. For example, Cursor uses `~/.cursor/mcp.json`. A list of supported MCP clients is available at <Anchor label="MCP clients" target="_blank" href="https://modelcontextprotocol.io/clients">https://modelcontextprotocol.io/clients</Anchor>.
 
-If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains IDEs" href="doc:akeyless-mcp-plugin-jetbrains-ides" /> for full setup and usage instructions.
+If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains IDEs" href="doc:akeyless-mcp-plugin-jetbrains-ides" /> for the IDE-specific setup and usage flow.
 
 #### Sample Configuration Structure
 
@@ -125,20 +128,20 @@ If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains 
 
 Acceptable values for `args.--access-type`:
 
-* [access_key](https://docs.akeyless.io/docs/auth-with-api-key/)
-* [aws_iam](https://docs.akeyless.io/docs/auth-with-aws/)
-* [azure_ad](https://docs.akeyless.io/docs/auth-with-azure/)
-* [cert](https://docs.akeyless.io/docs/auth-with-certificate/)
-* [gcp](https://docs.akeyless.io/docs/auth-with-gcp/)
-* [jwt](https://docs.akeyless.io/docs/auth-with-oauth-jwt/)
-* [k8s](https://docs.akeyless.io/docs/auth-with-kubernetes/)
-* [kerberos](https://docs.akeyless.io/docs/auth-with-kerberos/)
-* [ldap](https://docs.akeyless.io/docs/auth-with-ldap/)
-* [oci](https://docs.akeyless.io/docs/auth-with-oci/)
-* [oidc](https://docs.akeyless.io/docs/auth-with-oidc/)
-* [password](https://docs.akeyless.io/docs/auth-with-email/)
-* [saml](https://docs.akeyless.io/docs/auth-with-saml/)
-* [universal_identity](https://docs.akeyless.io/docs/auth-with-universal-identity/)
+* [access_key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [aws_iam](https://docs.akeyless.io/docs/auth-with-aws)
+* [azure_ad](https://docs.akeyless.io/docs/auth-with-azure)
+* [cert](https://docs.akeyless.io/docs/auth-with-certificate)
+* [gcp](https://docs.akeyless.io/docs/auth-with-gcp)
+* [jwt](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
+* [k8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [kerberos](https://docs.akeyless.io/docs/auth-with-kerberos)
+* [ldap](https://docs.akeyless.io/docs/auth-with-ldap)
+* [oci](https://docs.akeyless.io/docs/auth-with-oci)
+* [oidc](https://docs.akeyless.io/docs/auth-with-oidc)
+* [password](https://docs.akeyless.io/docs/auth-with-email)
+* [saml](https://docs.akeyless.io/docs/auth-with-saml)
+* [universal_identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
 
 ##### Cloud ID values
 
@@ -289,6 +292,12 @@ The Akeyless MCP server supports multiple [Authentication Methods](https://docs.
   ]
 }
 ```
+
+### Client Notes
+
+* Pass `--gateway-url` directly in the MCP client configuration or command line.
+* If you use JetBrains IDEs, install the dedicated plugin instead of wiring the server manually.
+* Keep the CLI profile name consistent across your MCP clients so authentication behavior stays predictable.
 
 ## Best Practices
 

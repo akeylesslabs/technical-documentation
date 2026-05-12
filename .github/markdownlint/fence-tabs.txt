@@ -7,6 +7,7 @@
 ~/.kube/config
 Access Key
 Access Roles
+Alias
 AES128GCM
 AES128SIV
 AES256CBC
@@ -46,6 +47,7 @@ Certificate
 Certificate Event Format
 certificate.yaml
 CLI
+Command group
 clustersecretstore.yaml
 config.yml
 ConfigMap
