@@ -89,6 +89,8 @@ The Akeyless SRA supports Session Log Forwarding, which captures CLI input and o
 akeyless gateway update remote-access-session-forwarding -h
 ```
 
+For provider-specific commands and flags, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
+
 ## RDP Recordings
 
 **RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage. To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or Azure Blob Storage.
@@ -96,6 +98,8 @@ akeyless gateway update remote-access-session-forwarding -h
 ```shell
 akeyless gateway update remote-access-rdp-recording -h
 ```
+
+For CLI flags and usage, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
 
 To store local recordings inside your Gateway, set the `rdp-session-storage` to `local`. Session recordings will be stored inside the Gateway under `/home/akeyless/recordings`. Make sure to add a persistent volume to your SRA deployment.
 
