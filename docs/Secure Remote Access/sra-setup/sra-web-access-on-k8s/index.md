@@ -18,6 +18,8 @@ The non-privileged deployment model is supported, so you do not need to add a po
 
 ZTWA session recording captures browser-based web access sessions and supports configurable quality, compression, and encryption for stored recordings.
 
+For a dedicated recording guide that covers end-to-end configuration and workflow, see [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording).
+
 This chart bootstraps the `Akeyless-Web-Access-Bastion` deployment on Kubernetes with Helm.
 
 ## Before you begin
