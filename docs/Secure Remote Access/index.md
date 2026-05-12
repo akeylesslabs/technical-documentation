@@ -16,57 +16,97 @@ next:
 ---
 ## What Is Secure Remote Access?
 
-The Akeyless Platform’s Secure Remote Access (SRA) solution offers a modern approach to Privileged Access Management (PAM), enabling users to securely connect to servers, databases, internal applications, and web apps across any environment—whether cloud hosted or on-premise, private or public—by leveraging Just-in-Time, Zero-Trust access with full auditability.
+Secure Remote Access (SRA) is part of the Akeyless identity security platform. It provides Zero Trust access to private resources by brokering access through gateway and SRA services with dynamic and rotated secret patterns, rather than long-lived static credentials. This model follows a Zero Standing Privileges (ZSP) approach by minimizing persistent credentials in access flows.
 
-Users can connect securely to resources through the Gateway's internal SRA Portal, the public [SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal), a desktop application, or by way of the [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) CLI command. Akeyless supports a variety of protocols, including SSH, RDP, SQL, kubectl, and more.
+SRA supports interactive access to servers, databases, Kubernetes clusters, web applications, and cloud consoles. Users can connect from the Gateway-hosted portal, the public [SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal), the desktop application, or CLI tools such as [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp).
+
+Supported access patterns include SSH, RDP, SQL, `kubectl`, LDAP, and web access workflows.
+
+> ℹ️ **Note (Getting started):**
+>
+> To deploy quickly, start with the [Quick Start](https://docs.akeyless.io/docs/sra-quick-start-guide). For deployment planning and architecture decisions, continue with [Setup Overview](https://docs.akeyless.io/docs/sra-setup-overview).
+
+## How It Works
+
+At a high level, SRA follows this flow:
+
+1. A user authenticates with a configured identity provider.
+2. Configured SRA access restrictions and policy settings, such as allowed access IDs and authentication controls, are applied through gateway and SRA components, and traffic is routed to SRA services.
+3. The session is established through SRA web or SSH bastion components.
+
+In gateway-managed deployments, SRA runtime and management paths include:
+
+* `/sra/portal`
+* `/sra/web-client`
+* `/sra/ssh-config`
+* `/config/sra`
+
+These paths are part of the gateway route and SRA configuration model described in the implementation.
 
 ## Architecture
 
-SRA is deployed alongside the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) and consists of a Web application and SSH application, each a separate container in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
+SRA is deployed with the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). Core components are:
+
+* Gateway service for routing and configuration management.
+* SSH bastion service for terminal and CLI-native access.
+* Web bastion service for browser-based sessions.
+* Optional cache and optional Zero Trust Web Access components, depending on topology.
 
 ![Akeyless Gateway and Secure Remote Access architecture](https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png)
 
-1. Web: The web application allows users to securely access internal resources on a browser-based interface by way of the SRA Portal, leveraging embedded clients.
-2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp) commands to any Unix-supporting resource.
+## Deployment Models
 
-To connect to a resource, the user first authenticates to Akeyless by way of a configured Identity Provider (IdP). Once authorized, SRA facilitates the connection in a Zero-Trust manner by retrieving the required secret credentials by way of the Gateway and automatically injecting them into the target resource to establish and proxy the user’s access.
+SRA supports multiple deployment patterns:
 
-As a result, Akeyless uniquely combines the ability to interface with 3rd-party **identity providers** for authentication with granular **Role-Based Access Control** (**RBAC**) for authorization and the ability to provide **Just-in-Time Access** to remote resources, using Dynamic Secrets as short-lived credentials and certificates.
+* Unified deployment: Deploy SRA by using the `akeyless-gateway` chart with SRA enabled.
+* Legacy split deployment: Existing environments might still use the standalone SRA chart model, but migration to unified deployment is recommended.
+* Topology variants: Kubernetes and Docker Compose are both supported, including Zero Trust Web Access patterns for browser-isolated access.
 
-## Key Features
+> ❗ **Important (Migration):**
+>
+> New deployments should use unified deployment with the `akeyless-gateway` chart. Existing split deployments should plan migration to reduce operational drift.
 
-Akeyless Secure Remote Access provides a robust set of features designed to support secure, efficient access for teams. Here are some of the key capabilities:
+## Before Deployment
 
-1. Just-in-Time Access: With SRA, just-in-time secrets can be created and injected into a remote resource, such as a database, on the fly.
-2. Rotated Secret Access: Privileged secrets can be used to access remote resources with the ability to automatically rotate the credentials once the session ends.
-3. Support for Various Protocols: Akeyless supports a variety of protocols, including SSH, RDP, SQL, kubectl, and more.
-4. Request for Access: Admins have the ability to enable an option for users to [request access](https://docs.akeyless.io/docs/request-access) for a specific resource on-demand, using a built-in approval workflow.
-5. Audit and Session Management: Akeyless provides full session management with auditing and recording capabilities to keep you compliant. Session recordings and transcripts can be automatically exported to remote storage systems for long-term retention. **Note:** Session recording is not available for tunnel-based connections (including the Desktop Application), because end-to-end encryption prevents the bastion from inspecting the traffic.
-6. Granular RBAC: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need (Users are restricted from accessing anything beyond their defined scope). For portal-based connections, users only need SRA permissions to initiate connections—without requiring any `Read` access to the underlying secrets. **Note:** Secretless access does not apply to tunnel-based connections; those connections require explicit `Read` permission on the secret item.
-7. Native SSO integrations: SRA supports authentication by way of SSO protocols such as OIDC, SAML, and LDAP.
-8. Multiple connection interfaces: WebUI, CLI, Desktop app
+Before deployment, confirm these prerequisites:
 
-## Use Cases
+* A supported runtime (Kubernetes or Docker Compose).
+* Required network access and open ports for gateway and SRA components.
+* At least one authentication method, an access role, and an SSH certificate issuer for SSH-based access.
 
-### Secretless User Access
+## Start Here by Goal
 
-Allow your users to access sensitive infrastructure resources without credentials.
+Use this path based on the immediate objective:
 
-### Just-in-Time Zero-Trust Access
+1. Baseline deployment: [Quick Start](https://docs.akeyless.io/docs/sra-quick-start-guide)
+2. Deployment planning and architecture: [Setup Overview](https://docs.akeyless.io/docs/sra-setup-overview)
+3. Resource onboarding: [Supported Resource Types](https://docs.akeyless.io/docs/sra-resource-types)
+4. User operation model: [SRA User Guides](https://docs.akeyless.io/docs/sra-user-guides)
+5. Admin controls and policies: [SRA Admin Guides](https://docs.akeyless.io/docs/sra-admin-guides)
 
-Implement a gold-standard Zero-Trust environment and make auditing a breeze.
+## Documentation Map
 
-### Third Party Access
+Use this map to move through the SRA documentation by workflow:
 
-Provide third-party access to resources without compromising your security.
+* Setup and deployment: [Setup Overview](https://docs.akeyless.io/docs/sra-setup-overview)
+* Access configuration and policy controls: [SRA Admin Guides](https://docs.akeyless.io/docs/sra-admin-guides)
+* User access flows (portal, desktop app, and CLI): [SRA User Guides](https://docs.akeyless.io/docs/sra-user-guides)
+* Session operations and monitoring: [Session Management](https://docs.akeyless.io/docs/sra-sessions-overview)
+* Integrations and automation (CLI and API references): [CLI Gateway Reference](https://docs.akeyless.io/docs/cli-reference-gateway) and [Akeyless API v2 Reference](https://docs.akeyless.io/reference/gatewaygetremoteaccess)
+* Infrastructure planning and troubleshooting: [SRA Setup on Kubernetes](https://docs.akeyless.io/docs/sra-setup-k8s) and [SRA Setup on Docker](https://docs.akeyless.io/docs/sra-docker)
 
-### Manage Access to Kubernetes Clusters
+## What to Configure Next
 
-Remote Access supports access to any flavor of Kubernetes cluster, including EKS, GKE or any other generic Kubernetes cluster.
+After baseline deployment, most teams configure these in order:
+
+1. Access and entitlement policy for SRA users.
+2. Session recording and forwarding destination settings.
+3. Resource-specific access configuration for required target types.
+4. CLI and API workflows for automation.
 
 ## Supported Resource Types
 
-Akeyless' Remote Access solution supports connections to the following resource types:
+The Akeyless Remote Access solution supports connections to the following resource types:
 
 * [Databases](https://docs.akeyless.io/docs/sra-database)
 * [Windows Remote Desktop](https://docs.akeyless.io/docs/sra-remote-desktop)
@@ -82,6 +122,6 @@ Akeyless' Remote Access solution supports connections to the following resource 
 
 ## Web Access
 
-In addition, you can define Remote Access to external SaaS systems using the [Web Access Application](https://docs.akeyless.io/docs/web-access-on-k8s) as a separate deployment, not connected to the Gateway. This enables you to remotely access web-based applications in Isolated mode, which restricts user access to only the websites you determine, either while connected to a SaaS system or using a secure proxy mode to enable access for an internal resource from the external network.
+Remote access to external software as a service systems can also be configured through the [Web Access Application](https://docs.akeyless.io/docs/sra-web-access-on-k8s). This supports browser-isolated access to approved web destinations and secure proxy mode for internal resources.
 
-For details about the various Remote Access components, see [Overview Section](https://docs.akeyless.io/docs/sra-setup-overview).
+For details about the different remote access components, see [Setup Overview](https://docs.akeyless.io/docs/sra-setup-overview).
