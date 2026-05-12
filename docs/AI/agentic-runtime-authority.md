@@ -19,9 +19,9 @@ Agentic Runtime Authority allows AI agents to securely communicate with your res
 
 * CLI version `1.144.0`.
 
-* [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) enabled on the Gateway.
+* [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) enabled on the Gateway to power intelligent resource access.
 
-* Dynamic Secret with Agentic Runtime Authority enabled.
+* A Dynamic Secret configured with Agentic Runtime Authority enabled.
 
 * An authentication method associated with a role that has Agentic Runtime Authority permissions.
 
@@ -39,9 +39,9 @@ Create the following file: `~/Library/"Application Support"/Claude/claude_deskto
 
 Create the following file: `~/.cursor/mcp.json`.
 
-Use the following configuration for both **Claude** and **Cursor**:
+Use the following configuration template for both **Claude** and **Cursor**. Replace the placeholder values with your environment details:
 
-```json shell
+```json
 {
   "mcpServers": {
     "akeyless-connector": {
@@ -49,9 +49,9 @@ Use the following configuration for both **Claude** and **Cursor**:
       "args": [
         "mcp-runtime-authority",
         "--gateway-url",
+        "https://<Your-Akeyless-GW-URL>:8000",
         "--secret-name",
         "full/path/to/secret",
-        "https://<Your-Akeyless-GW-URL>:8000",
         "--profile",
         "profile_name"
       ]
@@ -68,20 +68,22 @@ Where:
 
 * `profile`: The CLI profile with the required RBAC permissions for working with Agentic Runtime Authority.
 
-# Querying the DB
+# Querying Your Resources
 
-You can now use Claude/Cursor to query your resources in natural language. Each session is logged under the **Agentic Runtime Authority** tab in the **Akeyless Console**.
+With Agentic Runtime Authority configured, you can now use Claude or Cursor to interact with your protected resources in natural language. The AI agent will authenticate requests and retrieve credentials dynamically without storing long-lived secrets.
 
-You can also control what users are allowed to ask. For example, you may want to block questions that expose sensitive data, such as **personal information**, **credentials**, or **internal records**.
+## Monitoring Access
 
-To do this, add an Input Rule to the [Dynamic Secret ](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)object. When a user sends a request that matches a blocked rule, the request is denied and the restricted information is not returned from the database.
+Each session and resource query is automatically logged. You can view access activity under the **Agentic Runtime Authority** tab in the **Akeyless Console** to monitor which resources were accessed and when.
 
-This helps keep the AI agent useful while still making sure access stays controlled and secure.
+## Controlling Access with Input Rules
 
-<br />
+For additional security, you can control what users are allowed to ask the AI agent to do. This is useful for preventing accidental exposure of sensitive information.
 
-<br />
+**To restrict certain queries:**
 
-<br />
+1. Open the [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) object in the Akeyless Console.
+2. Add an **Input Rule** that matches patterns you want to block (for example: queries requesting **personal information**, **credentials**, or **internal records**).
+3. When a user sends a request matching a blocked rule, the request is denied and restricted information is not returned from the database.
 
-<br />
+This approach keeps the AI agent useful for legitimate queries while ensuring access remains controlled and secure.
