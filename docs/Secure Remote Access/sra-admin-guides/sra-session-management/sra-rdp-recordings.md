@@ -42,7 +42,7 @@ Optionally compress the encoded video file using `GZIP`.
 
 Protect recordings at rest with encryption.
 
-* **Algorithm:** Encryption uses Akeyless supported key types.
+* **Algorithm:** Encryption uses Akeyless-supported key types.
 * **Scope:** Entire video payload is encrypted after encoding (and after optional compression).
 * **Access:** Only authorized users with the appropriate permissions can decrypt and access the file.
 
@@ -110,12 +110,6 @@ Use the following values:
 
 SRA uses the standard S3 API for this flow. This allows recording uploads to compatible object storage providers without requiring AWS-specific identity integration.
 
-## Related Pages
-
-* [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording)
-* [Session Management](https://docs.akeyless.io/docs/sra-session-management)
-* [Session Log Forwarding](https://docs.akeyless.io/docs/sra-session-forwarding)
-
 ### Azure Blob Storage
 
 For storing RDP session recordings in Azure Blob Storage, the user can also select between two options:
@@ -167,3 +161,9 @@ akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \
 --rdp-session-storage local
 ```
+
+## Related Pages
+
+* [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording)
+* [Session Management](https://docs.akeyless.io/docs/sra-session-management)
+* [Session Log Forwarding](https://docs.akeyless.io/docs/sra-session-forwarding)
