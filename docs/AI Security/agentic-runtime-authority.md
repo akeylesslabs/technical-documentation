@@ -13,24 +13,35 @@ metadata:
 >
 > Agentic Runtime Authority is currently in early access. Features, behavior, and availability can change between releases.
 
-Agentic Runtime Authority allows AI agents to securely communicate with protected resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with supported secrets without exposing long-lived credentials. In this context, **runtime control** means the authorization checks and input or output rules that Akeyless enforces when an agent sends a live request to a protected resource.
+Agentic Runtime Authority allows AI agents to securely communicate with protected resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with supported secrets without exposing long-lived credentials. In this context, **runtime control** means the authorization checks and input or output rules that Akeyless enforces when an agent sends a live request to a protected resource. Policies on Dynamic Secrets define what agents can and cannot do—input rules restrict allowed operations, and output rules filter returned data—ensuring secure and compliant runtime execution.
 
 **Agentic Runtime Authority** currently supports these target categories for runtime execution:
 
 * **Database targets**: MySQL, PostgreSQL, MSSQL, Oracle, Snowflake, HanaDB, Redshift, MongoDB, Redis, and Cassandra.
 * **Service targets**: AWS, GCP, Azure, and GitHub.
 
-The `runtime-authority` command and the MCP execution tools operate on supported dynamic, rotated, and static secrets. Static secrets are typically used for OAuth 2.1-based MCP workflows and connection-string-based integrations.
+The `runtime-authority` command and the MCP execution tools operate on supported:
+
+* **Dynamic secrets**: For temporary, rotated credentials.
+* **Rotated secrets**: For regularly rotated credentials.
+* **Static secrets**: Typically used for OAuth 2.1-based MCP workflows and connection-string-based integrations.
 
 Agentic Runtime Authority extends Akeyless AI security beyond secretless credential retrieval by adding runtime controls and reporting for agent access.
 
-Agentic Runtime Authority policy controls are central to secure agent execution. Input and output rules define what the agent can send and what data it can receive, and each runtime session is traceable for monitoring and audit workflows.
-
 ## Policy Control And Traceability Summary
 
-* **What the agent can do**: Input rules constrain allowed requests, and output rules constrain what can be returned.
-* **How access is enforced**: Runtime behavior is scoped by role rules and secret permissions.
-* **How actions are traced**: Each runtime session and query event is recorded for monitoring and audit use cases.
+Agentic Runtime Authority policy controls are central to secure agent execution. **Input and output rules define what the agent can send and what data it can receive**, and each runtime session is traceable for monitoring and audit workflows.
+
+### Control: What the Agent Can and Cannot Do
+
+* **Input rules**: Constrain what the agent is allowed to send (queries, prompts, commands) when accessing dynamic, rotated, or static secrets. Blocked requests are denied before reaching the target.
+* **Output rules**: Constrain what data can be returned to the agent from protected resources. Blocked response content is filtered or redacted.
+
+### Traceability: Full Audit Trail
+
+* **Session recording**: Each runtime session and query event is recorded with full context.
+* **Access scope**: Runtime behavior is scoped by role rules and secret permissions.
+* **Monitoring and audit**: Use the `ara-reports-access` role rule to grant access to Agentic Runtime Authority reporting data for compliance and investigation workflows.
 
 The current implementation exposes Agentic Runtime Authority in these places:
 
@@ -45,12 +56,12 @@ The current implementation exposes Agentic Runtime Authority in these places:
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.51.0` or later.
-* [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) enabled on the Gateway.
+* **[AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) enabled on the Gateway.** This is required for runtime authority functionality.
 * A Dynamic Secret configured with Agentic Runtime Authority enabled.
 * A role with access to the relevant Dynamic Secret and, when required, reporting access to Agentic Runtime Authority.
 * An authentication method associated with that role.
 * A supported desktop client, such as Claude Desktop or Cursor, if you plan to use MCP.
-* CLI version `1.144.0` or later, only when you plan to use CLI-based setup or execution flows.
+* _(Optional)_ Akeyless CLI version `1.144.0` or later when you plan to use CLI-based setup or execution flows. CLI is not required for MCP-based workflows or direct Gateway queries via API.
 
 ## Control Access With RBAC
 
