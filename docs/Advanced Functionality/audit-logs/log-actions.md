@@ -165,3 +165,12 @@ This page includes a thorough comb through all of the different options for the 
 * `update_object_version_settings_for_account`: Update account settings for objects
 
 * `impersonation`: Impersonate another user in your Akeyless account
+
+## KMIP Certificate Expiry Observability
+
+KMIP certificate expiry is tracked through certificate event types in the [Event Center](https://docs.akeyless.io/docs/event-center), specifically:
+
+* `kmip-cert-pending-expiration`
+* `kmip-cert-expired`
+
+For KMIP-specific configuration actions in audit logs, use the KMIP action entries in this page (for example, `list_kmip_servers`) together with item and target actions, depending on the operation.

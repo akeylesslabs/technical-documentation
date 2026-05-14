@@ -47,7 +47,7 @@ Use the following mapping when translating Console fields to CLI flags:
 
 ## Setting a Certificate Discovery in the Akeyless Console
 
-1. Log in to the Akeyless Console, and go to **Discovery & Migration** > **New** > **Certificate Discovery**.
+1. Log in to the Akeyless Console, and go to **Discovery & Migration**, then **New**, then **Certificate Discovery**.
 2. Define a Name for the certificate discovery, and specify the **Target Location** as a path to the virtual folder where you want the scanned certificates to be saved in. If the folder does not exist, it will be created together with the scanned certificates.
 3. Add the **Sources** of the scan, such as: **IPs**, **CIDR ranges**, or **DNS names**
 4. Add the relevant ports, the default value is `443`.
@@ -55,4 +55,4 @@ Use the following mapping when translating Console fields to CLI flags:
 
 ## Run the Certificate Discovery
 
-To run the discovery, select the discovery item and choose **Action Menu** > **Start Scan**. If the scan completes successfully, a new folder will appear under **Items** containing all the certificates that were found.
+To run the discovery, select the discovery item and choose **Action Menu**, then **Start Scan**. If the scan completes successfully, a new folder will appear under **Items** containing all the certificates that were found.

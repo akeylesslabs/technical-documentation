@@ -52,6 +52,8 @@ akeyless gateway-create-migration \
 
 `--hashi-json=[true]`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
+`--hashi-metadata-mode[=full]`: Controls how much HashiCorp Vault KV v2 metadata is migrated with each secret value. Supported values: `full`, `minimal`, `none` (relevant only for HashiCorp Vault migration). See [HashiCorp Vault Metadata Preservation Mode](https://docs.akeyless.io/docs/gateway-automatic-migration#hashicorp-vault-metadata-preservation-mode) for details.
+
 `-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, for example, `arn:aws:secretsmanager:AWSregion:AWSAccountId:Secret:/path/to/secrets/*` (relevant only for AWS migration)
 
 `-K, --aws-key`: AWS Secret Access Key (relevant only for AWS migration)
@@ -274,6 +276,8 @@ akeyless gateway-update-migration \
 `-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to perform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
 `--hashi-json='true'`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
+
+`--hashi-metadata-mode[=full]`: Controls how much HashiCorp Vault KV v2 metadata is migrated with each secret value. Supported values: `full`, `minimal`, `none` (relevant only for HashiCorp Vault migration). See [HashiCorp Vault Metadata Preservation Mode](https://docs.akeyless.io/docs/gateway-automatic-migration#hashicorp-vault-metadata-preservation-mode) for details.
 
 `-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, for example, `arn:aws:secretsmanager:[Region]:[AccountId]:secret:[/path/to/secrets/*]` (relevant only for AWS migration)
 

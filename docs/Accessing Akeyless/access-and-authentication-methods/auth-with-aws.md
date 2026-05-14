@@ -95,7 +95,7 @@ For optional features that apply across Authentication Methods, see [Common Opti
 * **Bounded Role Names:** Enter one or more IAM role names that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-role-name` for each value.
 * **Bounded Role IDs:** Enter one or more IAM role IDs that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-role-id` for each value.
 * **Bounded User names:** Enter one or more IAM user names that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-user-name` for each value.
-* **Custom STS Endpoint:** Set a custom AWS STS endpoint URL if your environment requires a non-default endpoint. If not set, Akeyless uses `https://sts.amazonaws.com`.
+* **Custom STS Endpoint:** Set a custom AWS STS endpoint URL if your environment requires a non-default endpoint. If not set, Akeyless uses `https://sts.amazonaws.com`. For AWS China partitions, a regional endpoint is required; for example, `https://sts.cn-north-1.amazonaws.com.cn` for `cn-north-1`, or `https://sts.cn-northwest-1.amazonaws.cn` for `cn-northwest-1`.
 * **Unique Identifier:** Set a sub-claim key used to uniquely identify authenticated IAM principals.
 
 ## AWS Instance Metadata Service

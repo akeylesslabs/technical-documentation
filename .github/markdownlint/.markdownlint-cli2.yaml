@@ -595,6 +595,22 @@ config:
         example_from: "These vendors try to gyp customers."
         example_to: "These vendors try to cheat customers."
 
+      # ML-KEM algorithm naming (NIST FIPS 203)
+      - term: "MLKEM-768"
+        replacement: "ML-KEM 768"
+        example_from: "X25519 + MLKEM-768"
+        example_to: "X25519 + ML-KEM 768"
+
+      - term: "ML-KEM768"
+        replacement: "ML-KEM 768"
+        example_from: "ML-KEM768 (NIST PQC KEM)"
+        example_to: "ML-KEM 768 (NIST PQC KEM)"
+
+      - term: "ML-KEM-768"
+        replacement: "ML-KEM 768"
+        example_from: "ML-KEM-768 key exchange"
+        example_to: "ML-KEM 768 key exchange"
+
   # AKY018: Require canonical Markdown table separator rows
   #
   # Purpose:

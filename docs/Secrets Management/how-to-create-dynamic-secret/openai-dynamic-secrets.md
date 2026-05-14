@@ -61,7 +61,7 @@ Where:
 
 > ✅ **Tip:** To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
-1. Log in to the Akeyless Console, and go to **Items** > **New** > **Dynamic Secret**.
+1. Log in to the Akeyless Console, and go to **Items**, then **New**, then **Dynamic Secret**.
 
 2. Select the **OpenAI** secret type and click **Next**.
 

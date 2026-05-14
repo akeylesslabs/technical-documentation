@@ -220,7 +220,7 @@ Once finish, you will have a new role in the source Account that trusts itself a
 
 To work with this role from Akeyless, an [AWS Target](https://docs.akeyless.io/docs/aws-targets) is required:
 
-1. Navigate to **Targets** > **New** > **AWS**. Press **Next**.
+1. Navigate to **Targets**, then **New**, then **AWS**. Press **Next**.
 2. Give the Target a **Name** and optionally, a **Location**. Press **Next**.
 3. Choose **Use Gateway's Cloud Identity** and click **Finish**
 
@@ -228,7 +228,7 @@ To work with this role from Akeyless, an [AWS Target](https://docs.akeyless.io/d
 
 To have a centralized Gateway that will be able to manage resources in multiple AWS Accounts, A target in Akeyless with an [External ID](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/) is required.
 
-1. Navigate to **Targets** > **New** > **AWS**. Press **Next**.
+1. Navigate to **Targets**, then **New**, then **AWS**. Press **Next**.
 2. Give the Target a **Name** and optionally, a **Location**. Press **Next**.
 3. Choose **Use Gateway's Cloud Identity** and check the **External ID** option.
 
@@ -485,7 +485,7 @@ Then, enter the GW console - `https://public-ip>:8000/console`
 
 This example will use **IAM\_USER** mode, this will create a new temporary user in the destination account in AWS.
 
-In Akeyless, Navigate to **Items** > **New** > **Dynamic Secret** > **AWS**.
+In Akeyless, Navigate to **Items**, then **New**, then **Dynamic Secret**, then **AWS**.
 
 1. Give the Dynamic Secret a name and select **Next**.
 2. Choose the **Target** that was created with the **External ID**.
@@ -500,7 +500,7 @@ You will get the credentials of the new temporary user that was created in the d
 
 Now, we will use an AWS [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 
-In Akeyless, Navigate to **Items** > **New** > **Rotated Secret** > **AWS**.
+In Akeyless, Navigate to **Items**, then **New**, then **Rotated Secret**, then **AWS**.
 
 1. Give the Dynamic Secret a name and select **Next**.
 2. Choose the **Target** that was created with the **External ID**.

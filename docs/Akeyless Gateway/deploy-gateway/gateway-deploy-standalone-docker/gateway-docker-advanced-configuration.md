@@ -362,29 +362,28 @@ After TLS is configured and the Gateway is available over HTTPS, validate the ne
 `X25519MLKEM768` confirms a hybrid key exchange:
 
 * `X25519` (classical elliptic-curve cryptography)
-* `MLKEM-768` (post-quantum cryptography)
+* ML-KEM 768 (post-quantum cryptography)
 
 This confirms the connection is using **TLS 1.3 with hybrid post-quantum key exchange**.
 
 #### Gateway Restart Requirement
 
-To enable PQC support, restart the Gateway with the required environment variables:
+To enable hybrid PQC support on the Gateway endpoint, restart the Gateway with the required environment variable:
 
 ```shell
 docker run -d \
 -p 8000:8000 \
 -p 5696:5696 \
 -e MIN_TLS_VERSION=TLSv1.3 \
--e GODEBUG=tlsmlkem=1 \
 --name akeyless-gateway \
 akeyless/base:latest-akeyless
 ```
 
-The variables `MIN_TLS_VERSION=TLSv1.3` and `GODEBUG=tlsmlkem=1` enable hybrid PQC support (`X25519 + MLKEM-768`) on the Gateway container.
+Setting `MIN_TLS_VERSION=TLSv1.3` enables hybrid PQC support (X25519 + ML-KEM 768) on the Gateway container.
 
-> 📘 Info
+> ℹ️ **Info:**
 >
-> Hybrid PQC support is validated at the Gateway endpoint level. Data in transit between the Gateway and Akeyless SaaS is already encrypted.
+> Akeyless SaaS connections already use hybrid PQC encryption by default over TLS 1.3. The environment variables in this section are required for the Gateway endpoint configuration.
 
 ### Cache Configuration
 

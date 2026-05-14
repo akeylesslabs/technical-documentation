@@ -75,7 +75,7 @@ akeyless set-role-rule --role-name /Dev/CI/CircleCIRole \
 
 Instead of checking your Auth Method `access Id`, or your [Gateway](https://docs.akeyless.io/docs/gateway-overview) `URL` into version control, we can store them securely in CircleCI environment variables.
 
-Go to **Project Settings** > **Environment variables** > **Add Environment Variable**
+Go to **Project Settings**, then **Environment variables**, then **Add Environment Variable**
 
 Create an environment variable in CircleCI called `ACCESS_ID` and store your Auth Method's `access-id` in it.
 
@@ -87,7 +87,7 @@ While working with [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-k
 
 In jobs using a context, CircleCI provides OpenID Connect ID (OIDC) tokens in environment variables. A job can use these tokens to access Akeyless without storing long-lived credentials in CircleCI.
 
-Go to **Organization Settings** > **Contexts** > **Add a context**
+Go to **Organization Settings**, then **Contexts**, then **Add a context**
 Name it `akeyless`, we will later add this context to a job by adding the context key to the workflows section of your `circleci/config.yml` file.
 
 ## Usage
