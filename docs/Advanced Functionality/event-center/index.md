@@ -102,7 +102,7 @@ Use the following event types to monitor KMIP certificate lifecycle:
 * `kmip-cert-pending-expiration`: When a KMIP certificate is about to expire, it must be set on the Gateway.
 * `kmip-cert-expired`: When a KMIP certificate has expired, it must be set on the Gateway.
 
-To notify operations teams, configure forwarding rules in [Event Forwarders](https://docs.akeyless.io/docs/event-center).
+To notify operations teams, configure forwarding rules in [Event Forwarders](https://docs.akeyless.io/docs/event-center#event-forwarders).
 
 ## Event Forwarders
 

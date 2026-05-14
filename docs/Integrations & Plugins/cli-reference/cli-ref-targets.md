@@ -202,7 +202,7 @@ akeyless target create cloudflare \
 
 `--api-token`: **Required**, Cloudflare API token
 
-`--account-id`: Cloudflare account ID
+`--account-id`: Optional. Cloudflare account ID
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
@@ -1482,7 +1482,7 @@ akeyless target update cloudflare \
 
 `--api-token`: Cloudflare API token
 
-`--account-id`: Cloudflare account ID
+`--account-id`: Optional. Cloudflare account ID
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 

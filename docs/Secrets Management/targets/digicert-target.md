@@ -103,22 +103,23 @@ Where:
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. [Read more about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 4. Define the remaining parameters as follows:
-   * **Environment**: The ACME environment, **US Production** / **EU Production** / **US Demo** or **EU Demo**
 
-   * **Email**: Email address used to register the ACME account.
+* **Environment**: The ACME environment, **US Production** / **EU Production** / **US Demo** or **EU Demo**
 
-   * **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
+* **Email**: Email address used to register the ACME account.
 
-   * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
+* **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
 
-   * **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+* **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
-   * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
+    * **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
 
-   * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+    * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
-   * **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
+    * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
-   * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
+* **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
 
-5. Click Finish.
+* **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
+
+1. Click Finish.

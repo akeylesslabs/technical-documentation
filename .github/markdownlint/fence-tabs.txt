@@ -162,7 +162,7 @@ MSSQL
 MSSQL RDS
 Multi region
 MyAES256SIVKey
-MySQL/MariaDB
+MySQL (and MariaDB)
 MySQLWordPress.yaml
 Native Kubernetes
 Oauth2.0
