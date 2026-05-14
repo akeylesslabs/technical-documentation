@@ -39,7 +39,7 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
 
 3. **Generate and download JSON key**: Click the **Service Account** that was created, go to **Keys**, and click **Add Key > Create new key > JSON**. The key will be downloaded automatically to your computer.
 
-4. **Delegate Domain-Wide Authority**: In the **Google Workspace Admin Console**, go to **Security** > **Access and data control > API controls**, click **Manage Domain Wide Delegation** > **Add new**, and enter the client **ID** from the **JSON** file downloaded earlier.
+4. **Delegate Domain-Wide Authority**: In the **Google Workspace Admin Console**, go to **Security**, then **Access and data control > API controls**, click **Manage Domain Wide Delegation**, then **Add new**, and enter the client **ID** from the **JSON** file downloaded earlier.
    * In the same location, add the following scopes:
 
      ```json

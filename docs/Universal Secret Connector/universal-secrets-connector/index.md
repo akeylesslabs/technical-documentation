@@ -36,7 +36,7 @@ Akeyless currently supports creating Universal Secrets Connectors for the follow
 
 * [HashiCorp Vault Universal Secret Connector](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
 
-To view all your Universal Secret Connectors, log in to the **Console** then navigate to **Items** > **Universal Secrets Connector**.
+To view all your Universal Secret Connectors, log in to the **Console** then navigate to **Items**, then **Universal Secrets Connector**.
 
 ## Tutorial
 

@@ -94,7 +94,7 @@ While the console can create GPG-type keys, their full usage functionalities are
 
 ### Key Creation
 
-1. In the Akeyless Console, select **New**>**Encryption Key** > **Classic**.
+1. In the Akeyless Console, select **New**, then **Encryption Key**, then **Classic**.
 
 2. Define the following:
 

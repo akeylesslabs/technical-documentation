@@ -10,18 +10,24 @@ metadata:
 next:
   description: ''
 ---
-Akeyless enables you to work with the following secret types:
+Akeyless supports several item types for storing, generating, protecting, and distributing sensitive data.
 
-* **Static Secrets**: Key/value pairs that you create and update manually. The values usually remain the same for long periods. Typically, you use Static Secrets to protect passwords, API tokens, and personal identifiers (PII) or credit card numbers. See [Static Secrets](https://docs.akeyless.io/docs/static-secrets).
+## Secret Types
 
-* **Dynamic Secrets**: Temporary credentials generated on-demand to provide a client with access to a resource for a limited period of time, with a limited set of permissions. See [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
+Use these secret types to manage application and user credentials:
 
-* **Rotated Secrets**: Passwords for privileged-user accounts that are periodically updated by resetting a password on a target machine. The Akeyless Platform stores the updated secret value to retrieve it when required. See [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets).
+* **Static Secrets**: Key/value pairs that you create and update manually. Use them for values that change infrequently, such as passwords, API tokens, personal identifiers, or credit card numbers. Akeyless also provides dedicated [Password](https://docs.akeyless.io/docs/passwords) items for username, password, and website credentials. See [Static Secrets](https://docs.akeyless.io/docs/static-secrets).
 
-In addition, Akeyless enables you to work with:
+* **Dynamic Secrets**: Temporary credentials generated on demand for a limited time and with a limited set of permissions. See [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
-* **Targets**: Targets act as a connector between credentials and the items that need to use them, both saving time for the user and protecting your flows from credential breakage. For more detail, see [Targets](https://docs.akeyless.io/docs/targets).
+* **Rotated Secrets**: Passwords for privileged accounts that Akeyless updates periodically by resetting the password on the target system. The platform stores the latest value so you can retrieve it when needed. See [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets).
 
-* **Encryption Keys**: AES, RSA, or EC keys of various sizes. Use these keys to encrypt secrets or any other kind of data and also to sign binaries or application transactions. See [Encryption Keys](https://docs.akeyless.io/docs/encryption-key-management-overview).
+## Supporting Objects
 
-* **Certificates**: Akeyless acts as a Certificate Authority for the internal environment. Supporting both types of [PKI/TLS Certificates](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) and [SSH certificates](https://docs.akeyless.io/docs/sra-ssh-certificates).
+Akeyless also provides supporting objects that help you deliver secrets securely and consistently:
+
+* **Targets**: Targets connect credentials to the systems that consume them. This helps you reuse endpoint details across secrets and reduces the risk of credential drift. See [Targets](https://docs.akeyless.io/docs/targets).
+
+* **Encryption Keys**: AES, RSA, or EC keys that you can use to encrypt data or sign binaries and application transactions. See [Encryption Keys](https://docs.akeyless.io/docs/encryption-key-management-overview).
+
+* **Certificates**: Akeyless can act as a certificate authority for internal environments, supporting both [PKI/TLS Certificates](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) and [SSH certificates](https://docs.akeyless.io/docs/sra-ssh-certificates).
