@@ -26,6 +26,12 @@ Agentic Runtime Authority extends Akeyless AI security beyond secretless credent
 
 Agentic Runtime Authority policy controls are central to secure agent execution. Input and output rules define what the agent can send and what data it can receive, and each runtime session is traceable for monitoring and audit workflows.
 
+## Policy Control And Traceability Summary
+
+* **What the agent can do**: Input rules constrain allowed requests, and output rules constrain what can be returned.
+* **How access is enforced**: Runtime behavior is scoped by role rules and secret permissions.
+* **How actions are traced**: Each runtime session and query event is recorded for monitoring and audit use cases.
+
 The current implementation exposes Agentic Runtime Authority in these places:
 
 * The **Agentic Runtime Authority** step or details tab on supported Dynamic Secrets in the Akeyless Console
