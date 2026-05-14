@@ -22,14 +22,74 @@ Using targets has three primary advantages:
 
 * Don't break the credential chain: Targets can also be used to sync encryption keys with an external KMS, or to define a Target to be used with our [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) to manage and automate your privilege account credentials rotation. This allows every item referencing the target to be up to date on the necessary information and to stay usable even after rotations are done.
 
-## Common Target Families
+## Target Types
 
-If you are looking for a specific target type, start with the family that matches your endpoint:
+### Database
 
-* [Database Targets](https://docs.akeyless.io/docs/database-targets) for database credentials that applications and teams reuse across secrets.
-* Cloud provider targets: [AWS Targets](https://docs.akeyless.io/docs/aws-targets), [Azure Targets](https://docs.akeyless.io/docs/azure-targets), and [GCP Targets](https://docs.akeyless.io/docs/gcp-targets) for cloud platform credentials and cloud-specific integrations.
-* Certificate automation targets: [Let's Encrypt Target](https://docs.akeyless.io/docs/lets-encrypt), [DigiCert Target](https://docs.akeyless.io/docs/digicert-target), [Google CA Target](https://docs.akeyless.io/docs/google-ca-target), and [Cloudflare Target](https://docs.akeyless.io/docs/cloudflare-target) for DNS-01 validation with public Certificate Authority (CA) targets.
-* [SSH Targets](https://docs.akeyless.io/docs/ssh-target) and [Web Targets](https://docs.akeyless.io/docs/web-targets) for server access and web-facing endpoints.
+* [Cassandra](https://docs.akeyless.io/docs/database-targets#cassandra)
+* [Microsoft SQL Server (MSSQL)](https://docs.akeyless.io/docs/database-targets#microsoft-sql-server-mssql)
+* [MongoDB](https://docs.akeyless.io/docs/database-targets#mongodb)
+* [MySQL](https://docs.akeyless.io/docs/database-targets#mysql-and-mariadb)
+* [Oracle](https://docs.akeyless.io/docs/database-targets#oracle)
+* [PostgreSQL](https://docs.akeyless.io/docs/database-targets#postgresql)
+* [Redis](https://docs.akeyless.io/docs/database-targets#redis)
+* [Redshift](https://docs.akeyless.io/docs/database-targets#amazon-redshift)
+* [SAP HANA database](https://docs.akeyless.io/docs/database-targets#sap-hana-database)
+* [Snowflake](https://docs.akeyless.io/docs/database-targets#snowflake)
+
+### Cloud
+
+* [AWS](https://docs.akeyless.io/docs/aws-targets)
+* [Azure AD](https://docs.akeyless.io/docs/azure-targets)
+* [Cloudflare](https://docs.akeyless.io/docs/cloudflare-target)
+* [GCP](https://docs.akeyless.io/docs/gcp-targets)
+* [Salesforce](https://docs.akeyless.io/docs/salesforce-target)
+
+### AI
+
+* [Gemini](https://docs.akeyless.io/docs/gemini-target)
+* [OpenAI](https://docs.akeyless.io/docs/openai-target)
+
+### Kubernetes
+
+* [EKS](https://docs.akeyless.io/docs/kubernetes-targets)
+* [GKE](https://docs.akeyless.io/docs/kubernetes-targets)
+* [Generic](https://docs.akeyless.io/docs/kubernetes-targets)
+
+### Operating System
+
+* [SSH](https://docs.akeyless.io/docs/ssh-target)
+* [Windows](https://docs.akeyless.io/docs/windows-target)
+
+### Certificate Automation
+
+* [DigiCert](https://docs.akeyless.io/docs/digicert-target)
+* [GlobalSign](https://docs.akeyless.io/docs/globalsign-target)
+* [GlobalSign Atlas](https://docs.akeyless.io/docs/globalsign-atlas)
+* [GoDaddy](https://docs.akeyless.io/docs/godaddy-target)
+* [Google CA](https://docs.akeyless.io/docs/google-ca-target)
+* [Let's Encrypt](https://docs.akeyless.io/docs/lets-encrypt)
+* [Sectigo](https://docs.akeyless.io/docs/sectigo-target)
+* [Venafi](https://docs.akeyless.io/docs/venafi-target)
+* [ZeroSSL](https://docs.akeyless.io/docs/zerossl-target)
+
+### Infrastructure
+
+* [Artifactory](https://docs.akeyless.io/docs/artifactory-targets)
+* [Chef Infra](https://docs.akeyless.io/docs/chef-infra-targets)
+* [Docker Hub](https://docs.akeyless.io/docs/docker-hub-target)
+* [GitHub](https://docs.akeyless.io/docs/github-target)
+* [GitLab](https://docs.akeyless.io/docs/gitlab-target)
+* [Splunk](https://docs.akeyless.io/docs/splunk-target)
+
+### Other
+
+* [Custom](https://docs.akeyless.io/docs/web-targets)
+* [HashiCorp Vault](https://docs.akeyless.io/docs/hashicorp-vault-target)
+* [LDAP](https://docs.akeyless.io/docs/ldap-target)
+* [Linked](https://docs.akeyless.io/docs/linked-target)
+* [Ping](https://docs.akeyless.io/docs/ping-target)
+* [RabbitMQ](https://docs.akeyless.io/docs/rabbitmq-targets)
 
 ## Delete protection for targets
 
