@@ -41,6 +41,25 @@ The current Inventory implementation exposes finding details for secret, identit
 
 The current Scanner implementation supports creating scanners, starting scans, stopping active scans, reviewing scan history, and navigating from a running scan directly to **Inventory**.
 
+## Operational Views
+
+Use these views to move from high-level posture checks to specific remediation tasks:
+
+* **Dashboard**: Review high-level counts, trends, and status indicators that show where investigation is needed.
+* **Inventory**: Drill into findings by type, status, and severity, then open finding details for follow-up actions.
+* **Scanners**: Track scanner status, launch or stop scans, and review scan history before validating outcomes in **Inventory**.
+* **Policies**: Review policy scope and status, then enable or adjust policies based on findings from Dashboard and Inventory.
+
+## Example Monitoring Workflow
+
+Use this workflow when you need a repeatable operating pattern for Identity and Secrets Intelligence:
+
+1. Open **Dashboard** to identify the highest-priority signals.
+2. Open **Inventory** to filter and triage findings by type and status.
+3. Open **Scanners** to run targeted scans for affected environments.
+4. Open **Policies** to validate that controls match your risk posture.
+5. Return to **Dashboard** and **Inventory** to verify that remediation changes are reflected.
+
 ### Policy Types And Examples
 
 Identity and Secrets Intelligence policies are organized by finding type. In the current implementation, common policy categories include:
