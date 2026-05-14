@@ -58,11 +58,15 @@ akeyless create-role --name <Role Name>
 
 `--sra-reports-access`: Allow this role to view SRA Clusters. Currently only 'none', 'own' and 'all' values are supported.
 
+`--ara-reports-access`: Allow this role to view [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority). Currently only `none`, `scoped`, and `all` values are supported.
+
 `--usage-reports-access`: Allow this role to view Usage reports. Currently only 'none' and 'all' values are supported.
 
 `--event-center-access`: Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported.
 
 `--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
+
+`--isi-access`: Allow this role to access **Identity & Secrets Intelligence**. Currently only `none`, `scoped`, and `all` values are supported. For details, see [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence).
 
 `--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`own`', '`all`'.
 
@@ -279,11 +283,15 @@ akeyless update-role -n <Role name> \
 
 `--sra-reports-access`: Allow this role to view SRA Clusters. Currently only 'none', 'own' and 'all' values are supported.
 
+`--ara-reports-access`: Allow this role to view [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority). Currently only `none`, `scoped`, and `all` values are supported.
+
 `--usage-reports-access`: Allow this role to view Usage reports. Currently only 'none' and 'all' values are supported.
 
 `--event-center-access`: Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported.
 
 `--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
+
+`--isi-access`: Allow this role to access **Identity & Secrets Intelligence**. Currently only `none`, `scoped`, and `all` values are supported. For details, see [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence).
 
 `--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`own`', '`all`'.
 
