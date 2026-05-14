@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can be used to connect with various native and thick clients to remote hosts by way of Akeyless SRA SSH server, supported with a complete Audit Trail.
+Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can be used to connect with various native and thick clients to remote hosts by way of Akeyless SRA SSH server, supported with connection-level audit events.
 
 While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) CLI, any thick client can be used to establish the connection to a remote server within your internal network by way of the Akeyless SRA SSH server.
 
@@ -19,6 +19,13 @@ While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/do
 * [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) configured.
 
 * The [Secure Remote Access server](https://docs.akeyless.io/docs/sra-setup-k8s) deployed.
+
+## Limitations
+
+Because tunnel connections use end-to-end encryption between the client and the remote target, the SRA bastion cannot inspect the traffic. This has two important implications:
+
+* **No session recording**: Tunnel connections are not recorded. Traffic is encrypted between the client and the target, so the bastion cannot capture session content.
+* **Secretless access is not supported**: Unlike [portal-based connections](https://docs.akeyless.io/docs/sra-portal), tunnels require the user to have explicit `Read` permission on the secret item in Akeyless. The bastion cannot inject credentials into the tunnel without the user being able to see them.
 
 ## Usage
 

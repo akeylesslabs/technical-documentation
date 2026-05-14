@@ -12,6 +12,12 @@ next:
 ---
 RDP Session Recording is managed entirely through your Gateway's console under the **Remote Access** section in the Gateway settings. These sessions generate video recordings that can be uploaded to **AWS S3**, **S3-compatible object storage** (for example, NetApp StorageGRID), or **Azure Blob Storage** for secure storage, or can be saved locally.
 
+> ℹ️ **Note:**
+>
+> If you are working with browser-based Zero Trust Web Access recordings, use [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
+
+RDP recordings support configurable quality, compression, and encryption for stored sessions.
+
 ## Session Recording
 
 SRA supports the recording of RDP sessions. You can choose to store RDP Session Recordings by clicking **Remote Access -> Session Recording -> RDP Recordings**, clicking the slider to Enable, and then choosing the location to keep the recordings of those sessions.
@@ -32,11 +38,11 @@ Optionally compress the encoded video file using `GZIP`.
 
 * **When to use:** Enable compression to reduce storage footprint, especially for long sessions.
 
-#### Encryption (AES)
+#### Encryption
 
-Protect recordings at rest with AES-based encryption.
+Protect recordings at rest with encryption.
 
-* **Algorithm:** **AES** (Akeyless supported key types).
+* **Algorithm:** Encryption uses Akeyless-supported key types.
 * **Scope:** Entire video payload is encrypted after encoding (and after optional compression).
 * **Access:** Only authorized users with the appropriate permissions can decrypt and access the file.
 
@@ -155,3 +161,9 @@ akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \
 --rdp-session-storage local
 ```
+
+## Related Pages
+
+* [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording)
+* [Session Management](https://docs.akeyless.io/docs/sra-session-management)
+* [Session Log Forwarding](https://docs.akeyless.io/docs/sra-session-forwarding)
