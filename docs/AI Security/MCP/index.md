@@ -10,7 +10,7 @@ metadata:
   description: Overview of Akeyless MCP content, requirements, and supported integrations.
   robots: index
 ---
-The Akeyless Model Context Protocol (MCP) Server lets MCP-enabled tools connect to your Akeyless identity security platform through the Akeyless CLI. This section explains the MCP server, its command syntax, and the supported client integrations documented by Akeyless.
+The Akeyless Model Context Protocol (MCP) Server lets MCP-enabled tools connect to your Akeyless identity security platform through the Akeyless CLI or Gateway. This section explains the MCP server, its command syntax, and the supported client integrations documented by Akeyless.
 
 Model Context Protocol (MCP) is an open protocol that standardizes how an AI client discovers tools and sends tool calls to an external server. In this model, your MCP client (for example, Claude Desktop, Cursor, or GitHub Copilot) launches the Akeyless MCP server locally over `stdio`, then uses it to run authorized operations against Akeyless resources.
 
