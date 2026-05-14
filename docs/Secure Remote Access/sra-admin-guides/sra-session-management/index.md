@@ -12,7 +12,7 @@ next:
 ---
 Session Management provides users with full control over how session activities are recorded, stored, and forwarded for auditing and analysis. Through the platform’s UI, users can enable session recording and configure how session data is forwarded to external systems.
 
-Key actions include enabling session recording for various types of remote access sessions, configuring log forwarding for CLI-based sessions, and managing video recordings for RDP sessions.
+Key actions include enabling session recording for various types of remote access sessions, configuring log forwarding for CLI-based sessions, and managing video recordings for RDP and web-access sessions.
 
 ## Session Recording
 
@@ -22,9 +22,19 @@ Key actions include enabling session recording for various types of remote acces
 
 SRA allows you to automatically upload and store these video recordings in secure locations such as AWS S3 or Azure Blob Storage for long-term retention and review, or you can store them locally on the server.
 
+### Web Access Session Recording
+
+[Web access session recording](https://docs.akeyless.io/docs/sra-web-access-on-k8s) refers to the process of capturing browser-based web access sessions in Zero Trust Web Access (ZTWA). These recordings preserve the interactive web session and can be stored with the ZTWA deployment configuration.
+
+For full recording configuration options (quality, upload destination, compression, encryption, watchdog controls, and service-level overrides), see [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
+
 ### Terminal-Based Sessions
 
 For terminal-based sessions (such as SSH, DB, and Kubernetes), the system records a full transcript of the commands entered and their corresponding outputs. This data can be forwarded to external systems like Splunk, Elasticsearch, or by way of Syslog for monitoring and archiving. See more [here](https://docs.akeyless.io/docs/sra-session-forwarding).
+
+> ℹ️ **Note:**
+>
+> Session recording and terminal session forwarding are different features. Use [RDP Recordings](https://docs.akeyless.io/docs/sra-rdp-recordings) for RDP video capture and [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s) for browser-based ZTWA video capture.
 
 ## Secret Locking and Rotation Timing
 

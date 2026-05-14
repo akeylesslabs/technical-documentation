@@ -72,7 +72,7 @@ Do not use proactive caching when:
 
 | Deployment option | How to configure |
 | --- | --- |
-| Gateway Console | In the Gateway UI, go to **Manage Gateway** > **Caching** and turn on the **Enable Proactive Caching** toggle. (Requires **Enable Caching** to be on first.) |
+| Gateway Console | In the Gateway UI, go to **Manage Gateway**, then **Caching** and turn on the **Enable Proactive Caching** toggle. (Requires **Enable Caching** to be on first.) |
 | [Kubernetes (Helm)](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) | Set environment variables under `globalConfig.env` in `values.yaml` and [apply a Helm upgrade](https://helm.sh/docs/helm/helm_upgrade/). |
 | [Standalone Docker](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker) | Set proactive cache environment variables in container runtime configuration. |
 | [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose) | Set the same environment variables in the compose service definition and redeploy. |

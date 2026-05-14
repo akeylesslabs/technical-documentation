@@ -1,5 +1,6 @@
 - gateway-authentication-and-access
 - gateway-tls-settings
+- gateway-pqc-support-reference
 - gateway-certificate-store
 - gateway-zero-knowledge
 - gateway-caching

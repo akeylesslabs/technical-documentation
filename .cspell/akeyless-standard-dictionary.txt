@@ -18,3 +18,4 @@ scriptable
 unaligned
 subfolders
 blockquotes
+tolerations

@@ -4,6 +4,7 @@ repos:
     hooks:
       - id: gitleaks
         name: gitleaks (secret scan)
+        args: ["--staged", "--redact"]
 
   # Local hooks: markdownlint, cspell, lychee
   # Note: These run sequentially on edited markdown files. Markdownlint uses --fix to auto-correct issues.
@@ -38,4 +39,4 @@ repos:
         files: \.md$
         pass_filenames: true
         require_serial: true
-        stages: [manual]
+        stages: [pre-commit]

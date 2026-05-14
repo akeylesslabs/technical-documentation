@@ -163,6 +163,15 @@ With context:
 * `Monospace`: For commands, code, filenames, configuration keys.
 * Avoid underlines (can be confused with hyperlinks).
 
+### UI Navigation Paths
+
+Write out navigation steps using words. Use bold for UI element names and "then" between steps. Do not use `>` as a navigation separator.
+
+* **Correct**: go to **Account Settings**, then **Key Management**
+* **Incorrect**: go to **Account Settings** > **Key Management**
+
+This applies to all UIs, including third-party consoles such as the AWS Console, Azure Portal, and GitHub.
+
 ## Terminology
 
 * Capitalize proper nouns and feature names (For example, Akeyless MCP Server).

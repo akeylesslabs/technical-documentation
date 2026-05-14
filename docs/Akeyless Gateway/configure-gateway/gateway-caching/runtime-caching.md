@@ -67,7 +67,7 @@ Use the following deployment-specific options to configure runtime caching:
 
 | Deployment option | How to configure |
 | --- | --- |
-| Gateway Console | In the Gateway UI, go to **Manage Gateway** > **Caching** and turn on the **Enable Caching** toggle. |
+| Gateway Console | In the Gateway UI, go to **Manage Gateway**, then **Caching** and turn on the **Enable Caching** toggle. |
 | [Kubernetes (Helm)](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) | Set runtime behavior keys under `globalConfig.env` in `values.yaml` (for example `CACHE_ENABLE`, `PREFER_CLUSTER_CACHE_FIRST`) and [apply a Helm upgrade](https://helm.sh/docs/helm/helm_upgrade/). Set `IGNORE_REDIS_HEALTH` separately when you want to change health-check behavior. |
 | [Standalone Docker](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker) | Set cache-related environment variables (for example `CACHE_ENABLE`, `PREFER_CLUSTER_CACHE_FIRST`) in container runtime configuration. |
 | [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose) | Set the same cache-related environment variables in the compose service definition and redeploy. |

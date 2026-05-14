@@ -187,7 +187,7 @@ Find more information about the available Terraform [configuration files](https:
 The **Serverless Gateway** version can be updated to different versions based on your preferences, follow these steps to update the Gateway:
 
 * Enter the [Serverless Gateway](https://github.com/akeyless-community/akeyless-serverless-gateway) repo in **GitHub**
-* Go to **Lambda Docker Image Configuration** > **Selecting a Different Version**
+* Go to **Lambda Docker Image Configuration**, then **Selecting a Different Version**
 * [View available versions](https://gallery.ecr.aws/akeyless/serverless-gateway)
 * In `variables.tf` file, change the field `image-tag` to the version you desire
 * Run `terraform apply`

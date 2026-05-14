@@ -18,11 +18,13 @@ Agentic Runtime Authority allows AI agents to securely communicate with protecte
 **Agentic Runtime Authority** currently supports these target categories for runtime execution:
 
 * **Database targets**: MySQL, PostgreSQL, MSSQL, Oracle, Snowflake, HanaDB, Redshift, MongoDB, Redis, and Cassandra.
-* **Service targets**: AWS, GCP, Azure, Kubernetes, EKS, GKE, and GitHub.
+* **Service targets**: AWS, GCP, Azure, and GitHub.
 
-The `runtime-authority` command and the MCP execution tools operate on supported dynamic or rotated secrets.
+The `runtime-authority` command and the MCP execution tools operate on supported dynamic, rotated, and static secrets. Static secrets are typically used for OAuth 2.1-based MCP workflows and connection-string-based integrations.
 
 Agentic Runtime Authority extends Akeyless AI security beyond secretless credential retrieval by adding runtime controls and reporting for agent access.
+
+Agentic Runtime Authority policy controls are central to secure agent execution. Input and output rules define what the agent can send and what data it can receive, and each runtime session is traceable for monitoring and audit workflows.
 
 The current implementation exposes Agentic Runtime Authority in these places:
 
@@ -37,12 +39,12 @@ The current implementation exposes Agentic Runtime Authority in these places:
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.51.0` or later.
-* CLI version `1.144.0` or later.
-* [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) enabled on the Gateway when output rules are used.
+* [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) enabled on the Gateway.
 * A Dynamic Secret configured with Agentic Runtime Authority enabled.
 * A role with access to the relevant Dynamic Secret and, when required, reporting access to Agentic Runtime Authority.
 * An authentication method associated with that role.
 * A supported desktop client, such as Claude Desktop or Cursor, if you plan to use MCP.
+* CLI version `1.144.0` or later, only when you plan to use CLI-based setup or execution flows.
 
 ## Control Access With RBAC
 
@@ -136,7 +138,7 @@ The current CLI parser requires both `name` and `rule` for each repeated flag.
 
 ## Set Up The AI Agent
 
-To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [MCP Server](https://docs.akeyless.io/docs/mcp-server). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
+To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [Akeyless MCP Model Context Protocol Command](https://docs.akeyless.io/docs/akeyless-mcp-model-context-protocol-command). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
 
 ### For Claude
 
@@ -171,7 +173,7 @@ Where:
 
 * `gateway-url`: The Gateway URL where the Dynamic Secret exists.
 
-* `secret-name`: An optional default secret path for the `query-db` MCP tool. This does not replace RBAC scoping for the server. Use role rules and secret permissions to restrict which secrets the profile can access.
+* `secret-name`: An optional default secret path for the `query-db` MCP tool. This does not replace RBAC scoping for the server. Use role rules and secret permissions to restrict which secrets the profile can access. If the profile has access to multiple paths, the agent can resolve the target secret path at runtime.
 
 * `profile`: The CLI profile with the required RBAC permissions for working with Agentic Runtime Authority.
 
@@ -254,6 +256,6 @@ akeyless runtime-authority \
 
 ## Related AI Guides
 
-* [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence)
+* Identity and Secrets Intelligence
 * [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight)
 * [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents)

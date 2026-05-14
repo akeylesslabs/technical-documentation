@@ -75,7 +75,7 @@ All of the parameters from the creation command will also apply here.
 
 ## Managing a Certificate in the Console
 
-1. Select **Items** > **New** > **Certificate**.
+1. Select **Items**, then **New**, then **Certificate**.
 
 2. Basic Configuration (fill in the following parameters):
 

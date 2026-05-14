@@ -16,7 +16,7 @@ DFC uses standard, NIST-approved primitives:
 * **AES** — symmetric encryption
 * **HMAC** — message authentication and integrity
 * **KDFs** — for deriving per-operation values from fragments
-* **Hybrid TLS 1.3 (ML-KEM768 + X25519)** — post-quantum–resistant communication
+* **Hybrid TLS 1.3 (ML-KEM 768 + X25519)** — post-quantum–resistant communication
 
 DFC does not introduce new encryption algorithms; it introduces a new key-handling and fragmentation model.
 
@@ -199,7 +199,7 @@ DFC enables a zero-knowledge model:
 
 DFC uses hybrid TLS 1.3 with:
 
-* **ML-KEM768** (NIST PQC KEM)
+* **ML-KEM 768** (NIST PQC KEM)
 * **X25519** (classical elliptic curve)
 
 These provide protection against potential future quantum attacks on captured traffic.

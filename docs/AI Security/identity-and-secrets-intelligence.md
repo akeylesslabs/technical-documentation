@@ -41,6 +41,16 @@ The current Inventory implementation exposes finding details for secret, identit
 
 The current Scanner implementation supports creating scanners, starting scans, stopping active scans, reviewing scan history, and navigating from a running scan directly to **Inventory**.
 
+### Policy Types And Examples
+
+Identity and Secrets Intelligence policies are organized by finding type. In the current implementation, common policy categories include:
+
+* **Secrets policies**: Focus on secret exposure risks and secret hygiene.
+* **Identity policies**: Focus on identity posture, privilege scope, and risky identity configurations.
+* **Certificate policies**: Focus on certificate posture, lifecycle state, and certificate-related findings.
+
+Examples of policy-driven findings can include exposed secrets in connected sources, over-permissive identities, and certificates that require lifecycle attention.
+
 ### Control Access With Role-Based Access Control (RBAC)
 
 Use the `isi-access` administrative rule on a role to control access to Identity and Secrets Intelligence.
