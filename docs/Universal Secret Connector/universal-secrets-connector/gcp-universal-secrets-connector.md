@@ -117,6 +117,8 @@ The main parameters are:
 
 * `value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
 
+* `--remote-secret-expires`: Optional. Expiration time for the secret in GCP Secret Manager, in UTC format: `YYYY-MM-DDTHH:MM:SSZ`. Once this time passes, GCP automatically disables access to the secret.
+
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
 
 For GCP USC, you can create a regional secret by adding `--region <gcp-region>`. If omitted, the secret is created as global.
@@ -128,6 +130,8 @@ To update an existing secret in your USC, use the following command:
 ```shell
 akeyless usc update --usc-name <USC name> --secret-id <secret id> --value <new secret value>
 ```
+
+Use `--remote-secret-expires` to set or update the expiration time for the secret in GCP Secret Manager, in UTC format: `YYYY-MM-DDTHH:MM:SSZ`.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#update).
 

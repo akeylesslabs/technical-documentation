@@ -28,13 +28,13 @@ In this case, for simplicity, we used [API Key](https://docs.akeyless.io/docs/au
 
 In the Akeyless Console, navigate to **Users & Auth Methods**.
 
-1. Click **New** > **AWS IAM**.
+1. Click **New**, then **AWS IAM**.
 
 2. Provide a name AWS Account and click **Finish**. More details about the AWS IAM authentication method can be found [here](https://docs.akeyless.io/docs/auth-with-aws)
 
 In addition, to create an authentication methods that support user login, for simplicity, we will use [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-1. Click **New** > **API Key**
+1. Click **New**, then **API Key**
 2. Provide a name and click **Finish**
 
 > ℹ️ **Note (API Key Credentials):**
@@ -65,7 +65,7 @@ The following steps will be used to set up the Gateway and create the required *
 
 To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html):
 
-1. Open the **AWS Console**, navigate to **CloudFormation** > **Create Stack** > **With new resources (standard)**
+1. Open the **AWS Console**, navigate to **CloudFormation**, then **Create Stack**, then **With new resources (standard)**
 
 2. Select **Upload a template file**, then upload the `yaml` file containing the CloudFormation template.
 
@@ -587,7 +587,7 @@ The following steps will create the required resources in Akeyless to generate a
 
 ### Create a Rotated Secret
 
-1. Go to **Items** > **New** > **Rotated Secret**, then select **AWS**.
+1. Go to **Items**, then **New**, then **Rotated Secret**, then select **AWS**.
 
 2. Provide a name and location.
 
@@ -605,7 +605,7 @@ Click the **eye** icon to view the current credentials, or select **Rotate Secre
 
 ### Create a Universal Secret Connector (USC)
 
-1. Go to **Items** > **New** > **Universal Secret Connector**, and choose **AWS**.
+1. Go to **Items**, then **New**, then **Universal Secret Connector**, and choose **AWS**.
 
 2. Provide a name and location.
 

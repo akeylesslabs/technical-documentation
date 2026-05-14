@@ -26,6 +26,8 @@ Create a new Target
 
 `azure`
 
+`cloudflare`
+
 `db`
 
 `dockerhub`
@@ -179,6 +181,33 @@ akeyless target create azure \
 `-k, --key`: Key name. The key is used to encrypt the target secret value. If the key name is not specified, the account default protection key is used
 
 `--description`: Target description
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+### `cloudflare`
+
+Creates a new Cloudflare target in the current account
+
+#### Usage
+
+```shell
+akeyless target create cloudflare \
+--name <Target name> \
+--api-token <Cloudflare API token> \
+--account-id <Cloudflare account ID>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--api-token`: **Required**, Cloudflare API token
+
+`--account-id`: Optional. Cloudflare account ID
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--description`: Description of the object
+
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 ### `db`
@@ -725,6 +754,7 @@ akeyless target create lets-encrypt \
 --acme-challenge[=http] <http/dns> \
 --email <Email address for ACME account registration> \
 --dns-target-creds <Target Name> \
+--dns-zone <Cloudflare DNS zone> \
 --hosted-zone <Amazon Route 53 hosted zone> \
 --resource-group <Azure resource group name> \
 --gcp-project <GCP project ID> \
@@ -742,7 +772,9 @@ akeyless target create lets-encrypt \
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
-`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`]). Relevant only when `--acme-challenge=dns`
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`/`Cloudflare`]). Relevant only when `--acme-challenge=dns`
+
+`--dns-zone`: **Cloudflare DNS zone** name. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is Cloudflare
 
 `--hosted-zone`: **Amazon Route 53** hosted zone identifier. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is AWS
 
@@ -1427,6 +1459,39 @@ akeyless target update azure \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
+#### `cloudflare`
+
+Updates an existing Cloudflare target in the current account
+
+##### Usage
+
+```shell
+akeyless target update cloudflare \
+--name <Target name> \
+--new-name <New target name> \
+--api-token <Cloudflare API token> \
+--account-id <Cloudflare account ID> \
+--key <Key name>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--api-token`: Cloudflare API token
+
+`--account-id`: Optional. Cloudflare account ID
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--description`: Description of the object
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+
 #### `db`
 
 Update an existing db target in the current account
@@ -2007,6 +2072,7 @@ akeyless target update lets-encrypt \
 --acme-challenge[=http] <http/dns> \
 --email <Email address for ACME account registration> \
 --dns-target-creds <Target Name> \
+--dns-zone <Cloudflare DNS zone> \
 --hosted-zone <Amazon Route 53 hosted zone> \
 --resource-group <Azure resource group name> \
 --gcp-project <GCP project ID> \
@@ -2026,7 +2092,9 @@ akeyless target update lets-encrypt \
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
-`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`]). Relevant only when `--acme-challenge=dns`
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`/`Cloudflare`]). Relevant only when `--acme-challenge=dns`
+
+`--dns-zone`: **Cloudflare DNS zone** name. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is Cloudflare
 
 `--hosted-zone`: **Amazon Route 53** hosted zone identifier. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is AWS
 

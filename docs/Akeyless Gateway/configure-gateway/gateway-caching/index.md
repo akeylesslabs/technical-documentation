@@ -41,7 +41,7 @@ For Kubernetes proactive cache sizing guidance, see [Gateway Best Practices: Res
 To manage cache runtime settings from Gateway Configuration Manager:
 
 1. Open `https://<your-gateway-url>:8000/console`.
-2. Go to **Gateways** > **Your Gateway** > **Manage Gateway** > **Caching Configuration**.
+2. Go to **Gateways**, then **Your Gateway**, then **Manage Gateway**, then **Caching Configuration**.
 3. Configure cache and proactive cache options.
 4. Save changes.
 

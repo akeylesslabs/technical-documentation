@@ -12,7 +12,7 @@ next:
 ---
 ## Application Registration in Active Directory
 
-1. In the Azure Portal, go to **Azure Active Directory** > **App registration**:
+1. In the Azure Portal, go to **Azure Active Directory**, then **App registration**:
 
    ![On Azure Portal -> Azure Active Directory -> App Registration](https://files.readme.io/407e4bf-image-20210204-103119.png)
 

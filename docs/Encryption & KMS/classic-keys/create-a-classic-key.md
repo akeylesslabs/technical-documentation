@@ -59,7 +59,7 @@ The full list of options for this command is:
 
 You can create a classic key using the Akeyless Gateway. If you’d prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/create-a-classic-key#create-a-classic-key-from-the-cli) instead.
 
-1. In the Akeyless Gateway UI, select **Classic Keys** > **New**.
+1. In the Akeyless Gateway UI, select **Classic Keys**, then **New**.
 
 2. Define the following:
    * **Name:** The name of the classic key.

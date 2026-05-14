@@ -37,7 +37,7 @@ The following Events are currently supported:
 
 For `items-event-source-locations`:
 
-* `certificate-pending-expiration`: When a certificate is about to expire, the users sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
+* `certificate-pending-expiration`: When a certificate is about to expire, the user sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
 
 * `certificate-expired`: When a certificate is expired.
 
@@ -53,15 +53,17 @@ For `items-event-source-locations`:
 
 * `rotated-secret-failure`: Upon **automatic** rotation failure, including the error details.
 
+* `rotated-secret-partial-failure`: When an automatic rotation partially succeeds, some targets rotate successfully but at least one fails.
+
 * `secret-sync`: Upon **automatic** sync failure, including the error details.
 
 * `dynamic-secret-failure`: On general failure of a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
 * `static-secret-updated`: When a [Static Secret](https://docs.akeyless.io/docs/static-secrets) is set to trigger events on value changes.
 
-* `usage_unused`: When a global event is set in the Account settings, for secrets that have not been used or changed within the defined interval.
+* `usage-unused`: When a global event is set in the Account settings, for secrets that have not been used or changed within the defined interval.
 
-* `usage_unrotated`: When a global event is set in the Account settings, for [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) that have not been rotated within the defined interval.
+* `usage-unrotated`: When a global event is set in the Account settings, for [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) that have not been rotated within the defined interval.
 
 * `request-access`: When a user requests access, either for privilege permission or for a Secure Remote Access session. **Note**: Relevant also for `targets-event-source-locations`.
 
@@ -87,9 +89,20 @@ For `gateways-event-source-locations`:
 
 * `gateway-inactive`: When a Gateway changes its state to inactive, it must be set on the Gateway.
 
-* `gateway-certificate-about-to-expire`: When a Gateway certificate (Gateway Certificate Store) is about to expire.
+* `gateway-cert-pending-expiration`: When a Gateway certificate (Gateway Certificate Store) is about to expire, it must be set on the Gateway.
 
-* `gateway-certificate-expired`: When a Gateway certificate (Gateway Certificate Store) is expired.
+* `gateway-cert-expired`: When a Gateway certificate (Gateway Certificate Store) is expired, it must be set on the Gateway.
+
+### KMIP Certificate Expiry Coverage
+
+Certificate expiration events also apply to certificates used by the [KMIP Server](https://docs.akeyless.io/docs/kmip-server), including KMIP server and KMIP client certificates. These events are emitted by the Gateway.
+
+Use the following event types to monitor KMIP certificate lifecycle:
+
+* `kmip-cert-pending-expiration`: When a KMIP certificate is about to expire, it must be set on the Gateway.
+* `kmip-cert-expired`: When a KMIP certificate has expired, it must be set on the Gateway.
+
+To notify operations teams, configure forwarding rules in [Event Forwarders](https://docs.akeyless.io/docs/event-center#event-forwarders).
 
 ## Event Forwarders
 
