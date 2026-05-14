@@ -96,7 +96,7 @@ Where:
 
 ## Create a Google CA Target in the Console
 
-1. Log in to the Akeyless Console, and go to **Targets** > **New** > **Certificate Automation (Google CA)**.
+1. Log in to the Akeyless Console, and go to **Targets**, then **New**, then **Certificate Automation (Google CA)**.
 
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
@@ -116,11 +116,11 @@ Where:
 
 * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
-* **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+    * **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
 
-* **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
+    * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
-* **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+    * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
 * **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
 
