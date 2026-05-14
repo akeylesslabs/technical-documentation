@@ -1,8 +1,11 @@
 ---
 title: Akeyless AI Insights
+excerpt: Configure Akeyless AI Insights with supported LLM targets and gateway settings.
 deprecated: false
 hidden: false
 metadata:
+  title: Akeyless AI Insights
+  description: Configure Akeyless AI Insights at account and gateway levels with supported LLM targets.
   robots: index
 ---
 ## Overview
@@ -37,7 +40,7 @@ Before you begin, ensure you have the following:
 | 1 | Enable AI Insights at the account level | CLI |
 | 2 | Create an OpenAI / Gemini Target | CLI |
 | 3 | Configure the Akeyless Gateway for AI Insights | REST API |
-| 4 | Validate the configuration and test | CLI or Web UI |
+| 4 | Validate the configuration and test | CLI or Console |
 
 ### Step 1: Enable AI Insights at the Account Level
 
@@ -47,7 +50,7 @@ To enable AI Insights, run the following command:
 akeyless update-account-settings --enable-ai-insights true
 ```
 
-AI Insights can also be enabled at the account level using the Web UI.
+AI Insights can also be enabled at the account level using the Akeyless Console.
 
 ![Illustration for: Step 1: Enable AI Insights at the Account Level To enable AI Insights, run the following command: AI Insights can also be enabled at the account level using the Web UI.](https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png)
 
@@ -84,7 +87,7 @@ The following example creates an OpenAI target named `my-openai-target` with the
 ```shell
 akeyless target create openai \
   --name my-openai-target \
-  --api-key sk-xxxx \
+  --api-key <openai-api-key> \
   --model gpt-4
 ```
 
@@ -125,8 +128,8 @@ curl -X PUT "http://localhost:8000/config/ai-insights" \
   -H "Authorization: Bearer $ACCESS_TOKEN" \
   -d '{
     "cluster_identity": {
-      "account_id": "<a-1234567890>",
-      "access_id": "<p-1234567890>",
+      "account_id": "<gateway-account-id>",
+      "access_id": "<gateway-access-id>",
       "cluster_name": "<my-gateway>"
     },
     "ai_insights": {
@@ -145,7 +148,7 @@ To disable AI Insights on the gateway, set the enable field to `false`:
 "ai_insights": { "enable": false }
 ```
 
-The Gateway can also be configured with the Web UI.
+The Gateway can also be configured with the Akeyless Console.
 
 ![Illustration for: Disable AI Insights on the Gateway To disable AI Insights on the gateway, set the enable field to false: The Gateway can also be configured with the Web UI.](https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png)
 
@@ -161,7 +164,7 @@ To verify that AI Insights is enabled at the account level, run the following co
 akeyless get-account-settings
 ```
 
-#### Verify the Target
+### Verify the Target
 
 To verify that the OpenAI target is configured correctly, run the following command:
 
@@ -169,7 +172,7 @@ To verify that the OpenAI target is configured correctly, run the following comm
 akeyless get-target --name my-openai-target
 ```
 
-#### Verify the Gateway Configuration
+### Verify the Gateway Configuration
 
 To verify that the gateway is configured for AI Insights, run the following command:
 
@@ -177,11 +180,11 @@ To verify that the gateway is configured for AI Insights, run the following comm
 curl -X GET http://localhost:8000/config/ai-insights
 ```
 
-#### Test in the Web UI
+#### Test in the Console
 
-To test AI Insights in the Akeyless Web UI, follow these steps:
+To test AI Insights in the Akeyless Console, follow these steps:
 
-1. Open the Akeyless Web UI.
+1. Open the Akeyless Console.
 2. Navigate to AI Insights.
 3. Start a chat session
 4. Ask a natural language question.
@@ -208,9 +211,12 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 * [ ] Store target ID
 * [ ] Configure gateway
 * [ ] Verify the Gateway configuration
-* [ ] Test in the Web UI
+* [ ] Test in the Console
 
 ## Related AI Guides
 
-* <Anchor label="Prompt Injection Protection for AI Agents" href="doc:prompt-injection-protection-for-ai-agents" />
+* [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence)
+* [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority)
+* [MCP Server](https://docs.akeyless.io/docs/mcp-server)
+* [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents)
 * [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
