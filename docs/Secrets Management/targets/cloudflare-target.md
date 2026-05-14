@@ -61,11 +61,11 @@ Where:
 
 4. Define the following parameters:
 
-   * **API Token**: Required. A Cloudflare API token with permission to create and delete DNS TXT records.
+* **API Token**: Required. A Cloudflare API token with permission to create and delete DNS TXT records.
 
-   * **Account ID**: Optional. The Cloudflare account ID associated with the token.
+* **Account ID**: Optional. The Cloudflare account ID associated with the token.
 
-5. Click **Finish**.
+1. Click **Finish**.
 
 ## Use the Cloudflare Target in ACME Flows
 
@@ -87,7 +87,7 @@ Cloudflare-connected certificate automation works together with:
 
 ## Implementation Flow
 
-1. Create a Cloudflare target using the steps above.
+1. Create a Cloudflare target using either the CLI command above or the Console flow.
 2. Create a public CA target (Let's Encrypt, DigiCert, or Google CA) with `--acme-challenge=dns`.
 3. Set `--dns-target-creds` to the Cloudflare target name and set `--dns-zone`.
 4. Create or update your PKI Issuer to use that public CA target.
