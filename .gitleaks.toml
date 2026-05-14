@@ -1,0 +1,27 @@
+title = "Gitleaks Configuration — technical-documentation"
+
+# ---------------------------------------------------------------------------
+# Global allowlist
+# ---------------------------------------------------------------------------
+# These entries exempt specific files that contain intentional examples or
+# documentation content, not real credentials.
+# ---------------------------------------------------------------------------
+
+[allowlist]
+  description = "False-positive allowlist for files containing intentional credential-like examples"
+
+  # .github/LEAK_RESPONSE.md — secret-leak response runbook.
+  # Contains an intentional JWT header example
+  # (`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...REDACTED`) used to illustrate
+  # how to redact JWT tokens in documentation. This is a documentation
+  # artifact, not a real credential.
+  #
+  # .github/markdownlint/custom-rules.js — AKY023 custom lint rule.
+  # Contains the string `DATABASE_PASSWORD=hardcoded123` only in a JSDoc
+  # comment that documents what the rule is designed to detect. This is a
+  # rule-description example, not a real credential.
+
+  paths = [
+    '''\.github/LEAK_RESPONSE\.md''',
+    '''\.github/markdownlint/custom-rules\.js''',
+  ]
