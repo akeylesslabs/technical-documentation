@@ -27,7 +27,9 @@ Web Access Session Recording covers:
 * Optional server-side encryption options.
 * Lifecycle watchdog controls for recording duration and client-connect timing.
 
-This feature is configured in the Zero Trust Web Access chart `values.yaml`.
+This feature is configured with deployment-time defaults in the Zero Trust Web Access chart `values.yaml`.
+
+For ongoing Secure Remote Access session behavior, manage web and SSH settings through the Akeyless API by using the CLI or Console UI.
 
 ## Configuration Surfaces
 
