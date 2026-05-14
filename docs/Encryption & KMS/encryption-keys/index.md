@@ -163,7 +163,7 @@ Select a hash function between `sha-256` and `sha-512`. The full parameters for 
 
 ### Creating an Encryption Key
 
-1. Log in to the Akeyless Console, and go to **Items** > **New** > **Encryption Key** > **DFC™**.
+1. Log in to the Akeyless Console, and go to **Items**, then **New**, then **Encryption Key**, then **DFC™**.
 
 2. Define a **Name** for the key.
 

@@ -38,6 +38,8 @@ The following configuration features are available:
 
 * Configure HTTPS behavior and certificate usage in [TLS Settings](https://docs.akeyless.io/docs/gateway-tls-settings).
 
+* Review cryptography profile and coverage details in [PQC Support Reference](https://docs.akeyless.io/docs/gateway-pqc-support-reference).
+
 * Manage trusted private CAs in [Certificate Store](https://docs.akeyless.io/docs/gateway-certificate-store).
 
 * Configure encryption posture with customer fragments in [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).

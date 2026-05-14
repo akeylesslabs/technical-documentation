@@ -54,7 +54,7 @@ To work with the GitHub Actions plugin:
 
 ## Set Up Akeyless Authentication Credentials for the Repository
 
-1. On GitHub, navigate to the main page of the repository, and select **Settings** > **Secrets** > **New repository secret**.
+1. On GitHub, navigate to the main page of the repository, and select **Settings**, then **Secrets**, then **New repository secret**.
 
 2. Name the secret **VAULT\_TOKEN**.
 
@@ -72,7 +72,7 @@ The GitHub repository is now configured with an access token for Akeyless.
 
 The GitHub [self-hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) enables you to start a runner instance on an instance that you manage. Your workstation can be used if it is supported.
 
-1. On GitHub, navigate to the main page of the repository, and select **Settings** > **Actions** > **Runners** > **Add runner**.
+1. On GitHub, navigate to the main page of the repository, and select **Settings**, then **Actions**, then **Runners**, then **Add runner**.
 
 2. Select the operating system and architecture of your self-hosted runner machine.
 

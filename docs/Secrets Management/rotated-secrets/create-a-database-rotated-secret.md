@@ -20,7 +20,7 @@ You can create a Rotated Secret for a database user. Currently, Akeyless Rotated
 
 * MongoDB
 
-* MySQL/MariaDB
+* MySQL (and MariaDB)
 
 * Oracle Database
 
