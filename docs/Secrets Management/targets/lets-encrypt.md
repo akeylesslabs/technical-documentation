@@ -55,7 +55,15 @@ akeyless target create lets-encrypt \
 --dns-target-creds <Azure DNS Target Name> \
 --resource-group <Azure Resource Group Name>
 ```
-```shell
+```shell DNS with Cloudflare
+akeyless target create lets-encrypt \
+--name <Target Name> \
+--email <ACME Account Email> \
+--acme-challenge dns \
+--dns-target-creds <Cloudflare DNS Target Name> \
+--dns-zone <Cloudflare DNS Zone>
+```
+```shell HTTP
 akeyless target create lets-encrypt \
 --name <Target Name> \
 --email <ACME Account Email> \
@@ -72,7 +80,9 @@ Where:
 
 * `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly. Supported values are `http` (default) and `dns`.
 
-* `dns-target-creds`: Use this when `--acme-challenge=dns`. This is required for DNS validation. Supported target types are AWS, Azure, and GCP.
+* `dns-target-creds`: Use this when `--acme-challenge=dns`. This is required for DNS validation. Supported target types are AWS, Azure, GCP, and Cloudflare.
+
+* `dns-zone`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to a Cloudflare target.
 
 * `hosted-zone`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to an AWS target. This identifies the Route 53 hosted zone.
 
@@ -95,24 +105,28 @@ Where:
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. [Read more about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
 4. Define the remaining parameters as follows:
-   * **Server URL**: Either [Production](https://acme-v02.api.letsencrypt.org/directory) or [Staging](https://acme-staging-v02.api.letsencrypt.org/directory).
 
-   * **Email**: Email address used to register the ACME account.
+* **Server URL**: Either [Production](https://acme-v02.api.letsencrypt.org/directory) or [Staging](https://acme-staging-v02.api.letsencrypt.org/directory).
 
-   * **Challenge Type**: Either **HTTP** or **DNS**.
+* **Email**: Email address used to register the ACME account.
 
-   * **DNS Provider**: Either **AWS**, **GCP**, or **Azure** (relevant only if **Challenge Type** is **DNS**).
+* **Challenge Type**: Either **HTTP** or **DNS**.
 
-   * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
+* **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
 
-   * **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
-   * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
+* **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
-   * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+* **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
 
-   * **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
+* **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
-5. Click Finish.
+* **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+
+* **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
+
+* **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
+
+1. Click Finish.
 
 ## DNS Provider Permissions for DNS-01
 

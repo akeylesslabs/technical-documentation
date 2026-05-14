@@ -21,7 +21,7 @@ repos:
         files: \.md$
         pass_filenames: true
         require_serial: true
-        stages: [commit]
+        stages: [pre-commit]
 
       - id: cspell
         name: cspell (edited markdown files)
@@ -30,7 +30,7 @@ repos:
         files: \.md$
         pass_filenames: true
         require_serial: true
-        stages: [commit]
+        stages: [pre-commit]
 
       - id: lychee
         name: lychee (edited markdown files)
@@ -39,4 +39,4 @@ repos:
         files: \.md$
         pass_filenames: true
         require_serial: true
-        stages: [commit]
+        stages: [pre-commit]
