@@ -159,8 +159,6 @@ Use the following configuration template for both **Claude** and **Cursor**. Rep
         "mcp-runtime-authority",
         "--gateway-url",
         "https://<Your-Akeyless-GW-URL>:8000",
-        "--secret-name",
-        "full/path/to/secret",
         "--profile",
         "profile_name"
       ]
@@ -173,14 +171,14 @@ Where:
 
 * `gateway-url`: The Gateway URL where the Dynamic Secret exists.
 
-* `secret-name`: An optional default secret path for the `query-db` MCP tool. This does not replace RBAC scoping for the server. Use role rules and secret permissions to restrict which secrets the profile can access. If the profile has access to multiple paths, the agent can resolve the target secret path at runtime.
+* `secret-name`: Optional. Use this only when you want to set a default path for the `query-db` MCP tool. This does not replace RBAC scoping for the server. Use role rules and secret permissions to restrict which secrets the profile can access.
 
 * `profile`: The CLI profile with the required RBAC permissions for working with Agentic Runtime Authority.
 
 When the MCP server is running, it exposes these workflows:
 
 * `list-secrets`: Lists ARA-supported secrets that the current profile can access.
-* `query-db`: Runs database queries. `payload` and `agent-id` are required, and `secret-name` is required unless the server was started with a default secret.
+* `query-db`: Runs database queries. `payload` and `agent-id` are required. `secret-name` is required per request only when no default `--secret-name` was provided at server startup.
 * `service-execute`: Runs service actions against supported service targets. `secret-name`, `payload`, and `agent-id` are required.
 
 For OAuth-backed service flows, `service-execute` can also require `auth-code` and `state` on the follow-up call after the server returns an authorization URL.
