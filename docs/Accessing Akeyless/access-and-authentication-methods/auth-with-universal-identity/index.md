@@ -87,17 +87,24 @@ curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 
 #### Rotation Flow
 
-Frequent key rotation is a best practice. You may create an automated script that will rotate your token in pre-scheduled intervals.
+Frequent key rotation is a best practice. To automate UID token rotation, use the built-in `uid-auto-rotate` command set.
 
-While you can write your own script, we have a compatible one-minute interval token rotation script in the [Akeyless Downloads](https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/) folder.
-This script is Linux/macOS compatible, and has the following flow:
+The command set includes:
 
-1. Write the token to a path.
-2. Take the token from the path to perform commands.
-3. Rotate the token.
-4. Replace the token in the path.
+* `init`: Installs and initializes automatic rotation.
+* `rotate`: Runs a manual rotation immediately.
+* `status`: Shows the current auto-rotation status.
+* `uninstall`: Removes the auto-rotation setup.
 
-After downloading the `.sh` file, execute it, select `init`, and insert the token you generated to start the process. From this point on, the script can run automatically to rotate the token.
+Example:
+
+```shell
+akeyless uid-auto-rotate init --uid-token u-XXXXXXXX
+```
+
+For command details and available flags, see [CLI Reference - Universal Identity: uid-auto-rotate](https://docs.akeyless.io/docs/cli-reference-universal-identity#uid-auto-rotate).
+
+If custom automation is required, use `uid-rotate-token` in your own script.
 
 If you wish to write your own script, here are some useful parts you might want to include:
 
