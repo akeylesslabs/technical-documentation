@@ -87,7 +87,7 @@ curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 
 #### Rotation Flow
 
-Frequent key rotation is a best practice. To automate UID token rotation, use the built-in `uid-auto-rotate` command set.
+Frequent token rotation is a best practice. To automate UID token rotation, use the built-in `uid-auto-rotate` command set.
 
 The command set includes:
 
