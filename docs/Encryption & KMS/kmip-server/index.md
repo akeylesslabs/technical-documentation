@@ -49,10 +49,6 @@ Use this sequence for day-to-day KMIP operations:
 
 For complete command flags, see [CLI Reference - KMIP](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server).
 
-> ℹ️ **Note (API and CLI naming):**
->
-> `kmip-server-update` and `kmip-client-update` are valid CLI commands and also appear in REST API schemas. Use update commands to manage certificate expiration-event settings. Use renew commands to issue new certificates.
-
 ## CLI Quickstart
 
 ### Step 1: Create a KMIP server
@@ -177,7 +173,7 @@ You can find the complete list of settings for this command in the [CLI Referenc
 >
 > These roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
 
-### Step 4: Update expiration-event settings
+### Step 4 (Optional): Update expiration-event settings
 
 Update server expiration events:
 
@@ -196,7 +192,7 @@ akeyless kmip-client-update \
 --gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
 ```
 
-### Step 5: Renew certificates
+## Renew Certificates (As Needed)
 
 Renew the server certificate:
 
