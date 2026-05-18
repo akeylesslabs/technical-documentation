@@ -37,12 +37,13 @@ For audit action taxonomy, see [Log Actions](https://docs.akeyless.io/docs/log-a
 >
 > Only users from your Gateway admins list can configure the KMIP server.
 
-## Command Model
+## Recommended Workflow
 
-Use the following command model for certificate lifecycle operations:
+Use this sequence for day-to-day KMIP operations:
 
 * Provision server: `kmip-server-setup`
 * Provision client: `kmip-create-client`
+* Update expiration-event settings: `kmip-server-update` and `kmip-client-update`
 * Renew server certificate: `kmip-renew-server-certificate`
 * Renew client certificate: `kmip-renew-client-certificate`
 
@@ -50,7 +51,7 @@ For complete command flags, see [CLI Reference - KMIP](https://docs.akeyless.io/
 
 > ℹ️ **Note (API and CLI naming):**
 >
-> In REST API schemas, certificate lifecycle updates can appear as `kmip-server-update` and `kmip-client-update` operations. In CLI workflows, use the KMIP renew commands shown above.
+> `kmip-server-update` and `kmip-client-update` are valid CLI commands and also appear in REST API schemas. Use update commands to manage certificate expiration-event settings. Use renew commands to issue new certificates.
 
 ## CLI Quickstart
 
@@ -68,7 +69,8 @@ akeyless kmip-server-setup \
 Flags:
 
 * `hostname`: Hostname of this KMIP server.
-* `root[=/kmip/default]`: Path to store all KMIP Objects.
+* `root`: Required path to store KMIP objects.
+* `expiration-event-in`: Optional. Number of days before expiration to notify. Repeat the flag to set multiple events, for example `--expiration-event-in 1 --expiration-event-in 5`.
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-server-setup) section.
@@ -112,6 +114,8 @@ akeyless kmip-create-client \
 Flags:
 
 * `name`: A unique name of the KMIP client. The name can include the path to the virtual folder where you want to create the new client, using slash `/` separators. If the folder does not exist, it will be created together with the client.
+* `certificate-ttl`: Client certificate TTL in days.
+* `expiration-event-in`: Optional. Number of days before expiration to notify. Repeat the flag to set multiple events, for example `--expiration-event-in 1 --expiration-event-in 5`.
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL (port `8000`).
 * `output-file-folder`: Folder path to save client certificate files locally (for example, `.` for current working dir).
   Two files are created: `<client-name>.key` and `<client-name>.cert`.
@@ -173,7 +177,26 @@ You can find the complete list of settings for this command in the [CLI Referenc
 >
 > These roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
 
-### Step 4: Renew certificates
+### Step 4: Update expiration-event settings
+
+Update server expiration events:
+
+```shell
+akeyless kmip-server-update \
+--expiration-event-in 30 \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
+```
+
+Update client expiration events:
+
+```shell
+akeyless kmip-client-update \
+--name mongodb \
+--expiration-event-in 30 \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
+```
+
+### Step 5: Renew certificates
 
 Renew the server certificate:
 

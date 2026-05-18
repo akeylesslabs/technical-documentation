@@ -18,13 +18,13 @@ This page documents Key Management Interoperability Protocol (KMIP) commands in 
 
 KMIP commands are grouped by lifecycle:
 
-* **Environment lifecycle**: Create, inspect, move, renew, enable or disable, and delete a KMIP server environment.
-* **Client lifecycle**: Create, inspect, renew, and delete KMIP clients.
+* **Environment lifecycle**: Create, inspect, update, move, renew, enable or disable, and delete a KMIP server environment.
+* **Client lifecycle**: Create, inspect, update, renew, and delete KMIP clients.
 * **Authorization lifecycle**: Add and remove KMIP client RBAC rules.
 
 > ℹ️ **Note (CLI and API operation names):**
 >
-> REST API schemas may refer to update operations as `kmip-server-update` and `kmip-client-update`. In CLI workflows, certificate lifecycle updates are handled by `kmip-renew-server-certificate` and `kmip-renew-client-certificate`.
+> `kmip-server-update` and `kmip-client-update` are valid CLI commands and also appear in REST API schemas. Use update commands to manage certificate expiration-event settings. Use renew commands to issue new certificates.
 
 ## Environment Lifecycle Commands
 
@@ -52,6 +52,8 @@ akeyless kmip-server-setup \
 
 `-p, --output-file-folder`: folder path where the CA certificate file is saved (for example, `.`). A new `ca.cert` file is created in this folder.
 
+`-e, --expiration-event-in`: number of days before certificate expiration to notify. Repeat the flag to set multiple events (for example, `--expiration-event-in 1 --expiration-event-in 5`).
+
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ### `kmip-describe-server`
@@ -68,6 +70,24 @@ akeyless kmip-describe-server \
 #### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: gateway URL (Configuration Management port)
+
+### `kmip-server-update`
+
+Update KMIP server configuration.
+
+#### Usage
+
+```shell
+akeyless kmip-server-update \
+--expiration-event-in <DAYS_BEFORE_EXPIRATION> \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-e, --expiration-event-in`: number of days before certificate expiration to notify. Repeat the flag to set multiple events (for example, `--expiration-event-in 1 --expiration-event-in 5`).
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ### `kmip-server-move`
 
@@ -160,6 +180,8 @@ akeyless kmip-create-client \
 
 `-a, --activate-keys-on-creation[=false]`: if set to `true`, newly created keys on this client are set to `active`
 
+`-e, --expiration-event-in`: number of days before certificate expiration to notify. Repeat the flag to set multiple events (for example, `--expiration-event-in 1 --expiration-event-in 5`).
+
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ### `kmip-describe-client`
@@ -171,15 +193,41 @@ Show KMIP client details.
 ```shell
 akeyless kmip-describe-client \
 --name <KMIP_CLIENT_NAME> \
---client-id <KMIP_CLIENT_ID> \
 --gateway-url <GATEWAY_URL>:8000
 ```
+
+Use `--client-id <KMIP_CLIENT_ID>` instead of `--name` when needed.
 
 #### Flags
 
 `-n, --name`: KMIP client name (either `name` or `client-id` is required)
 
 `-i, --client-id`: KMIP client ID (either `name` or `client-id` is required)
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `kmip-client-update`
+
+Update KMIP client configuration.
+
+#### Usage
+
+```shell
+akeyless kmip-client-update \
+--name <KMIP_CLIENT_NAME> \
+--expiration-event-in <DAYS_BEFORE_EXPIRATION> \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+Use `--client-id <KMIP_CLIENT_ID>` instead of `--name` when needed.
+
+#### Flags
+
+`-n, --name`: KMIP client name (either `name` or `client-id` is required)
+
+`-i, --client-id`: KMIP client ID (either `name` or `client-id` is required)
+
+`-e, --expiration-event-in`: number of days before certificate expiration to notify. Repeat the flag to set multiple events (for example, `--expiration-event-in 1 --expiration-event-in 5`).
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -207,10 +255,11 @@ Renew a KMIP client certificate.
 ```shell
 akeyless kmip-renew-client-certificate \
 --name <KMIP_CLIENT_NAME> \
---client-id <KMIP_CLIENT_ID> \
 --output-file-folder <OUTPUT_FOLDER> \
 --gateway-url <GATEWAY_URL>:8000
 ```
+
+Use `--client-id <KMIP_CLIENT_ID>` instead of `--name` when needed.
 
 #### Flags
 
@@ -231,9 +280,10 @@ Delete a KMIP client.
 ```shell
 akeyless kmip-delete-client \
 --name <KMIP_CLIENT_NAME> \
---client-id <KMIP_CLIENT_ID> \
 --gateway-url <GATEWAY_URL>:8000
 ```
+
+Use `--client-id <KMIP_CLIENT_ID>` instead of `--name` when needed.
 
 #### Flags
 
@@ -255,9 +305,10 @@ Delete an RBAC rule from a KMIP client.
 akeyless kmip-client-delete-rule \
 --path <ACCESS_PATH> \
 --name <KMIP_CLIENT_NAME> \
---client-id <KMIP_CLIENT_ID> \
 --gateway-url <GATEWAY_URL>:8000
 ```
+
+Use `--client-id <KMIP_CLIENT_ID>` instead of `--name` when needed.
 
 #### Flags
 
@@ -292,9 +343,10 @@ akeyless kmip-client-set-rule \
 --path <ACCESS_PATH> \
 --capability <ACCESS_CAPABILITY> \
 --name <KMIP_CLIENT_NAME> \
---client-id <KMIP_CLIENT_ID> \
 --gateway-url <GATEWAY_URL>:8000
 ```
+
+Use `--client-id <KMIP_CLIENT_ID>` instead of `--name` when needed.
 
 #### Flags
 
