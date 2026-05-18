@@ -10,41 +10,270 @@ metadata:
 next:
   description: ''
 ---
-This section outlines the CLI commands relevant to KMIP.
+This page documents Key Management Interoperability Protocol (KMIP) commands in the Akeyless CLI.
 
 <CLIGeneralFlags />
 
-## Commands
+## Command Groups
+
+KMIP commands are grouped by lifecycle:
+
+* **Environment lifecycle**: Create, inspect, move, renew, enable or disable, and delete a KMIP server environment.
+* **Client lifecycle**: Create, inspect, renew, and delete KMIP clients.
+* **Authorization lifecycle**: Add and remove KMIP client RBAC rules.
+
+> ℹ️ **Note (CLI and API operation names):**
+>
+> REST API schemas may refer to update operations as `kmip-server-update` and `kmip-client-update`. In CLI workflows, certificate lifecycle updates are handled by `kmip-renew-server-certificate` and `kmip-renew-client-certificate`.
+
+## Environment Lifecycle Commands
+
+### `kmip-server-setup`
+
+Create a new KMIP server environment.
+
+#### Usage
+
+```shell
+akeyless kmip-server-setup \
+--hostname <KMIP_SERVER_HOSTNAME> \
+--certificate-ttl <CERTIFICATE_TTL_DAYS> \
+--root <KMIP_ROOT_PATH> \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-n, --hostname`: **Required**, hostname of this KMIP server
+
+`-t, --certificate-ttl[=90]`: server certificate TTL in days
+
+`-r, --root`: **Required**, root path for KMIP objects
+
+`-p, --output-file-folder`: folder path where the CA certificate file is saved (for example, `.`). A new `ca.cert` file is created in this folder.
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `kmip-describe-server`
+
+Show KMIP server environment details.
+
+#### Usage
+
+```shell
+akeyless kmip-describe-server \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-u, --gateway-url[=http://localhost:8000]`: gateway URL (Configuration Management port)
+
+### `kmip-server-move`
+
+Move the KMIP environment root and associated items to a new root path.
+
+#### Usage
+
+```shell
+akeyless kmip-server-move \
+--new-root <NEW_KMIP_ROOT_PATH> \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-n, --new-root`: **Required**, new root path for the KMIP environment
+
+`-u, --gateway-url[=http://localhost:8000]`: gateway URL (Configuration Management port)
+
+### `kmip-renew-server-certificate`
+
+Renew the KMIP server certificate.
+
+#### Usage
+
+```shell
+akeyless kmip-renew-server-certificate \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `kmip-set-server-state`
+
+Set the KMIP server state to `enabled` or `disabled`.
+
+#### Usage
+
+```shell
+akeyless kmip-set-server-state \
+--state <enabled|disabled> \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-s, --state`: **Required**, server state (`enabled` or `disabled`)
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `kmip-server-delete`
+
+Delete the KMIP server environment. Deletion is allowed only when no clients or associated items remain.
+
+#### Usage
+
+```shell
+akeyless kmip-server-delete \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-u, --gateway-url[=http://localhost:8000]`: gateway URL (Configuration Management port)
+
+## Client Lifecycle Commands
+
+### `kmip-create-client`
+
+Create a new KMIP client.
+
+#### Usage
+
+```shell
+akeyless kmip-create-client \
+--name <KMIP_CLIENT_NAME> \
+--certificate-ttl <CERTIFICATE_TTL_DAYS> \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-n, --name`: **Required**, KMIP client name
+
+`-t, --certificate-ttl[=90]`: client certificate TTL in days
+
+`-p, --output-file-folder`: folder path where client certificate files are saved (for example, `.`). Two files are created: `<client-name>.key` and `<client-name>.cert`.
+
+`-a, --activate-keys-on-creation[=false]`: if set to `true`, newly created keys on this client are set to `active`
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `kmip-describe-client`
+
+Show KMIP client details.
+
+#### Usage
+
+```shell
+akeyless kmip-describe-client \
+--name <KMIP_CLIENT_NAME> \
+--client-id <KMIP_CLIENT_ID> \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-n, --name`: KMIP client name (either `name` or `client-id` is required)
+
+`-i, --client-id`: KMIP client ID (either `name` or `client-id` is required)
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `kmip-list-clients`
+
+List existing KMIP clients.
+
+#### Usage
+
+```shell
+akeyless kmip-list-clients \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-u, --gateway-url[=http://localhost:8000]`: gateway URL (Configuration Management port)
+
+### `kmip-renew-client-certificate`
+
+Renew a KMIP client certificate.
+
+#### Usage
+
+```shell
+akeyless kmip-renew-client-certificate \
+--name <KMIP_CLIENT_NAME> \
+--client-id <KMIP_CLIENT_ID> \
+--output-file-folder <OUTPUT_FOLDER> \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-n, --name`: KMIP client name (either `name` or `client-id` is required)
+
+`-i, --client-id`: KMIP client ID (either `name` or `client-id` is required)
+
+`-p, --output-file-folder`: folder path where client certificate files are saved (for example, `.`). Two files are created: `<client-name>.key` and `<client-name>.cert`.
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `kmip-delete-client`
+
+Delete a KMIP client.
+
+#### Usage
+
+```shell
+akeyless kmip-delete-client \
+--name <KMIP_CLIENT_NAME> \
+--client-id <KMIP_CLIENT_ID> \
+--gateway-url <GATEWAY_URL>:8000
+```
+
+#### Flags
+
+`-n, --name`: KMIP client name (either `name` or `client-id` is required)
+
+`-i, --client-id`: KMIP client ID (either `name` or `client-id` is required)
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+## Authorization Commands
 
 ### `kmip-client-delete-rule`
 
-Delete an RBAC rule from a client
+Delete an RBAC rule from a KMIP client.
 
 #### Usage
 
 ```shell
 akeyless kmip-client-delete-rule \
---path <Access path> \
---name <KMIP client name> \
---client-id <KMIP client ID> \
---gateway-url <API Gateway URL>:8000
+--path <ACCESS_PATH> \
+--name <KMIP_CLIENT_NAME> \
+--client-id <KMIP_CLIENT_ID> \
+--gateway-url <GATEWAY_URL>:8000
 ```
 
 #### Flags
 
-`-p, --path`: **Required**, Access path, for example, /* or /some-key
+`-p, --path`: **Required**, access path (for example, `/*` or `/some-key`)
 
-`-n, --name`: KMIP client name (either name or ID are required)
+`-n, --name`: KMIP client name (either `name` or `client-id` is required)
 
-`-i, --client-id`: KMIP client ID (either name or ID are required)
+`-i, --client-id`: KMIP client ID (either `name` or `client-id` is required)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ### `kmip-client-set-rule`
 
-Add a new RBAC rule to a client
+Add an RBAC rule to a KMIP client.
 
-Supported capabilities are:
+Supported capabilities:
 `DENY`
 `CREATE`
 `REGISTER`
@@ -60,179 +289,22 @@ Supported capabilities are:
 
 ```shell
 akeyless kmip-client-set-rule \
---path <Access path> \
---capability <Access capability> \
---name <KMIP client name> \
---client-id <KMIP client ID> \
---gateway-url <API Gateway URL>:8000
+--path <ACCESS_PATH> \
+--capability <ACCESS_CAPABILITY> \
+--name <KMIP_CLIENT_NAME> \
+--client-id <KMIP_CLIENT_ID> \
+--gateway-url <GATEWAY_URL>:8000
 ```
 
 #### Flags
 
-`-p, --path`: **Required**, Access path, for example, /* or /some-key
+`-p, --path`: **Required**, access path (for example, `/*` or `/some-key`)
 
-`-c, --capability`: **Required**, Access capability (see command description for supported values)
+`-c, --capability`: **Required**, access capability (see supported values above)
 
-`-n, --name`: KMIP client name (either name or ID are required)
+`-n, --name`: KMIP client name (either `name` or `client-id` is required)
 
-`-i, --client-id`: KMIP client ID (either name or ID are required)
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-### `kmip-create-client`
-
-Create a new KMIP client
-
-#### Usage
-
-```shell
-akeyless kmip-create-client \
---name <Client name> \
---certificate-ttl <Server certificate TTL in days (Deafult = 90)> \
---gateway-url <API Gateway URL>:8000
-```
-
-#### Flags
-
-`-n, --name`: **Required**, Client name
-
-`-t, --certificate-ttl[=90]`: Client certificate TTL in days
-
-`-p, --output-file-folder`: Folder path to save client certificate files (for example, '.'). Two files are created: \<client-name>.key and \<client-name>.cert
-
-`-a, --activate-keys-on-creation[=false]`: If set to `true`, newly created keys on the client will be set to an `active` state
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-### `kmip-delete-client`
-
-Delete a KMIP client
-
-#### Flags
-
-`-n, --name`: KMIP client name (either name or ID are required)
-
-`-i, --client-id`: KMIP client ID (either name or ID are required)
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-### `kmip-describe-client`
-
-Show KMIP client details
-
-#### Flags
-
-`-n, --name`: KMIP client name (either name or ID are required)
-
-`-i, --client-id`: KMIP client ID (either name or ID are required)
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-### `kmip-describe-server`
-
-Show KMIP environment details
-
-#### Flags
-
-`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
-
-### `kmip-list-clients`
-
-Show existing KMIP clients
-
-#### Flags
-
-`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
-
-### `kmip-renew-client-certificate`
-
-Renew KMIP client certificate
-
-#### Flags
-
-`-n, --name`: KMIP client name (either name or ID are required)
-
-`-i, --client-id`: KMIP client ID (either name or ID are required)
-
-`-p, --output-file-folder`: Folder path to save client certificate files (for example, '.'). Two files are created: \<client-name>.key and \<client-name>.cert
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-### `kmip-renew-server-certificate`
-
-Renew KMIP server certificate
-
-#### Flags
-
-`-u, --gateway-url[=http://localhost:8000]`: Akeyless API Gateway URL (Configuration Management port)
-
-### `kmip-server-delete`
-
-Delete the kmip server (allowed only if it has no clients nor associated items)
-
-#### Flags
-
-`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
-
-### `kmip-server-move`
-
-Move the root location of the kmip server and all associated items to a new root location
-
-#### Usage
-
-```shell
-akeyless kmip-server-move \
---new-root <New root for the KMIP server> \
---gateway-url <API Gateway URL>:8000
-```
-
-#### Flags
-
-`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
-
-`-n, --new-root`: **Required**, New root for the KMIP server
-
-### `kmip-server-setup`
-
-Create a new KMIP environment
-
-#### Usage
-
-```shell
-akeyless kmip-server-setup \
---hostname <KMPI server hostname> \
---certificate-ttl <Server certificate TTL in days (Deafult = 90)> \
---root <Root path of KMIP Objects> \
---gateway-url <API Gateway URL>:8000
-```
-
-#### Flags
-
-`-n, --hostname`: **Required**, Hostname of this KMIP server
-
-`-t, --certificate-ttl[=90]`: Server certificate TTL in days
-
-`-r, --root`: **Required**, Root path of KMIP Objects
-
-`-p, --output-file-folder`: Folder path to save CA certificate file (for example, '.'). A new file will be created in that folder: `ca.cert`.
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-### `kmip-set-server-state`
-
-Set the server state to enabled/disabled
-
-#### Usage
-
-```shell
-akeyless kmip-set-server-state \
---state <Enabled / Disabled> \
---gateway-url <API Gateway URL>:8000
-```
-
-#### Flags
-
-`-s, --state`: **Required**, Make the server enabled or disabled [use 'enabled' or 'disabled']
+`-i, --client-id`: KMIP client ID (either `name` or `client-id` is required)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
