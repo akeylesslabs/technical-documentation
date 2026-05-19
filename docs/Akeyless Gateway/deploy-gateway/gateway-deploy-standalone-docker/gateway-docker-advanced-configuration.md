@@ -373,14 +373,16 @@ It is also possible to configure runtime and proactive caching in the Gateway Co
 
 ### Restrict Gateway Access
 
-To restrict access to Gateway services, you can specify exactly which `AccessIDs` are authorized and served by the Gateway. For example, if you want to achieve complete isolation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can set their `AccessIDs` to ensure only they can get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the `RESTRICT_SERVICE_TO_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`.
+To restrict access to Gateway services, specify exactly which `Access ID` values are authorized and served by the Gateway using `GATEWAY_AUTHORIZED_ACCESS_ID`. For example, if you want to achieve complete isolation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across teams or applications, define only the `Access ID` values that this Gateway should serve.
 
 ```shell
-docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[{"name":"TeamOne","access_id":"p-xxxxxxx"},{"name":"TeamTwo","access_id":"p-yyyyyyy"}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
 ```shell Legacy
-docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[{"name":"TeamOne","access_id":"p-xxxxxxx"},{"name":"TeamTwo","access_id":"p-yyyyyyy"}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
+
+`RESTRICT_SERVICE_TO_ACCESS_IDS` is the legacy predecessor to `GATEWAY_AUTHORIZED_ACCESS_ID`.
 
 In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway. Alternatively, to block specific `AccessIDs`, you can use the `BLOCKLIST_ACCESS_IDS` variable.
 
