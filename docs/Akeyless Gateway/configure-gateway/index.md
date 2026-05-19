@@ -40,8 +40,8 @@ The combination of Gateway Access ID and `clusterName` defines the logical Gatew
 
 In **Manage Gateway**, the following tabs are commonly used:
 
-* **Instances**: Shows the runtime instances currently registered under the same Gateway cluster identity. In high availability deployments, this tab helps confirm that all expected instances are connected and reporting.
-* **Items**: Shows item operations and item types managed through this Gateway, based on Gateway permissions and RBAC path permissions.
+* **Instances**: Shows **Gateway Instances** for the selected Gateway, including reported instance metadata (for example, ID, IP, version, and last report), and includes a **Remote Access** section.
+* **Items**: Shows the Gateway-managed resource lists for **Dynamic Secrets** and **Rotated Secrets**, and shows **KMIP** when that feature is enabled.
 
 For permission requirements, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
