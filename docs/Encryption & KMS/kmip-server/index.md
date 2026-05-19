@@ -16,7 +16,9 @@ next:
 ---
 The [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) built-in Key Management Interoperability Protocol (KMIP) server handles the lifecycle of KMIP-managed objects.
 
-Cryptographic objects managed by the Akeyless KMIP server are stored under the `/kmip/default/` path, hence your [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) authentication method must have sufficient privileges, including `create`, `list`, `delete` and `read` rules, under the `/kmip/default/*` path. This path can be changed during the KMIP server setup.
+By default, cryptographic objects managed by the KMIP server are stored under `/kmip/default/`. The [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) authentication method used for KMIP operations must include `create`, `list`, `delete`, and `read` permissions for `/kmip/default/*`.
+
+This default path can be changed during KMIP server setup.
 
 ## KMIP Certificate Expiry Events
 
@@ -35,7 +37,21 @@ For audit action taxonomy, see [Log Actions](https://docs.akeyless.io/docs/log-a
 >
 > Only users from your Gateway admins list can configure the KMIP server.
 
-## Enable a KMIP Server from the Akeyless CLI
+## Recommended Workflow
+
+Use this sequence for day-to-day KMIP operations:
+
+* Provision server: `kmip-server-setup`
+* Provision client: `kmip-create-client`
+* Update expiration-event settings: `kmip-server-update` and `kmip-client-update`
+* Renew server certificate: `kmip-renew-server-certificate`
+* Renew client certificate: `kmip-renew-client-certificate`
+
+For complete command flags, see [CLI Reference - KMIP](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server).
+
+## CLI Quickstart
+
+### Step 1: Create a KMIP server
 
 To start the Akeyless KMIP server using Akeyless CLI, run the following command:
 
@@ -46,12 +62,11 @@ akeyless kmip-server-setup \
 --root /kmip/default
 ```
 
-Where:
+Flags:
 
 * `hostname`: Hostname of this KMIP server.
-
-* `root[=/kmip/default]`: Path to store all KMIP Objects.
-
+* `root`: Required path to store KMIP objects.
+* `expiration-event-in`: Optional. Number of days before expiration to notify. Repeat the flag to set multiple events, for example `--expiration-event-in 1 --expiration-event-in 5`.
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-server-setup) section.
@@ -70,22 +85,20 @@ MIIDCTCC...jOVHG8Og==
 -----END CERTIFICATE-----
 ```
 
-Note that this will automatically create 2 items under the `/kmip/default` path in Akeyless:
+This command automatically creates two items under the KMIP root path:
 
 1. `ca.key` (the CA certificate that was the output of the `kmip-server-setup`)
 2. A [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) named **server**
 
-## KMIP Client Configuration
+### Step 2: Create a KMIP client
 
-* In this guide, we will use MongoDB Enterprise as a KMIP Client.
+This guide uses MongoDB Enterprise as an example KMIP client.
 
 > ℹ️ **Note:**
 >
 > This guide was created using MongoDB version 4.2 or earlier.
 >
 > **Activate Keys** - Akeyless supports an optional setting to enable keys upon creation automatically. To set this function by default for your client, provide the `--activate-keys-on-creation=true` setting as part of your client creation command.
-
-## Create a KMIP Client from the Akeyless CLI
 
 ```shell
 akeyless kmip-create-client \
@@ -94,16 +107,16 @@ akeyless kmip-create-client \
 --output-file-folder /current/working/dir
 ```
 
-Where:
+Flags:
 
 * `name`: A unique name of the KMIP client. The name can include the path to the virtual folder where you want to create the new client, using slash `/` separators. If the folder does not exist, it will be created together with the client.
-
+* `certificate-ttl`: Client certificate TTL in days.
+* `expiration-event-in`: Optional. Number of days before expiration to notify. Repeat the flag to set multiple events, for example `--expiration-event-in 1 --expiration-event-in 5`.
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL (port `8000`).
+* `output-file-folder`: Folder path to save client certificate files locally (for example, `.` for current working dir).
+  Two files are created: `<client-name>.key` and `<client-name>.cert`.
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-create-client) section.
-
-* `output-file-folder`: Folder path to save client certificate files locally (for example, `.` for current working dir).
-  Two files are created: `<client-name>.key` and `<client-name>.cert`
 
 This returns the `client ID`, `key`, and `certificate`:
 
@@ -125,13 +138,13 @@ MIIDSz...0otOEQQ==
 >
 > Save the received certificate and key in a safe place. They will be used to set up the connection.
 
-Key and certificate will not be shown anymore, but you will still be able to retrieve the ID of every KMIP client:
+After creation, the key and certificate are not shown again. To retrieve KMIP client IDs:
 
 ```shell
 akeyless kmip-list-clients --gateway-url 'https://<Your-Akeyless-Gateway-URL>:8000'
 ```
 
-## Client Access Permissions
+### Step 3: Set client access permissions
 
 By default, KMIP clients have no permissions. To grant your KMIP client minimal access permissions, execute the following command:
 
@@ -144,16 +157,12 @@ akeyless kmip-client-set-rule \
 --capability GET
 ```
 
-Where:
+Flags:
 
 * `path`: The path in the Akeyless KMIP server folder, where your client objects will be stored.
-
 * `capability`: The capabilities of your KMIP client (`DENY`, `CREATE`, `REGISTER`, `REKEY`, `LOCATE`, `GET`, `GET_ATTRIBUTES`, `ACTIVATE`, `REVOKE`, `DESTROY`).
-
 * `name`: KMIP client name (either name or ID is required).
-
 * `client-id`: KMIP client ID (either name or ID is required).
-
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL (port `8000`).
 
 This command grants our MongoDB KMIP client the ability to create and retrieve objects under the `/kmip/default/` path.
@@ -163,6 +172,43 @@ You can find the complete list of settings for this command in the [CLI Referenc
 > ℹ️ **Note:**
 >
 > These roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
+
+### Step 4 (Optional): Update expiration-event settings
+
+Update server expiration events:
+
+```shell
+akeyless kmip-server-update \
+--expiration-event-in 30 \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
+```
+
+Update client expiration events:
+
+```shell
+akeyless kmip-client-update \
+--name mongodb \
+--expiration-event-in 30 \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
+```
+
+## Renew Certificates (As Needed)
+
+Renew the server certificate:
+
+```shell
+akeyless kmip-renew-server-certificate \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
+```
+
+Renew a client certificate:
+
+```shell
+akeyless kmip-renew-client-certificate \
+--name mongodb \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
+--output-file-folder /current/working/dir
+```
 
 ## MongoDB Encryption Configuration
 
@@ -190,7 +236,9 @@ The command output shows the created KMIP key ID:
 
 `Encryption key manager initialized using KMIP key with id: feu...uoz.`
 
-## Create a KMIP Server Using the Akeyless Console
+## Console Workflow
+
+### Create a KMIP server
 
 1. Log in to the Akeyless Console and navigate to **Data Protection > New**.
 
@@ -208,7 +256,7 @@ The command output shows the created KMIP key ID:
 
 3. Click **Setup** to save the changes.
 
-## Create a KMIP Client Using the Akeyless Console
+### Create a KMIP client
 
 1. Click on your **KMIP Server > Clients > New Client**.
 
@@ -226,6 +274,8 @@ The command output shows the created KMIP key ID:
 
 4. Save the private key and certificate of the client to set up the connection with your KMIP Client system.
 
+## Troubleshooting
+
 > ℹ️ **Note (Handling the "Cannot Parse Attribute: Unique Identifier" Error):**
 >
 > If you see the following error when starting MongoDB:
@@ -238,7 +288,7 @@ Resolution Steps
 
 1. Avoid using .system as the default KMIP key.
 2. Create a new AES256-CBC key in Akeyless (do not use AES256-GCM unless using MongoDB ≤ 4.2).
-3. Specify the correct key ID in the MongoDB config file using keyIdentifier.
+3. Specify the correct key ID in the MongoDB config file using `keyIdentifier`.
 4. Ensure the Akeyless Gateway returns the Unique Identifier as a `TextString`. If not, please contact Akeyless Support.
 
 Example `mongod.conf` Configuration
