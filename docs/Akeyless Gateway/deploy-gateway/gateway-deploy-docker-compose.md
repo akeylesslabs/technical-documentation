@@ -62,6 +62,8 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 * [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
 
+* [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
+
 * [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
 > ℹ️ **Note:**
@@ -97,6 +99,18 @@ ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method 
 ```shell Azure AD
 GATEWAY_ACCESS_ID=<Access ID>
 GATEWAY_ACCESS_TYPE=azure_ad 
+ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
+```
+
+### Universal Identity Authentication
+
+To set your Gateway default authentication based on [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity), provide a UID token using `ADMIN_UID_TOKEN` and optionally set `UID_ROTATE_INTERVAL` for automatic token rotation.
+
+Set a list of users who can [manage your Gateway](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#gateway-admins) by using `ALLOWED_ACCESS_PERMISSIONS` with another [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), such as [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key).
+
+```shell gateway.env
+ADMIN_UID_TOKEN=<UID Token>
+UID_ROTATE_INTERVAL=5m
 ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
 ```
 
