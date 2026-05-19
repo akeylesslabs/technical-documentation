@@ -129,6 +129,8 @@ In this example, all users in the current account can perform actions on this Ga
 
 ## Permission Scope Guidance
 
+For role-and-scope planning across common deployment patterns, see [Permission baseline by use case](https://docs.akeyless.io/docs/gateway-best-practices#permission-baseline-by-use-case).
+
 Use the minimum permissions required for each operational role.
 
 > ℹ️ **Note:**
