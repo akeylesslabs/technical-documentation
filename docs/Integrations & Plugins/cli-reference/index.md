@@ -27,6 +27,8 @@ akeyless <command> --debug
 
 Configure client profile
 
+For profile creation, default-profile behavior, and precedence rules, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
+
 #### Usage
 
 ```shell
@@ -139,6 +141,62 @@ When `--show-versions` is specified, the command returns all details about the s
 
 Get the settings of the account
 
+### `get-cloud-identity`
+
+Get a Cloud Identity token.
+
+#### Usage
+
+```shell
+akeyless get-cloud-identity --cloud-provider <cloud provider>
+```
+
+#### Flags
+
+`--cloud-provider`: Cloud provider (`azure_ad/aws_iam/gcp/oci`)
+
+`--azure_ad_object_id`: Azure Active Directory ObjectId (relevant only for `cloud-provider=azure_ad`)
+
+`--azure-cloud[=AzureCloud]`: Azure cloud environment to use. Values: `AzureCloud` (default), `AzureUSGovernment`, `AzureChinaCloud`
+
+`--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for `cloud-provider=gcp`)
+
+`--oci-auth-type[=apikey]`: The type of the OCI configuration to use `[instance/apikey/resource]` (relevant only for `cloud-provider=oci`)
+
+`--oci-group-ocid`: A list of required groups OCIDs (relevant only for `cloud-provider=oci`)
+
+`--describe-sub-claims`: Describe the cloud identity sub-claims
+
+`--url_safe`: Escapes the token so it can be safely placed inside a URL query
+
+`--debug[=false]`: Turn on debug logging
+
+For broader authentication context, see [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#get-cloud-identity).
+
+### `get-default-profile`
+
+Display current default profile information.
+
+For default-profile behavior and precedence, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
+
+#### Usage
+
+```shell
+akeyless get-default-profile
+```
+
+#### Flags
+
+`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temporary access token
+
+`--uid-token`: The universal identity token (required only for `universal_identity` authentication)
+
+`--json[=false]`: Set output format to JSON
+
+`--jq-expression`: JQ expression to filter result output
+
+`--no-creds-cleanup[=false]`: Do not clean local temporary expired credentials
+
 ### `get-tags`
 
 Get all tags of selected item
@@ -229,7 +287,7 @@ akeyless mcp \
 
 `--access-key`: Access Key (relevant for `access-type=access_key`)
 
-For MCP concepts and integration setup, see [MCP Server](https://docs.akeyless.io/docs/mcp-server).
+For MCP concepts and integration setup, see [MCPs](https://docs.akeyless.io/docs/mcps).
 
 ### `mcp-runtime-authority`
 
@@ -276,6 +334,30 @@ akeyless set-item-state --name <Current item name> \
 `-n, --name`: Required, Current item name
 
 `-s, --desired-state`: Required, Desired item state
+
+### `set-default-profile`
+
+Set the default profile for CLI commands.
+
+This command sets the default profile used when `--profile` is not specified and persists the value in `~/.akeyless/settings`.
+
+For default-profile behavior and precedence, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
+
+#### Usage
+
+```shell
+akeyless set-default-profile --profile <Profile name>
+```
+
+#### Flags
+
+`--profile`: The profile name to set as default
+
+`--json[=false]`: Set output format to JSON
+
+`--jq-expression`: JQ expression to filter result output
+
+`--no-creds-cleanup[=false]`: Do not clean local temporary expired credentials
 
 ### `runtime-authority`
 
