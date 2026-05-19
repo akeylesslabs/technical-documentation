@@ -363,6 +363,22 @@ privilegedAccess:
     - <ALLOWED_ACCESS_ID>
 ```
 
+If the dispatcher cannot detect AWS through the instance metadata service, set `dispatcher.config.cloudIdentity.type` to `aws_iam` to skip auto-detection and use the configured AWS IAM identity directly. This is useful when the metadata service is unreachable, such as on EKS nodes that use the default IMDSv2 hop limit or in clusters with restrictive network policies.
+
+```yaml
+dispatcher:
+  config:
+    privilegedAccess:
+      accessID: "<AWS_IAM_ACCESS_ID>"
+      accessKey: ""
+      allowedAccessIDs:
+        - <ALLOWED_ACCESS_ID>
+    cloudIdentity:
+      type: "aws_iam"
+```
+
+Use this override when auto-detection fails. Leave `accessKey` empty for AWS IAM machine-to-machine authentication.
+
 ### Azure Active Directory authentication
 
 For AKS, Azure AD authentication uses OpenID Connect and JWT validation against the configured tenant.
