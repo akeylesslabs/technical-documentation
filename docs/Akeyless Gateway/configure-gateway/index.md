@@ -26,6 +26,23 @@ To see a Gateway in the **Gateway** list and use **Manage Gateway**, the user mu
 
 Use HTTPS for remote management whenever possible.
 
+## Understand Gateway Naming and Manage Gateway Tabs
+
+In the **Gateway** list, the Gateway name commonly appears in this format:
+
+`<account-id>/<gateway-access-id>/<cluster-name>`
+
+* `<account-id>`: The Akeyless account identifier.
+* `<gateway-access-id>`: The Access ID used by the Gateway authentication method (for example, `p-<gateway-auth-method-id>`).
+* `<cluster-name>`: The `clusterName` value defined at deployment time.
+
+The combination of Gateway Access ID and `clusterName` defines the logical Gateway cluster identity. Changing either value creates a different logical cluster.
+
+In **Manage Gateway**, the following tabs are commonly used:
+
+* **Instances**: Shows the runtime instances currently registered under the same Gateway cluster identity. In high availability deployments, this tab helps confirm that all expected instances are connected and reporting.
+* **Items**: Shows item operations and item types managed through this Gateway, based on Gateway permissions and RBAC path permissions.
+
 For permission requirements, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
 For inbound port and endpoint behavior, including Configure App deprecation and redirect details, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
