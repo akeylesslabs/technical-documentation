@@ -10,11 +10,9 @@ metadata:
 next:
   description: ''
 ---
-Use this section to choose the right Gateway caching method for your environment.
 
-> ❗ **Important:**
->
-> For ongoing cache configuration changes, use the Gateway Configuration Manager, CLI, or Helm values (for Kubernetes) instead of per-instance container startup command changes.
+<GatewayConfigManagementNote />
+Use this section to choose the right Gateway caching method for your environment.
 
 ## Cache Types
 

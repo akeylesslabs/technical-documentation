@@ -14,13 +14,11 @@ next:
       slug: gateway-zero-knowledge
       title: Zero Knowledge
 ---
+
+<GatewayConfigManagementNote />
 ## Configuring TLS
 
 Akeyless Gateway should always be used with TLS to ensure all traffic is encrypted in transit.
-
-> ❗ **Important:**
->
-> For ongoing Gateway TLS configuration, use the Gateway Configuration Manager, CLI, or Helm values (for Kubernetes). Avoid editing TLS settings by manually changing per-instance container startup commands during routine operations.
 
 If you are working with Load Balancers or reverse proxies in front of your Gateway, TLS should be used for all network connections.
 

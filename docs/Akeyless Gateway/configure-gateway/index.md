@@ -8,11 +8,11 @@ metadata:
   description: ''
   robots: index
 ---
+
+<GatewayConfigManagementNote />
 Use this section to configure how Akeyless Gateway authenticates, secures transport, protects encryption material, serves secrets during outages, and integrates with operational tooling.
 
 Configuration is typically done after deployment and adjusted over time as security, compliance, and platform requirements evolve.
-
-For ongoing Gateway configuration, use either the Gateway Configuration Manager UI or the Akeyless CLI. Avoid using deployment-time container mounts for routine configuration changes because this can cause configuration drift and TLS misconfiguration.
 
 ## Access Gateway Settings (UI)
 
