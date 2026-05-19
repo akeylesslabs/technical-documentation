@@ -12,6 +12,8 @@ Use this section to configure how Akeyless Gateway authenticates, secures transp
 
 Configuration is typically done after deployment and adjusted over time as security, compliance, and platform requirements evolve.
 
+For ongoing Gateway configuration, use either the Gateway Configuration Manager UI or the Akeyless CLI. Avoid using deployment-time container mounts for routine configuration changes because this can cause configuration drift and TLS misconfiguration.
+
 ## Access Gateway Settings (UI)
 
 Use the Gateway Configuration Manager to access Gateway settings from the UI:
@@ -29,6 +31,17 @@ Use HTTPS for remote management whenever possible.
 For permission requirements, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
 
 For inbound port and endpoint behavior, including Configure App deprecation and redirect details, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
+
+## Access Gateway Settings (CLI)
+
+Use the Akeyless CLI to read and update Gateway settings:
+
+```shell
+akeyless gateway-get-config \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+For Gateway CLI commands and usage details, see [CLI Reference for Gateway](https://docs.akeyless.io/docs/cli-reference-gateway).
 
 ## Available Configuration Features
 
