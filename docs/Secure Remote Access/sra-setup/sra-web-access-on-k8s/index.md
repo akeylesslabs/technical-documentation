@@ -370,13 +370,14 @@ dispatcher:
   config:
     privilegedAccess:
       accessID: "<AWS_IAM_ACCESS_ID>"
+      accessKey: ""
       allowedAccessIDs:
         - <ALLOWED_ACCESS_ID>
     cloudIdentity:
       type: "aws_iam"
 ```
 
-Use this override only when auto-detection fails. Leave `accessKey` unset for AWS IAM machine-to-machine authentication.
+Use this override when auto-detection fails. Leave `accessKey` empty for AWS IAM machine-to-machine authentication.
 
 ### Azure Active Directory authentication
 
