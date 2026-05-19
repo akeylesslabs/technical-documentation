@@ -209,7 +209,7 @@ Use the table below to avoid mixing variables that serve different control plane
 
 | Variable | Control plane | Purpose | Format | Legacy predecessor |
 | --- | --- | --- | --- | --- |
-| `ALLOWED_ACCESS_PERMISSIONS` | Gateway authorization (Gator access permissions) | Grants component-level permissions (for example, `admin`, `targets`, `log_forwarding`) to identities that can manage Gateway settings | JSON array of objects (`name`, `access_id`, optional `sub_claims`, `permissions`) | `ALLOWED_ACCESS_IDS` |
+| `ALLOWED_ACCESS_PERMISSIONS` | Gateway authorization (Gateway access permissions) | Grants component-level permissions (for example, `admin`, `targets`, `log_forwarding`) to identities that can manage Gateway settings | JSON array of objects (`name`, `access_id`, optional `sub_claims`, `permissions`) | `ALLOWED_ACCESS_IDS` |
 | `GATEWAY_AUTHORIZED_ACCESS_ID` | Gateway ingress allowlist (transport layer) | Restricts which access IDs can call the Gateway API at all, before permission evaluation | Comma-separated list of access IDs | `RESTRICT_SERVICE_TO_ACCESS_IDS` |
 
 Set the value to a comma-separated list of access IDs:
@@ -404,14 +404,16 @@ It is also possible to configure runtime and proactive caching in the Gateway Co
 
 ### Restrict Gateway Access
 
-To restrict access to Gateway services, you can specify exactly which `AccessIDs` are authorized and served by the Gateway. For example, if you want to achieve complete isolation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can set their `AccessIDs` to ensure only they can get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the `RESTRICT_SERVICE_TO_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`.
+To restrict access to Gateway services, set `GATEWAY_AUTHORIZED_ACCESS_ID` to a comma-separated list of `AccessIDs`. This is the current variable for limiting which callers the Gateway will serve. For the variable comparison, format details, and a current example, see [Restrict Gateway Callers by Access ID](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#restrict-gateway-callers-by-access-id).
 
 ```shell
-docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 ```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
+
+`RESTRICT_SERVICE_TO_ACCESS_IDS` is the legacy predecessor to `GATEWAY_AUTHORIZED_ACCESS_ID`. Existing deployments can continue to use it, but new deployments should use `GATEWAY_AUTHORIZED_ACCESS_ID`.
 
 In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway. Alternatively, to block specific `AccessIDs`, you can use the `BLOCKLIST_ACCESS_IDS` variable.
 
