@@ -5,13 +5,15 @@ hidden: false
 metadata:
   robots: index
 ---
+<!-- cspell:ignore Akeyess -->
+
 Certificate Discovery helps you continuously locate and inventory certificates across your environments by scanning targets such as individual **IPs**, **CIDR** ranges, and **DNS** names. You can configure discovery to probe specific ports or port ranges, enabling coverage for both standard and custom TLS deployments.
 
 When a certificate is found, Akeyless automatically creates a corresponding certificate record with all available metadata, including where it was discovered (target and endpoint details) and the certificate’s key attributes. You can also predefine expiration event settings so newly discovered certificates are immediately tracked and monitored without manual onboarding.
 
 > ✅ **Tip:** This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/gateway-overview) running version `4.46.0` or later.
 
-Certificate Discovery requires an Akeyless Gateway deployment running version `4.46.0` or later. If the environment reports only `akeyless-api-proxy`, confirm compatibility with Product or Support before troubleshooting network and DNS behavior.
+Certificate Discovery requires an Akeyless Gateway deployment running version `4.46.0` or later. If the environment reports only `akeyless-api-proxy`, confirm compatibility with [Akeyess Support](https://docs.akeyless.io/docs/support-tiers-plan-limits) before troubleshooting network and DNS behavior.
 
 Certificate Discovery visibility in the Akeyless Console depends on account permissions and enabled product capabilities.
 
@@ -77,7 +79,7 @@ To run the discovery, select the discovery item and choose **Action Menu**, then
 
 Use the following checks when discovery results are incomplete or unclear:
 
-1. Confirm deployment type. Certificate Discovery requires an Akeyless Gateway deployment. If the environment reports only `akeyless-api-proxy`, confirm compatibility with Product or Support before proceeding.
+1. Confirm deployment type. Certificate Discovery requires an Akeyless Gateway deployment. If the environment reports only `akeyless-api-proxy`, confirm compatibility with [Akeyess Support](https://docs.akeyless.io/docs/support-tiers-plan-limits) before proceeding.
 2. Confirm network path from the gateway. Discovery traffic originates from the gateway container, not from the local client session.
 3. Check discovery and migration logs in the gateway Docker container.
 4. Run discovery with debug output:
