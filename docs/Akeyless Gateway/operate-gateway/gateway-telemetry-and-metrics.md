@@ -205,7 +205,7 @@ On Kubernetes, the Gateway loads the OpenTelemetry config file from a Kubernetes
 
 Create the OpenTelemetry config Secret once, then reuse it across the Datadog, Prometheus, and log-forwarding flows below.
 
-Build an `otel-config.yaml` for your exporter (see the per-backend sections below for examples), Base64-encode it, and create the Secret:
+Build an `otel-config.yaml` for your exporter (see the per-backend sections below for examples), then create the Secret:
 
 ```yaml secret.yaml
 apiVersion: v1
@@ -214,8 +214,9 @@ metadata:
   name: gw-metrics-secret
   namespace: <your-namespace>
 type: Opaque
-data:
-  otel-config.yaml: <base64-encoded-otel-config>
+stringData:
+  otel-config.yaml: |
+    <paste-otel-config-yaml-content-here>
 ```
 
 Apply the Secret in the target namespace:
@@ -233,7 +234,7 @@ globalConfig:
     metricsExistingSecret: gw-metrics-secret
 ```
 
-The Secret must contain a key named `otel-config.yaml` whose value is the Base64-encoded OpenTelemetry config. The chart mounts that key into the Gateway container at `/akeyless/otel-config.yaml`.
+The Secret must contain a key named `otel-config.yaml`. The chart mounts that key into the Gateway container at `/akeyless/otel-config.yaml`.
 
 ## Datadog (Kubernetes)
 
@@ -291,8 +292,10 @@ scrape_configs:
   - job_name: 'akeyless'
     scrape_interval: 10s
     static_configs:
-      - targets: ['localhost:8889']
+      - targets: ['<gateway-service>.<namespace>.svc.cluster.local:8889']
 ```
+
+Replace `<namespace>` with the namespace where the Gateway Service is deployed.
 
 ## Gateway Application Log Forwarding (Kubernetes)
 
