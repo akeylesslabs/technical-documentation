@@ -1,4 +1,6 @@
 /docs/kubernetes -> /docs/kubernetes-plugins
+/docs/mcp-server -> /docs/mcp
+/v2/docs/mcp-server -> /docs/mcp
 /docs/password-manager -> /docs/password-manager-overview
 /docs/browser-extensions -> /docs/password-manager-web-extension
 /docs/using-environment-variables -> /docs/gateway-docker-advanced-configuration
@@ -835,7 +837,7 @@
 /v2/docs/remote-access-desktop-application-beta -> /docs/sra-desktop-application-beta
 /docs/copy-of-remote-access-on-k8s -> /docs/sra-setup-k8s
 /v2/docs/copy-of-remote-access-on-k8s -> /docs/sra-setup-k8s
-/docs/akeyless-mcp-model-context-protocol-command -> /docs/mcp-server
-/v2/docs/akeyless-mcp-model-context-protocol-command -> /docs/mcp-server
+/docs/akeyless-mcp-model-context-protocol-command -> /docs/mcp
+/v2/docs/akeyless-mcp-model-context-protocol-command -> /docs/mcp
 /docs/akeyless-mcp-plugin-jetbrains-ides -> /docs/mcp-jetbrains-ides
 /v2/docs/akeyless-mcp-plugin-jetbrains-ides -> /docs/mcp-jetbrains-ides
