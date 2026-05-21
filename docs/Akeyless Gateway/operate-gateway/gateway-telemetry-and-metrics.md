@@ -195,47 +195,93 @@ Application logs from all instances of this Gateway are forwarded in this format
 
 For Loki-based analysis, add a [Loki data source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/) in Grafana and query logs from **Explore**.
 
-## Datadog (Kubernetes)
+## Telemetry Config on Kubernetes
 
-To enable telemetry metrics on Kubernetes for Datadog, configure the chart `values.yaml` under `metrics`.
+On Kubernetes, the Gateway loads the OpenTelemetry config file from a Kubernetes Secret that you create in advance. The `akeyless-gateway` Helm chart mounts the Secret into the Gateway pod at `/akeyless/otel-config.yaml` when `globalConfig.metrics.enabled` is `true` **and** `globalConfig.metrics.metricsExistingSecret` references an existing Secret.
+
+> ⚠️ **Warning:**
+>
+> Setting `globalConfig.metrics.enabled: true` without also setting `globalConfig.metrics.metricsExistingSecret` is not supported. The Gateway pod requires `otel-config.yaml` at startup, and without the Secret reference the chart has no source for that file.
+
+Create the OpenTelemetry config Secret once, then reuse it across the Datadog, Prometheus, and log-forwarding flows below.
+
+Build an `otel-config.yaml` for your exporter (see the per-backend sections below for examples), Base64-encode it, and create the Secret:
+
+```yaml secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gw-metrics-secret
+  namespace: <your-namespace>
+type: Opaque
+data:
+  otel-config.yaml: <base64-encoded-otel-config>
+```
+
+Apply the Secret in the target namespace:
+
+```shell
+kubectl apply -f secret.yaml -n <your-namespace>
+```
+
+Reference the Secret from Helm values:
 
 ```yaml values.yaml
-metrics:
-  enabled: true
-  config: |
-    exporters:
-      datadog:
-        api:
-          key: "<Datadog API key>"
-          site: <Datadog site>
-    service:
-      pipelines:
-        metrics:
-          exporters: [datadog]
+globalConfig:
+  metrics:
+    enabled: true
+    metricsExistingSecret: gw-metrics-secret
+```
+
+The Secret must contain a key named `otel-config.yaml` whose value is the Base64-encoded OpenTelemetry config. The chart mounts that key into the Gateway container at `/akeyless/otel-config.yaml`.
+
+## Datadog (Kubernetes)
+
+Create `otel-config.yaml` with the Datadog exporter:
+
+```yaml otel-config.yaml
+exporters:
+  datadog:
+    api:
+      key: "<Datadog API key>"
+      site: <Datadog site>
+service:
+  pipelines:
+    metrics:
+      exporters: [datadog]
 ```
 
 If your Datadog account is in the EU site, use `datadoghq.eu`.
 
+Then create the `gw-metrics-secret` Kubernetes Secret and reference it via `globalConfig.metrics.metricsExistingSecret`, as described in [Telemetry Config on Kubernetes](#telemetry-config-on-kubernetes).
+
 ## Prometheus (Kubernetes)
 
-To enable telemetry metrics on Kubernetes for Prometheus, expose a Prometheus exporter endpoint (for example, `8889`) and configure chart metrics.
+Create `otel-config.yaml` with the Prometheus exporter and expose the exporter port on the Gateway Service:
+
+```yaml otel-config.yaml
+exporters:
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+service:
+  pipelines:
+    metrics:
+      exporters: [prometheus]
+```
+
+Create the `gw-metrics-secret` Kubernetes Secret and reference it via `globalConfig.metrics.metricsExistingSecret`, as described in [Telemetry Config on Kubernetes](#telemetry-config-on-kubernetes), then annotate the Gateway Service so Prometheus can scrape port `8889`:
 
 ```yaml values.yaml
-service:
-  annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/port: "8889"
+gateway:
+  service:
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/port: "8889"
 
-metrics:
-  enabled: true
-  config: |
-    exporters:
-      prometheus:
-        endpoint: "0.0.0.0:8889"
-    service:
-      pipelines:
-        metrics:
-          exporters: [prometheus]
+globalConfig:
+  metrics:
+    enabled: true
+    metricsExistingSecret: gw-metrics-secret
 ```
 
 Add a scrape target in Prometheus:
@@ -248,61 +294,34 @@ scrape_configs:
       - targets: ['localhost:8889']
 ```
 
-## Using Kubernetes Secret for Telemetry Config
-
-You can store OpenTelemetry configuration in a Kubernetes secret and reference it from Helm values.
-
-Create an OpenTelemetry config file (for example, Datadog or Prometheus exporter settings), encode it to Base64, and create the secret:
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: gw-metrics-secret
-  namespace: <your-namespace>
-type: Opaque
-data:
-  otel-config.yaml: <base64-encoded-otel-config>
-```
-
-Apply the secret in the target namespace:
-
-```shell
-kubectl apply -f secret.yaml -n <your-namespace>
-```
-
-Reference the secret from Helm values:
-
-```yaml values.yaml
-metrics:
-  enabled: true
-  existingSecretName: "gw-metrics-secret"
-```
-
 ## Gateway Application Log Forwarding (Kubernetes)
 
-To collect Gateway application logs with metrics on Kubernetes, add a logs pipeline and set `FORWARD_GW_APP_LOG=true` in chart values.
+To collect Gateway application logs together with metrics, add a logs pipeline to the same `otel-config.yaml`, recreate the Secret, and set `FORWARD_GW_APP_LOG=true` on the Gateway container.
+
+```yaml otel-config.yaml
+exporters:
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+  loki:
+    endpoint: "http://loki:3100/loki/api/v1/push"
+service:
+  pipelines:
+    metrics:
+      exporters: [prometheus]
+    logs:
+      receivers: [filelog]
+      processors: [batch]
+      exporters: [loki]
+```
 
 ```yaml values.yaml
-metrics:
-  enabled: true
-  config: |
-    exporters:
-      prometheus:
-        endpoint: "0.0.0.0:8889"
-      loki:
-        endpoint: "http://loki:3100/loki/api/v1/push"
-    service:
-      pipelines:
-        metrics:
-          exporters: [prometheus]
-        logs:
-          receivers: [filelog]
-          processors: [batch]
-          exporters: [loki]
-env:
-  - name: FORWARD_GW_APP_LOG
-    value: "true"
+globalConfig:
+  metrics:
+    enabled: true
+    metricsExistingSecret: gw-metrics-secret
+  env:
+    - name: FORWARD_GW_APP_LOG
+      value: "true"
 ```
 
 ## Metric Tag Configuration
