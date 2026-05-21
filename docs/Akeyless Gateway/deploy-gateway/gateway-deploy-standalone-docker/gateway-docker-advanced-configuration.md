@@ -132,6 +132,10 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -v $PWD/
 
 To support local management of your Gateway configuration, you can set a list of `Access ID` values that can log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
 
+> ℹ️ **Note:**
+>
+> Older deployments may use `ALLOWED_ACCESS_IDS`, which accepts a comma-separated list of access IDs but does not support per-entry permissions or sub-claims. `ALLOWED_ACCESS_PERMISSIONS` is the current variable and supersedes `ALLOWED_ACCESS_IDS`.
+
 For example:
 
 ```shell
@@ -147,7 +151,7 @@ Run the following:
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
 ```shell
-docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-csp-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[ {"name": "access1", "access_id": "p-xxxxxxx", "sub_claims": {"username": ["username1", "username2"], "group": ["IT"]}, "permissions": ["admin"]},\n {"name": "access2", "access_id": "p-yyyyyy", "sub_claims": {"username": ["username1"], "group": ["rnd"]}, "permissions": ["targets", "defaults"]}, {"name": "access3", "access_id": "p-zzzzzzz", "sub_claims": {"email": ["xxx@example.com", "zzz@example.com"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-csp-access-id" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "access1", "access_id": "p-xxxxxxx", "sub_claims": {"username": ["username1", "username2"], "group": ["IT"]}, "permissions": ["admin"]},\n {"name": "access2", "access_id": "p-yyyyyy", "sub_claims": {"username": ["username1"], "group": ["rnd"]}, "permissions": ["targets", "defaults"]}, {"name": "access3", "access_id": "p-zzzzzzz", "sub_claims": {"email": ["xxx@example.com", "zzz@example.com"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
 In this case, the above creates an **Access Permission** object named **Administrators**, associated with an Auth Method `p-yyyyyy`, which is, for example, your [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) `Access ID`. A user that matches at least one [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) attribute is authorized to access the Gateway with **Admin** permissions:
@@ -194,6 +198,35 @@ Full list of available permissions:
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
 You may also edit this parameter on your console, by going to the Gateways tab and selecting the desired Gateway. On the right of the screen, you will see the Gateway details, including **Access Permissions**.
+
+### Restrict Gateway Callers by Access ID
+
+Use `GATEWAY_AUTHORIZED_ACCESS_ID` to restrict which access IDs can call the Gateway API at all. This is a transport-layer allowlist enforced before any permission check: if the variable is set, the Gateway rejects requests from any access ID not on the list (the Gateway's own `GATEWAY_ACCESS_ID` is always implicitly allowed).
+
+#### Warning: Access Control Variable Comparison
+
+Use the table below to avoid mixing variables that serve different control planes:
+
+| Variable | Control plane | Purpose | Format | Legacy predecessor |
+| --- | --- | --- | --- | --- |
+| `ALLOWED_ACCESS_PERMISSIONS` | Gateway authorization (Gateway access permissions) | Grants component-level permissions (for example, `admin`, `targets`, `log_forwarding`) to identities that can manage Gateway settings | JSON array of objects (`name`, `access_id`, optional `sub_claims`, `permissions`) | `ALLOWED_ACCESS_IDS` |
+| `GATEWAY_AUTHORIZED_ACCESS_ID` | Gateway ingress allowlist (transport layer) | Restricts which access IDs can call the Gateway API at all, before permission evaluation | Comma-separated list of access IDs | `RESTRICT_SERVICE_TO_ACCESS_IDS` |
+
+Set the value to a comma-separated list of access IDs:
+
+```shell
+docker run -d -p 8000:8000 -p 5696:5696 \
+  -e GATEWAY_ACCESS_ID="p-xxxxxxx" \
+  -e GATEWAY_ACCESS_KEY="matching-access-key" \
+  -e GATEWAY_AUTHORIZED_ACCESS_ID="p-aaaaaa,p-bbbbbb" \
+  --name akeyless-gw akeyless/base:latest-akeyless
+```
+
+> ℹ️ **Note:**
+>
+> `GATEWAY_AUTHORIZED_ACCESS_ID` replaces the legacy `RESTRICT_SERVICE_TO_ACCESS_IDS`. Both names are accepted, but `GATEWAY_AUTHORIZED_ACCESS_ID` is preferred for current deployments.
+
+`GATEWAY_AUTHORIZED_ACCESS_ID` and `ALLOWED_ACCESS_PERMISSIONS` serve different purposes and can be used together. `GATEWAY_AUTHORIZED_ACCESS_ID` controls **who can reach the Gateway**, while `ALLOWED_ACCESS_PERMISSIONS` controls **what those callers are permitted to do inside the Gateway**.
 
 ## Cluster Identity and Encryption
 
@@ -354,9 +387,9 @@ Setting `MIN_TLS_VERSION=TLSv1.3` enables hybrid PQC support (X25519 + ML-KEM 76
 
 ### Cache Configuration
 
-Use these environment variables to enable runtime and proactive cache features for Docker deployments.
+Use the following environment variables to enable runtime and proactive cache features for Docker deployments.
 
-For behavior, topology semantics, and recommended proactive cache settings, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
+For the full variable reference and behavior details, see [Runtime Caching](https://docs.akeyless.io/docs/runtime-caching), [Proactive Caching](https://docs.akeyless.io/docs/proactive-caching), and [Cluster Cache (Standalone)](https://docs.akeyless.io/docs/cluster-cache-standalone).
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e NEW_PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="60" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="5" -e PROACTIVE_CACHE_WORKERS="3" --name akeyless-gw akeyless/base:latest-akeyless
@@ -365,24 +398,22 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e
 docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e NEW_PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="number-of-minutes" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="number-of-minutes" -e PROACTIVE_CACHE_WORKERS="number-of-workers" --name akeyless-gw akeyless/base
 ```
 
-`PROACTIVE_CACHE_DUMP_INTERVAL` is still supported as the legacy secure backup interval for periodic cache backup, but the recommended proactive cache implementation is selected with `NEW_PROACTIVE_CACHE_ENABLE=true` and typically tuned with `PROACTIVE_CACHE_WORKERS` and `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME` instead.
-
 It is also possible to configure runtime and proactive caching in the Gateway Console after the Gateway is deployed.
 
 ## Access Scope and Defaults
 
 ### Restrict Gateway Access
 
-To restrict access to Gateway services, specify exactly which `Access ID` values are authorized and served by the Gateway using `GATEWAY_AUTHORIZED_ACCESS_ID`. For example, if you want to achieve complete isolation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across teams or applications, define only the `Access ID` values that this Gateway should serve.
+To restrict access to Gateway services, set `GATEWAY_AUTHORIZED_ACCESS_ID` to a comma-separated list of `AccessIDs`. This is the current variable for limiting which callers the Gateway will serve. For the variable comparison, format details, and a current example, see [Restrict Gateway Callers by Access ID](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#restrict-gateway-callers-by-access-id).
 
 ```shell
-docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[{"name":"TeamOne","access_id":"p-xxxxxxx"},{"name":"TeamTwo","access_id":"p-yyyyyyy"}]' --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 ```shell Legacy
-docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[{"name":"TeamOne","access_id":"p-xxxxxxx"},{"name":"TeamTwo","access_id":"p-yyyyyyy"}]' --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-`RESTRICT_SERVICE_TO_ACCESS_IDS` is the legacy predecessor to `GATEWAY_AUTHORIZED_ACCESS_ID`.
+`RESTRICT_SERVICE_TO_ACCESS_IDS` is the legacy predecessor to `GATEWAY_AUTHORIZED_ACCESS_ID`. Existing deployments can continue to use it, but new deployments should use `GATEWAY_AUTHORIZED_ACCESS_ID`.
 
 In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway. Alternatively, to block specific `AccessIDs`, you can use the `BLOCKLIST_ACCESS_IDS` variable.
 

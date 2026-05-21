@@ -85,7 +85,7 @@ Use the following deployment-specific options to configure standalone cluster ca
 | Gateway Console | Not supported. Standalone cluster cache topology is deployment-level and is configured in infrastructure manifests. |
 | [Kubernetes (Helm)](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) | Set `globalConfig.clusterCache.enabled=true` in `values.yaml`. Configure persistence with `globalConfig.clusterCache.persistence.*` as needed, then [apply a Helm upgrade](https://helm.sh/docs/helm/helm_upgrade/). |
 | [Standalone Docker](https://docs.akeyless.io/docs/gateway-deploy-standalone-docker) | Not supported. Standalone cluster cache topology is not configured as a Docker-only deployment option. |
-| [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose) | Not supported as a documented deployment mode for standalone cluster cache topology. |
+| [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose) | Standalone cluster cache topology is not provisioned by Docker Compose. Docker Compose supports cache behavior tuning through Gateway environment variables (see [Cluster Cache Environment Variables (Docker Compose)](https://docs.akeyless.io/docs/cluster-cache-standalone#cluster-cache-environment-variables-docker-compose)). |
 | [Serverless AWS](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws) and [Serverless Azure](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure) | Not supported. Standalone cluster cache topology requires Kubernetes deployment resources. |
 
 Example (`values.yaml`):
@@ -114,6 +114,15 @@ For the full key reference, see [Helm Values Reference](https://docs.akeyless.io
 * `globalConfig.clusterCache.persistence.enabled`: Enables Redis data persistence for standalone cluster cache so cached data can survive pod restarts, container restarts, and pod rescheduling events.
 * `globalConfig.clusterCache.persistence.existingClaim`: Uses an existing [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) instead of creating a new one.
 * `globalConfig.clusterCache.persistence.accessMode`: Sets the PVC access mode (for example, `ReadWriteOnce`). See [Access Modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
-* `globalConfig.clusterCache.persistence.storageClass`: Sets the Kubernetes [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the PVC.
+* `globalConfig.clusterCache.persistence.storageClass`: Sets the Kubernetes [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the PVC. In most environments, leave this unset to use the cluster default.
 * `globalConfig.clusterCache.persistence.size`: Sets the requested PVC size. See [Kubernetes Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory).
 * `globalConfig.clusterCache.extraArgs`: Passes Redis runtime arguments to the standalone cache container. For supported options, see [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/) and [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/).
+
+### Cluster Cache Environment Variables (Docker Compose)
+
+When deploying with [Docker Compose](https://docs.akeyless.io/docs/gateway-deploy-docker-compose), set these `gateway.env` variables to control how the Gateway uses Redis for caching (enablement and read preference). These settings tune runtime cache behavior only; they do not create, deploy, or manage standalone cluster cache topology resources.
+
+* `USE_CLUSTER_CACHE`: Set to `true` to enable the Redis-backed cluster cache for the curl proxy (proactive cache) layer. In a full Gateway deployment, set this together with `GATEWAY_CLUSTER_CACHE`; the SRA process uses `USE_CLUSTER_CACHE` alone.
+* `GATEWAY_CLUSTER_CACHE`: Set to `"enable"` to activate cluster cache mode for the Gateway configuration layer. Any non-empty value enables this; `"enable"` is the conventional value. If this variable remains set after the Redis instance is removed, the Gateway may fail to start until the container is recreated.
+* `REDIS_ADDR`: Address of the Redis instance, for example `akeyless-cache:6379`.
+* `PREFER_CLUSTER_CACHE_FIRST`: Controls read preference between the local in-memory cache and the Redis cache. For value behavior, see [Local Cache and Cluster Cache Read Preference](https://docs.akeyless.io/docs/cluster-cache-standalone#local-cache-and-cluster-cache-read-preference).
