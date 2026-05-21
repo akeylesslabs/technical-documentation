@@ -197,6 +197,32 @@ akeyless get-default-profile
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired credentials
 
+### `get-analytics-data`
+
+Get analytics and usage report data for the authenticated account.
+
+#### Usage
+
+```shell
+akeyless get-analytics-data
+```
+
+#### Output
+
+Returns analytics and usage report data, including:
+
+* `date_updated`
+* `analytics_data`
+* `usage_reports`
+* `clients_usage_reports`
+
+For operation-level response schema details, see [Get analytics data](https://docs.akeyless.io/reference/getanalyticsdata).
+
+#### Flags
+
+This command uses the standard CLI profile and output flags.
+Run `akeyless get-analytics-data --help` to see available options.
+
 ### `get-tags`
 
 Get all tags of selected item
