@@ -49,7 +49,7 @@ Where:
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`.
 
-* `debug`: Optional, Enables debug output for troubleshooting.
+* `debug`: Optional, Enables verbose troubleshooting output. Use this flag to expose per-target processing details, endpoint connection attempts, and error context that is not shown in standard output.
 
 ### UI and CLI field mapping
 
@@ -107,6 +107,8 @@ Use the following checks when discovery results are incomplete or unclear:
   --gateway-url 'https://<your-akeyless-gw-url>:8000' \
   --debug
   ```
+
+  Use debug mode to correlate CLI output with Gateway log timestamps and isolate whether failures come from DNS resolution, network connectivity, TLS handshake, or scan target processing.
 
 1. Interpret report counters by target execution status. For example, `4 total, 4 failed` indicates four scan targets failed processing. It does not indicate that four certificates were discovered and then failed import.
 2. Use AI Insights in the Active Directory migration flow when local file system certificate discovery is required for internal processes that are not reachable over the network.
