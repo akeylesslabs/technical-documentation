@@ -114,7 +114,7 @@ For the full key reference, see [Helm Values Reference](https://docs.akeyless.io
 * `globalConfig.clusterCache.persistence.enabled`: Enables Redis data persistence for standalone cluster cache so cached data can survive pod restarts, container restarts, and pod rescheduling events.
 * `globalConfig.clusterCache.persistence.existingClaim`: Uses an existing [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) instead of creating a new one.
 * `globalConfig.clusterCache.persistence.accessMode`: Sets the PVC access mode (for example, `ReadWriteOnce`). See [Access Modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
-* `globalConfig.clusterCache.persistence.storageClass`: Sets the Kubernetes [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the PVC.
+* `globalConfig.clusterCache.persistence.storageClass`: Sets the Kubernetes [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the PVC. In most environments, leave this unset to use the cluster default.
 * `globalConfig.clusterCache.persistence.size`: Sets the requested PVC size. See [Kubernetes Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory).
 * `globalConfig.clusterCache.extraArgs`: Passes Redis runtime arguments to the standalone cache container. For supported options, see [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/) and [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/).
 

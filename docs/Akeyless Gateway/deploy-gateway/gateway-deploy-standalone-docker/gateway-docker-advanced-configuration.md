@@ -410,7 +410,7 @@ To restrict access to Gateway services, set `GATEWAY_AUTHORIZED_ACCESS_ID` to a 
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 ```shell Legacy
-docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
 `RESTRICT_SERVICE_TO_ACCESS_IDS` is the legacy predecessor to `GATEWAY_AUTHORIZED_ACCESS_ID`. Existing deployments can continue to use it, but new deployments should use `GATEWAY_AUTHORIZED_ACCESS_ID`.

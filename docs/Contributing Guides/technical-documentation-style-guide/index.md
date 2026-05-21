@@ -247,7 +247,7 @@ Use these formats for common sensitive values:
    api_key: <API_KEY>
    ```
 5. **Reference documentation** instead of embedding credentials:
-   > "Set the `AKEYLESS_ACCESS_KEY` environment variable to your API key (see [Getting Started](link))."
+    > "Set the `AKEYLESS_ACCESS_KEY` environment variable to your API key (see [Getting Started](https://docs.akeyless.io/docs/getting-started-quickstarts))."
 
 #### Testing Placeholders Locally
 
@@ -261,7 +261,7 @@ pre-commit run gitleaks --files docs/your-file.md
 docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.24.2 dir /repo --redact --no-banner
 ```
 
-If the scan reports findings, see [.github/LEAK_RESPONSE.md](https://docs.akeyless.io/docs/contributing) for remediation.
+If the scan reports findings, see [.github/LEAK_RESPONSE.md](https://github.com/akeylesslabs/technical-documentation/blob/v1.0/.github/LEAK_RESPONSE.md) for remediation.
 
 ### CLI Output Safety
 
@@ -312,7 +312,7 @@ Never include unredirected Akeyless CLI commands in code examples when their out
    ```
    ```
 
-The CI check runs automatically on every pull request. See [.github/LEAK_RESPONSE.md CLI Output Safety](https://docs.akeyless.io/docs/contributing) for full remediation guidance.
+The CI check runs automatically on every pull request. See [.github/LEAK_RESPONSE.md CLI Output Safety](https://github.com/akeylesslabs/technical-documentation/blob/v1.0/.github/LEAK_RESPONSE.md) for full remediation guidance.
 
 ## CLI Reference Structure
 

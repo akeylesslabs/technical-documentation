@@ -199,6 +199,8 @@ For on-premises deployments, use one of the following methods:
 
 ### Permission baseline by use case
 
+For Gateway-specific permission semantics and operational scope guidance, see [Permission Scope Guidance](https://docs.akeyless.io/docs/gateway-authentication-and-access#permission-scope-guidance).
+
 Use this matrix as a working baseline for permission planning. Keep scopes limited to required paths and targets per environment.
 
 | Use case | Object type | Create | Read | Update | Delete | List | Notes |
