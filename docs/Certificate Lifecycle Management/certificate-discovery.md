@@ -1,8 +1,11 @@
 ---
 title: Certificate Discovery
+excerpt: Discover and inventory certificates across public and internal sources.
 deprecated: false
 hidden: false
 metadata:
+  title: Certificate Discovery
+  description: Learn how to configure, run, and troubleshoot certificate discovery in Akeyless.
   robots: index
 ---
 Certificate Discovery helps you continuously locate and inventory certificates across your environments by scanning targets such as individual **IPs**, **CIDR** ranges, and **DNS** names. You can configure discovery to probe specific ports or port ranges, enabling coverage for both standard and custom TLS deployments.
@@ -108,11 +111,11 @@ Use the following checks when discovery results are incomplete or unclear:
 
   Use debug mode to correlate CLI output with Gateway log timestamps and isolate whether failures come from DNS resolution, network connectivity, TLS handshake, or scan target processing.
 
-* Interpret the discovery output counters. The CLI reports: `Certificate discovery successfully finished. X new certificates, Y updated certificates, Z hosts, W failed`. Each counter represents:
+1. Interpret the discovery output counters. The CLI reports: `Certificate discovery successfully finished. X new certificates, Y updated certificates, Z hosts, W failed`. Each counter represents:
     * **X (new)**: Newly discovered certificates that were created in Akeyless
     * **Y (updated)**: Existing certificates that were found again and updated with new scan data
     * **Z (hosts)**: Total number of targets that were scanned
     * **W (failed)**: Targets that failed during processing. This does not indicate certificate import failures, but rather targets where the scan itself failed (DNS resolution, network connectivity, TLS errors, or timeout).
-* {#ai-insights-alt} Use [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) in the [Active Directory migration flow](https://docs.akeyless.io/docs/gateway-automatic-migration) when local file system certificate discovery is required for internal processes that are not reachable over the network. AI Insights enables natural-language assisted discovery and can help identify certificates on systems without direct network access by leveraging the `--ai-certificate-discovery` flag during migration configuration.
+2. {#ai-insights-alt} Use [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) in the [Active Directory migration flow](https://docs.akeyless.io/docs/gateway-automatic-migration) when local file system certificate discovery is required for internal processes that are not reachable over the network. AI Insights enables natural-language assisted discovery and can help identify certificates on systems without direct network access by leveraging the `--ai-certificate-discovery` flag during migration configuration.
 
 > ℹ️ **Note:** Discovery and migration logs are currently written inside the gateway container.
