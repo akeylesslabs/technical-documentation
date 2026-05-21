@@ -20,13 +20,13 @@ This page summarizes the current AI offerings and links to the detailed guides.
 | Agentic Runtime Authority | Control and audit runtime agent access to supported Dynamic Secrets | Runtime query execution, input and output rules, role-based reporting access, MCP runtime support, and session reporting | [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority) |
 | Identity and Secrets Intelligence | Provide AI-related visibility and governance surfaces in the Console | Dashboard, Inventory, Scanners, Policies, and dedicated RBAC control via `isi-access` | [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence) |
 | Prompt Injection Protection Guidance | Reduce credential misuse risk in AI workflows | Secretless architecture guidance, runtime retrieval model, and practical hardening recommendations | [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents) |
-| Akeyless MCP Server | Integrate MCP clients and tools with Akeyless services | MCP server setup, authentication methods, profile usage, and Gateway integration | [MCP Server](https://docs.akeyless.io/docs/mcp-server) |
+| Akeyless MCP Server | Integrate MCP clients and tools with Akeyless services | MCP server setup, authentication methods, profile usage, and Gateway integration | [MCP Server](https://docs.akeyless.io/docs/mcp) |
 
 ## MCP Documentation Pages
 
 For MCP-specific setup and usage, use these pages:
 
-* [MCP Server](https://docs.akeyless.io/docs/mcp-server)
+* [MCP Server](https://docs.akeyless.io/docs/mcp)
 * [Claude Desktop Integration](https://docs.akeyless.io/docs/mcp-claude-desktop)
 * [Cursor Integration](https://docs.akeyless.io/docs/mcp-cursor)
 * [GitHub Copilot Integration](https://docs.akeyless.io/docs/mcp-github-copilot)
