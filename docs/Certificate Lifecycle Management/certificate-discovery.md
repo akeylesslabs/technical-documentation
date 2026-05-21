@@ -49,7 +49,7 @@ Where:
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`.
 
-* `debug`: Optional, Enables verbose troubleshooting output. Use this flag to expose per-target processing details, endpoint connection attempts, and error context that is not shown in standard output.
+* `debug`: Optional, Enables verbose troubleshooting output. Debug details are printed with the CLI command output stream in the terminal where the command runs. Use this flag to expose per-target processing details, endpoint connection attempts, and error context that is not shown in standard output. For runtime-side context, also review Gateway container logs.
 
 ### UI and CLI field mapping
 
