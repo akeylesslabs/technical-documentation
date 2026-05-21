@@ -11,7 +11,7 @@ metadata:
 ---
 Connect Cursor to the Akeyless MCP Server when you want MCP access inside the Cursor editor.
 
-For general MCP background and command syntax, see [MCP Server](https://docs.akeyless.io/docs/mcp-server).
+For general MCP background and command syntax, see [MCP Server](https://docs.akeyless.io/docs/mcp).
 
 ## Requirements
 

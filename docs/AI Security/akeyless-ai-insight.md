@@ -217,6 +217,6 @@ To test AI Insights in the Akeyless Console, follow these steps:
 
 * [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence)
 * [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority)
-* [MCP Server](https://docs.akeyless.io/docs/mcp-server)
+* [MCP Server](https://docs.akeyless.io/docs/mcp)
 * [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents)
 * [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)

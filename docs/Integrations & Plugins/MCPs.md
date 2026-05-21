@@ -22,7 +22,7 @@ General usage flow:
 
 Use MCP documentation in this order:
 
-1. Start with [Akeyless MCP Server](https://docs.akeyless.io/docs/mcp-server) for the general model, requirements, and usage flow.
+1. Start with [Akeyless MCP Server](https://docs.akeyless.io/docs/mcp) for the general model, requirements, and usage flow.
 2. Open your integration-specific page for client setup details.
 
 Integration guides:
