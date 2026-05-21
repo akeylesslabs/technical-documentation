@@ -22,9 +22,17 @@ Before using the Akeyless Ansible plugin, ensure the following prerequisites are
 * Ansible installed.
 * The Akeyless Python package installed:
 
-    ```shell
-    pip install akeyless
-    ```
+  ```bash
+  pip install akeyless
+  ```
+
+  If you use `aws_iam`, `gcp`, or `azure_ad` authentication, also install `akeyless-cloud-id` with the matching cloud extra:
+
+  ```bash
+  pip install "akeyless-cloud-id[aws]"     # AWS IAM
+  pip install "akeyless-cloud-id[gcp]"     # GCP
+  pip install "akeyless-cloud-id[azure]"   # Azure AD
+  ```
 
 * Access to an Akeyless Authentication Method (for example, API Key, AWS IAM, Azure AD, OIDC, or Certificate) with a valid `access_id` and required credentials.
 * Network access from the Ansible control node to `https://api.akeyless.io` (or to your Akeyless Gateway endpoint if applicable).
@@ -67,91 +75,88 @@ To set the Authentication Method, add the following `login` section to your [Ans
 
 ```yaml API Key
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'api_key'
-        access_key: '<Access Key>'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'api_key'
+  access_key: '<Access Key>'
 ```
 ```yaml AWS IAM
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'aws_iam'
-        cloud_id: '<cloud_id>'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'aws_iam'
 ```
 ```yaml GCP
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'gcp'
-        cloud_id: '<cloud_id>'
-        gcp_audience: <'gcp_audience'>
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'gcp'
+  gcp_audience: <'gcp_audience'>
 ```
 ```yaml Azure AD
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'azure_ad'
-        cloud_id: '<cloud_id>'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'azure_ad'
 ```
 ```yaml Email
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'password'
-        admin_password: '<admin_password>'
-        admin_email: '<admin_email>'
-        account_id: '<account_id>'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'password'
+  admin_password: '<admin_password>'
+  admin_email: '<admin_email>'
+  account_id: '<account_id>'
 ```
 ```yaml Kubernetes
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'k8s'
-        k8s_service_account_token: '<k8s_service_account_token>'
-        k8s_auth_config_name: '<k8s_auth_config_name>'
-        akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'k8s'
+  k8s_service_account_token: '<k8s_service_account_token>'
+  k8s_auth_config_name: '<k8s_auth_config_name>'
+  akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
 ```
 ```yaml OCI IAM
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'oci'
-        oci_auth_type: '<oci_auth_type>'
-        oci_group_ocid: '<oci_group_ocid>'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'oci'
+  oci_auth_type: '<oci_auth_type>'
+  oci_group_ocid: '<oci_group_ocid>'
 ```
 ```yaml LDAP
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'ldap'
-        ldap_username: <'ldap_username'>
-        ldap_password: <'ldap_password'>
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'ldap'
+  ldap_username: <'ldap_username'>
+  ldap_password: <'ldap_password'>
 ```
 ```yaml JWT
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'jwt'
-        jwt: '<jwt value>'
-        akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'jwt'
+  jwt: '<jwt value>'
+  akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
 ```
 ```yaml OIDC
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'oidc'
-        use_remote_browser: 'true / false'
-        jwt: '<jwt value>'
-        akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'oidc'
+  use_remote_browser: 'true / false'
+  jwt: '<jwt value>'
+  akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
 ```
 ```yaml SAML
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'saml'
-        use_remote_browser: 'true | false'
-        akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'saml'
+  use_remote_browser: 'true | false'
+  akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
 ```
 ```yaml Certificate
 login:
@@ -163,11 +168,11 @@ login:
 ```
 ```yaml Universal Identity
 login:
-        akeyless_api_url: 'https://api.akeyless.io'
-        access_id: '<Access ID>'
-        access_type: 'universal_identity'
-        use_remote_browser: 'true | false'
-        uid_token: '<uid_token>'
+  akeyless_api_url: 'https://api.akeyless.io'
+  access_id: '<Access ID>'
+  access_type: 'universal_identity'
+  use_remote_browser: 'true | false'
+  uid_token: '<uid_token>'
 ```
 
 Where:
@@ -178,7 +183,7 @@ Where:
 
 * `access_type`: The type of the Auth Method being used.
 
-* `cloud_id`: The `cloud_id` can be retrieved by running `akeyless get-cloud-identity`.
+* `cloud_id`: Cloud Identity to authenticate using `aws_iam`, `gcp` or `azure_ad` methods. If running the Ansible module in a cloud environment, don't specify the argument and make sure that the `akeyless-cloud-id` library is installed in the Ansible environment. If using `aws_iam` and the Ansible module is run in a regional STS different than `us-east-1`, e.g. AWS GovCloud, FIPS, you will need to supply the `cloud_id`. When auto-derive is not possible, supply `cloud_id` explicitly (e.g. from `akeyless get-cloud-identity`).
 
 * `cert_data`: Client certificate content encoded in `base64` (required when `access_type` is `cert`).
 
