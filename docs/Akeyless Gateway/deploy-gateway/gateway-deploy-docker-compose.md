@@ -116,6 +116,8 @@ ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<AccessID>","name":"<Allowed Method N
 
 To support local management of your Gateway configuration, you can set a list of `Access ID` values that can log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
 
+For an explicit warning table comparing `ALLOWED_ACCESS_PERMISSIONS` and `GATEWAY_AUTHORIZED_ACCESS_ID`, see [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#warning-access-control-variable-comparison).
+
 Add the `ALLOWED_ACCESS_PERMISSIONS` environment variable to the `gateway.env` file, specifying a **JSON** list of allowed `Access IDs`:
 
 ```yaml gateway.env
