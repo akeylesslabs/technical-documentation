@@ -110,7 +110,7 @@ Use the following checks when discovery results are incomplete or unclear:
 
   Use debug mode to correlate CLI output with Gateway log timestamps and isolate whether failures come from DNS resolution, network connectivity, TLS handshake, or scan target processing.
 
-1. Interpret report counters by target execution status. For example, `4 total, 4 failed` indicates four scan targets failed processing. It does not indicate that four certificates were discovered and then failed import.
-2. Use AI Insights in the Active Directory migration flow when local file system certificate discovery is required for internal processes that are not reachable over the network.
+* Interpret report counters by target execution status. For example, `4 total, 4 failed` indicates four scan targets failed processing. It does not indicate that four certificates were discovered and then failed import.
+* Use AI Insights in the Active Directory migration flow when local file system certificate discovery is required for internal processes that are not reachable over the network.
 
 > ℹ️ **Note:** Discovery and migration logs are currently written inside the gateway container.
