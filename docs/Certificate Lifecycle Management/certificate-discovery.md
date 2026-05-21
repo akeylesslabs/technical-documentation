@@ -80,7 +80,23 @@ Use the following checks when discovery results are incomplete or unclear:
 1. Confirm deployment type. Certificate Discovery requires an Akeyless Gateway deployment running version `4.46.0` or later, with the Gateway configuration management endpoint (`:8000`) available.
 2. Confirm network path from the gateway. Discovery traffic originates from the gateway container, not from the local client session.
 3. Interpret `akeyless-api-proxy` version lines in logs as component-level information. Those lines alone do not indicate that the deployment is unsupported for discovery.
-4. Check discovery and migration logs in the gateway Docker container.
+4. Check discovery and migration logs in the gateway Docker container:
+
+  ```shell
+  # 1) Identify the Gateway container
+  docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+
+  # 2) Review runtime logs from the container
+  docker logs <gateway-container-name> --tail 500
+
+  # 3) Follow live logs while running a discovery job
+  docker logs -f <gateway-container-name>
+
+  # 4) Search for discovery and migration-related entries from inside the container
+  docker exec -it <gateway-container-name> sh -lc "grep -RinE 'discovery|migration|certificate-discovery|error|failed' /var/akeyless 2>/dev/null | tail -n 200"
+  ```
+
+  Focus on timestamp alignment between command execution and log entries, then capture relevant error lines for triage.
 5. Run discovery with debug output:
 
   ```shell
@@ -95,4 +111,4 @@ Use the following checks when discovery results are incomplete or unclear:
 1. Interpret report counters by target execution status. For example, `4 total, 4 failed` indicates four scan targets failed processing. It does not indicate that four certificates were discovered and then failed import.
 2. Use AI Insights in the Active Directory migration flow when local file system certificate discovery is required for internal processes that are not reachable over the network.
 
-> ℹ️ **Note:** Discovery and migration logs are currently written inside the gateway container. A future update is expected to move logging to STDOUT-only output.
+> ℹ️ **Note:** Discovery and migration logs are currently written inside the gateway container.
