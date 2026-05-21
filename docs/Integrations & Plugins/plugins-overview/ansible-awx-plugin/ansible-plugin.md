@@ -183,7 +183,7 @@ Where:
 
 * `access_type`: The type of the Auth Method being used.
 
-* `cloud_id`: Cloud Identity to authenticate using `aws_iam`, `gcp` or `azure_ad` methods. If running the Ansible module in a cloud environment, don't specify the argument and make sure that the `akeyless-cloud-id` library is installed in the Ansible environment. If using `aws_iam` and the Ansible module is run in a regional STS different than `us-east-1`, e.g. AWS GovCloud, FIPS, you will need to supply the `cloud_id`. When auto-derive is not possible, supply `cloud_id` explicitly (e.g. from `akeyless get-cloud-identity`).
+* `cloud_id`: Cloud Identity to authenticate using `aws_iam`, `gcp`, or `azure_ad` methods. When running the Ansible module in a cloud environment, do not specify this parameter; ensure that the `akeyless-cloud-id` library is installed in the Ansible environment to enable automatic derivation. However, you must explicitly supply `cloud_id` in the following cases: (1) when using `aws_iam` in a regional STS (Security Token Service) different from `us-east-1`, such as AWS GovCloud or FIPS endpoints, or (2) when automatic derivation is not possible (you can obtain the value using `akeyless get-cloud-identity`).
 
 * `cert_data`: Client certificate content encoded in `base64` (required when `access_type` is `cert`).
 
