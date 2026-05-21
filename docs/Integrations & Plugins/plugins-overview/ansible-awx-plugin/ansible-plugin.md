@@ -26,6 +26,8 @@ Before using the Akeyless Ansible plugin, ensure the following prerequisites are
     pip install akeyless
     ```
 
+    * For `aws_iam` authentication, install the Akeyless CLI when the playbook must generate `cloud_id` explicitly. For installation steps, see [Akeyless CLI documentation](https://docs.akeyless.io/docs/cli).
+
 * Access to an Akeyless Authentication Method (for example, API Key, AWS IAM, Azure AD, OIDC, or Certificate) with a valid `access_id` and required credentials.
 * Network access from the Ansible control node to `https://api.akeyless.io` (or to your Akeyless Gateway endpoint if applicable).
 
@@ -169,6 +171,31 @@ login:
         use_remote_browser: 'true | false'
         uid_token: '<uid_token>'
 ```
+
+### AWS IAM cloud identity for login
+
+In some environments, `akeyless.secrets_management.login` with `access_type: 'aws_iam'` may require an explicit `cloud_id` value.
+
+Generate the value with the Akeyless CLI, then pass it to the `login` task:
+
+```yaml
+- name: Generate cloud identity for AWS IAM
+  ansible.builtin.command: akeyless get-cloud-identity --cloud-provider aws_iam
+  register: aws_identity
+  changed_when: false
+
+- name: Login via AWS IAM
+  login:
+    akeyless_api_url: 'https://api.akeyless.io'
+    access_id: '<Access ID>'
+    access_type: 'aws_iam'
+    cloud_id: '{{ aws_identity.stdout | trim }}'
+  register: auth_res
+```
+
+> ℹ️ **Note:**
+>
+> `cloud_id` is the full output from `akeyless get-cloud-identity --cloud-provider aws_iam`.
 
 Where:
 
