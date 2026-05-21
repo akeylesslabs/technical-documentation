@@ -1,5 +1,4 @@
 /docs/kubernetes -> /docs/kubernetes-plugins
-/mcp-server -> /docs/mcp
 /docs/mcp-server -> /docs/mcp
 /v2/docs/mcp-server -> /docs/mcp
 /docs/password-manager -> /docs/password-manager-overview
