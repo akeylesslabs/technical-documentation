@@ -20,13 +20,12 @@ Before using the Akeyless Ansible plugin, ensure the following prerequisites are
 
 * Python 3 installed on the Ansible control node.
 * Ansible installed.
+* For `aws_iam` authentication, install the Akeyless CLI when the playbook must generate `cloud_id` explicitly. For installation steps, see [Akeyless CLI documentation](https://docs.akeyless.io/docs/cli).
 * The Akeyless Python package installed:
 
     ```shell
     pip install akeyless
     ```
-
-    * For `aws_iam` authentication, install the Akeyless CLI when the playbook must generate `cloud_id` explicitly. For installation steps, see [Akeyless CLI documentation](https://docs.akeyless.io/docs/cli).
 
 * Access to an Akeyless Authentication Method (for example, API Key, AWS IAM, Azure AD, OIDC, or Certificate) with a valid `access_id` and required credentials.
 * Network access from the Ansible control node to `https://api.akeyless.io` (or to your Akeyless Gateway endpoint if applicable).
