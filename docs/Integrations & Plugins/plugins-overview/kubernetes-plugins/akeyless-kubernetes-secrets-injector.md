@@ -102,8 +102,7 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
     * Set `AKEYLESS_K8S_AUTH_CONF_NAME` with your Gateway Kubernetes Auth name. Relevant **only** for Access type of `k8s`.
 
     * Set `AKEYLESS_API_GW_URL` with the URL of your Gateway API v1 endpoint: `/8000/api/v1` or port `8080`.
-
-    * When `AKEYLESS_API_GW_URL` points to a Gateway that uses a private or internal CA certificate, set `gatewayCert.tlsCertsSecretName` to a Kubernetes secret that contains `tls.crt`.
+      * If `AKEYLESS_API_GW_URL` points to a Gateway that uses a private or internal CA certificate, set `gatewayCert.tlsCertsSecretName` to a Kubernetes secret that contains `tls.crt`.
 
     * Optional `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list).
 
