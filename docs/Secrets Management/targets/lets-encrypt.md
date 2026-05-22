@@ -149,6 +149,41 @@ Required permissions by provider:
     * This role includes `Microsoft.Network/dnsZones/*` (manage DNS zones and record sets).
     * Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
 
+### Azure DNS with Managed Identity (Gateway Cloud Identity)
+
+If the Gateway runs on Azure, an Azure target can use the Gateway cloud identity instead of a client secret. This is useful when certificate flows need DNS-01 validation in Azure DNS and teams want to avoid storing long-lived Azure credentials.
+
+1. Create an Azure target that uses the Gateway cloud identity:
+
+```shell
+akeyless target create azure \
+--name <Azure DNS Target Name> \
+--use-gw-cloud-identity \
+--subscription-id <Azure Subscription ID> \
+--resource-group-name <Azure DNS Resource Group Name>
+```
+
+1. Create the Let's Encrypt target with DNS challenge and the Azure DNS target reference:
+
+```shell
+akeyless target create lets-encrypt \
+--name <Let's Encrypt Target Name> \
+--email <ACME Account Email> \
+--acme-challenge dns \
+--dns-target-creds <Azure DNS Target Name> \
+--resource-group <Azure DNS Resource Group Name>
+```
+
+### Troubleshooting Azure DNS challenge flows
+
+If certificate issuance fails during DNS challenge validation, validate the following:
+
+* The Gateway is running on an Azure resource with managed identity enabled.
+* The managed identity used by the Gateway has **DNS Zone Contributor** on the relevant DNS zone.
+* The `resource-group` value in the Let's Encrypt target matches the resource group that contains the DNS zone.
+* The domain requested in the certificate is hosted in the Azure DNS zone managed by the target.
+* The Gateway can reach Azure DNS APIs over the network.
+
 > ℹ️ **Note (Least Privilege):**
 >
 > Scope permissions to only the DNS zones and record operations required for certificate validation.
