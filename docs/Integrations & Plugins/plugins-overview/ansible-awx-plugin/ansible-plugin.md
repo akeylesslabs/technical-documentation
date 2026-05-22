@@ -179,6 +179,11 @@ login:
 
 In some environments, `akeyless.secrets_management.login` with `access_type: 'aws_iam'` may require an explicit `cloud_id` value.
 
+Prerequisites for this example:
+
+* Akeyless CLI installed (required to run `akeyless get-cloud-identity`).
+* `akeyless-cloud-id` installed with the matching cloud extra for `aws_iam`, `gcp`, or `azure_ad` flows.
+
 Generate the value with the Akeyless CLI, then pass it to the `login` task:
 
 ```yaml
