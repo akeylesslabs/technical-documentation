@@ -12,7 +12,7 @@ next:
 ---
 The Akeyless official [plugin for Ansible](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/) provides modules and plugins to securely manage secrets, credentials, and sensitive data within playbooks. It helps maintain efficient and secure automation workflows, allowing teams to simplify secret management while protecting critical information.
 
-You can manage secrets and certificates with either [Modules](https://docs.ansible.com/ansible/latest/plugins/module.html) or [Lookup](https://docs.ansible.com/ansible/latest/plugins/lookup.html) plugins. In this guide, we will use Modules for simplicity. More information about the Lookup plugin can be found [here](https://docs.ansible.com/ansible/latest/plugins/lookup.html)
+You can manage secrets and certificates with either [modules](https://docs.ansible.com/ansible/latest/plugins/module.html) or [lookup](https://docs.ansible.com/ansible/latest/plugins/lookup.html) plugins. This guide uses modules for simplicity. For more information, see [Ansible Lookup plugins](https://docs.ansible.com/ansible/latest/plugins/lookup.html).
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Before using the Akeyless Ansible plugin, ensure the following prerequisites are
 
 To install the Akeyless Ansible plugin, use one of the following methods:
 
-The Akeyless `secrets_management` collection is available on Ansible Galaxy under the Namespace `akeyless`. You can install it using:
+The Akeyless `secrets_management` collection is available on Ansible Galaxy under the namespace `akeyless`. Install it by running:
 
 ```shell
 ansible-galaxy collection install akeyless.secrets_management
@@ -71,7 +71,7 @@ This plugin supports the following Authentication Methods:
 * [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
 * [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
 
-To set the Authentication Method, add the following `login` section to your [Ansible Playbook](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html):
+To set an Authentication Method, add the following `login` section to your [Ansible Playbook](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html):
 
 ```yaml API Key
 login:
@@ -177,7 +177,7 @@ login:
 
 ### AWS IAM cloud identity for login
 
-In some environments, `akeyless.secrets_management.login` with `access_type: 'aws_iam'` requires an explicit `cloud_id` value.
+In some environments, `akeyless.secrets_management.login` with `access_type: 'aws_iam'` may require an explicit `cloud_id` value.
 
 Generate the value with the Akeyless CLI, then pass it to the `login` task:
 
@@ -204,9 +204,9 @@ Where:
 
 * `akeyless_api_url`: Gateway URL API V2 endpoint that is `https://Your_GW_URL:8000/api/v2`.
 
-* `access_id`: The `Access ID` of the Auth Method being used.
+* `access_id`: Access ID for the Auth Method.
 
-* `access_type`: The type of the Auth Method being used.
+* `access_type`: Type of the Auth Method.
 
 * `cloud_id`: Cloud Identity for authentication with `aws_iam`, `gcp`, or `azure_ad` methods. When the Ansible module runs in a cloud environment, do not set this parameter and ensure that `akeyless-cloud-id` is installed in the Ansible environment so the value can be derived automatically. Set `cloud_id` explicitly when using `aws_iam` with a regional Security Token Service (STS) endpoint other than `us-east-1` (for example, AWS GovCloud or Federal Information Processing Standards (FIPS) endpoints), or when automatic derivation is not available. To retrieve the value manually, run `akeyless get-cloud-identity`.
 
@@ -214,19 +214,19 @@ Where:
 
 * `key_data`: Private key content encoded in `base64` (required when `access_type` is `cert`).
 
-* `akeyless_gateway_url`: Akeyless Gateway URL (port `8000`).
+* `akeyless_gateway_url`: Akeyless Gateway URL on port `8000`.
 
 ## Usage
 
 This section provides examples of fetching secrets and certificates and creating a [Static Secret](https://docs.akeyless.io/docs/static-secrets).
 
-To create an **Ansible Playbook**, create a `yaml` file containing the configuration below.
+To create an **Ansible Playbook**, use a `yaml` file with the following configuration.
 
 ### Static Secret Example
 
 #### Create a Static Secret
 
-The following will create a [Static Secret](https://docs.akeyless.io/docs/static-secrets) named `'/Ansible/MySecret'`:
+The following example creates a [Static Secret](https://docs.akeyless.io/docs/static-secrets) named `'/Ansible/MySecret'`:
 
 ```yaml
 - name: Create Static Secret
@@ -251,19 +251,19 @@ The following will create a [Static Secret](https://docs.akeyless.io/docs/static
 
 Where:
 
-* `name`: the name of the Static Secret.
+* `name`: Name of the Static Secret.
 
-* `value`: the value of the Static Secret.
+* `value`: Value of the Static Secret.
 
-* `type`: The Secret type [`generic` or `password`].
+* `type`: Secret type (`generic` or `password`).
 
-* `format`: The Secret format [`text` | `json` | `key-value`].
+* `format`: Secret format (`text`, `json`, or `key-value`).
 
-Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
+Additional parameters for this module are available in the [official Ansible repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
 
 #### Fetch a Static Secret
 
-The following will fetch a [Static Secret](https://docs.akeyless.io/docs/static-secrets) named `/Ansible/MySecret`:
+The following example fetches a [Static Secret](https://docs.akeyless.io/docs/static-secrets) named `/Ansible/MySecret`:
 
 ```yaml static_secret.yaml
 - name: Get secret value
@@ -295,11 +295,11 @@ Where:
 
 * `names`: The name of the secret.
 
-Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/)
+Additional parameters for this module are available in the [official Ansible repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
 
 ### Dynamic Secret Example
 
-The following will fetch a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) named `Ansible/MyDynamicSecret`:
+The following example fetches a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) named `Ansible/MyDynamicSecret`:
 
 ```yaml dynamic_secret.yaml
 - name: Get secret value
@@ -325,11 +325,11 @@ The following will fetch a [Dynamic Secret](https://docs.akeyless.io/docs/how-to
         msg: "Secret Value: {{ response.data }}"
 ```
 
-Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/)
+Additional parameters for this module are available in the [official Ansible repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
 
 ### Rotated Secret Example
 
-The following will fetch a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) named `Ansible/MyRotatedSecret`:
+The following example fetches a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) named `Ansible/MyRotatedSecret`:
 
 ```yaml rotated_secret.yaml
 - name: Get secret value
@@ -355,11 +355,11 @@ The following will fetch a [Rotated Secret](https://docs.akeyless.io/docs/rotate
         msg: "Secret Value: {{ response.data }}"
 ```
 
-Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/)
+Additional parameters for this module are available in the [official Ansible repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
 
 ### SSH Certificate Example
 
-The following will issue and fetch an SSH Certificate:
+The following example issues and fetches an SSH Certificate:
 
 ```yaml SSH Certificate
 - name: Get certificate value
@@ -393,17 +393,17 @@ Where:
 
 * `cert_issuer_name`: The name of the **SSH Certificate Issuer**.
 
-* `cert_username`: The username to sign in the SSH certificate.
+* `cert_username`: Username to sign in the SSH certificate.
 
-* `public_key_data`: SSH Public Key.
+* `public_key_data`: SSH public key.
 
 * `ttl`: **Optional**, Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL).
 
-* `legacy_signing_alg_name`: **Optional**, Set this option to output legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm name in the certificate.
+* `legacy_signing_alg_name`: **Optional**, set this option to output the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm name in the certificate.
 
 ### PKI Certificate Example
 
-The following will issue and fetch a PKI certificate:
+The following example issues and fetches a PKI certificate:
 
 ```yaml PKI Certificate.yaml
 - name: Get certificate value
@@ -442,4 +442,4 @@ Where:
 
 * `csr_data_base64`: Certificate Signing Request contents encoded in `base64` to generate the certificate with.
 
-Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
+Additional parameters for this module are available in the [official Ansible repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
