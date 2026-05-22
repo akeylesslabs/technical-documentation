@@ -796,4 +796,4 @@ akeyless certificate-discovery \
 
 `-k, --protection-key`: The name of the key that protects the certificate value (if empty, the account default key will be used).
 
-`-d, --debug`: Use this flag to run the command in **Debug mode**.
+`-d, --debug`: Use this flag to run the command in **Debug mode**. Debug details are printed with the CLI command output stream in the terminal where the command runs. Use this flag to expose per-target processing details, endpoint connection attempts, and error context that is not shown in standard output. For runtime-side context and detailed troubleshooting steps, see [Certificate Discovery Troubleshooting](https://docs.akeyless.io/docs/certificate-discovery#troubleshooting-certificate-discovery).
