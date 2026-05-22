@@ -22,13 +22,13 @@ Before using the Akeyless Ansible plugin, ensure the following prerequisites are
 * Ansible installed.
 * The Akeyless Python package installed:
 
-  ```bash
+  ```shell
   pip install akeyless
   ```
 
   If you use `aws_iam`, `gcp`, or `azure_ad` authentication, also install `akeyless-cloud-id` with the matching cloud extra:
 
-  ```bash
+  ```shell
   pip install "akeyless-cloud-id[aws]"     # AWS IAM
   pip install "akeyless-cloud-id[gcp]"     # GCP
   pip install "akeyless-cloud-id[azure]"   # Azure AD
@@ -183,7 +183,7 @@ Where:
 
 * `access_type`: The type of the Auth Method being used.
 
-* `cloud_id`: Cloud Identity to authenticate using `aws_iam`, `gcp`, or `azure_ad` methods. When running the Ansible module in a cloud environment, do not specify this parameter; ensure that the `akeyless-cloud-id` library is installed in the Ansible environment to enable automatic derivation. However, you must explicitly supply `cloud_id` in the following cases: (1) when using `aws_iam` in a regional STS (Security Token Service) different from `us-east-1`, such as AWS GovCloud or FIPS endpoints, or (2) when automatic derivation is not possible (you can obtain the value using `akeyless get-cloud-identity`).
+* `cloud_id`: Cloud Identity for authentication with `aws_iam`, `gcp`, or `azure_ad` methods. When the Ansible module runs in a cloud environment, do not set this parameter and ensure that `akeyless-cloud-id` is installed in the Ansible environment so the value can be derived automatically. Set `cloud_id` explicitly when using `aws_iam` with a regional Security Token Service (STS) endpoint other than `us-east-1` (for example, AWS GovCloud or Federal Information Processing Standards (FIPS) endpoints), or when automatic derivation is not available. To retrieve the value manually, run `akeyless get-cloud-identity`.
 
 * `cert_data`: Client certificate content encoded in `base64` (required when `access_type` is `cert`).
 
