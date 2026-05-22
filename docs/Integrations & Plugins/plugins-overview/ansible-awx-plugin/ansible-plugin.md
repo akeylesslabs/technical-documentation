@@ -175,6 +175,31 @@ login:
   uid_token: '<uid_token>'
 ```
 
+### AWS IAM cloud identity for login
+
+In some environments, `akeyless.secrets_management.login` with `access_type: 'aws_iam'` requires an explicit `cloud_id` value.
+
+Generate the value with the Akeyless CLI, then pass it to the `login` task:
+
+```yaml
+- name: Generate cloud identity for AWS IAM
+  ansible.builtin.command: akeyless get-cloud-identity --cloud-provider aws_iam
+  register: aws_identity
+  changed_when: false
+
+- name: Login via AWS IAM
+  login:
+    akeyless_api_url: 'https://api.akeyless.io'
+    access_id: '<Access ID>'
+    access_type: 'aws_iam'
+    cloud_id: '{{ aws_identity.stdout | trim }}'
+  register: auth_res
+```
+
+> ℹ️ **Note:**
+>
+> `cloud_id` is the full output from `akeyless get-cloud-identity --cloud-provider aws_iam`.
+
 Where:
 
 * `akeyless_api_url`: Gateway URL API V2 endpoint that is `https://Your_GW_URL:8000/api/v2`.
