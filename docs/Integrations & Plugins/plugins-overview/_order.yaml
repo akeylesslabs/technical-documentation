@@ -26,6 +26,6 @@
 - slack-plugin
 - spire-plugins
 - steampipe-plugin
-- teamcity-plugins
+- teamcity-akeyless-plugin
 - terraform-provider
 - venafi-integration
