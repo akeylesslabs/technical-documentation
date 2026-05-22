@@ -177,3 +177,9 @@ Extract the secret value first for cleaner, reusable workflows:
 
 * Package on npm: [https://www.npmjs.com/package/n8n-nodes-akeyless-io](https://www.npmjs.com/package/n8n-nodes-akeyless-io)
 * GitHub Repository: [https://github.com/akeyless-community/N8N_PlugIn](https://github.com/akeyless-community/N8N_PlugIn)
+
+## Restored Visuals
+
+![Restored visual: Screenshot 2025 11 14 at 16.45.51](https://files.readme.io/ccc9b3bfe271d41087a408b69547c7f8234bd6354fb286c270fdb60a008c5139-Screenshot_2025-11-14_at_16.45.51.png)
+
+![Restored visual: Screenshot 2025 11 17 at 19.22.46](https://files.readme.io/0cb8dee191ebe3c1562733b78e71d9f3c6cf7d0f798953dfb4608119027853c7-Screenshot_2025-11-17_at_19.22.46.png)

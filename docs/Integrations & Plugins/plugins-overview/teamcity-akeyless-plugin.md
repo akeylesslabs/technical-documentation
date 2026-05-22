@@ -118,3 +118,9 @@ params {
 * Use a valid API host URL.
 * Use `https` for production endpoints.
 * If testing with localhost, use `http://localhost`.
+
+## Restored Visuals
+
+![Restored visual: TC Dynamic3](https://files.readme.io/fb23889-TC-Dynamic3.png)
+
+![Restored visual: TC GenSettings](https://files.readme.io/359e8ae-TC-GenSettings.png)

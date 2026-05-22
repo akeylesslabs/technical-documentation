@@ -135,3 +135,7 @@ workflows:
 ## Tutorial
 
 Check out our tutorial video on [Managing Secrets in CircleCI Pipelines](https://tutorials.akeyless.io/docs/managing-secrets-in-circleci-pipelines) .
+
+## Restored Visuals
+
+![Restored visual: Screenshot 2023 03 19 100113](https://files.readme.io/1329672-Screenshot_2023-03-19_100113.png)
