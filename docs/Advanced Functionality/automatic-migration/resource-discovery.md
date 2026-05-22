@@ -65,7 +65,7 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 
 * **Discover IIS Applications:** Discover any existing IIS Application that runs with explicit user credentials, as part of the rotated secret those IIS Application will be reflected, and upon Rotation, the relevant IIS Application will be restarted with the latest password.
 
-* **AI Certificate Discovery:** Discover existing certificates across the environment using an AI-driven scanner as part of Active Directory Migration.
+* **AI Certificate Discovery:** Discover existing certificates across the environment using an AI-driven scanner as part of Active Directory Migration, including local file system/custom scan locations where network-based discovery is not sufficient.
 
 > ℹ️ **Note:**
 >
