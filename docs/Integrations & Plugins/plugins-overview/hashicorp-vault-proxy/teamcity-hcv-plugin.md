@@ -1,5 +1,5 @@
 ---
-title: TeamCity HCV Plugin
+title: TeamCity Plugin by way of HashiCorp Vault Proxy
 excerpt: ''
 deprecated: false
 hidden: false
