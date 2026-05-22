@@ -133,3 +133,9 @@ Related authentication references:
 For the Vault Interaction extension itself, review its task options and caveats (for example, recursive discovery and variable prefix behavior) in the [Vault Interaction Marketplace page](https://marketplace.visualstudio.com/items?itemName=Fizcko.azure-devops-vault-interaction).
 
 Current examples use `VaultReadKV@5`, aligned with the Vault Interaction Marketplace examples and current extension major version documentation.
+
+## Restored Visuals
+
+![Restored visual: Capture222](https://files.readme.io/c775c07-Capture222.JPG)
+
+![Restored visual: pasted image 0 3](https://files.readme.io/cbd4b8b-pasted_image_0_3.png)
