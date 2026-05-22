@@ -117,7 +117,7 @@ akeyless target create google-trust \
 
 * **Email**: Email address used to register the ACME account.
 
-* **URL**: Either [Production](https://acme-v02.api.letsencrypt.org/directory) or [Staging](https://acme-staging-v02.api.letsencrypt.org/directory).
+* **URL**: Either [Production](https://dv.acme-v02.api.pki.goog/directory) or [Staging](https://dv.acme-v02.test-api.pki.goog/directory).
 
 * **EAB KID**: External Account Binding Key ID from Google CA Services.
 
