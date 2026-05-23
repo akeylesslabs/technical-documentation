@@ -2388,6 +2388,10 @@ akeyless rotated-secret sync \
 
 `--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
 
+> ℹ️ **Note (AWS Targets):**
+>
+> For AWS Universal Secret Connector targets, Akeyless-initiated sync updates secret values while preserving existing AWS-side custom tags and description unless those fields are explicitly updated.
+
 `--namespace`: Namespace name, Relevant only for HashiCorp Vault target.
 
 `--filter-secret-value`: jq expression to filter or transform the secret value
