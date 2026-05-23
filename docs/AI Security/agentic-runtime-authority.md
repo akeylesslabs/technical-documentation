@@ -283,22 +283,27 @@ This approach keeps the AI agent useful for legitimate queries while ensuring ac
 Use this example to grant dashboard visibility for compliance and investigations.
 
 1. Create a role with scoped ARA reporting visibility.
+   ```shell
+   akeyless create-role \
+     --name <role-name> \
+     --ara-reports-access scoped
+   ```
+
+   If the role already exists, update it instead:
+
+   ```shell
+   akeyless update-role \
+     --name <role-name> \
+     --ara-reports-access scoped
+   ```
 2. Assign this role to the users or auth methods that should view ARA reports.
+
+   ```shell
+   akeyless assoc-role-am \
+     --role-name <role-name> \
+     --am-name <auth-method-name>
+   ```
 3. After a runtime query is executed, open the Agentic Runtime Authority reporting view in the Console and verify that session records are visible.
-
-```shell
-akeyless create-role \
-  --name <role-name> \
-  --ara-reports-access scoped
-```
-
-If the role already exists, update it instead:
-
-```shell
-akeyless update-role \
-  --name <role-name> \
-  --ara-reports-access scoped
-```
 
 ### Platform Engineer
 
