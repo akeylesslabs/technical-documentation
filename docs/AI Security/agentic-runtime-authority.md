@@ -286,7 +286,7 @@ akeyless runtime-authority \
   --profile <profile-name>
 ```
 
-Example human prompt in an MCP client chat session (service target):
+Example prompt in an MCP client chat session (service target):
 
 ```text
 Use service-execute on /demo/services/github/oauth-app to list open pull requests in akeylesslabs/technical-documentation.
