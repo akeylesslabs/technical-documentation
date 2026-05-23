@@ -37,11 +37,11 @@ The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-reso
 
 ## Clipboard Behavior for Long Text (Current)
 
-When users copy and paste text through portal sessions, very large text blocks can be truncated.
+Portal copy actions use browser clipboard APIs.
 
-Current observed behavior in field and internal testing shows this limit can vary by environment. Truncation has been observed starting around 3,500 characters in some environments, while other environments accepted up to 131,072 characters.
+In the current frontend implementation, copy operations call the browser clipboard API with a fallback copy method. The implementation does not define a fixed character limit for copied text.
 
-When truncation occurs, the text is cut from the end.
+For long text payloads in active SRA sessions, behavior can vary by browser and session components.
 
 For large payload transfers, use file transfer workflows instead of clipboard copy and paste.
 

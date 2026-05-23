@@ -210,4 +210,4 @@ To download a file:
 >
 > If there is a size limit issue on the SRA SSH server (exceeding 90% of space), a file named `NOT_ENOUGH_FREE_SPACE` is created in the `akl-downloads` folder, and the user will not be able to download it.
 
-**Current transfer behavior:** There is no documented fixed file-size limit for SSH upload and download through the portal. Transfer speed and completion time can vary by network conditions, target host performance, and available resources on the SRA SSH service.
+**Current transfer behavior:** File transfer authorization is controlled by SRA permissions for upload and download operations. The current Gateway SRA configuration model does not expose a dedicated file-size limit setting for SSH upload and download. Transfer speed and completion time can vary by network conditions, target host performance, and available resources on the SRA SSH service.
