@@ -12,11 +12,9 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
 ---
-This page discusses creating and using a SAML-based authentication method in Akeyless.
+SAML authentication lets users sign in to Akeyless through an external Identity Provider (IdP), such as [Okta](https://docs.akeyless.io/docs/saml-auth-okta), [Ping Identity](https://docs.akeyless.io/docs/saml-auth-ping-identity), or [Microsoft Entra ID](https://docs.akeyless.io/docs/saml-auth-azure-ad).
 
-SAML authentication delegates user authentication to an external Identity Provider (IdP), such as Okta, Ping Identity, or Microsoft Entra ID.
-
-SAML authentication is typically used for browser-based sign-in and single sign-on flows.
+This page explains how to create and use a SAML Authentication Method in Akeyless for browser-based sign-in and single sign-on (SSO) flows.
 
 ## Creating a SAML Authentication Method
 
@@ -99,10 +97,10 @@ For optional features that apply across Authentication Methods, see [Common Opti
 * **Unique Identifier:** Define which IdP sub-claim key identifies a user.
 * **Sub-claim Delimiters:** Configure custom delimiters if your IdP uses a format other than comma-separated values.
 
-## Tutorial
+## Related Pages
 
 For end-to-end IdP setup examples, see:
 
-* [Set Up Okta as a SAML Authentication Method](https://docs.akeyless.io/docs/okta)
-* [Set Up Ping Identity as a SAML Authentication Method](https://docs.akeyless.io/docs/setting-up-ping-identity-saml-authentication)
-* [Set Up Microsoft Entra ID as a SAML Authentication Method](https://docs.akeyless.io/docs/azure-ad-saml-authentication)
+* [Set Up Okta as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-okta)
+* [Set Up Ping Identity as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-ping-identity)
+* [Set Up Microsoft Entra ID as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-azure-ad)
