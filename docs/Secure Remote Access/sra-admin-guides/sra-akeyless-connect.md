@@ -73,7 +73,7 @@ AKEYLESS_PROFILE="default"
 # Akeyless CLI binary (if needed)
 AKEYLESS_CLI=akeyless
 
-# AKEYLESS_GW_SSH_URL - URL for Akeyless Gateyway SSH service
+# AKEYLESS_GW_SSH_URL - URL for Akeyless Gateway SSH service
 AKEYLESS_GW_SSH_URL=""
 
 # AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (REST API)
@@ -116,7 +116,7 @@ Edit the settings as follows:
 
 `AKEYLESS_CLI` - Akeyless CLI binary (if needed).
 
-`AKEYLESS_GW_SSH_URL` - Set your Akeyless SRA SSH endpoint. This value is used for SSH traffic (for example, `my.sra-server:22`).
+`AKEYLESS_GW_SSH_URL` - Set your Akeyless SRA SSH endpoint in your local connection configuration (for example, `my.sra-server:22`).
 
 `AKEYLESS_GW_REST_API` - Set your Akeyless Gateway REST API endpoint (for example, `https://rest.akeyless.io`).
 
