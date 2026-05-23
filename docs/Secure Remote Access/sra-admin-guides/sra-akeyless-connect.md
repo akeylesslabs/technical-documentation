@@ -172,42 +172,7 @@ For unified Gateway deployments, configure **Allowed SSH URL** in **Manage Gatew
 >
 > For backward compatibility, `-v` can still be used in unified Gateway deployments. If **Allowed SSH URL** is configured, make sure the `-v` value matches it.
 
-Full options list:
-
-```shell
-akeyless connect -h
-Perform secure remote access
-
-Options:
-
-  -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, and so on.
-    -v, --via-sra                                SRA host, which the connection will go through. For example: sra-host:port.
-  -g, --gateway-url                      The Gateway URL (configuration management) address, for example, http://localhost:8000
-  -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified it will be taken from ~/.akeyless-connect.rc. If not specified it will be taken from item details
-  -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
-      --generate-key                     Generates a one-time RSA private key for the session, deleted when done
-  -n, --name                             Path to Secret, based on the required connection
-      --ssh-extra-args                   Additional SSH arguments (except -i)
-      --sra-ctrl-proto[=http]            SRA API Protocol [http/https]
-      --sra-ctrl-subdomain               SRA control API URL prefix. For example, https://<prefix>.sra-host
-      --sra-ctrl-path                    SRA control API path. For example, https://sra-host/<path>
-      --sra-ctrl-port[=9900]             SRA control API port. For example, https://sra-host:<7777>
-      --gateway-rest-endpoint            Gateway REST API URL. For example, https://rest.akeyless.io
-  -V, --ssh-version                      Output local SSH client version
-      --ssh-legacy-signing-alg[=false]   Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the ssh certificate.
-      --ssh-command                      Path to SSH executable. For example, /usr/bin/ssh
-  -T, --tunnel                           SSH tunnel param. For example, -T='-L :5555:0.0.0.0:5555' 
-  -C, --command                          Command to execute on the target (useful for non interactive-mode). For example, -C='ls -al'
-      --k8s-tunnel                       Create an SSH tunnel with a k8s proxy on a specific local port (1024-65535) (if provided, "command" and "tunnel" flags are ignored)
-  -J, --justification                    User connection justification
-      --debug                            Output debug prints
-      --profile, --token                 Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
-      --uid-token                        The universal identity token, Required only for universal_identity authentication
-  -h, --help                             display help information
-      --json[=false]                     Set output format to JSON
-      --jq-expression                    JQ expression to filter result output
-      --no-creds-cleanup[=false]         Do not clean up local temporary expired credentials
-```
+For the complete `akeyless connect` flag reference, see [CLI Reference - Connect](https://docs.akeyless.io/docs/cli-reference-connect).
 
 ## Examples
 
