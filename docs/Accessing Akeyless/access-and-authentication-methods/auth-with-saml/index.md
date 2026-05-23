@@ -14,73 +14,96 @@ next:
 ---
 The SAML authentication method allows users to authenticate using an external IdP with the SAML standard.
 
-## Dedicated SAML Endpoints Per Authentication Method
+This page discusses creating and using a SAML-based authentication method in Akeyless.
 
-Each SAML authentication method has dedicated SAML endpoints.
+SAML authentication delegates user authentication to an external Identity Provider (IdP), such as Okta, Ping Identity, or Microsoft Entra ID.
 
-When configuring the Identity Provider (IdP), use the metadata and assertion consumer service (ACS) endpoint values generated for the specific SAML authentication method you are configuring.
+SAML authentication is typically used for browser-based sign-in and single sign-on flows.
 
-This separation allows each SAML authentication method to be configured and managed independently.
+## Creating a SAML Authentication Method
 
-## Create a SAML Authentication Method with the CLI
+This action is distinct from creating a new Akeyless account: it creates an additional SAML-based authentication method for an existing account.
 
-Let's create a new SAML authentication method using the Akeyless CLI. You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-saml#create-a-saml-authentication-method-in-the-console).
+Important SAML requirement:
 
-To create a SAML authentication method with the CLI, run the following command:
+* **Dedicated endpoints per Authentication Method:** Each SAML authentication method has dedicated SAML endpoints. When configuring the IdP application, use the metadata and assertion consumer service (ACS) endpoint values generated for that specific SAML authentication method.
+
+### Creating a SAML Authentication Method with the Console
+
+To create a new SAML-based authentication method with the Console:
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select **+ New**. This opens the **Create Authentication Method** form.
+3. On the **Type** selection screen, select **SAML**, then **Next →**.
+4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
+5. Configure general and SAML-specific fields:
+   * **Allowed Redirect URIs:** Comma-separated redirect URIs to validate in the SAML flow.
+   * **Metadata input:** Choose **URL** or **XML**, then provide your IdP metadata.
+   * **Unique Identifier:** Sub-claim key used to uniquely identify users (for example, `email`, `username`, or `UPN`).
+6. Select **Finish**.
+
+> ⚠️ **Warning:**
+>
+> The **Unique Identifier** must be a sub-claim key name, not a user value. For example, use `email`, not an actual email address.
+
+### Creating a SAML Authentication Method with the CLI
+
+To create a SAML-based authentication method with the CLI:
 
 ```shell
 akeyless auth-method create saml \
---name saml-am \
---idp-metadata-url your-idp-metadata-url \
---unique-identifier email
+  --name <SAML Auth Method Name> \
+  --idp-metadata-url <IdP Metadata URL> \
+  --unique-identifier <email|username|UPN>
 ```
 
-Where:
+By default, Akeyless treats comma `,` as a delimiter for sub-claim values. If your IdP uses different delimiters, configure them with the `delimiters` flag.
 
-* `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+[Read about more parameters available when creating a SAML-based authentication method.](https://docs.akeyless.io/docs/cli-ref-auth#create)
 
-* `idp-metadata-url`: The Identity Provider URL (for more information check the [Okta](https://docs.akeyless.io/docs/okta) example).
+## Using a SAML Authentication Method
 
-* `unique-identifier`: A unique identifier is usually one of the following **keys**: `email`, `username`, or `UPN`. Whenever a user logs in with a token, SAML Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
+### Using a SAML Authentication Method with the Console
 
-> ℹ️ **Note:**
->
-> **Unique Identifier** should be a **key** name, not the value itself. For example, `email` should be provided as is, and not the actual email address.
+To sign in to the Console with SAML:
 
-By default, Akeyless treats the comma char `,` as a delimiter for the JWT attributes. If your IdP uses different characters as a delimiter, you can set those using the `delimiters` parameter.
+1. Open the Akeyless Console: [https://console.akeyless.io](https://console.akeyless.io).
+2. In the **Or continue with** section, select **SAML**.
+3. Enter the SAML Authentication Method **Access ID**, then continue with the IdP sign-in flow.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create) section.
+### Using a SAML Authentication Method with the CLI
 
-## Create a SAML Authentication Method in the Console
+To use a SAML-based authentication method with a CLI profile, run the [Akeyless configure command](https://docs.akeyless.io/docs/cli-reference#configure):
 
-1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > User (SAML)**.
+```shell
+akeyless configure \
+  --profile saml \
+  --access-id <SAML Access ID> \
+  --access-type saml
+```
 
-2. Define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+To authenticate and retrieve a temporary Akeyless token, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
-3. Define the parameters as follows:
+```shell
+akeyless auth \
+  --access-type saml \
+  --access-id <SAML Access ID>
+```
 
-    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+## Optional Features
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).
 
-    * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
+### SAML-Specific Optional Features
 
-    * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
+* **Allowed Redirect URIs:** Restrict the redirect targets that can be used in the authentication flow.
+* **Unique Identifier:** Define which IdP sub-claim key identifies a user.
+* **Sub-claim Delimiters:** Configure custom delimiters if your IdP uses a format other than comma-separated values.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`, `Mobile`, `Extension`.
+## Tutorial
 
-4. Click **Next** and define the remaining parameters as follows:
+For end-to-end IdP setup examples, see:
 
-    * Choose your preferred Identity Provider (IdP) metadata type by selecting one of the options:
-        * Check the **URL** radio button and enter your Identity Provider **Metadata URL** in the field below.
-        * Check the **XML** radio button when using an internal domain and enter your Identity Provider **Metadata XML** in the field below.
-
-    * **Allowed Redirect URIs:** Enter a comma-separated list of Redirect URIs to be validated as part of the authentication flow. If you leave this field empty, it can be insecure. Malicious users could steal access credentials using open redirects.
-
-    * **Unique Identifier:** A unique identifier is usually one of the following **keys**: `email`, `username`, or `UPN`. Whenever a user logs in with a token, SAML Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
-
-    > 🚧 Note
-    >
-    > **Unique Identifier** should be a **key** name, not the value itself. For example, `email` should be provided as is, and not the actual email address.
-
-5. Click **Finish**.
+* [Set Up Okta as a SAML Authentication Method](https://docs.akeyless.io/docs/okta)
+* [Set Up Ping Identity as a SAML Authentication Method](https://docs.akeyless.io/docs/setting-up-ping-identity-saml-authentication)
+* [Set Up Microsoft Entra ID as a SAML Authentication Method](https://docs.akeyless.io/docs/azure-ad-saml-authentication)
