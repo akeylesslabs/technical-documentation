@@ -89,10 +89,6 @@ Each **Gateway** cluster exposes a `/status` endpoint that provides basic runtim
 
 To assess the Gateway’s connectivity to Akeyless SaaS core services, you can use the `/health` endpoint. When cluster cache is enabled, cache availability can also affect this endpoint result. For cache architecture and runtime semantics, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
 
-The following diagram illustrates the Gateway proactive caching flow:
-
-![Gateway proactive caching flow diagram.](https://files.readme.io/1fdc1d01ea89e625913853199b7ed1aba17bdebdd713ce3b708af7c1fa9b2e77-Cache_Diagaram.png)
-
 * If the Gateway is successfully connected, it responds with an HTTP status code `200` and the message: **Health Check Ok**.
 * If the connection fails, it returns an HTTP status code `503` with the message: **Health Check Error**
 * If Cluster Cache is used, and not available, even when the Gateway is successfully connected, it will return `503` with **Health Check Error**
