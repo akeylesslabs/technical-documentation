@@ -273,9 +273,9 @@ This approach keeps the AI agent useful for legitimate queries while ensuring ac
 
 ## Examples
 
-### Human-Driven Usage Examples
+### Usage Examples
 
-Example human-driven database runtime query from a terminal:
+Example database runtime query from a terminal:
 
 ```shell
 akeyless runtime-authority \
