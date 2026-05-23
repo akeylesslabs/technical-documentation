@@ -35,7 +35,7 @@ The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-reso
 
 ![A screenshot of the Akeyless Secure Remote Access product and its portal of available options.](https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png)
 
-## Clipboard Behavior for Long Text (Current)
+## Clipboard Behavior for Long Text
 
 Portal copy actions use browser clipboard APIs.
 
