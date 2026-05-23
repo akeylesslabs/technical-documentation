@@ -43,13 +43,18 @@ Runtime authority is exposed through these code-backed entry points:
 
 ## Prerequisites
 
+### Required
+
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with runtime authority support enabled. See [Configure Agentic Runtime Authority In The Console](https://docs.akeyless.io/docs/agentic-runtime-authority#configure-agentic-runtime-authority-in-the-console).
 * **[Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight)** configured for the account and Gateway. Runtime query validation depends on AI validation. See [High-Level Setup Steps](https://docs.akeyless.io/docs/akeyless-ai-insight#high-level-setup-steps).
 * A Dynamic Secret, Rotated Secret, or Static Secret configured for your runtime workflow.
 * A role with ARA execution permissions to the relevant secret path and, when required, reporting visibility.
 * An authentication method associated with that role.
+
+### Optional
+
 * A supported desktop client, such as Claude Desktop or Cursor, if you plan to use MCP.
-* _(Optional)_ Akeyless CLI installed when you plan to use CLI-based setup or execution flows.
+* Akeyless CLI installed when you plan to use CLI-based setup or execution flows.
 
 ## Policy Control And Traceability Summary
 
@@ -273,28 +278,9 @@ This approach keeps the AI agent useful for legitimate queries while ensuring ac
 
 ## Examples
 
-### Usage Examples
+### Security Administrator
 
-Example database runtime query from a terminal:
-
-```shell
-akeyless runtime-authority \
-  --name /demo/apps/analytics/postgres-ro \
-  --payload 'SELECT id, email FROM customers LIMIT 10;' \
-  --agent-id secops-analyst-01 \
-  --gateway-url https://<gateway-url>:8000 \
-  --profile <profile-name>
-```
-
-Example prompt in an MCP client chat session (service target):
-
-```text
-Use service-execute on /demo/services/github/oauth-app to list open pull requests in akeylesslabs/technical-documentation.
-```
-
-If the service requires OAuth consent, open the authorization URL returned by the tool, then rerun the same request with the returned `auth-code` and `state` values.
-
-Example CLI role setup for reporting access:
+Use this example to grant dashboard visibility for compliance and investigations.
 
 ```shell
 akeyless create-role \
@@ -302,7 +288,9 @@ akeyless create-role \
   --ara-reports-access scoped
 ```
 
-Example input rules:
+### Platform Engineer
+
+Use this example to set baseline runtime guardrails on a Dynamic Secret using input and output rules.
 
 ```text PostgreSQL
 name=read-only-sql,rule=Only allow read-only SQL statements: SELECT, SHOW, DESCRIBE, DESC, EXPLAIN, WITH. Reject any DML or DDL statements such as INSERT, UPDATE, DELETE, DROP, ALTER, CREATE, TRUNCATE, GRANT, REVOKE.
@@ -311,7 +299,9 @@ name=read-only-sql,rule=Only allow read-only SQL statements: SELECT, SHOW, DESCR
 name=denied-commands,rule=Deny the following Redis commands: KEYS, FLUSHALL, FLUSHDB, DEBUG, SHUTDOWN, BGSAVE, BGREWRITEAOF, SLAVEOF, REPLICAOF, CLUSTER, MIGRATE, MONITOR, SUBSCRIBE, PSUBSCRIBE, EVAL, EVALSHA, EVALRO, EVALSHA_RO, SCRIPT. Also deny CONFIG subcommands SET, REWRITE, and RESETSTAT.
 ```
 
-Example direct runtime query:
+### Security Analyst
+
+Use this example to run an auditable read-only query through Gateway runtime authority.
 
 ```shell
 akeyless runtime-authority \
@@ -322,20 +312,15 @@ akeyless runtime-authority \
   --profile <profile-name>
 ```
 
-Example MCP `service-execute` call (first request, before consent):
+### Application Developer
 
-```json
-{
-  "tool": "service-execute",
-  "arguments": {
-    "secret-name": "/demo/services/github/oauth-app",
-    "payload": "{\"action\":\"list-repositories\"}",
-    "agent-id": "ai-assistant-01"
-  }
-}
+Use this example to request a service action through MCP and then complete OAuth when consent is required.
+
+```text
+Use service-execute on /demo/services/github/oauth-app to list open pull requests in akeylesslabs/technical-documentation.
 ```
 
-Example MCP `service-execute` follow-up call (after consent redirect):
+If the service requires OAuth consent, open the authorization URL returned by the tool, then rerun the same request with the returned `auth-code` and `state` values.
 
 ```json
 {
