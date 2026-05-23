@@ -10,86 +10,66 @@ metadata:
 next:
   description: ''
 ---
-This guide will take you through the steps to set up SAML authentication with Azure AD, both on the Azure end and on the Akeyless end.
+This guide explains how to configure Microsoft Entra ID (Azure AD) as the Identity Provider (IdP) for SAML authentication in Akeyless.
 
-## Create an Azure AD Application
+## Prerequisites
 
-1. On your Azure Dashboard, select **Enterprise Applications**.
+* A Microsoft Entra ID tenant with admin permissions.
+* An Akeyless account.
 
-2. Create a new application and select the **Create your own application** option.
+## Create a Microsoft Entra SAML Application
 
-3. Name your application **Akeyless** and select the **Integrate any application you don't find in the gallery (Non-gallery)** option.
+1. In the Azure portal, go to **Enterprise applications**.
+2. Create a new non-gallery application.
+3. Open the application, then go to **Single sign-on**, and select **SAML**.
+4. In **Basic SAML Configuration**, set:
+   * **Identifier (Entity ID):** Use the SAML **Metadata/Entity ID URL** generated for your Akeyless SAML Authentication Method.
+   * **Reply URL (Assertion Consumer Service URL):** Use the SAML **ACS URL** generated for your Akeyless SAML Authentication Method.
+5. In **Attributes & Claims**, add a claim for `email` and, if needed, configure group claims for role association.
+6. Copy the **App Federation Metadata URL** from the SAML configuration. You will use it in Akeyless.
+7. Assign the required users and groups to the enterprise application.
 
-4. Under Getting Started, choose **Set up single sign-on**.
+> ℹ️ **Note:**
+>
+> Akeyless uses dedicated SAML endpoints per Authentication Method. Do not use hardcoded global endpoints. Always copy endpoint values from the specific Akeyless SAML Authentication Method you are configuring.
 
-5. Select **SAML** to be transferred to the SAML configuration page.
+## Create the SAML Authentication Method in Akeyless
 
-6. Insert the following URLs to the configuration:
+You can create the method from the Console or CLI.
 
-   * Identifier (Entity ID): `https://auth.akeyless.io/saml/metadata`
+### Akeyless Console
 
-   * Reply URL (Assertion Consumer Service URL): `https://auth.akeyless.io/saml/acs`
+1. In the Akeyless Console, go to **Administration**, then **Users & Auth Methods**.
+2. Select **+ New**, then **SAML**.
+3. Set:
+   * **Name**
+   * **IdP Metadata URL** (the App Federation Metadata URL)
+   * **Unique Identifier** (for example, `email`)
+4. Save the Authentication Method.
+5. Copy the dedicated SAML endpoint values shown for this Authentication Method, then confirm the same values are configured in Microsoft Entra:
+   * SAML **ACS URL**
+   * SAML **Metadata/Entity ID URL**
 
-7. After filling in the details, you can view the SAML Signing Certificate.
-   Copy the **App Federation Metadata URL** (starts with `https://login.microsoftonline.com/...`) and paste it somewhere accessible, as you will need it for the Akeyless-side steps.
-
-8. In your SAML application's **Attributes & Claims**, select Edit to add user and group claims.
-
-9. Select **Add new claim** - and fill in the following details:
-
-   * `Name` = `email`
-
-   * `Source attribute` = `user.userprincipalname`
-
-   > 📘 Info
-   >
-   > **Customize SAML token claims**
-   >
-   > You can customize your SAML token claims in Azure as described in [this](https://learn.microsoft.com/en-us/azure/active-directory/develop/saml-claims-customization#edit-nameid) guide.
-
-10. Select **Add a group claim** - Configure the group claim according to the instructions provided in [here](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-fed-group-claims#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). See the following example:
-
-    * On the multiple-choice groups-association question, select **Security groups**.
-
-    * Source attribute `Group ID` (or, `sAMAccountName`, for Active Directory-synchronized groups).
-
-    * under Advanced options, select **Customize**, and set the name to **groups**.
-
-    > 👍 Note
-    >
-    > The group sub-claim by default will provide the group's Azure AD object identifier (OID), and not the group name - which affects how you should set the groups' sub-claims when configuring Access Roles. If you wish to expose the group display name as an attribute instead, you can either use `sAMAccountName` - but **only** for groups that were synced from an on-premise Active Directory, or you can follow the instruction on how to [emit cloud-only group display name](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-fed-group-claims#emit-cloud-only-group-display-name-in-token-preview).
-
-11. Finally, make sure to add and assign the relevant **Users and groups** to the application.
-
-Now for the Akeyless side:
-
-## Create SAML Authentication Method
-
-The Akeyless side of the setup can be done either with the CLI or the console. Choose whichever you find preferable.
-
-### Using the Akeyless CLI
-
-Run the following command:
+### Akeyless CLI
 
 ```shell
 akeyless auth-method create saml \
---name '<saml-name>' \
---idp-metadata-url '<your-idp-metadata-url>' \
---unique-identifier email
+  --name "<saml-name>" \
+  --idp-metadata-url "<app-federation-metadata-url>" \
+  --unique-identifier email
 ```
 
-The IdP metadata URL is the **App Federation Metadata URL** you copied from the Azure process.
+## Validate Authentication
 
-### Using the Akeyless Console
+1. Open [https://console.akeyless.io](https://console.akeyless.io).
+2. Select **SAML** and provide the SAML Authentication Method **Access ID**.
+3. Complete sign-in through Microsoft Entra.
 
-1. Go to the **Users & Auth Methods** tab in your console.
+For CLI usage after setup:
 
-2. Select **New > SAML**.
-
-3. Fill in the mandatory parameters:
-
-   * Name: The in-system name for the authentication method.
-   * IdP Metadata URL: The **App Federation Metadata URL** you copied from the Azure process.
-   * Unique identifier: The required identifier. In this case, you can use **email**.
-
-Your SAML authentication should be up and running.
+```shell
+akeyless configure \
+  --profile entra-saml \
+  --access-id <SAML Access ID> \
+  --access-type saml
+```

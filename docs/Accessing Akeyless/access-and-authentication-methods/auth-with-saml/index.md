@@ -12,8 +12,6 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
 ---
-The SAML authentication method allows users to authenticate using an external IdP with the SAML standard.
-
 This page discusses creating and using a SAML-based authentication method in Akeyless.
 
 SAML authentication delegates user authentication to an external Identity Provider (IdP), such as Okta, Ping Identity, or Microsoft Entra ID.
@@ -84,6 +82,7 @@ akeyless configure \
 
 To authenticate and retrieve a temporary Akeyless token, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
+<!-- secret-stdout-scan:ok -->
 ```shell
 akeyless auth \
   --access-type saml \

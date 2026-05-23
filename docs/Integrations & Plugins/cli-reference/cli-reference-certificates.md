@@ -782,7 +782,7 @@ akeyless generate-ca \
 
 > ℹ️ **Note (Leaf certificate constraints):**
 >
-> `generate-ca` creates leaf issuers with `CA:FALSE` to ensure issued leaf certificates are not marked as certificate authorities.
+> `generate-ca` sets leaf certificate basic constraints to `CA:FALSE` so issued leaf certificates are not marked as certificate authorities.
 
 ## Certificate Discovery
 

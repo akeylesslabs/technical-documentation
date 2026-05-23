@@ -24,38 +24,48 @@ To use Ping Identity SAML authentication for the Akeyless Platform, you must hav
 
 2. On the **Application Details** page, define the application name, description, and category, then select **Continue to Next Step**.
 
-3. On the **SAML Configuration** page, select **Import from URL**, and enter the Akeyless metadata URL: `https://auth.akeyless.io/saml/metadata`
+3. On the **SAML Configuration** page, select **Import from URL**, and import the SAML metadata URL generated for your specific Akeyless SAML Authentication Method.
 
 4. Once the metadata has been uploaded, configuration information appears. Ensure that:
 
-    * **Assertion Consumer Service (ACS)**: `https://auth.akeyless.io/saml/acs`
-    * **Entity ID**: `https://auth.akeyless.io/saml/metadata`
+* **Assertion Consumer Service (ACS)** matches the dedicated ACS URL for your Akeyless SAML Authentication Method.
+* **Entity ID** matches the dedicated Metadata/Entity ID URL for your Akeyless SAML Authentication Method.
 
-5. From the **Signing** options, select the **Sign Assertion** radio button, then select **Continue to Next Step**.
+1. From the **Signing** options, select the **Sign Assertion** radio button, then select **Continue to Next Step**.
 
-6. On the **Attribute Mapping** tab, select **Add New Attribute**, and add the following attribute settings:
+2. On the **Attribute Mapping** tab, select **Add New Attribute**, and add the following attribute settings:
 
     * **Application Attribute**: `SAML_SUBJECT` should be mapped to `User ID`
     * **Application Attribute**: `Email` should be mapped to `Email Address`
 
-7. Edit your Application configuration and in the `SUBJECT NAMEID FORMAT` field, select `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
+3. Edit your Application configuration and in the `SUBJECT NAMEID FORMAT` field, select `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
 
-8. Select **Continue to Next Step**.
+4. Select **Continue to Next Step**.
 
-9. Add the groups in your Ping Identity account to this application, then select **Continue to Next Step** and **Finish**.
+5. Add the groups in your Ping Identity account to this application, then select **Continue to Next Step** and **Finish**.
 
 Your new application appears in the list of available applications.
 
+> ℹ️ **Note:**
+>
+> Akeyless uses dedicated SAML endpoints per Authentication Method. Do not use hardcoded global endpoints. Always copy endpoint values from the specific Akeyless SAML Authentication Method you are configuring.
+
 ## Create a SAML Authentication Method
 
-1. Log in to the Akeyless Web Console, and go to **Users & Auth Methods > New > SAML**.
+1. Log in to the Akeyless Web Console, and go to **Administration**, then **Users & Auth Methods**.
 
-2. In the **IdP Metadata URL** field, add the URL metadata from your Ping Application configuration tab.
+2. Select **+ New**, then **SAML**.
 
-3. Set the **Unique Identifier** field with `email`.
+3. In the **IdP Metadata URL** field, add the metadata URL from your Ping application.
+
+4. Set the **Unique Identifier** field with `email`.
 
     > 👍 Note
     >
     > **Unique Identifier** should be a **key** name, that is not the value itself. For example, `email` should be provided as is, and not the actual email address.
 
-4. Click **Finish**.
+5. Click **Finish**.
+
+6. Copy the dedicated SAML endpoint values from the created Akeyless Authentication Method, then verify the same values are configured in Ping Identity:
+   * SAML **ACS URL**
+   * SAML **Metadata/Entity ID URL**

@@ -10,86 +10,85 @@ metadata:
 next:
   description: ''
 ---
-To use Okta as an IdP to authenticate to the Akeyless Platform, follow the steps below.
+This guide explains how to configure Okta as the Identity Provider (IdP) for SAML authentication in Akeyless.
 
-## Create an Okta Application
+## Prerequisites
 
-The following configuration will enable users to authenticate using Okta SAML-based Single Sign-On.
+* An Okta administrator account.
+* An Akeyless account.
 
-1. Go to **Applications** in the left sidebar. Create a new app integration type **SAML 2.0** in your Okta account.
+## Create an Okta SAML Application
 
-    ![Illustration for: The following configuration will enable users to authenticate using Okta SAML-based Single Sign-On. 1. Go to Applications in the left sidebar. Create a new app integration…](https://files.readme.io/a915ffc-1.png)
+1. In Okta, go to **Applications**, then create a new app integration of type **SAML 2.0**.
+2. Enter an application name and continue to SAML configuration.
+3. Configure the SAML app:
+   * **Single sign-on URL:** Use the SAML **ACS URL** generated for your Akeyless SAML Authentication Method.
+   * **Audience URI (SP Entity ID):** Use the SAML **Metadata/Entity ID URL** generated for your Akeyless SAML Authentication Method.
+4. Configure attribute mapping:
+   * `email` mapped to `user.email`
+   * `user` mapped to `user.login`
+5. If you use group-based role association, add a group claim for `groups`.
+6. Save the application.
 
-    Provide an **App name**:
+> ℹ️ **Note:**
+>
+> Akeyless uses dedicated SAML endpoints per Authentication Method. Do not use hardcoded global endpoints. Always copy endpoint values from the specific Akeyless SAML Authentication Method you are configuring.
 
-    ![Illustration for: The following configuration will enable users to authenticate using Okta SAML-based Single Sign-On. 1. Go to Applications in the left sidebar. Create a new app integration…](https://files.readme.io/a4e4ada-1.2.png)
+## Get Okta IdP Metadata
 
-2. On the **SAML Settings** page:
+Get one of the following from Okta:
 
-    * Set `https://auth.akeyless.io/saml/acs` into the Single sign-on URL field.
-      * Set `https://auth.akeyless.io/saml/metadata` into the Audience URI (SP Entity ID) field.
+* **IdP Metadata URL** from the active signing certificate actions.
+* **IdP Metadata XML** from the Okta SAML setup instructions.
 
-    ![Illustration for: Set the Single sign-on URL field and the Audience URI (SP Entity ID) field.](https://files.readme.io/d58189c-3.png)
+You will use this metadata in Akeyless when creating the SAML Authentication Method.
 
-    * In the **Attribute Statements** section, add the following attributes:
-      * `Name`: `email` ->`Value`: `user.email`
-      * `Name`: `user` -> `Value`: `user.login`
-    * In the **Group Attributes Statements** section, add the following attributes:
-      * `Name`: `groups`  
-      * `Filter`: `Matches regex`-> `Value`: `.*`
+## Create the SAML Authentication Method in Akeyless
 
-    ![Illustration for: In the Group Attributes Statements section, add the following attributes: Name: groups Filter: Matches regex-> Value: .](https://files.readme.io/86d982d-4.png)
+You can create the method from the Console or CLI.
 
-3. On the Feedback page, click **Finish**.
+### Akeyless Console
 
-    ![Illustration for: Name: groups Filter: Matches regex-> Value: . 3. On the Feedback page, click Finish.](https://files.readme.io/7e3cf7f-5.png)
+1. In the Akeyless Console, go to **Administration**, then **Users & Auth Methods**.
+2. Select **+ New**, then **SAML**.
+3. Set:
+   * **Name**
+   * **IdP Metadata URL** or **IdP Metadata XML**
+   * **Unique Identifier** (for example, `email`)
+4. Save the Authentication Method.
+5. Copy the dedicated SAML endpoint values shown for this Authentication Method, then confirm the same values are configured in Okta:
+   * SAML **ACS URL**
+   * SAML **Metadata/Entity ID URL**
 
-4. You can either obtain your IdP Metadata URL by clicking on the **Actions** menu of the Active **SAML Signing Certificate** and copy the URL from the **View IdP Metadata** button.
-    Alternatively, you can obtain the IdP metadata `XML` by clicking on **View SAML setup instructions**, and in the new tab that opens, scroll down and copy the full IdP metadata `XML` under the **Optional** section.
-
-    ![Illustration for: Alternatively, you can obtain the IdP metadata XML by clicking on View SAML setup instructions, and in the new tab that opens, scroll down and copy the full IdP metadata XML…](https://files.readme.io/057d8cf-6.png)
-
-5. Now, when an Okta Application is ready, assign users to the Okta app, just like with any other Okta app.
-
-6. To bind the Okta application with your Akeyless account, you need to create a [SAML](https://docs.akeyless.io/docs/auth-with-saml) Authentication Method using either CLI or UI, as described below.
-
-## Create SAML Authentication Method
-
-To create a SAML Auth Method using the Akeyless CLI run the following command:
+### Akeyless CLI
 
 ```shell
 akeyless auth-method create saml \
---name 'my Okta app' \
---idp-metadata-url '<your-idp-metadata-url>' \
---unique-identifier email
+  --name "my okta app" \
+  --idp-metadata-url "<okta-idp-metadata-url>" \
+  --unique-identifier email
 ```
 
-Alternatively, you can create this Auth Method from the Akeyless Console.
+## Authenticate with Okta SAML
 
-1. Go to the **Users & Auth Methods** tab in your console.
+### Akeyless CLI
 
-2. Select **New > SAML**.
+```shell
+akeyless configure \
+  --profile okta-app \
+  --access-id <SAML Access ID> \
+  --access-type saml
+```
 
-3. Fill in the mandatory parameters:
+Then run commands with that profile, for example:
 
-    * Name: The in-system name for the authentication method.
-    * IdP Metadata URL: The **App Federation Metadata URL** you copied from the Azure process.
-    * Unique identifier: The required identifier. In this case, you can use **email**.
+```shell
+akeyless list-items --profile okta-app
+```
 
-## Authenticate Using SAML
+### Akeyless Console
 
-To log in using SAML from Akeyless CLI:
-
-1. Configure a new profile with your Access ID from the previous step and SAML type (if no profile name is provided, the default will be configured):
-
-    ```shell
-    akeyless configure --access-id <Access ID> --access-type saml --profile 'okta-app'
-    ```
-
-2. Now, you can run any Akeyless CLI command and be authenticated with the Okta application:
-
-    ```shell
-    akeyless list-items --profile okta-app
-    ```
-
-In the Akeyless Console login page, click the SAML option and enter your SAML Access ID. You will be redirected to the Okta sign-in page where you need to provide your Okta credentials.
+1. Open [https://console.akeyless.io](https://console.akeyless.io).
+2. Select **SAML**.
+3. Enter the SAML Authentication Method **Access ID**.
+4. Complete sign-in in Okta.
