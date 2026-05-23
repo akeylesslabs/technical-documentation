@@ -118,7 +118,7 @@ To update in the Console:
 3. Update the required fields.
 4. Save the changes.
 
-To update with the CLI, use the relevant `akeyless auth-method update azure-ad` flags in [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth).
+To update with the CLI, use the relevant `akeyless auth-method update azure-ad` flags in [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#update).
 
 ## Troubleshooting
 

@@ -106,7 +106,7 @@ To update in the Console:
 3. Update the required fields.
 4. Save the changes.
 
-For CLI update flags, see [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth).
+For CLI update flags, see [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#update).
 
 ## Troubleshooting
 
