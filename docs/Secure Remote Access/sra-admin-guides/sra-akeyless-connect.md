@@ -116,9 +116,9 @@ Edit the settings as follows:
 
 `AKEYLESS_CLI` - Akeyless CLI binary (if needed).
 
-`AKEYLESS_GW_SSH_URL` - Set your Akeyless Gateway URL for the SSH service on port `8000`. The Kubernetes Service name will start with `ssh-`.
+`AKEYLESS_GW_SSH_URL` - Set your Akeyless SRA SSH endpoint. This value is used for SSH traffic (for example, `my.sra-server:22`).
 
-`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
+`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway REST API endpoint (for example, `https://rest.akeyless.io`).
 
 `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/sra-setup-k8s) is configured with TLS. This corresponds to the SRA control API protocol (CLI flag `--sra-ctrl-proto`).
 
@@ -181,7 +181,7 @@ Perform secure remote access
 Options:
 
   -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, and so on.
-    -v, --via-sra                                Optional SRA host override. For legacy deployments this is the primary route host. For unified Gateway deployments, this is only needed when overriding the configured SSH address.
+    -v, --via-sra                                SRA host, which the connection will go through. For example: sra-host:port.
   -g, --gateway-url                      The Gateway URL (configuration management) address, for example, http://localhost:8000
   -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified it will be taken from ~/.akeyless-connect.rc. If not specified it will be taken from item details
   -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
@@ -213,10 +213,10 @@ Options:
 
 ### SSH
 
-For SSH access through the SSH component, please use both the `-g <gw-ssh-url>` and `-c <cert-issuer-name>` options. Note that end-users require `read` permission on the cert issuer item which enables them access to the service.
+For SSH access through the SSH component, use both `-g <gateway-url>` and `-c <cert-issuer-name>`. Note that end-users require `read` permission on the cert issuer item which enables them access to the service.
 
 ```shell
-akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert Issuer>"
+akeyless connect -t user@ssh-server[:port] -g <gateway-url> -c "<Path to SSH Cert Issuer>"
 ```
 
 > ℹ️ **Info:**
@@ -230,31 +230,31 @@ akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert
 ### AWS
 
 ```shell
-akeyless connect -t us-east-1 -c my-ssh-cert-issuer -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
+akeyless connect -t us-east-1 -c my-ssh-cert-issuer -g <gateway-url> -n "<Path to AWS Dynamic Secret>"
 ```
 
 If you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file, you can use:
 
 ```shell
-akeyless connect -t us-east-1 -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
+akeyless connect -t us-east-1 -g <gateway-url> -n "<Path to AWS Dynamic Secret>"
 ```
 
 ### MongoDB
 
 ```shell
-akeyless connect -t <mongo server IP>:27017 -g <gw-ssh-url>:<port> -n "<Path to MongoDB Dynamic Secret>"
+akeyless connect -t <mongo server IP>:27017 -g <gateway-url> -n "<Path to MongoDB Dynamic Secret>"
 ```
 
 ### MySQL
 
 ```shell
-akeyless connect -t <mysql-server>:3306 -g <gw-ssh-url>:<port> -n "<Path to MySQL Dynamic Secret>"
+akeyless connect -t <mysql-server>:3306 -g <gateway-url> -n "<Path to MySQL Dynamic Secret>"
 ```
 
 ### Amazon EKS
 
 ```shell
-akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -g <gw-ssh-url>:<port> -n "<Path to EKS Dynamic secret>"
+akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -g <gateway-url> -n "<Path to EKS Dynamic secret>"
 ```
 
 ### Non-interactive connection to Kubernetes
@@ -262,11 +262,11 @@ akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -g <gw-
 Linux:
 
 ```shell
-AKEYLESS_PARAM='get pod' akeyless connect -t <k8 cluster endpoint> -g <gw-ssh-url> -n "Path To Kubernetes DynamicSecret" --ssh-extra-args "non-interactive"
+AKEYLESS_PARAM='get pod' akeyless connect -t <k8 cluster endpoint> -g <gateway-url> -n "Path To Kubernetes DynamicSecret" --ssh-extra-args "non-interactive"
 ```
 
 Windows:
 
 ```shell
-$env:AKEYLESS_PARAM = 'get pods'; .\akeyless.exe connect -t <k8 cluster endpoint> -g <gw-ssh-url> -n "Path To Kubernetes DynamicSecret" --ssh-extra-args "non-interactive"
+$env:AKEYLESS_PARAM = 'get pods'; .\akeyless.exe connect -t <k8 cluster endpoint> -g <gateway-url> -n "Path To Kubernetes DynamicSecret" --ssh-extra-args "non-interactive"
 ```
