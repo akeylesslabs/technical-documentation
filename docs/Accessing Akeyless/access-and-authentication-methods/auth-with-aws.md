@@ -18,6 +18,8 @@ This page discusses creating and using an AWS IAM-based authentication method in
 
 AWS IAM authentication is intended for **workload authentication** and is not recommended for direct interactive Console sign-in.
 
+![AWS IAM role-based authentication flow for obtaining an Akeyless token.](https://files.readme.io/c1f9c5b-Role_new_design.png)
+
 ## Creating an AWS IAM Authentication Method
 
 This action is distinct from creating a new Akeyless account: it creates an additional AWS IAM-based authentication method for an existing account.
