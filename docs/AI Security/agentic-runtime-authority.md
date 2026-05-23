@@ -282,8 +282,19 @@ This approach keeps the AI agent useful for legitimate queries while ensuring ac
 
 Use this example to grant dashboard visibility for compliance and investigations.
 
+1. Create a role with scoped ARA reporting visibility.
+2. Assign this role to the users or auth methods that should view ARA reports.
+
 ```shell
 akeyless create-role \
+  --name <role-name> \
+  --ara-reports-access scoped
+```
+
+If the role already exists, update it instead:
+
+```shell
+akeyless update-role \
   --name <role-name> \
   --ara-reports-access scoped
 ```
@@ -292,6 +303,10 @@ akeyless create-role \
 
 Use this example to set baseline runtime guardrails on a Dynamic Secret using input and output rules.
 
+1. Define producer-appropriate input rules.
+2. Apply the rules on Dynamic Secret create or update.
+3. Save and test a safe query to confirm rule behavior.
+
 ```text PostgreSQL
 name=read-only-sql,rule=Only allow read-only SQL statements: SELECT, SHOW, DESCRIBE, DESC, EXPLAIN, WITH. Reject any DML or DDL statements such as INSERT, UPDATE, DELETE, DROP, ALTER, CREATE, TRUNCATE, GRANT, REVOKE.
 ```
@@ -299,9 +314,22 @@ name=read-only-sql,rule=Only allow read-only SQL statements: SELECT, SHOW, DESCR
 name=denied-commands,rule=Deny the following Redis commands: KEYS, FLUSHALL, FLUSHDB, DEBUG, SHUTDOWN, BGSAVE, BGREWRITEAOF, SLAVEOF, REPLICAOF, CLUSTER, MIGRATE, MONITOR, SUBSCRIBE, PSUBSCRIBE, EVAL, EVALSHA, EVALRO, EVALSHA_RO, SCRIPT. Also deny CONFIG subcommands SET, REWRITE, and RESETSTAT.
 ```
 
+Example update command:
+
+```shell
+akeyless update-dynamic-secret \
+  --name /demo/apps/analytics/postgres-ro \
+  --input-rule "name=read-only-sql,rule=Only allow read-only SQL statements: SELECT, SHOW, DESCRIBE, DESC, EXPLAIN, WITH. Reject any DML or DDL statements such as INSERT, UPDATE, DELETE, DROP, ALTER, CREATE, TRUNCATE, GRANT, REVOKE." \
+  --output-rule "name=mask-email,rule=Mask email addresses in the returned results."
+```
+
 ### Security Analyst
 
 Use this example to run an auditable read-only query through Gateway runtime authority.
+
+1. Run a read-only query against an ARA-enabled secret.
+2. Confirm the request succeeds and returns expected rows.
+3. Verify the session in ARA reporting.
 
 ```shell
 akeyless runtime-authority \
@@ -316,11 +344,37 @@ akeyless runtime-authority \
 
 Use this example to request a service action through MCP and then complete OAuth when consent is required.
 
+1. Start the MCP runtime authority server.
+2. Send the initial `service-execute` request without `auth-code` and `state`.
+3. Open the returned authorization URL and approve consent.
+4. Send a follow-up `service-execute` request with `auth-code` and `state`.
+
+Start MCP runtime authority:
+
+```shell
+akeyless mcp-runtime-authority \
+  --gateway-url https://<gateway-url>:8000 \
+  --profile <profile-name>
+```
+
 ```text
 Use service-execute on /demo/services/github/oauth-app to list open pull requests in akeylesslabs/technical-documentation.
 ```
 
-If the service requires OAuth consent, open the authorization URL returned by the tool, then rerun the same request with the returned `auth-code` and `state` values.
+Initial MCP tool call (before consent):
+
+```json
+{
+  "tool": "service-execute",
+  "arguments": {
+    "secret-name": "/demo/services/github/oauth-app",
+    "payload": "{\"action\":\"list-repositories\"}",
+    "agent-id": "ai-assistant-01"
+  }
+}
+```
+
+Follow-up MCP tool call (after consent redirect):
 
 ```json
 {
