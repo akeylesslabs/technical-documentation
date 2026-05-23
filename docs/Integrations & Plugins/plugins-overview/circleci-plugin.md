@@ -130,12 +130,10 @@ workflows:
 >
 > It is best practice to use environment variables instead of writing the actual variable values inside the pipeline
 
+![CircleCI pipeline run showing Akeyless secret retrieval output.](https://files.readme.io/1329672-Screenshot_2023-03-19_100113.png)
+
 **Success!** - the secrets are accessible to use within the job logic (in this example, they are just being printed).
 
 ## Tutorial
 
 Check out our tutorial video on [Managing Secrets in CircleCI Pipelines](https://tutorials.akeyless.io/docs/managing-secrets-in-circleci-pipelines) .
-
-## Restored Visuals
-
-![Restored visual: Screenshot 2023 03 19 100113](https://files.readme.io/1329672-Screenshot_2023-03-19_100113.png)

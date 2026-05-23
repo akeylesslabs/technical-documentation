@@ -63,6 +63,8 @@ Marketplace page: [Akeyless Secrets Management](https://plugins.jetbrains.com/pl
 4. Choose **Akeyless Secrets Management**.
 5. Configure the connection values:
 
+![TeamCity connection settings page for the Akeyless plugin.](https://files.readme.io/359e8ae-TC-GenSettings.png)
+
 * **Display Name**: Friendly name for the TeamCity connection.
 * **API URL**: Akeyless API endpoint (default: `https://api.akeyless.io`).
 * **Access ID**: Akeyless Access ID.
@@ -99,6 +101,10 @@ params {
 }
 ```
 
+Example build parameter usage with dynamic secret mapping in TeamCity:
+
+![TeamCity build parameters using Akeyless dynamic secret references.](https://files.readme.io/fb23889-TC-Dynamic3.png)
+
 ## Troubleshooting
 
 ### Authentication fails
@@ -118,9 +124,3 @@ params {
 * Use a valid API host URL.
 * Use `https` for production endpoints.
 * If testing with localhost, use `http://localhost`.
-
-## Restored Visuals
-
-![Restored visual: TC Dynamic3](https://files.readme.io/fb23889-TC-Dynamic3.png)
-
-![Restored visual: TC GenSettings](https://files.readme.io/359e8ae-TC-GenSettings.png)

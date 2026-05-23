@@ -156,7 +156,7 @@ You can visualize Akeyless metrics in Grafana when using Prometheus as a data so
 
 Import the Akeyless GW dashboard using [Grafana dashboard 16927](https://grafana.com/grafana/dashboards/16927).
 
-![A sample screenshot of a Grafana dashboard showing metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
+![A sample screenshot of a Grafana dashboard showing metrics and charts.](https://files.readme.io/3e6e609-Screen_Shot_2022-07-31_at_10.44.18.png)
 
 ## Gateway Application Log Forwarding (Docker)
 
@@ -333,7 +333,3 @@ You can add tags to metrics using OpenTelemetry semantic conventions. For mappin
 * [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
 * [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
 * [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
-
-## Restored Visuals
-
-![Restored visual: Screen Shot 2022 07 31 at 10.44.18](https://files.readme.io/3e6e609-Screen_Shot_2022-07-31_at_10.44.18.png)
