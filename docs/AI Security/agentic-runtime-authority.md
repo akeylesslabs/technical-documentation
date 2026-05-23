@@ -341,6 +341,19 @@ akeyless runtime-authority \
   --profile <profile-name>
 ```
 
+Expected output (example):
+
+```json
+{
+  "target_type": "postgres",
+  "results": [
+    {
+      "count": 42
+    }
+  ]
+}
+```
+
 ### Application Developer
 
 Use this example to request a service action through MCP and then complete OAuth when consent is required.
