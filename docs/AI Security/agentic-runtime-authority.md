@@ -38,7 +38,7 @@ Runtime authority is exposed through these code-backed entry points:
 * The [mcp-runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority) for MCP-based integrations.
 * MCP tools: `list-secrets`, `query-db`, and `service-execute`.
 * The `ara-reports-access` role administrative rule for dashboard visibility.
-* The ARA role-rule capability check (`ara_allow_access`) for runtime execution.
+* The ARA role-rule **Allow Access** capability (`allow_access`) for runtime execution.
 * Repeated `--input-rule` and `--output-rule` flags on Dynamic Secret create and update commands.
 
 ## Prerequisites
@@ -69,7 +69,7 @@ Agentic Runtime Authority policy controls are central to secure agent execution.
 
 * **Session recording**: Each runtime request is recorded as an ARA session with execution metadata (for example secret path, target type, agent or MCP identifiers, status, and payload).
 * **Access scope**: Runtime behavior is scoped by role rules and secret permissions.
-* **Monitoring and audit**: Use the `ara-reports-access` role rule to grant access to Agentic Runtime Authority reporting data for compliance and investigation workflows.
+* **Monitoring and audit**: Use the `ara-reports-access` administrative rule to grant access to Agentic Runtime Authority reporting data for compliance and investigation workflows.
 
 ## Control Access With RBAC
 
@@ -81,9 +81,9 @@ Use the `ara-reports-access` administrative rule on a role to control access to 
 
 Supported values are:
 
-* `none`
-* `scoped`
-* `all`
+* `none` - No dashboard access.
+* `scoped` - Shows sessions that match the role scope.
+* `all` - Shows all sessions in the account.
 
 Use the Console when you want to configure dashboard visibility on a role without using the CLI:
 
@@ -261,7 +261,7 @@ akeyless mcp-runtime-authority \
 
 ## Monitoring Access
 
-Each session and resource query is logged by the runtime services. Use the `ara-reports-access` role rule to grant access to Agentic Runtime Authority reporting data. See [Control Access With RBAC](#control-access-with-rbac) for role setup details.
+Each session and resource query is logged by the runtime services. Use the `ara-reports-access` administrative rule to grant access to Agentic Runtime Authority reporting data. See [Control Access With RBAC](#control-access-with-rbac) for role setup details.
 
 ## Control Agent Behavior With Rules
 
@@ -346,7 +346,7 @@ akeyless runtime-authority \
   --profile <profile-name>
 ```
 
-Expected output (example):
+Expected output (example; response fields vary by target type and query):
 
 ```json
 {
