@@ -284,6 +284,7 @@ Use this example to grant dashboard visibility for compliance and investigations
 
 1. Create a role with scoped ARA reporting visibility.
 2. Assign this role to the users or auth methods that should view ARA reports.
+3. After a runtime query is executed, open the Agentic Runtime Authority reporting view in the Console and verify that session records are visible.
 
 ```shell
 akeyless create-role \
