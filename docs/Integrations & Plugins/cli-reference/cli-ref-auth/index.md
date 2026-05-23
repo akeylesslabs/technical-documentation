@@ -888,6 +888,48 @@ akeyless auth-method update cert \
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
 
+#### `email`
+
+Update an existing Email Auth Method in the account
+
+##### Usage
+
+```shell
+akeyless auth-method update email \
+--name <Auth method name> \
+--new-name <Auth method new name>
+```
+
+#### Flags
+
+`--new-name`: Auth Method new name
+
+`-n, --name`: **Required**, Auth Method name
+
+`--descriptions`: Auth Method description
+
+`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
+
+`--bound-ips`: A comma-separated CIDR block list to allow client access
+
+`--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
+
+`--force-sub-claims`: enforce role-association must include sub-claims
+
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
+
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+
+`--enable-mfa`: Enable MFA for this authentication method [true/false]
+
+`--mfa-type[=email]`: Enable two-factor authentication via [email/app]
+
 #### `gcp`
 
 Update a new Auth Method that can authenticate using GCP IAM Service Account credentials or GCE instance credentials
