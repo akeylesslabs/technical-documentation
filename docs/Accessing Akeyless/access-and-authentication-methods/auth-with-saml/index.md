@@ -29,13 +29,10 @@ Important SAML requirement:
 To create a new SAML-based authentication method with the Console:
 
 1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
-2. Select **+ New**. This opens the **Create Authentication Method** form.
-3. On the **Type** selection screen, select **SAML**, then **Next →**.
+2. Select **New**. This opens the authentication method creation wizard.
+3. In **Select Type**, select **SAML**, then select **Next →**.
 4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
-5. Configure general and SAML-specific fields:
-   * **Allowed Redirect URIs:** Comma-separated redirect URIs to validate in the SAML flow.
-   * **Metadata input:** Choose **URL** or **XML**, then provide your IdP metadata.
-   * **Unique Identifier:** Sub-claim key used to uniquely identify users (for example, `email`, `username`, or `UPN`).
+5. Configure general and SAML-specific fields, including **Allowed Redirect URIs**, **Metadata URL** or **Metadata XML**, and **Unique Identifier**.
 6. Select **Finish**.
 
 > ⚠️ **Warning:**
@@ -50,6 +47,15 @@ To create a SAML-based authentication method with the CLI:
 akeyless auth-method create saml \
   --name <SAML Auth Method Name> \
   --idp-metadata-url <IdP Metadata URL> \
+  --unique-identifier <email|username|UPN>
+```
+
+To create the method by using XML metadata, use:
+
+```shell
+akeyless auth-method create saml \
+  --name <SAML Auth Method Name> \
+  --idp-metadata-xml-file-path <Path to IdP Metadata XML File> \
   --unique-identifier <email|username|UPN>
 ```
 
@@ -86,6 +92,51 @@ akeyless auth \
   --access-type saml \
   --access-id <SAML Access ID>
 ```
+
+## Associate with Access Roles
+
+After creating the authentication method, associate it with one or more Access Roles so authenticated users can perform actions in Akeyless.
+
+To associate with Access Roles in the Console:
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select the SAML Authentication Method.
+3. Open the associated roles section, then add the required Access Roles.
+4. Save the changes.
+
+For role configuration details, see [Access Roles](https://docs.akeyless.io/docs/rbac).
+
+## Update an Existing SAML Authentication Method
+
+SAML authentication methods can require updates over time, for example when IdP metadata changes after certificate rotation.
+
+To update in the Console:
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select the SAML Authentication Method to update.
+3. Update the relevant fields, such as **Metadata URL**, **Metadata XML**, **Allowed Redirect URIs**, and **Unique Identifier**.
+4. Save the changes.
+
+To update with the CLI:
+
+```shell
+akeyless auth-method update saml \
+  --name <Existing SAML Auth Method Name> \
+  --idp-metadata-url <Updated IdP Metadata URL> \
+  --unique-identifier <email|username|UPN>
+```
+
+For all available update flags, see [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#saml-1).
+
+## Troubleshooting
+
+If SAML sign-in fails, check the following:
+
+* The SAML Authentication Method **Access ID** is correct.
+* The IdP configuration uses the dedicated ACS and Entity ID values from the same SAML Authentication Method.
+* **Metadata URL** or **Metadata XML** is current.
+* **Unique Identifier** matches a key that exists in IdP assertions.
+* **Allowed Redirect URIs** includes the redirect URI used by the client.
 
 ## Optional Features
 

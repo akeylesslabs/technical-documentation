@@ -50,13 +50,11 @@ You can create the method from the Console or CLI.
 ### Akeyless Console
 
 1. In the Akeyless Console, go to **Administration**, then **Users & Auth Methods**.
-2. Select **+ New**, then **SAML**.
-3. Set:
-   * **Name**
-   * **IdP Metadata URL** or **IdP Metadata XML**
-   * **Unique Identifier** (for example, `email`)
-4. Save the Authentication Method.
-5. Copy the dedicated SAML endpoint values shown for this Authentication Method, then confirm the same values are configured in Okta:
+2. Select **New**.
+3. In **Select Type**, select **SAML**.
+4. Set **Name**, **Metadata URL** or **Metadata XML**, and **Unique Identifier** (for example, `email`).
+5. Save the Authentication Method.
+6. Copy the dedicated SAML endpoint values shown for this Authentication Method, then confirm the same values are configured in Okta:
    * SAML **ACS URL**
    * SAML **Metadata/Entity ID URL**
 
@@ -68,6 +66,15 @@ akeyless auth-method create saml \
   --idp-metadata-url "<okta-idp-metadata-url>" \
   --unique-identifier email
 ```
+
+## Associate with Access Roles
+
+After creating the method, associate it with one or more Access Roles so authenticated users can access the required resources.
+
+1. In the Akeyless Console, go to **Administration**, then **Users & Auth Methods**.
+2. Select the SAML Authentication Method.
+3. Add the relevant Access Roles.
+4. Save the changes.
 
 ## Authenticate with Okta SAML
 
@@ -92,3 +99,12 @@ akeyless list-items --profile okta-app
 2. Select **SAML**.
 3. Enter the SAML Authentication Method **Access ID**.
 4. Complete sign-in in Okta.
+
+## Troubleshooting
+
+If authentication fails, check the following:
+
+* Okta assertion includes the claim key configured in **Unique Identifier**.
+* Okta SAML app uses the dedicated ACS URL and Entity ID from this specific Akeyless SAML Authentication Method.
+* The metadata source in Akeyless is valid and current.
+* The user or group is assigned to the Okta application.

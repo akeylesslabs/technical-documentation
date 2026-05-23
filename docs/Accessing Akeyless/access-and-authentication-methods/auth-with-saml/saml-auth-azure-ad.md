@@ -40,13 +40,11 @@ You can create the method from the Console or CLI.
 ### Akeyless Console
 
 1. In the Akeyless Console, go to **Administration**, then **Users & Auth Methods**.
-2. Select **+ New**, then **SAML**.
-3. Set:
-   * **Name**
-   * **IdP Metadata URL** (the App Federation Metadata URL)
-   * **Unique Identifier** (for example, `email`)
-4. Save the Authentication Method.
-5. Copy the dedicated SAML endpoint values shown for this Authentication Method, then confirm the same values are configured in Microsoft Entra:
+2. Select **New**.
+3. In **Select Type**, select **SAML**.
+4. Set **Name**, **Metadata URL** (the App Federation Metadata URL), and **Unique Identifier** (for example, `email`).
+5. Save the Authentication Method.
+6. Copy the dedicated SAML endpoint values shown for this Authentication Method, then confirm the same values are configured in Microsoft Entra:
    * SAML **ACS URL**
    * SAML **Metadata/Entity ID URL**
 
@@ -58,6 +56,15 @@ akeyless auth-method create saml \
   --idp-metadata-url "<app-federation-metadata-url>" \
   --unique-identifier email
 ```
+
+## Associate with Access Roles
+
+After creating the method, associate it with one or more Access Roles so authenticated users can access the required resources.
+
+1. In the Akeyless Console, go to **Administration**, then **Users & Auth Methods**.
+2. Select the SAML Authentication Method.
+3. Add the relevant Access Roles.
+4. Save the changes.
 
 ## Validate Authentication
 
@@ -73,3 +80,12 @@ akeyless configure \
   --access-id <SAML Access ID> \
   --access-type saml
 ```
+
+## Troubleshooting
+
+If authentication fails, check the following:
+
+* The Microsoft Entra application uses the dedicated ACS URL and Entity ID from this specific Akeyless SAML Authentication Method.
+* The configured **Unique Identifier** key exists in SAML claims.
+* The user is assigned to the Microsoft Entra enterprise application.
+* The App Federation Metadata URL is still valid and reachable.
