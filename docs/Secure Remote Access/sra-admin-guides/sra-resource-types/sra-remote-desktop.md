@@ -110,3 +110,5 @@ To download files from a remote server, simply drag the desired files into the `
 
 > ℹ️ **Info (Mounted Folder):**
 > Notice that upload stores (temporarily) the file on the Secure Remote Access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.
+
+**Current transfer behavior:** There is no documented fixed file-size limit for upload and download in web-based RDP sessions. Transfer speed and completion time can vary by network path, target host performance, and available resources on the SRA services.
