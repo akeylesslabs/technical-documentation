@@ -22,6 +22,13 @@ To use Akeyless Connect you need:
 * A local SSH client on the end-user machine (for example, OpenSSH).
 * OpenSSH v7.2 or higher on target servers.
 
+For the unified Gateway `akeyless connect` flow (Gateway URL plus SSH host discovery), use these minimum versions:
+
+* CLI `v1.135.0` or later
+* Gateway `v4.42.0` or later
+* Web UI `v2.41.15` or later
+* Helm chart `akeyless-gateway-1.9.10` or later (Kubernetes deployments)
+
 Akeyless Connect does not replace the local SSH client. To use a non-default SSH executable, set `SSH_EXTERNAL_CLIENT` in `~/.akeyless-connect.rc`.
 
 > ℹ️ **Note:**
@@ -113,7 +120,7 @@ Edit the settings as follows:
 
 `AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
-`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS. This corresponds to the SRA control API protocol (CLI flag `--sra-ctrl-proto`).
+`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/sra-setup-k8s) is configured with TLS. This corresponds to the SRA control API protocol (CLI flag `--sra-ctrl-proto`).
 
 `BASTION_API_PORT` - Default is `9900`. Set your matching `ssh-sra` cluster service port. This corresponds to the SRA control API port (CLI flag `--sra-ctrl-port`).
 
@@ -155,11 +162,15 @@ Use the `akeyless connect` command to connect to a resource through the Gateway'
 akeyless connect -t <[user@]target/hostname/ip[:port]> -g <your-gateway-ip[:port]> -c <cert-issuer-name>
 ```
 
+For unified Gateway deployments, configure **Allowed SSH URL** in **Manage Gateway**, then **Remote Access**, then **Configuration**. After it is set, the recommended command is to pass `-g` for the Gateway service URL and let the Gateway apply the SSH address automatically.
+
 > ℹ️ **Note (Legacy SRA Deployments):**
 >
-> For legacy deployments, users will still run:
+> For legacy deployments, users still run:
 >
 > `akeyless connect -t <[user@]target/hostname/ip[:port]> -v <your-gateway-ip[:port]> -c <cert-issuer-name>`
+>
+> For backward compatibility, `-v` can still be used in unified Gateway deployments. If **Allowed SSH URL** is configured, make sure the `-v` value matches it.
 
 Full options list:
 
@@ -170,7 +181,7 @@ Perform secure remote access
 Options:
 
   -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, and so on.
-    -v, --via-sra                                SRA host, which the connection will go through. For example: sra-host:port.
+    -v, --via-sra                                Optional SRA host override. For legacy deployments this is the primary route host. For unified Gateway deployments, this is only needed when overriding the configured SSH address.
   -g, --gateway-url                      The Gateway URL (configuration management) address, for example, http://localhost:8000
   -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified it will be taken from ~/.akeyless-connect.rc. If not specified it will be taken from item details
   -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
