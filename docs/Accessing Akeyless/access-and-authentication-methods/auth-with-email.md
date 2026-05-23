@@ -70,6 +70,39 @@ akeyless auth \
   --admin-password <Password>
 ```
 
+## Associate with Access Roles
+
+After creating the authentication method, associate it with one or more Access Roles so authenticated users can perform actions in Akeyless.
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select the email authentication method.
+3. Add the required Access Roles.
+4. Save the changes.
+
+For role configuration details, see [Access Roles](https://docs.akeyless.io/docs/rbac).
+
+## Update an Existing Email Authentication Method
+
+Email authentication methods can require updates over time, for example when changing the configured email address or other method settings.
+
+To update in the Console:
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select the email authentication method to update.
+3. Update the required fields.
+4. Save the changes.
+
+To update with the CLI, use the relevant `akeyless auth-method update email` flags in [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth).
+
+## Troubleshooting
+
+If email authentication fails, check the following:
+
+* The configured email address is correct.
+* The password is valid and not expired.
+* The authentication method is associated with the required Access Roles.
+* If Two-Factor Authentication is enabled, the second-factor method is configured and accessible.
+
 ## Optional Features
 
 For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).
