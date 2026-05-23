@@ -153,6 +153,37 @@ name=mask-email,rule=Mask email addresses in the returned results.
 
 The current CLI parser requires both `name` and `rule` for each repeated flag.
 
+## Secret Structure Requirements
+
+Agentic Runtime Authority (ARA) runs against existing Akeyless secrets. The required structure depends on the target type, but these baseline requirements apply in all cases:
+
+* The secret path is stable and scoped by RBAC so the calling role can access only the intended path.
+* The secret type is supported for ARA runtime execution (dynamic, rotated, or static).
+* ARA is enabled on the secret in the Console.
+* Input and output rules are configured when you need runtime guardrails.
+
+For OAuth 2.1-backed service workflows, use a static secret that includes the service's OAuth client configuration. At minimum, keep the following values available in the secret definition and service setup:
+
+* Client identity values (for example, client ID and client secret).
+* Authorization and token endpoints for the target service.
+* Redirect URI values that match your OAuth app registration.
+* Required scopes for the operations the agent must run.
+
+Use semantic placeholders in examples and avoid real credentials in documentation or client configuration files.
+
+## OAuth 2.1 Workflow For `service-execute`
+
+When `service-execute` targets an OAuth-backed service, use this runtime sequence:
+
+1. The agent calls `service-execute` with `secret-name`, `payload`, and `agent-id`.
+2. The runtime returns an authorization URL when user consent is required.
+3. The user signs in and approves access in the provider consent page.
+4. The provider redirects back with an authorization code and state value.
+5. The agent calls `service-execute` again with `auth-code` and `state` (plus the original request context) to complete the flow.
+6. The action is executed and returned through the ARA runtime path.
+
+Treat `state` as a required anti-forgery value and preserve it exactly between the initial and follow-up calls.
+
 ## Set Up The AI Agent
 
 To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [Akeyless MCP Model Context Protocol Command](https://docs.akeyless.io/docs/akeyless-mcp-model-context-protocol-command). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
@@ -267,6 +298,34 @@ akeyless runtime-authority \
   --agent-id ai-assistant-01 \
   -u https://<gateway-url>:8000 \
   --profile <profile-name>
+```
+
+Example MCP `service-execute` call (first request, before consent):
+
+```json
+{
+  "tool": "service-execute",
+  "arguments": {
+    "secret-name": "/demo/services/github/oauth-app",
+    "payload": "{\"action\":\"list-repositories\"}",
+    "agent-id": "ai-assistant-01"
+  }
+}
+```
+
+Example MCP `service-execute` follow-up call (after consent redirect):
+
+```json
+{
+  "tool": "service-execute",
+  "arguments": {
+    "secret-name": "/demo/services/github/oauth-app",
+    "payload": "{\"action\":\"list-repositories\"}",
+    "agent-id": "ai-assistant-01",
+    "auth-code": "<oauth-authorization-code>",
+    "state": "<oauth-state-from-initial-response>"
+  }
+}
 ```
 
 ## Related AI Guides
