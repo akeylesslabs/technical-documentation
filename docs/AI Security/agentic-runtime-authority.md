@@ -172,8 +172,6 @@ For OAuth 2.1-backed service workflows, use a static secret that includes the se
 * Redirect URI values that match your OAuth app registration.
 * Required scopes for the operations the agent must run.
 
-Use semantic placeholders in examples and avoid real credentials in documentation or client configuration files.
-
 ## OAuth 2.1 Workflow For `service-execute`
 
 When `service-execute` targets an OAuth-backed service, use this runtime sequence:
@@ -274,6 +272,27 @@ To restrict certain queries or responses:
 This approach keeps the AI agent useful for legitimate queries while ensuring access remains controlled and secure.
 
 ## Examples
+
+### Human-Driven Usage Examples
+
+Example human-driven database runtime query from a terminal:
+
+```shell
+akeyless runtime-authority \
+  --name /demo/apps/analytics/postgres-ro \
+  --payload 'SELECT id, email FROM customers LIMIT 10;' \
+  --agent-id secops-analyst-01 \
+  --gateway-url https://<gateway-url>:8000 \
+  --profile <profile-name>
+```
+
+Example human prompt in an MCP client chat session (service target):
+
+```text
+Use service-execute on /demo/services/github/oauth-app to list open pull requests in akeylesslabs/technical-documentation.
+```
+
+If the service requires OAuth consent, open the authorization URL returned by the tool, then rerun the same request with the returned `auth-code` and `state` values.
 
 Example CLI role setup for reporting access:
 
