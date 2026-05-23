@@ -14,6 +14,14 @@ next:
 ---
 The SAML authentication method allows users to authenticate using an external IdP with the SAML standard.
 
+## Dedicated SAML Endpoints Per Authentication Method
+
+Each SAML authentication method has dedicated SAML endpoints.
+
+When configuring the Identity Provider (IdP), use the metadata and assertion consumer service (ACS) endpoint values generated for the specific SAML authentication method you are configuring.
+
+This separation allows each SAML authentication method to be configured and managed independently.
+
 ## Create a SAML Authentication Method with the CLI
 
 Let's create a new SAML authentication method using the Akeyless CLI. You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-saml#create-a-saml-authentication-method-in-the-console).

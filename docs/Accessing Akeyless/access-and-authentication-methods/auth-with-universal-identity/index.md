@@ -102,6 +102,10 @@ Example:
 akeyless uid-auto-rotate init --uid-token u-XXXXXXXX
 ```
 
+> ℹ️ **Note (Allowed Client IPs):**
+>
+> After rotating a UID token, the configured **Allowed Client IPs** restrictions remain enforced for the rotated token.
+
 For command details and available flags, see [CLI Reference - Universal Identity: uid-auto-rotate](https://docs.akeyless.io/docs/cli-reference-universal-identity#uid-auto-rotate).
 
 If custom automation is required, use `uid-rotate-token` in your own script.
