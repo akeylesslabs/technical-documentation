@@ -39,7 +39,7 @@ The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-reso
 
 Portal copy actions use browser clipboard APIs.
 
-In the current frontend implementation, copy operations call the browser clipboard API with a fallback copy method. The implementation does not define a fixed character limit for copied text.
+In the frontend implementation, copy operations call the browser clipboard API with a fallback copy method. The implementation does not define a fixed character limit for copied text.
 
 For long text payloads in active SRA sessions, behavior can vary by browser and session components.
 
