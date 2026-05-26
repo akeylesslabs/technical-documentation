@@ -20,18 +20,18 @@ Validate the following requirements before rollout.
 
 | Requirement | Applies to | Why it matters |
 | --- | --- | --- |
-| Redis cache available | SRA-enabled deployments | SRA components depend on cache and session support. |
-| Minimum resources per SRA component: `1 vCPU`, `2 GiB` memory | Kubernetes and Docker deployments | Prevents insufficient sizing of SRA services. |
-| SSH bastion exposure by `type: LoadBalancer` and privileged mode | Kubernetes deployments | Required for SRA network and runtime behavior. |
-| Cloud identity override configured when metadata service is not reachable | Metadata-restricted Kubernetes clusters | Prevents cloud detection failures in IAM-based authentication flows. |
-| Gateway and ingress trust chain configured for private and self-signed CAs | Private PKI deployments | Prevents TLS verification failures between SRA components and Gateway endpoints. |
-| Session affinity (sticky sessions) configured at ingress or load balancer | Ingress and load balancer fronted deployments | Keeps related requests pinned to the same backend. |
-| Session persistence policy mapped for your ingress controller type | Non-NGINX ingress controllers | Prevents silent affinity misconfiguration when NGINX-only annotations are ignored. |
-| Idle and response timeouts aligned with session duration | Long-lived SSH, RDP, and web sessions | Prevents early session termination by network intermediaries. |
-| Redirect and query size limits validated for SAML and proxy redirects | SRA behind identity-aware proxies | Prevents login failures caused by oversized redirect URLs. |
-| Allowed bastion and proxy redirect URLs configured | ZTWA and portal-based access | Prevents endpoint mismatch and dropped client endpoints. |
-| Access permissions validated by connection mode (direct and proxy) | ZTWA and SRA access policy design | Prevents mode-specific authorization failures. |
-| Session-recording upload auth tested with dispatcher auth method | ZTWA recording to object storage | Reduces risk of post-session authentication or upload failures. |
+| [Redis cache available](#redis-dependency) | SRA-enabled deployments | SRA components depend on cache and session support. |
+| [Minimum resources per SRA component: 1 vCPU, 2 GiB memory](#minimum-resources) | Kubernetes and Docker deployments | Prevents insufficient sizing of SRA services. |
+| [SSH bastion exposure by type LoadBalancer and privileged mode](#kubernetes-specific-requirements) | Kubernetes deployments | Required for SRA network and runtime behavior. |
+| [Cloud identity override configured when metadata service is not reachable](#kubernetes-specific-requirements) | Metadata-restricted Kubernetes clusters | Prevents cloud detection failures in IAM-based authentication flows. |
+| [Gateway and ingress trust chain configured for private and self-signed CAs](#gateway-certificate-trust-requirements) | Private PKI deployments | Prevents TLS verification failures between SRA components and Gateway endpoints. |
+| [Session affinity (sticky sessions) configured at ingress or load balancer](#session-affinity-and-sticky-sessions) | Ingress and load balancer fronted deployments | Keeps related requests pinned to the same backend. |
+| [Session persistence policy mapped for your ingress controller type](#session-affinity-and-sticky-sessions) | Non-NGINX ingress controllers | Prevents silent affinity misconfiguration when NGINX-only annotations are ignored. |
+| [Idle and response timeouts aligned with session duration](#session-timeout-and-ttl-alignment) | Long-lived SSH, RDP, and web sessions | Prevents early session termination by network intermediaries. |
+| [Redirect and query size limits validated for SAML and proxy redirects](#saml-and-redirect-size-limits) | SRA behind identity-aware proxies | Prevents login failures caused by oversized redirect URLs. |
+| [Allowed bastion and proxy redirect URLs configured](#redirect-url-allowlist-requirements) | ZTWA and portal-based access | Prevents endpoint mismatch and dropped client endpoints. |
+| [Access permissions validated by connection mode (direct and proxy)](#access-permissions-by-connection-mode) | ZTWA and SRA access policy design | Prevents mode-specific authorization failures. |
+| [Session-recording upload auth tested with dispatcher auth method](#session-recording-authentication-compatibility) | ZTWA recording to object storage | Reduces risk of post-session authentication or upload failures. |
 
 ## Core Infrastructure Requirements
 
