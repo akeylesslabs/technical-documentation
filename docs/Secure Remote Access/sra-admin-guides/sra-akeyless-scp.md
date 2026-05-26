@@ -12,9 +12,9 @@ next:
 ---
 Akeyless SCP enables secure copy by way of [Remote Access](https://docs.akeyless.io/docs/sra-setup-overview).
 
-**CLI 1.145 and later:** Akeyless now supports built-in file transfer commands: `akeyless file upload` and `akeyless file download`. For command usage and flags, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
-
-> ℹ️ **Note:**
+> ℹ️ **Note (Newer Option Available):**
+> The `akeyless file` command is the native CLI successor to Akeyless SCP. It is built directly into the Akeyless CLI and does not require downloading a separate script. For new deployments, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
+>
 > Akeyless SCP currently supports only Unix-like operating systems.
 
 ## Prerequisite
