@@ -70,9 +70,9 @@ Use `rate()` or `increase()` in PromQL for alerting and dashboard calculations, 
 
 In addition to these metrics, Gateway application logs can be forwarded through OpenTelemetry.
 
-> ⚠️ **Warning:**
+> ℹ️ **Info:**
 >
-> For Gateway version `4.47.0` and later, the OpenTelemetry Collector configuration in this workflow does not support the `loki` exporter. Forward logs with `otlp` or `otlphttp`, then route to Loki from a downstream collector if needed.
+> If direct `loki` exporter usage is not available in your environment, forward logs with `otlp` or `otlphttp`, then route to Loki from a downstream collector.
 
 ## Datadog (Docker)
 
@@ -197,7 +197,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 \
 Application logs from all instances of this Gateway are forwarded in this format:
 `<date> <time> <gw-clustername-instance-id> <log>`.
 
-For Loki-based analysis in Gateway version `4.47.0` and later, send Gateway logs to an OTLP-capable collector and route from that collector to Loki. Then add a [Loki data source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/) in Grafana and query logs from **Explore**.
+For Loki-based analysis, send Gateway logs to an OTLP-capable collector and route from that collector to Loki when needed. Then add a [Loki data source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/) in Grafana and query logs from **Explore**.
 
 ## Telemetry Config on Kubernetes
 
