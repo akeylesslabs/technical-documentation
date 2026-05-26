@@ -143,53 +143,40 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `update`
+## `gateway-delete-k8s-auth-config`
 
-Update a new Authentication Method that can authenticate using Kubernetes
+Deletes Kubernetes Auth config
 
 ### Usage
 
 ```shell
-akeyless update-auth-method-k8s \
---name <Auth method name> \
---new-name <Auth method new name> 
+akeyless gateway-delete-k8s-auth-config \
+--name <Auth config name> \
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ### Flags
 
-`--new-name`: Auth Method new name
+`-n, --name`: **Required**, Kubernetes Auth config name
 
-`-n, --name`: **Required**, Auth Method name
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--descriptions`: Auth Method description
+## `gateway-get-k8s-auth-config`
 
-`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
+Gets Gateway Kubernetes Auth config
 
-`--bound-ips`: A comma-separated CIDR block list to allow client access
+### Usage
 
-`--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
+```shell
+akeyless gateway-get-k8s-auth-config \
+--name <Kubernetes Auth config name> \
+--gateway-url <API Gateway URL>:8000 
+```
 
-`--force-sub-claims`: enforce role-association must include sub-claims
+### Flags
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
-
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
-
-`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see `get-account-settings`)
-
-`-p, --public-key-file-path`: If `gen-key` is set to false, a path to a public key for the Kubernetes authentication method is required [RSA2048]
-
-`--public-key`: Base64-encoded or PEM formatted public key data
-
-`--audience`: The audience in the Kubernetes JWT that the access is restricted to
-
-`--bound-sa-names`: A list of service account names that the access is restricted to
-
-`--bound-pod-names`: A list of pod names that the access is restricted to
-
-`--bound-namespaces`: A list of namespaces that the access is restricted to
-
-`--gen-key`: Automatically generate key-pair for Kubernetes configuration. If set to false, a public key needs to be provided
+`-n, --name`: **Required**, Kubernetes Auth config name
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ## `gateway-update-k8s-auth-config`
 
@@ -253,37 +240,50 @@ akeyless gateway-update-k8s-auth-config \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-## `gateway-get-k8s-auth-config`
+## `update`
 
-Gets Gateway Kubernetes Auth config
-
-### Usage
-
-```shell
-akeyless gateway-get-k8s-auth-config \
---name <Kubernetes Auth config name> \
---gateway-url <API Gateway URL>:8000 
-```
-
-### Flags
-
-`-n, --name`: **Required**, Kubernetes Auth config name
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-## `gateway-delete-k8s-auth-config`
-
-Deletes Kubernetes Auth config
+Update a new Authentication Method that can authenticate using Kubernetes
 
 ### Usage
 
 ```shell
-akeyless gateway-delete-k8s-auth-config \
---name <Auth config name> \
---gateway-url <API Gateway URL>:8000 
+akeyless update-auth-method-k8s \
+--name <Auth method name> \
+--new-name <Auth method new name> 
 ```
 
 ### Flags
 
-`-n, --name`: **Required**, Kubernetes Auth config name
+`--new-name`: Auth Method new name
 
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-n, --name`: **Required**, Auth Method name
+
+`--descriptions`: Auth Method description
+
+`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
+
+`--bound-ips`: A comma-separated CIDR block list to allow client access
+
+`--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
+
+`--force-sub-claims`: enforce role-association must include sub-claims
+
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
+
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see `get-account-settings`)
+
+`-p, --public-key-file-path`: If `gen-key` is set to false, a path to a public key for the Kubernetes authentication method is required [RSA2048]
+
+`--public-key`: Base64-encoded or PEM formatted public key data
+
+`--audience`: The audience in the Kubernetes JWT that the access is restricted to
+
+`--bound-sa-names`: A list of service account names that the access is restricted to
+
+`--bound-pod-names`: A list of pod names that the access is restricted to
+
+`--bound-namespaces`: A list of namespaces that the access is restricted to
+
+`--gen-key`: Automatically generate key-pair for Kubernetes configuration. If set to false, a public key needs to be provided

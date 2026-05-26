@@ -1186,6 +1186,83 @@ akeyless rotated-secret create windows \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
+## `gateway-rotate-secret`
+
+Trigger a rotate operation for a Rotated Secret.
+Accepted alias: `rotate-secret`.
+
+### Usage
+
+```shell
+akeyless gateway-rotate-secret \
+--name <Rotated Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+### Flags
+
+`-n, --name`: **Required**, Secret name (Rotated Secret or Custom Dynamic Secret)
+
+`-r, --rotate-all-services[=false]`: Rotate all associated services
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+## Synchronization
+
+### `sync`
+
+#### Usage
+
+```shell
+akeyless rotated-secret sync \
+--name <Rotated Secret Name> \
+--usc-name <USC Name> \
+--remote-secret-name <Remote secret Name> \
+--namespace <Namespace Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`--name`: The Rotated Secret name.
+
+`--usc-name`: The name of the Universal Secret Connector.
+
+`--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
+
+`--namespace`: Namespace name, Relevant only for HashiCorp Vault target.
+
+`--filter-secret-value`: jq expression to filter or transform the secret value
+
+`--gateway-url`: Akeyless Gateway URL (port `8000`).
+
+### `delete sync`
+
+delete rotated secret sync
+
+#### Usage
+
+```shell
+akeyless rotated-secret delete-sync \
+--name <Rotated Secret Name> \
+--usc-name <USC Name> \
+--remote-secret-name <Remote secret Name> \
+--delete-from-usc[=false] [true / false]
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`--name`: The Rotated Secret name.
+
+`--usc-name`: The name of the Universal Secret Connector.
+
+`--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
+
+`--delete-from-usc[=false]`: Delete the secret from the remote target usc as well.
+
+`--gateway-url`: Akeyless Gateway URL (port `8000`).
+
 ## `update`
 
 `akeyless rotated-secret-update`
@@ -2364,80 +2441,3 @@ akeyless rotated-secret get-value \
 akeyless rotated-secret list \
 --gateway-url <API Gateway URL>:8000 
 ```
-
-## `gateway-rotate-secret`
-
-Trigger a rotate operation for a Rotated Secret.
-Accepted alias: `rotate-secret`.
-
-### Usage
-
-```shell
-akeyless gateway-rotate-secret \
---name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-### Flags
-
-`-n, --name`: **Required**, Secret name (Rotated Secret or Custom Dynamic Secret)
-
-`-r, --rotate-all-services[=false]`: Rotate all associated services
-
-`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
-
-## Synchronization
-
-### `sync`
-
-#### Usage
-
-```shell
-akeyless rotated-secret sync \
---name <Rotated Secret Name> \
---usc-name <USC Name> \
---remote-secret-name <Remote secret Name> \
---namespace <Namespace Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-#### Flags
-
-`--name`: The Rotated Secret name.
-
-`--usc-name`: The name of the Universal Secret Connector.
-
-`--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
-
-`--namespace`: Namespace name, Relevant only for HashiCorp Vault target.
-
-`--filter-secret-value`: jq expression to filter or transform the secret value
-
-`--gateway-url`: Akeyless Gateway URL (port `8000`).
-
-### `delete sync`
-
-delete rotated secret sync
-
-#### Usage
-
-```shell
-akeyless rotated-secret delete-sync \
---name <Rotated Secret Name> \
---usc-name <USC Name> \
---remote-secret-name <Remote secret Name> \
---delete-from-usc[=false] [true / false]
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-#### Flags
-
-`--name`: The Rotated Secret name.
-
-`--usc-name`: The name of the Universal Secret Connector.
-
-`--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
-
-`--delete-from-usc[=false]`: Delete the secret from the remote target usc as well.
-
-`--gateway-url`: Akeyless Gateway URL (port `8000`).
