@@ -164,37 +164,68 @@ akeyless gateway-create-migration \
 
 `--si-rotation-hour`: The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration)
 
-## `delete`
+## `gateway delete`
+
+Command to delete specified gateway configuration
+
+### `gateway-delete-migration`
 
 Delete migration
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway-delete-migration \
 --id <Migration ID> \
---gateway-url <API Gateway URL>:8000 
+--gateway-url <API Gateway URL>:8000
 ```
 
-## `get`
+#### Flags
+
+`-i, --id`: **Required**, Migration ID (can be retrieved with `gateway-list-migration`)
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+## `gateway get`
+
+Command to get specified gateway configuration
+
+### `gateway-get-migration`
 
 Get migrations
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway-get-migration \
 --name <Migration Name> \
---gateway-url <API Gateway URL>:8000 
+--gateway-url <API Gateway URL>:8000
 ```
 
-## `list`
+#### Flags
+
+`-n, --name`: **Required**, Migration name to display
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+## `gateway list`
+
+Command to list specified gateway configuration
+
+### `gateway-list-migration`
 
 List migrations
 
-### Flags
+#### Usage
 
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+```shell
+akeyless gateway-list-migration \
+--gateway-url <API Gateway URL>:8000
+```
+
+#### Flags
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
 ## `status`
 
