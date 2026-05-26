@@ -1,5 +1,5 @@
 ---
-title: Akeyless File Transfer and Akeyless SCP (Legacy)
+title: Akeyless File Transfer and Akeyless SCP
 excerpt: ''
 deprecated: false
 hidden: false
