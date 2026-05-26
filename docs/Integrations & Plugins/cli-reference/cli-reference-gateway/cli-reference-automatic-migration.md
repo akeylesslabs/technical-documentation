@@ -175,14 +175,14 @@ Delete migration
 #### Usage
 
 ```shell
-akeyless gateway delete gateway-delete-migration \
+akeyless gateway-delete-migration \
 --id <Migration ID> \
 --gateway-url <API Gateway URL>:8000
 ```
 
 #### Flags
 
-`-i, --id`: **Required**, Migration ID (can be retrieved with `gateway list gateway-list-migration`)
+`-i, --id`: **Required**, Migration ID (can be retrieved with `gateway-list-migration`)
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
@@ -197,7 +197,7 @@ Get migrations
 #### Usage
 
 ```shell
-akeyless gateway get gateway-get-migration \
+akeyless gateway-get-migration \
 --name <Migration Name> \
 --gateway-url <API Gateway URL>:8000
 ```
@@ -219,7 +219,7 @@ List migrations
 #### Usage
 
 ```shell
-akeyless gateway list gateway-list-migration \
+akeyless gateway-list-migration \
 --gateway-url <API Gateway URL>:8000
 ```
 
