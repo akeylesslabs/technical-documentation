@@ -14,6 +14,31 @@ This section outlines the CLI commands relevant to Encryption Keys.
 
 <CLIGeneralFlags />
 
+## Batch operations
+
+The CLI also supports batch encrypt and decrypt commands for multi-item payloads.
+
+### Shared batch flags
+
+`--batch-data`: Inline batch payload for encryption or decryption operations
+
+`--batch-data-file-path`: Path to a file that contains the batch payload for encryption or decryption operations
+
+These shared flags are supported by `akeyless batch-encrypt` and `akeyless batch-decrypt`.
+
+### Usage examples
+
+```shell
+akeyless batch-encrypt \
+--name <Encryption Key Name> \
+--batch-data-file-path <Path to batch payload JSON>
+```
+```shell
+akeyless batch-decrypt \
+--name <Encryption Key Name> \
+--batch-data '<Inline batch payload JSON>'
+```
+
 ## `assoc-target-item`
 
 Create an association between a [Target](https://docs.akeyless.io/docs/targets) and a [Classic Key](https://docs.akeyless.io/docs/classic-keys) for [External KMS Integration](https://docs.akeyless.io/docs/external-kms)
@@ -658,6 +683,8 @@ akeyless rotate-key \
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port). Relevant only for Classic Key.
 
 `--new-key-data`: The new value of the key, Base64-encoded. Relevant only for Classic Key provided by the user (BYOK).
+
+`--new-cert-pem-data`: New certificate PEM data to associate with the rotated key
 
 ## `set-item-state`
 

@@ -2461,6 +2461,10 @@ akeyless target update linked \
 
 `-s, --hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (that is `server-dev.com`;`My Dev server`, `server-prod.com`;`My Prod server description`)
 
+`--add-hosts`: A comma-separated list of new server hosts and server descriptions joined by a semicolon ';' that will be added to the Linked Target hosts (for example, `server-dev.com;My Dev server,server-prod.com;My Prod server description`).
+
+`--rm-hosts`: Comma-separated list of existing hosts that will be removed from Linked Target hosts.
+
 `-p, --parent-target-name`: The parent Target name from which to inherit credentials
 
 `--description`: Description of the object

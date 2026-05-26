@@ -69,6 +69,8 @@ akeyless create-secret \
 
 `--secure-access-host`: Target servers for connections. For multiple values repeat this flag.
 
+`--lock-during-sra-session`: Lock this secret for read and update while a Secure Remote Access (SRA) session is active
+
 `--secure-access-ssh-user`: Override the SSH username as indicated in SSH Certificate Issuer
 
 `--secure-access-rdp-user`: Remote Desktop Username
@@ -132,6 +134,10 @@ akeyless describe-item \
 `--gateway-details[=false]`: Output will include additional gateway details (For example, cluster URL)
 
 `--bastion-details[=false]`: Output will include additional bastion details
+
+`--der-certificate-format[=false]`: Return certificate values in DER format when relevant
+
+`--item-custom-fields-details[=false]`: Include custom fields details in the response
 
 `--services-details[=false]`: Include all associated services details
 
@@ -274,6 +280,8 @@ akeyless static-secret-sync \
 `--namespace`: Vault Namespace, relevant only for HashiCorp Vault Target
 
 `--filter-secret-value`: jq expression to filter or transform the secret value
+
+`--delete-remote`: Delete the remote secret from the USC target during synchronization cleanup
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 

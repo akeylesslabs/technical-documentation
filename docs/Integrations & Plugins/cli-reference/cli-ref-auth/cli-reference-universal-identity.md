@@ -48,6 +48,10 @@ akeyless auth-method create universal-identity \
 
 `--deny-inheritance`: Deny from root to create children
 
+`--child-ttl-limit[=43200]`: Limit the maximum TTL of child tokens in minutes
+
+`--tree-length[=200]`: Limit the Universal Identity tree length
+
 `--ttl[=60]`: Token TTL (has the value that configured in Akeyless Console > Authentication settings)
 
 ## `uid-auto-rotate`
@@ -261,5 +265,9 @@ akeyless auth-method update universal-identity \
 `--deny-rotate`: Deny from the token to rotate
 
 `--deny-inheritance`: Deny from root to create children
+
+`--child-ttl-limit[=43200]`: Limit the maximum TTL of child tokens in minutes
+
+`--tree-length[=200]`: Limit the Universal Identity tree length
 
 `--ttl[=60]`: Token TTL (in minutes)

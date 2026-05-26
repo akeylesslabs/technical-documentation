@@ -72,6 +72,16 @@ akeyless configure
 
 `--key-data`: Private key data encoded in Base64. Used if file was not provided (relevant only for `access-type=cert` in Curl Context)
 
+`--default-location-prefix`: Default path prefix for item, target, and auth method names
+
+`--disable-kerberos-fast[=true]`: Disable the Kerberos FAST negotiation
+
+`--gateway-spn`: Optional, the service principal name of the gateway as registered in LDAP (for example, `HTTP/gateway`)
+
+`--kerberos-token`: Optional, Kerberos token for the gateway SPN, used by SPNEGO for authentication
+
+`--kerberos-username`: Optional, the username for the entry within the keytab to authenticate via Kerberos
+
 ### `delete-item`
 
 Delete an item or an item version
@@ -227,6 +237,14 @@ List of all accessible items
 `--tag`: Filter by item tag
 
 `--sra-only[=false]`: Filter by items with SRA functionality enabled
+
+`--advanced-filter`: Filter by item name, username, website, or part of it
+
+`--ara-only[=false]`: Filter by items with Agentic Runtime Authority functionality enabled
+
+`--current-folder[=false]`: List only items in the current folder (excludes subfolders)
+
+`--modified-after`: List only secrets modified after the specified date (in Unix time)
 
 `--path`: Path to folder
 
@@ -507,6 +525,18 @@ Note: The operation is allowed only for admin user
 
 `--default-certificate-expiration-notification-days`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--default-certificate-expiration-notification-days 1`, `--default-certificate-expiration-notification-days 5`.
 
+`--allowed-email-domains`: Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed.
+
+`--enable-ai-insights`: Enable AI insights [`true`/`false`]
+
+`--enable-item-sharing`: Enable sharing items [`true`/`false`]
+
+`--item-locking-enabled`: Enable item locking feature [`true`/`false`]
+
+`--lock-allowed-client-type`: Lock the allowed-client-type setting in the account [`true`/`false`]
+
+`--lock-max-ttl`: Set the maximum TTL for item and target locks in minutes
+
 ### `update-item`
 
 Update item name and description
@@ -610,6 +640,12 @@ Examples: `--rotate-after-disconnect true`, `--rotate-after-disconnect 0`, `--ro
 
 `--gcp-sm-regions`: GCP Secret Manager regions for regional secrets (comma-separated). USC with GCP targets only
 
+`--lock-during-sra-session`: Lock this secret for read and update while an SRA session is active
+
+`--usc-tags`: Comma-separated list of tags to apply to all secrets created or synced on the remote Universal Secrets Connector (USC) (USC items only)
+
+`--use-tags-as-filter`: Whether to filter the USC secret list using the specified `usc-tags` values [`true`/`false`] (USC items only)
+
 `--accessibility[=regular]`: For an item in a user's personal folder [`regular`/`personal`]
 
 `--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
@@ -682,6 +718,10 @@ Accepted alias: `agent-start`.
 ```shell
 akeyless agent start
 ```
+
+##### Flags
+
+`-f, --config-file-path`: The path to the agent config file
 
 #### `agent status`
 

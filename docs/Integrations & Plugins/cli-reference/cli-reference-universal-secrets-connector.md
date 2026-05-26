@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-_The External Secrets Manager has been renamed Universal Secrets Connector. All `esm` commands will still work as expected._
+_The External Secrets Manager has been renamed Universal Secrets Connector._
 
 This section outlines the CLI commands relevant to Universal Secrets Connector.
 
@@ -52,6 +52,20 @@ akeyless create-usc \
 
 `--gcp-sm-regions`: GCP Secret Manager regions for regional secrets (comma-separated, for example: `us-east1,us-west1`). USC with GCP targets only. Maximum 12 regions.
 
+`--environment-names`: Comma-separated list of environment names to associate with the connector
+
+`--github-scope[=repository]`: GitHub scope to use [`repository`/`organization`] (GitHub targets only)
+
+`--organization-name`: GitHub organization name (organization-scoped GitHub targets only)
+
+`--repository-access[=public]`: GitHub repository access level [`public`/`private`/`all`] (GitHub targets only)
+
+`--repository-names`: Comma-separated list of GitHub repositories to include (GitHub targets only)
+
+`--usc-tags`: Comma-separated list of tags to apply to remote secrets created or synced by this connector
+
+`--use-tags-as-filter`: Filter the remote secret list using the specified `usc-tags` values [`true`/`false`]
+
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
@@ -77,7 +91,7 @@ This command only has one parameter, `-h`, and it will display a list of the oth
 ### `create`
 
 Create a new secret in an existing USC
-Accepted aliases: `usc-create`, `esm-create`.
+Accepted alias: `usc-create`.
 
 #### Usage
 
@@ -110,12 +124,18 @@ akeyless usc create \
 
 `--tags`:Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
 
+`--remote-secret-activation-date`: Activation date for the remote secret
+
+`--remote-secret-expires`: Expiration date for the remote secret
+
+`--selected-repositories`: Explicit list of GitHub repositories selected for this operation
+
 `--region`: Optional, create the secret in a specific region (GCP only). If omitted, the secret is created as a global secret.
 
 ### `delete`
 
 Delete a secret from an Universal Secrets Connector
-Accepted aliases: `usc-delete`, `esm-delete`.
+Accepted alias: `usc-delete`.
 
 #### Usage
 
@@ -135,12 +155,14 @@ akeyless usc delete \
 
 `--namespace`: The namespace (relevant for HashiCorp Vault target)
 
+`--selected-repositories`: Explicit list of GitHub repositories selected for this operation
+
 `--force-delete`: Force delete objects that are soft deleted by default (relevant only for Azure target)
 
 ### `get`
 
 Gets the value and internal details of a secret from an Universal Secrets Connector
-Accepted aliases: `usc-get`, `esm-get`.
+Accepted alias: `usc-get`.
 
 #### Usage
 
@@ -157,6 +179,10 @@ akeyless usc get \
 `-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or Kubernetes targets) to get from the Universal Secrets Connector
 
 `--object-type[=secret]`: Object type filter: `secret` (default), `certificate` (Azure KV), or `regional-secrets` (GCP)
+
+`--selected-repositories`: Explicit list of GitHub repositories selected for this operation
+
+`--version-id`: Version ID of the remote secret
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -175,7 +201,7 @@ akeyless usc get \
 ### `list`
 
 Lists the secrets within the Universal Secrets Connector
-Accepted aliases: `usc-list`, `esm-list`.
+Accepted alias: `usc-list`.
 
 #### Usage
 
@@ -210,7 +236,7 @@ akeyless usc list --usc-name <USC name>
 ### `update`
 
 Update an existing secret within the Universal Secrets Connector
-Accepted aliases: `usc-update`, `esm-update`.
+Accepted alias: `usc-update`.
 
 #### Usage
 
@@ -238,3 +264,9 @@ akeyless usc update \
 `--description`: Description of the external secret
 
 `--tags`: Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
+
+`--remote-secret-activation-date`: Activation date for the remote secret
+
+`--remote-secret-expires`: Expiration date for the remote secret
+
+`--selected-repositories`: Explicit list of GitHub repositories selected for this operation
