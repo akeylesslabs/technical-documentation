@@ -1,11 +1,23 @@
 ---
 title: TeamCity Plugin
+excerpt: ''
 deprecated: false
 hidden: false
 metadata:
+  title: ''
+  description: ''
   robots: index
 ---
 The TeamCity Plugin integrates TeamCity with Akeyless so your builds can retrieve secrets directly from the Akeyless API without storing sensitive values in TeamCity.
+
+If you are deciding between TeamCity integration paths:
+
+* [TeamCity Plugin](https://docs.akeyless.io/docs/teamcity-akeyless-plugin): Native Akeyless TeamCity plugin that connects directly to the Akeyless API.
+* [TeamCity Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/teamcity-hcv-plugin): HashiCorp Vault-compatible integration path through the Akeyless HashiCorp Vault Proxy.
+
+Use the native plugin for new implementations.
+
+Use the HashiCorp Vault Proxy plugin path if you need compatibility with existing Vault-based TeamCity workflows.
 
 JetBrains Marketplace: [Akeyless Secrets Management](https://plugins.jetbrains.com/plugin/30559-akeyless-secrets-management)
 

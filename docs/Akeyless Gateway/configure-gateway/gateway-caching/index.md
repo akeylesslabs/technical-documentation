@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+
+<GatewayConfigManagementNote />
 Use this section to choose the right Gateway caching method for your environment.
 
 ## Cache Types
@@ -46,6 +48,17 @@ To manage cache runtime settings from Gateway Configuration Manager:
 4. Save changes.
 
 For Kubernetes deployment keys (`globalConfig.clusterCache`, `cacheHA`, and persistence options), see [Helm Values Reference](https://docs.akeyless.io/docs/gateway-kubernetes-helm-values-reference).
+
+Use the Akeyless CLI to update cache runtime settings, for example:
+
+```shell
+akeyless gateway update cache \
+--enable-cache true \
+--enable-proactive true \
+--stale-timeout 60 \
+--minimum-fetch-interval 5 \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
 
 ## ignore-cache Behavior
 

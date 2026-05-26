@@ -128,7 +128,9 @@ akeyless gateway-create-migration \
 
 `--ad-discover-services[=false]`: Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
 
-`--ad-discovery-types`: Set migration discovery types (domain-users, computers, local-users). To specify multiple types use argument multiple times: --ad-discovery-types domain-users --ad-discovery-types local-users. (Relevant only for Active Directory migration)
+`--ad-discovery-types`: Set migration discovery types (domain-users, computers, local-users, certificates). To specify multiple types use argument multiple times: --ad-discovery-types domain-users --ad-discovery-types local-users. (Relevant only for Active Directory migration)
+
+`--ai-certificate-discovery[=false]`: Enable/Disable AI-assisted certificate discovery (only when AI Insight is enabled on the Gateway). (Relevant only for Active Directory migration)
 
 `--ad-sra-enable-rdp`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Active Directory migration)
 
@@ -351,7 +353,9 @@ akeyless gateway-update-migration \
 
 `--ad-discover-services[=false]`: Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
 
-`--ad-discovery-types`: Set migration discovery types (domain-users, computers, local-users). To specify multiple types use argument multiple times: --ad-discovery-types domain-users --ad-discovery-types local-users. (Relevant only for Active Directory migration)
+`--ad-discovery-types`: Set migration discovery types (domain-users, computers, local-users, certificates). To specify multiple types use argument multiple times: --ad-discovery-types domain-users --ad-discovery-types local-users. (Relevant only for Active Directory migration)
+
+`--ai-certificate-discovery[=false]`: Enable/Disable AI-assisted certificate discovery (only when AI Insight is enabled on the Gateway). (Relevant only for Active Directory migration)
 
 `--ad-sra-enable-rdp`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Active Directory migration)
 

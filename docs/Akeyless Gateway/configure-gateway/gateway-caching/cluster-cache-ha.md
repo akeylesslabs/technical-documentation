@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+
+<GatewayConfigManagementNote />
 Cluster Cache High Availability (HA) uses a [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) topology for resilient shared cache service.
 
 > ℹ️ **Note:**
