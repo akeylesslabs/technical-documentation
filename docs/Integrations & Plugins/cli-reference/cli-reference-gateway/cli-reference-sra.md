@@ -18,8 +18,10 @@ This page lists Secure Remote Access (SRA) commands for gateway configuration an
 
 SRA CLI commands in this page are grouped into two families:
 
-* **Gateway configuration** commands under `gateway update` (also available as alias commands)
-* **File transfer** commands under `file` for upload and download through SRA
+* [**Gateway configuration**](#gateway-configuration-family) commands under `gateway update` (also available as alias commands)
+* [**File transfer**](#file-transfer-commands-cli-1145) commands under `file` for upload and download through SRA
+* [**Gateway get**](#get-command) commands for retrieving current SRA gateway configuration
+* [**Session and bastion inventory**](#session-and-bastion-inventory-commands) commands for operational visibility
 
 ### Gateway Configuration Family
 
@@ -38,7 +40,11 @@ akeyless gateway-update-remote-access
 
 The Akeyless CLI supports SRA file transfer with `file upload` and `file download`.
 
-These commands run locally and use the local `scp` client over an SRA tunnel.
+These commands run on the client machine and invoke the local `scp`/`ssh` tooling to perform transfer over an SRA tunnel.
+
+At runtime, the CLI resolves target and bastion connection parameters (from command flags or profile), requests short-lived access by way of the configured SSH certificate issuer, and then establishes the tunnel used by `scp` for upload/download.
+
+If local `scp`/`ssh` binaries are missing or not available in `PATH`, file transfer commands fail on the client before transfer starts.
 
 ```shell Command group
 akeyless file upload

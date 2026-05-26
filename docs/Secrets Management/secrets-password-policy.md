@@ -33,6 +33,8 @@ Depending on the producer or rotated secret type, available controls can include
 * Whether password policy is enabled
 * Character class requirements, such as uppercase, lowercase, numbers, and special characters
 
+In current CLI references, `--password-length` is broadly available across many Dynamic and Rotated types, while the `--enable-password-policy` and `--password-policy-contains-*` flags are documented for specific Rotated Secret command variants.
+
 > ℹ️ **Info:**
 >
 > Available fields vary by producer and rotated secret type. Use the relevant command reference for your secret type to confirm exact flags.
