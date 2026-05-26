@@ -14,6 +14,18 @@ This section outlines the CLI commands relevant to SSH and PKI certificates.
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--delete-account`: Deletes the ACME account after deactivation.
+
+`--issuance-token`: One-time issuance token used to retrieve a generated certificate.
+
+`--ocsp-ttl`: Time to live for Online Certificate Status Protocol responses.
+
+`--secure-access-enforce-hosts-restriction[=false]`: Enforces host restrictions for Secure Remote Access sessions that use an SSH certificate issuer.
+
 ## SSH Certificates
 
 ### `create-ssh-cert-issuer`

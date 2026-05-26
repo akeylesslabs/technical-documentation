@@ -16,6 +16,50 @@ If you need help in context, check out the help flag (`-h`)
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--advanced-filter`: Advanced filter expression for `list-items`.
+
+`--allowed-email-domains`: Comma-separated list of email domains that are allowed for the account.
+
+`--ara-only[=false]`: Filters results to Agentic Runtime Authority-enabled items only.
+
+`--config-file-path`: Path to the CLI configuration file.
+
+`--current-folder[=false]`: Restricts item listing to the current folder.
+
+`--default-location-prefix`: Default location prefix to use for new items and profiles.
+
+`--disable-kerberos-fast[=true]`: Disables Kerberos FAST during authentication.
+
+`--enable-ai-insights`: Enables AI Insights for the account.
+
+`--enable-item-sharing`: Enables item sharing for the account.
+
+`--gateway-spn`: Service principal name used for Kerberos authentication through a Gateway.
+
+`--item-locking-enabled`: Enables item locking at the account level.
+
+`--kerberos-token`: Kerberos token used for CLI authentication.
+
+`--kerberos-username`: Kerberos username used for CLI authentication.
+
+`--lock-allowed-client-type`: Allowed client types for item locking.
+
+`--lock-during-sra-session`: Locks the item for read and update operations while an SRA session is active.
+
+`--lock-max-ttl`: Maximum item lock time to live.
+
+`--modified-after`: Returns items modified after the specified timestamp.
+
+`--new-metadata[=default_metadata]`: Replaces the existing metadata value for an item.
+
+`--usc-tags`: Tags used to filter or associate Universal Secrets Connector content.
+
+`--use-tags-as-filter`: Uses `--usc-tags` values as a filtering rule.
+
 ```shell
 akeyless -h
 akeyless <command> -h, --help

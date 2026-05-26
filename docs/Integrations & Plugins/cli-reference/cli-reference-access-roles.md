@@ -14,6 +14,16 @@ This section outlines the CLI commands relevant to Access Roles.
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--event-forwarders-name`: Event Forwarder names to associate with the role.
+
+`--file-rules`: Path to a file that contains role rule definitions.
+
+`--new-comment[=default_comment]`: Replaces the existing comment value.
+
 ## `assoc-role-am`
 
 Create an association between role and Auth Method

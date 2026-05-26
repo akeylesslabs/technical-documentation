@@ -14,6 +14,20 @@ This section outlines the CLI commands relevant to the Gateway Migrations.
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--ad-cert-expiration-event-in`: Number of days before an Active Directory certificate expires to trigger an event.
+
+`--ad-certificates-path-template`: Path template used when importing Active Directory certificates.
+
+`--ad-discover-iis-app[=false]`: Discovers IIS application bindings during Active Directory migration.
+
+`--delete-remote`: Deletes the source-side object during synchronization cleanup.
+
+`--si-user-groups`: Server inventory user groups to include in the migration.
+
 ## `create`
 
 Commands for creating and managing automatic migrations.

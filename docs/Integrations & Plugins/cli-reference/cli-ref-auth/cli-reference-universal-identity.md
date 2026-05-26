@@ -14,6 +14,14 @@ This section outlines the CLI commands relevant to Universal Identity authentica
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--child-ttl-limit[=43200]`: Maximum TTL, in minutes, that child Universal Identity tokens can inherit.
+
+`--tree-length[=200]`: Maximum number of descendants allowed in the Universal Identity tree.
+
 ## `create`
 
 Create a new Auth Method that can authenticate using Akeyless Universal Identity

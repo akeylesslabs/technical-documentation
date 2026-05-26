@@ -15,6 +15,12 @@ This section outlines the CLI commands relevant to the Gateway.
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flag is also used by commands documented in this page.
+
+`--new-metadata[=default_metadata]`: Replaces the existing metadata value for an item.
+
 ## Access Permissions
 
 Commands for managing the access of users to your Gateway.

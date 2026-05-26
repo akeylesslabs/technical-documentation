@@ -15,6 +15,22 @@ This section outlines the CLI commands relevant to authentication.
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--allowed-cors`: Comma-separated list of allowed CORS origins for certificate-based authentication.
+
+`--disable-kerberos-fast[=true]`: Disables Kerberos FAST during authentication.
+
+`--gateway-spn`: Service principal name used for Kerberos authentication through a Gateway.
+
+`--jwks-json-file`: Path to a file that contains the JSON Web Key Set used to validate JSON Web Tokens.
+
+`--kerberos-token`: Kerberos token used for CLI authentication.
+
+`--kerberos-username`: Kerberos username used for CLI authentication.
+
 ## `auth`
 
 This command authenticates to Akeyless and saves the temporary token so that it can be used again until the token expires without the need to re-authenticate every time.

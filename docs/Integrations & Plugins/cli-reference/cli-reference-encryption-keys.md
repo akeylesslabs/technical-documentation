@@ -14,6 +14,18 @@ This section outlines the CLI commands relevant to Encryption Keys.
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--batch-data`: Inline batch payload for encryption or decryption operations.
+
+`--batch-data-file-path`: Path to a file that contains the batch payload for encryption or decryption operations.
+
+`--cyphertext-header`: Indicates that the encrypted file includes the Akeyless ciphertext header.
+
+`--new-cert-pem-data`: New certificate PEM content to associate during key rotation.
+
 ## `assoc-target-item`
 
 Create an association between a [Target](https://docs.akeyless.io/docs/targets) and a [Classic Key](https://docs.akeyless.io/docs/classic-keys) for [External KMS Integration](https://docs.akeyless.io/docs/external-kms)

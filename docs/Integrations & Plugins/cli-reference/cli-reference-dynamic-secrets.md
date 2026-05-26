@@ -18,6 +18,22 @@ You can create a dynamic secret using an existing [target](https://docs.akeyless
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--admin-rotation-interval-days`: Rotation interval, in days, for custom admin credentials.
+
+`--dbname`: Database name to use when fetching dynamic secret credentials.
+
+`--k8s-rolebinding-yaml-data`: Inline Kubernetes RoleBinding YAML content for Kubernetes dynamic secrets.
+
+`--mssql-allowed-db-names`: Comma-separated list of Microsoft SQL Server database names that can be accessed.
+
+`--role-names`: Comma-separated list of role names to assign to generated GCP credentials.
+
+`--secure-access-delay`: Delay, in seconds, before just-in-time credentials become available for Secure Remote Access.
+
 `-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
 
 `--description`: Description of the object

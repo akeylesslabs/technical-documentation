@@ -16,6 +16,34 @@ This section outlines the CLI commands relevant to Universal Secrets Connector.
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--environment-names`: Environment names to associate with the Universal Secrets Connector.
+
+`--esm-name`: External Secrets Manager name. `esm` remains a supported command alias for Universal Secrets Connector operations.
+
+`--github-scope[=repository]`: GitHub scope to use for repository-based connectors.
+
+`--organization-name`: Organization name to use for organization-scoped connectors.
+
+`--remote-secret-activation-date`: Activation date for the remote secret.
+
+`--remote-secret-expires`: Expiration date for the remote secret.
+
+`--repository-access[=public]`: Repository access level for repository-based connectors.
+
+`--repository-names`: Comma-separated list of repository names to include.
+
+`--selected-repositories`: Explicit list of repositories selected for the operation.
+
+`--usc-tags`: Tags to associate with or filter Universal Secrets Connector content.
+
+`--use-tags-as-filter`: Uses `--usc-tags` values as a filtering rule.
+
+`--version-id`: Version identifier of the remote secret.
+
 ## `create-usc`
 
 Creates a new Universal Secrets Connector

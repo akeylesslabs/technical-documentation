@@ -14,6 +14,18 @@ This section outlines the CLI commands relevant to Static Secrets.
 
 <CLIGeneralFlags />
 
+## Additional flags on this page
+
+The following flags are also used by commands documented in this page.
+
+`--delete-remote`: Deletes the remote secret from the USC target during synchronization cleanup.
+
+`--der-certificate-format[=false]`: Returns certificate content in DER format.
+
+`--item-custom-fields-details[=false]`: Includes custom field details in the `describe-item` response.
+
+`--lock-during-sra-session`: Locks the secret for read and update operations while an SRA session is active.
+
 ## `create-secret`
 
 Creates a new static secret item
