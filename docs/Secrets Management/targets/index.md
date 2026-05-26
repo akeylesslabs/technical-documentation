@@ -1,5 +1,6 @@
 ---
 title: Targets
+slug: targets
 excerpt: ''
 deprecated: false
 hidden: false

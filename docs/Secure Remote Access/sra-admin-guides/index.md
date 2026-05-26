@@ -1,5 +1,6 @@
 ---
 title: Admin Guides
+slug: sra-admin-guides
 excerpt: ''
 deprecated: false
 hidden: false

@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+
+<GatewayConfigManagementNote />
 Runtime caching controls how the Akeyless Gateway serves and refreshes cached secrets during request handling.
 
 ## Read Behavior

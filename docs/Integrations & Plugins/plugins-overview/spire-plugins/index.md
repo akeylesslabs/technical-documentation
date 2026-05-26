@@ -1,5 +1,6 @@
 ---
 title: SPIRE Plugins
+slug: spire-plugins
 excerpt: Overview
 deprecated: false
 hidden: false

@@ -1,5 +1,6 @@
 ---
 title: OIDC
+slug: auth-with-oidc
 excerpt: OpenID Connect
 deprecated: false
 hidden: false

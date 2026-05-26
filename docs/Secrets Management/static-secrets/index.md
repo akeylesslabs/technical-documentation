@@ -1,5 +1,6 @@
 ---
 title: Static Secrets
+slug: static-secrets
 deprecated: false
 hidden: false
 link:
