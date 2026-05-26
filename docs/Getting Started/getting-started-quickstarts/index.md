@@ -1,5 +1,5 @@
 ---
-title: Quickstarts
+title: getting-started-quickstarts
 deprecated: false
 hidden: false
 metadata:

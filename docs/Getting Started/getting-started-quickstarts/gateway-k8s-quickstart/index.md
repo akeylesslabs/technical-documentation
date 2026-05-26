@@ -1,5 +1,5 @@
 ---
-title: Akeyless Gateway with Kubernetes Quickstart
+title: gateway-k8s-quickstart
 deprecated: false
 hidden: false
 metadata:

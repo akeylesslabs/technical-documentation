@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: sra-getting-started
 excerpt: ''
 deprecated: false
 hidden: false

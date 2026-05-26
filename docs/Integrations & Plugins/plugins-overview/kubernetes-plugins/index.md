@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Plugins
+title: kubernetes-plugins
 excerpt: ''
 deprecated: false
 hidden: false

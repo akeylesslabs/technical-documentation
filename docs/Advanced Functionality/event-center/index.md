@@ -1,5 +1,5 @@
 ---
-title: Event Center
+title: event-center
 excerpt: ''
 deprecated: false
 hidden: false

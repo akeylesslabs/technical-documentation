@@ -1,5 +1,5 @@
 ---
-title: Distributed Fragments Cryptography (DFC)
+title: dfc-overview
 deprecated: false
 hidden: false
 metadata:

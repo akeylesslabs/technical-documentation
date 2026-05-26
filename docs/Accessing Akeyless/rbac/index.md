@@ -1,5 +1,5 @@
 ---
-title: RBAC
+title: rbac
 excerpt: Role-Based Access Control
 deprecated: false
 hidden: false

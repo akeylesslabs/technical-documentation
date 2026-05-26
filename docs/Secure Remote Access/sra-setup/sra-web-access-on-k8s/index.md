@@ -1,5 +1,5 @@
 ---
-title: Zero Trust Web Access on K8s
+title: sra-web-access-on-k8s
 excerpt: ''
 deprecated: false
 hidden: false

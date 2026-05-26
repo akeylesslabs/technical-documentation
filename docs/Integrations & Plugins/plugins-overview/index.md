@@ -1,5 +1,5 @@
 ---
-title: Plugins
+title: plugins-overview
 excerpt: ''
 deprecated: false
 hidden: false

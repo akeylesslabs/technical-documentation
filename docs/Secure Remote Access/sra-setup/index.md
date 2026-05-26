@@ -1,5 +1,5 @@
 ---
-title: Setup
+title: sra-setup
 excerpt: ''
 deprecated: false
 hidden: false

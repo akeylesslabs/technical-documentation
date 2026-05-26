@@ -28,6 +28,15 @@ class FrontMatterViolation:
     path: str
     reason: str
 
+
+@dataclass
+class IndexTitleParentViolation:
+    path: str
+    title: str
+    parent_directory: str
+    reason: str
+
+
 @dataclass
 class ApiReferenceSuffixViolation:
     path: str
@@ -158,6 +167,20 @@ def changed_docs_markdown_files(changed_files: list[dict]) -> list[str]:
     return sorted(set(candidates))
 
 
+def changed_docs_index_files_for_title_validation(changed_files: list[dict]) -> list[str]:
+    candidates: list[str] = []
+    for item in changed_files:
+        if item["status"] not in {"added", "renamed", "modified"}:
+            continue
+        filename = item["filename"]
+        if not is_docs_markdown(filename):
+            continue
+        if Path(filename).name.lower() != "index.md":
+            continue
+        candidates.append(filename)
+    return sorted(set(candidates))
+
+
 def split_front_matter(text: str) -> list[str] | None:
     lines = text.splitlines()
     if not lines:
@@ -212,6 +235,32 @@ def validate_front_matter(path: Path) -> list[str]:
                 errors.append(f"Missing required metadata key '{subkey}'")
 
     return errors
+
+
+def extract_front_matter_title(path: Path) -> str | None:
+    if not path.exists():
+        return None
+
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    front_matter_lines = split_front_matter(text)
+    if front_matter_lines is None:
+        return None
+
+    for line in front_matter_lines:
+        match = re.match(r"^title\s*:\s*(.+?)\s*$", line.strip())
+        if not match:
+            continue
+        return match.group(1).strip().strip('"').strip("'")
+
+    return None
+
+
+def normalize_title_parent_match_value(value: str) -> str:
+    normalized = value.strip().lower()
+    normalized = normalized.replace("_", "-")
+    normalized = re.sub(r"\s+", "-", normalized)
+    normalized = re.sub(r"-+", "-", normalized)
+    return normalized.strip("-")
 
 
 def parse_order_entries(order_file: Path) -> tuple[list[str], list[str]]:
@@ -324,6 +373,7 @@ def main() -> int:
 
     changed_files = load_changed_files(changed_files_json)
     changed_docs = changed_docs_markdown_files(changed_files)
+    changed_docs_indexes = changed_docs_index_files_for_title_validation(changed_files)
 
     docs_files = collect_docs_files(docs_root)
     duplicate_groups = collect_duplicate_groups(docs_files)
@@ -334,6 +384,7 @@ def main() -> int:
     duplicate_violations: list[DuplicateGroup] = []
     depth_violations: list[DepthViolation] = []
     front_matter_violations: list[FrontMatterViolation] = []
+    index_title_parent_violations: list[IndexTitleParentViolation] = []
     navigation_violations: list[NavigationViolation] = []
     required_order_file_violations = collect_required_order_file_violations(args.required_order_roots)
     api_reference_suffix_violations = collect_api_reference_suffix_violations(Path("reference") / "Akeyless API")
@@ -382,6 +433,37 @@ def main() -> int:
                     )
                 )
 
+    for filename in changed_docs_indexes:
+        file_path = Path(filename)
+        title = extract_front_matter_title(file_path)
+        parent_directory = file_path.parent.name
+
+        if title is None:
+            index_title_parent_violations.append(
+                IndexTitleParentViolation(
+                    path=filename,
+                    title="",
+                    parent_directory=parent_directory,
+                    reason="index.md page is missing a parsable front matter 'title'",
+                )
+            )
+            continue
+
+        normalized_title = normalize_title_parent_match_value(title)
+        normalized_parent = normalize_title_parent_match_value(parent_directory)
+        if normalized_title != normalized_parent:
+            index_title_parent_violations.append(
+                IndexTitleParentViolation(
+                    path=filename,
+                    title=title,
+                    parent_directory=parent_directory,
+                    reason=(
+                        f"index.md title '{title}' must match parent directory name "
+                        f"'{parent_directory}'"
+                    ),
+                )
+            )
+
     # Validate target existence for entries in impacted _order.yaml files.
     for order_file in sorted(order_files_to_validate):
         entries, order_errors = parse_order_entries(order_file)
@@ -424,10 +506,20 @@ def main() -> int:
         nav_seen.add(key)
         uniq_navigation_violations.append(item)
 
+    title_parent_seen: set[tuple[str, str]] = set()
+    uniq_index_title_parent_violations: list[IndexTitleParentViolation] = []
+    for item in index_title_parent_violations:
+        key = (item.path, item.reason)
+        if key in title_parent_seen:
+            continue
+        title_parent_seen.add(key)
+        uniq_index_title_parent_violations.append(item)
+
     failed = bool(
         uniq_duplicate_violations
         or depth_violations
         or uniq_front_matter_violations
+        or uniq_index_title_parent_violations
         or uniq_navigation_violations
         or required_order_file_violations
         or api_reference_suffix_violations
@@ -460,6 +552,15 @@ def main() -> int:
                 "reason": item.reason,
             }
             for item in sorted(uniq_front_matter_violations, key=lambda x: (x.path, x.reason))
+        ],
+        "index_title_parent_violations": [
+            {
+                "path": item.path,
+                "title": item.title,
+                "parent_directory": item.parent_directory,
+                "reason": item.reason,
+            }
+            for item in sorted(uniq_index_title_parent_violations, key=lambda x: (x.path, x.reason))
         ],
         "navigation_violations": [
             {
@@ -523,6 +624,13 @@ def main() -> int:
             md_lines.append(f"- `{violation.path}`: {violation.reason}")
         md_lines.append("")
 
+    if uniq_index_title_parent_violations:
+        md_lines.append("## Index Title/Directory Match Violations")
+        md_lines.append("")
+        for violation in sorted(uniq_index_title_parent_violations, key=lambda x: (x.path, x.reason)):
+            md_lines.append(f"- `{violation.path}`: {violation.reason}")
+        md_lines.append("")
+
     if uniq_navigation_violations:
         md_lines.append("## Navigation Integrity Violations")
         md_lines.append("")
@@ -548,6 +656,7 @@ def main() -> int:
         not uniq_duplicate_violations
         and not depth_violations
         and not uniq_front_matter_violations
+        and not uniq_index_title_parent_violations
         and not uniq_navigation_violations
         and not required_order_file_violations
         and not api_reference_suffix_violations
@@ -559,12 +668,13 @@ def main() -> int:
 
     print(
         "failed={failed} duplicate_violations={dupes} depth_violations={depth} "
-        "front_matter_violations={fm} navigation_violations={nav} "
+        "front_matter_violations={fm} index_title_parent_violations={title_parent} navigation_violations={nav} "
         "required_order_file_violations={order} api_reference_suffix_violations={api_suffix}".format(
             failed=failed,
             dupes=len(uniq_duplicate_violations),
             depth=len(depth_violations),
             fm=len(uniq_front_matter_violations),
+            title_parent=len(uniq_index_title_parent_violations),
             nav=len(uniq_navigation_violations),
             order=len(required_order_file_violations),
             api_suffix=len(api_reference_suffix_violations),

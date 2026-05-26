@@ -1,5 +1,5 @@
 ---
-title: Universal Identity
+title: auth-with-universal-identity
 excerpt: Universal Identity (UID)
 deprecated: false
 hidden: false

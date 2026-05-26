@@ -1,5 +1,5 @@
 ---
-title: Kubernetes with Helm Deployment
+title: gateway-deploy-kubernetes-helm
 excerpt: ''
 deprecated: false
 hidden: false

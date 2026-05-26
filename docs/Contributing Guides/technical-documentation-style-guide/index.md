@@ -1,5 +1,5 @@
 ---
-title: Technical Documentation Style Guide
+title: technical-documentation-style-guide
 deprecated: false
 hidden: true
 metadata:

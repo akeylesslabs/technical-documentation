@@ -1,5 +1,5 @@
 ---
-title: Operate Gateway
+title: operate-gateway
 excerpt: ''
 deprecated: false
 hidden: false

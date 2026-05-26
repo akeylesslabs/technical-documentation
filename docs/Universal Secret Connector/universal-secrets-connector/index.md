@@ -1,5 +1,5 @@
 ---
-title: Universal Secrets Connector
+title: universal-secrets-connector
 excerpt: ''
 deprecated: false
 hidden: false

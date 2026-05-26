@@ -1,5 +1,5 @@
 ---
-title: Password Manager Web Extension
+title: password-manager-web-extension
 excerpt: ''
 deprecated: false
 hidden: false

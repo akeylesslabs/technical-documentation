@@ -1,5 +1,5 @@
 ---
-title: Terraform Provider
+title: terraform-provider
 excerpt: ''
 deprecated: false
 hidden: false

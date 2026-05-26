@@ -1,5 +1,5 @@
 ---
-title: CLI
+title: cli
 excerpt: Command Line Interface (CLI)
 deprecated: false
 hidden: false

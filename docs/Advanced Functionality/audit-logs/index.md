@@ -1,5 +1,5 @@
 ---
-title: Audit Logs
+title: audit-logs
 excerpt: ''
 deprecated: false
 hidden: false

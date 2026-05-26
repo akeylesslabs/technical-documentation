@@ -1,5 +1,5 @@
 ---
-title: Signing Images
+title: signing-image
 excerpt: ''
 deprecated: false
 hidden: false

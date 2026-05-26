@@ -1,5 +1,5 @@
 ---
-title: CLI Reference - Authentication
+title: cli-ref-auth
 excerpt: ''
 deprecated: false
 hidden: false

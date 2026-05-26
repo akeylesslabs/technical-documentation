@@ -1,5 +1,5 @@
 ---
-title: Dynamic Secrets
+title: how-to-create-dynamic-secret
 excerpt: ''
 deprecated: false
 hidden: false

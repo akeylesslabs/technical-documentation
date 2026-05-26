@@ -1,5 +1,5 @@
 ---
-title: AWS Best Practices
+title: aws-best-practices
 excerpt: ''
 deprecated: false
 hidden: false

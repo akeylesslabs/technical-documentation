@@ -1,5 +1,5 @@
 ---
-title: Targets
+title: targets
 excerpt: ''
 deprecated: false
 hidden: false

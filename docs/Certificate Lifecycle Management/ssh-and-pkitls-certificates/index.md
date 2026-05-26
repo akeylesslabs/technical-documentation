@@ -1,5 +1,5 @@
 ---
-title: PKI Certificate Issuer
+title: ssh-and-pkitls-certificates
 excerpt: ''
 deprecated: false
 hidden: false

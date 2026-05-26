@@ -59,6 +59,7 @@ overrides:
       - cwallet
       - apiserver
       - apikey
+      - pkitls
       - sourcetype
       - AkeylessCreds
       - amqps

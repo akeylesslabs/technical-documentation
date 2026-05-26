@@ -1,5 +1,5 @@
 ---
-title: KMIP Server
+title: kmip-server
 excerpt: Key Management Interoperability Protocol (KMIP) Server
 deprecated: false
 hidden: false

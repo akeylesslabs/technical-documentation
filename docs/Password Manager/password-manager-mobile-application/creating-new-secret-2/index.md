@@ -1,5 +1,5 @@
 ---
-title: Creating New Secret
+title: creating-new-secret-2
 excerpt: ''
 deprecated: false
 hidden: false

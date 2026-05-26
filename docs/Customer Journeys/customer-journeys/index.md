@@ -1,5 +1,5 @@
 ---
-title: Customer Journeys
+title: customer-journeys
 excerpt: Real-World Use Case Flows
 deprecated: false
 hidden: false

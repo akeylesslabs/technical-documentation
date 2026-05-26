@@ -1,5 +1,5 @@
 ---
-title: Personal & Corporate Areas
+title: personal-corporate-areas-navigation
 excerpt: ''
 deprecated: false
 hidden: false

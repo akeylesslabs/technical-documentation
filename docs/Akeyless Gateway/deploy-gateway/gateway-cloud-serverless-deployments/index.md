@@ -1,5 +1,5 @@
 ---
-title: Cloud-Managed Serverless Platforms
+title: gateway-cloud-serverless-deployments
 excerpt: ''
 deprecated: false
 hidden: false

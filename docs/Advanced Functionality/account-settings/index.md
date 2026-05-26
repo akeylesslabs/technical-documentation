@@ -1,5 +1,5 @@
 ---
-title: Account Settings
+title: account-settings
 excerpt: ''
 deprecated: false
 hidden: false

@@ -1,5 +1,5 @@
 ---
-title: TDE
+title: tde
 excerpt: Transparent Data Encryption (TDE)
 deprecated: false
 hidden: false

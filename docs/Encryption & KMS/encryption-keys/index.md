@@ -1,5 +1,5 @@
 ---
-title: Encryption Keys
+title: encryption-keys
 excerpt: ''
 deprecated: false
 hidden: false

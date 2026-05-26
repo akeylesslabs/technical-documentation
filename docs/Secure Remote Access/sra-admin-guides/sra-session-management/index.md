@@ -1,5 +1,5 @@
 ---
-title: Session Management
+title: sra-session-management
 excerpt: ''
 deprecated: false
 hidden: false

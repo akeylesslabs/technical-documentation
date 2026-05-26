@@ -1,5 +1,5 @@
 ---
-title: Security Appendices
+title: security-appendices
 deprecated: false
 hidden: true
 metadata:

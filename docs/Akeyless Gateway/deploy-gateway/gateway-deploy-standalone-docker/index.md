@@ -1,5 +1,5 @@
 ---
-title: Standalone Docker Deployment
+title: gateway-deploy-standalone-docker
 excerpt: Installation
 deprecated: false
 hidden: false

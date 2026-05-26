@@ -1,5 +1,5 @@
 ---
-title: Classic Keys
+title: classic-keys
 excerpt: ''
 deprecated: false
 hidden: false

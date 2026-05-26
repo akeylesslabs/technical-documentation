@@ -1,5 +1,5 @@
 ---
-title: Automated Onboarding
+title: customer-use-case-automating-employee-onboarding-and-role-based-access-control-in-servicenow
 excerpt: Automating Employee Onboarding and Role-Based Access Control in ServiceNow
 deprecated: false
 hidden: false

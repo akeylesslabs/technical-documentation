@@ -1,5 +1,5 @@
 ---
-title: MCP Server
+title: MCP
 excerpt: Overview of Akeyless MCP content, requirements, and supported integrations.
 deprecated: false
 hidden: false

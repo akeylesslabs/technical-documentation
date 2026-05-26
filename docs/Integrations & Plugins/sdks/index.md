@@ -1,5 +1,5 @@
 ---
-title: Akeyless SDKs
+title: sdks
 deprecated: false
 hidden: false
 link:

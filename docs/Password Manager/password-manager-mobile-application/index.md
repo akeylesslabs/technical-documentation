@@ -1,5 +1,5 @@
 ---
-title: Password Manager Mobile Application
+title: password-manager-mobile-application
 excerpt: ''
 deprecated: false
 hidden: false

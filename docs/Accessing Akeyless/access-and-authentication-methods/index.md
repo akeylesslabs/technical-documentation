@@ -1,5 +1,5 @@
 ---
-title: Authentication Methods
+title: access-and-authentication-methods
 excerpt: ''
 deprecated: false
 hidden: false

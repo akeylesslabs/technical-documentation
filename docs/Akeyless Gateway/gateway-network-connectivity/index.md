@@ -1,5 +1,5 @@
 ---
-title: Gateway Network Connectivity
+title: gateway-network-connectivity
 excerpt: 'Akeyless SaaS Core Services'
 deprecated: false
 hidden: false

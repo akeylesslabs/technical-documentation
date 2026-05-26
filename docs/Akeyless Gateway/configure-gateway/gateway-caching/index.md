@@ -1,5 +1,5 @@
 ---
-title: Gateway Caching
+title: gateway-caching
 excerpt: ''
 deprecated: false
 hidden: false

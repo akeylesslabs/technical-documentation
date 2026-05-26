@@ -1,5 +1,5 @@
 ---
-title: Configure Gateway
+title: configure-gateway
 excerpt: ''
 deprecated: false
 hidden: false

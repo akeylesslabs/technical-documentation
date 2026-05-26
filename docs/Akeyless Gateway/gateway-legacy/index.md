@@ -1,5 +1,5 @@
 ---
-title: Gateway Legacy
+title: gateway-legacy
 excerpt: ''
 deprecated: false
 hidden: false

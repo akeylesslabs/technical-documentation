@@ -1,5 +1,5 @@
 ---
-title: SAML
+title: auth-with-saml
 excerpt: Security Assertion Markup Language (SAML)
 deprecated: false
 hidden: false

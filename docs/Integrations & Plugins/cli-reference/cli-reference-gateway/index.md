@@ -1,5 +1,5 @@
 ---
-title: CLI Reference - Gateway
+title: cli-reference-gateway
 excerpt: ''
 deprecated: false
 hidden: false

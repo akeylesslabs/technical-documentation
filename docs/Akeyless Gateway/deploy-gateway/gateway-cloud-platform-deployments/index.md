@@ -1,5 +1,5 @@
 ---
-title: Cloud-Managed Kubernetes Platforms
+title: gateway-cloud-platform-deployments
 excerpt: ''
 deprecated: false
 hidden: false

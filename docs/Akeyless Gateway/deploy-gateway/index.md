@@ -1,5 +1,5 @@
 ---
-title: Choose a Deployment Model
+title: deploy-gateway
 excerpt: ''
 deprecated: false
 hidden: false
