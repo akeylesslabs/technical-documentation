@@ -1481,7 +1481,7 @@ akeyless unlock-target \
 
 ## `update-target`
 
-Update a target by alias command.
+Update a target.
 
 ### Usage
 

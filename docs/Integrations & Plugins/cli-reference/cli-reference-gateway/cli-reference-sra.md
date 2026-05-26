@@ -16,26 +16,21 @@ This page lists Secure Remote Access (SRA) commands for gateway update flows and
 
 ## Command Group
 
-Gateway SRA update commands are available under the `gateway update` command group and by alias commands.
+Gateway SRA update commands are documented in their canonical `gateway update` form. Accepted aliases are noted in each command description.
 
 Examples:
 
 ```shell Command group
 akeyless gateway update remote-access
 ```
-```shell Alias
-akeyless gateway-update-remote-access
-```
 
 ## Core SRA Commands
 
-### `gateway-update-remote-access`
+### `gateway update remote-access`
 
 Configures global SRA behavior for the gateway: which bastion redirect URLs and SSH tunnel URLs are allowed, the default session time-to-live, SSH certificate signing settings (legacy algorithm and key exchange algorithms), the RDP/SSH username sub-claim mapping used for externally provided usernames, keyboard layout for web sessions, and whether the session recording indicator is shown to users.
+Accepted alias: `gateway-update-remote-access`.
 
-```shell Alias
-akeyless gateway-update-remote-access
-```
 ```shell Command group
 akeyless gateway update remote-access
 ```
@@ -65,19 +60,17 @@ akeyless gateway update remote-access
 #### Example
 
 ```shell
-akeyless gateway-update-remote-access \
+akeyless gateway update remote-access \
   --allowed-urls https://bastion.example.com \
   --default-session-ttl-minutes 60 \
   --gateway-url https://my-gw.example.com:8000
 ```
 
-### `gateway-update-remote-access-rdp-recording`
+### `gateway update remote-access-rdp-recording`
 
 Configures video recording of RDP sessions on this gateway. Controls whether recording is enabled, the storage backend (local gateway storage, AWS S3, or Azure Blob Storage), recording quality, optional compression, and optional encryption of uploaded recordings.
+Accepted alias: `gateway-update-remote-access-rdp-recording`.
 
-```shell Alias
-akeyless gateway-update-remote-access-rdp-recording
-```
 ```shell Command group
 akeyless gateway update remote-access-rdp-recording
 ```
@@ -121,7 +114,7 @@ akeyless gateway update remote-access-rdp-recording
 #### Example
 
 ```shell
-akeyless gateway-update-remote-access-rdp-recording \
+akeyless gateway update remote-access-rdp-recording \
   --rdp-session-recording true \
   --rdp-session-storage aws \
   --aws-storage-region us-east-1 \
@@ -129,13 +122,11 @@ akeyless gateway-update-remote-access-rdp-recording \
   --gateway-url https://my-gw.example.com:8000
 ```
 
-### `gateway-update-remote-access-desktop-app`
+### `gateway update remote-access-desktop-app`
 
 Configures the Akeyless Desktop App's connection settings for this gateway. Sets the default SSH certificate issuer used when the desktop app initiates sessions, the secure web access URL users are directed to, and the secure web proxy URL.
+Accepted alias: `gateway-update-remote-access-desktop-app`.
 
-```shell Alias
-akeyless gateway-update-remote-access-desktop-app
-```
 ```shell Command group
 akeyless gateway update remote-access-desktop-app
 ```
@@ -153,20 +144,18 @@ akeyless gateway update remote-access-desktop-app
 #### Example
 
 ```shell
-akeyless gateway-update-remote-access-desktop-app \
+akeyless gateway update remote-access-desktop-app \
   --desktop-app-ssh-cert-issuer /SRA/my-ssh-cert-issuer \
   --gateway-url https://my-gw.example.com:8000
 ```
 
-### `gateway-update-remote-access-session-forwarding-<provider>`
+### `gateway update remote-access-session-forwarding <provider>`
 
 Configures forwarding of SRA session logs to an external logging system. Session logs capture CLI input and output from SSH and database sessions. Each provider variant targets a specific logging backend. Settings include connection credentials for the target system, the log format, and a pull interval. Changes apply per-gateway and per-provider.
+Accepted alias: `gateway-update-remote-access-session-forwarding-<provider>`.
 
 ```shell Command group
 akeyless gateway update remote-access-session-forwarding <provider>
-```
-```shell Alias
-akeyless gateway-update-remote-access-session-forwarding-<provider>
 ```
 
 #### Common flags (all providers)
@@ -182,7 +171,7 @@ akeyless gateway-update-remote-access-session-forwarding-<provider>
 #### Example
 
 ```shell
-akeyless gateway-update-remote-access-session-forwarding-splunk \
+akeyless gateway update remote-access-session-forwarding splunk \
   --splunk-url https://splunk.example.com:8088 \
   --splunk-token <your-splunk-hec-token> \
   --index main \
@@ -329,13 +318,11 @@ The `stdout` provider writes session logs directly to the gateway process standa
 
 ## Get Command
 
-### `gateway-get-remote-access`
+### `gateway get remote-access`
 
 Returns the current SRA configuration for the gateway as a JSON object with four sub-objects: `global` (allowed URLs, session TTL, keyboard layout, and legacy SSH settings), `ssh_bastion` (SSH-specific settings), `web_bastion` (web access and RDP recording settings), and `desktop_app` (desktop application settings).
+Accepted alias: `gateway-get-remote-access`.
 
-```shell Alias
-akeyless gateway-get-remote-access
-```
 ```shell Command group
 akeyless gateway get remote-access
 ```
@@ -347,7 +334,7 @@ akeyless gateway get remote-access
 #### Example
 
 ```shell
-akeyless gateway-get-remote-access --gateway-url https://my-gw.example.com:8000
+akeyless gateway get remote-access --gateway-url https://my-gw.example.com:8000
 ```
 
 ## Session and Bastion Inventory Commands
@@ -416,4 +403,4 @@ For HTTP endpoint details that map to these commands, see:
 * [Update Gateway Remote Access Desktop App](https://docs.akeyless.io/reference/gatewayupdateremoteaccessdesktopapp)
 * [List SRA Sessions](https://docs.akeyless.io/reference/listsrasessions)
 * [List SRA Bastions](https://docs.akeyless.io/reference/listsrabastions)
-* For `gateway-update-remote-access-session-forwarding-<provider>` REST endpoints, see the [Akeyless API Reference](https://docs.akeyless.io/reference) and search for `gateway-update-remote-access-session-forwarding`.
+* For `gateway update remote-access-session-forwarding <provider>` REST endpoints, see the [Akeyless API Reference](https://docs.akeyless.io/reference) and search for `gateway-update-remote-access-session-forwarding`.
