@@ -73,7 +73,7 @@ akeyless rotated-secret create aws \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---rotator-type <target/api-key> 
+--rotator-type <target/api-key>
 ```
 
 #### Flags
@@ -2364,6 +2364,27 @@ akeyless rotated-secret get-value \
 akeyless rotated-secret list \
 --gateway-url <API Gateway URL>:8000 
 ```
+
+## `gateway-rotate-secret`
+
+Trigger a rotate operation for a Rotated Secret.
+Accepted alias: `rotate-secret`.
+
+### Usage
+
+```shell
+akeyless gateway-rotate-secret \
+--name <Rotated Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+### Flags
+
+`-n, --name`: **Required**, Secret name (Rotated Secret or Custom Dynamic Secret)
+
+`-r, --rotate-all-services[=false]`: Rotate all associated services
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
 ## Synchronization
 
