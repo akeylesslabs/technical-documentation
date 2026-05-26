@@ -14,14 +14,17 @@ This page lists Secure Remote Access (SRA) commands for gateway update flows and
 
 <CLIGeneralFlags />
 
-## Gateway SRA Update Commands
+## Command Options
 
-Gateway SRA update commands are documented in their canonical `gateway update` form. Accepted aliases are noted in each command description.
+Gateway SRA update commands are available under the `gateway update` command group and by alias commands.
 
 Examples:
 
-```shell
+```shell Command group
 akeyless gateway update remote-access
+```
+```shell Alias
+akeyless gateway-update-remote-access
 ```
 
 ## Core SRA Commands

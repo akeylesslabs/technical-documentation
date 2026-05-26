@@ -113,6 +113,7 @@ The `init` subcommand initializes rotation and stores the token file. The `rotat
 ### `init`
 
 Initialize automatic UID token rotation.
+Accepted alias: `uid-auto-rotate-init`.
 
 #### Usage
 
@@ -139,6 +140,7 @@ akeyless uid-auto-rotate init \
 ### `rotate`
 
 Rotate the current UID token on demand.
+Accepted alias: `uid-auto-rotate-rotate`.
 
 #### Usage
 
@@ -155,6 +157,7 @@ akeyless uid-auto-rotate rotate
 ### `status`
 
 Check the current UID auto-rotate setup.
+Accepted alias: `uid-auto-rotate-status`.
 
 #### Usage
 
@@ -169,6 +172,7 @@ akeyless uid-auto-rotate status
 ### `uninstall`
 
 Remove the UID auto-rotate setup and scheduled entry.
+Accepted alias: `uid-auto-rotate-uninstall`.
 
 #### Usage
 
@@ -204,6 +208,7 @@ akeyless uid-revoke-token \
 ## `uid-rotate-token`
 
 Rotate Akeyless Universal Identity token
+Accepted aliases: `rotate-token`, `uid-send-manual-rotate-ack`.
 
 ### Flags
 

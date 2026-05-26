@@ -48,6 +48,7 @@ Certificate Event Format
 certificate.yaml
 CLI
 clustersecretstore.yaml
+Command group
 config.yml
 ConfigMap
 create certificate

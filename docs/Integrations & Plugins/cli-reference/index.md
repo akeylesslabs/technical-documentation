@@ -675,6 +675,7 @@ akeyless folder delete \
 #### `agent start`
 
 Start Akeyless Agent
+Accepted alias: `agent-start`.
 
 ##### Usage
 
@@ -685,6 +686,7 @@ akeyless agent start
 #### `agent status`
 
 Get Akeyless Agent status
+Accepted alias: `agent-status`.
 
 ##### Usage
 
@@ -695,6 +697,7 @@ akeyless agent status
 #### `agent stop`
 
 Stop Akeyless Agent
+Accepted alias: `agent-stop`.
 
 ##### Usage
 
@@ -721,6 +724,7 @@ Commands to interact with custom fields.
 #### `account-custom-field create`
 
 Create a new custom field in the account.
+Accepted alias: `account-custom-field-create`.
 
 ##### Usage
 
@@ -744,6 +748,7 @@ akeyless account-custom-field create \
 #### `account-custom-field delete`
 
 Delete a custom field from the account.
+Accepted alias: `account-custom-field-delete`.
 
 ##### Usage
 
@@ -759,6 +764,7 @@ akeyless account-custom-field delete \
 #### `account-custom-field get`
 
 Retrieve a custom field.
+Accepted alias: `account-custom-field-get`.
 
 ##### Usage
 
@@ -774,6 +780,7 @@ akeyless account-custom-field get \
 #### `account-custom-field list`
 
 Retrieve a list of custom fields in the account.
+Accepted alias: `account-custom-field-list`.
 
 ##### Usage
 
@@ -792,6 +799,7 @@ akeyless account-custom-field list \
 #### `account-custom-field update`
 
 Update an existing custom field in the account.
+Accepted alias: `account-custom-field-update`.
 
 ##### Usage
 

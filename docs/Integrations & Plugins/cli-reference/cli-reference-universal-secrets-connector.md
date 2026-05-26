@@ -77,6 +77,7 @@ This command only has one parameter, `-h`, and it will display a list of the oth
 ### `create`
 
 Create a new secret in an existing USC
+Accepted aliases: `usc-create`, `esm-create`.
 
 #### Usage
 
@@ -114,6 +115,7 @@ akeyless usc create \
 ### `delete`
 
 Delete a secret from an Universal Secrets Connector
+Accepted aliases: `usc-delete`, `esm-delete`.
 
 #### Usage
 
@@ -138,6 +140,7 @@ akeyless usc delete \
 ### `get`
 
 Gets the value and internal details of a secret from an Universal Secrets Connector
+Accepted aliases: `usc-get`, `esm-get`.
 
 #### Usage
 
@@ -172,6 +175,7 @@ akeyless usc get \
 ### `list`
 
 Lists the secrets within the Universal Secrets Connector
+Accepted aliases: `usc-list`, `esm-list`.
 
 #### Usage
 
@@ -206,6 +210,7 @@ akeyless usc list --usc-name <USC name>
 ### `update`
 
 Update an existing secret within the Universal Secrets Connector
+Accepted aliases: `usc-update`, `esm-update`.
 
 #### Usage
 
