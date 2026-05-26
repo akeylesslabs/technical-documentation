@@ -1,5 +1,6 @@
 ---
 title: User Guides
+slug: sra-user-guides
 excerpt: ''
 deprecated: false
 hidden: false

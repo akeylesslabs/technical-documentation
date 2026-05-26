@@ -1,5 +1,6 @@
 ---
 title: v2
+slug: v2
 excerpt: ''
 deprecated: false
 hidden: false

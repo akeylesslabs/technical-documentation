@@ -1,5 +1,6 @@
 ---
 title: Best Practices
+slug: best-practices
 excerpt: ''
 deprecated: false
 hidden: false

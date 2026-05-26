@@ -1,5 +1,6 @@
 ---
 title: CLI Reference - Authentication
+slug: cli-ref-auth
 excerpt: ''
 deprecated: false
 hidden: false

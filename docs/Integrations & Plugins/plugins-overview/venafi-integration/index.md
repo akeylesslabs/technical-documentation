@@ -1,5 +1,6 @@
 ---
 title: Venafi Integration
+slug: venafi-integration
 excerpt: ''
 deprecated: false
 hidden: false

@@ -1,5 +1,6 @@
 ---
 title: Password Manager Web Console For Admins
+slug: password-manager-web-console-for-admin
 excerpt: ''
 deprecated: false
 hidden: false
