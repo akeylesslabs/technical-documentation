@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+
+<GatewayConfigManagementNote />
 Standalone cluster cache provides a shared Redis-backed cache across Gateway pods. This improves cross-pod cache consistency compared to [local in-memory cache](https://docs.akeyless.io/docs/runtime-caching).
 
 > ℹ️ **Note:**
