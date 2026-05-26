@@ -168,7 +168,7 @@ akeyless gateway-create-migration \
 
 Command to delete specified gateway configuration
 
-### `gateway delete gateway-delete-migration`
+### `gateway-delete-migration`
 
 Delete migration
 
@@ -190,7 +190,7 @@ akeyless gateway delete gateway-delete-migration \
 
 Command to get specified gateway configuration
 
-### `gateway get gateway-get-migration`
+### `gateway-get-migration`
 
 Get migrations
 
@@ -212,7 +212,7 @@ akeyless gateway get gateway-get-migration \
 
 Command to list specified gateway configuration
 
-### `gateway list gateway-list-migration`
+### `gateway-list-migration`
 
 List migrations
 
