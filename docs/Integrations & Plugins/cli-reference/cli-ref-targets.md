@@ -2040,10 +2040,6 @@ akeyless target update google-trust \
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
-`--eab-key-id`: Google Trust External Account Binding key identifier
-
-`--eab-hmac-key`: Google Trust External Account Binding HMAC key
-
 `--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials
 
 `--hosted-zone`: AWS hosted-zone identifier for DNS validation
