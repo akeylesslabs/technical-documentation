@@ -136,10 +136,6 @@ akeyless describe-permissions \
 --type <Type of object (item, am, role, target)>
 ```
 
-## `describe-sub-claims`
-
-Get the sub-claims associated with the provided token or authentication profile
-
 ## `describe-role-am-assoc`
 
 Describe role association details
@@ -150,6 +146,10 @@ Describe role association details
 akeyless describe-role-am-assoc \
 --assoc-id <association-id>
 ```
+
+## `describe-sub-claims`
+
+Get the sub-claims associated with the provided token or authentication profile
 
 ## `get-role`
 

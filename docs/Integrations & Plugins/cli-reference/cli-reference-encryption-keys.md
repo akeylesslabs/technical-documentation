@@ -243,42 +243,6 @@ akeyless create-key \
 
 `--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
-## `derive-key`
-
-Perform key derivation on a static secret.
-
-If `--salt` is omitted, the CLI generates one automatically. If provided, the salt must be Base64-encoded and decode to at least 8 bytes.
-
-### Usage
-
-```shell
-akeyless derive-key \
---name <Static Secret full name> \
---alg <pbkdf2/argon2id> \
---key-len <Derived key length> \
---iter <Iteration count>
-```
-
-### Flags
-
-`-n, --name`: **Required**, Static Secret full name
-
-`-a, --alg[=pbkdf2]`: **Required**, KDF algorithm [`pbkdf2`/`argon2id`]
-
-`-s, --salt`: Base64-encoded salt value
-
-`-l, --key-len[=32]`: **Required**, Derived key length in bytes
-
-`-i, --iter`: **Required**, Number of iterations
-
-`--hash-function[=sha256]`: Hash function for `pbkdf2` [`sha256`/`sha512`]
-
-`--parallelism[=1]`: Number of threads to use for `argon2id`
-
-`--mem[=16384]`: Memory parameter in KB for `argon2id`
-
-`--accessibility[=regular]`: Accessibility for an item in a user's personal folder [`regular`/`personal`]
-
 ## `decrypt`
 
 Decrypts ciphertext into plaintext by using an AES key
@@ -401,6 +365,42 @@ akeyless decrypt-pkcs1 \
 `-c, --ciphertext`: **Required**, Ciphertext to be decrypted in Base64-encoded format
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: `[base64]`
+
+## `derive-key`
+
+Perform key derivation on a static secret.
+
+If `--salt` is omitted, the CLI generates one automatically. If provided, the salt must be Base64-encoded and decode to at least 8 bytes.
+
+### Usage
+
+```shell
+akeyless derive-key \
+--name <Static Secret full name> \
+--alg <pbkdf2/argon2id> \
+--key-len <Derived key length> \
+--iter <Iteration count>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Static Secret full name
+
+`-a, --alg[=pbkdf2]`: **Required**, KDF algorithm [`pbkdf2`/`argon2id`]
+
+`-s, --salt`: Base64-encoded salt value
+
+`-l, --key-len[=32]`: **Required**, Derived key length in bytes
+
+`-i, --iter`: **Required**, Number of iterations
+
+`--hash-function[=sha256]`: Hash function for `pbkdf2` [`sha256`/`sha512`]
+
+`--parallelism[=1]`: Number of threads to use for `argon2id`
+
+`--mem[=16384]`: Memory parameter in KB for `argon2id`
+
+`--accessibility[=regular]`: Accessibility for an item in a user's personal folder [`regular`/`personal`]
 
 ## `encrypt`
 
