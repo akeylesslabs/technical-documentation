@@ -131,7 +131,7 @@ Akeyless enables CLI access from any Unix terminal.
 
    * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
 
-3. Use `akeyless connect` command to perform SSH authentication to the target server by way of Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
+3. Use `akeyless connect` command to perform SSH authentication to the target server by way of Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s):
 
     ```shell General Template
    akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
@@ -209,3 +209,5 @@ To download a file:
 > ℹ️ **Note (File size and free space):**
 >
 > If there is a size limit issue on the SRA SSH server (exceeding 90% of space), a file named `NOT_ENOUGH_FREE_SPACE` is created in the `akl-downloads` folder, and the user will not be able to download it.
+
+**Transfer behavior:** File transfer authorization is controlled by SRA permissions for upload and download operations. The Gateway SRA configuration model does not expose a dedicated file-size limit setting for SSH upload and download. Transfer speed and completion time can vary by network conditions, target host performance, and available resources on the SRA SSH service.
