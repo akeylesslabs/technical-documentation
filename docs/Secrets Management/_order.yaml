@@ -2,6 +2,7 @@
 - static-secrets
 - how-to-create-dynamic-secret
 - rotated-secrets
+- password-policy-for-dynamic-and-rotated-secrets
 - secret-versions
 - sharing-static-secrets
 - passwords
