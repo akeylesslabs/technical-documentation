@@ -23,9 +23,15 @@ Validate the following requirements before rollout.
 | Redis cache available | SRA-enabled deployments | SRA components depend on cache and session support. |
 | Minimum resources per SRA component: `1 vCPU`, `2 GiB` memory | Kubernetes and Docker deployments | Prevents insufficient sizing of SRA services. |
 | SSH bastion exposure by `type: LoadBalancer` and privileged mode | Kubernetes deployments | Required for SRA network and runtime behavior. |
+| Cloud identity override configured when metadata service is not reachable | Metadata-restricted Kubernetes clusters | Prevents dispatcher cloud detection failures in IAM-based auth flows. |
+| Gateway and ingress trust chain configured for private and self-signed CAs | Private PKI deployments | Prevents TLS verification failures between SRA components and Gateway endpoints. |
 | Session affinity (sticky sessions) configured at ingress or load balancer | Ingress and load balancer fronted deployments | Keeps related requests pinned to the same backend. |
+| Session persistence policy mapped for your ingress controller type | Non-NGINX ingress controllers | Prevents silent affinity misconfiguration when NGINX-only annotations are ignored. |
 | Idle and response timeouts aligned with session duration | Long-lived SSH, RDP, and web sessions | Prevents early session termination by network intermediaries. |
+| Redirect and query size limits validated for SAML and proxy redirects | SRA behind identity-aware proxies | Prevents login failures caused by oversized redirect URLs. |
 | Allowed bastion and proxy redirect URLs configured | ZTWA and portal-based access | Prevents endpoint mismatch and dropped client endpoints. |
+| Access permissions validated by connection mode (direct and proxy) | ZTWA and SRA access policy design | Prevents mode-specific `401` authorization failures. |
+| Session-recording upload auth tested with dispatcher auth method | ZTWA recording to object storage | Prevents dispatcher auth instability in mixed IAM and recording flows. |
 
 ## Core Infrastructure Requirements
 
@@ -51,8 +57,17 @@ Use at least 1 vCPU and 2 GiB memory for each SRA component.
 
 * Expose the SSH bastion service with `type: LoadBalancer`.
 * Run the SSH bastion container in privileged mode.
+* If metadata-service based cloud detection is restricted, set `dispatcher.config.cloudIdentity.type` to your cloud identity type (`aws_iam`, `azure_ad`, or `gcp`).
 
 For platform guidance, see [Kubernetes Service type LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) and [Linux kernel security constraints](https://kubernetes.io/docs/concepts/security/linux-kernel-security-constraints/).
+
+### Gateway Certificate Trust Requirements
+
+If Gateway or ingress endpoints use private or self-signed certificates, make sure SRA components trust that CA chain.
+
+When needed, provide trusted certificate material by configuration so dispatcher and bastion runtime checks can validate TLS connections to Gateway endpoints.
+
+For Gateway TLS configuration context, see [Gateway TLS settings](https://docs.akeyless.io/docs/gateway-tls-settings).
 
 ### Docker Compose Profiles
 
@@ -81,6 +96,26 @@ nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
 ```
 
 For cloud-provider load balancers, configure the equivalent session-persistence setting in the provider configuration.
+
+If you are not using NGINX ingress, use the equivalent session-persistence policy for your ingress controller. For Envoy Gateway, use a `BackendTrafficPolicy`-based cookie persistence policy instead of NGINX annotations.
+
+For Envoy policy reference, see [Envoy Gateway session persistence](https://gateway.envoyproxy.io/latest/api/extension_types/#sessionpersistence).
+
+### SAML and Redirect Size Limits
+
+If SRA is published through identity-aware reverse proxies, validate request URI and redirect limits for your proxy tier.
+
+SAML and JWT-heavy redirects can exceed proxy URI limits in some environments and fail before login completes.
+
+When possible, prefer login flows that reduce query-string payload size and avoid static matching assumptions for dynamic SAML redirect parameters.
+
+For Azure App Proxy behavior, see [Microsoft Entra application proxy](https://learn.microsoft.com/en-us/entra/identity/app-proxy/overview-what-is-app-proxy).
+
+### Access Permissions by Connection Mode
+
+Validate RBAC and item permissions separately for each access mode used by your organization.
+
+Direct access and some proxy flows can require item read permissions in addition to SRA allow-access capabilities, depending on mode and product behavior.
 
 ### Session Cookies
 
@@ -129,6 +164,12 @@ For Helm-based deployments, set:
 For Docker-based SSH bastion deployments, configure `ALLOWED_BASTION_URLS`.
 
 These allowlists are consumed by SRA keep-alive and bastion metadata flows. In the Zero Trust Portal client, non-allowed user-provided endpoint URLs are removed from local endpoint state.
+
+## Session Recording Authentication Compatibility
+
+When session recording upload is enabled, validate the dispatcher authentication path and object-storage upload authentication path together.
+
+If you observe post-session dispatcher `401` authentication failures, test alternative credential-source combinations for dispatcher runtime auth and storage upload auth, and keep the stable combination for production rollout.
 
 ## Port Inventory
 
