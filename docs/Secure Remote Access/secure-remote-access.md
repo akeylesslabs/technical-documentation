@@ -82,14 +82,14 @@ Use this path based on the immediate objective:
 2. Deployment planning and architecture: [Setup Overview](https://docs.akeyless.io/docs/sra-setup-overview)
 3. Resource onboarding: [Supported Resource Types](https://docs.akeyless.io/docs/sra-resource-types)
 4. User operation model: [SRA User Guides](https://docs.akeyless.io/docs/sra-user-guides)
-5. Admin controls and policies: [SRA Admin Guides](https://docs.akeyless.io/docs/sra-admin-guides)
+5. Admin controls and policies: [SRA Admin Guides](https://docs.akeyless.io/docs/sra-session-management)
 
 ## Documentation Map
 
 Use this map to move through the SRA documentation by workflow:
 
 * Setup and deployment: [Setup Overview](https://docs.akeyless.io/docs/sra-setup-overview)
-* Access configuration and policy controls: [SRA Admin Guides](https://docs.akeyless.io/docs/sra-admin-guides)
+* Access configuration and policy controls: [SRA Admin Guides](https://docs.akeyless.io/docs/sra-session-management)
 * User access flows (portal, desktop app, and CLI): [SRA User Guides](https://docs.akeyless.io/docs/sra-user-guides)
 * Session operations and monitoring: [Session Management](https://docs.akeyless.io/docs/sra-sessions-overview)
 * Integrations and automation (CLI and API references): [CLI Gateway Reference](https://docs.akeyless.io/docs/cli-reference-gateway) and [Akeyless API v2 Reference](https://docs.akeyless.io/reference/gatewaygetremoteaccess)
