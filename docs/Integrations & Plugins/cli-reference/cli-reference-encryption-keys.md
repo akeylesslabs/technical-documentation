@@ -197,6 +197,8 @@ akeyless create-dfc-key \
 
 Creates a new key. This command is deprecated. Use `create-dfc-key` instead.
 
+If you set `--generate-self-signed-certificate`, you must also provide `--certificate-ttl` with a value greater than `0`.
+
 ### Usage
 
 ```shell
@@ -219,7 +221,7 @@ akeyless create-key \
 
 `--generate-self-signed-certificate[=false]`: Generate a self-signed certificate with the key
 
-`--certificate-ttl`: TTL in days for the generated certificate
+`--certificate-ttl`: TTL in days for the generated certificate. Required when `--generate-self-signed-certificate` is set
 
 `--certificate-common-name`: Common name for the generated certificate
 
@@ -244,6 +246,8 @@ akeyless create-key \
 ## `derive-key`
 
 Perform key derivation on a static secret.
+
+If `--salt` is omitted, the CLI generates one automatically. If provided, the salt must be Base64-encoded and decode to at least 8 bytes.
 
 ### Usage
 

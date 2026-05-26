@@ -314,6 +314,8 @@ akeyless target create db \
 
 Creates a new DigiCert target in the current account
 
+For initial ACME account bootstrap, provide `--eab-key-id` and `--eab-hmac-key`. DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
 #### Usage
 
 ```shell
@@ -548,6 +550,8 @@ akeyless target create gitlab \
 ### `google-trust`
 
 Creates a new Google Trust target in the current account
+
+For initial ACME account bootstrap, provide `--eab-key-id` and `--eab-hmac-key`. DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
 
 #### Usage
 
@@ -1869,6 +1873,8 @@ akeyless target update gcp \
 
 Updates an existing DigiCert target
 
+DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
 ##### Usage
 
 ```shell
@@ -2017,6 +2023,8 @@ akeyless target update gitlab \
 #### `google-trust`
 
 Updates an existing Google Trust target
+
+`--eab-key-id` and `--eab-hmac-key` are create-only bootstrap values. DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
 
 ##### Usage
 

@@ -818,12 +818,15 @@ Commands for creating, viewing, listing, and updating groups.
 
 Create a new group.
 
+Group names must start with `/`, must not end with `/`, and cannot contain `*`. Group aliases cannot contain `*`, `/`, `+`, `?`, or `.`. The command also requires a non-empty user-assignment payload supplied with `--user-assignment` or `--user-assignment-file`.
+
 ##### Usage
 
 ```shell
 akeyless create-group \
 --name <Group name> \
---group-alias <Group alias>
+--group-alias <Group alias> \
+--user-assignment <User assignment JSON>
 ```
 
 ##### Flags
@@ -834,9 +837,9 @@ akeyless create-group \
 
 `--description`: Description of the object
 
-`-u, --user-assignment`: JSON string defining the user assignment for this group
+`-u, --user-assignment`: **Required**, JSON string defining the user assignment for this group. Must contain at least one element
 
-`-f, --user-assignment-file`: Path to a file containing the user-assignment JSON
+`-f, --user-assignment-file`: Path to a file containing the user-assignment JSON. Provide this instead of `--user-assignment`
 
 #### `delete-group`
 
@@ -888,12 +891,15 @@ akeyless list-groups
 
 Update a group.
 
+The existing `--name` value and any `--new-name` value must follow the same group-name rules as `create-group`. This command also requires a non-empty user-assignment payload supplied with `--user-assignment` or `--user-assignment-file`.
+
 ##### Usage
 
 ```shell
 akeyless update-group \
 --name <Group name> \
---group-alias <Group alias>
+--group-alias <Group alias> \
+--user-assignment <User assignment JSON>
 ```
 
 ##### Flags
@@ -906,9 +912,9 @@ akeyless update-group \
 
 `--description`: Description of the object
 
-`-u, --user-assignment`: JSON string defining the user assignment for this group
+`-u, --user-assignment`: **Required**, JSON string defining the user assignment for this group. Must contain at least one element
 
-`-f, --user-assignment-file`: Path to a file containing the user-assignment JSON
+`-f, --user-assignment-file`: Path to a file containing the user-assignment JSON. Provide this instead of `--user-assignment`
 
 ### OIDC Applications
 
@@ -918,12 +924,15 @@ Commands for creating and updating OIDC applications and rotating their client s
 
 Create a new OIDC application.
 
+This command requires a non-empty permission-assignment payload supplied with `--permission-assignment` or `--permission-assignment-file`.
+
 ##### Usage
 
 ```shell
 akeyless create-oidc-app \
 --name <OIDC application name> \
---redirect-uris <Comma-separated redirect URIs>
+--redirect-uris <Comma-separated redirect URIs> \
+--permission-assignment <Permission assignment JSON>
 ```
 
 ##### Flags
@@ -938,9 +947,9 @@ akeyless create-oidc-app \
 
 `--public`: Set this flag if the app is public and cannot keep secrets
 
-`-p, --permission-assignment`: JSON string defining the permission assignment for this app
+`-p, --permission-assignment`: **Required**, JSON string defining the permission assignment for this app. Must contain at least one element
 
-`-f, --permission-assignment-file`: Path to a file containing the permission-assignment JSON
+`-f, --permission-assignment-file`: Path to a file containing the permission-assignment JSON. Provide this instead of `--permission-assignment`
 
 `--item-custom-fields`: Additional custom fields to associate with the item. Repeat the flag to add multiple fields
 
@@ -973,12 +982,15 @@ akeyless rotate-oidc-client-secret \
 
 Update an existing OIDC application.
 
+This command requires a non-empty permission-assignment payload supplied with `--permission-assignment` or `--permission-assignment-file`.
+
 ##### Usage
 
 ```shell
 akeyless update-oidc-app \
 --name <OIDC application name> \
---redirect-uris <Comma-separated redirect URIs>
+--redirect-uris <Comma-separated redirect URIs> \
+--permission-assignment <Permission assignment JSON>
 ```
 
 ##### Flags
@@ -993,9 +1005,9 @@ akeyless update-oidc-app \
 
 `--public`: Set this flag if the app is public and cannot keep secrets
 
-`-p, --permission-assignment`: JSON string defining the permission assignment for this app
+`-p, --permission-assignment`: **Required**, JSON string defining the permission assignment for this app. Must contain at least one element
 
-`-f, --permission-assignment-file`: Path to a file containing the permission-assignment JSON
+`-f, --permission-assignment-file`: Path to a file containing the permission-assignment JSON. Provide this instead of `--permission-assignment`
 
 `-k, --key`: Key used to encrypt the OIDC application
 
@@ -1026,6 +1038,8 @@ Command to create a policy in the account.
 ##### `policy create keys`
 
 Create a new keys policy.
+
+Provide at least one configuration flag in addition to `--path`. `--allowed-key-types` and `--allowed-key-names` are mutually exclusive. If you set `--object-types targets`, do not also set `--max-rotation-interval-days` or `--allowed-algorithms`. When `--object-types` is omitted, the policy applies to both `items` and `targets`.
 
 ###### Usage
 
@@ -1110,6 +1124,8 @@ Update an existing account policy.
 
 Update an existing keys policy.
 
+Provide at least one update flag. `--allowed-key-types` and `--allowed-key-names` are mutually exclusive. If you set `--object-types targets`, do not also set `--max-rotation-interval-days` or `--allowed-algorithms`.
+
 ###### Usage
 
 ```shell
@@ -1165,6 +1181,8 @@ This command does not define command-specific flags beyond the global CLI flags 
 ### `kubeconfig-generate`
 
 Generate a unified kubeconfig for Kubernetes Dynamic Secrets.
+
+Provide exactly one selector mode: `--name` or `--tag`. If you use `--tag`, only one tag value is supported.
 
 #### Usage
 

@@ -379,6 +379,8 @@ akeyless gateway update defaults \
 
 Update the Gateway certificate store.
 
+Provide certificate content with either `--certificate-path` or `--certificate-data`.
+
 #### Usage
 
 ```shell
