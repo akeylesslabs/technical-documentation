@@ -1,5 +1,6 @@
 ---
 title: Automatic Migration
+slug: automatic-migration
 excerpt: ''
 deprecated: false
 hidden: false

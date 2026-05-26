@@ -1,5 +1,6 @@
 ---
 title: Creating New Secret
+slug: creating-new-secret-2
 excerpt: ''
 deprecated: false
 hidden: false

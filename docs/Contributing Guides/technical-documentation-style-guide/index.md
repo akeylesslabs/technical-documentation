@@ -1,5 +1,6 @@
 ---
 title: Technical Documentation Style Guide
+slug: technical-documentation-style-guide
 deprecated: false
 hidden: true
 metadata:

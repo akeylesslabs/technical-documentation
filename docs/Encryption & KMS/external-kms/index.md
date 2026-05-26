@@ -1,5 +1,6 @@
 ---
 title: External KMS Integration
+slug: external-kms
 excerpt: ''
 deprecated: false
 hidden: false

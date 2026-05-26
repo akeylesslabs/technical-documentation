@@ -1,5 +1,6 @@
 ---
 title: CLI Reference
+slug: cli-reference
 excerpt: ''
 deprecated: false
 hidden: false
