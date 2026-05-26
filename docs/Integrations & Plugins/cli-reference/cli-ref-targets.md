@@ -14,20 +14,6 @@ This section outlines the CLI commands relevant to Targets.
 
 <CLIGeneralFlags />
 
-## Additional flags on this page
-
-The following flags are also used by commands documented in this page.
-
-`--add-hosts`: Adds hosts to a linked target association.
-
-`--model`: Model name for OpenAI targets.
-
-`--new-comment[=default_comment]`: Replaces the existing comment value.
-
-`--openai-url[=https://api.openai.com/v1]`: Base URL for the OpenAI-compatible API endpoint.
-
-`--rm-hosts`: Removes hosts from a linked target association.
-
 ## `assoc-target-item`
 
 Create an association between target and item
@@ -2474,6 +2460,10 @@ akeyless target update linked \
 `--new-name`: New name for the Linked Target
 
 `-s, --hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (that is `server-dev.com`;`My Dev server`, `server-prod.com`;`My Prod server description`)
+
+`--add-hosts`: Add new hosts to the linked target. To specify multiple hosts, repeat the flag.
+
+`--rm-hosts`: Remove existing hosts from the linked target. To specify multiple hosts, repeat the flag.
 
 `-p, --parent-target-name`: The parent Target name from which to inherit credentials
 

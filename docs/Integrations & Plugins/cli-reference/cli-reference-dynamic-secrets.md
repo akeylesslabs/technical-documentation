@@ -18,22 +18,6 @@ You can create a dynamic secret using an existing [target](https://docs.akeyless
 
 <CLIGeneralFlags />
 
-## Additional flags on this page
-
-The following flags are also used by commands documented in this page.
-
-`--admin-rotation-interval-days`: Rotation interval, in days, for custom admin credentials.
-
-`--dbname`: Database name to use when fetching dynamic secret credentials.
-
-`--k8s-rolebinding-yaml-data`: Inline Kubernetes RoleBinding YAML content for Kubernetes dynamic secrets.
-
-`--mssql-allowed-db-names`: Comma-separated list of Microsoft SQL Server database names that can be accessed.
-
-`--role-names`: Comma-separated list of role names to assign to generated GCP credentials.
-
-`--secure-access-delay`: Delay, in seconds, before just-in-time credentials become available for Secure Remote Access.
-
 `-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
 
 `--description`: Description of the object
@@ -45,6 +29,10 @@ The following flags are also used by commands documented in this page.
 `akeyless dynamic-secret create`
 
 Command to create a Dynamic Secret
+
+### Shared Secure Access flag
+
+`--secure-access-delay`: Delay in seconds before generated credentials become available for Secure Remote Access sessions. Applies to `aws`, `eks`, `gcp`, `gke`, `google-workspace`, `k8s`, `ldap`, `mongodb`, `mssql`, `mysql`, `postgresql`, and `rdp`.
 
 ### Subcommands
 
@@ -462,7 +450,7 @@ akeyless dynamic-secret create custom \
 
 `--enable_admin_rotation[=false]`: Enable automatic admin credentials rotation
 
-`--admin_rotation_interval_days`: Rotation period in days
+`--admin-rotation-interval-days`: Rotation period in days
 
 ### `dockerhub`
 
@@ -623,6 +611,8 @@ akeyless dynamic-secret create gcp \
 `-e, --gcp-sa-email`: The email of the fixed service account to generate keys or tokens for. (relevant for service-account-type=fixed)
 
 `--role-binding`: RoleBinding definitions in JSON format
+
+`--role-names`: Comma-separated list of role names to assign to generated credentials
 
 `--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
@@ -956,6 +946,8 @@ akeyless dynamic-secret create k8s \
 
 `--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of Kubernetes Role and RoleBinding (relevant only for `k8s-service-account-type=dynamic`)
 
+`--k8s-rolebinding-yaml-data`: Inline YAML that contains Kubernetes Role and RoleBinding definitions (relevant only for `k8s-service-account-type=dynamic`)
+
 `--k8s-cluster-name`: Kubernetes cluster name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
@@ -1174,6 +1166,8 @@ akeyless dynamic-secret create mssql \
 `--mssql-creation-statements\[=CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}';]`: MSSQL Server Creation Statements
 
 `--mssql-revocation-statements\[=DROP LOGIN [{{name}}];]`: MSSQL Server Revocation Statements
+
+`--mssql-allowed-db-names`: Comma-separated list of database names that can be requested by generated credentials
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -1923,7 +1917,7 @@ akeyless dynamic-secret get-value \
 
 `args`: Optional arguments as `key`=`value` pairs or JSON strings, for example, - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
 
- `--mssql-dbname`: Override MSSQL DB name, this should be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**).
+`--dbname`: Override the database name, which must be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**)
 
 `--timeout[=15]`: Timeout in seconds
 
@@ -2049,6 +2043,10 @@ akeyless dynamic-secret tmp-creds update \
 `akeyless dynamic-secret update`
 
 Command to update a Dynamic Secret
+
+### Shared Secure Access flag
+
+`--secure-access-delay`: Delay in seconds before generated credentials become available for Secure Remote Access sessions. Applies to `aws`, `eks`, `gcp`, `gke`, `google-workspace`, `k8s`, `ldap`, `mongodb`, `mssql`, `mysql`, `postgresql`, and `rdp`.
 
 ### Subcommands
 
@@ -2401,7 +2399,7 @@ akeyless dynamic-secret update custom \
 
 `--enable_admin_rotation[=false]`: Enable automatic admin credentials rotation
 
-`--admin_rotation_interval_days`: Rotation period in days
+`--admin-rotation-interval-days`: Rotation period in days
 
 `--user-ttl[=60m]`: User TTL
 
@@ -2539,6 +2537,8 @@ akeyless dynamic-secret update gcp \
 `-e, --gcp-sa-email`: The email of the fixed service acocunt to generate keys or tokens for. (relevant for service-account-type=fixed)
 
 `--role-binding`: RoleBinding definitions in JSON format
+
+`--role-names`: Comma-separated list of role names to assign to generated credentials
 
 `--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
@@ -2845,6 +2845,8 @@ akeyless dynamic-secret update k8s \
 
 `--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of Kubernetes Role and RoleBinding (relevant only for `k8s-service-account-type=dynamic`)
 
+`--k8s-rolebinding-yaml-data`: Inline YAML that contains Kubernetes Role and RoleBinding definitions (relevant only for `k8s-service-account-type=dynamic`)
+
 `--k8s-cluster-name`: Kubernetes cluster name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
@@ -3035,6 +3037,8 @@ akeyless dynamic-secret update mssql \
 `--mssql-creation-statements[=CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}';]`: MSSQL Server Creation Statements
 
 `--mssql-revocation-statements[=DROP LOGIN [{{name}}];]`: MSSQL Server Revocation Statements
+
+`--mssql-allowed-db-names`: Comma-separated list of database names that can be requested by generated credentials
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 

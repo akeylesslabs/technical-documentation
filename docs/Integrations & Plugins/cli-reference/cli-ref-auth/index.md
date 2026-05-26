@@ -15,22 +15,6 @@ This section outlines the CLI commands relevant to authentication.
 
 <CLIGeneralFlags />
 
-## Additional flags on this page
-
-The following flags are also used by commands documented in this page.
-
-`--allowed-cors`: Comma-separated list of allowed CORS origins for certificate-based authentication.
-
-`--disable-kerberos-fast[=true]`: Disables Kerberos FAST during authentication.
-
-`--gateway-spn`: Service principal name used for Kerberos authentication through a Gateway.
-
-`--jwks-json-file`: Path to a file that contains the JSON Web Key Set used to validate JSON Web Tokens.
-
-`--kerberos-token`: Kerberos token used for CLI authentication.
-
-`--kerberos-username`: Kerberos username used for CLI authentication.
-
 ## `auth`
 
 This command authenticates to Akeyless and saves the temporary token so that it can be used again until the token expires without the need to re-authenticate every time.
@@ -96,6 +80,14 @@ with the relevant flags according to the `access-type` being used.
 `--oci-group-ocid`: A list of Oracle Cloud IDs groups (relevant only for `access-type=oci`)
 
 `--use-remote-browser`: Returns a link to complete the authentication remotely (relevant only for `access-type=saml` and `access-type=oidc`)
+
+`--disable-kerberos-fast[=true]`: Disable the Kerberos FAST negotiation
+
+`--gateway-spn`: Optional, the service principal name of the gateway as registered in LDAP (for example, `HTTP/gateway`)
+
+`--kerberos-token`: Optional, Kerberos token for the gateway SPN, used by SPNEGO for authentication
+
+`--kerberos-username`: Optional, the username for the entry within the keytab to authenticate via Kerberos
 
 `--debug`: Use this flag for a printout of the authorization JWT.
 
@@ -347,6 +339,8 @@ akeyless auth-method create cert \
 
 `--revoked-cert-ids`: A list of revoked cert ids
 
+`--allowed-cors`: Comma separated list of allowed CORS domains to be validated as part of the authentication flow
+
 `--require-crl-dp`: Require certificate CRL distribution points (CDP) and enforce CRL validation during authentication
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
@@ -503,6 +497,8 @@ akeyless auth-method create oauth2 \
 `--audience`: The audience in the JWT
 
 `--gateway-url`: Gateway URL `http://<Your-Akeyless-Gateway-URL>:8000`
+
+`--jwks-json-file`: The JSON Web Key Set (`JWKS`) JSON file path that will be used to verify any JSON Web Token (`JWT`) issued by the authorization server
 
 `-d, --delimiters`: A list of additional sub-claims delimiters"
 
@@ -903,6 +899,8 @@ akeyless auth-method update cert \
 
 `--revoked-cert-ids`: A list of revoked cert ids
 
+`--allowed-cors`: Comma separated list of allowed CORS domains to be validated as part of the authentication flow
+
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
 
 #### `email`
@@ -1055,6 +1053,8 @@ akeyless auth-method update oauth2 \
 `--audience`: The audience in the JWT
 
 `--gateway-url`: Gateway URL `http://<Your-Akeyless-Gateway-URL>:8000`
+
+`--jwks-json-file`: The JSON Web Key Set (`JWKS`) JSON file path that will be used to verify any JSON Web Token (`JWT`) issued by the authorization server
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 

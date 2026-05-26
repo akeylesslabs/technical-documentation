@@ -14,16 +14,6 @@ This section outlines the CLI commands relevant to Access Roles.
 
 <CLIGeneralFlags />
 
-## Additional flags on this page
-
-The following flags are also used by commands documented in this page.
-
-`--event-forwarders-name`: Event Forwarder names to associate with the role.
-
-`--file-rules`: Path to a file that contains role rule definitions.
-
-`--new-comment[=default_comment]`: Replaces the existing comment value.
-
 ## `assoc-role-am`
 
 Create an association between role and Auth Method
@@ -75,6 +65,8 @@ akeyless create-role --name <Role Name>
 `--event-center-access`: Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported.
 
 `--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
+
+`--event-forwarders-name`: Allow this role to manage the following Event Forwarders
 
 `--isi-access`: Allow this role to access **Identity & Secrets Intelligence**. Currently only `none`, `scoped`, and `all` values are supported. For details, see [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence).
 
@@ -248,7 +240,7 @@ akeyless set-role-rule \
 
 `--ttl`: The time (in minutes) until the rule expires. If not used the rule will apply until manually removed
 
-`-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This replaces the `capability`, `path` and `rule-type`
+`-f, --file-rules`: Path to a JSON file that contains multiple rule-role settings. This replaces `capability`, `path`, and `rule-type`
 
 ## `update-assoc`
 

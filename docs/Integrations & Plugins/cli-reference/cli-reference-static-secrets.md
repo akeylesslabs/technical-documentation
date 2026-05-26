@@ -14,18 +14,6 @@ This section outlines the CLI commands relevant to Static Secrets.
 
 <CLIGeneralFlags />
 
-## Additional flags on this page
-
-The following flags are also used by commands documented in this page.
-
-`--delete-remote`: Deletes the remote secret from the USC target during synchronization cleanup.
-
-`--der-certificate-format[=false]`: Returns certificate content in DER format.
-
-`--item-custom-fields-details[=false]`: Includes custom field details in the `describe-item` response.
-
-`--lock-during-sra-session`: Locks the secret for read and update operations while an SRA session is active.
-
 ## `create-secret`
 
 Creates a new static secret item
@@ -80,6 +68,8 @@ akeyless create-secret \
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
 `--secure-access-host`: Target servers for connections. For multiple values repeat this flag.
+
+`--lock-during-sra-session`: Lock this secret for read and update while an SRA session is active
 
 `--secure-access-ssh-user`: Override the SSH username as indicated in SSH Certificate Issuer
 
@@ -144,6 +134,10 @@ akeyless describe-item \
 `--gateway-details[=false]`: Output will include additional gateway details (For example, cluster URL)
 
 `--bastion-details[=false]`: Output will include additional bastion details
+
+`--der-certificate-format[=false]`: Return certificate values in DER format when relevant
+
+`--item-custom-fields-details[=false]`: Include custom fields details in the response
 
 `--services-details[=false]`: Include all associated services details
 
@@ -286,6 +280,8 @@ akeyless static-secret-sync \
 `--namespace`: Vault Namespace, relevant only for HashiCorp Vault Target
 
 `--filter-secret-value`: jq expression to filter or transform the secret value
+
+`--delete-remote`: Delete the remote secret from the USC target during synchronization cleanup
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 

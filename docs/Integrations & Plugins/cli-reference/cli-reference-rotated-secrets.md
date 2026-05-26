@@ -68,7 +68,7 @@ These flags are used by multiple `rotated-secret create` and `rotated-secret upd
 
 `--grace-rotation-timing[=after]`: Controls whether graceful rotation creates the replacement credential before or after the old credential is removed. Supported values are `before` and `after`.
 
-`--lock-during-sra-session`: Locks the rotated secret for read and update operations while an SRA session is active.
+`--lock-during-sra-session`: Lock this rotated secret for read and update while an SRA session is active.
 
 `--public-key-remote-path`: Remote path where the SSH public key is stored on the target host.
 
@@ -1246,7 +1246,7 @@ akeyless rotated-secret sync \
 
 `--filter-secret-value`: jq expression to filter or transform the secret value
 
-`--delete-remote`: Delete the remote secret from the USC target during synchronization cleanup.
+`--delete-remote`: Delete the remote secret from the USC target during synchronization cleanup
 
 `--gateway-url`: Akeyless Gateway URL (port `8000`).
 

@@ -14,14 +14,6 @@ This section outlines the CLI commands relevant to Universal Identity authentica
 
 <CLIGeneralFlags />
 
-## Additional flags on this page
-
-The following flags are also used by commands documented in this page.
-
-`--child-ttl-limit[=43200]`: Maximum TTL, in minutes, that child Universal Identity tokens can inherit.
-
-`--tree-length[=200]`: Maximum number of descendants allowed in the Universal Identity tree.
-
 ## `create`
 
 Create a new Auth Method that can authenticate using Akeyless Universal Identity
@@ -55,6 +47,10 @@ akeyless auth-method create universal-identity \
 `--deny-rotate`: Deny from the token to rotate
 
 `--deny-inheritance`: Deny from root to create children
+
+`--child-ttl-limit[=43200]`: Limit child tokens maximum TTL in minutes
+
+`--tree-length[=200]`: Limit the Universal Identity tree length
 
 `--ttl[=60]`: Token TTL (has the value that configured in Akeyless Console > Authentication settings)
 
@@ -269,5 +265,9 @@ akeyless auth-method update universal-identity \
 `--deny-rotate`: Deny from the token to rotate
 
 `--deny-inheritance`: Deny from root to create children
+
+`--child-ttl-limit[=43200]`: Limit child tokens maximum TTL in minutes
+
+`--tree-length[=200]`: Limit the Universal Identity tree length
 
 `--ttl[=60]`: Token TTL (in minutes)
