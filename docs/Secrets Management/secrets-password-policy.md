@@ -1,6 +1,6 @@
 ---
 title: Password Policy for Dynamic and Rotated Secrets
-slug: password-policy-for-dynamic-and-rotated-secrets
+slug: secrets-password-policy
 excerpt: ''
 deprecated: false
 hidden: false

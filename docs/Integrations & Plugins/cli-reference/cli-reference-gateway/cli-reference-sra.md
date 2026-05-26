@@ -10,15 +10,22 @@ metadata:
 next:
   description: ''
 ---
-This page lists Secure Remote Access (SRA) commands for gateway update flows and SRA inventory commands.
+This page lists Secure Remote Access (SRA) commands for gateway configuration and SRA file transfer flows.
 
 <CLIGeneralFlags />
 
-## Command Group
+## Command Families
 
-Gateway SRA update commands are available under the `gateway update` command group and by alias commands.
+SRA CLI commands in this page are grouped into two families:
 
-Examples:
+* **Gateway configuration** commands under `gateway update` (also available as alias commands)
+* **File transfer** commands under `file` for upload and download through SRA
+
+### Gateway Configuration Family
+
+Gateway SRA configuration commands are available under the `gateway update` command group and by alias commands.
+
+Example:
 
 ```shell Command group
 akeyless gateway update remote-access
@@ -29,9 +36,16 @@ akeyless gateway-update-remote-access
 
 ## File Transfer Commands (CLI 1.145+)
 
-The Akeyless CLI supports file transfer by way of SRA with `file upload` and `file download`.
+The Akeyless CLI supports SRA file transfer with `file upload` and `file download`.
 
 These commands run locally and use the local `scp` client over an SRA tunnel.
+
+```shell Command group
+akeyless file upload
+```
+```shell Alias
+akeyless file-upload
+```
 
 ### `file upload`
 
@@ -62,6 +76,7 @@ akeyless file upload \
 `-g, --gateway-url`: Gateway configuration-management URL. If omitted, the CLI profile value is used
 
 > ℹ️ **RBAC capability:** `sra_upload_files`
+> ℹ️ **Alias:** `akeyless file-upload`
 
 ### `file download`
 
@@ -92,6 +107,7 @@ akeyless file download \
 `-g, --gateway-url`: Gateway configuration-management URL. If omitted, the CLI profile value is used
 
 > ℹ️ **RBAC capability:** `sra_download_files`
+> ℹ️ **Alias:** `akeyless file-download`
 
 ## Core SRA Commands
 

@@ -10,9 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Use this page for secure file transfer through Akeyless Secure Remote Access (SRA).
+Use this page to transfer files securely through Akeyless Secure Remote Access (SRA), including both upload and download operations through the SRA bastion.
 
-`akeyless file` is the current and recommended method. The legacy `akeyless-scp` script remains available for existing deployments.
+For current deployments, use `akeyless file upload` and `akeyless file download`, which are built into the Akeyless CLI.
+
+This page also includes legacy `akeyless-scp` guidance for existing automation that still depends on the script.
 
 ## Akeyless File Transfer
 
