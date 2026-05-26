@@ -1830,6 +1830,8 @@ Command to update a Dynamic Secret
 
 `github`: Updates GitHub dynamic secret that support tokens creation with fixed TTL of 60 minutes
 
+`gitlab`: Updates GitLab dynamic secret
+
 `gke`: Updates Google Kubernetes Engine (GKE) dynamic secret
 
 `hanadb`: Updates SAP HANA database dynamic secret
@@ -2395,6 +2397,57 @@ akeyless dynamic-secret update github \
 `-r, --token-repositories`: Tokens' allowed repositories. By default use installation allowed repositories. To specify multiple repositories use argument multiple times: -r RepoName -r RepoName
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `gitlab`
+
+#### Usage
+
+```shell
+akeyless dynamic-secret update gitlab \
+--name <Dynamic Secret Name> \
+--target-name <Target Name> \
+--gitlab-access-type <project/group>
+```
+
+#### Flags
+
+`--new-name`: Dynamic Secret new name
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`--input-rule`: Agentic input rule in `name=...,rule=...` format. Repeat the flag to add multiple rules
+
+`--output-rule`: Agentic output rule in `name=...,rule=...` format. Repeat the flag to add multiple rules
+
+`--target-name`: Name of an existing target
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+`--gitlab-access-type`: GitLab access token type [`project`/`group`]
+
+`--project-name`: GitLab project name. Required for `project` access type
+
+`--group-name`: GitLab group name. Required for `group` access type
+
+`--gitlab-role[=GuestPermissions]`: GitLab role
+
+`--gitlab-token-scopes`: Comma-separated list of access-token scopes to grant
+
+`--ttl[=60m]`: Access-token TTL
+
+`--gitlab-access-token`: GitLab access token
+
+`--certificate`: GitLab TLS certificate in Base64 format
+
+`--gitlab-url[=https://gitlab.com/]`: GitLab base URL
+
+`--tag`: Add tags attached to this object. Repeat the flag to add multiple tags
+
+`--item-custom-fields`: Additional custom fields to associate with the item. Repeat the flag to add multiple fields
+
+`--description`: Description of the object
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
 ### `gke`
 

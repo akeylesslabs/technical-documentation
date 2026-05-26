@@ -125,6 +125,42 @@ akeyless gateway-update-allowed-access \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
+### `gateway-delete-allowed-access`
+
+Delete Allowed Access
+
+#### Usage
+
+```shell
+akeyless gateway-delete-allowed-access \
+--name <Allowed Access name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Allowed Access name
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `gateway-get-allowed-access`
+
+Get Allowed Access
+
+#### Usage
+
+```shell
+akeyless gateway-get-allowed-access \
+--name <Allowed Access name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Allowed Access name
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
 ## Gateway Configuration
 
 ### `delete-gateway-cluster`
@@ -180,6 +216,61 @@ akeyless gateway-update-tls-cert \
 `--key-file-name`: Path to the file containing the TLS Private Key, this flag is ignored if `--key-data` is supplied
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `gateway-update-item`
+
+Update a Gateway item.
+
+#### Usage
+
+```shell
+akeyless gateway-update-item \
+--name <Item name> \
+--type <classic-key/rotated-secret> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Item name
+
+`-t, --type`: **Required**, Item type. Options: [`classic-key`, `rotated-secret`]
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+`--new-name`: New item name
+
+`--add-tag`: Tags to attach to this item. Repeat the flag to add multiple tags
+
+`--rm-tag`: Tags to remove from this item. Repeat the flag to remove multiple tags
+
+`--auto-rotate`: Enable or disable automatic rotation [`true`/`false`]
+
+`--rotation-interval`: Number of days between automatic rotations
+
+`--rotation-hour[=0]`: Rotation hour in UTC for rotated secrets
+
+`--rotation-event-in`: Number of days before rotation to notify. Repeat the flag to add multiple events
+
+`--rotator-creds-type[=use-self-creds]`: Credentials used for rotation
+
+`-k, --key`: Key name used to encrypt the item value
+
+`--description[=default_metadata]`: Description of the object
+
+`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+
+### `list-gateways`
+
+List all Gateways in the account.
+
+#### Usage
+
+```shell
+akeyless list-gateways
+```
 
 ## `gateway get`
 
@@ -283,3 +374,52 @@ akeyless gateway update defaults \
 `--event-on-status-change`: Trigger an event when Gateway status is changed [`true`/`false`]
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+### `gateway update certificate-store`
+
+Update the Gateway certificate store.
+
+Provide certificate content with either `--certificate-path` or `--certificate-data`.
+
+#### Usage
+
+```shell
+akeyless gateway update certificate-store \
+--name <Certificate display name> \
+--certificate-path <Path/To/Certificate.pem> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Certificate display name
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+`-p, --certificate-path`: Path to a file that contains the certificate in PEM format
+
+`--certificate-data`: Certificate content in Base64 format
+
+`-e, --expiration-event-in`: Number of days before certificate expiration to notify. Repeat the flag to add multiple events
+
+## `gateway delete`
+
+Command to delete specified gateway configuration.
+
+### `gateway delete certificate-store`
+
+Delete an entry from the Gateway certificate store.
+
+#### Usage
+
+```shell
+akeyless gateway delete certificate-store \
+--name <Certificate display name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Certificate display name
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)

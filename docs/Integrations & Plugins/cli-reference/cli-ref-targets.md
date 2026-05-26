@@ -30,6 +30,8 @@ Create a new Target
 
 `db`
 
+`digicert`
+
 `dockerhub`
 
 `eks`
@@ -39,6 +41,8 @@ Create a new Target
 `github`
 
 `gitlab`
+
+`google-trust`
 
 `gke`
 
@@ -306,6 +310,54 @@ akeyless target create db \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `digicert`
+
+Creates a new DigiCert target in the current account
+
+For initial Automated Certificate Management Environment (ACME) account bootstrap, provide `--eab-key-id` and `--eab-hmac-key` for External Account Binding (EAB). DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
+#### Usage
+
+```shell
+akeyless target create digicert \
+--name <Target name> \
+--email <Email address for ACME account registration>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--digicert-url[=us-production]`: DigiCert ACME endpoint selector. Options: [`us-production`/`eu-production`/`us-demo`/`eu-demo`]
+
+`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+
+`-e, --email`: **Required**, Email address for ACME account registration
+
+`--eab-key-id`: DigiCert External Account Binding key identifier
+
+`--eab-hmac-key`: DigiCert External Account Binding HMAC key
+
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials
+
+`--hosted-zone`: AWS hosted-zone identifier for DNS validation
+
+`--dns-zone`: Cloudflare DNS zone identifier for DNS validation
+
+`--resource-group`: Azure resource group name for DNS validation
+
+`--gcp-project`: GCP project ID for DNS validation
+
+`--timeout[=5m]`: Timeout waiting for certificate validation
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+
 ### `dockerhub`
 
 Creates a new Docker Hub target in the current account
@@ -464,6 +516,80 @@ akeyless target create github \
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
+
+### `gitlab`
+
+Creates a new GitLab target in the current account
+
+#### Usage
+
+```shell
+akeyless target create gitlab \
+--name <Target name> \
+--gitlab-access-token <GitLab access token>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--gitlab-access-token`: GitLab access token
+
+`--certificate`: GitLab TLS certificate in Base64 format
+
+`--gitlab-url[=https://gitlab.com/]`: GitLab base URL
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+### `google-trust`
+
+Creates a new Google Trust target in the current account
+
+For initial Automated Certificate Management Environment (ACME) account bootstrap, provide `--eab-key-id` and `--eab-hmac-key` for External Account Binding (EAB). DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
+#### Usage
+
+```shell
+akeyless target create google-trust \
+--name <Target name> \
+--email <Email address for ACME account registration>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--google-trust-url[=production]`: Google Trust directory environment. Options: [`production`/`staging`]
+
+`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+
+`-e, --email`: **Required**, Email address for ACME account registration
+
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials
+
+`--hosted-zone`: AWS hosted-zone identifier for DNS validation
+
+`--dns-zone`: Cloudflare DNS zone identifier for DNS validation
+
+`--resource-group`: Azure resource group name for DNS validation
+
+`--gcp-project`: GCP project ID for DNS validation
+
+`--timeout[=5m]`: Timeout waiting for certificate validation
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
 ### `gke`
 
@@ -1319,6 +1445,64 @@ List of all targets in the account
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
 
+## `lock-target`
+
+Lock a target.
+
+### Usage
+
+```shell
+akeyless lock-target \
+--name <Target name>
+```
+
+### Flags
+
+`--name`: **Required**, Target name
+
+`--lock-ttl[=60]`: Lock time to live in minutes
+
+`--actions[=update,read]`: Comma-separated blocked actions
+
+## `unlock-target`
+
+Unlock a target.
+
+### Usage
+
+```shell
+akeyless unlock-target \
+--name <Target name>
+```
+
+### Flags
+
+`--name`: **Required**, Target name
+
+## `update-target`
+
+Update a target by alias command.
+
+### Usage
+
+```shell
+akeyless update-target \
+--name <Target name> \
+--new-name <New target name>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--description[=default_comment]`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+
 ## `update`
 
 ### `artifactory`
@@ -1681,6 +1865,56 @@ akeyless target update gcp \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
+#### `digicert`
+
+Updates an existing DigiCert target
+
+DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
+##### Usage
+
+```shell
+akeyless target update digicert \
+--name <Target name> \
+--email <Email address for ACME account registration>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--digicert-url[=us-production]`: DigiCert ACME endpoint selector. Options: [`us-production`/`eu-production`/`us-demo`/`eu-demo`]
+
+`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+
+`-e, --email`: **Required**, Email address for ACME account registration
+
+`--eab-key-id`: DigiCert External Account Binding key identifier
+
+`--eab-hmac-key`: DigiCert External Account Binding HMAC key
+
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials
+
+`--hosted-zone`: AWS hosted-zone identifier for DNS validation
+
+`--dns-zone`: Cloudflare DNS zone identifier for DNS validation
+
+`--resource-group`: Azure resource group name for DNS validation
+
+`--gcp-project`: GCP project ID for DNS validation
+
+`--timeout[=5m]`: Timeout waiting for certificate validation
+
+`--new-name`: New target name
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
 #### `gemini`
 
 Updates a Gemini target in the current account
@@ -1747,6 +1981,86 @@ akeyless target update github \
 `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+
+#### `gitlab`
+
+Updates an existing GitLab target in the current account
+
+##### Usage
+
+```shell
+akeyless target update gitlab \
+--name <Target name> \
+--gitlab-access-token <GitLab access token>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--gitlab-access-token`: GitLab access token
+
+`--certificate`: GitLab TLS certificate in Base64 format
+
+`--gitlab-url[=https://gitlab.com/]`: GitLab base URL
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+
+#### `google-trust`
+
+Updates an existing Google Trust target
+
+`--eab-key-id` and `--eab-hmac-key` are create-only bootstrap values. DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
+##### Usage
+
+```shell
+akeyless target update google-trust \
+--name <Target name> \
+--email <Email address for ACME account registration>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--google-trust-url[=production]`: Google Trust directory environment. Options: [`production`/`staging`]
+
+`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+
+`-e, --email`: **Required**, Email address for ACME account registration
+
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials
+
+`--hosted-zone`: AWS hosted-zone identifier for DNS validation
+
+`--dns-zone`: Cloudflare DNS zone identifier for DNS validation
+
+`--resource-group`: Azure resource group name for DNS validation
+
+`--gcp-project`: GCP project ID for DNS validation
+
+`--timeout[=5m]`: Timeout waiting for certificate validation
+
+`--new-name`: New target name
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
 
 #### `gke`
 
