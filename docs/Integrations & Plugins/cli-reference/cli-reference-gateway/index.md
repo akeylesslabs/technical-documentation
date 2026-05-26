@@ -381,6 +381,8 @@ Update the Gateway certificate store.
 
 Provide certificate content with either `--certificate-path` or `--certificate-data`.
 
+For full Certificate Store behavior and UI workflows, see [Certificate Store](https://docs.akeyless.io/docs/gateway-certificate-store).
+
 #### Usage
 
 ```shell
@@ -390,15 +392,35 @@ akeyless gateway update certificate-store \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
+##### Example: Upload Base64 certificate data
+
+```shell
+akeyless gateway update certificate-store \
+--name <Certificate display name> \
+--certificate-data <Base64-Certificate-Data> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+##### Example: Configure multiple expiration events
+
+```shell
+akeyless gateway update certificate-store \
+--name <Certificate display name> \
+--certificate-path <Path/To/Certificate.pem> \
+--expiration-event-in 1 \
+--expiration-event-in 5 \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
 #### Flags
 
 `-n, --name`: **Required**, Certificate display name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`-p, --certificate-path`: Path to a file that contains the certificate in PEM format
+`-p, --certificate-path`: Path to a file that contains the certificate. PEM format is supported directly, and DER-encoded certificate data is normalized to PEM
 
-`--certificate-data`: Certificate content in Base64 format
+`--certificate-data`: Base64-encoded certificate content. PEM and DER certificate data are supported
 
 `-e, --expiration-event-in`: Number of days before certificate expiration to notify. Repeat the flag to add multiple events
 
