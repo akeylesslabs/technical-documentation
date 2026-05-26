@@ -381,7 +381,7 @@ Update the Gateway certificate store.
 
 Provide certificate content with either `--certificate-path` or `--certificate-data`.
 
-For full Certificate Store behavior and UI workflows, see [Certificate Store](https://docs.akeyless.io/docs/gateway-certificate-store).
+For full Certificate Store behavior, including CLI examples, and UI workflows, see [Certificate Store](https://docs.akeyless.io/docs/gateway-certificate-store).
 
 #### Usage
 
@@ -389,26 +389,6 @@ For full Certificate Store behavior and UI workflows, see [Certificate Store](ht
 akeyless gateway update certificate-store \
 --name <Certificate display name> \
 --certificate-path <Path/To/Certificate.pem> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-##### Example: Upload Base64 certificate data
-
-```shell
-akeyless gateway update certificate-store \
---name <Certificate display name> \
---certificate-data <Base64-Certificate-Data> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-##### Example: Configure multiple expiration events
-
-```shell
-akeyless gateway update certificate-store \
---name <Certificate display name> \
---certificate-path <Path/To/Certificate.pem> \
---expiration-event-in 1 \
---expiration-event-in 5 \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
