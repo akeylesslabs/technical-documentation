@@ -618,6 +618,49 @@ jobs:
             exit 0
           fi
 
+          LEGACY_SUMMARY_PREFIX="${REPO_DISPLAY} upstream update detected:"
+          LEGACY_SEARCH_JQL=$(jq -rn \
+            --arg proj "$JIRA_PROJECT_KEY" \
+            --arg summary_prefix "$LEGACY_SUMMARY_PREFIX" \
+            --arg latest_tag "$LATEST_TAG" \
+            '"project = " + $proj +
+             " AND labels = \"akeyless-public-repos\"" +
+             " AND summary ~ " + "\"" + $summary_prefix + "\"" +
+             " AND summary ~ " + "\"" + ("latest " + $latest_tag) + "\""')
+
+          LEGACY_SEARCH_RESP_BODY=$(mktemp)
+          LEGACY_SEARCH_HTTP_CODE=$(curl -sS -o "$LEGACY_SEARCH_RESP_BODY" -w "%{http_code}" "${JIRA_CURL_OPTS[@]}" \
+            -G \
+            -H "$AUTH_HEADER" \
+            --data-urlencode "jql=${LEGACY_SEARCH_JQL}" \
+            --data-urlencode "maxResults=1" \
+            "$JIRA_BASE_URL/rest/api/3/search/jql")
+
+          if [ "$LEGACY_SEARCH_HTTP_CODE" != "200" ]; then
+            LEGACY_SEARCH_ERROR_SNIPPET=$(capture_error_snippet "$LEGACY_SEARCH_RESP_BODY")
+            echo "Legacy Jira dedupe search failed with HTTP $LEGACY_SEARCH_HTTP_CODE"
+            cat "$LEGACY_SEARCH_RESP_BODY"
+            echo "jira_http_code=$LEGACY_SEARCH_HTTP_CODE" >> "$GITHUB_OUTPUT"
+            echo "jira_error_snippet=$LEGACY_SEARCH_ERROR_SNIPPET" >> "$GITHUB_OUTPUT"
+            echo "failure_class=dedupe_query" >> "$GITHUB_OUTPUT"
+            if is_soft_fail_class "dedupe_query"; then
+              echo "action=soft_failed_dedupe_query" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            exit 1
+          fi
+
+          LEGACY_EXISTING_KEY=$(jq -r '.issues[0].key // empty' "$LEGACY_SEARCH_RESP_BODY")
+          LEGACY_EXISTING_ID=$(jq -r '.issues[0].id // empty' "$LEGACY_SEARCH_RESP_BODY")
+
+          if [ -n "$LEGACY_EXISTING_KEY" ]; then
+            echo "issue_key=$LEGACY_EXISTING_KEY" >> "$GITHUB_OUTPUT"
+            echo "issue_id=$LEGACY_EXISTING_ID" >> "$GITHUB_OUTPUT"
+            echo "action=deduped" >> "$GITHUB_OUTPUT"
+            echo "Jira issue already exists via legacy summary dedupe for latest tag $LATEST_TAG: $LEGACY_EXISTING_KEY"
+            exit 0
+          fi
+
           LABEL_SLUG=$(echo "$REPO_FULL" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9-' '-' | sed 's/-*$//')
 
           ADF_DESC=$(jq -n \
