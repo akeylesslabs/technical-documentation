@@ -1802,6 +1802,180 @@ akeyless dynamic-secret create openai \
 
 `org-id`: The organization ID.
 
+## `delete`
+
+Deletes dynamic secret
+
+### Usage
+
+```shell
+akeyless dynamic-secret delete \
+--name <Dynamic Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
+```
+
+### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+## `get`
+
+Get dynamic secret details
+
+### Usage
+
+```shell
+akeyless dynamic-secret get \
+--name <Dynamic Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+## `get-value`
+
+Get dynamic secret value
+
+### Usage
+
+```shell
+akeyless dynamic-secret get-value \
+--name <Dynamic Secret name> \
+--host <Host> \
+--target <Taget name>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`--host`: Host
+
+`target`: Target Name
+
+`args`: Optional arguments as `key`=`value` pairs or JSON strings, for example, - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
+
+ `--mssql-dbname`: Override MSSQL DB name, this should be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**).
+
+`--timeout[=15]`: Timeout in seconds
+
+## `list`
+
+List available Dynamic Secrets
+
+### Usage
+
+```shell
+akeyless dynamic-secret list \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
+```
+
+### Flags
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+## `set-item-state`
+
+Set an item's state (Enabled, Disabled)
+
+### Usage
+
+```shell
+akeyless set-item-state \
+--name <Dynamic Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--desired-state <>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-s, --desired-state`: **Required** Desired item state [Enabled, Disabled]
+
+`--version[=0]`: The specific version you want to update: 0=item level state (default) (relevant only for keys)
+
+`-u, --gateway-url`: API Gateway URL (Configuration Management port)
+
+## `tmp-creds`
+
+Commands to update, get, and delete a Dynamic Secret temporary credentials
+
+### `delete`
+
+Revoke dynamic secret temporary credentials
+
+#### Usage
+
+```shell
+akeyless dynamic-secret tmp-creds delete \
+--name <Dynamic Secret name> \
+--tmp-creds-id <Temporary credentials ID> \
+--revoke-all \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--soft-delete <Use soft-delete> \
+--host <Host>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-i, --tmp-creds-id`: Temporary credentials ID
+
+`--revoke-all`: Revoke all temporary credentials
+
+`-u, --gateway-url`: API Gateway URL (Configuration Management port)
+
+`--soft-delete`: Use soft delete
+
+`--host`: Host
+
+### `get`
+
+Get dynamic secret temporary credentials list
+
+#### Usage
+
+```shell
+akeyless dynamic-secret tmp-creds get \
+--name <Dynamic Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `update`
+
+Update TTL of dynamic secret temporary credentials
+
+#### Usage
+
+```shell
+akeyless dynamic-secret tmp-creds update \
+--name <Dynamic Secret name> \
+--tmp-creds-id <Temporary credentials ID> \
+--new-ttl-min <New TTL in Minutes> \
+--host <Requested host> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-i, --tmp-creds-id`: **Required**, Temporary credentials ID
+
+`-t, --new-ttl-min`: **Required**, New TTL in minutes
+
+`--host`: Requested host (relevant in linked target only)
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
 ## `update`
 
 `akeyless dynamic-secret update`
@@ -3367,177 +3541,3 @@ akeyless dynamic-secret update openai \
 `api-key`: The Admin API Key that will be used to create the API Key.
 
 `org-id`: The organization ID.
-
-## `get`
-
-Get dynamic secret details
-
-### Usage
-
-```shell
-akeyless dynamic-secret get \
---name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-## `get-value`
-
-Get dynamic secret value
-
-### Usage
-
-```shell
-akeyless dynamic-secret get-value \
---name <Dynamic Secret name> \
---host <Host> \
---target <Taget name>
-```
-
-### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`--host`: Host
-
-`target`: Target Name
-
-`args`: Optional arguments as `key`=`value` pairs or JSON strings, for example, - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
-
- `--mssql-dbname`: Override MSSQL DB name, this should be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**).
-
-`--timeout[=15]`: Timeout in seconds
-
-## `list`
-
-List available Dynamic Secrets
-
-### Usage
-
-```shell
-akeyless dynamic-secret list \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
-```
-
-### Flags
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-## `delete`
-
-Deletes dynamic secret
-
-### Usage
-
-```shell
-akeyless dynamic-secret delete \
---name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
-```
-
-### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-## `tmp-creds`
-
-Commands to update, get, and delete a Dynamic Secret temporary credentials
-
-### `delete`
-
-Revoke dynamic secret temporary credentials
-
-#### Usage
-
-```shell
-akeyless dynamic-secret tmp-creds delete \
---name <Dynamic Secret name> \
---tmp-creds-id <Temporary credentials ID> \
---revoke-all \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---soft-delete <Use soft-delete> \
---host <Host>
-```
-
-#### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-i, --tmp-creds-id`: Temporary credentials ID
-
-`--revoke-all`: Revoke all temporary credentials
-
-`-u, --gateway-url`: API Gateway URL (Configuration Management port)
-
-`--soft-delete`: Use soft delete
-
-`--host`: Host
-
-### `get`
-
-Get dynamic secret temporary credentials list
-
-#### Usage
-
-```shell
-akeyless dynamic-secret tmp-creds get \
---name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-#### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-### `update`
-
-Update TTL of dynamic secret temporary credentials
-
-#### Usage
-
-```shell
-akeyless dynamic-secret tmp-creds update \
---name <Dynamic Secret name> \
---tmp-creds-id <Temporary credentials ID> \
---new-ttl-min <New TTL in Minutes> \
---host <Requested host> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-#### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-i, --tmp-creds-id`: **Required**, Temporary credentials ID
-
-`-t, --new-ttl-min`: **Required**, New TTL in minutes
-
-`--host`: Requested host (relevant in linked target only)
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-## `set-item-state`
-
-Set an item's state (Enabled, Disabled)
-
-### Usage
-
-```shell
-akeyless set-item-state \
---name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---desired-state <>
-```
-
-### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-s, --desired-state`: **Required** Desired item state [Enabled, Disabled]
-
-`--version[=0]`: The specific version you want to update: 0=item level state (default) (relevant only for keys)
-
-`-u, --gateway-url`: API Gateway URL (Configuration Management port)

@@ -14,6 +14,62 @@ This section outlines the CLI commands relevant to Targets.
 
 <CLIGeneralFlags />
 
+## `assoc-target-item`
+
+Create an association between target and item
+
+### Usage
+
+```shell
+akeyless assoc-target-item \
+--target-name <The target to associate> \
+--name <The item to associate> \
+--vault-name <Name of the vault used> \
+--key-operations <List of allowed operations for the key>
+```
+
+#### Flags
+
+`-t, --target-name`: **Required**, The target to associate
+
+`-n, --name`: **Required**, The item to associate
+
+`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for Azure targets)
+
+`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for Azure targets)
+
+`--disable-previous-key-version[=false]`: Automatically disable previous key versions. (Required for classic key association with Azure targets)
+
+`--project-id`: Project ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+
+`--location-id`: Location ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+
+`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+
+`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+
+`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for GCP targets)
+
+`--tenant-secret-type`: The tenant secret type [Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for Salesforce targets)
+
+`--multi-region[=false]`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
+
+`--regions`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1
+
+`--private-key-path`: A path on the target to store the private key (relevant only for certificate provisioning)
+
+`--certificate-path`: A path on the target to store the certificate pem file (relevant only for certificate provisioning)
+
+`--chain-path`: A path on the target to store the full chain pem file (relevant only for certificate provisioning)
+
+`--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
+
+`--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
+
+`--sra-association[=false]`: Specify if the target to associate is for SRA, relevant only for SRA linked target association to `ldap` rotated secret
+
+`--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
+
 ## `create`
 
 Create a new Target
@@ -1281,61 +1337,25 @@ akeyless target create zerossl \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-## `assoc-target-item`
+## `delete`
 
-Create an association between target and item
+Delete a target in the current account
 
 ### Usage
 
 ```shell
-akeyless assoc-target-item \
---target-name <The target to associate> \
---name <The item to associate> \
---vault-name <Name of the vault used> \
---key-operations <List of allowed operations for the key>
+akeyless target delete \
+--name <Target name> \
+--target-version <Target Version>
 ```
 
 #### Flags
 
-`-t, --target-name`: **Required**, The target to associate
+`-n, --name`: **Required**, Target name
 
-`-n, --name`: **Required**, The item to associate
+`-v, --target-version`: Target version
 
-`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for Azure targets)
-
-`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for Azure targets)
-
-`--disable-previous-key-version[=false]`: Automatically disable previous key versions. (Required for classic key association with Azure targets)
-
-`--project-id`: Project ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
-
-`--location-id`: Location ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
-
-`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
-
-`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
-
-`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for GCP targets)
-
-`--tenant-secret-type`: The tenant secret type [Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for Salesforce targets)
-
-`--multi-region[=false]`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
-
-`--regions`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1
-
-`--private-key-path`: A path on the target to store the private key (relevant only for certificate provisioning)
-
-`--certificate-path`: A path on the target to store the certificate pem file (relevant only for certificate provisioning)
-
-`--chain-path`: A path on the target to store the full chain pem file (relevant only for certificate provisioning)
-
-`--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
-
-`--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
-
-`--sra-association[=false]`: Specify if the target to associate is for SRA, relevant only for SRA linked target association to `ldap` rotated secret
-
-`--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
+`--force-deletion[=false]`: Delete target even if it has associated items
 
 ## `delete-assoc-target-item`
 
@@ -1357,26 +1377,6 @@ akeyless delete-assoc-target-item \
 `--id, --assoc-id`: The association ID to be deleted. Not required if target name specified
 
 `-t, --target-name`: The target name with which association will be deleted
-
-## `delete`
-
-Delete a target in the current account
-
-### Usage
-
-```shell
-akeyless target delete \
---name <Target name> \
---target-version <Target Version>
-```
-
-#### Flags
-
-`-n, --name`: **Required**, Target name
-
-`-v, --target-version`: Target version
-
-`--force-deletion[=false]`: Delete target even if it has associated items
 
 ## `delete-targets`
 
@@ -1478,30 +1478,6 @@ akeyless unlock-target \
 ### Flags
 
 `--name`: **Required**, Target name
-
-## `update-target`
-
-Update a target.
-
-### Usage
-
-```shell
-akeyless update-target \
---name <Target name> \
---new-name <New target name>
-```
-
-### Flags
-
-`-n, --name`: **Required**, Target name
-
-`--new-name`: New target name
-
-`--description[=default_comment]`: Description of the object
-
-`--max-versions`: Maximum number of versions, limited by the account settings defaults
-
-`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
 ## `update`
 
@@ -2751,3 +2727,27 @@ akeyless target update zerossl \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+## `update-target`
+
+Update a target.
+
+### Usage
+
+```shell
+akeyless update-target \
+--name <Target name> \
+--new-name <New target name>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--description[=default_comment]`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]

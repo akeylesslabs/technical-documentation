@@ -50,54 +50,6 @@ akeyless auth-method create universal-identity \
 
 `--ttl[=60]`: Token TTL (has the value that configured in Akeyless Console > Authentication settings)
 
-## `uid-create-child-token`
-
-Create a new child token using Akeyless Universal Identity
-
-### Usage
-
-```shell
-akeyless uid-create-child-token \
---child-deny-rotate \
---child-deny-inheritance
-```
-
-### Flags
-
-`--child-deny-rotate`: Deny from new child to rotate
-
-`--child-deny-inheritance`: Deny from new child to create their own children
-
-`--child-ttl`: New child token TTL
-
-`-n, --auth-method-name`: The universal identity Auth Method name, required only when uid-token is not provided
-
-`--tid, --uid-token-id`: The ID of the uid-token, required only when uid-token is not provided
-
-`--profile` or `--token`: Use a specific Akeyless profile (located at `$HOME/.akeyless/profiles`) or a temporary access token
-
-`--uid-token`: The universal identity token. It is required only for universal_identity authentication
-
-## `uid-generate-token`
-
-Generate a new token using Akeyless Universal Identity
-
-### Usage
-
-```shell
-akeyless uid-generate-token --auth-method-name <Auth method name>
-```
-
-## `uid-list-children`
-
-List the token children ids of Akeyless Universal Identity
-
-### Usage
-
-```shell
-akeyless uid-list-children --auth-method-name <UID Auth Method Name>
-```
-
 ## `uid-auto-rotate`
 
 Configure automatic UID token rotation
@@ -183,6 +135,54 @@ akeyless uid-auto-rotate uninstall
 #### Flags
 
 `-i, --token-file-path`: Optional. Path to the rotated UID token file. If omitted, Akeyless uses `~/.akeyless/uid_rotator/uid-token` on Unix-like systems or `PROGRAMDATA\akeyless\uid_rotator\uid-token` on Windows.
+
+## `uid-create-child-token`
+
+Create a new child token using Akeyless Universal Identity
+
+### Usage
+
+```shell
+akeyless uid-create-child-token \
+--child-deny-rotate \
+--child-deny-inheritance
+```
+
+### Flags
+
+`--child-deny-rotate`: Deny from new child to rotate
+
+`--child-deny-inheritance`: Deny from new child to create their own children
+
+`--child-ttl`: New child token TTL
+
+`-n, --auth-method-name`: The universal identity Auth Method name, required only when uid-token is not provided
+
+`--tid, --uid-token-id`: The ID of the uid-token, required only when uid-token is not provided
+
+`--profile` or `--token`: Use a specific Akeyless profile (located at `$HOME/.akeyless/profiles`) or a temporary access token
+
+`--uid-token`: The universal identity token. It is required only for universal_identity authentication
+
+## `uid-generate-token`
+
+Generate a new token using Akeyless Universal Identity
+
+### Usage
+
+```shell
+akeyless uid-generate-token --auth-method-name <Auth method name>
+```
+
+## `uid-list-children`
+
+List the token children ids of Akeyless Universal Identity
+
+### Usage
+
+```shell
+akeyless uid-list-children --auth-method-name <UID Auth Method Name>
+```
 
 ## `uid-revoke-token`
 
