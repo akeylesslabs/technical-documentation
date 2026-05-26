@@ -12,8 +12,9 @@ next:
 ---
 Akeyless SCP enables secure copy by way of [Remote Access](https://docs.akeyless.io/docs/sra-setup-overview).
 
+**CLI 1.145 and later:** Akeyless now supports built-in file transfer commands: `akeyless file upload` and `akeyless file download`. For command usage and flags, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
+
 > ℹ️ **Note:**
->
 > Akeyless SCP currently supports only Unix-like operating systems.
 
 ## Prerequisite
@@ -101,7 +102,7 @@ Akeyless SCP enables secure copy by way of [Remote Access](https://docs.akeyless
 
     `AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
-    `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS.  
+    `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-setup-k8s) is configured with TLS.  
 
     `BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
 

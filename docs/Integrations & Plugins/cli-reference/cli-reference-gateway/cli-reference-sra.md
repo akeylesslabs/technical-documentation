@@ -27,6 +27,72 @@ akeyless gateway update remote-access
 akeyless gateway-update-remote-access
 ```
 
+## File Transfer Commands (CLI 1.145+)
+
+The Akeyless CLI supports file transfer by way of SRA with `file upload` and `file download`.
+
+These commands run locally and use the local `scp` client over an SRA tunnel.
+
+### `file upload`
+
+Uploads a local file to a remote target through SRA.
+
+```shell
+akeyless file upload \
+  --target <user@remote-server[:port]> \
+  --source-path </full/local/path/file> \
+  --destination-path </remote/path/file> \
+  --tunnel "-L :5555:0.0.0.0:5555"
+```
+
+#### Key flags
+
+`-t, --target`: Required. Target resource in the format `user@ssh-server[:port]`
+
+`--source-path`: Required. Local source file path
+
+`--destination-path`: Required. Remote destination file path
+
+`-T, --tunnel`: Required. SSH tunnel parameter (IPv4 only), for example `-L :5555:0.0.0.0:5555`
+
+`-c, --cert-issuer-name`: Certificate issuer name. If omitted, the CLI profile value is used
+
+`-v, --via-sra`: SRA bastion host and port. If omitted, the CLI profile value is used
+
+`-g, --gateway-url`: Gateway configuration-management URL. If omitted, the CLI profile value is used
+
+> ℹ️ **RBAC capability:** `sra_upload_files`
+
+### `file download`
+
+Downloads a remote file to the local machine through SRA.
+
+```shell
+akeyless file download \
+  --target <user@remote-server[:port]> \
+  --source-path </remote/path/file> \
+  --destination-path </full/local/path/file> \
+  --tunnel "-L :5555:0.0.0.0:5555"
+```
+
+#### Key flags
+
+`-t, --target`: Required. Target resource in the format `user@ssh-server[:port]`
+
+`--source-path`: Required. Remote source file path
+
+`--destination-path`: Required. Local destination file path
+
+`-T, --tunnel`: Required. SSH tunnel parameter (IPv4 only), for example `-L :5555:0.0.0.0:5555`
+
+`-c, --cert-issuer-name`: Certificate issuer name. If omitted, the CLI profile value is used
+
+`-v, --via-sra`: SRA bastion host and port. If omitted, the CLI profile value is used
+
+`-g, --gateway-url`: Gateway configuration-management URL. If omitted, the CLI profile value is used
+
+> ℹ️ **RBAC capability:** `sra_download_files`
+
 ## Core SRA Commands
 
 ### `gateway-update-remote-access`
