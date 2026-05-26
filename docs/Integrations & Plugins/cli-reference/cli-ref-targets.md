@@ -62,6 +62,8 @@ Create a new Target
 
 `linked`
 
+`openai`
+
 `ping`
 
 `rabbitmq`
@@ -937,6 +939,45 @@ akeyless target create linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `openai`
+
+Creates a new OpenAI target in the current account
+
+#### Usage
+
+```shell
+akeyless target create openai \
+--name <Target name> \
+--openai-url <OpenAI API base URL> \
+--api-key <OpenAI API key> \
+--api-key-id <OpenAI API key ID> \
+--model <Default OpenAI model name> \
+--organization-id <OpenAI Organization ID> \
+--key <Key name>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`-u, --openai-url[=https://api.openai.com/v1]`: OpenAI API base URL
+
+`-a, --api-key`: OpenAI API key
+
+`-i, --api-key-id`: OpenAI API key ID
+
+`-m, --model`: Default OpenAI model name
+
+`-o, --organization-id`: OpenAI Organization ID
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--description`: Description of the object
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+
 ### `ping`
 
 Creates a new Ping target in the current account
@@ -1683,7 +1724,7 @@ Update an existing db target in the current account
 ##### Usage
 
 ```shell
-akeyless update-db-target \
+akeyless target update db \
 --name <Target name> \
 --db-type *<mysql/mssql/postgres/mongodb/snowflake/cassandra/oracle/redshift/redis> \
 --new-name <New target name> \
@@ -2449,6 +2490,90 @@ akeyless target update linked \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+#### `openai`
+
+Updates an existing OpenAI target in the current account
+
+##### Usage
+
+```shell
+akeyless target update openai \
+--name <Target name> \
+--new-name <New target name> \
+--openai-url <OpenAI API base URL> \
+--api-key <OpenAI API key> \
+--api-key-id <OpenAI API key ID> \
+--model <Default OpenAI model name> \
+--organization-id <OpenAI Organization ID>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`-u, --openai-url[=https://api.openai.com/v1]`: OpenAI API base URL
+
+`-a, --api-key`: OpenAI API key
+
+`-i, --api-key-id`: OpenAI API key ID
+
+`-m, --model`: Default OpenAI model name
+
+`-o, --organization-id`: OpenAI Organization ID
+
+`--description[=default_comment]`: Description of the object
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults.
+
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+
+#### `ping`
+
+Updates an existing Ping target in the current account
+
+##### Usage
+
+```shell
+akeyless target update ping \
+--name <Target name> \
+--new-name <New target name> \
+--ping-url <Ping URL> \
+--privileged-user <Ping Federate privileged user> \
+--password <Ping Federate privileged user password>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`-u, --ping-url`: **Required**, Ping URL
+
+`-s, --privileged-user`: **Required**, Ping Federate privileged user
+
+`-p, --password`: **Required**, Ping Federate privileged user password
+
+`-i, --administrative-port[=9999]`: Ping Federate administrative port
+
+`-j, --authorization-port[=9031]`: Ping Federate authorization port
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+
+`--description`: Description of the object
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults.
+
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 #### `rabbitmq`
 
