@@ -9,7 +9,6 @@
 - circleci-plugin
 - consul-template-plugin
 - cursor-akeyless-secrets-manager
-- akeyless-mcp-plugin-jetbrains-ides
 - github-action
 - github-actions-community-plugin
 - gitlab-plugin
@@ -26,6 +25,6 @@
 - slack-plugin
 - spire-plugins
 - steampipe-plugin
-- teamcity-plugins
+- teamcity-akeyless-plugin
 - terraform-provider
 - venafi-integration
