@@ -23,15 +23,15 @@ Validate the following requirements before rollout.
 | Redis cache available | SRA-enabled deployments | SRA components depend on cache and session support. |
 | Minimum resources per SRA component: `1 vCPU`, `2 GiB` memory | Kubernetes and Docker deployments | Prevents insufficient sizing of SRA services. |
 | SSH bastion exposure by `type: LoadBalancer` and privileged mode | Kubernetes deployments | Required for SRA network and runtime behavior. |
-| Cloud identity override configured when metadata service is not reachable | Metadata-restricted Kubernetes clusters | Prevents dispatcher cloud detection failures in IAM-based auth flows. |
+| Cloud identity override configured when metadata service is not reachable | Metadata-restricted Kubernetes clusters | Prevents cloud detection failures in IAM-based authentication flows. |
 | Gateway and ingress trust chain configured for private and self-signed CAs | Private PKI deployments | Prevents TLS verification failures between SRA components and Gateway endpoints. |
 | Session affinity (sticky sessions) configured at ingress or load balancer | Ingress and load balancer fronted deployments | Keeps related requests pinned to the same backend. |
 | Session persistence policy mapped for your ingress controller type | Non-NGINX ingress controllers | Prevents silent affinity misconfiguration when NGINX-only annotations are ignored. |
 | Idle and response timeouts aligned with session duration | Long-lived SSH, RDP, and web sessions | Prevents early session termination by network intermediaries. |
 | Redirect and query size limits validated for SAML and proxy redirects | SRA behind identity-aware proxies | Prevents login failures caused by oversized redirect URLs. |
 | Allowed bastion and proxy redirect URLs configured | ZTWA and portal-based access | Prevents endpoint mismatch and dropped client endpoints. |
-| Access permissions validated by connection mode (direct and proxy) | ZTWA and SRA access policy design | Prevents mode-specific `401` authorization failures. |
-| Session-recording upload auth tested with dispatcher auth method | ZTWA recording to object storage | Prevents dispatcher auth instability in mixed IAM and recording flows. |
+| Access permissions validated by connection mode (direct and proxy) | ZTWA and SRA access policy design | Prevents mode-specific authorization failures. |
+| Session-recording upload auth tested with dispatcher auth method | ZTWA recording to object storage | Reduces risk of post-session authentication or upload failures. |
 
 ## Core Infrastructure Requirements
 
@@ -57,7 +57,7 @@ Use at least 1 vCPU and 2 GiB memory for each SRA component.
 
 * Expose the SSH bastion service with `type: LoadBalancer`.
 * Run the SSH bastion container in privileged mode.
-* If metadata-service based cloud detection is restricted, set `dispatcher.config.cloudIdentity.type` to your cloud identity type (`aws_iam`, `azure_ad`, or `gcp`).
+* If metadata-service based cloud detection is restricted, explicitly configure the dispatcher cloud identity type in your deployment values (`aws_iam`, `azure_ad`, or `gcp`).
 
 For platform guidance, see [Kubernetes Service type LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) and [Linux kernel security constraints](https://kubernetes.io/docs/concepts/security/linux-kernel-security-constraints/).
 
@@ -80,6 +80,8 @@ Use Docker Compose profiles as follows:
 For profile behavior and usage, see [Docker Compose profiles](https://docs.docker.com/compose/how-tos/profiles/).
 
 ## Session Routing and Cookie Requirements
+
+Session routing, persistence, and cookie controls keep multi-step SRA and ZTWA traffic pinned to the correct backend and preserve authenticated browser state across ingress, load balancer, and proxy hops.
 
 ### Session Affinity and Sticky Sessions
 
@@ -121,7 +123,7 @@ Direct access and some proxy flows can require item read permissions in addition
 
 For ZTWA and web-bastion browser sessions, secure cookies should remain enabled for HTTPS endpoints.
 
-For HTTP-only lab environments, set `DISABLE_SECURE_COOKIE=true` for the dispatcher service. Use this only when TLS termination cannot be used in that environment.
+For HTTP-only lab environments, use the deployment-specific setting that disables secure cookies for the dispatcher service only when TLS termination cannot be used in that environment.
 
 For configuration context, see [SRA Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology).
 
@@ -169,7 +171,7 @@ These allowlists are consumed by SRA keep-alive and bastion metadata flows. In t
 
 When session recording upload is enabled, validate the dispatcher authentication path and object-storage upload authentication path together.
 
-If you observe post-session dispatcher `401` authentication failures, test alternative credential-source combinations for dispatcher runtime auth and storage upload auth, and keep the stable combination for production rollout.
+If you observe post-session authentication failures, test alternative credential-source combinations for dispatcher runtime authentication and storage-upload authentication, and keep the stable combination for production rollout.
 
 ## Port Inventory
 
