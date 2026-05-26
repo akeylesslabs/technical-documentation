@@ -54,9 +54,10 @@ Note that SLA timing starts when the Jira issue is created or updated by automat
 3. Validate source links and version signals.
 4. Confirm whether each finding is docs-impacting.
 5. Identify affected doc locations from `suggested_docs` entries.
-6. Create or update follow-up DOCS tasks for required content changes.
-7. Link follow-up work in the alert issue comments.
-8. Close the alert issue when all follow-up tasks are resolved or accepted as no-change.
+6. If customer-facing content updates are required, create or update follow-up DOCS tasks.
+7. If no customer-facing changes are required, add a no-change triage note in the alert issue with the reviewed findings and rationale.
+8. If follow-up work was created, link it in the alert issue comments; otherwise, reference the direct PR that documents the no-change triage outcome.
+9. Close the alert issue when follow-up tasks are resolved or the no-change path is documented and accepted.
 
 ## Duplicate suppression and digest behavior
 
