@@ -70,6 +70,10 @@ Store token values in secure variables.
     replaceCR: false
 ```
 
+  After running the pipeline, you can verify the Vault task input in the `VaultReadKV` step output:
+
+  ![Azure DevOps VaultReadKV task configuration in a pipeline run.](https://files.readme.io/cbd4b8b-pasted_image_0_3.png)
+
 ### KV v2 static secret retrieval with `VaultReadKV@5`
 
 ```yaml
@@ -103,6 +107,10 @@ Store token values in secure variables.
     strVariablePrefix: 'DB'
     replaceCR: false
 ```
+
+  For dynamic credentials, validate the generated variables in the pipeline run details:
+
+  ![Azure DevOps pipeline output showing dynamic secret variable resolution.](https://files.readme.io/c775c07-Capture222.JPG)
 
 Example script usage after retrieval:
 

@@ -248,8 +248,10 @@
 /v2/docs/sync-a-rotated-secrets -> /docs/sync-secret
 /docs/sync-a-rotated-secret -> /docs/sync-secret
 /v2/docs/sync-a-rotated-secret -> /docs/sync-secret
-/docs/teamcity-plugin-draft -> /docs/teamcity-plugins
-/v2/docs/teamcity-plugin-draft -> /docs/teamcity-plugins
+/docs/teamcity-plugin-draft -> /docs/teamcity-akeyless-plugin
+/v2/docs/teamcity-plugin-draft -> /docs/teamcity-akeyless-plugin
+/docs/teamcity-plugins -> /docs/teamcity-akeyless-plugin
+/v2/docs/teamcity-plugins -> /docs/teamcity-akeyless-plugin
 /docs/aws-roles-for-distributed-gateway-using-terraform-copy -> /docs/terraform-centralized-deployment
 /docs/deploy-a-gateway-using-terraform-on-aws-copy -> /docs/terraform-distributed-deployment
 /docs/tls -> /docs/gateway-tls-settings
@@ -714,7 +716,7 @@
 /v2/docs/serverless-gateway/serverless-aws -> /docs/gateway-deploy-serverless-aws
 /docs/serverless-gateway/azure-serverless -> /docs/gateway-deploy-serverless-azure
 /v2/docs/serverless-gateway/azure-serverless -> /docs/gateway-deploy-serverless-azure
-/docs/teamcity-plugin -> /docs/teamcity-plugins
+/docs/teamcity-plugin -> /docs/teamcity-akeyless-plugin
 /docs/how-to-provision-secret-to-your-k8s -> /docs/akeyless-kubernetes-secrets-injector
 /v2/docs/sra-adv-system-requirements -> /docs/sra-docker
 /docs/sra-adv-system-requirements -> /docs/sra-docker

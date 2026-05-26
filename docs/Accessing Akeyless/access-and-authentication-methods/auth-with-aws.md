@@ -18,6 +18,8 @@ This page discusses creating and using an AWS IAM-based authentication method in
 
 AWS IAM authentication is intended for **workload authentication** and is not recommended for direct interactive Console sign-in.
 
+![AWS IAM role-based authentication flow for obtaining an Akeyless token.](https://files.readme.io/c1f9c5b-Role_new_design.png)
+
 ## Creating an AWS IAM Authentication Method
 
 This action is distinct from creating a new Akeyless account: it creates an additional AWS IAM-based authentication method for an existing account.
@@ -84,6 +86,39 @@ akeyless auth \
 > ℹ️ **Note (Least Privilege):**
 >
 > AWS IAM authentication does not require privileged AWS permissions. Attach a minimally privileged IAM role to the resource that authenticates to Akeyless (for example, an EC2 instance, ECS task, or EKS pod).
+
+## Associate with Access Roles
+
+After creating the authentication method, associate it with one or more Access Roles so authenticated identities can perform actions in Akeyless.
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select the AWS IAM authentication method.
+3. Add the required Access Roles.
+4. Save the changes.
+
+For role configuration details, see [Access Roles](https://docs.akeyless.io/docs/rbac).
+
+## Update an Existing AWS IAM Authentication Method
+
+AWS IAM authentication methods can require updates over time, for example when bounded account IDs, ARNs, or related constraints change.
+
+To update in the Console:
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select the AWS IAM authentication method to update.
+3. Update the required fields.
+4. Save the changes.
+
+To update with the CLI, use the relevant `akeyless auth-method update aws-iam` flags in [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#update).
+
+## Troubleshooting
+
+If AWS IAM authentication fails, check the following:
+
+* The workload is running with the expected IAM principal.
+* The workload account matches configured bounded account IDs, ARNs, or other bounded fields.
+* The configured **Access ID** and `aws_iam` access type are correct.
+* For EC2-based flows, verify instance metadata service settings and hop limit requirements.
 
 ## Optional Features
 
