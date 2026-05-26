@@ -70,6 +70,10 @@ Use `rate()` or `increase()` in PromQL for alerting and dashboard calculations, 
 
 In addition to these metrics, Gateway application logs can be forwarded through OpenTelemetry.
 
+> ⚠️ **Warning:**
+>
+> For Gateway version `4.47.0` and later, the OpenTelemetry Collector configuration in this workflow does not support the `loki` exporter. Forward logs with `otlp` or `otlphttp`, then route to Loki from a downstream collector if needed.
+
 ## Datadog (Docker)
 
 To enable telemetry metrics on Docker for Datadog, set `ENABLE_METRICS=true` and mount an OpenTelemetry config file such as `otel-config.yaml`.
@@ -166,8 +170,8 @@ To collect Gateway application logs together with metrics, add an additional log
 exporters:
   prometheus:
     endpoint: "0.0.0.0:8889"
-  loki:
-    endpoint: "http://loki:3100/loki/api/v1/push"
+  otlphttp:
+    endpoint: "http://<otlp-collector-host>:4318"
 service:
   pipelines:
     metrics:
@@ -175,7 +179,7 @@ service:
     logs:
       receivers: [filelog]
       processors: [batch]
-      exporters: [loki]
+      exporters: [otlphttp]
 ```
 
 Enable log forwarding and mount the same telemetry config:
@@ -193,7 +197,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 \
 Application logs from all instances of this Gateway are forwarded in this format:
 `<date> <time> <gw-clustername-instance-id> <log>`.
 
-For Loki-based analysis, add a [Loki data source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/) in Grafana and query logs from **Explore**.
+For Loki-based analysis in Gateway version `4.47.0` and later, send Gateway logs to an OTLP-capable collector and route from that collector to Loki. Then add a [Loki data source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/) in Grafana and query logs from **Explore**.
 
 ## Telemetry Config on Kubernetes
 
@@ -302,8 +306,8 @@ To collect Gateway application logs together with metrics, add a logs pipeline t
 exporters:
   prometheus:
     endpoint: "0.0.0.0:8889"
-  loki:
-    endpoint: "http://loki:3100/loki/api/v1/push"
+  otlphttp:
+    endpoint: "http://<otlp-collector-host>:4318"
 service:
   pipelines:
     metrics:
@@ -311,7 +315,7 @@ service:
     logs:
       receivers: [filelog]
       processors: [batch]
-      exporters: [loki]
+      exporters: [otlphttp]
 ```
 
 ```yaml values.yaml
