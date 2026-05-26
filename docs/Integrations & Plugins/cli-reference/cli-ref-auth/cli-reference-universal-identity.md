@@ -48,7 +48,7 @@ akeyless auth-method create universal-identity \
 
 `--deny-inheritance`: Deny from root to create children
 
-`--child-ttl-limit[=43200]`: Limit child tokens maximum TTL in minutes
+`--child-ttl-limit[=43200]`: Limit the maximum TTL of child tokens in minutes
 
 `--tree-length[=200]`: Limit the Universal Identity tree length
 
@@ -266,7 +266,7 @@ akeyless auth-method update universal-identity \
 
 `--deny-inheritance`: Deny from root to create children
 
-`--child-ttl-limit[=43200]`: Limit child tokens maximum TTL in minutes
+`--child-ttl-limit[=43200]`: Limit the maximum TTL of child tokens in minutes
 
 `--tree-length[=200]`: Limit the Universal Identity tree length
 

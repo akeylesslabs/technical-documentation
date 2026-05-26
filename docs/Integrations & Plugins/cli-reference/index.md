@@ -642,7 +642,7 @@ Examples: `--rotate-after-disconnect true`, `--rotate-after-disconnect 0`, `--ro
 
 `--lock-during-sra-session`: Lock this secret for read and update while an SRA session is active
 
-`--usc-tags`: Comma-separated list of tags to apply to all secrets created or synced on the remote USC (USC items only)
+`--usc-tags`: Comma-separated list of tags to apply to all secrets created or synced on the remote Universal Secrets Connector (USC) (USC items only)
 
 `--use-tags-as-filter`: Whether to filter the USC secret list using the specified `usc-tags` values [`true`/`false`] (USC items only)
 

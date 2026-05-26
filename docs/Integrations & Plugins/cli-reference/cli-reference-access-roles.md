@@ -66,7 +66,7 @@ akeyless create-role --name <Role Name>
 
 `--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
 
-`--event-forwarders-name`: Allow this role to manage the following Event Forwarders
+`--event-forwarders-name`: List of specific Event Forwarders this role can manage. Cannot be used together with `--event-forwarders-access`.
 
 `--isi-access`: Allow this role to access **Identity & Secrets Intelligence**. Currently only `none`, `scoped`, and `all` values are supported. For details, see [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence).
 
@@ -240,7 +240,7 @@ akeyless set-role-rule \
 
 `--ttl`: The time (in minutes) until the rule expires. If not used the rule will apply until manually removed
 
-`-f, --file-rules`: Path to a JSON file that contains multiple rule-role settings. This replaces `capability`, `path`, and `rule-type`
+`-f, --file-rules`: Path to a JSON file that contains multiple rule-role settings. This replaces `capability`, `path`, and `rule-type`. Use `-f` or `--file-rules` (the current long-form flag name).
 
 ## `update-assoc`
 

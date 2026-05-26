@@ -24,6 +24,21 @@ The CLI also supports batch encrypt and decrypt commands for multi-item payloads
 
 `--batch-data-file-path`: Path to a file that contains the batch payload for encryption or decryption operations
 
+These shared flags are supported by `akeyless batch-encrypt` and `akeyless batch-decrypt`.
+
+### Usage examples
+
+```shell
+akeyless batch-encrypt \
+--name <Encryption Key Name> \
+--batch-data-file-path <Path to batch payload JSON>
+```
+```shell
+akeyless batch-decrypt \
+--name <Encryption Key Name> \
+--batch-data '<Inline batch payload JSON>'
+```
+
 ## `assoc-target-item`
 
 Create an association between a [Target](https://docs.akeyless.io/docs/targets) and a [Classic Key](https://docs.akeyless.io/docs/classic-keys) for [External KMS Integration](https://docs.akeyless.io/docs/external-kms)

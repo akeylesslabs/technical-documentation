@@ -68,7 +68,7 @@ These flags are used by multiple `rotated-secret create` and `rotated-secret upd
 
 `--grace-rotation-timing[=after]`: Controls whether graceful rotation creates the replacement credential before or after the old credential is removed. Supported values are `before` and `after`.
 
-`--lock-during-sra-session`: Lock this rotated secret for read and update while an SRA session is active.
+`--lock-during-sra-session`: Lock this rotated secret for read and update while a Secure Remote Access (SRA) session is active.
 
 `--public-key-remote-path`: Remote path where the SSH public key is stored on the target host.
 

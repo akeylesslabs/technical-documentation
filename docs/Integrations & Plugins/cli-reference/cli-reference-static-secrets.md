@@ -69,7 +69,7 @@ akeyless create-secret \
 
 `--secure-access-host`: Target servers for connections. For multiple values repeat this flag.
 
-`--lock-during-sra-session`: Lock this secret for read and update while an SRA session is active
+`--lock-during-sra-session`: Lock this secret for read and update while a Secure Remote Access (SRA) session is active
 
 `--secure-access-ssh-user`: Override the SSH username as indicated in SSH Certificate Issuer
 

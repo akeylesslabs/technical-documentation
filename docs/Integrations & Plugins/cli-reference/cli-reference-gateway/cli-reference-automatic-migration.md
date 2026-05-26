@@ -134,7 +134,7 @@ akeyless gateway-create-migration \
 
 `--ai-certificate-discovery[=false]`: Enable/Disable AI-assisted certificate discovery (only when AI Insight is enabled on the Gateway). (Relevant only for Active Directory migration)
 
-`--ad-cert-expiration-event-in`: How many days before certificate expiration to notify for imported Active Directory certificates
+`--ad-cert-expiration-event-in`: How many days before the expiration of discovered certificates would you like to be notified. To specify multiple events, use this argument multiple times: `--ad-cert-expiration-event-in 1 --ad-cert-expiration-event-in 5` (Relevant only for Active Directory migration)
 
 `--ad-certificates-path-template`: Path template for imported Active Directory certificates
 
@@ -164,7 +164,7 @@ akeyless gateway-create-migration \
 
 `--si-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration)
 
-`--si-user-groups`: Comma-separated list of user groups to migrate from Server Inventory
+`--si-user-groups`: Comma-separated list of user groups to migrate from Server Inventory (Relevant only for Server Inventory migration)
 
 `--si-sra-enable-rdp[=false]`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Server Inventory migration)
 
@@ -400,7 +400,7 @@ akeyless gateway-update-migration \
 
 `--ai-certificate-discovery[=false]`: Enable/Disable AI-assisted certificate discovery (only when AI Insight is enabled on the Gateway). (Relevant only for Active Directory migration)
 
-`--ad-cert-expiration-event-in`: How many days before certificate expiration to notify for imported Active Directory certificates
+`--ad-cert-expiration-event-in`: How many days before the expiration of discovered certificates would you like to be notified. To specify multiple events, use this argument multiple times: `--ad-cert-expiration-event-in 1 --ad-cert-expiration-event-in 5` (Relevant only for Active Directory migration)
 
 `--ad-certificates-path-template`: Path template for imported Active Directory certificates
 
@@ -430,7 +430,7 @@ akeyless gateway-update-migration \
 
 `--si-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration)
 
-`--si-user-groups`: Comma-separated list of user groups to migrate from Server Inventory
+`--si-user-groups`: Comma-separated list of user groups to migrate from Server Inventory (Relevant only for Server Inventory migration)
 
 `--si-sra-enable-rdp[=false]`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Server Inventory migration)
 
