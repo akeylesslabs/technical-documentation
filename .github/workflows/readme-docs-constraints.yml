@@ -102,7 +102,7 @@ jobs:
         run: |
           if [ -f .github/automation-reports/readme-constraints-report.json ]; then
             FAILED=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print('true' if r.get('failed') else 'false')")
-            TOTAL=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print(len(r.get('duplicate_violations',[]))+len(r.get('depth_violations',[]))+len(r.get('front_matter_violations',[]))+len(r.get('navigation_violations',[]))+len(r.get('required_order_file_violations',[])))")
+            TOTAL=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print(len(r.get('duplicate_violations',[]))+len(r.get('depth_violations',[]))+len(r.get('front_matter_violations',[]))+len(r.get('navigation_violations',[]))+len(r.get('required_order_file_violations',[]))+len(r.get('api_reference_suffix_violations',[]))+len(r.get('index_slug_violations',[])))")
           else
             FAILED=false
             TOTAL=0
