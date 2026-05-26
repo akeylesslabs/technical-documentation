@@ -386,6 +386,7 @@ Provide certificate content with either `--certificate-path` or `--certificate-d
 ```shell
 akeyless gateway update certificate-store \
 --name <Certificate display name> \
+--certificate-path <Path/To/Certificate.pem> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 

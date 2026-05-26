@@ -235,9 +235,9 @@ akeyless create-key \
 
 `--hash-algorithm[=SHA256]`: Hash algorithm used for key operations. Available options: [`SHA256`, `SHA384`, `SHA512`]
 
-`--conf-file-path`: Path to the configuration file that contains CSR config data
+`--conf-file-path`: Path to the configuration file that contains Certificate Signing Request (CSR) config data
 
-`--conf-file-data`: CSR config data in Base64 encoding
+`--conf-file-data`: Certificate Signing Request (CSR) config data in Base64 encoding
 
 `--description`: Description of the object
 

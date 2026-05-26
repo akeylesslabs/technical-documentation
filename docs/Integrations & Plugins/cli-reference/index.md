@@ -947,9 +947,9 @@ akeyless create-oidc-app \
 
 `--public`: Set this flag if the app is public and cannot keep secrets
 
-`-p, --permission-assignment`: **Required**, JSON string defining the permission assignment for this app. Must contain at least one element
+`-p, --permission-assignment`: Required unless `--permission-assignment-file` is provided. JSON string defining the permission assignment for this app. Must contain at least one element
 
-`-f, --permission-assignment-file`: Path to a file containing the permission-assignment JSON. Provide this instead of `--permission-assignment`
+`-f, --permission-assignment-file`: Required unless `--permission-assignment` is provided. Path to a file containing the permission-assignment JSON
 
 `--item-custom-fields`: Additional custom fields to associate with the item. Repeat the flag to add multiple fields
 
@@ -1005,9 +1005,9 @@ akeyless update-oidc-app \
 
 `--public`: Set this flag if the app is public and cannot keep secrets
 
-`-p, --permission-assignment`: **Required**, JSON string defining the permission assignment for this app. Must contain at least one element
+`-p, --permission-assignment`: Required unless `--permission-assignment-file` is provided. JSON string defining the permission assignment for this app. Must contain at least one element
 
-`-f, --permission-assignment-file`: Path to a file containing the permission-assignment JSON. Provide this instead of `--permission-assignment`
+`-f, --permission-assignment-file`: Required unless `--permission-assignment` is provided. Path to a file containing the permission-assignment JSON
 
 `-k, --key`: Key used to encrypt the OIDC application
 
