@@ -264,6 +264,61 @@ akeyless move-objects --source <Source path to move the objects from> \
 
 `-o, --objects-type[=item]`: The objects type to move (item/auth_method/role)
 
+### `mcp`
+
+Starts the general Akeyless MCP server so MCP-compatible AI clients can interact with Akeyless tools.
+
+#### Usage
+
+```shell
+akeyless mcp \
+  --gateway-url https://<your-gateway-url>:8000/api/v2 \
+  --profile <profile-name>
+```
+
+#### Flags
+
+`--gateway-url`: Required, Gateway URL
+
+`--profile`: Use an existing CLI profile
+
+`--access-type`: Authentication method when not using `--profile`, options: `[access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert/oci/kerberos]`
+
+`--access-id`: Access ID for the selected authentication method
+
+`--access-key`: Access Key (relevant for `access-type=access_key`)
+
+For MCP concepts and integration setup, see [MCPs](https://docs.akeyless.io/docs/mcps).
+
+### `mcp-runtime-authority`
+
+Starts the MCP server for Agentic Runtime Authority runtime-query tools.
+
+#### Usage
+
+```shell
+akeyless mcp-runtime-authority \
+  --gateway-url https://<your-gateway-url>:8000 \
+  --secret-name /demo/apps/analytics/postgres-ro \
+  --profile <profile-name>
+```
+
+#### Flags
+
+`--gateway-url`: Required, Gateway URL
+
+`--secret-name`: Optional default secret path for database query workflows
+
+`--profile`: Use an existing CLI profile
+
+`--access-type`: Authentication method when not using `--profile`, options: `[access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert/oci/kerberos]`
+
+`--access-id`: Access ID for the selected authentication method
+
+`--access-key`: Access Key (relevant for `access-type=access_key`)
+
+For Runtime Authority behavior and workflow context, see [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority).
+
 ### `set-item-state`
 
 Set an item's state (Enabled, Disabled)
@@ -304,6 +359,33 @@ akeyless set-default-profile --profile <Profile name>
 `--jq-expression`: JQ expression to filter result output
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired credentials
+
+### `runtime-authority`
+
+Execute a target query or service action through the Gateway runtime authority endpoint.
+
+#### Usage
+
+```shell
+akeyless runtime-authority \
+  --name /demo/apps/analytics/postgres-ro \
+  --payload 'SELECT current_user, current_database();' \
+  --agent-id ai-assistant-01 \
+  --gateway-url https://<your-gateway-url>:8000 \
+  --profile <profile-name>
+```
+
+#### Flags
+
+`-n, --name`: Required, Full path of the Akeyless secret (dynamic or rotated)
+
+`--payload`: Required, Query or action to run (for example SQL or `aws s3 ls`)
+
+`--agent-id`: Required, Agent identifier for auditing
+
+`-u, --gateway-url`: Required, Gateway URL
+
+`--profile`: Use an existing CLI profile
 
 ### `unconfigure`
 
@@ -532,7 +614,7 @@ Examples: `--rotate-after-disconnect true`, `--rotate-after-disconnect 0`, `--ro
 
 `--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
-### `folder`
+### `folder management`
 
 Commands for managing folders in the account
 
