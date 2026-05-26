@@ -20,6 +20,12 @@ This page also includes legacy `akeyless-scp` guidance for existing automation t
 
 The `akeyless file` command enables secure file transfer to and from remote targets through the SRA bastion. It is built into the Akeyless CLI and supports both upload and download operations without requiring additional scripts.
 
+These commands run on the client machine and invoke the local `scp`/`ssh` tooling to perform transfer over an SRA tunnel.
+
+At runtime, the CLI resolves target and bastion connection parameters (from command flags or profile), requests short-lived access by way of the configured SSH certificate issuer, and then establishes the tunnel used by `scp` for upload/download.
+
+If local `scp`/`ssh` binaries are missing or not available in `PATH`, file transfer commands fail on the client before transfer starts.
+
 > ℹ️ **Note:**
 >
 > `akeyless file` currently supports only Unix-like operating systems. On Windows, use [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl/) and run the command from your Linux shell.
