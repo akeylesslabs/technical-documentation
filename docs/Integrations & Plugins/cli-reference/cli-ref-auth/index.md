@@ -202,7 +202,7 @@ akeyless auth-method create aws-iam \
 
 `--aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to
 
-`--sts-url[=https://sts.amazonaws.com]`: STS URL. For `aws-us-gov` and `aws-cn`, set a partition-specific regional STS endpoint.
+`--sts-url[=https://sts.amazonaws.com]`: STS URL. For `aws-us-gov`, use a regional endpoint such as `https://sts.us-gov-west-1.amazonaws.com` or `https://sts.us-gov-east-1.amazonaws.com`. For `aws-cn`, use a regional endpoint such as `https://sts.cn-north-1.amazonaws.com.cn` or `https://sts.cn-northwest-1.amazonaws.cn`.
 
 `--bound-arn`: A list of full arns that the access is restricted to. Use the ARN partition prefix that matches your environment (for example, `arn:aws:...`, `arn:aws-us-gov:...`, or `arn:aws-cn:...`).
 
@@ -766,7 +766,7 @@ akeyless auth-method update aws-iam \
 
 `-b, --bound-aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to
 
-`--sts-url[=https://sts.amazonaws.com]`: STS URL. For `aws-us-gov` and `aws-cn`, set a partition-specific regional STS endpoint.
+`--sts-url[=https://sts.amazonaws.com]`: STS URL. For `aws-us-gov`, use a regional endpoint such as `https://sts.us-gov-west-1.amazonaws.com` or `https://sts.us-gov-east-1.amazonaws.com`. For `aws-cn`, use a regional endpoint such as `https://sts.cn-north-1.amazonaws.com.cn` or `https://sts.cn-northwest-1.amazonaws.cn`.
 
 `--bound-arn`: A list of full arns that the access is restricted to. Use the ARN partition prefix that matches your environment (for example, `arn:aws:...`, `arn:aws-us-gov:...`, or `arn:aws-cn:...`).
 
