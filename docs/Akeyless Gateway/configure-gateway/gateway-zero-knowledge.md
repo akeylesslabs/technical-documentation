@@ -27,16 +27,6 @@ For regulated industries, this is best evaluated as a control-boundary model rat
 
 This model supports reviews for separation of duties, data sovereignty, and execution control.
 
-## Prerequisites
-
-Before implementing Gateway Zero-Knowledge, confirm the following:
-
-* A Gateway deployment is running and reachable from the required workloads. For deployment options, see [Gateway Overview](https://docs.akeyless.io/docs/gateway-overview).
-* A Gateway authentication method and access policy are configured. For access configuration details, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
-* The identity used for key creation and Gateway operations has the required permissions for DFC key management and Gateway access.
-* A secure backup process is defined for Customer Fragment files and values.
-* Required network routes to Gateway and Akeyless SaaS services are available. For connectivity requirements, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
-
 ## How It Works
 
 Gateway Zero-Knowledge is based on [Distributed Fragments Cryptography (DFC)](https://docs.akeyless.io/docs/dfc-overview), where full private key material is not reconstructed on a single service component.
@@ -58,6 +48,17 @@ For architecture-level context, see [Zero-Knowledge Encryption SaaS Architecture
 4. For CF-protected items, Gateway-side Customer Fragment participation is required.
 5. The operation result is returned to the workload.
 
+```mermaid
+flowchart LR
+  W[Workload / Service] -->|Machine identity auth| G[Customer-Hosted Gateway]
+  G -->|Authorized request| CP[Akeyless Control Plane]
+  CP -->|Invoke DFC path| FH[DFC Fragment Holders]
+  G -.CF participation for protected ops.-> FH
+  FH -->|Operation result| CP
+  CP -->|Response| G
+  G -->|Secret or crypto output| W
+```
+
 ### Network Reachability Model
 
 A Customer Fragment controls cryptographic eligibility, not network topology.
@@ -76,6 +77,25 @@ To reduce exposure across environments:
 When Gateway caching is enabled, the Gateway can temporarily cache secret values in customer-controlled memory or Redis cache layers.
 
 This does not change DFC control boundaries. For cache behavior details, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) and [Runtime Caching](https://docs.akeyless.io/docs/runtime-caching).
+
+## Decision Guide: CF and Non-CF
+
+Use this table to select the operating model based on control requirements and operational overhead.
+
+| Model | Use when | Operational tradeoffs |
+| --- | --- | --- |
+| Customer Fragment (CF) | Regulatory, contractual, or internal controls require customer-side participation for protected operations. | Strongest customer control boundary, plus additional setup and lifecycle management for fragment generation, secure backup, and deployment integration. |
+| Non-CF | Workloads need standard zero-knowledge architecture without customer-fragment enforcement requirements. | Simpler operations and rollout, but no customer-fragment participation gate for operation completion. |
+
+## Prerequisites
+
+Before implementing Gateway Zero-Knowledge, confirm the following:
+
+* A Gateway deployment is running and reachable from the required workloads. For deployment options, see [Gateway Overview](https://docs.akeyless.io/docs/gateway-overview).
+* A Gateway authentication method and access policy are configured. For access configuration details, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+* The identity used for key creation and Gateway operations has the required permissions for DFC key management and Gateway access.
+* A secure backup process is defined for Customer Fragment files and values.
+* Required network routes to Gateway and Akeyless SaaS services are available. For connectivity requirements, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
 
 ## Implementation
 
@@ -109,6 +129,14 @@ Save the output as `customer_fragments.json`.
 > Back up Customer Fragments securely. Encryption keys created with a Customer Fragment cannot be reconstructed without it.
 
 ### Step 2: Attach the Customer Fragment to Gateway
+
+Use these deployment-specific implementation anchors for direct navigation:
+
+* Docker: [Authentication](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#authentication), [API Key Authentication](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#api-key-authentication), [Certificates Authentication](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#certificates-authentication)
+* Helm: [Authentication](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#authentication), [API Key Authentication](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#api-key-authentication), [Certificates](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#certificates)
+* Serverless AWS: [Authentication](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws#authentication), [Customer Fragment](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws#customer-fragment)
+* Serverless Azure: [Authentication](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure#authentication), [Customer Fragment](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure#customer-fragment)
+* Docker Compose: [Authentication](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#authentication), [API Key Authentication](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#api-key-authentication), [Certificates Authentication](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#certificates-authentication)
 
 #### Standalone Docker
 
@@ -207,6 +235,38 @@ Use this mapping for service-to-service implementation planning:
 | Universal Identity | Workloads requiring token-based machine identity across environments | [Authenticate with Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) |
 
 For Gateway-specific access delegation controls, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+
+## Troubleshooting
+
+### 1. Missing Customer Fragment Mount or Secret Key Name
+
+Symptoms include missing fragment errors during CF-protected operations or deployment startup warnings.
+
+Checks:
+
+* Docker: confirm `customer_fragments.json` is mounted to `/home/akeyless/.akeyless/customer_fragments.json`.
+* Helm: confirm the referenced secret exists and includes key name `customer-fragments`.
+* Serverless: confirm `customer_fragments` payload is valid JSON and mapped to the deployment parameter.
+
+### 2. Insufficient Gateway Allowed Access
+
+Symptoms include denied Gateway management actions or inability to complete required operations.
+
+Checks:
+
+* Confirm the active identity is included in Gateway Allowed Access policy.
+* Confirm required Gateway permissions are assigned for the intended operation scope.
+* Confirm RBAC policy path permissions also allow the same operation.
+
+### 3. Authentication Method Mismatch
+
+Symptoms include authentication failures at Gateway startup or request-time authorization errors.
+
+Checks:
+
+* Confirm auth method type matches deployment configuration (for example `access_key`, cloud IAM, certificate, or universal identity).
+* Confirm required credentials, secrets, or certificates are present and mapped to expected configuration keys.
+* For legacy deployments, confirm variable naming consistency when mixing `GATEWAY_*` and `ADMIN_*` conventions.
 
 ## Compliance Reference Bundle
 
