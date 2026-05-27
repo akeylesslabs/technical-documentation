@@ -1,5 +1,6 @@
 ---
 title: Rotated Secrets
+slug: rotated-secrets
 excerpt: ''
 deprecated: false
 hidden: false

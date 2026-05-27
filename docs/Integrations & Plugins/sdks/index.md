@@ -1,5 +1,6 @@
 ---
 title: Akeyless SDKs
+slug: sdks
 deprecated: false
 hidden: false
 link:

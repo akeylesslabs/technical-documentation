@@ -1,5 +1,6 @@
 ---
 title: Sync Secrets
+slug: sync-secret
 excerpt: ''
 deprecated: false
 hidden: false

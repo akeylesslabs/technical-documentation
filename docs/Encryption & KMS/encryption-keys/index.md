@@ -1,5 +1,6 @@
 ---
 title: Encryption Keys
+slug: encryption-keys
 excerpt: ''
 deprecated: false
 hidden: false

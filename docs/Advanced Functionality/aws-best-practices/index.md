@@ -1,5 +1,6 @@
 ---
 title: AWS Best Practices
+slug: aws-best-practices
 excerpt: ''
 deprecated: false
 hidden: false
