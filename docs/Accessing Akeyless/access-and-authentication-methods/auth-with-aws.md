@@ -30,6 +30,36 @@ Akeyless supports AWS IAM authentication across the following AWS partitions:
 
 When you configure bounded ARNs (for example, `--bound-arn`), the ARN partition prefix must match the partition where the IAM principal exists.
 
+## AWS Deployment Pattern Support
+
+AWS IAM authentication support depends on whether the runtime can provide AWS IAM workload credentials and can reach both Akeyless and the relevant AWS STS endpoint.
+
+| Deployment pattern | Support status | Notes |
+| --- | --- | --- |
+| Amazon EC2 | Supported | Uses the instance profile role through the Instance Metadata Service. If IMDSv2 is enabled, ensure the hop limit is compatible with your runtime path. |
+| Amazon EC2 Outposts | Supported | Same IAM and Instance Metadata Service model as EC2. Ensure network routing allows access to Akeyless and the selected STS endpoint for the partition. |
+| AWS Snow Family | Conditionally supported | Supported when the workload can reach Akeyless and STS from the Snow environment. Disconnected or fully offline scenarios are not supported for AWS IAM authentication. |
+| Amazon EKS | Supported | Use node IAM role or IRSA (IAM role for service account). Ensure the pod can access IAM credentials and STS. |
+| Amazon ECS | Supported | Use task IAM role credentials provided to the task runtime. |
+| AWS Fargate | Supported | Supported for ECS and EKS Fargate profiles when task/pod IAM role credentials are available to the workload. |
+
+### AWS Scope and Coverage Sources
+
+AWS service and region availability changes over time. To keep your deployment planning accurate, use AWS as the source of truth:
+
+* **AWS partitions:** `aws`, `aws-us-gov`, and `aws-cn`. See [AWS Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html).
+* **AWS Regions:** See [AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html).
+* **AWS services by Region:** See [AWS Services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
+* **Compute service catalog:** See [AWS Compute Services](https://aws.amazon.com/products/compute/).
+
+You can also list the Regions available to your account with the AWS CLI:
+
+```shell
+aws account list-regions \
+  --region-opt-status-contains ENABLED_BY_DEFAULT ENABLED \
+  --query Regions[*].RegionName
+```
+
 ![AWS IAM role-based authentication flow for obtaining an Akeyless token.](https://files.readme.io/c1f9c5b-Role_new_design.png)
 
 ## Creating an AWS IAM Authentication Method
