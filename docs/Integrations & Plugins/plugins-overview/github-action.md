@@ -176,7 +176,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
               key: "imp"
 ```
 
-Use `ca-certificate` when the workflow connects to a Gateway over TLS and the GitHub runner does not already trust the certificate chain. The runner must trust the Gateway certificate before the action can start authentication. Store the PEM-encoded CA certificate in a GitHub secret such as `AKEYLESS_CA_CERTIFICATE`, then pass that secret to `ca-certificate`.
+For Gateway TLS trust requirements and a complete example, see [Runner Trust and Debugging](https://docs.akeyless.io/docs/github-action#runner-trust-and-debugging).
 
 > ⚠️ **Warning:**
 >
