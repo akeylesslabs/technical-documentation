@@ -16,7 +16,7 @@ next:
 ---
 
 <GatewayConfigManagementNote />
-## What You Gain
+## Value Proposition
 
 Gateway Zero-Knowledge allows organizations to use Akeyless as a managed identity security platform while retaining customer-enforced cryptographic control for protected operations.
 
@@ -148,7 +148,7 @@ For full platform setup flows, see [Kubernetes with Helm Deployment](https://doc
 
 ### Create DFC Key from the Akeyless Console
 
-1. Open the Gateway Console at `https://<your-gateway-url>:8000/console`.
+1. Open the Gateway Console at `https://<gateway-url>:8000/console`.
 2. Go to **Items**.
 3. Select **New**, then **Encryption Key**, then **DFC**.
 4. Specify key parameters, then select the Customer Fragment.
@@ -180,7 +180,7 @@ To enforce Gateway-mediated zero-knowledge by default for newly created items, s
 >
 > Only symmetric keys with `AESGCM` algorithm can be set as default encryption keys.
 
-1. Go to **Gateways**, then **Your Gateway**, then **Manage Gateway**.
+1. Go to **Gateways**, then the relevant Gateway, then **Manage Gateway**.
 2. Go to **Defaults**.
 3. Select a key in **Default Encryption Key**.
 4. Select **Save Changes**.
