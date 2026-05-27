@@ -33,11 +33,13 @@ On the **Certificate Expiry** graph, click on the **Overview** button in the top
 
 > ℹ️ **Note:** Analytics data is generated asynchronously, so recent activity may take time to appear in the report.
 
-For CLI usage, see the [CLI Reference entry for get-analytics-data](https://docs.akeyless.io/docs/cli-reference#get-analytics-data) and run the following command:
+For CLI usage, run the following command:
 
 ```shell
 akeyless get-analytics-data
 ```
+
+See the [CLI Reference entry for get-analytics-data](https://docs.akeyless.io/docs/cli-reference#get-analytics-data) for more details.
 
 > ℹ️ **Note:** Data in the Analytics report includes items stored in [Personal Folders](https://docs.akeyless.io/docs/personal-corporate-areas-navigation).
 
