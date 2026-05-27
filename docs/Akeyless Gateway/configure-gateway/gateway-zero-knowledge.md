@@ -296,9 +296,7 @@ Checks:
 * Confirm required credentials, secrets, or certificates are present and mapped to expected configuration keys.
 * For legacy deployments, confirm variable naming consistency when mixing `GATEWAY_*` and `ADMIN_*` conventions.
 
-## Compliance Reference Bundle
-
-For architecture and compliance review packets, use these canonical pages:
+## Related Pages
 
 * [Zero-Knowledge Encryption SaaS Architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture)
 * [Platform Components Overview](https://docs.akeyless.io/docs/components)
