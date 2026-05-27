@@ -48,13 +48,11 @@ AWS IAM authentication support depends on whether the runtime can provide AWS IA
 
 Support status definitions:
 
-* **Supported**: Explicitly validated in Akeyless code paths and tests for AWS IAM cloud identity and STS signing behavior.
-* **Supported (credential-path compatible)**: Uses the same AWS SDK credential flow used by validated scenarios, but without a scenario-specific test in this repository.
+* **Supported**: Explicitly validated by Akeyless.
+* **Supported (credential-path compatible)**: Uses the same AWS SDK credential flow used by validated scenarios.
 * **Expected compatible**: Architecture is expected to work with the same IAM/STS model, but scenario-specific validation is environment-dependent.
 
 Additional AWS compute platforms not listed in the table (for example, AWS Elastic Beanstalk or Amazon EMR) are not currently called out with scenario-specific validation in this documentation. Treat them as credential-path compatibility cases and validate runtime IAM credential availability, network routing, and STS reachability in your environment.
-
-Current validation note: the AWS IAM code path explicitly validates China STS and partition behaviors in automated tests. GovCloud is treated as expected-compatible, but does not currently have dedicated end-to-end validation coverage in this repository.
 
 ### AWS Scope and Coverage Sources
 
