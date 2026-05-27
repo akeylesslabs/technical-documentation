@@ -37,9 +37,12 @@ AWS IAM authentication support depends on whether the runtime can provide AWS IA
 | Deployment pattern | Support status | Notes |
 | --- | --- | --- |
 | Amazon EC2 | Supported | Uses the instance profile role through the Instance Metadata Service. If IMDSv2 is enabled, ensure the hop limit is compatible with your runtime path. |
+| AWS Lambda | Supported (credential-path compatible) | Uses the function execution role credentials provided to the Lambda runtime. Ensure the function can reach Akeyless and STS. |
 | Amazon EKS | Supported | Use node IAM role or IRSA (IAM role for service account). Ensure the pod can access IAM credentials and STS. |
 | Amazon ECS | Supported (credential-path compatible) | Uses standard AWS SDK credential resolution. Ensure task IAM role credentials are available to the runtime and STS is reachable. |
 | AWS Fargate | Supported (credential-path compatible) | Applies to Amazon ECS and Amazon EKS Fargate profiles when task or pod IAM role credentials are available to the runtime. |
+| AWS Batch | Supported (credential-path compatible) | Works when the underlying compute environment exposes IAM role credentials to the job runtime and STS is reachable. |
+| AWS App Runner | Supported (credential-path compatible) | Works when the service runtime has IAM role credentials and can reach STS and Akeyless endpoints. |
 | Amazon EC2 Outposts | Expected compatible | Uses the same IAM and metadata model as EC2. Validate endpoint routing and STS reachability in your Outposts network design. |
 | AWS Snow Family | Conditionally supported | Supported when the workload can reach Akeyless and STS from the Snow environment. Disconnected or fully offline scenarios are not supported for AWS IAM authentication. |
 
