@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+
+<GatewayConfigManagementNote />
 You can export the Audit Logs from the Akeyless Gateway to any of the following log services:
 
 * [Amazon S3](https://docs.akeyless.io/docs/gateway-log-forwarding#amazon-s3)

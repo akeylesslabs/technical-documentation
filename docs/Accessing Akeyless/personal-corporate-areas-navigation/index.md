@@ -1,5 +1,6 @@
 ---
 title: Personal & Corporate Areas
+slug: personal-corporate-areas-navigation
 excerpt: ''
 deprecated: false
 hidden: false

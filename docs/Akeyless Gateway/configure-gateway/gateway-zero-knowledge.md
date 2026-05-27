@@ -14,6 +14,8 @@ next:
       slug: gateway-caching
       title: Caching
 ---
+
+<GatewayConfigManagementNote />
 ## Introduction
 
 To implement [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge), you must set up a [Gateway](https://docs.akeyless.io/docs/gateway-overview).

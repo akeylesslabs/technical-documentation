@@ -1,5 +1,6 @@
 ---
 title: HashiCorp Vault Proxy
+slug: hashicorp-vault-proxy
 excerpt: HashiCorp Vault Proxy
 deprecated: false
 hidden: false

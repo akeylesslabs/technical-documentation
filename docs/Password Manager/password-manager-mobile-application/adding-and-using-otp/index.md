@@ -1,5 +1,6 @@
 ---
 title: Adding and Using OTP
+slug: adding-and-using-otp
 excerpt: ''
 deprecated: false
 hidden: false

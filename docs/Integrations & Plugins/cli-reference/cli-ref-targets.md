@@ -14,6 +14,62 @@ This section outlines the CLI commands relevant to Targets.
 
 <CLIGeneralFlags />
 
+## `assoc-target-item`
+
+Create an association between target and item
+
+### Usage
+
+```shell
+akeyless assoc-target-item \
+--target-name <The target to associate> \
+--name <The item to associate> \
+--vault-name <Name of the vault used> \
+--key-operations <List of allowed operations for the key>
+```
+
+#### Flags
+
+`-t, --target-name`: **Required**, The target to associate
+
+`-n, --name`: **Required**, The item to associate
+
+`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for Azure targets)
+
+`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for Azure targets)
+
+`--disable-previous-key-version[=false]`: Automatically disable previous key versions. (Required for classic key association with Azure targets)
+
+`--project-id`: Project ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+
+`--location-id`: Location ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+
+`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+
+`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+
+`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for GCP targets)
+
+`--tenant-secret-type`: The tenant secret type [Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for Salesforce targets)
+
+`--multi-region[=false]`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
+
+`--regions`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1
+
+`--private-key-path`: A path on the target to store the private key (relevant only for certificate provisioning)
+
+`--certificate-path`: A path on the target to store the certificate pem file (relevant only for certificate provisioning)
+
+`--chain-path`: A path on the target to store the full chain pem file (relevant only for certificate provisioning)
+
+`--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
+
+`--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
+
+`--sra-association[=false]`: Specify if the target to associate is for SRA, relevant only for SRA linked target association to `ldap` rotated secret
+
+`--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
+
 ## `create`
 
 Create a new Target
@@ -30,6 +86,8 @@ Create a new Target
 
 `db`
 
+`digicert`
+
 `dockerhub`
 
 `eks`
@@ -39,6 +97,8 @@ Create a new Target
 `github`
 
 `gitlab`
+
+`google-trust`
 
 `gke`
 
@@ -57,6 +117,8 @@ Create a new Target
 `lets-encrypt`
 
 `linked`
+
+`openai`
 
 `ping`
 
@@ -306,6 +368,54 @@ akeyless target create db \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `digicert`
+
+Creates a new DigiCert target in the current account
+
+For initial Automated Certificate Management Environment (ACME) account bootstrap, provide `--eab-key-id` and `--eab-hmac-key` for External Account Binding (EAB). DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
+#### Usage
+
+```shell
+akeyless target create digicert \
+--name <Target name> \
+--email <Email address for ACME account registration>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--digicert-url[=us-production]`: DigiCert ACME endpoint selector. Options: [`us-production`/`eu-production`/`us-demo`/`eu-demo`]
+
+`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+
+`-e, --email`: **Required**, Email address for ACME account registration
+
+`--eab-key-id`: DigiCert External Account Binding key identifier
+
+`--eab-hmac-key`: DigiCert External Account Binding HMAC key
+
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials
+
+`--hosted-zone`: AWS hosted-zone identifier for DNS validation
+
+`--dns-zone`: Cloudflare DNS zone identifier for DNS validation
+
+`--resource-group`: Azure resource group name for DNS validation
+
+`--gcp-project`: GCP project ID for DNS validation
+
+`--timeout[=5m]`: Timeout waiting for certificate validation
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+
 ### `dockerhub`
 
 Creates a new Docker Hub target in the current account
@@ -464,6 +574,80 @@ akeyless target create github \
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
+
+### `gitlab`
+
+Creates a new GitLab target in the current account
+
+#### Usage
+
+```shell
+akeyless target create gitlab \
+--name <Target name> \
+--gitlab-access-token <GitLab access token>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--gitlab-access-token`: GitLab access token
+
+`--certificate`: GitLab TLS certificate in Base64 format
+
+`--gitlab-url[=https://gitlab.com/]`: GitLab base URL
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+### `google-trust`
+
+Creates a new Google Trust target in the current account
+
+For initial Automated Certificate Management Environment (ACME) account bootstrap, provide `--eab-key-id` and `--eab-hmac-key` for External Account Binding (EAB). DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
+#### Usage
+
+```shell
+akeyless target create google-trust \
+--name <Target name> \
+--email <Email address for ACME account registration>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--google-trust-url[=production]`: Google Trust directory environment. Options: [`production`/`staging`]
+
+`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+
+`-e, --email`: **Required**, Email address for ACME account registration
+
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials
+
+`--hosted-zone`: AWS hosted-zone identifier for DNS validation
+
+`--dns-zone`: Cloudflare DNS zone identifier for DNS validation
+
+`--resource-group`: Azure resource group name for DNS validation
+
+`--gcp-project`: GCP project ID for DNS validation
+
+`--timeout[=5m]`: Timeout waiting for certificate validation
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
 ### `gke`
 
@@ -811,6 +995,45 @@ akeyless target create linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `openai`
+
+Creates a new OpenAI target in the current account
+
+#### Usage
+
+```shell
+akeyless target create openai \
+--name <Target name> \
+--openai-url <OpenAI API base URL> \
+--api-key <OpenAI API key> \
+--api-key-id <OpenAI API key ID> \
+--model <Default OpenAI model name> \
+--organization-id <OpenAI Organization ID> \
+--key <Key name>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`-u, --openai-url[=https://api.openai.com/v1]`: OpenAI API base URL
+
+`-a, --api-key`: OpenAI API key
+
+`-i, --api-key-id`: OpenAI API key ID
+
+`-m, --model`: Default OpenAI model name
+
+`-o, --organization-id`: OpenAI Organization ID
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--description`: Description of the object
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+
 ### `ping`
 
 Creates a new Ping target in the current account
@@ -1155,61 +1378,25 @@ akeyless target create zerossl \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-## `assoc-target-item`
+## `delete`
 
-Create an association between target and item
+Delete a target in the current account
 
 ### Usage
 
 ```shell
-akeyless assoc-target-item \
---target-name <The target to associate> \
---name <The item to associate> \
---vault-name <Name of the vault used> \
---key-operations <List of allowed operations for the key>
+akeyless target delete \
+--name <Target name> \
+--target-version <Target Version>
 ```
 
 #### Flags
 
-`-t, --target-name`: **Required**, The target to associate
+`-n, --name`: **Required**, Target name
 
-`-n, --name`: **Required**, The item to associate
+`-v, --target-version`: Target version
 
-`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for Azure targets)
-
-`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for Azure targets)
-
-`--disable-previous-key-version[=false]`: Automatically disable previous key versions. (Required for classic key association with Azure targets)
-
-`--project-id`: Project ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
-
-`--location-id`: Location ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
-
-`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
-
-`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
-
-`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for GCP targets)
-
-`--tenant-secret-type`: The tenant secret type [Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for Salesforce targets)
-
-`--multi-region[=false]`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
-
-`--regions`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1
-
-`--private-key-path`: A path on the target to store the private key (relevant only for certificate provisioning)
-
-`--certificate-path`: A path on the target to store the certificate pem file (relevant only for certificate provisioning)
-
-`--chain-path`: A path on the target to store the full chain pem file (relevant only for certificate provisioning)
-
-`--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
-
-`--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
-
-`--sra-association[=false]`: Specify if the target to associate is for SRA, relevant only for SRA linked target association to `ldap` rotated secret
-
-`--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
+`--force-deletion[=false]`: Delete target even if it has associated items
 
 ## `delete-assoc-target-item`
 
@@ -1231,26 +1418,6 @@ akeyless delete-assoc-target-item \
 `--id, --assoc-id`: The association ID to be deleted. Not required if target name specified
 
 `-t, --target-name`: The target name with which association will be deleted
-
-## `delete`
-
-Delete a target in the current account
-
-### Usage
-
-```shell
-akeyless target delete \
---name <Target name> \
---target-version <Target Version>
-```
-
-#### Flags
-
-`-n, --name`: **Required**, Target name
-
-`-v, --target-version`: Target version
-
-`--force-deletion[=false]`: Delete target even if it has associated items
 
 ## `delete-targets`
 
@@ -1318,6 +1485,40 @@ List of all targets in the account
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
+
+## `lock-target`
+
+Lock a target.
+
+### Usage
+
+```shell
+akeyless lock-target \
+--name <Target name>
+```
+
+### Flags
+
+`--name`: **Required**, Target name
+
+`--lock-ttl[=60]`: Lock time to live in minutes
+
+`--actions[=update,read]`: Comma-separated blocked actions
+
+## `unlock-target`
+
+Unlock a target.
+
+### Usage
+
+```shell
+akeyless unlock-target \
+--name <Target name>
+```
+
+### Flags
+
+`--name`: **Required**, Target name
 
 ## `update`
 
@@ -1499,7 +1700,7 @@ Update an existing db target in the current account
 ##### Usage
 
 ```shell
-akeyless update-db-target \
+akeyless target update db \
 --name <Target name> \
 --db-type *<mysql/mssql/postgres/mongodb/snowflake/cassandra/oracle/redshift/redis> \
 --new-name <New target name> \
@@ -1681,6 +1882,56 @@ akeyless target update gcp \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
+#### `digicert`
+
+Updates an existing DigiCert target
+
+DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
+##### Usage
+
+```shell
+akeyless target update digicert \
+--name <Target name> \
+--email <Email address for ACME account registration>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--digicert-url[=us-production]`: DigiCert ACME endpoint selector. Options: [`us-production`/`eu-production`/`us-demo`/`eu-demo`]
+
+`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+
+`-e, --email`: **Required**, Email address for ACME account registration
+
+`--eab-key-id`: DigiCert External Account Binding key identifier
+
+`--eab-hmac-key`: DigiCert External Account Binding HMAC key
+
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials
+
+`--hosted-zone`: AWS hosted-zone identifier for DNS validation
+
+`--dns-zone`: Cloudflare DNS zone identifier for DNS validation
+
+`--resource-group`: Azure resource group name for DNS validation
+
+`--gcp-project`: GCP project ID for DNS validation
+
+`--timeout[=5m]`: Timeout waiting for certificate validation
+
+`--new-name`: New target name
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
 #### `gemini`
 
 Updates a Gemini target in the current account
@@ -1747,6 +1998,86 @@ akeyless target update github \
 `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+
+#### `gitlab`
+
+Updates an existing GitLab target in the current account
+
+##### Usage
+
+```shell
+akeyless target update gitlab \
+--name <Target name> \
+--gitlab-access-token <GitLab access token>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--gitlab-access-token`: GitLab access token
+
+`--certificate`: GitLab TLS certificate in Base64 format
+
+`--gitlab-url[=https://gitlab.com/]`: GitLab base URL
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+
+#### `google-trust`
+
+Updates an existing Google Trust target
+
+`--eab-key-id` and `--eab-hmac-key` are create-only bootstrap values. DNS-provider-specific flags such as `--hosted-zone`, `--dns-zone`, `--resource-group`, and `--gcp-project` are only relevant when `--acme-challenge=dns` and must match the provider used by `--dns-target-creds`.
+
+##### Usage
+
+```shell
+akeyless target update google-trust \
+--name <Target name> \
+--email <Email address for ACME account registration>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--google-trust-url[=production]`: Google Trust directory environment. Options: [`production`/`staging`]
+
+`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+
+`-e, --email`: **Required**, Email address for ACME account registration
+
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials
+
+`--hosted-zone`: AWS hosted-zone identifier for DNS validation
+
+`--dns-zone`: Cloudflare DNS zone identifier for DNS validation
+
+`--resource-group`: Azure resource group name for DNS validation
+
+`--gcp-project`: GCP project ID for DNS validation
+
+`--timeout[=5m]`: Timeout waiting for certificate validation
+
+`--new-name`: New target name
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
 
 #### `gke`
 
@@ -2130,11 +2461,99 @@ akeyless target update linked \
 
 `-s, --hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (that is `server-dev.com`;`My Dev server`, `server-prod.com`;`My Prod server description`)
 
+`--add-hosts`: A comma-separated list of new server hosts and server descriptions joined by a semicolon ';' that will be added to the Linked Target hosts (for example, `server-dev.com;My Dev server,server-prod.com;My Prod server description`).
+
+`--rm-hosts`: Comma-separated list of existing hosts that will be removed from Linked Target hosts.
+
 `-p, --parent-target-name`: The parent Target name from which to inherit credentials
 
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+#### `openai`
+
+Updates an existing OpenAI target in the current account
+
+##### Usage
+
+```shell
+akeyless target update openai \
+--name <Target name> \
+--new-name <New target name> \
+--openai-url <OpenAI API base URL> \
+--api-key <OpenAI API key> \
+--api-key-id <OpenAI API key ID> \
+--model <Default OpenAI model name> \
+--organization-id <OpenAI Organization ID>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`-u, --openai-url[=https://api.openai.com/v1]`: OpenAI API base URL
+
+`-a, --api-key`: OpenAI API key
+
+`-i, --api-key-id`: OpenAI API key ID
+
+`-m, --model`: Default OpenAI model name
+
+`-o, --organization-id`: OpenAI Organization ID
+
+`--description[=default_comment]`: Description of the object
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults.
+
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+
+#### `ping`
+
+Updates an existing Ping target in the current account
+
+##### Usage
+
+```shell
+akeyless target update ping \
+--name <Target name> \
+--new-name <New target name> \
+--ping-url <Ping URL> \
+--privileged-user <Ping Federate privileged user> \
+--password <Ping Federate privileged user password>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`-u, --ping-url`: **Required**, Ping URL
+
+`-s, --privileged-user`: **Required**, Ping Federate privileged user
+
+`-p, --password`: **Required**, Ping Federate privileged user password
+
+`-i, --administrative-port[=9999]`: Ping Federate administrative port
+
+`-j, --authorization-port[=9031]`: Ping Federate authorization port
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+
+`--description`: Description of the object
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults.
+
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 #### `rabbitmq`
 
@@ -2437,3 +2856,27 @@ akeyless target update zerossl \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+## `update-target`
+
+Update a target.
+
+### Usage
+
+```shell
+akeyless update-target \
+--name <Target name> \
+--new-name <New target name>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--description[=default_comment]`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]

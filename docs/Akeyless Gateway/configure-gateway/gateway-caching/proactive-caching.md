@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+
+<GatewayConfigManagementNote />
 Proactive caching preloads and refreshes cache entries in the background to reduce first-read latency.
 
 > ℹ️ **Note:**
