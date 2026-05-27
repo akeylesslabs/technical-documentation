@@ -202,9 +202,11 @@ akeyless auth-method create aws-iam \
 
 `--aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to
 
-`--sts-url[=https://sts.amazonaws.com]`: STS URL
+`--sts-url[=https://sts.amazonaws.com]`: STS URL. For `aws-us-gov` and `aws-cn`, set a partition-specific regional STS endpoint.
 
-`--bound-arn`: A list of full arns that the access is restricted to
+`--bound-arn`: A list of full arns that the access is restricted to. Use the ARN partition prefix that matches your environment (for example, `arn:aws:...`, `arn:aws-us-gov:...`, or `arn:aws-cn:...`).
+
+For partition support and endpoint examples, see [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws#aws-partition-support).
 
 `--bound-role-name`: A list of full role-name that the access is restricted to
 
@@ -764,8 +766,11 @@ akeyless auth-method update aws-iam \
 
 `-b, --bound-aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to
 
-`--sts-url[=https://sts.amazonaws.com]`: STS URL
-`--bound-arn`: A list of full arns that the access is restricted to
+`--sts-url[=https://sts.amazonaws.com]`: STS URL. For `aws-us-gov` and `aws-cn`, set a partition-specific regional STS endpoint.
+
+`--bound-arn`: A list of full arns that the access is restricted to. Use the ARN partition prefix that matches your environment (for example, `arn:aws:...`, `arn:aws-us-gov:...`, or `arn:aws-cn:...`).
+
+For partition support and endpoint examples, see [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws#aws-partition-support).
 
 `--bound-role-name`: A list of full role-name that the access is restricted to
 
