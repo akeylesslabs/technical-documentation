@@ -18,8 +18,6 @@ When a user is granted read access to a **USC** item, they can act using the per
 
 After connecting to your AWS Secret Manager source, you can manage all your secrets from Akeyless, including viewing, adding, updating, deleting, and [syncing secrets](https://docs.akeyless.io/docs/sync-secret).
 
-For larger migrations, sync can also be applied to an entire folder so that all supported secrets in that folder are synchronized through the selected Universal Secrets Connector.
-
 For AWS targets, Akeyless-initiated sync updates secret values while preserving existing AWS-side custom tags and description unless those fields are explicitly updated.
 
 The **USC** solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from AWS Secrets Manager. This is done automatically because Akeyless does not store a copy of the AWS secrets, ensuring that data residency and security policies remain untouched. The **USC** simply reflects them in real time, without requiring any changes on the AWS Secrets Manager endpoint.
