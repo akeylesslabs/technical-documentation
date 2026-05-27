@@ -36,8 +36,6 @@ This method ensures secure and efficient authentication across the network, maki
 
 Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
 
-Gateway service-to-service scope: This method is not listed in [Gateway Zero-Knowledge machine-identity mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
-
 ![Illustration for: The client presents the service ticket to the desired service server for authentication. This method ensures secure and efficient authentication across the network, making…](https://files.readme.io/8a44b2fd698958a43ad9423a017e54f6a5622c1a39655e83267b7a377dea49ec-User_Auth_Flow_2.png)
 
 ## Prerequisites

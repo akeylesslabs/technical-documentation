@@ -18,8 +18,6 @@ This standard provides secure delegated access. It means that an application can
 
 Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
 
-Gateway service-to-service scope: This method is not listed in [Gateway Zero-Knowledge machine-identity mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
-
 ## Create an OAuth2.0/JWT Authentication Method with the CLI
 
 Let's create a new OAuth2.0/JWT authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oauth-jwt#create-an-oauth20jwt-authentication-method-in-the-akeyless-console).)

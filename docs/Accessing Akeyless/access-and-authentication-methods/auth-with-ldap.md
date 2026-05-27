@@ -16,8 +16,6 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 
 Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
 
-Gateway service-to-service scope: This method is not listed in [Gateway Zero-Knowledge machine-identity mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
-
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with network access to an LDAP server.

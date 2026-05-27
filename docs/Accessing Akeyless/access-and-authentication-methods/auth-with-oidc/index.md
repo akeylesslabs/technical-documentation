@@ -17,8 +17,6 @@ next:
 
 Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
 
-Gateway service-to-service scope: This method is not listed in [Gateway Zero-Knowledge machine-identity mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
-
 ## Create an OIDC Authentication Method with the CLI
 
 Let's create a new OIDC authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oidc#create-an-oidc-authentication-method-in-the-console).)
