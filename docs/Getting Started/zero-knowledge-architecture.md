@@ -49,6 +49,53 @@ If a Customer Fragment (CF) is configured, Akeyless cannot complete cryptographi
 
 ***
 
+## Control-Boundary Model
+
+For regulated and high-control environments, Zero-Knowledge is best evaluated as a control-boundary model rather than a "SaaS versus on-premises" decision.
+
+Key boundaries:
+
+* **Execution boundary**: DFC operations execute without reconstructing full private keys.
+* **Control boundary**: CF-protected operations cannot complete without customer-side fragment participation.
+* **Network boundary**: Gateway is customer-deployed and can be restricted to private networks and approved routes.
+* **Policy boundary**: RBAC and Gateway Allowed Access controls determine which identities can invoke operations.
+
+This boundary model supports separation-of-duties, sovereignty, and operational control reviews.
+
+### Service-to-Service Flow (Conceptual)
+
+1. A workload authenticates with a machine identity.
+2. The workload sends the request through a customer-hosted Gateway.
+3. Akeyless validates identity and policy, then invokes the relevant DFC operation path.
+4. For CF-protected items, customer-side fragment participation is required.
+5. The operation result is returned to the workload.
+
+```mermaid
+flowchart LR
+  W[Workload / Service] -->|Machine identity auth| G[Customer-Hosted Gateway]
+  G -->|Authorized request| CP[Akeyless Control Plane]
+  CP -->|Invoke DFC path| FH[DFC Fragment Holders]
+  G -.CF participation for protected ops.-> FH
+  FH -->|Operation result| CP
+  CP -->|Response| G
+  G -->|Secret or crypto output| W
+```
+
+### Network Reachability Model
+
+A Customer Fragment controls cryptographic eligibility, not network topology.
+
+If a client can reach a Gateway, and that Gateway has the required Customer Fragment and policy permissions, that client can perform the allowed operation through that Gateway.
+
+Common segmentation patterns:
+
+* Place each Gateway on the private network for the environment it serves.
+* Limit which clients and services can reach each Gateway.
+* Restrict allowed access IDs at the Gateway layer.
+* Use different Gateways and Customer Fragments for separate trust boundaries.
+
+***
+
 ## Comparison to Storage-Based Vault Systems
 
 Traditional vaults:
@@ -81,6 +128,39 @@ The Akeyless Gateway provides access to private networks, closed environments, a
 The Gateway does not alter the Zero-Knowledge Encryption architecture; it only extends access to networks not reachable by the SaaS control plane.
 
 For implementation steps that use Customer Fragments with Gateway deployments, see [Gateway Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).
+
+***
+
+## Availability and Performance Behavior
+
+### Partition Behavior for CF-Protected Operations
+
+The following matrix summarizes expected behavior for common availability scenarios.
+
+| Scenario | Expected behavior |
+| --- | --- |
+| SaaS reachable, Customer Fragment available | CF-protected operations can complete when identity and policy checks pass. |
+| SaaS reachable, Customer Fragment unavailable | CF-protected operations cannot complete. |
+| SaaS unreachable, value present in cache | Cached read operations can still succeed according to runtime cache behavior. |
+| SaaS unreachable, value not present in cache | Operation fails. |
+| SaaS reachable, policy or allowed-access denies request | Operation is denied even when Customer Fragment is available. |
+
+### Latency Expectations
+
+Compared to non-CF flows, CF-protected operation paths can add processing and coordination overhead.
+
+Observed latency depends on deployment topology, network distance, cache strategy, and request mix. For repeated read patterns, runtime and proactive caching can reduce effective read latency.
+
+***
+
+## Decision Guide: CF and Non-CF
+
+Use this table to select an operating model based on control requirements and operational overhead.
+
+| Model | Use when | Operational tradeoffs |
+| --- | --- | --- |
+| Customer Fragment (CF) | Regulatory, contractual, or internal controls require customer-side participation for protected operations. | Strongest customer control boundary, plus additional setup and lifecycle management for fragment generation, secure backup, and deployment integration. |
+| Non-CF | Workloads need zero-knowledge architecture without customer-fragment enforcement requirements. | Simpler operations and rollout, but no customer-fragment participation gate for operation completion. |
 
 ***
 
