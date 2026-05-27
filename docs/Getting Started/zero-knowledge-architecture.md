@@ -14,14 +14,6 @@ Akeyless uses a Zero-Knowledge Encryption architecture to perform secret, key, a
 
 The architecture ensures that no complete secret or private key is ever present at rest within the platform.
 
-## How to Read This Page
-
-This page is organized as follows:
-
-* Model and execution: what Zero-Knowledge is and how operations run.
-* Boundaries and behavior: trust boundaries, network posture, availability, and performance expectations.
-* Decision and handoff: when to use CF versus non-CF and where implementation steps live.
-
 ## Zero-Knowledge Model
 
 Traditional vault systems maintain encrypted storage that contains secrets or private keys. Akeyless replaces this model with an execution-based approach built on Distributed Fragments Cryptography (DFC). In this model:
@@ -41,8 +33,6 @@ The result is an architecture where cryptographic operations occur without persi
 
 All identity operations—such as signing, encryption, decryption, or generating short-lived credentials—are completed without assembling full private key material at any stage of the workflow.
 
-***
-
 ## How Operations Execute
 
 When a client requests an operation (for example, retrieving a secret, generating a dynamic credential, or performing a signing operation):
@@ -54,8 +44,6 @@ When a client requests an operation (for example, retrieving a secret, generatin
 5. No reconstructed secret or private key is written to disk or retained after the operation.
 
 If a Customer Fragment (CF) is configured, Akeyless cannot complete cryptographic operations without the customer's involvement.
-
-***
 
 ## Trust and Control Boundaries
 
@@ -102,7 +90,14 @@ Common segmentation patterns:
 * Restrict allowed access IDs at the Gateway layer.
 * Use different Gateways and Customer Fragments for separate trust boundaries.
 
-***
+## Zero-Knowledge Decision Guide
+
+Use this guide to choose the model that matches required control boundaries, deployment complexity, and operational ownership.
+
+| Model | Best fit | Security and control outcome | Operational considerations |
+| --- | --- | --- | --- |
+| Customer Fragment (CF) | Regulatory, contractual, or internal requirements mandate customer-side participation in protected operations. | Strongest separation-of-control boundary; operations cannot complete without customer fragment participation. | Higher setup and lifecycle overhead for fragment generation, backup, rotation planning, and deployment integration. |
+| Non-CF | Teams need zero-knowledge cryptographic guarantees without customer-fragment enforcement in the request path. | Strong zero-knowledge execution model, but no customer-fragment participation gate. | Simpler rollout and day-to-day operations with reduced implementation overhead. |
 
 ## Why This Differs from Storage-Based Vaults
 
@@ -122,8 +117,6 @@ Under the Zero-Knowledge Encryption model:
 
 This changes the threat model: compromising the storage layer yields no useful data because none is kept there.
 
-***
-
 ## Gateway in the Architecture
 
 The Akeyless Gateway provides access to private networks, closed environments, and on-premises infrastructure. Its role is limited to communication and optional customer-fragment participation. The Gateway:
@@ -134,8 +127,6 @@ The Akeyless Gateway provides access to private networks, closed environments, a
 * Can be deployed in restricted, air-gapped, or isolated environments.
 
 The Gateway does not alter the Zero-Knowledge Encryption architecture; it only extends access to networks not reachable by the SaaS control plane.
-
-***
 
 ## Runtime Behavior
 
@@ -157,19 +148,6 @@ Compared to non-CF flows, CF-protected operation paths can add processing and co
 
 Observed latency depends on deployment topology, network distance, cache strategy, and request mix. For repeated read patterns, runtime and proactive caching can reduce effective read latency.
 
-***
-
-## Choosing CF or Non-CF
-
-Use this table to select an operating model based on control requirements and operational overhead.
-
-| Model | Use when | Operational tradeoffs |
-| --- | --- | --- |
-| Customer Fragment (CF) | Regulatory, contractual, or internal controls require customer-side participation for protected operations. | Strongest customer control boundary, plus additional setup and lifecycle management for fragment generation, secure backup, and deployment integration. |
-| Non-CF | Workloads need zero-knowledge architecture without customer-fragment enforcement requirements. | Simpler operations and rollout, but no customer-fragment participation gate for operation completion. |
-
-***
-
 ## Operational Impact
 
 Removing the storage layer eliminates several operational concerns:
@@ -180,8 +158,6 @@ Removing the storage layer eliminates several operational concerns:
 * Reduced exposure to storage compromise, disk forensics, or exfiltration attacks.
 
 Capacity planning focuses on request throughput rather than storage performance.
-
-***
 
 ## Security Properties
 
@@ -194,8 +170,6 @@ Key security properties of the Zero-Knowledge Encryption architecture include:
 * **Compartmentalization** — Compromise of any single component yields no usable key information.
 
 These properties reduce the exposure surface associated with stored-secret systems.
-
-***
 
 ## Implementation Handoff
 
