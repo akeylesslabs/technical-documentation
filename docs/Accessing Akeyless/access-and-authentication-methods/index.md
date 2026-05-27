@@ -1,5 +1,6 @@
 ---
 title: Authentication Methods
+slug: access-and-authentication-methods
 excerpt: ''
 deprecated: false
 hidden: false

@@ -1,5 +1,6 @@
 ---
 title: Setup
+slug: sra-setup
 excerpt: ''
 deprecated: false
 hidden: false

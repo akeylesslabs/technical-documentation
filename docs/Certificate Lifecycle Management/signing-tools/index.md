@@ -1,5 +1,6 @@
 ---
 title: Code Signing with Akeyless
+slug: signing-tools
 deprecated: false
 hidden: false
 metadata:

@@ -28,6 +28,13 @@ class FrontMatterViolation:
     path: str
     reason: str
 
+
+@dataclass
+class IndexSlugViolation:
+    path: str
+    reason: str
+
+
 @dataclass
 class ApiReferenceSuffixViolation:
     path: str
@@ -214,6 +221,65 @@ def validate_front_matter(path: Path) -> list[str]:
     return errors
 
 
+def get_front_matter_block(path: Path) -> str | None:
+    if not path.exists():
+        return None
+
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    front_matter_lines = split_front_matter(text)
+    if front_matter_lines is None:
+        return None
+
+    return "\n".join(front_matter_lines)
+
+
+def extract_front_matter_value(block: str, key: str) -> str | None:
+    match = re.search(rf"(?m)^{re.escape(key)}\s*:\s*(.+?)\s*$", block)
+    if not match:
+        return None
+
+    value = match.group(1).strip()
+    if not value:
+        return None
+
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
+        value = value[1:-1].strip()
+
+    return value or None
+
+
+def collect_index_slug_violations(changed_docs: list[str]) -> list[IndexSlugViolation]:
+    violations: list[IndexSlugViolation] = []
+
+    for filename in changed_docs:
+        file_path = Path(filename)
+        if file_path.name.lower() != "index.md":
+            continue
+
+        # Skip a repository-root index if present; this check targets section index pages.
+        if len(file_path.parts) < 3:
+            continue
+
+        block = get_front_matter_block(file_path)
+        if block is None:
+            # Front matter violations are reported separately.
+            continue
+
+        slug = extract_front_matter_value(block, "slug")
+        if not slug:
+            violations.append(
+                IndexSlugViolation(
+                    path=filename,
+                    reason=(
+                        "Nested index pages must define a non-empty 'slug' in front matter to keep URL"
+                        " and navigation mapping stable."
+                    ),
+                )
+            )
+
+    return violations
+
+
 def parse_order_entries(order_file: Path) -> tuple[list[str], list[str]]:
     if not order_file.exists():
         return [], ["Missing _order.yaml"]
@@ -337,6 +403,7 @@ def main() -> int:
     navigation_violations: list[NavigationViolation] = []
     required_order_file_violations = collect_required_order_file_violations(args.required_order_roots)
     api_reference_suffix_violations = collect_api_reference_suffix_violations(Path("reference") / "Akeyless API")
+    index_slug_violations = collect_index_slug_violations(changed_docs)
 
     order_files_to_validate: set[Path] = set()
 
@@ -431,6 +498,7 @@ def main() -> int:
         or uniq_navigation_violations
         or required_order_file_violations
         or api_reference_suffix_violations
+        or index_slug_violations
     )
 
     report = {
@@ -481,6 +549,13 @@ def main() -> int:
                 "reason": item.reason,
             }
             for item in sorted(api_reference_suffix_violations, key=lambda x: x.path)
+        ],
+        "index_slug_violations": [
+            {
+                "path": item.path,
+                "reason": item.reason,
+            }
+            for item in sorted(index_slug_violations, key=lambda x: x.path)
         ],
     }
 
@@ -544,6 +619,13 @@ def main() -> int:
             md_lines.append(f"- `{violation.path}`: {violation.reason}")
         md_lines.append("")
 
+    if index_slug_violations:
+        md_lines.append("## Nested Index Slug Violations")
+        md_lines.append("")
+        for violation in sorted(index_slug_violations, key=lambda x: x.path):
+            md_lines.append(f"- `{violation.path}`: {violation.reason}")
+        md_lines.append("")
+
     if (
         not uniq_duplicate_violations
         and not depth_violations
@@ -551,6 +633,7 @@ def main() -> int:
         and not uniq_navigation_violations
         and not required_order_file_violations
         and not api_reference_suffix_violations
+        and not index_slug_violations
     ):
         md_lines.append("No violations detected.")
         md_lines.append("")
@@ -560,7 +643,8 @@ def main() -> int:
     print(
         "failed={failed} duplicate_violations={dupes} depth_violations={depth} "
         "front_matter_violations={fm} navigation_violations={nav} "
-        "required_order_file_violations={order} api_reference_suffix_violations={api_suffix}".format(
+        "required_order_file_violations={order} api_reference_suffix_violations={api_suffix} "
+        "index_slug_violations={index_slug}".format(
             failed=failed,
             dupes=len(uniq_duplicate_violations),
             depth=len(depth_violations),
@@ -568,6 +652,7 @@ def main() -> int:
             nav=len(uniq_navigation_violations),
             order=len(required_order_file_violations),
             api_suffix=len(api_reference_suffix_violations),
+            index_slug=len(index_slug_violations),
         )
     )
 

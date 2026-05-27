@@ -1,5 +1,6 @@
 ---
 title: Configure Gateway
+slug: configure-gateway
 excerpt: ''
 deprecated: false
 hidden: false

@@ -1,5 +1,6 @@
 ---
 title: Gateway Caching
+slug: gateway-caching
 excerpt: ''
 deprecated: false
 hidden: false

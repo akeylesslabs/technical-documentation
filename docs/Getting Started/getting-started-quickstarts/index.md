@@ -1,5 +1,6 @@
 ---
 title: Quickstarts
+slug: getting-started-quickstarts
 deprecated: false
 hidden: false
 metadata:
