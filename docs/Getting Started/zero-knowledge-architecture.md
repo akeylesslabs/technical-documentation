@@ -92,7 +92,7 @@ Common segmentation patterns:
 
 ## Zero-Knowledge Decision Guide
 
-Use this guide to choose the model that matches required control boundaries, deployment complexity, and operational ownership.
+Use this table to choose the model that matches required control boundaries, deployment complexity, and operational ownership.
 
 | Model | Best fit | Security and control outcome | Operational considerations |
 | --- | --- | --- | --- |
@@ -171,7 +171,7 @@ Key security properties of the Zero-Knowledge Encryption architecture include:
 
 These properties reduce the exposure surface associated with stored-secret systems.
 
-## Implementation Handoff
+## Implementation
 
 The Akeyless Zero-Knowledge Encryption architecture removes the need for a secrets or key storage backend by executing operations through distributed cryptographic fragments, without storing or reconstructing complete private key material.
 
