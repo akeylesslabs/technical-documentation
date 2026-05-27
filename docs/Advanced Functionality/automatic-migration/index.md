@@ -1,5 +1,6 @@
 ---
 title: Automatic Migration
+slug: automatic-migration
 excerpt: ''
 deprecated: false
 hidden: false
@@ -144,6 +145,14 @@ To import secrets from HashiCorp Vault into Akeyless, you need to create a new a
 For migration from HashiCorp Vault Enterprise, the configuration of namespaces is available. A comma-separated list of namespaces must be imported into Akeyless. For every provided Namespace, all its child namespaces are imported as well.
 
 Akeyless supports migration from the `kv` storage engine of versions 1 and 2. For v2 migrations, up to `5`  versions of the secret will be migrated.
+
+For HashiCorp Vault KV v2 migrations, you can control how much metadata is migrated by selecting a metadata preservation mode:
+
+* `full`: Migrates the complete KV v2 metadata block (trimmed to the secret versions being migrated).
+* `minimal`: Migrates only the [custom metadata](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2#custom-metadata).
+* `none`: Migrates only secret values without KV v2 metadata.
+
+For more details, see [HashiCorp Vault Metadata Preservation Mode](https://docs.akeyless.io/docs/gateway-automatic-migration#hashicorp-vault-metadata-preservation-mode).
 
 For all supported engines the following prefix structure will be used: `<vault-namespace>/<vault secret engine name>`
 

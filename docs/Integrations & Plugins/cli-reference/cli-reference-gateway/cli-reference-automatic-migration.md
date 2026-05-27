@@ -52,6 +52,8 @@ akeyless gateway-create-migration \
 
 `--hashi-json=[true]`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
+`--delete-remote`: Delete objects from the source provider during cleanup (relevant only for HashiCorp Vault migration)
+
 `--hashi-metadata-mode[=full]`: Controls how much HashiCorp Vault KV v2 metadata is migrated with each secret value. Supported values: `full`, `minimal`, `none` (relevant only for HashiCorp Vault migration). See [HashiCorp Vault Metadata Preservation Mode](https://docs.akeyless.io/docs/gateway-automatic-migration#hashicorp-vault-metadata-preservation-mode) for details.
 
 `-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, for example, `arn:aws:secretsmanager:AWSregion:AWSAccountId:Secret:/path/to/secrets/*` (relevant only for AWS migration)
@@ -128,7 +130,15 @@ akeyless gateway-create-migration \
 
 `--ad-discover-services[=false]`: Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
 
-`--ad-discovery-types`: Set migration discovery types (domain-users, computers, local-users). To specify multiple types use argument multiple times: --ad-discovery-types domain-users --ad-discovery-types local-users. (Relevant only for Active Directory migration)
+`--ad-discovery-types`: Set migration discovery types (domain-users, computers, local-users, certificates). To specify multiple types use argument multiple times: --ad-discovery-types domain-users --ad-discovery-types local-users. (Relevant only for Active Directory migration)
+
+`--ai-certificate-discovery[=false]`: Enable/Disable AI-assisted certificate discovery (only when AI Insight is enabled on the Gateway). (Relevant only for Active Directory migration)
+
+`--ad-cert-expiration-event-in`: How many days before the expiration of discovered certificates would you like to be notified. To specify multiple events, use this argument multiple times: `--ad-cert-expiration-event-in 1 --ad-cert-expiration-event-in 5` (Relevant only for Active Directory migration)
+
+`--ad-certificates-path-template`: Path template for imported Active Directory certificates
+
+`--ad-discover-iis-app[=false]`: Discover IIS application bindings during Active Directory migration
 
 `--ad-sra-enable-rdp`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Active Directory migration)
 
@@ -154,6 +164,8 @@ akeyless gateway-create-migration \
 
 `--si-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration)
 
+`--si-user-groups`: Comma-separated list of user groups to migrate from Server Inventory (Relevant only for Server Inventory migration)
+
 `--si-sra-enable-rdp[=false]`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Server Inventory migration)
 
 `--si-auto-rotate`: Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with `--si-rotation-interval` and `--si-rotation-hour` Flags (Relevant only for Server Inventory migration)
@@ -162,37 +174,68 @@ akeyless gateway-create-migration \
 
 `--si-rotation-hour`: The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration)
 
-## `delete`
+## `gateway delete`
+
+Command to delete specified gateway configuration
+
+### `gateway-delete-migration`
 
 Delete migration
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway-delete-migration \
 --id <Migration ID> \
---gateway-url <API Gateway URL>:8000 
+--gateway-url <API Gateway URL>:8000
 ```
 
-## `get`
+#### Flags
+
+`-i, --id`: **Required**, Migration ID (can be retrieved with `gateway-list-migration`)
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+## `gateway get`
+
+Command to get specified gateway configuration
+
+### `gateway-get-migration`
 
 Get migrations
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway-get-migration \
 --name <Migration Name> \
---gateway-url <API Gateway URL>:8000 
+--gateway-url <API Gateway URL>:8000
 ```
 
-## `list`
+#### Flags
+
+`-n, --name`: **Required**, Migration name to display
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+## `gateway list`
+
+Command to list specified gateway configuration
+
+### `gateway-list-migration`
 
 List migrations
 
-### Flags
+#### Usage
 
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+```shell
+akeyless gateway-list-migration \
+--gateway-url <API Gateway URL>:8000
+```
+
+#### Flags
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
 ## `status`
 
@@ -277,6 +320,8 @@ akeyless gateway-update-migration \
 
 `--hashi-json='true'`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
+`--delete-remote`: Delete objects from the source provider during cleanup (relevant only for HashiCorp Vault migration)
+
 `--hashi-metadata-mode[=full]`: Controls how much HashiCorp Vault KV v2 metadata is migrated with each secret value. Supported values: `full`, `minimal`, `none` (relevant only for HashiCorp Vault migration). See [HashiCorp Vault Metadata Preservation Mode](https://docs.akeyless.io/docs/gateway-automatic-migration#hashicorp-vault-metadata-preservation-mode) for details.
 
 `-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, for example, `arn:aws:secretsmanager:[Region]:[AccountId]:secret:[/path/to/secrets/*]` (relevant only for AWS migration)
@@ -351,7 +396,15 @@ akeyless gateway-update-migration \
 
 `--ad-discover-services[=false]`: Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
 
-`--ad-discovery-types`: Set migration discovery types (domain-users, computers, local-users). To specify multiple types use argument multiple times: --ad-discovery-types domain-users --ad-discovery-types local-users. (Relevant only for Active Directory migration)
+`--ad-discovery-types`: Set migration discovery types (domain-users, computers, local-users, certificates). To specify multiple types use argument multiple times: --ad-discovery-types domain-users --ad-discovery-types local-users. (Relevant only for Active Directory migration)
+
+`--ai-certificate-discovery[=false]`: Enable/Disable AI-assisted certificate discovery (only when AI Insight is enabled on the Gateway). (Relevant only for Active Directory migration)
+
+`--ad-cert-expiration-event-in`: How many days before the expiration of discovered certificates would you like to be notified. To specify multiple events, use this argument multiple times: `--ad-cert-expiration-event-in 1 --ad-cert-expiration-event-in 5` (Relevant only for Active Directory migration)
+
+`--ad-certificates-path-template`: Path template for imported Active Directory certificates
+
+`--ad-discover-iis-app[=false]`: Discover IIS application bindings during Active Directory migration
 
 `--ad-sra-enable-rdp`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Active Directory migration)
 
@@ -376,6 +429,8 @@ akeyless gateway-update-migration \
 `--si-users-path-template`: Path location template for migrating users as Rotated Secrets, for example: .../Users/\{\{COMPUTER_NAME}}/\{\{USERNAME}} (Relevant only for Server Inventory migration)
 
 `--si-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration)
+
+`--si-user-groups`: Comma-separated list of user groups to migrate from Server Inventory (Relevant only for Server Inventory migration)
 
 `--si-sra-enable-rdp[=false]`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Server Inventory migration)
 

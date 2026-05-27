@@ -66,6 +66,8 @@ akeyless create-role --name <Role Name>
 
 `--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
 
+`--event-forwarders-name`: List of specific Event Forwarders this role can manage. Cannot be used together with `--event-forwarders-access`.
+
 `--isi-access`: Allow this role to access **Identity & Secrets Intelligence**. Currently only `none`, `scoped`, and `all` values are supported. For details, see [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence).
 
 `--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`own`', '`all`'.
@@ -136,10 +138,6 @@ akeyless describe-permissions \
 --type <Type of object (item, am, role, target)>
 ```
 
-## `describe-sub-claims`
-
-Get the sub-claims associated with the provided token or authentication profile
-
 ## `describe-role-am-assoc`
 
 Describe role association details
@@ -150,6 +148,10 @@ Describe role association details
 akeyless describe-role-am-assoc \
 --assoc-id <association-id>
 ```
+
+## `describe-sub-claims`
+
+Get the sub-claims associated with the provided token or authentication profile
 
 ## `get-role`
 
@@ -238,7 +240,7 @@ akeyless set-role-rule \
 
 `--ttl`: The time (in minutes) until the rule expires. If not used the rule will apply until manually removed
 
-`-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This replaces the `capability`, `path` and `rule-type`
+`-f, --file-rules`: Path to a JSON file that contains multiple rule-role settings. This replaces `capability`, `path`, and `rule-type`. Use `-f` or `--file-rules` (the current long-form flag name).
 
 ## `update-assoc`
 

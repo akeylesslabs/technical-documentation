@@ -1,5 +1,6 @@
 ---
 title: Kubernetes
+slug: auth-with-kubernetes
 excerpt: Kubernetes (K8s)
 deprecated: false
 hidden: false

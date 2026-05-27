@@ -331,6 +331,10 @@ To exclude specific cipher suites, use the `EXCLUDE_CIPHER_SUITES` variable with
 
 With the following parameters, you can mount the TLS certificate and the TLS private key from the present working directory to the Gateway target directory:
 
+> ⚠️ **Warning:**
+>
+> Use mounted TLS certificate and key files only for initial bootstrap when required. For ongoing Gateway configuration updates, use the [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) or the [Akeyless CLI](https://docs.akeyless.io/docs/cli-reference-gateway) to reduce configuration drift and avoid TLS misconfiguration.
+
 * `-v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-api-cert.crt`
 
 * `-v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key`

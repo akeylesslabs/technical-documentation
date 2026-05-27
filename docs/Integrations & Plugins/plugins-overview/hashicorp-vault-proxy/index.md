@@ -1,5 +1,6 @@
 ---
 title: HashiCorp Vault Proxy
+slug: hashicorp-vault-proxy
 excerpt: HashiCorp Vault Proxy
 deprecated: false
 hidden: false
@@ -26,6 +27,16 @@ Benefits:
 Interaction with the Akeyless vault proxy can be done against our public endpoint: `https://hvp.akeyless.io`
 
 Or directly through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) on port `8200`.
+
+## Related Pages
+
+Use the following pages for HashiCorp Vault Proxy integrations and configuration details:
+
+* [GitHub Actions by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/github-actions-hvp)
+* [HashiCorp Vault Proxy Authentication Methods](https://docs.akeyless.io/docs/vault-proxy-authentication-methods)
+* [Vault Proxy Dynamic Secrets](https://docs.akeyless.io/docs/dynamic-secrets)
+* [Jenkins Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/jenkins-plugin-via-hvp)
+* [TeamCity Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/teamcity-hcv-plugin)
 
 ## Usage
 

@@ -1,5 +1,6 @@
 ---
 title: Docker Compose (Gateway + SRA)
+slug: sra-docker
 excerpt: ''
 deprecated: false
 hidden: false

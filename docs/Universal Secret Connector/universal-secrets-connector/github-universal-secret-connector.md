@@ -7,6 +7,8 @@ metadata:
 ---
 This page discusses the creation of GitHub [Universal Secrets Connectors](https://docs.akeyless.io/docs/universal-secrets-connector). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, as they have varying parameters.
 
+In environments using Multi-Vault Governance (MVG), GitHub USC is surfaced as the MVG item for GitHub repository secret management.
+
 Unlike other **USCs**, GitHub does not let you view secret values outside GitHub. With this USC, you can **create new secrets**, **update existing secrets**, and **delete secrets** in the repository.
 
 GitHub USC setup and management has 3 scopes:

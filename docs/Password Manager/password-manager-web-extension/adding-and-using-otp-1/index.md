@@ -1,5 +1,6 @@
 ---
 title: Adding and Using One-Time Passwords
+slug: adding-and-using-otp-1
 excerpt: ''
 deprecated: false
 hidden: false
