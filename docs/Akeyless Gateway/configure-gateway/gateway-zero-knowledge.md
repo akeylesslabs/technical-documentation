@@ -17,95 +17,18 @@ next:
 
 <GatewayConfigManagementNote />
 
-Gateway Zero-Knowledge allows organizations to use Akeyless as a managed identity security platform while retaining customer-enforced cryptographic control for protected operations.
+Gateway Zero-Knowledge implementation enables customer-fragment participation for protected Gateway operations.
 
-For regulated industries, this is best evaluated as a control-boundary model rather than a "SaaS versus on-premises" decision:
+For architecture concepts, threat model, and distributed cryptographic workflow details, see [Zero-Knowledge Encryption SaaS Architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) and [DFC Deep Dive](https://docs.akeyless.io/docs/dfc-deep-dive).
 
-* Akeyless can authenticate and authorize requests, but it cannot unilaterally complete Customer Fragment (CF)-protected operations.
-* CF-protected operations require customer-side fragment participation.
-* Gateway is customer-hosted and customer-operated as the network bridge into private environments.
+Use this page for implementation tasks:
 
-This model supports reviews for separation of duties, data sovereignty, and execution control.
-
-## How It Works
-
-Gateway Zero-Knowledge is based on [Distributed Fragments Cryptography (DFC)](https://docs.akeyless.io/docs/dfc-overview), where full private key material is not reconstructed on a single service component.
-
-For architecture-level context, see [Zero-Knowledge Encryption SaaS Architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) and [DFC Deep Dive](https://docs.akeyless.io/docs/dfc-deep-dive).
-
-### Trust and Control Model
-
-* **Execution boundary:** DFC operations execute without reconstructing full private keys.
-* **Control boundary:** CF-protected operations cannot complete without customer-side fragment participation.
-* **Network boundary:** Gateway is customer-deployed and can be limited to private networks and approved routes.
-* **Policy boundary:** RBAC and Gateway Allowed Access controls determine which identities can invoke operations.
-
-### Service-to-Service Flow (Example)
-
-1. A workload authenticates with a machine identity.
-2. The workload sends a request through the customer-hosted Gateway.
-3. Akeyless validates identity and policy, then invokes the relevant DFC operation path.
-4. For CF-protected items, Gateway-side Customer Fragment participation is required.
-5. The operation result is returned to the workload.
-
-```mermaid
-flowchart LR
-  W[Workload / Service] -->|Machine identity auth| G[Customer-Hosted Gateway]
-  G -->|Authorized request| CP[Akeyless Control Plane]
-  CP -->|Invoke DFC path| FH[DFC Fragment Holders]
-  G -.CF participation for protected ops.-> FH
-  FH -->|Operation result| CP
-  CP -->|Response| G
-  G -->|Secret or crypto output| W
-```
-
-### Network Reachability Model
-
-A Customer Fragment controls cryptographic eligibility, not network topology.
-
-If a client can reach a Gateway, and that Gateway has the required Customer Fragment and policy permissions, that client can perform the allowed operation through that Gateway.
-
-To reduce exposure across environments:
-
-* Place each Gateway on the private network for the environment it serves.
-* Limit which clients and services can reach each Gateway.
-* Restrict allowed access IDs at the Gateway layer. For details, see [Restrict Gateway Access](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#restrict-gateway-access).
-* Use different Gateways and Customer Fragments for separate trust boundaries.
-
-### Caching Behavior in Zero-Knowledge Context
-
-When Gateway caching is enabled, the Gateway can temporarily cache secret values in customer-controlled memory or Redis cache layers.
-
-This does not change DFC control boundaries. For cache behavior details, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) and [Runtime Caching](https://docs.akeyless.io/docs/runtime-caching).
-
-### Partition Behavior for CF-Protected Operations
-
-The following matrix summarizes expected behavior for common availability scenarios.
-
-| Scenario | Expected behavior |
-| --- | --- |
-| SaaS reachable, Customer Fragment available | CF-protected operations can complete when identity and policy checks pass. |
-| SaaS reachable, Customer Fragment unavailable | CF-protected operations cannot complete. |
-| SaaS unreachable, value present in cache | Cached read operations can still succeed according to runtime cache behavior. |
-| SaaS unreachable, value not present in cache | Operation fails. |
-| SaaS reachable, policy or allowed-access denies request | Operation is denied even when Customer Fragment is available. |
-
-### Latency and Performance Expectations
-
-Compared to non-CF flows, CF-protected operation paths can add processing and coordination overhead.
-
-Observed latency impact depends on deployment topology, network distance, cache strategy, and request mix. For many repeated read patterns, runtime and proactive caching can reduce effective read latency.
-
-For cache-driven latency controls, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) and [Runtime Caching](https://docs.akeyless.io/docs/runtime-caching).
-
-## Decision Guide: CF and Non-CF
-
-Use this table to select the operating model based on control requirements and operational overhead.
-
-| Model | Use when | Operational tradeoffs |
-| --- | --- | --- |
-| Customer Fragment (CF) | Regulatory, contractual, or internal controls require customer-side participation for protected operations. | Strongest customer control boundary, plus additional setup and lifecycle management for fragment generation, secure backup, and deployment integration. |
-| Non-CF | Workloads need standard zero-knowledge architecture without customer-fragment enforcement requirements. | Simpler operations and rollout, but no customer-fragment participation gate for operation completion. |
+* Prepare prerequisites.
+* Generate and back up a Customer Fragment.
+* Attach the Customer Fragment to Gateway deployment.
+* Create DFC keys with Customer Fragment binding.
+* Configure machine-identity authentication for Gateway service-to-service flows.
+* Validate and troubleshoot deployment behavior.
 
 ## Prerequisites
 

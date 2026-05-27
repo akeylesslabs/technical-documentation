@@ -80,6 +80,8 @@ The Akeyless Gateway provides access to private networks, closed environments, a
 
 The Gateway does not alter the Zero-Knowledge Encryption architecture; it only extends access to networks not reachable by the SaaS control plane.
 
+For implementation steps that use Customer Fragments with Gateway deployments, see [Gateway Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).
+
 ***
 
 ## Operational Considerations
