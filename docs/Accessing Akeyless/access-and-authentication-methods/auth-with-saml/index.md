@@ -17,8 +17,6 @@ SAML authentication lets users sign in to Akeyless through an external Identity 
 
 This page explains how to create and use a SAML Authentication Method in Akeyless for browser-based sign-in and single sign-on (SSO) flows.
 
-Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
-
 ## Creating a SAML Authentication Method
 
 This action is distinct from creating a new Akeyless account: it creates an additional SAML-based authentication method for an existing account.

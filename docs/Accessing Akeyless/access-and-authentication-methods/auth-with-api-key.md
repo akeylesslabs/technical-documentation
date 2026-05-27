@@ -18,8 +18,6 @@ API key authentication allows users and workloads to authenticate to Akeyless us
 
 API key authentication is intended for **programmatic access** and is not recommended for direct interactive Console sign-in.
 
-Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
-
 ![Flow diagram for API key authentication in Akeyless, showing Access ID and Access Key based authentication.](https://files.readme.io/574347a-API_key_auth.png)
 
 <ApiKeyWarning />

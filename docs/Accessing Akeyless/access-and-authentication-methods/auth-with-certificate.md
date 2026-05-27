@@ -18,8 +18,6 @@ This method is most often used for **machine-to-machine** authentication, where 
 
 Two modes can be used for authentication:
 
-Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
-
 * **CLI** / **UI**: In this mode, you only need to provide the `location` or `data` of the certificate and the matching private key locally.
 
 * **SDK**: In this mode, to verify possession of the client private key, either the private key is sent to the Akeyless Gateway to verify the certificate challenge, or you can perform the certificate verification challenge [manually](https://docs.akeyless.io/docs/auth-with-certificate), which lets you avoid transmitting the private key to the Gateway.
