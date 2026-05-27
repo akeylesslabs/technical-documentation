@@ -270,7 +270,7 @@ For Gateway-specific access delegation controls, see [Gateway Authentication and
 
 Symptoms include missing fragment errors during CF-protected operations or deployment startup warnings.
 
-Checks:
+Check these items:
 
 * Docker: confirm `customer_fragments.json` is mounted to `/home/akeyless/.akeyless/customer_fragments.json`.
 * Helm: confirm the referenced secret exists and includes key name `customer-fragments`.
@@ -280,7 +280,7 @@ Checks:
 
 Symptoms include denied Gateway management actions or inability to complete required operations.
 
-Checks:
+Check these items:
 
 * Confirm the active identity is included in Gateway Allowed Access policy.
 * Confirm required Gateway permissions are assigned for the intended operation scope.
@@ -290,7 +290,7 @@ Checks:
 
 Symptoms include authentication failures at Gateway startup or request-time authorization errors.
 
-Checks:
+Check these items:
 
 * Confirm auth method type matches deployment configuration (for example `access_key`, cloud IAM, certificate, or universal identity).
 * Confirm required credentials, secrets, or certificates are present and mapped to expected configuration keys.
