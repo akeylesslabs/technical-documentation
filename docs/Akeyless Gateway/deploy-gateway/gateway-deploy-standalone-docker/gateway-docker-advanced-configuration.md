@@ -172,8 +172,6 @@ ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy"
 
 In the above example, your Gateway **Admins** are `test01@testhost.com`, `test02@testhost.com`, or any user who is part of your `Devops` group in your **IdP**, where `test03@testhost.com` has permission to manage **only** your Gateway [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings.
 
-Full list of available permissions:
-
 For the complete and current list, see [Gateway Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
 
 > ℹ️ **Note:**

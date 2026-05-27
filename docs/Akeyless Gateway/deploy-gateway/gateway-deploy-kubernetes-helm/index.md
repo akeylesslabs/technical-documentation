@@ -421,8 +421,6 @@ kubectl create secret generic allowed-permissions \
 
 Set the name of the secret `allowed-permissions` under `allowedAccessPermissionsExistingSecret` where the key has to be `allowed-access-permissions`.
 
-Full list of available permissions:
-
 For the complete and current list, see [Gateway Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
 
 > ℹ️ **Note:**

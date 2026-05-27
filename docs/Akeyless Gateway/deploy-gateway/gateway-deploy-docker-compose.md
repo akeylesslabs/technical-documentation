@@ -149,8 +149,6 @@ To delegate the exact permissions users will have on your Gateway components you
 
 In the above example, your Gateway **Admins** are `test01@testhost.com,test01@testhost.com` or any user which is part of your `Devops` group in your **IdP**, where `test03@testhost.com` have permission to manage **only** your Gateway [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings.
 
-Full list of available permissions:
-
 For the complete and current list, see [Gateway Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
 
 > ℹ️ **Note:**
