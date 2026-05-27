@@ -63,14 +63,6 @@ AWS service and region availability changes over time. To keep your deployment p
 * **AWS services by Region:** See [AWS Services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 * **Compute service catalog:** See [AWS Compute Services](https://aws.amazon.com/products/compute/).
 
-You can also list the Regions available to your account with the AWS CLI:
-
-```shell
-aws account list-regions \
-  --region-opt-status-contains ENABLED_BY_DEFAULT ENABLED \
-  --query Regions[*].RegionName
-```
-
 ![AWS IAM role-based authentication flow for obtaining an Akeyless token.](https://files.readme.io/c1f9c5b-Role_new_design.png)
 
 ## Creating an AWS IAM Authentication Method
