@@ -37,6 +37,19 @@ Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your
 * Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
 * Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
 
+### Runner Trust and Debugging
+
+When the workflow connects to an Akeyless Gateway over TLS, the GitHub runner must trust the Gateway certificate chain before the action can start authentication. If the runner does not already trust that chain, store the PEM-encoded CA certificate in a GitHub secret such as `AKEYLESS_CA_CERTIFICATE` and pass it through the action's `ca-certificate` input.
+
+For troubleshooting, set `ACTIONS_STEP_DEBUG=true` to enable step-level GitHub Actions debug logs. Add `ACTIONS_RUNNER_DEBUG=true` when you also need runner-level diagnostic output.
+
+```yaml
+steps:
+  - name: Enable GitHub Actions step debug logging
+    run: |
+      echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+```
+
 ## Authentication
 
 This Action plugin supports the following Authentication Methods:
@@ -50,7 +63,7 @@ This Action plugin supports the following Authentication Methods:
 * [Access Key](https://docs.akeyless.io/docs/auth-with-api-key)
 * [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
 
-### GitHub Repository Variable
+### GitHub Variables and Secrets
 
 You can store the `Access ID` as a GitHub variable inside the repository to use in your workflow.
 
@@ -167,17 +180,6 @@ For example: `repository=octo-org/octo-repo` where `octo-org = {GitHub Account}`
 ## Usage
 
 The workflow examples use placeholder values. Replace them with your own Akeyless paths, authentication values, and cloud settings before running in production.
-
-### Debug Logging
-
-Set `ACTIONS_STEP_DEBUG=true` in the workflow environment when you need step-level GitHub Actions debug logs while troubleshooting the Akeyless action. Add `ACTIONS_RUNNER_DEBUG=true` when you also need runner-level diagnostic output.
-
-```yaml
-steps:
-  - name: Enable GitHub Actions step debug logging
-    run: |
-      echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
-```
 
 > ℹ️ **Note (Zero-Knowledge Encryption):**
 >
