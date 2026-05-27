@@ -8,6 +8,8 @@ metadata:
   description: ''
   robots: index
 ---
+
+<GatewayConfigManagementNote />
 Use this page to configure how administrators authenticate to Akeyless Gateway and how permissions are delegated to additional users.
 
 ## What This Configuration Controls

@@ -1,5 +1,6 @@
 ---
 title: Overview
+slug: certificate-lifecycle-management
 excerpt: ''
 deprecated: false
 hidden: false

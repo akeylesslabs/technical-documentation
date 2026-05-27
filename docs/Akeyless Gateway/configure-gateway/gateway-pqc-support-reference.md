@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+
+<GatewayConfigManagementNote />
 Akeyless implements hybrid post-quantum cryptography (PQC) for TLS connections between clients and both the Akeyless SaaS platform and Akeyless Gateway deployments. This page provides the cryptographic profile, coverage matrix, and verification steps for compliance and operational reference.
 
 ## Cryptography Profile

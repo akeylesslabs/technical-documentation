@@ -1,5 +1,6 @@
 ---
 title: TDE
+slug: tde
 excerpt: Transparent Data Encryption (TDE)
 deprecated: false
 hidden: false

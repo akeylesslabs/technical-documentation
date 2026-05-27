@@ -1,5 +1,6 @@
 ---
 title: Session Management
+slug: sra-session-management
 excerpt: ''
 deprecated: false
 hidden: false

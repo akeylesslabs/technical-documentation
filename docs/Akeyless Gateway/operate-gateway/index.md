@@ -1,5 +1,6 @@
 ---
 title: Operate Gateway
+slug: operate-gateway
 excerpt: ''
 deprecated: false
 hidden: false

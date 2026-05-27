@@ -1,5 +1,6 @@
 ---
 title: Supported Resource Types
+slug: sra-resource-types
 excerpt: ''
 deprecated: false
 hidden: false

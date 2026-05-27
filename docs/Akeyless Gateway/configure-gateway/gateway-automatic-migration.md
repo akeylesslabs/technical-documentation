@@ -8,6 +8,8 @@ metadata:
   description: ''
   robots: index
 ---
+
+<GatewayConfigManagementNote />
 Use this page to configure and operate automatic migration workflows through Akeyless Gateway.
 
 ## What Automatic Migration Does
