@@ -41,6 +41,8 @@ Use this page as the single reference for Gateway access permissions used in `al
 | `targets` | Targets | Manage target-related operations through the Gateway. |
 | `zero_knowledge_encryption` | Zero Knowledge Encryption | Manage [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) Gateway settings. |
 
+Console behavior note: in the current custom permission multi-select UI, `admin` and `general` are intentionally excluded for backward compatibility.
+
 ## Permission Scope Behavior
 
 Administrative operations for Gateway allowed access management require `admin` permission.
