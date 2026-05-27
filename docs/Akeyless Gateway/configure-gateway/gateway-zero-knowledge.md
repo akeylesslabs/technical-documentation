@@ -217,8 +217,6 @@ For full platform setup flows, see [Kubernetes with Helm Deployment](https://doc
 
 ### Create Zero Knowledge Key from the Akeyless CLI
 
-For command parameters and additional examples, see [CLI Reference: create-dfc-key](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-dfc-key).
-
 ```shell
 akeyless create-dfc-key --name MyKeyWithMyCF --alg AES256GCM -f <customer-fragment-id>
 ```
@@ -228,6 +226,8 @@ Where:
 * `name`: DFC key name.
 * `alg`: DFC key algorithm.
 * `customer-frg-id`: Customer Fragment ID used for the DFC key.
+
+For command parameters and additional examples, see [CLI Reference: create-dfc-key](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-dfc-key).
 
 Example output:
 
@@ -250,7 +250,9 @@ Set a default encryption key in Gateway configuration when all newly created ite
 
 ## Machine Identity Authentication Mapping
 
-Use this mapping for service-to-service implementation planning:
+This section lists the supported machine-identity authentication methods for Gateway Zero-Knowledge service-to-service flows.
+
+Use this mapping to select a supported method and jump to the corresponding implementation guidance:
 
 | Method | Typical workload context | Implementation reference |
 | --- | --- | --- |
