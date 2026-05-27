@@ -252,6 +252,8 @@ Set a default encryption key in Gateway configuration when all newly created ite
 
 This section lists the supported machine-identity authentication methods for Gateway Zero-Knowledge service-to-service flows.
 
+Authentication methods not listed in this mapping are outside this Gateway service-to-service scope.
+
 Use this mapping to select a supported method and jump to the corresponding implementation guidance:
 
 | Method | Typical workload context | Implementation reference |

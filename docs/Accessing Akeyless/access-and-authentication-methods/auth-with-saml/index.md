@@ -19,6 +19,8 @@ This page explains how to create and use a SAML Authentication Method in Akeyles
 
 Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) for authorized identity access and management flows.
 
+Gateway Zero-Knowledge scope: This authentication method is not listed for Gateway machine-identity service-to-service flows. For supported Gateway service-to-service methods, see [Gateway Zero-Knowledge: Machine Identity Authentication Mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
+
 ## Creating a SAML Authentication Method
 
 This action is distinct from creating a new Akeyless account: it creates an additional SAML-based authentication method for an existing account.

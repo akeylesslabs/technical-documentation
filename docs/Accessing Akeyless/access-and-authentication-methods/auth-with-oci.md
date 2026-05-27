@@ -14,6 +14,8 @@ next:
 
 Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) when identity permissions and, where applicable, Gateway access policies allow the requested operation.
 
+Gateway Zero-Knowledge scope: OCI IAM is not listed for Gateway machine-identity service-to-service flows. For supported Gateway service-to-service methods, see [Gateway Zero-Knowledge: Machine Identity Authentication Mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
+
 ## Configuration
 
 To authenticate **OCI** resources to Akeyless, the following configuration is required:
