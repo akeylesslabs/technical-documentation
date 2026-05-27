@@ -37,11 +37,17 @@ AWS IAM authentication support depends on whether the runtime can provide AWS IA
 | Deployment pattern | Support status | Notes |
 | --- | --- | --- |
 | Amazon EC2 | Supported | Uses the instance profile role through the Instance Metadata Service. If IMDSv2 is enabled, ensure the hop limit is compatible with your runtime path. |
-| Amazon EC2 Outposts | Supported | Same IAM and Instance Metadata Service model as EC2. Ensure network routing allows access to Akeyless and the selected STS endpoint for the partition. |
-| AWS Snow Family | Conditionally supported | Supported when the workload can reach Akeyless and STS from the Snow environment. Disconnected or fully offline scenarios are not supported for AWS IAM authentication. |
 | Amazon EKS | Supported | Use node IAM role or IRSA (IAM role for service account). Ensure the pod can access IAM credentials and STS. |
-| Amazon ECS | Supported | Use task IAM role credentials provided to the task runtime. |
-| AWS Fargate | Supported | Supported for ECS and EKS Fargate profiles when task/pod IAM role credentials are available to the workload. |
+| Amazon ECS | Supported (credential-path compatible) | Uses standard AWS SDK credential resolution. Ensure task IAM role credentials are available to the runtime and STS is reachable. |
+| AWS Fargate | Supported (credential-path compatible) | Applies to Amazon ECS and Amazon EKS Fargate profiles when task or pod IAM role credentials are available to the runtime. |
+| Amazon EC2 Outposts | Expected compatible | Uses the same IAM and metadata model as EC2. Validate endpoint routing and STS reachability in your Outposts network design. |
+| AWS Snow Family | Conditionally supported | Supported when the workload can reach Akeyless and STS from the Snow environment. Disconnected or fully offline scenarios are not supported for AWS IAM authentication. |
+
+Support status definitions:
+
+* **Supported**: Explicitly validated in Akeyless code paths and tests for AWS IAM cloud identity and STS signing behavior.
+* **Supported (credential-path compatible)**: Uses the same AWS SDK credential flow used by validated scenarios, but without a scenario-specific test in this repository.
+* **Expected compatible**: Architecture is expected to work with the same IAM/STS model, but scenario-specific validation is environment-dependent.
 
 ### AWS Scope and Coverage Sources
 
