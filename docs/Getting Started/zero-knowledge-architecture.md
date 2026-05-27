@@ -74,7 +74,7 @@ This changes the threat model: compromising the storage layer yields no useful d
 The Akeyless Gateway provides access to private networks, closed environments, and on-premises infrastructure. Its role is limited to communication and optional customer-fragment participation. The Gateway:
 
 * Does not store secrets or cryptographic fragments.
-* May cache **non-sensitive metadata** for performance, but never key material or secret values.
+* Can cache secret values and metadata in customer-controlled cache layers when caching is enabled, but never stores full private keys or cryptographic fragments.
 * Remains stateless with respect to sensitive data.
 * Can be deployed in restricted, air-gapped, or isolated environments.
 
