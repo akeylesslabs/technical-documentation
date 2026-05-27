@@ -154,7 +154,12 @@ Use the minimum permissions required for each operational role.
 | `caching` | Manage cache and offline behavior settings. |
 | `event_forwarding` | Manage [Event Forwarding](https://docs.akeyless.io/docs/event-center) settings. |
 | `ldap_auth` | Manage [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) authentication configuration for the Gateway. |
+| `kerberos_auth` | Manage Kerberos authentication configuration for the Gateway. |
 | `k8s_auth` | Manage [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) authentication configuration for the Gateway. |
+| `sra_config` | Manage Secure Remote Access (SRA) Gateway configuration. |
+| `hsm` | Manage Gateway HSM integration settings. |
+| `acme` | Manage Gateway ACME configuration and workflows. |
+| `sdr` | Manage Gateway SDR scanner configuration and operations. |
 | `kmip` | Manage KMIP service configuration. |
 | `general` | Manage general Gateway settings, including URL and TLS behavior. |
 
