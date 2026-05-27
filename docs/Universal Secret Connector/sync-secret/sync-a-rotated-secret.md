@@ -30,7 +30,11 @@ Where:
 
 * `usc-name`: The name of the Universal Secret Connector.
 
-* `remote-secret-name`: Remote Secret Name that will be created on the remote endpoint. If the secret already exists, the sync will override its value and tags.
+* `remote-secret-name`: Remote Secret Name that will be created on the remote endpoint. If the secret already exists, sync updates the secret value.
+
+> ℹ️ **Note (AWS metadata):**
+>
+> For AWS Universal Secrets Connector, Akeyless-initiated sync keeps existing AWS-side custom tags and description unless those fields are explicitly updated.
 
 * `filter-secret-value`: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` and so on.
 
