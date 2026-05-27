@@ -18,9 +18,9 @@ Email authentication allows human users to authenticate directly to the Akeyless
 
 Email authentication is intended for **interactive human access** and is not recommended for machine or workload authentication.
 
-Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) for authorized identity access and management flows.
+Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
 
-Gateway Zero-Knowledge scope: This authentication method is not listed for Gateway machine-identity service-to-service flows. For supported Gateway service-to-service methods, see [Gateway Zero-Knowledge: Machine Identity Authentication Mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
+Gateway service-to-service scope: This method is not listed in [Gateway Zero-Knowledge machine-identity mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
 
 ## Creating an Email Authentication Method
 

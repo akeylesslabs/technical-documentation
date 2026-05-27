@@ -13,7 +13,7 @@ metadata:
 
 The Akeyless Universal Identity (UID) authentication method enables you to identify your machines without the need for an initial secret. This authentication method solves the **secret zero** problem by providing an inherited identity derived from the parent system together with a temporary token for continuous authentication.
 
-Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) when identity permissions and, where applicable, Gateway access policies allow the requested operation.
+Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
 
 The following diagram describes the flow of credentials when using UID tokens, demonstrating the elimination of the secret zero problem:
 

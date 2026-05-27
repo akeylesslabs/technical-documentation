@@ -18,7 +18,7 @@ This method is most often used for **machine-to-machine** authentication, where 
 
 Two modes can be used for authentication:
 
-Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) when identity permissions and, where applicable, Gateway access policies allow the requested operation.
+Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
 
 * **CLI** / **UI**: In this mode, you only need to provide the `location` or `data` of the certificate and the matching private key locally.
 

@@ -14,9 +14,9 @@ next:
 ---
 The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) uses an existing LDAP server to authenticate your users without sharing their credentials directly with Akeyless or any other third party. The [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) interacts directly with your LDAP server inside your internal network, acting as an internal trusted server, to ensure safe communication.
 
-Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) for authorized identity access and management flows.
+Zero-Knowledge support: Supported with the Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture).
 
-Gateway Zero-Knowledge scope: This authentication method is not listed for Gateway machine-identity service-to-service flows. For supported Gateway service-to-service methods, see [Gateway Zero-Knowledge: Machine Identity Authentication Mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
+Gateway service-to-service scope: This method is not listed in [Gateway Zero-Knowledge machine-identity mapping](https://docs.akeyless.io/docs/gateway-zero-knowledge#machine-identity-authentication-mapping).
 
 ## Prerequisites
 
