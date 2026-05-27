@@ -141,6 +141,8 @@ This is only part of the `YAML` action. More complete examples are given in the 
               key: "imp"
 ```
 
+Use `ca-certificate` when the workflow connects to a Gateway over TLS and the GitHub runner does not already trust the certificate chain. The runner must trust the Gateway certificate before the action can start authentication. Store the PEM-encoded CA certificate in a GitHub secret such as `AKEYLESS_CA_CERTIFICATE`, then pass that secret to `ca-certificate`.
+
 > ⚠️ **Warning:**
 >
 > For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
@@ -165,6 +167,17 @@ For example: `repository=octo-org/octo-repo` where `octo-org = {GitHub Account}`
 ## Usage
 
 The workflow examples use placeholder values. Replace them with your own Akeyless paths, authentication values, and cloud settings before running in production.
+
+### Debug Logging
+
+Set `ACTIONS_STEP_DEBUG=true` in the workflow environment when you need step-level GitHub Actions debug logs while troubleshooting the Akeyless action. Add `ACTIONS_RUNNER_DEBUG=true` when you also need runner-level diagnostic output.
+
+```yaml
+steps:
+  - name: Enable GitHub Actions step debug logging
+    run: |
+      echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+```
 
 > ℹ️ **Note (Zero-Knowledge Encryption):**
 >
