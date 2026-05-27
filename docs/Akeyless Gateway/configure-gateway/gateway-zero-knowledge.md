@@ -127,6 +127,8 @@ Use the following sequence to implement Gateway Zero-Knowledge across interfaces
 akeyless gen-customer-fragment --name <CF-Name> --description MyFirstCF --json
 ```
 
+For command parameters and additional examples, see [CLI Reference: gen-customer-fragment](https://docs.akeyless.io/docs/cli-reference-encryption-keys#gen-customer-fragment).
+
 Example output:
 
 ```json
@@ -215,6 +217,8 @@ For full platform setup flows, see [Kubernetes with Helm Deployment](https://doc
 
 ### Create Zero Knowledge Key from the Akeyless CLI
 
+For command parameters and additional examples, see [CLI Reference: create-dfc-key](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-dfc-key).
+
 ```shell
 akeyless create-dfc-key --name MyKeyWithMyCF --alg AES256GCM -f <customer-fragment-id>
 ```
@@ -231,9 +235,9 @@ Example output:
 A new AES256GCM key named MyKeyWithMyCF was successfully created
 ```
 
-### Step 4: Set a Default Encryption Key in Gateway
+### Step 4 (Optional): Set a Default Encryption Key in Gateway
 
-To enforce Gateway-mediated zero-knowledge by default for newly created items, set a default encryption key in Gateway configuration.
+Set a default encryption key in Gateway configuration when all newly created items in this Gateway context should use a specific key by default.
 
 > ℹ️ **Note:**
 >
