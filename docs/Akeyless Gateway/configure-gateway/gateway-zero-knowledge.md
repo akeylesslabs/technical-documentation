@@ -144,6 +144,8 @@ Example output:
 
 Save the output as `customer_fragments.json`.
 
+Customer Fragments are generated through CLI workflows (or the HSM integration flow), then referenced by Gateway and key-creation workflows. Gateway Console key-creation flows select existing Customer Fragments.
+
 > ⚠️ **Warning:**
 >
 > Back up Customer Fragments securely. Encryption keys created with a Customer Fragment cannot be reconstructed without it.
