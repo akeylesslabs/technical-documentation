@@ -72,6 +72,16 @@ akeyless configure
 
 `--key-data`: Private key data encoded in Base64. Used if file was not provided (relevant only for `access-type=cert` in Curl Context)
 
+`--default-location-prefix`: Default path prefix for item, target, and auth method names
+
+`--disable-kerberos-fast[=true]`: Disable the Kerberos FAST negotiation
+
+`--gateway-spn`: Optional, the service principal name of the gateway as registered in LDAP (for example, `HTTP/gateway`)
+
+`--kerberos-token`: Optional, Kerberos token for the gateway SPN, used by SPNEGO for authentication
+
+`--kerberos-username`: Optional, the username for the entry within the keytab to authenticate via Kerberos
+
 ### `delete-item`
 
 Delete an item or an item version
@@ -227,6 +237,14 @@ List of all accessible items
 `--tag`: Filter by item tag
 
 `--sra-only[=false]`: Filter by items with SRA functionality enabled
+
+`--advanced-filter`: Filter by item name, username, website, or part of it
+
+`--ara-only[=false]`: Filter by items with Agentic Runtime Authority functionality enabled
+
+`--current-folder[=false]`: List only items in the current folder (excludes subfolders)
+
+`--modified-after`: List only secrets modified after the specified date (in Unix time)
 
 `--path`: Path to folder
 
@@ -507,6 +525,18 @@ Note: The operation is allowed only for admin user
 
 `--default-certificate-expiration-notification-days`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--default-certificate-expiration-notification-days 1`, `--default-certificate-expiration-notification-days 5`.
 
+`--allowed-email-domains`: Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed.
+
+`--enable-ai-insights`: Enable AI insights [`true`/`false`]
+
+`--enable-item-sharing`: Enable sharing items [`true`/`false`]
+
+`--item-locking-enabled`: Enable item locking feature [`true`/`false`]
+
+`--lock-allowed-client-type`: Lock the allowed-client-type setting in the account [`true`/`false`]
+
+`--lock-max-ttl`: Set the maximum TTL for item and target locks in minutes
+
 ### `update-item`
 
 Update item name and description
@@ -610,6 +640,12 @@ Examples: `--rotate-after-disconnect true`, `--rotate-after-disconnect 0`, `--ro
 
 `--gcp-sm-regions`: GCP Secret Manager regions for regional secrets (comma-separated). USC with GCP targets only
 
+`--lock-during-sra-session`: Lock this secret for read and update while an SRA session is active
+
+`--usc-tags`: Comma-separated list of tags to apply to all secrets created or synced on the remote Universal Secrets Connector (USC) (USC items only)
+
+`--use-tags-as-filter`: Whether to filter the USC secret list using the specified `usc-tags` values [`true`/`false`] (USC items only)
+
 `--accessibility[=regular]`: For an item in a user's personal folder [`regular`/`personal`]
 
 `--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
@@ -675,6 +711,7 @@ akeyless folder delete \
 #### `agent start`
 
 Start Akeyless Agent
+Accepted alias: `agent-start`.
 
 ##### Usage
 
@@ -682,9 +719,14 @@ Start Akeyless Agent
 akeyless agent start
 ```
 
+##### Flags
+
+`-f, --config-file-path`: The path to the agent config file
+
 #### `agent status`
 
 Get Akeyless Agent status
+Accepted alias: `agent-status`.
 
 ##### Usage
 
@@ -695,9 +737,547 @@ akeyless agent status
 #### `agent stop`
 
 Stop Akeyless Agent
+Accepted alias: `agent-stop`.
 
 ##### Usage
 
 ```shell
 akeyless agent stop
 ```
+
+### `account-custom-field`
+
+Commands to interact with custom fields.
+
+#### Subcommands
+
+`create`
+
+`delete`
+
+`get`
+
+`list`
+
+`update`
+
+#### `account-custom-field create`
+
+Create a new custom field in the account.
+Accepted alias: `account-custom-field-create`.
+
+##### Usage
+
+```shell
+akeyless account-custom-field create \
+--object-type <Object type> \
+--name <Custom field name> \
+--required[=false]
+```
+
+##### Flags
+
+`-o, --object[=ITEM]`: The object to create the custom field for
+
+`-t, --object-type`: **Required**, The object type to create the custom field for, for example `STATIC_SECRET`, `DYNAMIC_SECRET`, or `ROTATED_SECRET`
+
+`-n, --name`: **Required**, Custom field name
+
+`-r, --required[=false]`: Specify whether the custom field is mandatory
+
+#### `account-custom-field delete`
+
+Delete a custom field from the account.
+Accepted alias: `account-custom-field-delete`.
+
+##### Usage
+
+```shell
+akeyless account-custom-field delete \
+--id <Custom field ID>
+```
+
+##### Flags
+
+`-i, --id`: **Required**, Custom field ID
+
+#### `account-custom-field get`
+
+Retrieve a custom field.
+Accepted alias: `account-custom-field-get`.
+
+##### Usage
+
+```shell
+akeyless account-custom-field get \
+--id <Custom field ID>
+```
+
+##### Flags
+
+`-i, --id`: **Required**, Custom field ID
+
+#### `account-custom-field list`
+
+Retrieve a list of custom fields in the account.
+Accepted alias: `account-custom-field-list`.
+
+##### Usage
+
+```shell
+akeyless account-custom-field list \
+--object <Object type> \
+--object-type <Custom field object type>
+```
+
+##### Flags
+
+`-o, --object`: Filter by object
+
+`-t, --object-type`: Filter by object type
+
+#### `account-custom-field update`
+
+Update an existing custom field in the account.
+Accepted alias: `account-custom-field-update`.
+
+##### Usage
+
+```shell
+akeyless account-custom-field update \
+--id <Custom field ID> \
+--name <New custom field name> \
+--required[=false]
+```
+
+##### Flags
+
+`-i, --id`: **Required**, Custom field ID
+
+`-n, --name`: New custom field name
+
+`-r, --required[=false]`: Specify whether the custom field is mandatory
+
+### Group Management
+
+Commands for creating, viewing, listing, and updating groups.
+
+#### `create-group`
+
+Create a new group.
+
+Group names must start with `/`, must not end with `/`, and cannot contain `*`. Group aliases cannot contain `*`, `/`, `+`, `?`, or `.`. The command also requires a non-empty user-assignment payload supplied with `--user-assignment` or `--user-assignment-file`.
+
+##### Usage
+
+```shell
+akeyless create-group \
+--name <Group name> \
+--group-alias <Group alias> \
+--user-assignment <User assignment JSON>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Group name
+
+`-g, --group-alias`: **Required**, Short group alias
+
+`--description`: Description of the object
+
+`-u, --user-assignment`: **Required**, JSON string defining the user assignment for this group. Must contain at least one element
+
+`-f, --user-assignment-file`: Path to a file containing the user-assignment JSON. Provide this instead of `--user-assignment`
+
+#### `delete-group`
+
+Delete a group.
+
+##### Usage
+
+```shell
+akeyless delete-group \
+--name <Group name>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Group name
+
+#### `get-group`
+
+Return information about a group.
+
+##### Usage
+
+```shell
+akeyless get-group \
+--name <Group name>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Group name
+
+#### `list-groups`
+
+List groups.
+
+##### Usage
+
+```shell
+akeyless list-groups
+```
+
+##### Flags
+
+`--filter`: Filter by group name or part of it
+
+`--pagination-token`: Next page reference
+
+#### `update-group`
+
+Update a group.
+
+The existing `--name` value and any `--new-name` value must follow the same group-name rules as `create-group`. This command also requires a non-empty user-assignment payload supplied with `--user-assignment` or `--user-assignment-file`.
+
+##### Usage
+
+```shell
+akeyless update-group \
+--name <Group name> \
+--group-alias <Group alias> \
+--user-assignment <User assignment JSON>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Group name
+
+`--new-name`: New group name
+
+`-g, --group-alias`: **Required**, Short group alias
+
+`--description`: Description of the object
+
+`-u, --user-assignment`: **Required**, JSON string defining the user assignment for this group. Must contain at least one element
+
+`-f, --user-assignment-file`: Path to a file containing the user-assignment JSON. Provide this instead of `--user-assignment`
+
+### OIDC Applications
+
+Commands for creating and updating OIDC applications and rotating their client secrets.
+
+#### `create-oidc-app`
+
+Create a new OIDC application.
+
+This command requires a non-empty permission-assignment payload supplied with `--permission-assignment` or `--permission-assignment-file`.
+
+##### Usage
+
+```shell
+akeyless create-oidc-app \
+--name <OIDC application name> \
+--redirect-uris <Comma-separated redirect URIs> \
+--permission-assignment <Permission assignment JSON>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, OIDC application name
+
+`-r, --redirect-uris`: Comma-separated list of allowed redirect URIs
+
+`-s, --scopes[=openid]`: Comma-separated list of allowed scopes
+
+`-a, --audience`: Comma-separated list of allowed audiences
+
+`--public`: Set this flag if the app is public and cannot keep secrets
+
+`-p, --permission-assignment`: Required unless `--permission-assignment-file` is provided. JSON string defining the permission assignment for this app. Must contain at least one element
+
+`-f, --permission-assignment-file`: Required unless `--permission-assignment` is provided. Path to a file containing the permission-assignment JSON
+
+`--item-custom-fields`: Additional custom fields to associate with the item. Repeat the flag to add multiple fields
+
+`-t, --tag`: Add tags attached to this object. Repeat the flag to add multiple tags
+
+`-k, --key`: Key used to encrypt the OIDC application
+
+`--description`: Description of the object
+
+`--accessibility[=regular]`: Accessibility for an item in a user's personal folder [`regular`/`personal`]
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+
+#### `rotate-oidc-client-secret`
+
+Rotate an OIDC client secret.
+
+##### Usage
+
+```shell
+akeyless rotate-oidc-client-secret \
+--name <OIDC application name>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, OIDC application name
+
+#### `update-oidc-app`
+
+Update an existing OIDC application.
+
+This command requires a non-empty permission-assignment payload supplied with `--permission-assignment` or `--permission-assignment-file`.
+
+##### Usage
+
+```shell
+akeyless update-oidc-app \
+--name <OIDC application name> \
+--redirect-uris <Comma-separated redirect URIs> \
+--permission-assignment <Permission assignment JSON>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, OIDC application name
+
+`-r, --redirect-uris`: Comma-separated list of allowed redirect URIs
+
+`-s, --scopes[=openid]`: Comma-separated list of allowed scopes
+
+`-a, --audience`: Comma-separated list of allowed audiences
+
+`--public`: Set this flag if the app is public and cannot keep secrets
+
+`-p, --permission-assignment`: Required unless `--permission-assignment-file` is provided. JSON string defining the permission assignment for this app. Must contain at least one element
+
+`-f, --permission-assignment-file`: Required unless `--permission-assignment` is provided. Path to a file containing the permission-assignment JSON
+
+`-k, --key`: Key used to encrypt the OIDC application
+
+### `policy`
+
+Commands to manage account policies.
+
+#### Subcommands
+
+`create`
+
+`delete`
+
+`get`
+
+`list`
+
+`update`
+
+#### `policy create`
+
+Command to create a policy in the account.
+
+##### Subcommands
+
+`keys`
+
+##### `policy create keys`
+
+Create a new keys policy.
+
+Provide at least one configuration flag in addition to `--path`. `--allowed-key-types` and `--allowed-key-names` are mutually exclusive. If you set `--object-types targets`, do not also set `--max-rotation-interval-days` or `--allowed-algorithms`. When `--object-types` is omitted, the policy applies to both `items` and `targets`.
+
+###### Usage
+
+```shell
+akeyless policy create keys \
+--path <Policy path>
+```
+
+###### Flags
+
+`-p, --path`: **Required**, The path the policy refers to
+
+`--max-rotation-interval-days`: Maximum automatic key-rotation interval
+
+`--allowed-algorithms`: Allowed key algorithms, for example `RSA2048,AES128GCM`
+
+`--allowed-key-types`: Allowed key protection types, `dfc` or `classic-key`
+
+`--allowed-key-names`: Allowed protection key names. Use `default-account-key` to enforce the account default protection key
+
+`-t, --object-types`: Object types this policy applies to, `items` or `targets`
+
+#### `policy delete`
+
+Delete an account policy by ID.
+
+##### Usage
+
+```shell
+akeyless policy delete \
+--id <Policy ID>
+```
+
+##### Flags
+
+`-i, --id`: **Required**, Policy ID
+
+#### `policy get`
+
+Retrieve an account policy by ID.
+
+##### Usage
+
+```shell
+akeyless policy get \
+--id <Policy ID>
+```
+
+##### Flags
+
+`-i, --id`: **Required**, Policy ID
+
+#### `policy list`
+
+List account policies.
+
+##### Usage
+
+```shell
+akeyless policy list
+```
+
+##### Flags
+
+`--paths`: Filter by exact policy paths
+
+`--types`: Filter by policy types
+
+`--object-type`: Filter by object types, `items` or `targets`
+
+`--aggregate`: Aggregate missing configurations from parent policies. Requires `--paths`
+
+#### `policy update`
+
+Update an existing account policy.
+
+##### Subcommands
+
+`keys`
+
+##### `policy update keys`
+
+Update an existing keys policy.
+
+Provide at least one update flag. `--allowed-key-types` and `--allowed-key-names` are mutually exclusive. If you set `--object-types targets`, do not also set `--max-rotation-interval-days` or `--allowed-algorithms`.
+
+###### Usage
+
+```shell
+akeyless policy update keys \
+--id <Policy ID>
+```
+
+###### Flags
+
+`-i, --id`: **Required**, Policy ID
+
+`-p, --path`: New policy path
+
+`--max-rotation-interval-days`: Maximum automatic key-rotation interval
+
+`--allowed-algorithms`: Allowed key algorithms, for example `RSA2048,AES128GCM`
+
+`--allowed-key-types`: Allowed key protection types, `dfc` or `classic-key`
+
+`--allowed-key-names`: Allowed protection key names. Use `default-account-key` to enforce the account default protection key
+
+`-t, --object-types`: Object types this policy applies to, `items` or `targets`
+
+### `delete-personal-folder`
+
+Delete a personal folder.
+
+#### Usage
+
+```shell
+akeyless delete-personal-folder \
+--unique-id <Account unique ID>
+```
+
+#### Flags
+
+`--unique-id`: Unique identifier of the account whose personal folder is to be deleted
+
+`--access-id`: Access ID of the user whose personal folder is targeted for deletion by an administrator
+
+### `get-analytics-data`
+
+Get analytics data.
+
+#### Usage
+
+```shell
+akeyless get-analytics-data
+```
+
+This command does not define command-specific flags beyond the global CLI flags shown above.
+
+### `kubeconfig-generate`
+
+Generate a unified kubeconfig for Kubernetes Dynamic Secrets.
+
+Provide exactly one selector mode: `--name` or `--tag`. If you use `--tag`, only one tag value is supported.
+
+#### Usage
+
+```shell
+akeyless kubeconfig-generate \
+--name <Dynamic secret name> \
+--out <Output file path>
+```
+
+#### Flags
+
+`-n, --name`: Dynamic secret name. Repeat the flag to include multiple dynamic secrets
+
+`-t, --tag`: Tag attached to the Dynamic Secret. At present, only one tag is supported
+
+`-o, --out[=kubeconfig.json]`: Kubeconfig output file path
+
+### `lock-item`
+
+Lock a static secret item.
+
+#### Usage
+
+```shell
+akeyless lock-item \
+--name <Item name>
+```
+
+#### Flags
+
+`--name`: **Required**, Item name
+
+`--lock-ttl[=60]`: Lock time to live in minutes
+
+`--actions[=update,read]`: Comma-separated blocked actions
+
+### `unlock-item`
+
+Unlock a static secret item.
+
+#### Usage
+
+```shell
+akeyless unlock-item \
+--name <Item name>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Item name

@@ -69,6 +69,8 @@ akeyless create-secret \
 
 `--secure-access-host`: Target servers for connections. For multiple values repeat this flag.
 
+`--lock-during-sra-session`: Lock this secret for read and update while a Secure Remote Access (SRA) session is active
+
 `--secure-access-ssh-user`: Override the SSH username as indicated in SSH Certificate Issuer
 
 `--secure-access-rdp-user`: Remote Desktop Username
@@ -78,6 +80,33 @@ akeyless create-secret \
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
 `--change-event`: Trigger an event when a secret value changed, [True/False]
+
+## `delete sync`
+
+delete static secret sync
+
+### Usage
+
+```shell
+akeyless static-secret-delete-sync \
+--name <Rotated Secret Name> \
+--usc-name <USC Name> \
+--remote-secret-name <Remote secret Name> \
+--delete-from-usc[=false] [true / false] \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+### Flags
+
+`--name`: The Static Secret name.
+
+`--usc-name`: The name of the Universal Secret Connector.
+
+`--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
+
+`--delete-from-usc[=false]`: Delete the secret from the remote target usc as well.
+
+`--gateway-url`: Akeyless Gateway URL (port `8000`).
 
 ## `describe-item`
 
@@ -105,6 +134,10 @@ akeyless describe-item \
 `--gateway-details[=false]`: Output will include additional gateway details (For example, cluster URL)
 
 `--bastion-details[=false]`: Output will include additional bastion details
+
+`--der-certificate-format[=false]`: Return certificate values in DER format when relevant
+
+`--item-custom-fields-details[=false]`: Include custom fields details in the response
 
 `--services-details[=false]`: Include all associated services details
 
@@ -222,6 +255,35 @@ akeyless share-item \
 `-v, --view-once[=false]`: Shared secrets can only be viewed once [true/false]
 
 `--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
+
+## `static-secret-sync`
+
+Sync a Static Secret using Universal Secret Connector
+
+### Usage
+
+```shell
+akeyless static-secret-sync \
+--name <Secret Name> \
+--usc-name <Universal Secret Connector Name> \
+--remote-secret-name <Name of the secret in the remote endpoint>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Secret name
+
+`--usc-name`: Universal Secret Connector name, If not provided all attached USC's will be synced
+
+`--remote-secret-name`: Remote Secret Name that will be synced on the remote endpoint
+
+`--namespace`: Vault Namespace, relevant only for HashiCorp Vault Target
+
+`--filter-secret-value`: jq expression to filter or transform the secret value
+
+`--delete-remote`: Delete the remote secret from the USC target during synchronization cleanup
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
 ## `unwrap-token`
 

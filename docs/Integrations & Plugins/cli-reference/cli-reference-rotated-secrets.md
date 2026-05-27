@@ -62,6 +62,18 @@ Commands to create a Rotated Secret
 
 `windows`: Creates a new Windows rotated secret item
 
+### Shared flags
+
+These flags are used by multiple `rotated-secret create` and `rotated-secret update` subcommands.
+
+`--grace-rotation-timing[=after]`: Controls whether graceful rotation creates the replacement credential before or after the old credential is removed. Supported values are `before` and `after`.
+
+`--lock-during-sra-session`: Lock this rotated secret for read and update while a Secure Remote Access (SRA) session is active.
+
+`--public-key-remote-path`: Remote path where the SSH public key is stored on the target host.
+
+`--secure-access-target-type`: Secure Remote Access target type for SSH rotated secrets.
+
 ### `aws`
 
 Creates a new AWS rotated secret item
@@ -73,7 +85,7 @@ akeyless rotated-secret create aws \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---rotator-type <target/api-key> 
+--rotator-type <target/api-key>
 ```
 
 #### Flags
@@ -1185,6 +1197,85 @@ akeyless rotated-secret create windows \
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+
+## `gateway-rotate-secret`
+
+Trigger a rotate operation for a Rotated Secret.
+Accepted alias: `rotate-secret`.
+
+### Usage
+
+```shell
+akeyless gateway-rotate-secret \
+--name <Rotated Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+### Flags
+
+`-n, --name`: **Required**, Secret name (Rotated Secret or Custom Dynamic Secret)
+
+`-r, --rotate-all-services[=false]`: Rotate all associated services
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+## Synchronization
+
+### `sync`
+
+#### Usage
+
+```shell
+akeyless rotated-secret sync \
+--name <Rotated Secret Name> \
+--usc-name <USC Name> \
+--remote-secret-name <Remote secret Name> \
+--namespace <Namespace Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`--name`: The Rotated Secret name.
+
+`--usc-name`: The name of the Universal Secret Connector.
+
+`--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
+
+`--namespace`: Namespace name, Relevant only for HashiCorp Vault target.
+
+`--filter-secret-value`: jq expression to filter or transform the secret value
+
+`--delete-remote`: Delete the remote secret from the USC target during synchronization cleanup
+
+`--gateway-url`: Akeyless Gateway URL (port `8000`).
+
+### `delete sync`
+
+delete rotated secret sync
+
+#### Usage
+
+```shell
+akeyless rotated-secret delete-sync \
+--name <Rotated Secret Name> \
+--usc-name <USC Name> \
+--remote-secret-name <Remote secret Name> \
+--delete-from-usc[=false] [true / false]
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`--name`: The Rotated Secret name.
+
+`--usc-name`: The name of the Universal Secret Connector.
+
+`--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
+
+`--delete-from-usc[=false]`: Delete the secret from the remote target usc as well.
+
+`--gateway-url`: Akeyless Gateway URL (port `8000`).
 
 ## `update`
 

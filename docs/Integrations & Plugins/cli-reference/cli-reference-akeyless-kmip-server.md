@@ -14,7 +14,7 @@ This page documents Key Management Interoperability Protocol (KMIP) commands in 
 
 <CLIGeneralFlags />
 
-## Command Groups
+## KMIP Command Categories
 
 KMIP commands are grouped by lifecycle:
 

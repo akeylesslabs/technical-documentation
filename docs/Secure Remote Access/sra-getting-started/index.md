@@ -11,3 +11,14 @@ metadata:
 next:
   description: ''
 ---
+This section helps you deploy Akeyless Secure Remote Access (SRA) quickly and validate a working end-to-end setup.
+
+Start here:
+
+* [Quick Start](https://docs.akeyless.io/docs/sra-quick-start-guide)
+
+After completing the quick start, continue with:
+
+* [Setup](https://docs.akeyless.io/docs/sra-setup)
+* [Admin Guides](https://docs.akeyless.io/docs/sra-admin-guides)
+* [User Guides](https://docs.akeyless.io/docs/sra-user-guides)

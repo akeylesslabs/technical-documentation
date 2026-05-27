@@ -58,6 +58,8 @@ akeyless create-ssh-cert-issuer \
 
 `--secure-access-host`: Target servers for connections. For multiple values repeat this flag.
 
+`--secure-access-enforce-hosts-restriction[=false]`: Enforce the allowed hosts restriction during Secure Remote Access sessions
+
 `--external-username[=false]`: Use externally provided username mode for Secure Remote Access.
 
 `--fixed-user-claim-keyname[=ext_username]`: For externally provided users, the IdP claim key name to extract the username from. Relevant only when `--external-username=true`.
@@ -144,6 +146,8 @@ akeyless update-ssh-cert-issuer \
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list
 
 `--secure-access-host`: Target servers for connections. For multiple values repeat this flag
+
+`--secure-access-enforce-hosts-restriction[=false]`: Enforce the allowed hosts restriction during Secure Remote Access sessions
 
 `--external-username[=false]`: Use externally provided username mode for Secure Remote Access.
 
@@ -246,9 +250,11 @@ akeyless create-pki-cert-issuer \
 
 `--create-private-crl`: Set this to allow the issuer will expose a CRL endpoint in the Gateway
 
-`--create-private-ocsp`: Set this to enable an OCSP endpoint in the Gateway and include its URL in AIA
+`--create-private-ocsp`: Set this to enable an Online Certificate Status Protocol (OCSP) endpoint in the Gateway and include its URL in AIA
 
 `--create-public-ocsp`: Set this to enable a public OCSP endpoint and include its URL in AIA (served by UAM and includes account id)
+
+`--ocsp-ttl`: OCSP response cache TTL in seconds
 
 `--auto-renew`: Automatically renew certificates before expiration
 
@@ -546,6 +552,8 @@ akeyless update-pki-cert-issuer \
 
 `--create-private-crl`: Set this to allow the issuer will expose a CRL endpoint in the Gateway
 
+`--ocsp-ttl`: OCSP response cache TTL in seconds
+
 `--auto-renew`: Automatically renew certificates before expiration
 
 `--scheduled-renew`: Number of days before expiration to renew certificates
@@ -619,6 +627,8 @@ akeyless get-certificate-value --name <certificate-name>
 `--version`: Certificate version
 
 `-c, --cert-issuer-name`: The parent PKI Certificate Issuer's name of the certificate, required when used with display-id and token
+
+`--issuance-token`: One-time token used to fetch the certificate after issuance
 
 `--certificate-file-output`: File to write the certificates to
 
@@ -739,6 +749,14 @@ akeyless deactivate-acme-account \
 --cert-issuer-name <PKI issuer name> \
 --acme-account-id <Account ID>
 ```
+
+#### Flags
+
+`-c, --cert-issuer-name`: **Required**, PKI cert issuer name
+
+`--acme-account-id`: **Required**, ACME account ID
+
+`--delete-account`: Delete the account from the external ACME provider as well
 
 ## Chain of Trust
 
