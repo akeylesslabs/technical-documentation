@@ -18,6 +18,8 @@ Email authentication allows human users to authenticate directly to the Akeyless
 
 Email authentication is intended for **interactive human access** and is not recommended for machine or workload authentication.
 
+Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) for authorized identity access and management flows.
+
 ## Creating an Email Authentication Method
 
 Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additional email-based authentication method for an existing account.

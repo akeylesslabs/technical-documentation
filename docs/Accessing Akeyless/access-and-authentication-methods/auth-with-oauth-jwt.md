@@ -16,6 +16,8 @@ The **OAuth2.0/JWT** method allows authentication by way of a configured **OAuth
 
 This standard provides secure delegated access. It means that an application can take actions or access resources from a server on behalf of the user, without them having to share their credentials. It does this by allowing the identity provider (IdP) to issue tokens to third-party applications with the user’s approval.
 
+Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) for authorized identity access and management flows.
+
 ## Create an OAuth2.0/JWT Authentication Method with the CLI
 
 Let's create a new OAuth2.0/JWT authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oauth-jwt#create-an-oauth20jwt-authentication-method-in-the-akeyless-console).)

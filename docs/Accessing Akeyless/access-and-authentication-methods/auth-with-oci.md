@@ -12,6 +12,8 @@ next:
 ---
 [OCI IAM](https://docs.oracle.com/en-us/iaas/Content/Identity/Concepts/overview.htm) authentication method provides an automated flow to retrieve an Akeyless token for Oracle Cloud Infrastructure IAM principals like API Key, instances or resources using OCI IAM group or dynamic group [components](https://docs.oracle.com/en-us/iaas/Content/Identity/Concepts/overview.htm#Componen).
 
+Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) when identity permissions and, where applicable, Gateway access policies allow the requested operation.
+
 ## Configuration
 
 To authenticate **OCI** resources to Akeyless, the following configuration is required:

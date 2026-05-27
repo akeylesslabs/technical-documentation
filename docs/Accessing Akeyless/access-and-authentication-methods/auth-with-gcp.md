@@ -16,6 +16,8 @@ This page discusses creating and using a GCP-based authentication method in Akey
 
 The Google Cloud Platform (GCP) authentication method enables GCP entities to authenticate to Akeyless. Akeyless treats Google Cloud as a trusted third party and verifies entities requesting authentication against Google Cloud APIs. It supports both Google Cloud Identity and Access Management (IAM) service accounts and Google Compute Engine (GCE) instances for workload authentication.
 
+Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) when identity permissions and, where applicable, Gateway access policies allow the requested operation.
+
 ## Creating a GCP Authentication Method
 
 This action is distinct from creating a new Akeyless account: it creates an additional GCP-based authentication method for an existing account.

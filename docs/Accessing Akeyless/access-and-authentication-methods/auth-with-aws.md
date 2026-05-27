@@ -18,6 +18,8 @@ This page discusses creating and using an AWS IAM-based authentication method in
 
 AWS IAM authentication is intended for **workload authentication** and is not recommended for direct interactive Console sign-in.
 
+Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) when identity permissions and, where applicable, Gateway access policies allow the requested operation.
+
 ![AWS IAM role-based authentication flow for obtaining an Akeyless token.](https://files.readme.io/c1f9c5b-Role_new_design.png)
 
 ## Creating an AWS IAM Authentication Method

@@ -16,6 +16,8 @@ This page discusses creating and using an Azure AD-based authentication method i
 
 [Azure AD](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) authentication enables Azure workloads to authenticate to Akeyless by using Azure-issued identity tokens.
 
+Zero-Knowledge support: This authentication method is supported with Akeyless [Zero-Knowledge Encryption architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) when identity permissions and, where applicable, Gateway access policies allow the requested operation.
+
 ## Creating an Azure AD Authentication Method
 
 This action is distinct from creating a new Akeyless account: it creates an additional Azure AD-based authentication method for an existing account.
