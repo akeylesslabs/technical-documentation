@@ -14,7 +14,15 @@ Akeyless uses a Zero-Knowledge Encryption architecture to perform secret, key, a
 
 The architecture ensures that no complete secret or private key is ever present at rest within the platform.
 
-## Architecture Overview
+## How to Read This Page
+
+This page is organized as follows:
+
+* Model and execution: what Zero-Knowledge is and how operations run.
+* Boundaries and behavior: trust boundaries, network posture, availability, and performance expectations.
+* Decision and handoff: when to use CF versus non-CF and where implementation steps live.
+
+## Zero-Knowledge Model
 
 Traditional vault systems maintain encrypted storage that contains secrets or private keys. Akeyless replaces this model with an execution-based approach built on Distributed Fragments Cryptography (DFC). In this model:
 
@@ -35,9 +43,9 @@ All identity operations—such as signing, encryption, decryption, or generating
 
 ***
 
-## Cryptographic Workflow
+## How Operations Execute
 
-When a client requests an operation (For example, retrieving a secret, generating a dynamic credential, or performing a signing operation):
+When a client requests an operation (for example, retrieving a secret, generating a dynamic credential, or performing a signing operation):
 
 1. The Akeyless control plane authenticates and authorizes the request.
 2. The platform triggers a distributed cryptographic workflow based on the key or secret type.
@@ -49,7 +57,7 @@ If a Customer Fragment (CF) is configured, Akeyless cannot complete cryptographi
 
 ***
 
-## Control-Boundary Model
+## Trust and Control Boundaries
 
 For regulated and high-control environments, Zero-Knowledge is best evaluated as a control-boundary model rather than a "SaaS versus on-premises" decision.
 
@@ -96,7 +104,7 @@ Common segmentation patterns:
 
 ***
 
-## Comparison to Storage-Based Vault Systems
+## Why This Differs from Storage-Based Vaults
 
 Traditional vaults:
 
@@ -116,7 +124,7 @@ This changes the threat model: compromising the storage layer yields no useful d
 
 ***
 
-## Gateway Role
+## Gateway in the Architecture
 
 The Akeyless Gateway provides access to private networks, closed environments, and on-premises infrastructure. Its role is limited to communication and optional customer-fragment participation. The Gateway:
 
@@ -127,11 +135,9 @@ The Akeyless Gateway provides access to private networks, closed environments, a
 
 The Gateway does not alter the Zero-Knowledge Encryption architecture; it only extends access to networks not reachable by the SaaS control plane.
 
-For implementation steps that use Customer Fragments with Gateway deployments, see [Gateway Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).
-
 ***
 
-## Availability and Performance Behavior
+## Runtime Behavior
 
 ### Partition Behavior for CF-Protected Operations
 
@@ -153,7 +159,7 @@ Observed latency depends on deployment topology, network distance, cache strateg
 
 ***
 
-## Decision Guide: CF and Non-CF
+## Choosing CF or Non-CF
 
 Use this table to select an operating model based on control requirements and operational overhead.
 
@@ -164,7 +170,7 @@ Use this table to select an operating model based on control requirements and op
 
 ***
 
-## Operational Considerations
+## Operational Impact
 
 Removing the storage layer eliminates several operational concerns:
 
@@ -191,6 +197,8 @@ These properties reduce the exposure surface associated with stored-secret syste
 
 ***
 
-## Summary
+## Implementation Handoff
 
-The Akeyless Zero-Knowledge Encryption architecture removes the need for a secrets or key storage backend by executing operations entirely through distributed cryptographic fragments. No secret or private key is stored or reconstructed at any time. This model provides a predictable, storage-free approach to managing secrets, keys, and certificates across distributed environments.
+The Akeyless Zero-Knowledge Encryption architecture removes the need for a secrets or key storage backend by executing operations through distributed cryptographic fragments, without storing or reconstructing complete private key material.
+
+For deployment and configuration steps that use Customer Fragments with Gateway, see [Gateway Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).
