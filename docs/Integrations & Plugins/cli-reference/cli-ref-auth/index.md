@@ -206,7 +206,7 @@ akeyless auth-method create aws-iam \
 
 `--bound-arn`: A list of full arns that the access is restricted to. Use the ARN partition prefix that matches your environment (for example, `arn:aws:...`, `arn:aws-us-gov:...`, or `arn:aws-cn:...`).
 
-For partition support and endpoint examples, see [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws#aws-partition-support).
+For partition support and endpoint examples, see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support#aws-partition-support).
 
 `--bound-role-name`: A list of full role-name that the access is restricted to
 
@@ -770,7 +770,7 @@ akeyless auth-method update aws-iam \
 
 `--bound-arn`: A list of full arns that the access is restricted to. Use the ARN partition prefix that matches your environment (for example, `arn:aws:...`, `arn:aws-us-gov:...`, or `arn:aws-cn:...`).
 
-For partition support and endpoint examples, see [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws#aws-partition-support).
+For partition support and endpoint examples, see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support#aws-partition-support).
 
 `--bound-role-name`: A list of full role-name that the access is restricted to
 

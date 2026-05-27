@@ -21,7 +21,7 @@ This page includes only Amazon EKS-specific delta steps.
 
 Review the [Kubernetes Helm deployment page](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) first, then apply the EKS changes in this guide.
 
-For AWS partition guidance and deployment pattern coverage, see [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws#aws-deployment-pattern-support).
+For AWS partition guidance and deployment pattern coverage, see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support).
 
 ## Scope
 
