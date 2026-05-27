@@ -26,8 +26,7 @@ For the unified Gateway `akeyless connect` flow (Gateway URL plus SSH host disco
 
 * CLI `v1.135.0` or later
 * Gateway `v4.42.0` or later
-* Web UI `v2.41.15` or later
-* Helm chart `akeyless-gateway-1.9.10` or later (Kubernetes deployments)
+* Unified Gateway deployment (Kubernetes or equivalent)
 
 Akeyless Connect does not replace the local SSH client. To use a non-default SSH executable, set `SSH_EXTERNAL_CLIENT` in `~/.akeyless-connect.rc`.
 
