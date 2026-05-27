@@ -41,6 +41,23 @@ Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your
 
 When the workflow connects to an Akeyless Gateway over TLS, the GitHub runner must trust the Gateway certificate chain before the action can start authentication. If the runner does not already trust that chain, store the PEM-encoded CA certificate in a GitHub secret such as `AKEYLESS_CA_CERTIFICATE` and pass it through the action's `ca-certificate` input.
 
+For example, when the workflow uses a TLS-enabled Gateway endpoint, pass both the Gateway API URL and the CA certificate:
+
+```yaml
+steps:
+  - name: Fetch a secret through a TLS-enabled Gateway
+    uses: akeyless-community/akeyless-github-action@v1.1.5
+    with:
+      access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
+      access-type: universal_identity
+      uid_token: ${{ secrets.AKEYLESS_UID_TOKEN }}
+      api-url: https://your-gateway.example.com:8000/api/v2
+      ca-certificate: ${{ secrets.AKEYLESS_CA_CERTIFICATE }}
+      static-secrets: |
+        - name: "/path/to/secret"
+          output-name: "my_secret"
+```
+
 The action emits debug messages through GitHub Actions debug commands. For more detailed action logs, set `ACTIONS_RUNNER_DEBUG=true`. If you also want GitHub Actions step debug logging for the workflow step, set `ACTIONS_STEP_DEBUG=true`.
 
 > ⚠️ **Important:**
