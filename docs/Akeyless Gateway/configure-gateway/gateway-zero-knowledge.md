@@ -78,6 +78,26 @@ When Gateway caching is enabled, the Gateway can temporarily cache secret values
 
 This does not change DFC control boundaries. For cache behavior details, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) and [Runtime Caching](https://docs.akeyless.io/docs/runtime-caching).
 
+### Partition Behavior for CF-Protected Operations
+
+The following matrix summarizes expected behavior for common availability scenarios.
+
+| Scenario | Expected behavior |
+| --- | --- |
+| SaaS reachable, Customer Fragment available | CF-protected operations can complete when identity and policy checks pass. |
+| SaaS reachable, Customer Fragment unavailable | CF-protected operations cannot complete. |
+| SaaS unreachable, value present in cache | Cached read operations can still succeed according to runtime cache behavior. |
+| SaaS unreachable, value not present in cache | Operation fails. |
+| SaaS reachable, policy or allowed-access denies request | Operation is denied even when Customer Fragment is available. |
+
+### Latency and Performance Expectations
+
+Compared to non-CF flows, CF-protected operation paths can add processing and coordination overhead.
+
+Observed latency impact depends on deployment topology, network distance, cache strategy, and request mix. For many repeated read patterns, runtime and proactive caching can reduce effective read latency.
+
+For cache-driven latency controls, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) and [Runtime Caching](https://docs.akeyless.io/docs/runtime-caching).
+
 ## Decision Guide: CF and Non-CF
 
 Use this table to select the operating model based on control requirements and operational overhead.
@@ -128,7 +148,7 @@ Save the output as `customer_fragments.json`.
 >
 > Back up Customer Fragments securely. Encryption keys created with a Customer Fragment cannot be reconstructed without it.
 
-### Step 2: Attach the Customer Fragment to Gateway
+### Step 2: Attach the Customer Fragment to the Gateway
 
 Use these deployment-specific implementation anchors for direct navigation:
 
