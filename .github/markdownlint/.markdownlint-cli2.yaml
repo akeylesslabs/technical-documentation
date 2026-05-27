@@ -995,6 +995,7 @@ config:
       # ReadMe Reusable Elements
       - "CLIGeneralFlags"
       - "ApiKeyWarning"
+      - "GatewayConfigManagementNote"
 
   # MD034: Bare URLs
   # Knobs:

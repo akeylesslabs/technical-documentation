@@ -54,49 +54,6 @@ akeyless auth-method create ldap \
 
 `--gen-key[=true]`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
 
-## `update`
-
-Update a new Auth Method that can authenticate using LDAP
-
-### Usage
-
-```shell
-akeyless update-auth-method-ldap \
---name <Auth method name> \
---new-name <Auth method new name> \
---public-key-file-path <Public/Key/Path>
-```
-
-### Flags
-
-`--new-name`: Auth Method new name
-
-`-n, --name`: **Required**, Auth Method name
-
-`--descriptions`: Auth Method description
-
-`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
-
-`--bound-ips`: A comma-separated CIDR block list to allow client access
-
-`--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
-
-`--force-sub-claims`: enforce role-association must include sub-claims
-
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
-
-`--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
-
-`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
-
-`-p, --public-key-file-path`: A path to a public key generated for LDAP authentication method on Akeyless [RSA2048]
-
-`--public-key-data`: A public key generated for LDAP authentication method on Akeyless [RSA2048] in Base64 or PEM format
-
-`--unique-identifier[=users]`: A unique identifier (ID) value should be configured for LDAP, OAuth2 and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
-
-`--gen-key`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
-
 ## `gateway-update-ldap-auth-config`
 
 Updates LDAP Auth config
@@ -168,3 +125,46 @@ akeyless gateway-get-ldap-auth-config \
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
+
+## `update`
+
+Update a new Auth Method that can authenticate using LDAP
+
+### Usage
+
+```shell
+akeyless update-auth-method-ldap \
+--name <Auth method name> \
+--new-name <Auth method new name> \
+--public-key-file-path <Public/Key/Path>
+```
+
+### Flags
+
+`--new-name`: Auth Method new name
+
+`-n, --name`: **Required**, Auth Method name
+
+`--descriptions`: Auth Method description
+
+`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
+
+`--bound-ips`: A comma-separated CIDR block list to allow client access
+
+`--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
+
+`--force-sub-claims`: enforce role-association must include sub-claims
+
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
+
+`--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
+
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+
+`-p, --public-key-file-path`: A path to a public key generated for LDAP authentication method on Akeyless [RSA2048]
+
+`--public-key-data`: A public key generated for LDAP authentication method on Akeyless [RSA2048] in Base64 or PEM format
+
+`--unique-identifier[=users]`: A unique identifier (ID) value should be configured for LDAP, OAuth2 and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
+
+`--gen-key`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided

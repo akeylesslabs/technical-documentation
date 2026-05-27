@@ -96,6 +96,39 @@ akeyless auth \
 
 For Azure US Government or Azure China, also set `--azure-cloud` to `AzureUSGovernment` or `AzureChinaCloud`.
 
+## Associate with Access Roles
+
+After creating the authentication method, associate it with one or more Access Roles so authenticated identities can perform actions in Akeyless.
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select the Azure AD authentication method.
+3. Add the required Access Roles.
+4. Save the changes.
+
+For role configuration details, see [Access Roles](https://docs.akeyless.io/docs/rbac).
+
+## Update an Existing Azure AD Authentication Method
+
+Azure AD authentication methods can require updates over time, for example when tenant boundaries, resource constraints, or custom issuer and key endpoints change.
+
+To update in the Console:
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select the Azure AD authentication method to update.
+3. Update the required fields.
+4. Save the changes.
+
+To update with the CLI, use the relevant `akeyless auth-method update azure-ad` flags in [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#update).
+
+## Troubleshooting
+
+If Azure AD authentication fails, check the following:
+
+* The managed identity is enabled on the authenticating Azure resource.
+* The tenant, subscription, and resource bounds match the authenticating identity context.
+* Custom issuer, JWKS, and audience values are correct for the cloud environment.
+* The authentication method is associated with the required Access Roles.
+
 ## Optional Features
 
 For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).

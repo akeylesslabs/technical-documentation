@@ -1,5 +1,6 @@
 ---
 title: Ansible Plugins
+slug: ansible-awx-plugin
 excerpt: ''
 deprecated: false
 hidden: false

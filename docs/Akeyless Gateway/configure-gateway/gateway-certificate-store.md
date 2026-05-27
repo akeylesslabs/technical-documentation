@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+
+<GatewayConfigManagementNote />
 Use Certificate Store to add private CA certificates to Akeyless Gateway so services can trust required endpoints. This requires [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.29.0` or later.
 
 > ℹ️ **Note:**

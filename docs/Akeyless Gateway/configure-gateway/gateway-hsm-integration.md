@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+
+<GatewayConfigManagementNote />
 In any encryption system, the ability to generate pseudo-random numbers is crucial, particularly for tasks like creating encryption keys. Akeyless addresses this need by offering a solution that not only generates pseudo-random numbers, but also enhances overall data security by leveraging **Hardware Security Modules (HSMs)** to generate and securely store these pseudo-random numbers for encryption keys, ensuring maximum data security.
 
 The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` protocol to provide a seamless solution. This integration can also be leveraged for the derivation of **Customer Fragments** from the **HSM** to the **Gateway**, using the [HKDF](https://en.wikipedia.org/wiki/HKDF) function. For related guidance, see [Zero Knowledge](https://docs.akeyless.io/docs/zero-knowledge) and [Gateway Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).
