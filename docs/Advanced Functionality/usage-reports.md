@@ -9,7 +9,9 @@ metadata:
   robots: index
 ---
 
-Akeyless Usage Reports provide detailed insights into how your organization's secrets, keys, and password management systems are being used. These reports help administrators monitor usage patterns, assess security, and support billing and compliance requirements. Usage Reports provide a unified view of how secrets, keys, and password management features are used across your organization. These reports track requests, actions, and consumption by users, applications, and service accounts. They include metrics for secrets and keys, user interactions and authentication methods for the password manager, and can aggregate usage and billing data across multiple accounts. For details on password manager reporting, see the [Password Manager Usage Report for Admins](https://docs.akeyless.io/docs/password-manager-usage-report-for-admins). To enable organization-wide views, contact your Account Manager.
+Akeyless Usage Reports help administrators monitor secrets, keys, and password manager activity across their organization.
+These reports track requests, actions, and usage trends for secrets and keys, password manager interactions, and billing across users, applications, and service accounts. For details on password manager reporting, see the [Password Manager Usage Report for Admins](https://docs.akeyless.io/docs/password-manager-usage-report-for-admins).
+To enable organization-wide views, contact your Account Manager.
 
 ## Data scope and retention
 
