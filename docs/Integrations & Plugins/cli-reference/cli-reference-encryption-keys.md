@@ -14,6 +14,31 @@ This section outlines the CLI commands relevant to Encryption Keys.
 
 <CLIGeneralFlags />
 
+## Batch operations
+
+The CLI also supports batch encrypt and decrypt commands for multi-item payloads.
+
+### Shared batch flags
+
+`--batch-data`: Inline batch payload for encryption or decryption operations
+
+`--batch-data-file-path`: Path to a file that contains the batch payload for encryption or decryption operations
+
+These shared flags are supported by `akeyless batch-encrypt` and `akeyless batch-decrypt`.
+
+### Usage examples
+
+```shell
+akeyless batch-encrypt \
+--name <Encryption Key Name> \
+--batch-data-file-path <Path to batch payload JSON>
+```
+```shell
+akeyless batch-decrypt \
+--name <Encryption Key Name> \
+--batch-data '<Inline batch payload JSON>'
+```
+
 ## `assoc-target-item`
 
 Create an association between a [Target](https://docs.akeyless.io/docs/targets) and a [Classic Key](https://docs.akeyless.io/docs/classic-keys) for [External KMS Integration](https://docs.akeyless.io/docs/external-kms)
@@ -243,42 +268,6 @@ akeyless create-key \
 
 `--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
-## `derive-key`
-
-Perform key derivation on a static secret.
-
-If `--salt` is omitted, the CLI generates one automatically. If provided, the salt must be Base64-encoded and decode to at least 8 bytes.
-
-### Usage
-
-```shell
-akeyless derive-key \
---name <Static Secret full name> \
---alg <pbkdf2/argon2id> \
---key-len <Derived key length> \
---iter <Iteration count>
-```
-
-### Flags
-
-`-n, --name`: **Required**, Static Secret full name
-
-`-a, --alg[=pbkdf2]`: **Required**, KDF algorithm [`pbkdf2`/`argon2id`]
-
-`-s, --salt`: Base64-encoded salt value
-
-`-l, --key-len[=32]`: **Required**, Derived key length in bytes
-
-`-i, --iter`: **Required**, Number of iterations
-
-`--hash-function[=sha256]`: Hash function for `pbkdf2` [`sha256`/`sha512`]
-
-`--parallelism[=1]`: Number of threads to use for `argon2id`
-
-`--mem[=16384]`: Memory parameter in KB for `argon2id`
-
-`--accessibility[=regular]`: Accessibility for an item in a user's personal folder [`regular`/`personal`]
-
 ## `decrypt`
 
 Decrypts ciphertext into plaintext by using an AES key
@@ -401,6 +390,42 @@ akeyless decrypt-pkcs1 \
 `-c, --ciphertext`: **Required**, Ciphertext to be decrypted in Base64-encoded format
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: `[base64]`
+
+## `derive-key`
+
+Perform key derivation on a static secret.
+
+If `--salt` is omitted, the CLI generates one automatically. If provided, the salt must be Base64-encoded and decode to at least 8 bytes.
+
+### Usage
+
+```shell
+akeyless derive-key \
+--name <Static Secret full name> \
+--alg <pbkdf2/argon2id> \
+--key-len <Derived key length> \
+--iter <Iteration count>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Static Secret full name
+
+`-a, --alg[=pbkdf2]`: **Required**, KDF algorithm [`pbkdf2`/`argon2id`]
+
+`-s, --salt`: Base64-encoded salt value
+
+`-l, --key-len[=32]`: **Required**, Derived key length in bytes
+
+`-i, --iter`: **Required**, Number of iterations
+
+`--hash-function[=sha256]`: Hash function for `pbkdf2` [`sha256`/`sha512`]
+
+`--parallelism[=1]`: Number of threads to use for `argon2id`
+
+`--mem[=16384]`: Memory parameter in KB for `argon2id`
+
+`--accessibility[=regular]`: Accessibility for an item in a user's personal folder [`regular`/`personal`]
 
 ## `encrypt`
 
@@ -658,6 +683,8 @@ akeyless rotate-key \
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port). Relevant only for Classic Key.
 
 `--new-key-data`: The new value of the key, Base64-encoded. Relevant only for Classic Key provided by the user (BYOK).
+
+`--new-cert-pem-data`: New certificate PEM data to associate with the rotated key
 
 ## `set-item-state`
 

@@ -30,6 +30,10 @@ You can create a dynamic secret using an existing [target](https://docs.akeyless
 
 Command to create a Dynamic Secret
 
+### Shared Secure Access flag
+
+`--secure-access-delay`: Delay in seconds before generated credentials become available for Secure Remote Access sessions. Applies to `aws`, `eks`, `gcp`, `gke`, `google-workspace`, `k8s`, `ldap`, `mongodb`, `mssql`, `mysql`, `postgresql`, and `rdp`.
+
 ### Subcommands
 
 `artifactory`: Creates Artifactory dynamic secret
@@ -446,7 +450,7 @@ akeyless dynamic-secret create custom \
 
 `--enable_admin_rotation[=false]`: Enable automatic admin credentials rotation
 
-`--admin_rotation_interval_days`: Rotation period in days
+`--admin-rotation-interval-days`: Rotation period in days
 
 ### `dockerhub`
 
@@ -608,6 +612,8 @@ akeyless dynamic-secret create gcp \
 
 `--role-binding`: RoleBinding definitions in JSON format
 
+`--role-names`: Comma-separated list of role names to assign to generated credentials
+
 `--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
@@ -708,6 +714,58 @@ akeyless dynamic-secret create github \
 `--token-ttl[=60m]`: Token TTL
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `gitlab`
+
+Creates GitLab dynamic secret
+
+#### Usage
+
+```shell
+akeyless dynamic-secret create gitlab \
+--name <Dynamic Secret Name> \
+--target-name <Target Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--gitlab-access-type <project/group>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`--input-rule`: Agentic input rule in `name=...,rule=...` format. Repeat the flag to add multiple rules
+
+`--output-rule`: Agentic output rule in `name=...,rule=...` format. Repeat the flag to add multiple rules
+
+`--target-name`: Name of an existing target
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+`--gitlab-access-type`: GitLab access token type [`project`/`group`]
+
+`--project-name`: GitLab project name. Required for `project` access type
+
+`--group-name`: GitLab group name. Required for `group` access type
+
+`--gitlab-role[=GuestPermissions]`: GitLab role
+
+`--gitlab-token-scopes`: Comma-separated list of access-token scopes to grant
+
+`--ttl[=60m]`: Access-token TTL
+
+`--gitlab-access-token`: GitLab access token
+
+`--certificate`: GitLab TLS certificate in Base64 format
+
+`--gitlab-url[=https://gitlab.com/]`: GitLab base URL
+
+`--tag`: Add tags attached to this object. Repeat the flag to add multiple tags
+
+`--item-custom-fields`: Additional custom fields to associate with the item. Repeat the flag to add multiple fields
+
+`--description`: Description of the object
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
 ### `gke`
 
@@ -887,6 +945,8 @@ akeyless dynamic-secret create k8s \
 `--k8s-predefined-role-type`: Specifies the type of the pre-existing Kubernetes Role `[Role, ClusterRole]` (relevant only for `k8s-service-account-type=dynamic`)
 
 `--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of Kubernetes Role and RoleBinding (relevant only for `k8s-service-account-type=dynamic`)
+
+`--k8s-rolebinding-yaml-data`: Inline YAML that contains Kubernetes Role and RoleBinding definitions (relevant only for `k8s-service-account-type=dynamic`)
 
 `--k8s-cluster-name`: Kubernetes cluster name
 
@@ -1106,6 +1166,8 @@ akeyless dynamic-secret create mssql \
 `--mssql-creation-statements\[=CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}';]`: MSSQL Server Creation Statements
 
 `--mssql-revocation-statements\[=DROP LOGIN [{{name}}];]`: MSSQL Server Revocation Statements
+
+`--mssql-allowed-db-names`: Comma-separated list of database names that can be requested by generated credentials
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -1802,11 +1864,189 @@ akeyless dynamic-secret create openai \
 
 `org-id`: The organization ID.
 
+## `delete`
+
+Deletes dynamic secret
+
+### Usage
+
+```shell
+akeyless dynamic-secret delete \
+--name <Dynamic Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
+```
+
+### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+## `get`
+
+Get dynamic secret details
+
+### Usage
+
+```shell
+akeyless dynamic-secret get \
+--name <Dynamic Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+## `get-value`
+
+Get dynamic secret value
+
+### Usage
+
+```shell
+akeyless dynamic-secret get-value \
+--name <Dynamic Secret name> \
+--host <Host> \
+--target <Taget name>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`--host`: Host
+
+`target`: Target Name
+
+`args`: Optional arguments as `key`=`value` pairs or JSON strings, for example, - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
+
+`--dbname`: Override the database name, which must be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**)
+
+`--timeout[=15]`: Timeout in seconds
+
+## `list`
+
+List available Dynamic Secrets
+
+### Usage
+
+```shell
+akeyless dynamic-secret list \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
+```
+
+### Flags
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+## `set-item-state`
+
+Set an item's state (Enabled, Disabled)
+
+### Usage
+
+```shell
+akeyless set-item-state \
+--name <Dynamic Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--desired-state <>
+```
+
+### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-s, --desired-state`: **Required** Desired item state [Enabled, Disabled]
+
+`--version[=0]`: The specific version you want to update: 0=item level state (default) (relevant only for keys)
+
+`-u, --gateway-url`: API Gateway URL (Configuration Management port)
+
+## `tmp-creds`
+
+Commands to update, get, and delete a Dynamic Secret temporary credentials
+
+### `delete`
+
+Revoke dynamic secret temporary credentials
+
+#### Usage
+
+```shell
+akeyless dynamic-secret tmp-creds delete \
+--name <Dynamic Secret name> \
+--tmp-creds-id <Temporary credentials ID> \
+--revoke-all \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--soft-delete <Use soft-delete> \
+--host <Host>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-i, --tmp-creds-id`: Temporary credentials ID
+
+`--revoke-all`: Revoke all temporary credentials
+
+`-u, --gateway-url`: API Gateway URL (Configuration Management port)
+
+`--soft-delete`: Use soft delete
+
+`--host`: Host
+
+### `get`
+
+Get dynamic secret temporary credentials list
+
+#### Usage
+
+```shell
+akeyless dynamic-secret tmp-creds get \
+--name <Dynamic Secret name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `update`
+
+Update TTL of dynamic secret temporary credentials
+
+#### Usage
+
+```shell
+akeyless dynamic-secret tmp-creds update \
+--name <Dynamic Secret name> \
+--tmp-creds-id <Temporary credentials ID> \
+--new-ttl-min <New TTL in Minutes> \
+--host <Requested host> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`-i, --tmp-creds-id`: **Required**, Temporary credentials ID
+
+`-t, --new-ttl-min`: **Required**, New TTL in minutes
+
+`--host`: Requested host (relevant in linked target only)
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
 ## `update`
 
 `akeyless dynamic-secret update`
 
 Command to update a Dynamic Secret
+
+### Shared Secure Access flag
+
+`--secure-access-delay`: Delay in seconds before generated credentials become available for Secure Remote Access sessions. Applies to `aws`, `eks`, `gcp`, `gke`, `google-workspace`, `k8s`, `ldap`, `mongodb`, `mssql`, `mysql`, `postgresql`, and `rdp`.
 
 ### Subcommands
 
@@ -2159,7 +2399,7 @@ akeyless dynamic-secret update custom \
 
 `--enable_admin_rotation[=false]`: Enable automatic admin credentials rotation
 
-`--admin_rotation_interval_days`: Rotation period in days
+`--admin-rotation-interval-days`: Rotation period in days
 
 `--user-ttl[=60m]`: User TTL
 
@@ -2297,6 +2537,8 @@ akeyless dynamic-secret update gcp \
 `-e, --gcp-sa-email`: The email of the fixed service acocunt to generate keys or tokens for. (relevant for service-account-type=fixed)
 
 `--role-binding`: RoleBinding definitions in JSON format
+
+`--role-names`: Comma-separated list of role names to assign to generated credentials
 
 `--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
@@ -2603,6 +2845,8 @@ akeyless dynamic-secret update k8s \
 
 `--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of Kubernetes Role and RoleBinding (relevant only for `k8s-service-account-type=dynamic`)
 
+`--k8s-rolebinding-yaml-data`: Inline YAML that contains Kubernetes Role and RoleBinding definitions (relevant only for `k8s-service-account-type=dynamic`)
+
 `--k8s-cluster-name`: Kubernetes cluster name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
@@ -2793,6 +3037,8 @@ akeyless dynamic-secret update mssql \
 `--mssql-creation-statements[=CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}';]`: MSSQL Server Creation Statements
 
 `--mssql-revocation-statements[=DROP LOGIN [{{name}}];]`: MSSQL Server Revocation Statements
+
+`--mssql-allowed-db-names`: Comma-separated list of database names that can be requested by generated credentials
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
@@ -3367,177 +3613,3 @@ akeyless dynamic-secret update openai \
 `api-key`: The Admin API Key that will be used to create the API Key.
 
 `org-id`: The organization ID.
-
-## `get`
-
-Get dynamic secret details
-
-### Usage
-
-```shell
-akeyless dynamic-secret get \
---name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-## `get-value`
-
-Get dynamic secret value
-
-### Usage
-
-```shell
-akeyless dynamic-secret get-value \
---name <Dynamic Secret name> \
---host <Host> \
---target <Taget name>
-```
-
-### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`--host`: Host
-
-`target`: Target Name
-
-`args`: Optional arguments as `key`=`value` pairs or JSON strings, for example, - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
-
- `--mssql-dbname`: Override MSSQL DB name, this should be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**).
-
-`--timeout[=15]`: Timeout in seconds
-
-## `list`
-
-List available Dynamic Secrets
-
-### Usage
-
-```shell
-akeyless dynamic-secret list \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
-```
-
-### Flags
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-## `delete`
-
-Deletes dynamic secret
-
-### Usage
-
-```shell
-akeyless dynamic-secret delete \
---name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
-```
-
-### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-## `tmp-creds`
-
-Commands to update, get, and delete a Dynamic Secret temporary credentials
-
-### `delete`
-
-Revoke dynamic secret temporary credentials
-
-#### Usage
-
-```shell
-akeyless dynamic-secret tmp-creds delete \
---name <Dynamic Secret name> \
---tmp-creds-id <Temporary credentials ID> \
---revoke-all \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---soft-delete <Use soft-delete> \
---host <Host>
-```
-
-#### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-i, --tmp-creds-id`: Temporary credentials ID
-
-`--revoke-all`: Revoke all temporary credentials
-
-`-u, --gateway-url`: API Gateway URL (Configuration Management port)
-
-`--soft-delete`: Use soft delete
-
-`--host`: Host
-
-### `get`
-
-Get dynamic secret temporary credentials list
-
-#### Usage
-
-```shell
-akeyless dynamic-secret tmp-creds get \
---name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-#### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-### `update`
-
-Update TTL of dynamic secret temporary credentials
-
-#### Usage
-
-```shell
-akeyless dynamic-secret tmp-creds update \
---name <Dynamic Secret name> \
---tmp-creds-id <Temporary credentials ID> \
---new-ttl-min <New TTL in Minutes> \
---host <Requested host> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
-```
-
-#### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-i, --tmp-creds-id`: **Required**, Temporary credentials ID
-
-`-t, --new-ttl-min`: **Required**, New TTL in minutes
-
-`--host`: Requested host (relevant in linked target only)
-
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-## `set-item-state`
-
-Set an item's state (Enabled, Disabled)
-
-### Usage
-
-```shell
-akeyless set-item-state \
---name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---desired-state <>
-```
-
-### Flags
-
-`-n, --name`: **Required**, Dynamic Secret name
-
-`-s, --desired-state`: **Required** Desired item state [Enabled, Disabled]
-
-`--version[=0]`: The specific version you want to update: 0=item level state (default) (relevant only for keys)
-
-`-u, --gateway-url`: API Gateway URL (Configuration Management port)
