@@ -1,5 +1,6 @@
 ---
 title: Kubernetes (Gateway + SRA)
+slug: sra-setup-k8s
 excerpt: ''
 deprecated: false
 hidden: false

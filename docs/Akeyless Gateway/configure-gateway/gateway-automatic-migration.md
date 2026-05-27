@@ -67,6 +67,26 @@ If the flag is omitted on `gateway-create-migration`, the mode defaults to `full
 
 Set the mode with the `--hashi-metadata-mode` flag on `gateway-create-migration` or `gateway-update-migration`. For full flag reference, see the [Automatic Migration CLI Reference](https://docs.akeyless.io/docs/cli-reference-automatic-migration).
 
+## Automatic Migration Synchronization
+
+Use migration synchronization when you want a migration (including HashiCorp Vault migrations) to continue reflecting source-side changes after the initial import.
+
+Enable or disable synchronization with:
+
+```shell
+akeyless gateway-sync-migration \
+--name <Migration Name> \
+--gateway-url <API Gateway URL>:8000 \
+--sync <true/false>
+```
+
+Where:
+
+* `--sync true`: Starts synchronization.
+* `--sync false`: Stops synchronization.
+
+For full command details, see the [Automatic Migration CLI Reference](https://docs.akeyless.io/docs/cli-reference-automatic-migration#sync).
+
 ## Operational Guidance
 
 Use a phased rollout:

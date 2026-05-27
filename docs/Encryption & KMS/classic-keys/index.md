@@ -1,5 +1,6 @@
 ---
 title: Classic Keys
+slug: classic-keys
 excerpt: ''
 deprecated: false
 hidden: false

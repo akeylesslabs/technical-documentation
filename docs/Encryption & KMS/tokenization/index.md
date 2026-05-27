@@ -1,5 +1,6 @@
 ---
 title: Tokenization
+slug: tokenization
 excerpt: ''
 deprecated: false
 hidden: false

@@ -18,6 +18,10 @@ Proactive caching preloads and refreshes cache entries in the background to redu
 > Proactive caching requires [runtime cache](https://docs.akeyless.io/docs/runtime-caching) and base proactive cache to be enabled (`CACHE_ENABLE=true` and `PROACTIVE_CACHE_ENABLE=true`).
 > To use the recommended implementation, also set `NEW_PROACTIVE_CACHE_ENABLE=true`.
 
+The following diagram illustrates the Gateway proactive caching flow:
+
+![Gateway proactive caching flow diagram.](https://files.readme.io/1fdc1d01ea89e625913853199b7ed1aba17bdebdd713ce3b708af7c1fa9b2e77-Cache_Diagaram.png)
+
 ## Sync Behavior
 
 Proactive cache runs when `CACHE_ENABLE=true` and `PROACTIVE_CACHE_ENABLE=true`.

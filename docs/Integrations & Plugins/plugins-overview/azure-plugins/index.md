@@ -1,5 +1,6 @@
 ---
 title: Azure Plugins
+slug: azure-plugins
 excerpt: ''
 deprecated: false
 hidden: false
