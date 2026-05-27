@@ -31,6 +31,8 @@ Navigate to the **Certificates** tab to get an immediate overview of your certif
 
 On the **Certificate Expiry** graph, click on the **Overview** button in the top right corner to get a detailed overview of all your certificate and their expiration details.
 
+> ℹ️ **Note:** Analytics data is generated asynchronously, so recent activity may take time to appear in the report.
+
 To get the Analytic data using a CLI command run the following command:
 
 ```shell
