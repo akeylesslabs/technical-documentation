@@ -141,27 +141,27 @@ Use the minimum permissions required for each operational role.
 
 | Permission | Typical use |
 | --- | --- |
-| `admin` | Full Gateway administration, including access permission management. |
 | `defaults` | Manage default login and default encryption settings. |
-| `targets` | Manage target-related operations through the Gateway. |
-| `classic_keys` | Manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys) through the Gateway. |
-| `automatic_migration` | Manage [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings used by automatic migration workflows. |
-| `dynamic_secret` | Manage dynamic secret configuration. |
-| `rotated_secret` | Manage rotated secret configuration. |
-| `rotate_secret_value` | Rotate secret values through the Gateway without enabling broader manual secret editing. |
-| `log_forwarding` | Manage log forwarding settings. |
-| `zero_knowledge_encryption` | Manage [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) Gateway settings. |
-| `caching` | Manage cache and offline behavior settings. |
-| `event_forwarding` | Manage [Event Forwarding](https://docs.akeyless.io/docs/event-center) settings. |
-| `ldap_auth` | Manage [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) authentication configuration for the Gateway. |
-| `kerberos_auth` | Manage Kerberos authentication configuration for the Gateway. |
-| `k8s_auth` | Manage [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) authentication configuration for the Gateway. |
-| `sra_config` | Manage Secure Remote Access (SRA) Gateway configuration. |
-| `hsm` | Manage Gateway HSM integration settings. |
 | `acme` | Manage Gateway ACME configuration and workflows. |
-| `sdr` | Manage Gateway SDR scanner configuration and operations. |
-| `kmip` | Manage KMIP service configuration. |
+| `admin` | Full Gateway administration, including access permission management. |
+| `automatic_migration` | Manage [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings used by automatic migration workflows. |
+| `caching` | Manage cache and offline behavior settings. |
+| `classic_keys` | Manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys) through the Gateway. |
+| `dynamic_secret` | Manage dynamic secret configuration. |
+| `event_forwarding` | Manage [Event Forwarding](https://docs.akeyless.io/docs/event-center) settings. |
 | `general` | Manage general Gateway settings, including URL and TLS behavior. |
+| `hsm` | Manage Gateway HSM integration settings. |
+| `k8s_auth` | Manage [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) authentication configuration for the Gateway. |
+| `kerberos_auth` | Manage Kerberos authentication configuration for the Gateway. |
+| `kmip` | Manage KMIP service configuration. |
+| `ldap_auth` | Manage [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) authentication configuration for the Gateway. |
+| `log_forwarding` | Manage log forwarding settings. |
+| `rotate_secret_value` | Rotate secret values through the Gateway without enabling broader manual secret editing. |
+| `rotated_secret` | Manage rotated secret configuration. |
+| `sdr` | Manage Gateway SDR scanner configuration and operations. |
+| `sra_config` | Manage Secure Remote Access (SRA) Gateway configuration. |
+| `targets` | Manage target-related operations through the Gateway. |
+| `zero_knowledge_encryption` | Manage [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) Gateway settings. |
 
 Administrative operations for Gateway Allowed Access management require `admin` permission.
 

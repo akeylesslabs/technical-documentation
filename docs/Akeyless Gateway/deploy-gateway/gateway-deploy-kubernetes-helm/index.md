@@ -425,21 +425,27 @@ Full list of available permissions:
 
 | Permission | Description |
 | --- | --- |
-| `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
 | `defaults` | Management of the defaults settings of your Gateway, including `GatewayUrl`, `TLS`, `Default Encryption Key`, and `Default AccessID` for login. |
+| `acme` | Management of Gateway ACME configuration and workflows. |
+| `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
+| `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings |
+| `caching` | Management of [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) settings |
 | `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
 | `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) |
-| `rotated_secret` | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
-| `rotate-secret-value` | Permission to only rotate the secret value without editing it. |
-| `targets` | Management of all Targets items that were created using your Gateway |
-| `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings |
-| `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings |
-| `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
-| `caching` | Management of [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) settings |
 | `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
-| `ladp_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
+| `general` | Management of Gateway General settings including `GatewayUrl`, `TLS` |
+| `hsm` | Management of Gateway HSM integration settings. |
 | `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
+| `kerberos_auth` | Management of Kerberos Auth Gateway configuration. |
 | `kmip` | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
+| `ldap_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
+| `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings |
+| `rotate_secret_value` | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item |
+| `rotated_secret` | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
+| `sdr` | Management of Gateway SDR scanner configuration and operations. |
+| `sra_config` | Management of Secure Remote Access (SRA) Gateway configuration. |
+| `targets` | Management of all Targets items that were created using your Gateway |
+| `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
 
 > ℹ️ **Note:**
 >
