@@ -16,7 +16,6 @@ next:
 ---
 
 <GatewayConfigManagementNote />
-## Value Proposition
 
 Gateway Zero-Knowledge allows organizations to use Akeyless as a managed identity security platform while retaining customer-enforced cryptographic control for protected operations.
 
@@ -27,6 +26,16 @@ For regulated industries, this is best evaluated as a control-boundary model rat
 * Gateway is customer-hosted and customer-operated as the network bridge into private environments.
 
 This model supports reviews for separation of duties, data sovereignty, and execution control.
+
+## Prerequisites
+
+Before implementing Gateway Zero-Knowledge, confirm the following:
+
+* A Gateway deployment is running and reachable from the required workloads. For deployment options, see [Gateway Overview](https://docs.akeyless.io/docs/gateway-overview).
+* A Gateway authentication method and access policy are configured. For access configuration details, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+* The identity used for key creation and Gateway operations has the required permissions for DFC key management and Gateway access.
+* A secure backup process is defined for Customer Fragment files and values.
+* Required network routes to Gateway and Akeyless SaaS services are available. For connectivity requirements, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
 
 ## How It Works
 
@@ -64,7 +73,7 @@ To reduce exposure across environments:
 
 ### Caching Behavior in Zero-Knowledge Context
 
-When Gateway caching is enabled, Gateway can temporarily cache secret values in customer-controlled memory or Redis cache layers.
+When Gateway caching is enabled, the Gateway can temporarily cache secret values in customer-controlled memory or Redis cache layers.
 
 This does not change DFC control boundaries. For cache behavior details, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) and [Runtime Caching](https://docs.akeyless.io/docs/runtime-caching).
 
