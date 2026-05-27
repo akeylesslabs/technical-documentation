@@ -145,11 +145,16 @@ Use the minimum permissions required for each operational role.
 | `defaults` | Manage default login and default encryption settings. |
 | `targets` | Manage target-related operations through the Gateway. |
 | `classic_keys` | Manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys) through the Gateway. |
+| `automatic_migration` | Manage [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings used by automatic migration workflows. |
 | `dynamic_secret` | Manage dynamic secret configuration. |
 | `rotated_secret` | Manage rotated secret configuration. |
 | `rotate_secret_value` | Rotate secret values through the Gateway without enabling broader manual secret editing. |
 | `log_forwarding` | Manage log forwarding settings. |
+| `zero_knowledge_encryption` | Manage [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) Gateway settings. |
 | `caching` | Manage cache and offline behavior settings. |
+| `event_forwarding` | Manage [Event Forwarding](https://docs.akeyless.io/docs/event-center) settings. |
+| `ldap_auth` | Manage [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) authentication configuration for the Gateway. |
+| `k8s_auth` | Manage [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) authentication configuration for the Gateway. |
 | `kmip` | Manage KMIP service configuration. |
 | `general` | Manage general Gateway settings, including URL and TLS behavior. |
 
