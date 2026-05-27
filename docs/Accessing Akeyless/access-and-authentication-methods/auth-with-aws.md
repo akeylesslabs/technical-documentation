@@ -52,7 +52,7 @@ Support status definitions:
 * **Supported (credential-path compatible)**: Uses the same AWS SDK credential flow used by validated scenarios.
 * **Expected compatible**: Architecture is expected to work with the same IAM/STS model, but scenario-specific validation is environment-dependent.
 
-Additional AWS compute platforms not listed in the table (for example, AWS Elastic Beanstalk or Amazon EMR) are not currently called out with scenario-specific validation in this documentation. Treat them as credential-path compatibility cases and validate runtime IAM credential availability, network routing, and STS reachability in your environment.
+Additional AWS compute platforms not listed in the table (for example, AWS Elastic Beanstalk or Amazon EMR) are not currently called out in this documentation. Treat them as credential-path compatibility cases and validate runtime IAM credential availability, network routing, and STS reachability in your environment.
 
 ### AWS Scope and Coverage Sources
 

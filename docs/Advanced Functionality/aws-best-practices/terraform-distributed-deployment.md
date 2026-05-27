@@ -14,6 +14,8 @@ next:
 
 This article outlines the steps to integrate your AWS account with Akeyless [Gateway](https://docs.akeyless.io/docs/gateway-overview), along with instructions for AWS Organization integration with relevant member accounts. This guide provides a [Terraform](https://developer.hashicorp.com/terraform) script to create the required AWS IAM roles that grant the Gateway IAM permissions in your AWS environment when operating in a distributed deployment, where each Gateway manages a single AWS account.
 
+For AWS partition guidance and deployment pattern coverage, see [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws#aws-deployment-pattern-support).
+
 ## Prerequisites
 
 To successfully integrate your AWS accounts with Akeyless, ensure the following prerequisites are met:
