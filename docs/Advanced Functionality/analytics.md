@@ -33,7 +33,7 @@ On the **Certificate Expiry** graph, click on the **Overview** button in the top
 
 > ℹ️ **Note:** Analytics data is generated asynchronously, so recent activity may take time to appear in the report.
 
-To get the Analytic data using a CLI command run the following command:
+To get the Analytic data using a CLI command, see the [CLI Reference entry for get-analytics-data](https://docs.akeyless.io/docs/cli-reference#get-analytics-data) and run the following command:
 
 ```shell
 akeyless get-analytics-data
