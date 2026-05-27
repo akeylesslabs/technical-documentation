@@ -17,7 +17,7 @@ next:
 
 <GatewayConfigManagementNote />
 
-Gateway Zero-Knowledge implementation enables customer-fragment participation for protected Gateway operations.
+Gateway Zero-Knowledge enables customer-fragment participation for protected Gateway operations.
 
 For architecture concepts, threat model, and distributed cryptographic workflow details, see [Zero-Knowledge Encryption SaaS Architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) and [DFC Deep Dive](https://docs.akeyless.io/docs/dfc-deep-dive).
 
