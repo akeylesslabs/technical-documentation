@@ -192,7 +192,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Non-Interactive Mode
 
-To initiate the CLI non-interactively, run `./akeyless --init`. This command works only the first time you run the CLI in that environment.
+To initiate the CLI non-interactively, run `./akeyless --init`. This command works only the first time you run the CLI in that environment. To re-run the command, delete ~/.akeyless directory or rename it.
 
 If you're working with a different tenant environment than the default, that is `vault.akeyless.io`, use the `--akeyless-url` flag to specify the tenant that the CLI should communicate with.
 
