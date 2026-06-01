@@ -58,6 +58,8 @@ Note that SLA timing starts when the Jira issue is created or updated by automat
 7. Link follow-up work in the alert issue comments.
 8. Close the alert issue when all follow-up tasks are resolved or accepted as no-change.
 
+If a finding only reflects an upstream dependency release and the reviewed guidance does not require a wording, compatibility, or example change, record that as an accepted no-change outcome in Jira instead of opening follow-up content work.
+
 ## Duplicate suppression and digest behavior
 
 * Findings are generated only when a dependency version changes compared to the persisted last-seen state.
