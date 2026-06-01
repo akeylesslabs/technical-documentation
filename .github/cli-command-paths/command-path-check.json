@@ -1,8 +1,13 @@
 {
-  "files_scanned": 0,
-  "checked_command_paths": 0,
-  "failure_count": 1,
-  "runtime_error": "validator did not produce json output for any CLI path check target",
+  "files_scanned": 490,
+  "checked_command_paths": 510,
+  "failure_count": 0,
+  "runtime_error": null,
   "failures": [],
-  "kubectl_versions_checked": []
+  "kubectl_versions_checked": [
+    "non-kubectl",
+    "v1.34",
+    "v1.35",
+    "v1.36"
+  ]
 }
