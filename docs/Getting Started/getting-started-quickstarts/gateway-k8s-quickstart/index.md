@@ -74,7 +74,7 @@ Update Complete. ⎈Happy Helming!⎈
 Run the following command to save the default configuration values of the Akeyless Gateway Helm chart to your current directory as a new file called `values.yaml`:
 
 ```shell
-helm show values akeyless/akeyless-gateway --version "2.0.9" > values.yaml
+helm show values akeyless/akeyless-gateway > values.yaml
 ```
 
 There should be no command output.
@@ -115,7 +115,7 @@ kubectl create secret generic access-key --namespace akeyless --from-literal=gat
 Run the following command to deploy the Akeyless Gateway Helm chart using the `values.yaml` file that you edited:
 
 ```shell
-helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml --version "2.0.9"
+helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml
 ```
 
 _Sample Output:_
