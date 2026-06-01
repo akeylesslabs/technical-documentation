@@ -1,21 +1,5 @@
 npm warn exec The following package was not found and will be installed: markdownlint-cli2@0.22.1
 markdownlint-cli2 v0.22.1 (markdownlint v0.40.0)
 Finding: docs/**/*.md docs/**/*.md !.github/**/*.md !docs/Contributing Guides/technical-documentation-style-guide/index.md
-Linting: 480 file(s)
-Summary: 16 error(s)
-docs/AI/agentic-runtime-authority.md:16 error AKY001/no-heading-1 Disallow use of level-1 headings (H1) [Level-1 headings (H1) are not allowed.]
-docs/AI/agentic-runtime-authority.md:16 error AKY002/heading-hierarchy-starts-at-h2 Require headings to start at H2 and follow a logical hierarchy without skipping levels [First heading must be level 2 (##).] [Context: "Found: <h1>"]
-docs/AI/agentic-runtime-authority.md:16 error MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "Prerequisites"]
-docs/AI/agentic-runtime-authority.md:30 error AKY001/no-heading-1 Disallow use of level-1 headings (H1) [Level-1 headings (H1) are not allowed.]
-docs/AI/agentic-runtime-authority.md:30 error MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "Setting up the AI Agent"]
-docs/AI/agentic-runtime-authority.md:34 error AKY003/no-bold-pseudo-heading Disallow paragraphs/lines that are only bold text, which often indicates a misused heading [Avoid using bold text as a heading; use a proper markdown heading (##, ###, ...).] [Context: "**For Claude**"]
-docs/AI/agentic-runtime-authority.md:34 error MD036/no-emphasis-as-heading Emphasis used instead of a heading [Context: "For Claude"]
-docs/AI/agentic-runtime-authority.md:38 error AKY003/no-bold-pseudo-heading Disallow paragraphs/lines that are only bold text, which often indicates a misused heading [Avoid using bold text as a heading; use a proper markdown heading (##, ###, ...).] [Context: "**For Cursor**"]
-docs/AI/agentic-runtime-authority.md:38 error MD036/no-emphasis-as-heading Emphasis used instead of a heading [Context: "For Cursor"]
-docs/AI/agentic-runtime-authority.md:44 error AKY022/fenced-code-info-allowlist Validate fenced code info strings against allowlisted languages and tab labels [Unknown fenced code tab label 'shell'. Add it to the AKY022 tab allowlist if it is intentional.] [Context: "json shell"]
-docs/AI/agentic-runtime-authority.md:71 error AKY001/no-heading-1 Disallow use of level-1 headings (H1) [Level-1 headings (H1) are not allowed.]
-docs/AI/agentic-runtime-authority.md:71 error MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "Querying the DB"]
-docs/AI/agentic-runtime-authority.md:81:1 error MD033/no-inline-html Inline HTML [Element: br]
-docs/AI/agentic-runtime-authority.md:83:1 error MD033/no-inline-html Inline HTML [Element: br]
-docs/AI/agentic-runtime-authority.md:85:1 error MD033/no-inline-html Inline HTML [Element: br]
-docs/AI/agentic-runtime-authority.md:87:1 error MD033/no-inline-html Inline HTML [Element: br]
+Linting: 489 file(s)
+Summary: 0 error(s)
