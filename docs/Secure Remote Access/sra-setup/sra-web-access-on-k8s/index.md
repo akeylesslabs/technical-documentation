@@ -378,7 +378,16 @@ dispatcher:
       type: "aws_iam"
 ```
 
-Use this override when auto-detection fails. Leave `accessKey` empty for AWS IAM machine-to-machine authentication.
+Alternatively, set the `ADMIN_ACCESS_ID_TYPE` environment variable to `aws_iam` on the dispatcher. This provides the same override behavior and is consistent with the approach used on the Akeyless Gateway:
+
+```yaml
+dispatcher:
+  env:
+    - name: ADMIN_ACCESS_ID_TYPE
+      value: "aws_iam"
+```
+
+Use either override when auto-detection fails. Leave `accessKey` empty for AWS IAM machine-to-machine authentication.
 
 ### Azure Active Directory authentication
 
