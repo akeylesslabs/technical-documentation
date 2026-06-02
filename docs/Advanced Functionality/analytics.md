@@ -31,11 +31,15 @@ Navigate to the **Certificates** tab to get an immediate overview of your certif
 
 On the **Certificate Expiry** graph, click on the **Overview** button in the top right corner to get a detailed overview of all your certificate and their expiration details.
 
-To get the Analytic data using a CLI command run the following command:
+> ℹ️ **Note:** Analytics data is generated asynchronously, so recent activity may take time to appear in the report.
+
+For CLI usage, run the following command:
 
 ```shell
 akeyless get-analytics-data
 ```
+
+See the [CLI Reference entry for get-analytics-data](https://docs.akeyless.io/docs/cli-reference#get-analytics-data) for more details.
 
 > ℹ️ **Note:** Data in the Analytics report includes items stored in [Personal Folders](https://docs.akeyless.io/docs/personal-corporate-areas-navigation).
 

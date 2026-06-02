@@ -189,6 +189,8 @@ Where:
 
 To work with [Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge) edit the `customer_fragments` param as follows:
 
+Generate the Customer Fragment in advance by using the CLI flow in [Gateway Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge#step-1-generate-a-customer-fragment-cli), then place the generated values in this parameter.
+
 ```shell
 "customer_fragments": [{"id": "<Customer Fragment ID>","value": "<Customer Fragment Value>","description": "My Serverless Fragment","name": "ServerLessFragment"}]
 ```

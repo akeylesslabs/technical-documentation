@@ -106,6 +106,10 @@ The output of this command contains the following value:
 
 * `display ID` - Certificate display ID.
 
+> ℹ️ **Note (GlobalSign targets):**
+>
+> For GlobalSign-based issuance, a single `get-pki-certificate` request is handled as a single issuance flow to avoid duplicate certificate issuance during transient retries.
+
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-pki-certificate) section.
 
 To retrieve the certificate, run the following command:

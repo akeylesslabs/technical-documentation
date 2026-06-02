@@ -1218,6 +1218,8 @@ akeyless delete-personal-folder \
 
 Get analytics and usage report data for the authenticated account.
 
+Analytics data is generated asynchronously, so recent activity may take time to appear in the report.
+
 #### Usage
 
 ```shell

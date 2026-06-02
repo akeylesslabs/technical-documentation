@@ -13,6 +13,8 @@ next:
 ---
 The Akeyless [Universal Secret Connector](https://docs.akeyless.io/docs/universal-secrets-connector) provides a powerful way to ensure that secrets remain synchronized across multiple external secret management solutions. Whenever a secret value is updated in Akeyless, the connector automatically ensures that the updated value is propagated to all integrated systems in real time, eliminating the need for manual synchronization.
 
+Sync workflows are available for both [Static Secrets](https://docs.akeyless.io/docs/sync-a-static-secret) and [Rotated Secrets](https://docs.akeyless.io/docs/sync-a-rotated-secret).
+
 ## Prerequisites
 
 * Universal Secret Connector Item.
