@@ -6,7 +6,7 @@ repos:
         name: gitleaks (secret scan)
         args: ["--staged", "--redact"]
 
-  # Local hooks: markdownlint, cspell, lychee
+  # Local hooks: markdownlint, cspell
   # Note: These run sequentially on edited markdown files. Markdownlint uses --fix to auto-correct issues.
   # To preview changes without modifying files, run:
   #   pre-commit run --files <file> --hook-stage manual
@@ -32,11 +32,3 @@ repos:
         require_serial: true
         stages: [pre-commit]
 
-      - id: lychee
-        name: lychee (edited markdown files)
-        language: system
-        entry: lychee --verbose --no-progress --exclude-file .github/lychee/.lycheeignore --exclude-path .github --exclude-link-local --exclude-loopback --include-mail
-        files: \.md$
-        pass_filenames: true
-        require_serial: true
-        stages: [pre-commit]

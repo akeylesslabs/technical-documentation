@@ -27,9 +27,29 @@ To prove domain ownership, the Akeyless integration supports the following valid
 
 * **HTTP validation**: Ownership is proven by hosting a challenge file at `http://<YOUR_DOMAIN>/.well-known/acme-challenge/` and returning the expected value during validation.
 
-## Create a Let's Encrypt Target with the CLI
+## Before You Begin
 
-To create a Let's Encrypt target with the CLI, use one of the following examples based on the challenge method and DNS provider:
+* Ensure an [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) is deployed and reachable.
+* For DNS challenge flows, create the DNS provider target before creating the Let's Encrypt target.
+* Confirm that the DNS target has permissions to manage TXT records in the relevant zone.
+* Use the ACME `staging` environment for initial validation before switching to `production`.
+
+## Choose a Validation Method
+
+Choose one of the supported challenge types based on the DNS and web access model in your environment:
+
+* **DNS challenge (`dns`)**: Recommended when DNS automation is available. This method requires a DNS provider target and provider-specific DNS parameters.
+* **HTTP challenge (`http`)**: Recommended when a challenge file can be served from `/.well-known/acme-challenge/` on the requested domain.
+
+Use the sections below to configure the target and complete certificate issuance for your selected method.
+
+## Configure the Let's Encrypt Target
+
+### Use the CLI
+
+Use the following examples based on challenge type and DNS provider.
+
+#### DNS challenge examples
 
 ```shell DNS with AWS
 akeyless target create lets-encrypt \
@@ -63,14 +83,17 @@ akeyless target create lets-encrypt \
 --dns-target-creds <Cloudflare DNS Target Name> \
 --dns-zone <Cloudflare DNS Zone>
 ```
-```shell HTTP
+
+#### HTTP challenge example
+
+```shell
 akeyless target create lets-encrypt \
 --name <Target Name> \
 --email <ACME Account Email> \
 --acme-challenge http
 ```
 
-Where:
+#### Key CLI flags
 
 * `name`: A unique name for the target. The name can include a path to a virtual folder by using slash `/` separators. If the folder does not exist, Akeyless creates it with the target.
 
@@ -96,7 +119,7 @@ Where:
 
 [View the complete list of parameters for this command.](https://docs.akeyless.io/docs/cli-ref-targets#lets-encrypt)
 
-## Create a Let's Encrypt Target in the Console
+### Use the Console
 
 1. Log in to the Akeyless Console, and go to **Targets**, then **New**, then **Certificate Automation (Let's Encrypt)**.
 
@@ -124,9 +147,37 @@ Where:
 
 * **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
 
-* **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
-
 1. Click Finish.
+
+## Configure DNS Provider Authentication (Optional)
+
+For DNS challenge flows, a provider target can use Gateway cloud identity instead of static credentials.
+
+### Gateway Cloud Identity Examples
+
+The following examples show how to create DNS provider targets with Gateway cloud identity for AWS, Azure, and GCP.
+
+```shell AWS
+# Create the DNS provider target with Gateway cloud identity
+akeyless target create aws \
+--name <AWS DNS Target Name> \
+--use-gw-cloud-identity \
+--region <AWS Region>
+```
+```shell Azure
+# Create the DNS provider target with Gateway cloud identity
+akeyless target create azure \
+--name <Azure DNS Target Name> \
+--connection-type cloud-identity \
+--subscription-id <Azure Subscription ID> \
+--resource-group-name <Azure DNS Resource Group Name>
+```
+```shell GCP
+# Create the DNS provider target with Gateway cloud identity
+akeyless target create gcp \
+--name <GCP DNS Target Name> \
+--use-gw-cloud-identity
+```
 
 ## DNS Provider Permissions for DNS-01
 
@@ -148,6 +199,19 @@ Required permissions by provider:
     * **Recommended built-in role**: **DNS Zone Contributor** at the DNS zone scope.
     * This role includes `Microsoft.Network/dnsZones/*` (manage DNS zones and record sets).
     * Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
+
+### Troubleshoot DNS challenge flows
+
+If certificate issuance fails during DNS challenge validation, validate the following:
+
+* The `dns-target-creds` target exists and is configured for the expected provider.
+* The DNS challenge field for the selected provider is set correctly:
+    * AWS: `hosted-zone`
+    * Azure: `resource-group`
+    * GCP: `gcp-project` (when project ID cannot be derived automatically)
+* The domain requested in the certificate is hosted in the DNS zone managed by the provider target.
+* The Gateway has network access to the provider DNS APIs.
+* The identity used by the provider target has permissions to create and update TXT records for ACME validation.
 
 > ℹ️ **Note (Least Privilege):**
 >
