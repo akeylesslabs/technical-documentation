@@ -421,25 +421,7 @@ kubectl create secret generic allowed-permissions \
 
 Set the name of the secret `allowed-permissions` under `allowedAccessPermissionsExistingSecret` where the key has to be `allowed-access-permissions`.
 
-Full list of available permissions:
-
-| Permission | Description |
-| --- | --- |
-| `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
-| `defaults` | Management of the defaults settings of your Gateway, including `GatewayUrl`, `TLS`, `Default Encryption Key`, and `Default AccessID` for login. |
-| `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
-| `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) |
-| `rotated_secret` | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
-| `rotate-secret-value` | Permission to only rotate the secret value without editing it. |
-| `targets` | Management of all Targets items that were created using your Gateway |
-| `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings |
-| `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) settings |
-| `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
-| `caching` | Management of [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching) settings |
-| `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
-| `ladp_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
-| `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
-| `kmip` | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
+For the complete and current list, see [Gateway Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
 
 > ℹ️ **Note:**
 >
