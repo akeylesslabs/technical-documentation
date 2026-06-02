@@ -33,7 +33,7 @@ Where:
 
 * `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-* `issuer`: The Identity Provider URL (for more information, check the [Okta](https://docs.akeyless.io/docs/okta) example).
+* `issuer`: The Identity Provider URL (for more information, check the [Okta](https://docs.akeyless.io/docs/okta-oidc) example).
 
 * `client-id`: The Client ID (application ID).
 
@@ -68,7 +68,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`, `Mobile`, `Extension`.
 
-    * **Issuer URL:** The Identity Provider URL (for more information, check the [Okta](https://docs.akeyless.io/docs/okta) example).
+    * **Issuer URL:** The Identity Provider URL (for more information, check the [Okta](https://docs.akeyless.io/docs/okta-oidc) example).
 
     * **Client ID:** The Client ID (application ID).
 

@@ -189,7 +189,7 @@ Where **only** certificates with the domain `myexample.com` will be accepted and
 
 > ℹ️ **Note:**
 >
-> The `--client-flag true` setting permits leaf certificate requesters to explicitly include the Client Authentication Extended Key Usage (EKU) when calling `get-pki-certificate`. It does not automatically add `clientAuth` EKU to all issued certificates, nor does it prevent issuing certificates without any EKU. Automatic EKU application and stricter issuance enforcement are planned for a future release.
+> The `--client-flag true` setting configures Client Authentication Extended Key Usage (EKU) policy on the PKI issuer. Certificates issued from this issuer, including console-based issuance flows, apply the configured EKU policy.
 
 ## Issuing a Leaf Certificate
 

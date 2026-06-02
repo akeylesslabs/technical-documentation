@@ -28,7 +28,7 @@ akeyless connect [flags]
 
 `-t, --target`: Target resource. Examples: `user@ssh-server[:port]`, `us-east-2`, `mysql-server:3306`
 
-`-v, --via-sra`: SRA host the connection routes through. Format: `sra-host:port`
+`-v, --via-sra`: Optional SRA host override. In legacy deployments, use this as the route host. In unified Gateway deployments, use this only when overriding the SSH address configured in Gateway Remote Access settings
 
 `-g, --gateway-url`: Gateway URL (Configuration Management port). Example: `http://localhost:8000`
 
@@ -80,8 +80,16 @@ SSH to a remote host through an SRA gateway:
 akeyless connect \
   -t user@my-server.example.com \
   -c /SRA/my-ssh-cert-issuer \
-  -v my-sra-host.example.com:22 \
   -g http://my-gw.example.com:8000
+```
+
+Legacy deployment example with an explicit SRA host:
+
+```shell
+akeyless connect \
+  -t user@my-server.example.com \
+  -c /SRA/my-ssh-cert-issuer \
+  -v my-sra-host.example.com:22
 ```
 
 Connect to a database dynamic secret:
@@ -90,7 +98,6 @@ Connect to a database dynamic secret:
 akeyless connect \
   -t postgres-server:5432 \
   -n /producers/my-postgres \
-  -v my-sra-host.example.com:22 \
   -g http://my-gw.example.com:8000
 ```
 
@@ -101,5 +108,5 @@ akeyless connect \
   -t my-namespace@k8s-cluster.example.com \
   -n /dynamic-secrets/my-k8s-secret \
   --k8s-tunnel 8443 \
-  -v my-sra-host.example.com:22
+  -g http://my-gw.example.com:8000
 ```

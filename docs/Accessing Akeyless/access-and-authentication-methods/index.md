@@ -34,7 +34,7 @@ For **human** access, Akeyless supports:
 * [Email](https://docs.akeyless.io/docs/auth-with-email)
 * [API Keys](https://docs.akeyless.io/docs/auth-with-api-key)
 
-which are used by known identity providers such as [Okta](https://docs.akeyless.io/docs/okta), [Azure AD](https://docs.akeyless.io/docs/azure-ad-saml-authentication), and others.
+These methods are used by known identity providers such as [Okta](https://docs.akeyless.io/docs/okta-oidc), [Azure AD](https://docs.akeyless.io/docs/auth-with-azure), and others.
 
 ## Authentication Settings
 
