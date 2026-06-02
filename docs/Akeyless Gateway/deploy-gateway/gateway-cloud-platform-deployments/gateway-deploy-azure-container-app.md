@@ -161,7 +161,7 @@ Where:
 
 * `cluster_name` - The name of the cluster.
 
-* `customer-fragment` - Optional, Add a customer fragment in `JSON` format to the `CUSTOMER_FRAGMENTS` parameter to work with [Zero-Knowledge encryption](https://docs.akeyless.io/docs/zero-knowledge).
+* `customer-fragment` - Optional, add a customer fragment in `JSON` format to the `CUSTOMER_FRAGMENTS` parameter to work with [Zero-Knowledge encryption](https://docs.akeyless.io/docs/zero-knowledge). Generate the fragment in advance by using the CLI flow in [Gateway Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge#step-1-generate-a-customer-fragment-cli).
 
 * `user-assigned` - Optional, The **User Assigned Managed Identity** your container app will use at runtime to access Azure resources (only relevant when using a **User-Assigned Identity**).
 

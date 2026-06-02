@@ -248,6 +248,8 @@ By default, the Gateway configuration is encrypted with your account's default e
 
 If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge), provide the full path to a local JSON containing your Customer Fragment:
 
+Generate the Customer Fragment before deployment by using the documented CLI flow in [Gateway Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge#step-1-generate-a-customer-fragment-cli).
+
 Note: When adding multiple Customer Fragments to the Gateway, make sure they are in the same JSON file.
 
 ```shell
