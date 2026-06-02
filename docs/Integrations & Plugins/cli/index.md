@@ -192,7 +192,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Non-Interactive Mode
 
-To configure the CLI non-interactively, use the `configure` command with the relevant flags. This also works on a fresh install when no `~/.akeyless` directory exists.
+To configure the CLI non-interactively, use the [configure command](https://docs.akeyless.io/docs/cli-reference#configure) with the relevant flags. This also works on a fresh install when no `~/.akeyless` directory exists.
 
 For example, to configure a default profile with an API Key authentication method:
 
