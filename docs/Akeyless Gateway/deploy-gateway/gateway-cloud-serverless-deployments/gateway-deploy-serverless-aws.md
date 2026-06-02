@@ -113,6 +113,8 @@ Where:
 
 To work with [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/gateway-zero-knowledge) edit the `customer_fragments` variable:
 
+Generate the Customer Fragment in advance by using the CLI flow in [Gateway Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge#step-1-generate-a-customer-fragment-cli), then place the generated values in this variable.
+
 ```shell
 variable "customer_fragments"{
   type        = map(any)

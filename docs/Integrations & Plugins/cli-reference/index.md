@@ -1216,7 +1216,7 @@ akeyless delete-personal-folder \
 
 ### `get-analytics-data`
 
-Get analytics data.
+Get analytics and usage report data for the authenticated account.
 
 Analytics data is generated asynchronously, so recent activity may take time to appear in the report.
 
@@ -1226,7 +1226,21 @@ Analytics data is generated asynchronously, so recent activity may take time to 
 akeyless get-analytics-data
 ```
 
+#### Output
+
+Returns analytics and usage report data, including:
+
+* `date_updated`
+* `analytics_data`
+* `usage_reports`
+* `clients_usage_reports`
+
+For operation-level response schema details, see [Get analytics data](https://docs.akeyless.io/reference/getanalyticsdata).
+
+#### Flags
+
 This command does not define command-specific flags beyond the global CLI flags shown above.
+Run `akeyless get-analytics-data --help` to see available options.
 
 ### `kubeconfig-generate`
 
