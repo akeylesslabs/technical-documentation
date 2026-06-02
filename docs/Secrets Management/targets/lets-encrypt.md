@@ -135,7 +135,7 @@ akeyless target create lets-encrypt \
 
 * **Challenge Type**: Either **HTTP** or **DNS**.
 
-* **DNS Provider**: Either **AWS**, **GCP**, or **Azure** (relevant only if **Challenge Type** is **DNS**).
+* **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
 
 * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
@@ -145,11 +145,7 @@ akeyless target create lets-encrypt \
 
 * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
-* **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
-
-> ℹ️ **Note:**
->
-> Cloudflare DNS configuration for Let's Encrypt is available through the CLI flow.
+* **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
 
 1. Click Finish.
 

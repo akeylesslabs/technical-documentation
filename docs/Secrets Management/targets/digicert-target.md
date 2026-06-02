@@ -103,16 +103,13 @@ akeyless target create digicert \
 * **Environment**: **US Production**, **EU Production**, **US Demo**, or **EU Demo**.
 * **Email**: Email address used to register the ACME account.
 * **EAB Key ID** and **EAB HMAC Key**: DigiCert external account binding values.
-* **DNS Provider**: **AWS**, **GCP**, or **Azure**.
+* **DNS Provider**: **AWS**, **GCP**, **Azure**, or **Cloudflare**.
 * **Target**: DNS provider target that holds credentials.
 * **Hosted Zone**: Route 53 hosted zone identifier (AWS).
 * **Resource Group**: Azure DNS resource group name (Azure).
 * **GCP Project**: Optional GCP Cloud DNS project ID (GCP).
-* **Timeout**: Challenge validation timeout in seconds.
 
-> ℹ️ **Note:**
->
-> Cloudflare DNS configuration for DigiCert is available through the CLI flow.
+* **DNS Zone**: Cloudflare DNS zone name (Cloudflare).
 
 1. Click **Finish**.
 

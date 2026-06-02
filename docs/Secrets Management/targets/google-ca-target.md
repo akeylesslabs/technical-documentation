@@ -123,7 +123,7 @@ akeyless target create google-trust \
 
 * **EAB HMAC Key**: External Account Binding HMAC Key from Google CA Services.
 
-* **DNS Provider**: Either **AWS**, **GCP**, or **Azure** (relevant only if **Challenge Type** is **DNS**).
+* **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
 
 * **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
@@ -133,11 +133,7 @@ akeyless target create google-trust \
 
     * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
-* **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
-
-> ℹ️ **Note:**
->
-> Cloudflare DNS configuration for Google CA is available through the CLI flow.
+    * **DNS Zone**: Cloudflare DNS zone name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Cloudflare**).
 
 1. Click Finish.
 
