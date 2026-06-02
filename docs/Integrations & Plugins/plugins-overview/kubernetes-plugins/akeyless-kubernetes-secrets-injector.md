@@ -91,7 +91,7 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
     helm show values akeyless/akeyless-secrets-injection > values.yaml
     ```
 
-    Modify the following values under the `env` section as follows:
+    Modify the following values in `values.yaml` as follows:
 
     * Set `AKEYLESS_ACCESS_ID` to the Access ID of the Auth Method with access to the secret.
 
@@ -102,6 +102,7 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
     * Set `AKEYLESS_K8S_AUTH_CONF_NAME` with your Gateway Kubernetes Auth name. Relevant **only** for Access type of `k8s`.
 
     * Set `AKEYLESS_API_GW_URL` with the URL of your Gateway API v1 endpoint: `/8000/api/v1` or port `8080`.
+      * If `AKEYLESS_API_GW_URL` points to a Gateway that uses a private or internal CA certificate, set the top-level `gatewayCert.tlsCertsSecretName` value to a Kubernetes secret that contains `tls.crt`.
 
     * Optional `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list).
 
@@ -119,19 +120,30 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
     ```yaml
     restartRollout:
-    enabled: false
-    interval: 1m
+      enabled: false
+      interval: 1m
+
+    gatewayCert:
+      tlsCertsSecretName: "gateway-ca-cert"
     
     env:
-    AKEYLESS_ACCESS_ID: "<AccessID>"
-    AKEYLESS_ACCESS_TYPE: "k8s"
-    # For azure_ad authentication (when selecting a user-assigned identity):
-    # AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
-    AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_Auth_Name"
-    AKEYLESS_API_GW_URL: "https://Your-Gateway-URL:8000/api/v1" 
-    # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
-    # AKEYLESS_IGNORE_CACHE: "enable"
+      AKEYLESS_ACCESS_ID: "<AccessID>"
+      AKEYLESS_ACCESS_TYPE: "k8s"
+      # For azure_ad authentication (when selecting a user-assigned identity):
+      # AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
+      AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_Auth_Name"
+      AKEYLESS_API_GW_URL: "https://Your-Gateway-URL:8000/api/v1"
+      # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
+      # AKEYLESS_IGNORE_CACHE: "enable"
     ```
+
+    Create the certificate secret before deploying the chart:
+
+    ```shell
+    kubectl create secret generic gateway-ca-cert -n akeyless --from-file=tls.crt=<path-to-gateway-ca-certificate>
+    ```
+
+    The chart also supports the legacy inline certificate approach with `AKEYLESS_GW_CERTIFICATE`, but using `gatewayCert.tlsCertsSecretName` is the recommended method.
 
     > 👍 Note
     >

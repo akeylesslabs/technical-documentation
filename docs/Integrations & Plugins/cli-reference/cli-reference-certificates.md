@@ -204,7 +204,11 @@ akeyless create-pki-cert-issuer \
 
 > ℹ️ **Note:**
 >
-> The `--server-flag`, `--client-flag`, and `--code-signing-flag` options define which Extended Key Usage (EKU) types this issuer permits. When set, they allow leaf certificate requesters to explicitly include the corresponding EKU (for example, by passing `--ext-key-usage clientAuth` to `get-pki-certificate`). These flags do not automatically add EKU to all issued certificates, and they do not prevent issuing certificates without any EKU. Automatic EKU application and stricter issuance enforcement are planned for a future release.
+> The `--server-flag`, `--client-flag`, and `--code-signing-flag` options define the Extended Key Usage (EKU) policy for certificates issued by this PKI issuer. Certificates issued from this issuer, including console-based issuance flows, apply the configured EKU policy.
+
+`--basic-constraints`: Defines the X.509 Basic Constraints template for certificates issued by this PKI issuer (for example, `CA:true,pathlen:0`).
+
+`--critical-basic-constraints[=false]`: Marks the Basic Constraints extension as critical [`true`/`false`].
 
 `--key-usage[=DigitalSignature,KeyAgreement,KeyEncipherment]`: A list of Key Usage flags
 
@@ -399,6 +403,10 @@ akeyless get-pki-certificate \
 
 `-o, --outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location as the provided public key with the -cert extension
 
+> ℹ️ **Note (GlobalSign targets):**
+>
+> For GlobalSign-based public CA issuance, a single `get-pki-certificate` request is handled as a single issuance flow to avoid duplicate certificate issuance during transient retries.
+
 ### `validate-certificate-challenge`
 
 Validates an ACME HTTP-01 challenge and finalizes certificate issuance (Phase 2)
@@ -498,7 +506,11 @@ akeyless update-pki-cert-issuer \
 
 > ℹ️ **Note:**
 >
-> The `--server-flag`, `--client-flag`, and `--code-signing-flag` options define which Extended Key Usage (EKU) types this issuer permits. When set, they allow leaf certificate requesters to explicitly include the corresponding EKU (for example, by passing `--ext-key-usage clientAuth` to `get-pki-certificate`). These flags do not automatically add EKU to all issued certificates, and they do not prevent issuing certificates without any EKU. Automatic EKU application and stricter issuance enforcement are planned for a future release.
+> The `--server-flag`, `--client-flag`, and `--code-signing-flag` options define the Extended Key Usage (EKU) policy for certificates issued by this PKI issuer. Certificates issued from this issuer, including console-based issuance flows, apply the configured EKU policy.
+
+`--basic-constraints`: Defines the X.509 Basic Constraints template for certificates issued by this PKI issuer (for example, `CA:true,pathlen:0`).
+
+`--critical-basic-constraints[=false]`: Marks the Basic Constraints extension as critical [`true`/`false`].
 
 `--key-usage[=DigitalSignature, KeyAgreement, KeyEncipherment]`: A comma-separated string or list of key usages
 
@@ -785,6 +797,10 @@ akeyless generate-ca \
 `-s, --split-level[=3]`: The number of fragments that the item will be split into.
 
 `--delete-protection`: Protection from accidental deletion of this object, [`true`/`false`].
+
+> ℹ️ **Note (Leaf certificate constraints):**
+>
+> `generate-ca` sets leaf certificate basic constraints to `CA:FALSE` so issued leaf certificates are not marked as certificate authorities.
 
 ## Certificate Discovery
 

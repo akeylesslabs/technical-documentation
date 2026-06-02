@@ -41,6 +41,8 @@ The current Inventory implementation exposes finding details for secret, identit
 
 The current Scanner implementation supports creating scanners, starting scans, stopping active scans, reviewing scan history, and navigating from a running scan directly to **Inventory**.
 
+Current early-access scanner coverage includes GCP Scanner support and AWS Scanner support for cloud identities.
+
 ## Operational Views
 
 Use these views to move from high-level posture checks to specific remediation tasks:

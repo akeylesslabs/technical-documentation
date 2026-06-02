@@ -14,7 +14,7 @@ Akeyless uses a Zero-Knowledge Encryption architecture to perform secret, key, a
 
 The architecture ensures that no complete secret or private key is ever present at rest within the platform.
 
-## Architecture Overview
+## Zero-Knowledge Model
 
 Traditional vault systems maintain encrypted storage that contains secrets or private keys. Akeyless replaces this model with an execution-based approach built on Distributed Fragments Cryptography (DFC). In this model:
 
@@ -33,11 +33,9 @@ The result is an architecture where cryptographic operations occur without persi
 
 All identity operations—such as signing, encryption, decryption, or generating short-lived credentials—are completed without assembling full private key material at any stage of the workflow.
 
-***
+## How Operations Execute
 
-## Cryptographic Workflow
-
-When a client requests an operation (For example, retrieving a secret, generating a dynamic credential, or performing a signing operation):
+When a client requests an operation (for example, retrieving a secret, generating a dynamic credential, or performing a signing operation):
 
 1. The Akeyless control plane authenticates and authorizes the request.
 2. The platform triggers a distributed cryptographic workflow based on the key or secret type.
@@ -47,9 +45,61 @@ When a client requests an operation (For example, retrieving a secret, generatin
 
 If a Customer Fragment (CF) is configured, Akeyless cannot complete cryptographic operations without the customer's involvement.
 
-***
+## Trust and Control Boundaries
 
-## Comparison to Storage-Based Vault Systems
+For regulated and high-control environments, Zero-Knowledge is best evaluated as a control-boundary model rather than a "SaaS versus on-premises" decision.
+
+Key boundaries:
+
+* **Execution boundary**: DFC operations execute without reconstructing full private keys.
+* **Control boundary**: CF-protected operations cannot complete without customer-side fragment participation.
+* **Network boundary**: Gateway is customer-deployed and can be restricted to private networks and approved routes.
+* **Policy boundary**: RBAC and Gateway Allowed Access controls determine which identities can invoke operations.
+
+This boundary model supports separation-of-duties, sovereignty, and operational control reviews.
+
+### Service-to-Service Flow (Conceptual)
+
+1. A workload authenticates with a machine identity.
+2. The workload sends the request through a customer-hosted Gateway.
+3. Akeyless validates identity and policy, then invokes the relevant DFC operation path.
+4. For CF-protected items, customer-side fragment participation is required.
+5. The operation result is returned to the workload.
+
+```mermaid
+flowchart LR
+  W[Workload / Service] -->|Machine identity auth| G[Customer-Hosted Gateway]
+  G -->|Authorized request| CP[Akeyless Control Plane]
+  CP -->|Invoke DFC path| FH[DFC Fragment Holders]
+  G -.CF participation for protected ops.-> FH
+  FH -->|Operation result| CP
+  CP -->|Response| G
+  G -->|Secret or crypto output| W
+```
+
+### Network Reachability Model
+
+A Customer Fragment controls cryptographic eligibility, not network topology.
+
+If a client can reach a Gateway, and that Gateway has the required Customer Fragment and policy permissions, that client can perform the allowed operation through that Gateway.
+
+Common segmentation patterns:
+
+* Place each Gateway on the private network for the environment it serves.
+* Limit which clients and services can reach each Gateway.
+* Restrict allowed access IDs at the Gateway layer.
+* Use different Gateways and Customer Fragments for separate trust boundaries.
+
+## Zero-Knowledge Decision Guide
+
+Use this table to choose the model that matches required control boundaries, deployment complexity, and operational ownership.
+
+| Model | Best fit | Security and control outcome | Operational considerations |
+| --- | --- | --- | --- |
+| Customer Fragment (CF) | Regulatory, contractual, or internal requirements mandate customer-side participation in protected operations. | Strongest separation-of-control boundary; operations cannot complete without customer fragment participation. | Higher setup and lifecycle overhead for fragment generation, backup, rotation planning, and deployment integration. |
+| Non-CF | Teams need zero-knowledge cryptographic guarantees without customer-fragment enforcement in the request path. | Strong zero-knowledge execution model, but no customer-fragment participation gate. | Simpler rollout and day-to-day operations with reduced implementation overhead. |
+
+## Why This Differs from Storage-Based Vaults
 
 Traditional vaults:
 
@@ -67,22 +117,38 @@ Under the Zero-Knowledge Encryption model:
 
 This changes the threat model: compromising the storage layer yields no useful data because none is kept there.
 
-***
-
-## Gateway Role
+## Gateway in the Architecture
 
 The Akeyless Gateway provides access to private networks, closed environments, and on-premises infrastructure. Its role is limited to communication and optional customer-fragment participation. The Gateway:
 
 * Does not store secrets or cryptographic fragments.
-* May cache **non-sensitive metadata** for performance, but never key material or secret values.
+* Can cache secret values and metadata in customer-controlled cache layers when caching is enabled, but never stores full private keys or cryptographic fragments.
 * Remains stateless with respect to sensitive data.
 * Can be deployed in restricted, air-gapped, or isolated environments.
 
 The Gateway does not alter the Zero-Knowledge Encryption architecture; it only extends access to networks not reachable by the SaaS control plane.
 
-***
+## Runtime Behavior
 
-## Operational Considerations
+### Partition Behavior for CF-Protected Operations
+
+The following matrix summarizes expected behavior for common availability scenarios.
+
+| Scenario | Expected behavior |
+| --- | --- |
+| SaaS reachable, Customer Fragment available | CF-protected operations can complete when identity and policy checks pass. |
+| SaaS reachable, Customer Fragment unavailable | CF-protected operations cannot complete. |
+| SaaS unreachable, value present in cache | Cached read operations can still succeed according to runtime cache behavior. |
+| SaaS unreachable, value not present in cache | Operation fails. |
+| SaaS reachable, policy or allowed-access denies request | Operation is denied even when Customer Fragment is available. |
+
+### Latency Expectations
+
+Compared to non-CF flows, CF-protected operation paths can add processing and coordination overhead.
+
+Observed latency depends on deployment topology, network distance, cache strategy, and request mix. For repeated read patterns, runtime and proactive caching can reduce effective read latency.
+
+## Operational Impact
 
 Removing the storage layer eliminates several operational concerns:
 
@@ -92,8 +158,6 @@ Removing the storage layer eliminates several operational concerns:
 * Reduced exposure to storage compromise, disk forensics, or exfiltration attacks.
 
 Capacity planning focuses on request throughput rather than storage performance.
-
-***
 
 ## Security Properties
 
@@ -107,8 +171,8 @@ Key security properties of the Zero-Knowledge Encryption architecture include:
 
 These properties reduce the exposure surface associated with stored-secret systems.
 
-***
+## Implementation
 
-## Summary
+The Akeyless Zero-Knowledge Encryption architecture removes the need for a secrets or key storage backend by executing operations through distributed cryptographic fragments, without storing or reconstructing complete private key material.
 
-The Akeyless Zero-Knowledge Encryption architecture removes the need for a secrets or key storage backend by executing operations entirely through distributed cryptographic fragments. No secret or private key is stored or reconstructed at any time. This model provides a predictable, storage-free approach to managing secrets, keys, and certificates across distributed environments.
+For deployment and configuration steps that use Customer Fragments with Gateway, see [Gateway Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).
