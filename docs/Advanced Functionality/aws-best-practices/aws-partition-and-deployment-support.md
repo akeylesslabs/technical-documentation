@@ -10,17 +10,17 @@ metadata:
 next:
   description: ''
 ---
-This page documents AWS partition guidance and deployment pattern coverage for AWS IAM authentication with Akeyless.
+This page documents AWS partition guidance and deployment pattern coverage for AWS IAM authentication with the Akeyless identity security platform.
 
 ## AWS Partition Support
 
-Akeyless supports AWS IAM authentication across the following AWS partitions:
+Akeyless supports AWS IAM authentication across the following AWS partitions. AWS STS (Security Token Service) is used to validate the IAM identity during authentication.
 
 | AWS partition | Support status | ARN partition prefix example | STS endpoint guidance |
 | --- | --- | --- | --- |
 | `aws` | Supported | `arn:aws:iam::<AWS_ACCOUNT_ID>:role/<IAM_ROLE_NAME>` | If `--sts-url` is not set, Akeyless uses `https://sts.amazonaws.com`. |
 | `aws-us-gov` | Expected compatible | `arn:aws-us-gov:iam::<AWS_ACCOUNT_ID>:role/<IAM_ROLE_NAME>` | Set a regional GovCloud endpoint, for example `https://sts.us-gov-west-1.amazonaws.com` or `https://sts.us-gov-east-1.amazonaws.com`. |
-| `aws-cn` | Supported | `arn:aws-cn:iam::<AWS_ACCOUNT_ID>:role/<IAM_ROLE_NAME>` | Set a regional China endpoint, for example `https://sts.cn-north-1.amazonaws.com.cn` or `https://sts.cn-northwest-1.amazonaws.cn`. |
+| `aws-cn` | Supported | `arn:aws-cn:iam::<AWS_ACCOUNT_ID>:role/<IAM_ROLE_NAME>` | Set a regional China endpoint, for example `https://sts.cn-north-1.amazonaws.com.cn` or `https://sts.cn-northwest-1.amazonaws.com.cn`. |
 
 When you configure bounded ARNs (for example, `--bound-arn`), the ARN partition prefix must match the partition where the IAM principal exists.
 
