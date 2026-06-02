@@ -12,14 +12,6 @@ next:
 ---
 The Secure Remote Access Portal is available through the main console at `http://Your-Akeyless-Gateway-URL:8000/sra/portal` or through the public SaaS console at `https://zerotrust.akeyless.io`.
 
-## Switch the Portal Theme
-
-Use the theme switch in the portal header to toggle between light and dark mode.
-
-1. Open the Secure Remote Access Portal and sign in.
-2. In the upper-right corner of the header, select **Switch to Dark mode** or **Switch to Light mode**.
-3. The portal updates immediately after the switch.
-
 All Akeyless-supported [resource types](https://docs.akeyless.io/docs/sra-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli), or the [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application-beta).
 
 Currently, the SRA Portal supports the following authentication methods:
@@ -42,6 +34,14 @@ Currently, the SRA Portal supports the following authentication methods:
 The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-resource-types) that you are authorized to access.
 
 ![A screenshot of the Akeyless Secure Remote Access product and its portal of available options.](https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png)
+
+## Switch the Portal Theme
+
+Use the theme switch in the portal header to toggle between light and dark mode.
+
+1. Open the Secure Remote Access Portal and sign in.
+2. In the upper-right corner of the header, select **Switch to Dark mode** or **Switch to Light mode**.
+3. The portal updates immediately after the switch.
 
 ## Clipboard Behavior for Long Text
 
