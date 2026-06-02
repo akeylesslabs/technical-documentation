@@ -58,6 +58,8 @@ By default, the Gateway configuration is encrypted with your account's default e
 
 If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge), create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a Base64-encoded JSON that includes your **Customer Fragment**.
 
+Generate the Customer Fragment before creating this secret by using the CLI flow in [Gateway Zero Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge#step-1-generate-a-customer-fragment-cli).
+
 ```shell values.yaml
 kubectl create secret generic customer-fragment \
   --from-literal=customer-fragments=<customer-fragment>
