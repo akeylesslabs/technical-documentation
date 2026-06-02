@@ -16,95 +16,129 @@ next:
 ---
 
 <GatewayConfigManagementNote />
-## Introduction
 
-To implement [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge), you must set up a [Gateway](https://docs.akeyless.io/docs/gateway-overview).
+Gateway Zero-Knowledge enables customer-fragment participation for protected Gateway operations.
 
-Once you have a Gateway up and running, you can generate a component called the **Customer Fragment**. The customer fragment is a unique piece of any encryption key you create using it that only you can access, and even the Akeyless team cannot see it. These Customer Fragments allow you to create our special type of key called the DFC key, which can only be used by an allowed user on the gateway that holds the corresponding Customer Fragment.
+For architecture concepts, threat model, and distributed cryptographic workflow details, see [Zero-Knowledge Encryption SaaS Architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture) and [DFC Deep Dive](https://docs.akeyless.io/docs/dfc-deep-dive).
 
-Using our unique Zero-Knowledge architecture, you can deploy multiple [Gateway](https://docs.akeyless.io/docs/gateway-overview) on several different geographical jurisdictions with different fragments to comply with the regulatory requirements applied in those jurisdictions.
+Use this page for implementation tasks:
 
-> ⚠️ **Warning:**
->
-> When working with Customer Fragments, it is **your responsibility to back them up** securely and in a safe place.
->
-> Encryption keys created with the Customer Fragment cannot be reconstructed without it. Any and all information that is encrypted with those keys will not be recoverable if the Customer Fragment is lost.
+* Prepare prerequisites.
+* Generate and back up a Customer Fragment.
+* Attach the Customer Fragment to Gateway deployment.
+* Create DFC keys with Customer Fragment binding.
+* Configure machine-identity authentication for Gateway service-to-service flows.
+* Validate and troubleshoot deployment behavior.
 
-## Generate Customer Fragment from the Akeyless CLI
+## Prerequisites
 
-To generate a Customer Fragment, run the following command:
+Before implementing Gateway Zero-Knowledge, confirm the following:
+
+* A Gateway deployment is running and reachable from the required workloads. For deployment options, see [Gateway Overview](https://docs.akeyless.io/docs/gateway-overview).
+* A Gateway authentication method and access policy are configured. For access configuration details, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+* The identity used for key creation and Gateway operations has the required permissions for DFC key management and Gateway access.
+* A secure backup process is defined for Customer Fragment files and values.
+* Required network routes to Gateway and Akeyless SaaS services are available. For connectivity requirements, see [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity).
+
+## Implementation
+
+Use the following sequence to implement Gateway Zero-Knowledge across interfaces and infrastructures.
+
+### Step 1: Generate a Customer Fragment (CLI)
 
 ```shell
 akeyless gen-customer-fragment --name <CF-Name> --description MyFirstCF --json
 ```
 
-You'll get the following output:
+For command parameters and additional examples, see [CLI Reference: gen-customer-fragment](https://docs.akeyless.io/docs/cli-reference-encryption-keys#gen-customer-fragment).
+
+Example output:
 
 ```json
 {
-    "customer_fragments": [
-        {
-            "id": "cf-xyzxyzxyzxyzxyzxyz",
-            "value": "SomE/CUstOmer/FrAGMenTvALue==",
-            "description": "MyFirstCF",
-            "name": "<CF-Name>"
-        }
-    ]
+  "customer_fragments": [
+    {
+      "id": "cf-xyzxyzxyzxyzxyzxyz",
+      "value": "SomE/CUstOmer/FrAGMenTvALue==",
+      "description": "MyFirstCF",
+      "name": "<CF-Name>"
+    }
+  ]
 }
 ```
 
-Save the output in a new file called `customer_fragments.json` in a directory of your choice.
+Save the output as `customer_fragments.json`.
 
-## Deploy a Gateway With Mounted Fragments
-
-Once you have your `customer_fragments.json` file saved, you'll need to provide a path to the file containing your fragment as part of the Gateway deployment command each time you want to update your Gateway instance.
-
-Run the following command to create the Gateway with the mounted fragment:
-
-```shell
-docker run -d -p 8000:8000 -p 5696:5696 -v /path/of/customer_fragments.json:/home/akeyless/.akeyless/customer_fragments.json -e ADMIN_ACCESS_ID="identity-access-id" -e ADMIN_ACCESS_KEY="identity-access-key" --name akeyless-gw akeyless/base:latest-akeyless
-```
-
-## Network Reachability Model
-
-A Customer Fragment determines whether a Gateway can perform cryptographic operations for keys and items associated with that fragment. It does not create a network boundary by itself.
-
-If a client can reach a Gateway over the network, and that Gateway has the required Customer Fragment and is allowed to serve that caller, the client can decrypt or otherwise use the protected item through that Gateway. This behavior is expected and does not indicate a misconfiguration.
-
-To reduce exposure across environments:
-
-* Place each Gateway on the private network for the environment it serves.
-* Limit which clients and services can reach each Gateway.
-* Restrict which Access IDs each Gateway can serve. For more information, see [Restrict Gateway Access](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#restrict-gateway-access).
-* Use different Gateways and Customer Fragments for separate trust boundaries when isolation is required.
-
-For additional hardening guidance, see [Akeyless Gateway Best Practices](https://docs.akeyless.io/docs/gateway-best-practices).
-
-## Create a Zero-Knowledge DFC Encryption Key
-
-Once the **Customer Fragment** is mounted in the Gateway, it can be used to secure your DFC Encryption Keys for full Zero Knowledge Encryption.
+Customer Fragments are generated through CLI workflows (or the HSM integration flow), then referenced by Gateway and key-creation workflows. Gateway Console key-creation flows select existing Customer Fragments.
 
 > ⚠️ **Warning:**
 >
-> To create a DFC encryption key with Customer Fragment, the Auth Method that's being used needs to be on the list of allowed access IDs for the gateway.
+> Back up Customer Fragments securely. Encryption keys created with a Customer Fragment cannot be reconstructed without it.
+
+### Step 2: Attach the Customer Fragment to the Gateway
+
+Use these deployment-specific implementation anchors for direct navigation:
+
+* Docker: [Authentication](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#authentication), [API Key Authentication](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#api-key-authentication), [Certificates Authentication](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#certificates-authentication)
+* Helm: [Authentication](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#authentication), [API Key Authentication](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#api-key-authentication), [Certificates](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#certificates)
+* Serverless AWS: [Authentication](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws#authentication), [Customer Fragment](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws#customer-fragment)
+* Serverless Azure: [Authentication](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure#authentication), [Customer Fragment](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure#customer-fragment)
+* Docker Compose: [Authentication](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#authentication), [API Key Authentication](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#api-key-authentication), [Certificates Authentication](https://docs.akeyless.io/docs/gateway-deploy-docker-compose#certificates-authentication)
+
+#### Standalone Docker
+
+Mount `customer_fragments.json` into `/home/akeyless/.akeyless/customer_fragments.json`:
+
+```shell
+docker run -d -p 8000:8000 -p 5696:5696 \
+  -v /path/to/customer_fragments.json:/home/akeyless/.akeyless/customer_fragments.json \
+  -e GATEWAY_ACCESS_ID="identity-access-id" \
+  -e GATEWAY_ACCESS_KEY="identity-access-key" \
+  --name akeyless-gw akeyless/base:latest-akeyless
+```
+
+For compatibility with older deployments, legacy variables such as `ADMIN_ACCESS_ID` and `ADMIN_ACCESS_KEY` can still appear.
+
+#### Kubernetes with Helm
+
+Create a Kubernetes Secret that contains the `customer-fragments` key:
+
+```shell
+kubectl create secret generic gateway-customer-fragments \
+  --from-file=customer-fragments=./customer_fragments.json
+```
+
+Reference that secret in Helm values:
+
+```yaml values.yaml
+globalConfig:
+  customerFragmentsExistingSecret: gateway-customer-fragments
+```
+
+For full platform setup flows, see [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm).
+
+#### Other Infrastructures
+
+* [Docker Compose Deployment](https://docs.akeyless.io/docs/gateway-deploy-docker-compose)
+* [Serverless AWS Deployment](https://docs.akeyless.io/docs/gateway-deploy-serverless-aws)
+* [Serverless Azure Deployment](https://docs.akeyless.io/docs/gateway-deploy-serverless-azure)
+* [Azure Container App Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-container-app)
+
+### Step 3: Create a DFC Key Bound to the Customer Fragment
+
+> ⚠️ **Warning:**
+>
+> To create a DFC key with Customer Fragment, the identity in use must be allowed in the Gateway access policy.
 
 ### Create DFC Key from the Akeyless Console
 
-To create a DFC Encryption Key:
-
-1. Open the Akeyless Gateway Console at `https://Your-Akeyless-Gateway-URL:8000/console`
-
-2. On the menu bar at the left, click **Items**.
-
-3. On the **Items** page, click **New** -> **Encryption Key** -> **DFC**.
-
-4. In the pop-up, specify the parameters of the new key and select a Customer Fragment to be used with this key.
-
-5. Click **Save**.
+1. Open the Gateway Console at `https://<gateway-url>:8000/console`.
+2. Go to **Items**.
+3. Select **New**, then **Encryption Key**, then **DFC**.
+4. Specify key parameters, then select the Customer Fragment.
+5. Select **Save**.
 
 ### Create Zero Knowledge Key from the Akeyless CLI
-
-To generate a key using a Customer Fragment, run the following command:
 
 ```shell
 akeyless create-dfc-key --name MyKeyWithMyCF --alg AES256GCM -f <customer-fragment-id>
@@ -112,30 +146,85 @@ akeyless create-dfc-key --name MyKeyWithMyCF --alg AES256GCM -f <customer-fragme
 
 Where:
 
-* `name`: The name of the DFC Encryption Key
-* `alg`: The algorithm of the DFC Encryption Key
-* `customer-frg-id`: The customer fragment ID that will be used to create the DFC key
+* `name`: DFC key name.
+* `alg`: DFC key algorithm.
+* `customer-frg-id`: Customer Fragment ID used for the DFC key.
 
-You'll get the following output:
+For command parameters and additional examples, see [CLI Reference: create-dfc-key](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-dfc-key).
+
+Example output:
 
 ```text
 A new AES256GCM key named MyKeyWithMyCF was successfully created
 ```
 
-### Set Up a Default Encryption Key
+### Step 4 (Optional): Set a Default Encryption Key in Gateway
 
-To set a default Encryption Key based on your Customer Fragment to enforce Zero-Knowledge by default for all your secrets that will be created using your Gateway. This will ensure that any item created with Akeyless (by way of Web UI, CLI, or SDKs) will be encrypted using your encryption key.
+Set a default encryption key in Gateway configuration when all newly created items in this Gateway context should use a specific key by default.
 
 > ℹ️ **Note:**
 >
-> Only Symmetric encryption keys of `AESGCM` algorithm can be used as Default Encryption Keys.
+> Only symmetric keys with `AESGCM` algorithm can be set as default encryption keys.
 
-To set up a default Encryption Key:
+1. Go to **Gateways**, then the relevant Gateway, then **Manage Gateway**.
+2. Go to **Defaults**.
+3. Select a key in **Default Encryption Key**.
+4. Select **Save Changes**.
 
-1. Open the Gateway Console by going to **Gateways -> Your-Gateway -> Manage Gateway**.
+## Machine Identity Authentication Mapping
 
-2. On the menu bar at the left, click **Defaults**.
+This section lists the supported machine-identity authentication methods for Gateway Zero-Knowledge service-to-service flows.
 
-3. In the **Default Encryption Key** drop-down list, select one of the available encryption keys.
+Authentication methods not listed in this mapping are outside this Gateway service-to-service scope.
 
-4. Click **Save Changes**.
+Use this mapping to select a supported method and jump to the corresponding implementation guidance:
+
+| Method | Typical workload context | Implementation reference |
+| --- | --- | --- |
+| API key | Workloads that can securely store and rotate access keys | [Authenticate with API key](https://docs.akeyless.io/docs/auth-with-api-key) |
+| Cloud IAM (AWS, Azure, GCP) | Cloud-native services using platform identity | [Authenticate with AWS](https://docs.akeyless.io/docs/auth-with-aws), [Authenticate with Azure](https://docs.akeyless.io/docs/auth-with-azure), [Authenticate with GCP](https://docs.akeyless.io/docs/auth-with-gcp) |
+| Kubernetes service account | In-cluster workloads using Kubernetes-native identity | [Authenticate with Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) |
+| Certificate-based authentication | Workloads using client certificate trust chains | [Authenticate with certificate](https://docs.akeyless.io/docs/auth-with-certificate) |
+| Universal Identity | Workloads requiring token-based machine identity across environments | [Authenticate with Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) |
+
+For Gateway-specific access delegation controls, see [Gateway Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+
+## Troubleshooting
+
+### 1. Missing Customer Fragment Mount or Secret Key Name
+
+Symptoms include missing fragment errors during CF-protected operations or deployment startup warnings.
+
+Check these items:
+
+* Docker: confirm `customer_fragments.json` is mounted to `/home/akeyless/.akeyless/customer_fragments.json`.
+* Helm: confirm the referenced secret exists and includes key name `customer-fragments`.
+* Serverless: confirm `customer_fragments` payload is valid JSON and mapped to the deployment parameter.
+
+### 2. Insufficient Gateway Allowed Access
+
+Symptoms include denied Gateway management actions or inability to complete required operations.
+
+Check these items:
+
+* Confirm the active identity is included in Gateway Allowed Access policy.
+* Confirm required Gateway permissions are assigned for the intended operation scope.
+* Confirm RBAC policy path permissions also allow the same operation.
+
+### 3. Authentication Method Mismatch
+
+Symptoms include authentication failures at Gateway startup or request-time authorization errors.
+
+Check these items:
+
+* Confirm auth method type matches deployment configuration (for example `access_key`, cloud IAM, certificate, or universal identity).
+* Confirm required credentials, secrets, or certificates are present and mapped to expected configuration keys.
+* For legacy deployments, confirm variable naming consistency when mixing `GATEWAY_*` and `ADMIN_*` conventions.
+
+## Related Pages
+
+* [Zero-Knowledge Encryption SaaS Architecture](https://docs.akeyless.io/docs/zero-knowledge-architecture)
+* [Platform Components Overview](https://docs.akeyless.io/docs/components)
+* [Gateway Overview](https://docs.akeyless.io/docs/gateway-overview)
+* [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
+* [Akeyless Gateway Best Practices](https://docs.akeyless.io/docs/gateway-best-practices)
