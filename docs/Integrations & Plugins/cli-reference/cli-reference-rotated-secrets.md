@@ -2455,3 +2455,63 @@ akeyless rotated-secret get-value \
 akeyless rotated-secret list \
 --gateway-url <API Gateway URL>:8000 
 ```
+
+## Synchronization
+
+### `sync`
+
+#### Usage
+
+```shell
+akeyless rotated-secret sync \
+--name <Rotated Secret Name> \
+--usc-name <USC Name> \
+--remote-secret-name <Remote secret Name> \
+--namespace <Namespace Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`--name`: The Rotated Secret name.
+
+`--usc-name`: The name of the Universal Secret Connector.
+
+`--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
+
+> ℹ️ **Note (AWS Targets):**
+>
+> For AWS Universal Secret Connector targets, Akeyless-initiated sync updates secret values while preserving existing AWS-side custom tags and description unless those fields are explicitly updated.
+
+`--namespace`: Namespace name, Relevant only for HashiCorp Vault target.
+
+`--filter-secret-value`: jq expression to filter or transform the secret value
+
+`--gateway-url`: Akeyless Gateway URL (port `8000`).
+
+### `delete sync`
+
+delete rotated secret sync
+
+#### Usage
+
+```shell
+akeyless rotated-secret delete-sync \
+--name <Rotated Secret Name> \
+--usc-name <USC Name> \
+--remote-secret-name <Remote secret Name> \
+--delete-from-usc[=false] [true / false]
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
+```
+
+#### Flags
+
+`--name`: The Rotated Secret name.
+
+`--usc-name`: The name of the Universal Secret Connector.
+
+`--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
+
+`--delete-from-usc[=false]`: Delete the secret from the remote target usc as well.
+
+`--gateway-url`: Akeyless Gateway URL (port `8000`).

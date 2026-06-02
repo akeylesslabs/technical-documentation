@@ -30,12 +30,6 @@ on:
         description: Commit URL when push_changes creates a commit.
         value: ${{ jobs.link-check.outputs.commit_url }}
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'docs/**/*.md'
-      - '.github/workflows/reusable-link-check.yml'
-      - '.github/lychee/**'
-      - '.github/scripts/check_absolute_docs_links.py'
 
 jobs:
   link-check:
