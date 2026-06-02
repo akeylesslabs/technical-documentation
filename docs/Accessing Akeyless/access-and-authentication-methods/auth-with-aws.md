@@ -18,6 +18,14 @@ This page discusses creating and using an AWS IAM-based authentication method in
 
 AWS IAM authentication is intended for **workload authentication** and is not recommended for direct interactive Console sign-in.
 
+## AWS Partition Support
+
+For partition requirements, ARN partition examples, and STS endpoint guidance, see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support#aws-partition-support).
+
+## AWS Deployment Pattern Support
+
+For deployment pattern coverage and support status definitions, see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support#aws-deployment-pattern-support).
+
 ![AWS IAM role-based authentication flow for obtaining an Akeyless token.](https://files.readme.io/c1f9c5b-Role_new_design.png)
 
 ## Creating an AWS IAM Authentication Method
@@ -130,7 +138,7 @@ For optional features that apply across Authentication Methods, see [Common Opti
 * **Bounded Role Names:** Enter one or more IAM role names that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-role-name` for each value.
 * **Bounded Role IDs:** Enter one or more IAM role IDs that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-role-id` for each value.
 * **Bounded User names:** Enter one or more IAM user names that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-user-name` for each value.
-* **Custom STS Endpoint:** Set a custom AWS STS endpoint URL if your environment requires a non-default endpoint. If not set, Akeyless uses `https://sts.amazonaws.com`. For AWS China partitions, a regional endpoint is required; for example, `https://sts.cn-north-1.amazonaws.com.cn` for `cn-north-1`, or `https://sts.cn-northwest-1.amazonaws.cn` for `cn-northwest-1`.
+* **Custom STS Endpoint:** Set a custom AWS STS endpoint URL if your environment requires a non-default endpoint. If not set, Akeyless uses `https://sts.amazonaws.com`. For partition-specific requirements and examples (`aws`, `aws-us-gov`, and `aws-cn`), see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support#aws-partition-support).
 * **Unique Identifier:** Set a sub-claim key used to uniquely identify authenticated IAM principals.
 
 ## AWS Instance Metadata Service

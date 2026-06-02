@@ -13,6 +13,8 @@ next:
 ---
 This guide outlines best practices for deploying the Akeyless [Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm) following AWS security standards, with a primary focus on managing secrets cross-account AWS environments. It highlights recommended deployment models, their trade-offs, and how to manage [Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), and the [Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector) using **only IAM roles** without relying on long-lived credentials.
 
+For AWS partition guidance and deployment pattern coverage, see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support).
+
 At its core, the **Akeyless Gateway** serves as a secure execution layer that facilitates a range of operations from cryptographic processing to secure network access on behalf of the **Akeyless SaaS platform**, without exposing sensitive workloads to the public network.
 
 When managing environments across multiple AWS accounts, the key requirement is to establish a consistent and automated approach for deploying and operating the **Akeyless Gateway** across the organization. This ensures reliable configuration, centralized control, and seamless integration of Gateway capabilities throughout all AWS member accounts.

@@ -1,4 +1,5 @@
 - terraform-distributed-deployment
 - terraform-centralized-deployment
+- aws-partition-and-deployment-support
 - crossaccount-configuration-using-terraform
 - deploy-a-gateway-using-cloudformation
