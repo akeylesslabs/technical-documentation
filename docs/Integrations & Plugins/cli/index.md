@@ -192,14 +192,24 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Non-Interactive Mode
 
-To initiate the CLI non-interactively, run `./akeyless --init`. This command works only the first time you run the CLI in that environment.
+To configure the CLI non-interactively, use the `configure` command with the relevant flags. This also works on a fresh install when no `~/.akeyless` directory exists.
 
-If you're working with a different tenant environment than the default, that is `vault.akeyless.io`, use the `--akeyless-url` flag to specify the tenant that the CLI should communicate with.
-
-For example, to work with the `eu` tenant:
+For example, to configure a default profile with an API Key authentication method:
 
 ```shell
-./akeyless --init --akeyless-url vault.eu.akeyless.io
+akeyless configure --access-id '<Access-ID>' --access-key '<Access-Key>'
+```
+
+To configure a named profile:
+
+```shell
+akeyless configure --profile my-profile --access-id '<Access-ID>' --access-key '<Access-Key>'
+```
+
+To route API calls through a [Gateway](https://docs.akeyless.io/docs/gateway-overview), add the `--gateway-url` flag:
+
+```shell
+akeyless configure --access-id '<Access-ID>' --access-key '<Access-Key>' --gateway-url 'https://<Gateway-URL>:8000/api/v1'
 ```
 
 ## Authentication
