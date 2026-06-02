@@ -37,10 +37,10 @@ The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-reso
 
 ## Switch the Portal Theme
 
-Use the theme switch in the portal header to toggle between light and dark mode.
+Use the theme switch button on the right side of the portal header to toggle between light and dark mode.
 
 1. Open the Secure Remote Access Portal and sign in.
-2. In the upper-right corner of the header, select **Switch to Dark mode** or **Switch to Light mode**.
+2. In the portal header, select **Switch to Dark mode** or **Switch to Light mode**.
 3. The portal updates immediately after the switch.
 
 ## Clipboard Behavior for Long Text
