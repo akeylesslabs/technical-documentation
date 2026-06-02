@@ -13,6 +13,8 @@ next:
 ---
 Dynamic Secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a temporary period with a defined set of permissions. You can configure multiple Dynamic Secrets for the same resource to granularly control the breadth of access either per a temporary user on a specific target or for the entire target within a single action. You can revoke all temporary users immediately for a specific target as necessary.
 
+For supported producers, you can configure password policies (for example, length and complexity requirements) when generating dynamic credentials. For the supported producers list and details, see [Password Policy for Dynamic and Rotated Secrets](https://docs.akeyless.io/docs/secrets-password-policy).
+
 Setting up Dynamic Secrets requires the **Dynamic Secret** permission on the Gateway.
 
 ![Illustration for: Dynamic Secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a…](https://files.readme.io/757eb22-Dynamic_Secret.png)

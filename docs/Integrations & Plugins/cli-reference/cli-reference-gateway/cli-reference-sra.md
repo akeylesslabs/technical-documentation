@@ -10,15 +10,24 @@ metadata:
 next:
   description: ''
 ---
-This page lists Secure Remote Access (SRA) commands for gateway update flows and SRA inventory commands.
+This page lists Secure Remote Access (SRA) commands for gateway configuration and SRA file transfer flows.
 
 <CLIGeneralFlags />
 
-## Command Options
+## Command Families
 
-Gateway SRA update commands are available under the `gateway update` command group and by alias commands.
+SRA CLI commands in this page are grouped into two families:
 
-Examples:
+* [**Gateway configuration**](#gateway-configuration-family) commands under `gateway update` (also available as alias commands)
+* [**File transfer**](#file-transfer-commands) commands under `file` for upload and download through SRA
+* [**Gateway get**](#gateway-sra-get-command) commands for retrieving current SRA gateway configuration
+* [**Session and bastion inventory**](#session-and-bastion-inventory-commands) commands for operational visibility
+
+### Gateway Configuration Family
+
+Gateway SRA configuration commands are available under the `gateway update` command group and by alias commands.
+
+Example:
 
 ```shell Command group
 akeyless gateway update remote-access
@@ -406,4 +415,83 @@ For HTTP endpoint details that map to these commands, see:
 * [Update Gateway Remote Access Desktop App](https://docs.akeyless.io/reference/gatewayupdateremoteaccessdesktopapp)
 * [List SRA Sessions](https://docs.akeyless.io/reference/listsrasessions)
 * [List SRA Bastions](https://docs.akeyless.io/reference/listsrabastions)
-* For `gateway update remote-access-session-forwarding <provider>` REST endpoints, see the [Akeyless API Reference](https://docs.akeyless.io/reference) and search for `gateway-update-remote-access-session-forwarding`.
+* For `gateway-update-remote-access-session-forwarding-<provider>` REST endpoints, see the [Akeyless API Reference](https://docs.akeyless.io/reference) and search for `gateway-update-remote-access-session-forwarding`.
+
+## File Transfer Commands
+
+The Akeyless CLI supports SRA file transfer with `file upload` and `file download` when using version 1.145 or later.
+
+These commands run on the client machine and invoke the local `scp`/`ssh` tooling to perform transfer over an SRA tunnel.
+
+At runtime, the CLI resolves target and bastion connection parameters (from command flags or profile), requests short-lived access by way of the configured SSH certificate issuer, and then establishes the tunnel used by `scp` for upload/download.
+
+If local `scp`/`ssh` binaries are missing or not available in `PATH`, file transfer commands fail on the client before transfer starts.
+
+```shell Command group
+akeyless file upload
+```
+```shell Alias
+akeyless file-upload
+```
+
+### `file upload`
+
+Uploads a local file to a remote target through SRA.
+
+```shell
+akeyless file upload \
+  --target <user@remote-server[:port]> \
+  --source-path </full/local/path/file> \
+  --destination-path </remote/path/file> \
+  --tunnel "-L :5555:0.0.0.0:5555"
+```
+
+#### Key flags
+
+`-t, --target`: Required. Target resource in the format `user@ssh-server[:port]`
+
+`--source-path`: Required. Local source file path
+
+`--destination-path`: Required. Remote destination file path
+
+`-T, --tunnel`: Required. SSH tunnel parameter (IPv4 only), for example `-L :5555:0.0.0.0:5555`
+
+`-c, --cert-issuer-name`: Certificate issuer name. If omitted, the CLI profile value is used
+
+`-v, --via-sra`: SRA bastion host and port. If omitted, the CLI profile value is used
+
+`-g, --gateway-url`: Gateway configuration-management URL. If omitted, the CLI profile value is used
+
+> ℹ️ **RBAC capability:** `sra_upload_files`
+> ℹ️ **Alias:** `akeyless file-upload`
+
+### `file download`
+
+Downloads a remote file to the local machine through SRA.
+
+```shell
+akeyless file download \
+  --target <user@remote-server[:port]> \
+  --source-path </remote/path/file> \
+  --destination-path </full/local/path/file> \
+  --tunnel "-L :5555:0.0.0.0:5555"
+```
+
+#### Key flags
+
+`-t, --target`: Required. Target resource in the format `user@ssh-server[:port]`
+
+`--source-path`: Required. Remote source file path
+
+`--destination-path`: Required. Local destination file path
+
+`-T, --tunnel`: Required. SSH tunnel parameter (IPv4 only), for example `-L :5555:0.0.0.0:5555`
+
+`-c, --cert-issuer-name`: Certificate issuer name. If omitted, the CLI profile value is used
+
+`-v, --via-sra`: SRA bastion host and port. If omitted, the CLI profile value is used
+
+`-g, --gateway-url`: Gateway configuration-management URL. If omitted, the CLI profile value is used
+
+> ℹ️ **RBAC capability:** `sra_download_files`
+> ℹ️ **Alias:** `akeyless file-download`

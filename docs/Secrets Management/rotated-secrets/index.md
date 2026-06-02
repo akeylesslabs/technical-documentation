@@ -19,7 +19,7 @@ Setting up Rotated Secrets requires the **Rotated Secret** permission on the Gat
 
 The Akeyless Platform generates a new password, resets it on the target machine, and stores the updated secret value so that it can be retrieved when required.
 
-You can define a rotated secret to automatically update the password at defined intervals, or manually trigger a password update with the CLI or from the Akeyless Console. You also have the ability to set a custom password length for each individual rotated secret.
+You can define a rotated secret to automatically update the password at defined intervals, or manually trigger a password update with the CLI or from the Akeyless Console. You can also configure password policy settings (such as length and complexity requirements) for supported rotated secret types. For details, see [Password Policy for Dynamic and Rotated Secrets](https://docs.akeyless.io/docs/secrets-password-policy).
 
 You can configure:
 
