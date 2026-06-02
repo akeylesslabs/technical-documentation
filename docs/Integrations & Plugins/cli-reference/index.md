@@ -38,27 +38,29 @@ akeyless configure
 
 #### Flags
 
-`--profile[=default]`: The profile name to be configure
+`--profile[=default]`: The profile name to configure
 
 `--access-id`: Access ID
 
 `--access-key`: Access Key
 
-`--access-type[=access_key]`: Access Type, options: `[access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s]`
+`--access-type[=access_key]`: Access Type, options: `[access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s/cert/oci/kerberos]`
 
 `--admin-password`: Password (relevant only for `access-type=password`)
 
 `--admin-email`: Email (relevant only for `access-type=password`)
 
+`--account-id`: Account ID (relevant only for `access-type=password` where the email address is associated with more than one account)
+
 `--oidc-sp`: OIDC Service Provider (relevant only for `access-type=oidc`, inferred if empty), supported SPs: google, github
 
-`--azure-ad-object-id`: Azure Active Directory ObjectId (relevant only for access-type=azure_ad)
+`--azure-ad-object-id`: Azure Active Directory ObjectId (relevant only for `access-type=azure_ad`)
 
 `--azure-cloud[=AzureCloud]`: Azure cloud environment to use. Values: `AzureCloud` (default), `AzureUSGovernment`, `AzureChinaCloud` (relevant only for `access-type=azure_ad`)
 
-`--gcp-audience`: GCP audience to use in signed JWT (relevant only for access-type=gcp)
+`--gcp-audience`: GCP audience to use in signed JWT (relevant only for `access-type=gcp`)
 
-`--gateway-url`: Gateway URL for the Kubernetes authenticated (relevant only for `access-type=k8s`)
+`--gateway-url`: Default Gateway URL used for API calls
 
 `--k8s-auth-config-name`: The Kubernetes Auth config name (relevant only for `access-type=k8s`)
 
@@ -66,21 +68,41 @@ akeyless configure
 
 `--cert-file-name`: Name of the certificate file to use (relevant only for `access-type=cert`)
 
-`--cert-data`: Certificate data encoded in Base64. Used if file was not provided. (relevant only for `access-type=cert` in Curl Context)
+`--cert-data`: Certificate data encoded in Base64. Used if file was not provided (relevant only for `access-type=cert` in Curl Context)
 
 `--key-file-name`: Name of the private key file to use (relevant only for `access-type=cert`)
 
 `--key-data`: Private key data encoded in Base64. Used if file was not provided (relevant only for `access-type=cert` in Curl Context)
 
+`--cert-issuer-name`: Certificate Issuer Name
+
+`--cert-username`: The username to sign in the SSH certificate (use a comma-separated list for more than one username)
+
+`--public-key-file-path`: Path to a file from which the identity (private key) for public key authentication is read
+
+`--oci-auth-type[=apikey]`: The type of OCI configuration to use, options: `[instance/apikey/resource]` (relevant only for `access-type=oci`)
+
+`--oci-group-ocid`: A list of Oracle Cloud IDs groups (relevant only for `access-type=oci`)
+
 `--default-location-prefix`: Default path prefix for item, target, and auth method names
 
-`--disable-kerberos-fast[=true]`: Disable the Kerberos FAST negotiation
+`--legacy-signing-alg-name`: Set this option to output legacy (`ssh-rsa-cert-v01@openssh.com`) signing algorithm name in the certificate
 
-`--gateway-spn`: Optional, the service principal name of the gateway as registered in LDAP (for example, `HTTP/gateway`)
+`--krb5conf-file-path`: Path to a valid krb5.conf file specifying the settings and parameters required for Kerberos authentication (relevant only for `access-type=kerberos`)
 
-`--kerberos-token`: Optional, Kerberos token for the gateway SPN, used by SPNEGO for authentication
+`--krb5conf-file-data`: Base64-encoded content of a valid krb5.conf file (relevant only for `access-type=kerberos` in Curl Context)
 
-`--kerberos-username`: Optional, the username for the entry within the keytab to authenticate via Kerberos
+`--keytab-file-path`: Path to a valid keytab file containing the user entry (relevant only for `access-type=kerberos`)
+
+`--keytab-file-data`: Base64-encoded content of a valid keytab file (relevant only for `access-type=kerberos` in Curl Context)
+
+`--disable-kerberos-fast[=true]`: Disable the Kerberos FAST negotiation (relevant only for `access-type=kerberos`)
+
+`--gateway-spn`: Optional, the service principal name of the gateway as registered in LDAP (for example, `HTTP/gateway`) (relevant only for `access-type=kerberos`)
+
+`--kerberos-token`: Optional, Kerberos token for the gateway SPN, used by SPNEGO for authentication (relevant only for `access-type=kerberos`)
+
+`--kerberos-username`: Optional, the username for the entry within the keytab to authenticate via Kerberos (relevant only for `access-type=kerberos`)
 
 ### `delete-item`
 
