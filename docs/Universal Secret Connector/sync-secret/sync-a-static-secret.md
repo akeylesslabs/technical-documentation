@@ -27,7 +27,11 @@ Where:
 
 * `name`: The Static Secret name.
 * `usc-name`: The name of the Universal Secret Connector.
-* `remote-secret-name`: Remote Secret Name that will be created on the remote endpoint. If the secret already exists, sync will override its value and tags.
+* `remote-secret-name`: Remote Secret Name that will be created on the remote endpoint. If the secret already exists, sync updates the secret value.
+
+> ℹ️ **Note (AWS metadata):**
+>
+> For AWS Universal Secrets Connector, Akeyless-initiated sync keeps existing AWS-side custom tags and description unless those fields are explicitly updated.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Static Secrets section](https://docs.akeyless.io/docs/cli-reference-static-secrets#static-secret-sync).
 

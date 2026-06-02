@@ -258,6 +258,12 @@
 /v2/docs/tls -> /docs/gateway-tls-settings
 /docs/external-secrets-manager -> /docs/universal-secrets-connector
 /v2/docs/external-secrets-manager -> /docs/universal-secrets-connector
+/docs/okta -> /docs/saml-auth-okta
+/v2/docs/okta -> /docs/saml-auth-okta
+/docs/setting-up-ping-identity-saml-authentication -> /docs/saml-auth-ping-identity
+/v2/docs/setting-up-ping-identity-saml-authentication -> /docs/saml-auth-ping-identity
+/docs/azure-ad-saml-authentication -> /docs/saml-auth-azure-ad
+/v2/docs/azure-ad-saml-authentication -> /docs/saml-auth-azure-ad
 /docs/upgrading-to-the-new-gateway-with-remote-access -> /docs/sra-setup-k8s
 /v2/docs/upgrading-to-the-new-gateway-with-remote-access -> /docs/sra-setup-k8s
 /docs/cloud -> /docs/venafi-cloud
