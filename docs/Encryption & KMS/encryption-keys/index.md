@@ -189,7 +189,8 @@ Select a hash function between `sha-256` and `sha-512`. The full parameters for 
 
 ### Managing an Encryption Key
 
-* To delete the key, go to the key's location in your repository, select it and tap the trash icon. You will get the option to choose if you wish to delete it immediately or in a set amount of days. The key must be set to be disabled by way of the edit options before doing so. A scheduled deletion can be canceled by re-selecting the delete option.
+* To delete the key, go to the key's location in your repository, select it, and select the trash icon. You can then choose whether to delete it immediately or in a set number of days.
+* To undo a scheduled deletion for a classic key or DFC key, open the key details, edit **State**, and set it to **Disabled**. This removes the **Pending Deletion** status. If the key should return to active use, edit **State** again and set it to **Enabled**.
 * To view the public key for RSA keys, go to the folder in Akeyless where you saved the desired key, select it, and tap **get public RSA key**.
 
 ### Using the Encryption Key
