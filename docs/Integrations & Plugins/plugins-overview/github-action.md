@@ -37,6 +37,41 @@ Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your
 * Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
 * Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
 
+### Runner Trust and Debugging
+
+When the workflow connects to an Akeyless Gateway over TLS, the GitHub runner must trust the Gateway certificate chain before the action can start authentication. If the runner does not already trust that chain, store the PEM-encoded CA certificate in a GitHub secret such as `AKEYLESS_CA_CERTIFICATE` and pass it through the action's `ca-certificate` input.
+
+For example, when the workflow uses a TLS-enabled Gateway endpoint, pass both the Gateway API URL and the CA certificate:
+
+```yaml
+steps:
+  - name: Fetch a secret through a TLS-enabled Gateway
+    uses: akeyless-community/akeyless-github-action@v1.1.5
+    with:
+      access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
+      access-type: universal_identity
+      uid_token: ${{ secrets.AKEYLESS_UID_TOKEN }}
+      api-url: https://your-gateway.example.com:8000/api/v2
+      ca-certificate: ${{ secrets.AKEYLESS_CA_CERTIFICATE }}
+      static-secrets: |
+        - name: "/path/to/secret"
+          output-name: "my_secret"
+```
+
+The action emits debug messages through GitHub Actions debug commands. For more detailed action logs, set `ACTIONS_RUNNER_DEBUG=true`. If you also want GitHub Actions step debug logging for the workflow step, set `ACTIONS_STEP_DEBUG=true`.
+
+> ⚠️ **Important:**
+>
+> Setting `ACTIONS_RUNNER_DEBUG=true` can expose sensitive information in error logs. Use it with caution.
+
+```yaml
+steps:
+  - name: Enable GitHub Actions step debug logging
+    run: |
+      echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+      echo "ACTIONS_RUNNER_DEBUG=true" >> $GITHUB_ENV
+```
+
 ## Authentication
 
 This Action plugin supports the following Authentication Methods:
@@ -50,7 +85,7 @@ This Action plugin supports the following Authentication Methods:
 * [Access Key](https://docs.akeyless.io/docs/auth-with-api-key)
 * [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
 
-### GitHub Repository Variable
+### GitHub Variables and Secrets
 
 You can store the `Access ID` as a GitHub variable inside the repository to use in your workflow.
 
@@ -140,6 +175,8 @@ This is only part of the `YAML` action. More complete examples are given in the 
               output-name: "my_first_secret"
               key: "imp"
 ```
+
+For Gateway TLS trust requirements and a complete example, see [Runner Trust and Debugging](https://docs.akeyless.io/docs/github-action#runner-trust-and-debugging).
 
 > ⚠️ **Warning:**
 >

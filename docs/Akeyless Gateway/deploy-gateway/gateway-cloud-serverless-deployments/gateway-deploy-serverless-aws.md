@@ -12,6 +12,8 @@ next:
 ---
 This page describes how to run an Akeyless Serverless Gateway on AWS using HashiCorp Terraform.
 
+For AWS partition guidance and deployment pattern coverage, see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support).
+
 ## Prerequisites
 
 * [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (version 1.0.0 or later)
