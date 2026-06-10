@@ -14,6 +14,8 @@ RDP Session Recording is managed entirely through your Gateway's console under t
 
 Use this page together with [Sessions Overview](https://docs.akeyless.io/docs/sra-sessions-overview) to correlate session inventory records with recording storage location and retrieval path.
 
+For backend sizing, retention windows, and lifecycle policy planning, use [Storage and Recording Capacity](https://docs.akeyless.io/docs/sra-storage-and-recording-capacity).
+
 > ℹ️ **Note:**
 >
 > If you are working with browser-based Zero Trust Web Access recordings, use [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s).

@@ -22,6 +22,8 @@ Use this section to move from reactive troubleshooting to continuous runtime mon
 3. Session recording storage and retrieval: [RDP Recordings](https://docs.akeyless.io/docs/sra-rdp-recordings) and [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording)
 4. Upgrade and compatibility monitoring: [Version Drift and Upgrade Signals](https://docs.akeyless.io/docs/sra-version-drift-and-upgrade-signals)
 
+For storage sizing and retention planning, use [Storage and Recording Capacity](https://docs.akeyless.io/docs/sra-storage-and-recording-capacity).
+
 ## Session Inventory and Recordings
 
 Session inventory includes both active and completed lifecycle states, filtered by status, resource type, and visibility scope.
