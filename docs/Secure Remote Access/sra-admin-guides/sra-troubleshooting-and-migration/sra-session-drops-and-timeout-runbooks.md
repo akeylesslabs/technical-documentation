@@ -106,3 +106,27 @@ When escalating an incident, collect:
 * Bastion/gateway restart evidence and scale-event timestamps.
 * Ingress or load balancer timeout values.
 * Effective `CONFIG_MAX_STARTUPS` setting.
+
+## Runbook 5: RDP Tab Closes Without Error
+
+### Diagnostics
+
+1. Verify that the `UAM_ADDR` environment variable in your bastion deployment matches your account's region (for example, MEU for European accounts).
+2. Check bastion authentication logs for errors during the RDP session initiation flow.
+3. Confirm WebSocket connectivity between the browser and bastion by inspecting browser console errors and network traffic.
+4. Verify that the account region and authentication service endpoint are correctly configured in Gateway console settings.
+
+### Resolution
+
+1. Ensure `UAM_ADDR` environment variable aligns with your account's region. Update the bastion deployment configuration if needed.
+2. Verify account settings in Gateway console under Remote Access configuration.
+3. Test browser WebSocket connectivity to the bastion endpoint.
+4. Re-initiate the RDP session after configuration changes.
+
+### Minimum Incident Data for RDP Failures
+
+When escalating RDP connection failures, collect in addition to the above:
+
+* Bastion deployment `UAM_ADDR` environment variable value.
+* Account region setting from Gateway console.
+* Bastion authentication log excerpts around the time of RDP session initiation.

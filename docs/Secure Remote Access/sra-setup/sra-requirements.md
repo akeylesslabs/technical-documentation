@@ -71,6 +71,18 @@ For autoscaling policy and scale-in protection guidance, see [Scaling and HPA Pa
 
 For platform guidance, see [Kubernetes Service type LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) and [Linux kernel security constraints](https://kubernetes.io/docs/concepts/security/linux-kernel-security-constraints/).
 
+### Account Region and Authentication Service Configuration
+
+When deploying SRA in regions outside the default account region, configure the bastion authentication service endpoint to match your account location.
+
+For non-default account regions (for example, MEU for European accounts):
+
+* Ensure the `UAM_ADDR` environment variable in bastion deployment is set to the correct authentication service endpoint for your region.
+* Verify account region setting in Gateway console under **Remote Access** configuration.
+* When RDP or other session types fail to connect after authentication succeeds, cross-check the `UAM_ADDR` variable and account region setting as a first diagnostic step.
+
+Misalignment between account region and `UAM_ADDR` configuration can result in RDP sessions closing without meaningful error messages in logs.
+
 ### Gateway Certificate Trust Requirements
 
 If Gateway or ingress endpoints use private or self-signed certificates, make sure SRA components trust that CA chain.

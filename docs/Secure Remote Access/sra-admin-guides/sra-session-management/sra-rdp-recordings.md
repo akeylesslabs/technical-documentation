@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-RDP Session Recording is managed entirely through your Gateway's console under the **Remote Access** section in the Gateway settings. These sessions generate video recordings that can be uploaded to **AWS S3**, **S3-compatible object storage** (for example, NetApp StorageGRID), or **Azure Blob Storage** for secure storage, or can be saved locally.
+RDP Session Recording is managed entirely through your Gateway's console under the **Remote Access** section in the Gateway settings. These sessions generate video recordings that can be uploaded to **Amazon S3**, **S3-compatible object storage** (for example, NetApp StorageGRID), or **Azure Blob Storage** for secure storage, or can be saved locally.
 
 Use this page together with [Sessions Overview](https://docs.akeyless.io/docs/sra-sessions-overview) to correlate session inventory records with recording storage location and retrieval path.
 
@@ -22,11 +22,36 @@ For backend sizing, retention windows, and lifecycle policy planning, use [Stora
 
 RDP recordings support configurable quality, compression, and encryption for stored sessions.
 
+## RDP Session Initialization Prerequisites
+
+Before setting up RDP session recording, ensure the following prerequisites are met to avoid recording attempts when RDP connections fail.
+
+### Account Region and Authentication Endpoint
+
+For deployments in non-default account regions, ensure account region and authentication endpoint configuration are aligned:
+
+* Verify `UAM_ADDR` environment variable in bastion deployment matches your account's region.
+* Confirm account region setting in Gateway console under **Remote Access** configuration.
+* Test RDP connection initiation before enabling recording to confirm the session succeeds.
+
+When account region and authentication endpoint are misaligned, RDP sessions may close without meaningful error messages, preventing recording from ever starting.
+
+### RDP Connection Validation
+
+If RDP sessions terminate immediately after authentication succeeds (browser tab closes without error):
+
+1. Review bastion authentication logs for errors during RDP session initiation.
+2. Verify `UAM_ADDR` matches your account's region.
+3. Check browser console and network traffic for WebSocket connectivity issues.
+4. Confirm Gateway Remote Access configuration in console.
+
+After confirming RDP connectivity, enable session recording.
+
 ## Session Recording
 
 SRA supports the recording of RDP sessions. You can choose to store RDP Session Recordings by clicking **Remote Access -> Session Recording -> RDP Recordings**, clicking the slider to Enable, and then choosing the location to keep the recordings of those sessions.
 
-**RDP** sessions provide video recordings that can be saved to **AWS S3** buckets, **S3-compatible object storage**, **Azure Blob Storage**, or locally. To work with session recording for RDP, provide the following settings to upload your recording to object storage.
+**RDP** sessions provide video recordings that can be saved to **Amazon S3** buckets, **S3-compatible object storage**, **Azure Blob Storage**, or locally. To work with session recording for RDP, provide the following settings to upload your recording to object storage.
 
 ### Compression & Encryption
 
@@ -80,9 +105,9 @@ Local session recordings will be stored inside the SRA server under `/home/akeyl
 
 Retention for local storage depends on host disk lifecycle and your operational cleanup policy.
 
-### AWS S3
+### Amazon S3
 
-When storing RDP session recordings in AWS S3, the user can choose between two authentication methods:
+When storing RDP session recordings in Amazon S3, the user can choose between two authentication methods:
 
 #### Use Gateway Identity
 
@@ -145,7 +170,7 @@ Use Azure lifecycle management policy to enforce retention windows in the target
 
 This can also be done by way of the CLI. For a full flag reference, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
 
-```shell AWS S3
+```shell
 akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \
 --rdp-session-storage aws \
@@ -157,7 +182,7 @@ akeyless gateway update remote-access-rdp-recording \
 --aws-storage-access-key-id <optional-explicit-key-id> \
 --aws-storage-secret-access-key <optional-explicit-access-key>
 ```
-```shell Azure Blob
+```shell
 akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \
 --rdp-session-storage azure \
@@ -168,7 +193,7 @@ akeyless gateway update remote-access-rdp-recording \
 --azure-storage-client-secret <optional-client-secret> \
 --azure-storage-tenant-id <optional-tenant-id>
 ```
-```shell Local
+```shell
 akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \
 --rdp-session-storage local
