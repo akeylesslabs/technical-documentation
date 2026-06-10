@@ -17,6 +17,8 @@ Use this page to configure autoscaling behavior for SRA components while protect
 
 For Helm-based deployments, HPA controls are available for gateway and SRA components.
 
+For baseline HPA behavior, metric types, and scaling algorithm details, see the Kubernetes [Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) documentation.
+
 Common settings include:
 
 * `minReplicas`
@@ -58,7 +60,7 @@ Example metrics to consider:
 * Busy worker percentage for ZTWA worker pools.
 * Session queue growth and wait time.
 
-Validate metric quality before attaching it to production HPA policies.
+Validate metric quality before attaching it to production HPA policies. For production tuning guidance, see Kubernetes [Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 ## Multi-Cluster Scaling Pattern
 

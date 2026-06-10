@@ -37,9 +37,23 @@ For AWS ALB, configure target-group stickiness and align idle timeout with expec
 
 For AWS NLB, use TCP keep-alive and timeout tuning for long-running SSH and proxy sessions.
 
+For AWS CLB (Classic Load Balancer), use session stickiness (`AWSELB` cookie) for HTTP or HTTPS paths and align connection idle timeout with expected session duration.
+
+### Azure Load Balancing and Ingress
+
+For Azure Application Gateway, configure cookie-based affinity and backend request timeout values for long-lived browser sessions.
+
+For Azure Load Balancer in L4 paths, tune idle timeout and TCP reset behavior to reduce unintended session drops during low-traffic periods.
+
 ### Google Cloud Load Balancing
 
 For GKE HTTP(S) Load Balancer paths, configure backend timeout values (`timeoutSec`) to avoid early disconnects. Apply backend policy consistently across services participating in long-lived sessions.
+
+### Service Mesh Pattern (Istio)
+
+For Istio-managed ingress and routing, use destination-level load-balancer policy that preserves client affinity where required (for example, consistent hash by HTTP cookie for browser paths).
+
+Ensure VirtualService route timeouts and retries are compatible with long-lived SRA sessions to avoid mid-session route churn.
 
 ## Cookie-Based and IP-Based Affinity
 

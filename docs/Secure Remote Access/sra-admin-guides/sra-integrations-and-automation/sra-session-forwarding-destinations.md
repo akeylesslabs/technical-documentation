@@ -51,6 +51,8 @@ akeyless gateway update remote-access-session-forwarding <provider>
 
 Replace `<provider>` with the destination-specific command variant documented by the CLI reference.
 
+Use [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra) for the full `gateway update remote-access-session-forwarding-*` command variants and flags.
+
 ## Related API Endpoints
 
 * [Amazon S3 forwarding endpoint](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogsawss3)

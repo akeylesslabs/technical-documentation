@@ -92,6 +92,28 @@ Use this sequence to implement the isolation recommendations.
 5. Expose only approved external services with `LoadBalancer` or ingress.
 6. Validate effective policy behavior before production transition.
 
+Apply changes in this order to reduce outage risk:
+
+1. Create namespace and labels.
+2. Deploy workloads and services.
+3. Apply default-deny policies.
+4. Apply explicit allow policies.
+5. Run smoke tests before opening external traffic.
+
+### Example Namespace Baseline
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sra-prod
+  labels:
+    app.kubernetes.io/part-of: sra
+    security-zone: remote-access
+```
+
+Add component labels in your workload manifests (for example `component: gateway`, `component: sra-ssh`, `component: sra-web`, `component: dispatcher`, `component: web-worker`, `component: redis`) so NetworkPolicy selectors remain explicit.
+
 ### Baseline Controls to Apply
 
 1. Namespace labels for policy selection and operations ownership.
@@ -103,6 +125,53 @@ Use this sequence to implement the isolation recommendations.
 * Bastion components to Gateway internal API (`8080`).
 * Runtime components to Redis (`6379`).
 * Dispatcher to web-worker (`5800`).
+
+### Example NetworkPolicy Pattern
+
+Start with default deny:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: sra-prod
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+    - Egress
+```
+
+Then add explicit allow rules per dependency path. Example: allow dispatcher to web-worker on `5800`.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-dispatcher-to-web-worker
+  namespace: sra-prod
+spec:
+  podSelector:
+    matchLabels:
+      component: web-worker
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              component: dispatcher
+      ports:
+        - protocol: TCP
+          port: 5800
+```
+
+Replicate the same pattern for:
+
+1. Gateway to `sra-web:8888` and `sra-ssh:9900`.
+2. Bastion components to gateway internal API `8080`.
+3. Runtime components to Redis `6379`.
 
 ### Example Validation Workflow
 
@@ -120,6 +189,16 @@ kubectl get networkpolicy -n <sra-namespace>
 
 # Validate gateway and component readiness
 kubectl get endpoints -n <sra-namespace>
+
+# Confirm endpoint slices map to expected component labels
+kubectl get endpointslices -n <sra-namespace>
+```
+
+To validate policy enforcement, run a temporary diagnostic pod and test only approved paths:
+
+```shell
+kubectl run netcheck --rm -it --restart=Never -n <sra-namespace> --image=busybox:1.36 -- sh
+# Inside pod, test allowed and denied connections using nc/curl as available
 ```
 
 Then run a functional smoke test from the user perspective:
