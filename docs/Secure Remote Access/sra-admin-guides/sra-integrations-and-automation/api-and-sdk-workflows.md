@@ -1,5 +1,5 @@
 ---
-title: sra-API and SDK Workflows
+title: API and SDK Workflows
 slug: sra-api-and-sdk-workflows
 excerpt: ''
 deprecated: false

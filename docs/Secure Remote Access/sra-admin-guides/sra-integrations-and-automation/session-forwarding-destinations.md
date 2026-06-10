@@ -1,5 +1,5 @@
 ---
-title: sra-Session Forwarding Destinations
+title: Session Forwarding Destinations
 slug: sra-session-forwarding-destinations
 excerpt: ''
 deprecated: false

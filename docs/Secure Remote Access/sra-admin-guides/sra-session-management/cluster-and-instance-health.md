@@ -1,5 +1,5 @@
 ---
-title: sra-Cluster and Instance Health
+title: Cluster and Instance Health
 slug: sra-cluster-and-instance-health
 excerpt: ''
 deprecated: false

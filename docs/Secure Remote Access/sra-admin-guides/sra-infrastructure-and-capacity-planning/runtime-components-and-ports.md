@@ -1,5 +1,5 @@
 ---
-title: sra-Runtime Components and Ports
+title: Runtime Components and Ports
 slug: sra-runtime-components-and-ports
 excerpt: ''
 deprecated: false

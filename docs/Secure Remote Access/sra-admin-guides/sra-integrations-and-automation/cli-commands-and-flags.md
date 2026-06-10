@@ -1,5 +1,5 @@
 ---
-title: sra-CLI Commands and Flags
+title: CLI Commands and Flags
 slug: sra-cli-commands-and-flags
 excerpt: ''
 deprecated: false
@@ -11,7 +11,7 @@ metadata:
 next:
   description: ''
 ---
-Use this page as a quick index of the SRA-related CLI command families. This page is intentionally lightweight and links to the full command reference.
+Use this page as a quick index of the SRA-related CLI command families. This page is intentionally concise and links to the full command reference.
 
 For complete syntax and flag behavior, use the Gateway CLI reference area and the SRA command page:
 

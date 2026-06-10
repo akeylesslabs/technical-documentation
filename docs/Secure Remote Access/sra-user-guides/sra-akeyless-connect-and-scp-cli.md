@@ -1,5 +1,5 @@
 ---
-title: sra-Akeyless Connect and SCP (CLI)
+title: Akeyless Connect and SCP (CLI)
 excerpt: ''
 deprecated: false
 hidden: false

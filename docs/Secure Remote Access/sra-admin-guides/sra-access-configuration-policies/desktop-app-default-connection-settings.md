@@ -1,5 +1,5 @@
 ---
-title: sra-Desktop App Default Connection Settings
+title: Desktop App Default Connection Settings
 slug: sra-desktop-app-default-connection-settings
 excerpt: ''
 deprecated: false

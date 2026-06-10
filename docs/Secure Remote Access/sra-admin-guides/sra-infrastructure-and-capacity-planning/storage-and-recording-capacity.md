@@ -1,5 +1,5 @@
 ---
-title: sra-Storage and Recording Capacity
+title: Storage and Recording Capacity
 slug: sra-storage-and-recording-capacity
 excerpt: ''
 deprecated: false

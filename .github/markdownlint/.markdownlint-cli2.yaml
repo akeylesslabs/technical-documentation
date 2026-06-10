@@ -208,6 +208,11 @@ config:
         example_from: "from the CLI"
         example_to: "with the CLI"
 
+      - term: "lightweight"
+        replacement: "concise"
+        example_from: "This page is intentionally lightweight."
+        example_to: "This page is intentionally concise."
+
       # Gateway lifecycle terminology
       - term: "Gateway is installed"
         replacement: "Gateway is deployed"

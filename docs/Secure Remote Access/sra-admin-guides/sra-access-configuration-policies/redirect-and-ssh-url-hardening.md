@@ -1,5 +1,5 @@
 ---
-title: sra-Redirect and SSH URL Hardening
+title: Redirect and SSH URL Hardening
 slug: sra-redirect-and-ssh-url-hardening
 excerpt: ''
 deprecated: false

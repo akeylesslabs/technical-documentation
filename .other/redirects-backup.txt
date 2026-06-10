@@ -199,8 +199,8 @@
 /v2/docs/quick-start-guide -> /docs/sra-quick-start-guide
 /docs/rdp-recordings -> /docs/sra-rdp-recordings
 /v2/docs/rdp-recordings -> /docs/sra-rdp-recordings
-/docs/session-forwarding -> /docs/sra-session-forwarding
-/v2/docs/session-forwarding -> /docs/sra-session-forwarding
+/docs/session-forwarding -> /docs/sra-session-forwarding-destinations
+/v2/docs/session-forwarding -> /docs/sra-session-forwarding-destinations
 /docs/session-recording -> /docs/remote-access-session-management
 /v2/docs/session-recording -> /docs/remote-access-session-management
 /docs/setup -> /docs/remote-access-setup
@@ -762,8 +762,8 @@
 /v2/docs/web-applications-secure-remote-access -> /docs/sra-web-applications
 /docs/remote-access-rdp-recordings -> /docs/sra-rdp-recordings
 /v2/docs/remote-access-rdp-recordings -> /docs/sra-rdp-recordings
-/docs/remote-access-session-forwarding -> /docs/sra-session-forwarding
-/v2/docs/remote-access-session-forwarding -> /docs/sra-session-forwarding
+/docs/remote-access-session-forwarding -> /docs/sra-session-forwarding-destinations
+/v2/docs/remote-access-session-forwarding -> /docs/sra-session-forwarding-destinations
 /docs/session-monitoring -> /docs/sra-sessions-overview
 /v2/docs/session-monitoring -> /docs/sra-sessions-overview
 /docs/remote-access-overview -> /docs/sra-overview

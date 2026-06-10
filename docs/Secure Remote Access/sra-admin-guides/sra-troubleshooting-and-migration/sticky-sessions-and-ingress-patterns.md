@@ -1,5 +1,5 @@
 ---
-title: sra-Sticky Sessions and Ingress Patterns
+title: Sticky Sessions and Ingress Patterns
 slug: sra-sticky-sessions-and-ingress-patterns
 excerpt: ''
 deprecated: false

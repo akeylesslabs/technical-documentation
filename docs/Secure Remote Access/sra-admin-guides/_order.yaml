@@ -1,7 +1,8 @@
-* sra-session-management
-* sra-infrastructure-and-capacity-planning
-* sra-troubleshooting-and-migration
-* sra-integrations-and-automation
-* sra-akeyless-connect
-* sra-ssh-certificates
-* sra-resource-types
+- sra-access-configuration-policies
+- sra-session-management
+- sra-infrastructure-and-capacity-planning
+- sra-troubleshooting-and-migration
+- sra-integrations-and-automation
+- sra-resource-types
+- sra-akeyless-connect
+- sra-ssh-certificates

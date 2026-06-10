@@ -1,5 +1,5 @@
 ---
-title: sra-Web Access (Browsing / Proxy)
+title: Web Access (Browsing / Proxy)
 excerpt: ''
 deprecated: false
 hidden: false

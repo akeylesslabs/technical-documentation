@@ -1,5 +1,5 @@
 ---
-title: sra-Legacy to Unified Migration
+title: Legacy to Unified Migration
 slug: sra-legacy-to-unified-migration
 excerpt: ''
 deprecated: false
