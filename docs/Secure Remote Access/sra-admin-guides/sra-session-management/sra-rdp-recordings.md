@@ -65,7 +65,7 @@ Encoding is executed by way of a **[decrypt file command](https://docs.akeyless.
 
 #### Where to Configure
 
-* **Latest (Console UI):** **Gateway Manager → Remote Access → Session Recording → RDP recordings**
+* **Latest (Console UI):** Open the gateway configuration UI, then navigate to **Remote Access** and **RDP Recordings**.
   From here you can set the recording **Quality**, toggle **gzip Compression**, and enable **Encryption**.
 
 * **Legacy Helm Chart:** Configure under the **`rdpRecord`** section of your values file to set **quality**, **compression**, and **encryption** parameters for RDP recordings.

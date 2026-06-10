@@ -28,10 +28,10 @@ Use this page to diagnose and resolve unexpected session termination in SSH, RDP
 
 1. Check for pod restarts and recent scale events in the bastion namespace.
 2. Review bastion and gateway logs around drop time.
-3. Confirm session state with `list-sra-sessions` using both active and ended filters.
+3. Confirm session state with `list-sra-sessions` using both active and completed or terminated filters.
 
 ```shell
-akeyless list-sra-sessions --status-types active,ended,error
+akeyless list-sra-sessions --status-type connecting --status-type connected --status-type completed --status-type terminated --status-type failed
 ```
 
 ### Resolution

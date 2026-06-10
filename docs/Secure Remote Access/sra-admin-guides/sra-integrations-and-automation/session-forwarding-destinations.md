@@ -37,7 +37,7 @@ This list matches the current forwarding endpoint family in the API reference.
 
 Use one of the following:
 
-* Console path: **Gateways**, then **Manage Gateway**, then **Remote Access**, then **Session Forwarding**.
+* Console path: Open the relevant gateway in the gateway management UI, then navigate to **Remote Access** and **Session Forwarding**.
 * CLI command family: `gateway-update-remote-access-session-forwarding-*`
 * API endpoint family: `gwupdateremoteaccesssessionlogs*`
 
