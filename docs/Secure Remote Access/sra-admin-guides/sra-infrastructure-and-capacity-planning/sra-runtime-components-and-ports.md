@@ -80,3 +80,52 @@ For Kubernetes production deployments:
 * Apply namespace-scoped network policies so only required east-west paths are allowed.
 * Keep Redis and control-plane endpoints (`8080`, `8888`, `9900`, `5800`) cluster-internal.
 * Restrict user-facing exposure to only the required entrypoints (`8000`, `22`, `9000`, `19414`) based on enabled features.
+
+### Implementation Pattern
+
+Use this sequence to implement the isolation recommendations.
+
+1. Create dedicated namespaces per environment (for example `sra-prod`, `sra-staging`).
+2. Place Gateway and SRA runtime components in that namespace (or paired namespaces with explicit policies).
+3. Apply default-deny ingress and egress policies first.
+4. Add explicit allow rules only for required SRA runtime paths.
+5. Expose only approved external services with `LoadBalancer` or ingress.
+6. Validate effective policy behavior before production transition.
+
+### Baseline Controls to Apply
+
+1. Namespace labels for policy selection and operations ownership.
+2. Resource quotas and limit ranges to avoid noisy-neighbor impact.
+3. Service account and RBAC scoping per component class (Gateway, bastion, dispatcher, worker).
+4. Network policies for:
+
+* Gateway to bastion control-plane ports (`8888`, `9900`).
+* Bastion components to Gateway internal API (`8080`).
+* Runtime components to Redis (`6379`).
+* Dispatcher to web-worker (`5800`).
+
+### Example Validation Workflow
+
+After applying namespace and policy controls, validate:
+
+```shell
+# Confirm workloads are in the expected namespace
+kubectl get pods -n <sra-namespace>
+
+# Verify only intended services are externally exposed
+kubectl get svc -n <sra-namespace>
+
+# Review applied network policies
+kubectl get networkpolicy -n <sra-namespace>
+
+# Validate gateway and component readiness
+kubectl get endpoints -n <sra-namespace>
+```
+
+Then run a functional smoke test from the user perspective:
+
+1. Portal/API access through Gateway (`8000`).
+2. SSH session launch (`22`) when SSH access is enabled.
+3. Web session launch through dispatcher (`9000` or `19414`) when ZTWA is enabled.
+
+If any flow fails, inspect policy denies and service endpoint reachability before widening exposure.

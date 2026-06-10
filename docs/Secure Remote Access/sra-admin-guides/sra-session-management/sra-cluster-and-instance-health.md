@@ -13,9 +13,9 @@ next:
 ---
 Use this page to monitor Secure Remote Access (SRA) cluster availability, bastion instance state, and telemetry signals that indicate degraded runtime behavior.
 
-## Runtime Health Surfaces
+## Runtime Health Signals
 
-Use these health surfaces together:
+Use these health signals together:
 
 * Gateway internal health endpoint on port `8080`.
 * Gateway metrics endpoint on port `8889` when metrics are enabled.

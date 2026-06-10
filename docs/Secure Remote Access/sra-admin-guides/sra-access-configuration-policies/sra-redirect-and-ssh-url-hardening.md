@@ -25,7 +25,7 @@ akeyless gateway update remote-access \
   --gateway-url https://<YOUR_AKEYLESS_GW_URL>:8000
 ```
 
-In ZTWA deployment configuration, allowlist controls include:
+In Zero Trust Web Access (ZTWA) deployment configuration, allowlist controls include:
 
 * `dispatcher.config.allowedBastionUrls`
 * `dispatcher.config.allowedProxyUrls`

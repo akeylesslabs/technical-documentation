@@ -213,6 +213,11 @@ config:
         example_from: "This page is intentionally lightweight."
         example_to: "This page is intentionally concise."
 
+      - term: "AWS S3"
+        replacement: "Amazon S3"
+        example_from: "Configure AWS S3 lifecycle rules for recordings."
+        example_to: "Configure Amazon S3 lifecycle rules for recordings."
+
       # Gateway lifecycle terminology
       - term: "Gateway is installed"
         replacement: "Gateway is deployed"

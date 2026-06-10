@@ -29,7 +29,7 @@ The supported forwarding targets are:
 * Google Chronicle
 * Syslog
 * stdout
-* AWS S3
+* Amazon S3
 
 This list matches the current forwarding endpoint family in the API reference.
 
@@ -53,7 +53,7 @@ Replace `<provider>` with the destination-specific command variant documented by
 
 ## Related API Endpoints
 
-* [AWS S3 forwarding endpoint](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogsawss3)
+* [Amazon S3 forwarding endpoint](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogsawss3)
 * [Azure Log Analytics forwarding endpoint](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogsazureanalytics)
 * [Datadog forwarding endpoint](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogsdatadog)
 * [Elasticsearch forwarding endpoint](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogselasticsearch)

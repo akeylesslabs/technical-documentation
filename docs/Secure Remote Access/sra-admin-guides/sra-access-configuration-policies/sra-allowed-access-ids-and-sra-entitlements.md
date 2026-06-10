@@ -22,9 +22,9 @@ SRA request authorization is based on two identity classes:
 
 Both must be configured correctly. If an Access ID is not in the allowlist, session requests are denied.
 
-## Gateway and Bastion Configuration Surfaces
+## Gateway and Bastion Configuration Areas
 
-Common configuration surfaces include:
+Common configuration areas include:
 
 * Gateway management configuration for allowed requester IDs.
 * Docker environment variables, such as `PRIVILEGED_ACCESS_ID` and `ALLOWED_ACCESS_IDS`.
