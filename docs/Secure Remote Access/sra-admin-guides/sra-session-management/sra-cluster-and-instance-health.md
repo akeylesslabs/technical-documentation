@@ -85,3 +85,30 @@ Start with alerts for:
 4. Rapid increase in failed or terminated session states.
 
 Tune thresholds by environment size and normal traffic patterns.
+
+## What to Do When a Signal Degrades
+
+Use this response flow when one or more alerts fire:
+
+1. Confirm whether impact is cluster-wide or isolated to specific instances.
+2. Capture a current bastion inventory snapshot.
+3. Validate gateway and runtime endpoint reachability.
+4. Correlate failed-session patterns with recent config, version, or routing changes.
+5. Apply targeted mitigation before broad restart or rollback actions.
+
+Quick collection commands:
+
+```shell
+akeyless list-sra-bastions
+akeyless list-sra-sessions --status-type connecting --status-type failed --status-type terminated
+```
+
+### Signal-to-Action Mapping
+
+| Monitoring signal | Immediate action | Follow-up runbook |
+| --- | --- | --- |
+| Stale or missing instance reports | Verify pod or container health and service discovery for affected instances | [Session Drops and Timeout Runbooks](https://docs.akeyless.io/docs/sra-session-drops-and-timeout-runbooks) |
+| Mixed versions persist after rollout window | Pause further rollout and validate version alignment across gateway and bastion components | [Version Drift and Upgrade Signals](https://docs.akeyless.io/docs/sra-version-drift-and-upgrade-signals) |
+| Spike in failed or terminated sessions | Check ingress, affinity, and timeout behavior before restarting components | [Sticky Sessions and Ingress Patterns](https://docs.akeyless.io/docs/sra-sticky-sessions-and-ingress-patterns) |
+| Gateway health endpoint failures | Validate gateway service availability and internal API reachability, then restore health before reopening traffic | [Session Drops and Timeout Runbooks](https://docs.akeyless.io/docs/sra-session-drops-and-timeout-runbooks) |
+| Metrics scrape failures only | Validate monitoring path, target labels, and scrape config before treating as runtime outage | [Runtime Components and Ports](https://docs.akeyless.io/docs/sra-runtime-components-and-ports) |

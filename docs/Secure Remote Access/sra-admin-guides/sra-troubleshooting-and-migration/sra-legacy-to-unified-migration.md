@@ -130,6 +130,8 @@ Use this matrix to assess migration readiness by deployment state.
 
 Because legacy and unified charts are released independently over time, validate compatibility by rollout signals rather than by assuming fixed version pairs.
 
+For the full drift detection and upgrade gating workflow, use [Version Drift and Upgrade Signals](https://docs.akeyless.io/docs/sra-version-drift-and-upgrade-signals).
+
 Before production traffic transition:
 
 1. Pin chart and image versions for the migration window.
