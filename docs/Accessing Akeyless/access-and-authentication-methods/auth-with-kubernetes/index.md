@@ -148,7 +148,7 @@ Where:
     ```shell
     curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
     chmod +x akeyless
-    ./akeyless --init
+    ./akeyless configure
     ```
 
 5. Authenticate by way of your Kubernetes Auth Method as follows:
