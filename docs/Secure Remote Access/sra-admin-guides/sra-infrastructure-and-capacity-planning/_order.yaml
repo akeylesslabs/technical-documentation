@@ -1,3 +1,3 @@
-- runtime-components-and-ports
-- scaling-and-hpa-patterns
-- storage-and-recording-capacity
+- sra-runtime-components-and-ports
+- sra-scaling-and-hpa-patterns
+- sra-storage-and-recording-capacity

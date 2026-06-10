@@ -187,6 +187,8 @@
 /v2/docs/remote-access-advanced-configuration -> /docs/sra-advanced-configuration-k8s
 /docs/akeyless-connect-new -> /docs/sra-akeyless-connect
 /v2/docs/akeyless-connect-new -> /docs/sra-akeyless-connect
+/docs/sra-akeyless-connect-and-scp-cli -> /docs/sra-akeyless-scp
+/v2/docs/sra-akeyless-connect-and-scp-cli -> /docs/sra-akeyless-scp
 /docs/remote-access-on-docker -> /docs/remote-access-docker
 /v2/docs/remote-access-on-docker -> /docs/remote-access-docker
 /docs/faqs -> /docs/sra-overview
