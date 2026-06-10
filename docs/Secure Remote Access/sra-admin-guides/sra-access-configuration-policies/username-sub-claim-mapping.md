@@ -1,5 +1,5 @@
 ---
-title: Username Sub-Claim Mapping
+title: sra-Username Sub-Claim Mapping
 slug: sra-username-sub-claim-mapping
 excerpt: ''
 deprecated: false

@@ -1,5 +1,5 @@
 ---
-title: Scaling and HPA Patterns
+title: sra-Scaling and HPA Patterns
 slug: sra-scaling-and-hpa-patterns
 excerpt: ''
 deprecated: false

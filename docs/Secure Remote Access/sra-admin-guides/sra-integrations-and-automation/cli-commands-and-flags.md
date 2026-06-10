@@ -1,5 +1,5 @@
 ---
-title: CLI Commands and Flags
+title: sra-CLI Commands and Flags
 slug: sra-cli-commands-and-flags
 excerpt: ''
 deprecated: false

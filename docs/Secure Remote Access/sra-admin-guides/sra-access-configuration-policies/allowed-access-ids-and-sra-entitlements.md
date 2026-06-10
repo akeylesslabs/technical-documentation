@@ -1,5 +1,5 @@
 ---
-title: Allowed Access IDs and SRA Entitlements
+title: sra-Allowed Access IDs and SRA Entitlements
 slug: sra-allowed-access-ids-and-sra-entitlements
 excerpt: ''
 deprecated: false
