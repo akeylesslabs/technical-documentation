@@ -114,5 +114,3 @@ If desktop connections fail after a default update:
 For client-side setup and mapping behavior, see [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application).
 
 For runtime diagnostics and health signals, see [Cluster and Instance Health](https://docs.akeyless.io/docs/sra-cluster-and-instance-health).
-
-For user-side desktop setup and local client mapping, see [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application).

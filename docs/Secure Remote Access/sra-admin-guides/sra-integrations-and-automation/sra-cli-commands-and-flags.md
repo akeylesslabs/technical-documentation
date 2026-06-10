@@ -29,6 +29,6 @@ For complete syntax and flag behavior, use the Gateway CLI reference area and th
 
 ## Notes
 
-* Use `list-sra-sessions` filters to include closed session states (`failed`, `completed`, `terminated`) when needed.
-* Use `list-sra-bastions --allowed-urls-only true` when reviewing bastion URL hardening configuration.
-* Use the CLI reference page as the source of truth for accepted aliases and parameter names.
+* Include closed session states (`failed`, `completed`, `terminated`) by applying `list-sra-sessions` filters when needed.
+* When reviewing bastion URL hardening configuration, run `list-sra-bastions --allowed-urls-only true`.
+* The CLI reference page is the source of truth for accepted aliases and parameter names.

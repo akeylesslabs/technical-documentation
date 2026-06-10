@@ -5,8 +5,8 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: SRA API and SDK Workflows
+  description: API endpoints and SDK entry points for Secure Remote Access automation, session forwarding, and operational integration.
   robots: index
 next:
   description: ''
@@ -26,7 +26,7 @@ This page intentionally links to the reference endpoints instead of duplicating 
 
 ## Session Forwarding API Variants (11)
 
-* [AWS S3](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogsawss3)
+* [Amazon S3](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogsawss3)
 * [Azure Log Analytics](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogsazureanalytics)
 * [Datadog](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogsdatadog)
 * [Elasticsearch](https://docs.akeyless.io/reference/gwupdateremoteaccesssessionlogselasticsearch)
