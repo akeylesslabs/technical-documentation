@@ -14,6 +14,12 @@ Use this page to validate infrastructure requirements before deploying Akeyless 
 
 Port values below are default values from the official Helm charts and Docker Compose examples. Exact exposure can vary by deployment model, ingress, and service configuration.
 
+For deeper planning guidance, use Infrastructure and Capacity Planning:
+
+* [Runtime Components and Ports](https://docs.akeyless.io/docs/sra-runtime-components-and-ports)
+* [Scaling and HPA Patterns](https://docs.akeyless.io/docs/sra-scaling-and-hpa-patterns)
+* [Storage and Recording Capacity](https://docs.akeyless.io/docs/sra-storage-and-recording-capacity)
+
 ## Requirements Checklist
 
 Validate the following requirements before rollout.
@@ -49,9 +55,13 @@ Redis cache support is required for SRA components. For Gateway-only deployments
 
 For Redis defaults and operational guidance, see [Redis documentation](https://redis.io/docs/latest/).
 
+For runtime dependency paths that include Redis, see [Runtime Components and Ports](https://docs.akeyless.io/docs/sra-runtime-components-and-ports).
+
 ### Minimum Resources
 
 Use at least 1 vCPU and 2 GiB memory for each SRA component.
+
+For autoscaling policy and scale-in protection guidance, see [Scaling and HPA Patterns](https://docs.akeyless.io/docs/sra-scaling-and-hpa-patterns).
 
 ### Kubernetes-Specific Requirements
 
@@ -102,6 +112,8 @@ For cloud-provider load balancers, configure the equivalent session-persistence 
 If you are not using NGINX ingress, use the equivalent session-persistence policy for your ingress controller. For Envoy Gateway, use a `BackendTrafficPolicy`-based cookie persistence policy instead of NGINX annotations.
 
 For Envoy policy reference, see [Envoy Gateway session persistence](https://gateway.envoyproxy.io/latest/api/extension_types/#sessionpersistence).
+
+For scale-event safeguards that reduce sticky-session disruption, see [Scaling and HPA Patterns](https://docs.akeyless.io/docs/sra-scaling-and-hpa-patterns#scale-in-risk-and-session-protection).
 
 ### SAML and Redirect Size Limits
 
@@ -154,6 +166,8 @@ Vendor references:
 * [Azure Application Gateway FAQ](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-faq)
 * [NGINX WebSocket proxying](https://nginx.org/en/docs/http/websocket.html)
 
+For autoscaling decisions that should align with these timeout values, see [Scaling and HPA Patterns](https://docs.akeyless.io/docs/sra-scaling-and-hpa-patterns).
+
 ## Redirect URL Allowlist Requirements
 
 Configure allowed redirect URLs for bastion and web proxy endpoints as part of SRA and ZTWA deployment.
@@ -173,9 +187,13 @@ When session recording upload is enabled, validate the dispatcher authentication
 
 If you observe post-session authentication failures, test alternative credential-source combinations for dispatcher runtime authentication and storage-upload authentication, and keep the stable combination for production rollout.
 
+For recording volume estimates, retention planning, and backend lifecycle controls, see [Storage and Recording Capacity](https://docs.akeyless.io/docs/sra-storage-and-recording-capacity).
+
 ## Port Inventory
 
 The following table lists the primary ports by component.
+
+For component topology and namespace isolation implementation patterns, see [Runtime Components and Ports](https://docs.akeyless.io/docs/sra-runtime-components-and-ports).
 
 | Component | Port(s) | Purpose |
 | --- | --- | --- |

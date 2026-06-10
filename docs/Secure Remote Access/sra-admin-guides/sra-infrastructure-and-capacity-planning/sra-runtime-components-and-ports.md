@@ -13,6 +13,8 @@ next:
 ---
 Use this page to verify runtime component boundaries, required network paths, and control-plane wiring for Secure Remote Access (SRA).
 
+For baseline prerequisites and deployment constraints before topology design, start with [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements).
+
 ## Port Inventory
 
 For the canonical baseline inventory, also see [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements#port-inventory).

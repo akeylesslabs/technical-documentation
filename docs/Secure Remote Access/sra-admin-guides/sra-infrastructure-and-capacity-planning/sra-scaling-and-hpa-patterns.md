@@ -13,6 +13,8 @@ next:
 ---
 Use this page to configure autoscaling behavior for SRA components while protecting active sessions during scale events.
 
+For baseline prerequisites, timeout alignment context, and ingress/session requirements, start with [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements).
+
 ## Horizontal Pod Autoscaler (HPA) Configuration Surfaces
 
 For Helm-based deployments, HPA controls are available for gateway and SRA components.

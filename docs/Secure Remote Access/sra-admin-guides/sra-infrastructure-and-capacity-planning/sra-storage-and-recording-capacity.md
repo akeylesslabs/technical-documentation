@@ -13,6 +13,8 @@ next:
 ---
 Use this page to plan recording storage growth, retention policy, and backend-specific lifecycle controls.
 
+For baseline deployment prerequisites and session-recording compatibility checks, start with [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements).
+
 For recording retrieval and operational review, use [RDP Recordings](https://docs.akeyless.io/docs/sra-rdp-recordings), [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording), and [Session Management](https://docs.akeyless.io/docs/sra-session-management).
 
 ## Capacity Model by Session Type
