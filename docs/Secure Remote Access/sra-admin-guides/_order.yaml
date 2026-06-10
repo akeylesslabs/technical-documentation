@@ -1,4 +1,5 @@
-- sra-session-management
-- sra-akeyless-connect
-- sra-ssh-certificates
-- sra-resource-types
+* sra-session-management
+* sra-integrations-and-automation
+* sra-akeyless-connect
+* sra-ssh-certificates
+* sra-resource-types
