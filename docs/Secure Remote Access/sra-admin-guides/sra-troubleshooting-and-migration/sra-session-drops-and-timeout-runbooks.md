@@ -130,3 +130,23 @@ When escalating RDP connection failures, collect in addition to the above:
 * Bastion deployment `UAM_ADDR` environment variable value.
 * Account region setting from Gateway console.
 * Bastion authentication log excerpts around the time of RDP session initiation.
+
+## Runbook 6: Active SSH Sessions Drop at Fixed Short Intervals
+
+Use this runbook when SSH sessions disconnect around a fixed short interval (for example, 30 to 60 seconds) even while users are continuously active.
+
+### Diagnostics
+
+1. Compare direct client-to-target SSH behavior with SSH through SRA. If direct SSH is stable but SRA SSH drops, focus on ingress or load balancer path.
+2. Measure the disconnect interval. A consistent interval often indicates an ingress or backend timeout, not an SSH daemon issue.
+3. Review ingress controller configuration and annotations for timeout values on the Gateway and bastion routes.
+4. In Kubernetes environments that use GKE ingress, check whether backend timeout is still on the default `30s` value.
+
+### Resolution
+
+1. Increase ingress or load balancer timeout values to match expected SSH session duration.
+2. For GKE ingress, configure `BackendConfig` or `GCPBackendPolicy` `timeoutSec` for SRA services.
+3. If multiple ingress controllers or site-specific ingress resources are used, verify timeout settings are consistent across all SRA-related ingress objects.
+4. Re-test sustained SSH activity sessions after timeout updates.
+
+For platform timeout baselines, see [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements#session-timeout-and-ttl-alignment).

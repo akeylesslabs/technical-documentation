@@ -47,6 +47,20 @@ If RDP sessions terminate immediately after authentication succeeds (browser tab
 
 After confirming RDP connectivity, enable session recording.
 
+### Ingress and Load Balancer Timeout Alignment
+
+Session recording starts only after a stable RDP connection is established and maintained.
+
+If ingress or load balancer timeout values are too short, sessions can disconnect before recording is useful.
+
+For Kubernetes ingress environments:
+
+* Verify timeout values on ingress and backend policies for Gateway and bastion routes.
+* In GKE ingress deployments, confirm timeout is not left at the `30s` backend default.
+* Align timeout values with expected RDP session duration.
+
+For timeout planning baselines, see [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements#session-timeout-and-ttl-alignment).
+
 ## Session Recording
 
 SRA supports the recording of RDP sessions. You can choose to store RDP Session Recordings by clicking **Remote Access -> Session Recording -> RDP Recordings**, clicking the slider to Enable, and then choosing the location to keep the recordings of those sessions.

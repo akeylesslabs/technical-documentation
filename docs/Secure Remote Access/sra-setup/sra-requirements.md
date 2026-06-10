@@ -168,6 +168,27 @@ If a custom bastion default session TTL is set, align these network timeout valu
 | Azure Application Gateway (L7) | `4m` TCP idle, `20s` HTTP request timeout | Increase both values to match session and backend response requirements. |
 | NGINX ingress | Often around `60s` without traffic | Increase `proxy-read-timeout` and `proxy-send-timeout` annotations. |
 
+### GKE Ingress Default Timeout Edge Case
+
+In GKE ingress environments, backend timeout defaults can terminate active SRA sessions if left unchanged.
+
+Before production rollout on GKE:
+
+1. Verify the effective backend timeout for SRA-related services.
+2. If timeout is still `30s`, set a higher `timeoutSec` value by using `BackendConfig` or `GCPBackendPolicy`.
+3. Validate long-lived SSH and RDP sessions after applying timeout changes.
+
+Example `BackendConfig`:
+
+```yaml
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: sra-backendconfig
+spec:
+  timeoutSec: 3600
+```
+
 Vendor references:
 
 * [Google Cloud backend service timeout](https://docs.cloud.google.com/load-balancing/docs/backend-service#timeout-setting)
