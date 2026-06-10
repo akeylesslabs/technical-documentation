@@ -13,7 +13,7 @@ next:
 ---
 Use this page to configure autoscaling behavior for SRA components while protecting active sessions during scale events.
 
-## HPA Configuration Surfaces
+## Horizontal Pod Autoscaler (HPA) Configuration Surfaces
 
 For Helm-based deployments, HPA controls are available for gateway and SRA components.
 
