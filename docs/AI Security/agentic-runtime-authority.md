@@ -177,6 +177,68 @@ For OAuth 2.1-backed service workflows, use a static secret that includes the se
 * Redirect URI values that match your OAuth app registration.
 * Required scopes for the operations the agent must run.
 
+### Static MCP Secret JSON Fields
+
+When a static secret is used as an MCP target for `service-execute`, the secret value must be JSON with MCP connection and auth settings.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `mcp_url` | string | yes | MCP server URL. |
+| `mcp_type` | string | no | Short vendor label (for example, `hubspot`). Auto-derived from `mcp_url` host when omitted. |
+| `auth_type` | string | no | One of `none`, `header`, `oauth_client_credentials`, `oauth_authorization_code`. Defaults to `none`. |
+| `header_name` | string | only `header` | Use `Authorization` for bearer auth headers. |
+| `header_value` | string | only `header` | For example, `Bearer <api-key>`. |
+| `oauth_client_id` | string | both OAuth modes | Required for `oauth_client_credentials` and `oauth_authorization_code`. |
+| `oauth_client_secret` | string | only `oauth_client_credentials` | Client secret for machine-to-machine token exchange. |
+| `oauth_token_url` | string | no | Token endpoint. Auto-discovered from MCP metadata when omitted. |
+| `oauth_scopes` | []string | no | Optional scopes list. |
+| `oauth_redirect_uri` | string | no | Required for hosted IdP flows. Local CLI defaults typically use localhost. |
+| `oauth_refresh_token` | string | no | Persisted by runtime after first auth-code exchange; usually not set manually. |
+
+Examples by `auth_type`:
+
+`none` (open MCP server):
+
+```json
+{
+  "mcp_url": "https://mcp.example.com/sse",
+  "auth_type": "none"
+}
+```
+`header` (static bearer token):
+
+```json
+{
+  "mcp_url": "https://mcp.postman.com/minimal",
+  "auth_type": "header",
+  "header_name": "Authorization",
+  "header_value": "Bearer <api-key>"
+}
+```
+`oauth_client_credentials` (machine-to-machine):
+
+```json
+{
+  "mcp_url": "https://mcp.example.com/sse",
+  "auth_type": "oauth_client_credentials",
+  "oauth_client_id": "client-id",
+  "oauth_client_secret": "client-secret",
+  "oauth_token_url": "https://auth.example.com/oauth/token",
+  "oauth_scopes": ["read", "write"]
+}
+```
+`oauth_authorization_code` (browser user flow):
+
+```json
+{
+  "mcp_url": "https://mcp.linear.app/sse",
+  "auth_type": "oauth_authorization_code",
+  "oauth_client_id": "client-id",
+  "oauth_redirect_uri": "https://your-tenant.akeyless.io/oauth/callback",
+  "oauth_scopes": ["read"]
+}
+```
+
 ## OAuth 2.1 Workflow For `service-execute`
 
 When `service-execute` targets an OAuth-backed service, use this runtime sequence:
@@ -192,7 +254,7 @@ Treat `state` as a required anti-forgery value and preserve it exactly between t
 
 ## Set Up The AI Agent
 
-To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [Akeyless MCP Model Context Protocol Command](https://docs.akeyless.io/docs/mcp). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
+To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [Akeyless MCP Model Context Protocol Command](https://docs.akeyless.io/docs/akeyless-mcp-model-context-protocol-command). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
 
 ### For Claude
 
