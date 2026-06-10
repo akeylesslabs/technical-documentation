@@ -11,9 +11,22 @@ metadata:
 next:
   description: ''
 ---
-Session Management provides users with full control over how session activities are recorded, stored, and forwarded for auditing and analysis. Through the platform’s UI, users can enable session recording and configure how session data is forwarded to external systems.
+Session Operations and Monitoring provides operational guidance for administrators who monitor active sessions, review recording data, track bastion fleet health, and detect upgrade-related drift.
 
-Key actions include enabling session recording for various types of remote access sessions, configuring log forwarding for CLI-based sessions, and managing video recordings for RDP and web-access sessions.
+Use this section to move from reactive troubleshooting to continuous runtime monitoring.
+
+## Start Here by Objective
+
+1. Fleet health and instance monitoring: [Cluster and Instance Health](https://docs.akeyless.io/docs/sra-cluster-and-instance-health)
+2. Active and historical session visibility: [Sessions Overview](https://docs.akeyless.io/docs/sra-sessions-overview)
+3. Session recording storage and retrieval: [RDP Recordings](https://docs.akeyless.io/docs/sra-rdp-recordings) and [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording)
+4. Upgrade and compatibility monitoring: [Version Drift and Upgrade Signals](https://docs.akeyless.io/docs/sra-version-drift-and-upgrade-signals)
+
+## Session Inventory and Recordings
+
+Session inventory includes both active and completed lifecycle states, filtered by status, resource type, and visibility scope.
+
+Use [Sessions Overview](https://docs.akeyless.io/docs/sra-sessions-overview) for UI monitoring and `list-sra-sessions` for CLI-driven operational queries.
 
 ## Session Recording
 
@@ -31,7 +44,7 @@ For full recording configuration options (quality, upload destination, compressi
 
 ### Terminal-Based Sessions
 
-For terminal-based sessions (such as SSH, DB, and Kubernetes), the system records a full transcript of the commands entered and their corresponding outputs. This data can be forwarded to external systems such as Splunk, Elasticsearch, or Syslog for monitoring and archiving. For details, see [Session Log Forwarding](https://docs.akeyless.io/docs/sra-session-forwarding).
+For terminal-based sessions (such as SSH, DB, and Kubernetes), the system records a full transcript of the commands entered and their corresponding outputs. Session forwarding destination guidance is documented under Integrations and Automation.
 
 > ℹ️ **Note:**
 >
@@ -50,6 +63,8 @@ To configure these controls, open the relevant item and edit its **Secure Remote
 ## Session TTL Behavior
 
 For standalone bastion deployments, the default session TTL is unlimited (`0`). In unified deployments, administrators can configure the session TTL in Gateway **Remote Access** settings.
+
+For upgrade-phase validation and drift handling, see [Version Drift and Upgrade Signals](https://docs.akeyless.io/docs/sra-version-drift-and-upgrade-signals).
 
 ## Hide Session Recording Indications
 

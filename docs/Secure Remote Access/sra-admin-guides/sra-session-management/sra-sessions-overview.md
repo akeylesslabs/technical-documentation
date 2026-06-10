@@ -12,6 +12,8 @@ next:
 ---
 The Sessions Overview provides administrators and authorized users with the ability to view and track the status of SRA sessions. This view helps ensure that all session activities are visible, auditable, and managed effectively over a specified timeframe (default: last 30 days).
 
+For CLI-driven monitoring and automation, use `list-sra-sessions` to query the same operational inventory by status and resource type.
+
 ## Session Overview Grid
 
 The Session Overview page displays detailed information for each session. The following key details are provided:
@@ -38,6 +40,32 @@ Users can filter the session list based on the following criteria to quickly loc
 * Resource Type
 * Gateway Name
 * Status
+
+## CLI Session Inventory
+
+Use `list-sra-sessions` to retrieve session inventory from the command line:
+
+```shell
+akeyless list-sra-sessions
+```
+
+By default, this command returns active statuses only (`connecting`, `connected`).
+
+To include closed or ended sessions, specify status filters explicitly:
+
+```shell
+akeyless list-sra-sessions --status-type completed
+```
+
+Filter by resource type as needed:
+
+```shell
+akeyless list-sra-sessions --status-type connected --resource-type ssh
+```
+
+Supported status filters include `connecting`, `connected`, `failed`, `completed`, and `terminated`.
+
+For API details, see [List SRA Sessions](https://docs.akeyless.io/reference/listsrasessions).
 
 ## Audit Logging
 

@@ -12,6 +12,8 @@ next:
 ---
 RDP Session Recording is managed entirely through your Gateway's console under the **Remote Access** section in the Gateway settings. These sessions generate video recordings that can be uploaded to **AWS S3**, **S3-compatible object storage** (for example, NetApp StorageGRID), or **Azure Blob Storage** for secure storage, or can be saved locally.
 
+Use this page together with [Sessions Overview](https://docs.akeyless.io/docs/sra-sessions-overview) to correlate session inventory records with recording storage location and retrieval path.
+
 > ℹ️ **Note:**
 >
 > If you are working with browser-based Zero Trust Web Access recordings, use [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
@@ -74,6 +76,8 @@ Here are the options for storing RDP recordings:
 
 Local session recordings will be stored inside the SRA server under `/home/akeyless/recordings`.
 
+Retention for local storage depends on host disk lifecycle and your operational cleanup policy.
+
 ### AWS S3
 
 When storing RDP session recordings in AWS S3, the user can choose between two authentication methods:
@@ -85,6 +89,8 @@ With this option, the system uses the Gateway’s instance identity (such as an 
 * **Region** (required): The AWS region where the S3 bucket is located.
 * **Bucket Name**: The name of the S3 bucket where the recordings will be uploaded.
 * **Bucket Prefix**: A folder structure within the bucket to organize the recordings.
+
+Use lifecycle rules on the bucket or prefix to enforce retention policy.
 
 #### Provide Credentials
 
@@ -110,6 +116,8 @@ Use the following values:
 
 SRA uses the standard S3 API for this flow. This allows recording uploads to compatible object storage providers without requiring AWS-specific identity integration.
 
+Use object lifecycle policy in the target platform to enforce retention windows.
+
 ### Azure Blob Storage
 
 For storing RDP session recordings in Azure Blob Storage, the user can also select between two options:
@@ -130,6 +138,8 @@ With this option, the user provides explicit credentials for Azure authenticatio
 * **Azure Tenant ID** (required): The tenant ID associated with the Azure account.
 * **Storage Account Name**: The name of the Azure Storage Account where the recordings will be uploaded.
 * **Storage Container Name**: The container within the Storage Account where recordings will be saved.
+
+Use Azure lifecycle management policy to enforce retention windows in the target container.
 
 This can also be done by way of the CLI. For a full flag reference, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
 
@@ -166,4 +176,4 @@ akeyless gateway update remote-access-rdp-recording \
 
 * [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording)
 * [Session Management](https://docs.akeyless.io/docs/sra-session-management)
-* [Session Log Forwarding](https://docs.akeyless.io/docs/sra-session-forwarding)
+* [Sessions Overview](https://docs.akeyless.io/docs/sra-sessions-overview)

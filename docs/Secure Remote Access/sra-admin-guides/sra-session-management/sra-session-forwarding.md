@@ -12,6 +12,10 @@ next:
 ---
 Remote Access supports the forwarding of SSH, Database, and Kubernetes session logs.
 
+> ℹ️ **Note:**
+>
+> Session forwarding destination configuration is part of Integrations and Automation content structure. Keep this page as command-level reference content.
+
 These terminal-based sessions provide a full transcript of input commands and output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, Elasticsearch, or just using Syslog).
 
 ## Configure
