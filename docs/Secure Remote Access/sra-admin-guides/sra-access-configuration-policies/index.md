@@ -21,6 +21,7 @@ These settings combine Gateway runtime configuration, bastion deployment configu
 2. Map identity claims to runtime target usernames: [Username Sub-Claim Mapping](https://docs.akeyless.io/docs/sra-username-sub-claim-mapping)
 3. Restrict redirect and callback endpoints to approved destinations: [Redirect and SSH URL Hardening](https://docs.akeyless.io/docs/sra-redirect-and-ssh-url-hardening)
 4. Configure session lifetime and SSH/web security controls: [Session TTL and Security Controls](https://docs.akeyless.io/docs/sra-session-ttl-and-security-controls)
+5. Configure centralized desktop app defaults for cert issuer and web URLs: [Desktop App Default Connection Settings](https://docs.akeyless.io/docs/sra-desktop-app-default-connection-settings)
 
 ## Related Pages
 

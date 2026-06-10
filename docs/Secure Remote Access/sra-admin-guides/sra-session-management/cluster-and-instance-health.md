@@ -52,6 +52,20 @@ Recommended operational signals include:
 
 In Console fleet views, health state can be derived from last-report consistency and instance-level data.
 
+## Console Warning States and Cluster Metadata
+
+In Console SRA cluster views, warning or degraded state can be raised when cluster instances are inconsistent.
+
+Common warning conditions include:
+
+* Mixed instance versions within the same cluster.
+* Inconsistent allowed access ID sets across cluster instances.
+* Inconsistent Akeyless URL values across cluster instances.
+
+If no instance report is received within the expected recency window, the cluster can appear inactive.
+
+SRA cluster metadata also includes a cluster display name field, which can be updated from Console and used for operator-friendly fleet identification.
+
 ## Prometheus Scrape Targets
 
 In Docker Compose deployments with metrics profile enabled, scrape targets typically include:
