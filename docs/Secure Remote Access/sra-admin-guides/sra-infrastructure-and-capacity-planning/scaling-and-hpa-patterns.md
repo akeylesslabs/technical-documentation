@@ -34,6 +34,8 @@ Session-oriented protocols require affinity controls at the ingress or load bala
 
 For environments with database-style and other long-lived interactive sessions, configure sticky session behavior on your ingress or cloud load balancer so traffic stays pinned appropriately while sessions are active.
 
+For platform-specific affinity patterns, see [Sticky Sessions and Ingress Patterns](https://docs.akeyless.io/docs/sra-sticky-sessions-and-ingress-patterns).
+
 ## Scale-In Risk and Session Protection
 
 Scale-in events can terminate pods that still hold active user sessions.
