@@ -12,6 +12,7 @@ metadata:
 > ⚠️ **Warning:**
 >
 > Agentic Runtime Authority is currently in early access. Features, behavior, and availability can change between releases.
+> Use the CLI and hosted agent environment with caution. An agent running on a hosted machine can potentially discover other credentials or local access available on that host. Scope Agentic Runtime Authority access only to the secret paths the agent needs, avoid granting access to broad secret sets, and prefer least-privilege authentication methods for the runtime environment.
 
 Agentic Runtime Authority allows AI agents to securely communicate with protected resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with supported secrets without exposing long-lived credentials. In this context, **runtime control** means the authorization checks and input or output rules that Akeyless enforces when an agent sends a live request to a protected resource. Policies on Dynamic Secrets define what agents can and cannot do—input rules restrict allowed operations, and output rules filter returned data—ensuring secure and compliant runtime execution.
 
@@ -24,7 +25,7 @@ Agentic Runtime Authority allows AI agents to securely communicate with protecte
 
 The runtime authority execution path supports these secret types:
 
-* **Dynamic secrets**: For temporary, rotated credentials.
+* **Dynamic secrets**: For just-in-time, temporary credentials with zero standing privileges.
 * **Rotated secrets**: For regularly rotated credentials.
 * **Static secrets**: For MCP-based service workflows, including OAuth authorization-code flows.
 
@@ -185,7 +186,7 @@ When a static secret is used as an MCP target for `service-execute`, the secret 
 | --- | --- | --- | --- |
 | `mcp_url` | string | yes | MCP server URL. |
 | `mcp_type` | string | no | Short vendor label (for example, `hubspot`). Auto-derived from `mcp_url` host when omitted. |
-| `auth_type` | string | no | One of `none`, `header`, `oauth_client_credentials`, `oauth_authorization_code`. Defaults to `none`. |
+| `auth_type` | string | no | Use `header`, `oauth_client_credentials`, or `oauth_authorization_code`. If omitted, the runtime treats the MCP server as unauthenticated. |
 | `header_name` | string | only `header` | Use `Authorization` for bearer auth headers. |
 | `header_value` | string | only `header` | For example, `Bearer <api-key>`. |
 | `oauth_client_id` | string | both OAuth modes | Required for `oauth_client_credentials` and `oauth_authorization_code`. |
@@ -197,14 +198,6 @@ When a static secret is used as an MCP target for `service-execute`, the secret 
 
 Examples by `auth_type`:
 
-`none` (open MCP server):
-
-```json
-{
-  "mcp_url": "https://mcp.example.com/sse",
-  "auth_type": "none"
-}
-```
 `header` (static bearer token):
 
 ```json
