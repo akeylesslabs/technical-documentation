@@ -34,6 +34,11 @@ Use this guidance to choose the access mode per use case.
 | Secure Web Browsing | Isolated remote browser runtime | Strong browser isolation and policy control | Requires web-worker runtime readiness |
 | Secure Web Proxy | User local browser, traffic routed through proxy | Access to internal web apps from approved entry points | Requires validated proxy endpoint and allowlists |
 
+If both modes are available for the same target, prefer:
+
+1. Secure Web Browsing for privileged administrative workflows and tighter isolation requirements.
+2. Secure Web Proxy for day-to-day internal app access where local browser behavior is required.
+
 ## Access Modes
 
 ### Secure Web Browsing
@@ -72,6 +77,15 @@ Use the portal flow below for both modes:
 
 If approval is required before launch, complete the approval flow first. See [Request Access and Approval Flow](https://docs.akeyless.io/docs/sra-request-access-and-approval-flow).
 
+### Mode-Specific Launch Confirmation
+
+After selecting the target action, confirm you are in the expected mode:
+
+1. Secure Web Browsing: the session opens in an isolated runtime window managed by SRA.
+2. Secure Web Proxy: the session opens in your local browser through the configured proxy route.
+
+If the observed behavior does not match the intended mode, re-check target mode configuration before retrying.
+
 ## What to Expect After Launch
 
 ### Secure Web Browsing Session
@@ -82,7 +96,7 @@ Expected behavior:
 
 * Session controls and policy enforcement are applied from the remote browser side.
 * Navigation and browser capabilities can be restricted by deployment policy.
-* Session recording behavior depends on your ZTWA recording configuration.
+* Session recording behavior depends on your Zero Trust Web Access (ZTWA) recording configuration.
 
 ### Secure Web Proxy Session
 
@@ -92,8 +106,6 @@ Expected behavior:
 
 * Connectivity depends on valid proxy endpoint configuration and URL allowlists.
 * Access is limited to routes and targets permitted by your policy and target configuration.
-
-## Configuration Inputs
 
 ## Configuration Inputs
 
@@ -115,6 +127,15 @@ If launch fails or opens the wrong path, validate in this order:
 4. Current user permissions and approval state.
 
 For infrastructure-level diagnostics, see [Session Drops and Timeout Runbooks](https://docs.akeyless.io/docs/sra-session-drops-and-timeout-runbooks) and [Sticky Sessions and Ingress Patterns](https://docs.akeyless.io/docs/sra-sticky-sessions-and-ingress-patterns).
+
+### Symptom-to-Check Mapping
+
+| Symptom | First check | Next check |
+| --- | --- | --- |
+| Target does not appear in web access view | Confirm identity and SRA permissions | Confirm target is configured for web access |
+| Session opens in wrong mode | Confirm target mode setting | Confirm dispatcher or proxy URL mapping |
+| Session launches, then drops quickly | Confirm endpoint reachability and timeout behavior | Review ingress affinity and session routing patterns |
+| Proxy launch fails for selected users only | Confirm approval and policy state | Confirm allowlist and identity mapping for that user group |
 
 ## Resource Discovery Scope
 

@@ -48,7 +48,7 @@ For GKE HTTP(S) Load Balancer paths, configure backend timeout values (`timeoutS
 | Cookie-based | Better user/session stickiness in shared NAT environments and browser workflows | Requires cookie handling across proxy layers and TLS policies |
 | IP-based | Simple for some L4 flows | Less reliable when many users share egress IP, and can concentrate traffic unevenly |
 
-For browser-driven SRA and ZTWA workflows, cookie-based affinity is usually preferred.
+For browser-driven SRA and Zero Trust Web Access (ZTWA) workflows, cookie-based affinity is usually preferred.
 
 ## ZTWA Proxy Mode Considerations
 

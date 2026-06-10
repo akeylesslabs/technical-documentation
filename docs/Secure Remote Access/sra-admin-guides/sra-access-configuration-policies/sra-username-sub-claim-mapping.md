@@ -13,6 +13,14 @@ next:
 ---
 Use this page to map authenticated identity claims to the runtime username used for Secure Remote Access target sessions.
 
+This setting directly affects whether users can actually log in to target hosts after they authenticate to Akeyless.
+
+Correct mapping helps you:
+
+1. Prevent avoidable session failures caused by username resolution mismatch.
+2. Keep access behavior consistent across SSH and RDP workflows.
+3. Maintain cleaner audit trails by aligning identity claims with expected target usernames.
+
 ## Why Mapping Matters
 
 When SRA opens SSH or RDP sessions that rely on an externally provided username, Gateway configuration determines which identity claim is used to resolve that username.
