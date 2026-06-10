@@ -364,7 +364,7 @@ privilegedAccess:
     - <ALLOWED_ACCESS_ID>
 ```
 
-If the dispatcher cannot detect AWS through the instance metadata service, set `dispatcher.config.cloudIdentity.type` to `aws_iam` to skip auto-detection and use the configured AWS IAM identity directly. This is useful when the metadata service is unreachable, such as on EKS nodes that use the default IMDSv2 hop limit or in clusters with restrictive network policies.
+The dispatcher determines its cloud provider by probing the instance metadata service at `169.254.169.254`. When the instance metadata service is unreachable, provider detection can fail with `unknown-cloud-provider`. Set `dispatcher.config.cloudIdentity.type` to `aws_iam` to skip the instance metadata service probe and authenticate with the configured AWS IAM cloud identity directly.
 
 ```yaml
 dispatcher:
@@ -378,7 +378,16 @@ dispatcher:
       type: "aws_iam"
 ```
 
-Use this override when auto-detection fails. Leave `accessKey` empty for AWS IAM machine-to-machine authentication.
+Alternatively, set the `ADMIN_ACCESS_ID_TYPE` environment variable to `aws_iam` on the dispatcher. This renders the same override as the Helm value and matches the Akeyless Gateway fallback behavior:
+
+```yaml
+dispatcher:
+  env:
+    - name: ADMIN_ACCESS_ID_TYPE
+      value: "aws_iam"
+```
+
+Use either override when auto-detection fails. Leave `accessKey` empty for AWS IAM machine-to-machine authentication.
 
 ### Azure Active Directory authentication
 

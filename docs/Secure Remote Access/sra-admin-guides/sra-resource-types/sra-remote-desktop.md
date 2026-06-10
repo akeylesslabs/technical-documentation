@@ -18,6 +18,10 @@ To enable Secure Remote Access to a Windows machine you need:
 
 * [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
+> ℹ️ **Note (Custom CA certificates):**
+>
+> If your Windows machine uses a certificate signed by a custom or private certificate authority, add the CA certificate to the [Akeyless Gateway trust store](https://docs.akeyless.io/docs/gateway-certificate-store). The gateway validates the RDP connection certificate chain against the configured store, including any custom CA certificates.
+
 ## Create an RDP Secret
 
 If you don't already have an RDP secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/rdp-dynamic-secrets) or [Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret) that specifies the Windows machine details and access credentials.

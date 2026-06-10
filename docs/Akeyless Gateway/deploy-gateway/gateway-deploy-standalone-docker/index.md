@@ -48,7 +48,7 @@ next:
 To deploy a standalone instance of Akeyless Gateway, run the following command:
 
 ```shell
-docker run -d -p 8000:8000 -p 5696:5696 --name akeyless-gateway akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 --name akeyless-gateway akeyless/gateway:latest
 ```
 
 After executing the above command, a new container named `akeyless-gateway` should run on Docker (use `docker ps` for confirmation). It contains a single instance of Akeyless Gateway.
@@ -70,3 +70,7 @@ To configure your Akeyless Gateway:
 ## Tutorial
 
 Check out our tutorial video on [Installing and Configuring the Gateway on Docker](https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-gateway).
+
+## Legacy Deployment
+
+If you are using an older Gateway deployment, see [Gateway Legacy](https://docs.akeyless.io/docs/gateway-legacy).

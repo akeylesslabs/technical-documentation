@@ -30,6 +30,7 @@ Use this style guide as permanent context for all documentation work in this rep
 
 * Keep edits minimal and scoped to the requested task; do not rewrite unaffected sections.
 * When creating a branch for this repository, always use a branch name prefixed with `v1.0_`.
+* Never merge a pull request without the user's explicit approval.
 * Preserve front matter and metadata unless the task explicitly requires changes.
 * **Sensitive examples and placeholders**: All credential-like values (API keys, passwords, tokens, cloud account IDs) in documentation examples **must use semantic placeholders**. See the style guide's "Sensitive Examples and Placeholders" section for conventions and examples. Never commit real or real-looking credentials, and verify with `pre-commit run gitleaks` before pushing.
 * For ReadMe.com pages, ensure front matter is present and complete. Use this baseline unless a nearby file requires an exception:
