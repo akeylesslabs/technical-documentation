@@ -33,7 +33,7 @@ Currently, the SRA Portal supports the following authentication methods:
 
 The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-resource-types) that you are authorized to access.
 
-![](https://files.readme.io/94abb92db12f54d1e3c225790c0d231dcec70bac4748b2f03a944bfb187e6e9d-Screenshot_2026-06-11_at_12.48.32.png)
+![](https://files.readme.io/11ba4ba151caf6160d6f57e98c41057fd75b7415113415cbce25daaf528c4b0c-Screenshot_2026-06-11_at_12.52.16.png)
 
 <br />
 
