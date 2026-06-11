@@ -27,7 +27,9 @@ Akeyless log auditing is important for cybersecurity because it provides records
 
 When using the console, you can navigate to the **Audit Logs** tab to view logs in the following format:
 
-![Screenshot of Audit Logs in the Akeyless Platform Console](https://files.readme.io/800a8f4-Screenshot_at_Nov_10_13-44-36.png)
+![](https://files.readme.io/7ec054a7174c4de9426983fab4b975d5eeee76db3c232f68c249ee7beea90113-Screenshot_2026-06-11_at_12.21.37.png)
+
+<br />
 
 These logs show you the time of the described action, what it was, whether it was successful or unsuccessful (status codes in the four hundreds means error), the client performing it, what IP it was performed from, and additional parameter tags such as access type or product type.
 
