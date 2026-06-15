@@ -130,6 +130,74 @@ akeyless usc create \
 
 `--selected-repositories`: Explicit list of GitHub repositories selected for this operation
 
+## Folder Sync Commands (MVG)
+
+Use these commands to sync entire folder contents through Universal Secrets Connector (for example, HashiCorp Vault USC in MVG workflows).
+
+### `folder-sync`
+
+Sync folder secrets by creating or updating sync associations for items in a folder.
+
+#### Usage
+
+```shell
+akeyless folder-sync \
+--name </folder/path> \
+--usc-name </usc-name>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, folder name
+
+`--usc-name`: Universal Secrets Connector name. If omitted, all attached USCs for the folder are processed.
+
+`--namespace`: Vault namespace (HashiCorp Vault targets)
+
+`--engine-name`: HashiCorp Vault engine name prefix (must end with `/`)
+
+`--delete-remote`: Delete the remote secret as part of sync handling when relevant
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### `folder-sync-all`
+
+Trigger sync for all USC associations under a folder.
+
+#### Usage
+
+```shell
+akeyless folder-sync-all --name </folder/path>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, folder name
+
+### `folder-delete-sync`
+
+Delete folder sync associations.
+
+#### Usage
+
+```shell
+akeyless folder-delete-sync \
+--name </folder/path> \
+--usc-name </usc-name>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, folder name
+
+`--usc-name`: **Required**, Universal Secrets Connector name
+
+`--remote-secret-name`: Optional remote secret name filter when multiple syncs exist under the same USC
+
+`--delete-from-usc[=false]`: Delete secrets from the remote USC target as well
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
 `--region`: Optional, create the secret in a specific region (GCP only). If omitted, the secret is created as a global secret.
 
 ### `delete`
