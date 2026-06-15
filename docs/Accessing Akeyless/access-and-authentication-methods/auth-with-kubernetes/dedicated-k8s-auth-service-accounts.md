@@ -225,7 +225,7 @@ Where:
 >
 > If these variables are not set, Gateway uses the Kubernetes client-go defaults: `QPS=5` and `Burst=10`.
 >
-> Scope: This setting applies to `native_k8s` TokenReview flows.
+> Scope: This setting applies only to `native_k8s` TokenReview flows. Rancher TokenReview flows are not controlled by these variables.
 
 * `k8s-ca-cert`: The certificate to use to validate the Kubernetes cluster.
 
