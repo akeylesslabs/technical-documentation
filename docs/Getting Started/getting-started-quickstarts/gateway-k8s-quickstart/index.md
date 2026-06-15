@@ -1,6 +1,5 @@
 ---
 title: Akeyless Gateway with Kubernetes Quickstart
-slug: gateway-k8s-quickstart
 deprecated: false
 hidden: false
 metadata:
@@ -10,27 +9,27 @@ next:
     - slug: secret-retrieval-k8s-quickstart
       title: Getting a Secret with a Kubernetes Container Quickstart
       type: basic
+slug: gateway-k8s-quickstart
 ---
-
 This Quickstart guides you through deploying the Akeyless Gateway on a Kubernetes cluster using the official Helm chart and configuring it to authenticate to your Akeyless account with an API Key.
 
 By the end, you will have:
 
-* A running Gateway deployment on Kubernetes
-* The Gateway connected to your Akeyless account using API Key authentication
+- A running Gateway deployment on Kubernetes
+- The Gateway connected to your Akeyless account using API Key authentication
 
 ## Prerequisites
 
 You will need:
 
-* An active Akeyless account
-* A Kubernetes cluster (v1.21 or later)
-* `kubectl` installed and configured
-* Helm installed
-* Network connectivity from the Kubernetes cluster to Akeyless
-* Kubernetes Metrics Server installed and working
-* 1 vCPU and 2 GB RAM free in the cluster
-* An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
+- An active Akeyless account
+- A Kubernetes cluster (v1.21 or later)
+- `kubectl` installed and configured
+- Helm installed
+- Network connectivity from the Kubernetes cluster to Akeyless
+- Kubernetes Metrics Server installed and working
+- 1 vCPU and 2 GB RAM free in the cluster
+- An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 
 <ApiKeyWarning />
 
@@ -97,16 +96,16 @@ kubectl create secret generic access-key --namespace akeyless --from-literal=gat
 
 1. Using your text editor of choice, edit the `values.yaml` file you created earlier. Below we show the path to and the values that need to be added (`gatewayAccessId`, `gatewayAccessType`, `gatewayCredentialsExistingSecret`, `clusterName`, and `initialClusterDisplayName`).
 
-    ```yaml
-    globalConfig:
-    gatewayAuth:
-        gatewayAccessId: <Access ID of your API Key>
-        gatewayAccessType: access_key
-        gatewayCredentialsExistingSecret: access-key
+   ```yaml
+   globalConfig:
+   gatewayAuth:
+       gatewayAccessId: <Access ID of your API Key>
+       gatewayAccessType: access_key
+       gatewayCredentialsExistingSecret: access-key
 
-    clusterName: quickstart-gateway
-    initialClusterDisplayName: Quickstart Gateway
-    ```
+   clusterName: quickstart-gateway
+   initialClusterDisplayName: Quickstart Gateway
+   ```
 
 2. Save the file.
 
@@ -136,18 +135,18 @@ TEST SUITE: None
 
 2. Run the following command to check that the pods are ready:
 
-    ```shell
-    kubectl get pods -n akeyless
-    ```
+   ```shell
+   kubectl get pods -n akeyless
+   ```
 
-    _Sample Output:_
+   _Sample Output:_
 
-    ```text
-    NAME                                           READY   STATUS    RESTARTS   AGE
-    gw-akeyless-gateway-cache-7bc7c7556b-rdwzx     1/1     Running   0          7m44s
-    unified-gw-akeyless-gateway-695dbb7f67-bflsz   1/1     Running   0          7m44s
-    unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44s
-    ```
+   ```text
+   NAME                                           READY   STATUS    RESTARTS   AGE
+   gw-akeyless-gateway-cache-7bc7c7556b-rdwzx     1/1     Running   0          7m44s
+   unified-gw-akeyless-gateway-695dbb7f67-bflsz   1/1     Running   0          7m44s
+   unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44s
+   ```
 
 ## Step 8: View the Gateway in the Akeyless Console
 
@@ -155,13 +154,15 @@ TEST SUITE: None
 
 2. Sign in to your existing Akeyless account.
 
-    You will be taken to the Akeyless Console homepage.
+   You will be taken to the Akeyless Console homepage.
 
 3. In the left navigation menu, select **Gateways**.
 
-    You should see `Quickstart Gateway` available with a **Status** of `Healthy`.
+   You should see `Quickstart Gateway` available with a **Status** of `Healthy`.
 
-> ℹ️ **Note:** We did not configure access to the Akeyless Gateway's local console in the Quickstart and attempts to access it are expected to fail.
+> ℹ️ **Note:**
+>
+> We did not configure access to the Akeyless Gateway's local console in the Quickstart and attempts to access it are expected to fail.
 
 ***
 
