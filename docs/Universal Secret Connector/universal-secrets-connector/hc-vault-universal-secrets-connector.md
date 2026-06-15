@@ -163,6 +163,9 @@ Once connected to a Target, you can access a Universal Secrets Connector in your
 
 More information and secret value can be viewed by selecting a specific secret, additionally, you will have the option to perform actions on the secret.
 
-When the account has secret versioning enabled, the console can also show version history for supported secrets. For larger HashiCorp Vault structures, you can sync the contents of an entire folder by using the folder sync commands.
+Additional capabilities include:
+
+* When account-level secret versioning is enabled, the console can show version history for supported secrets.
+* For larger HashiCorp Vault structures, you can sync the contents of an entire folder by using the folder sync commands.
 
 _Note:_ The **KV Secrets Engine v1** is not supported. Please use **KV Secrets Engine v2** when working with the Vault Universal Secrets Connector.

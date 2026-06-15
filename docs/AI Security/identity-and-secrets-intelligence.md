@@ -43,8 +43,7 @@ The current Scanner implementation supports creating scanners, starting scans, s
 
 Current early-access scanner coverage includes:
 
-* **GCP Scanner** support, including enrichment of secret findings with last-access timestamps from Cloud Audit Logs when those logs are available in the scanned environment.
-* **GCP Scanner** identity resolution support for group-member identities.
+* **GCP Scanner** support, including enrichment of secret findings with last-access timestamps from Cloud Audit Logs (when those logs are available in the scanned environment) and identity resolution for group-member identities.
 * **AWS Scanner** support for cloud identities, including scanner operation by way of AWS targets that use **Gateway Cloud Identity**.
 
 ## Operational Views
