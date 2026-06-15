@@ -219,6 +219,20 @@ akeyless connect -t <mysql-server>:3306 -g <gateway-url> -n "<Path to MySQL Dyna
 >
 > The `connect` command supports MySQL interactive flags. For the current supported options, run `akeyless connect -h`.
 
+MySQL interactive flags are passed through the `-C` argument using the `pre:` prefix.
+
+Example with the long-form MySQL flag:
+
+```shell
+akeyless connect -t <mysql-server>:3306 -g <gateway-url> -n "<Path to MySQL Dynamic Secret>" -C "pre:--disable-auto-rehash"
+```
+
+Example with the short alias (`-A`) plus a post-connect SQL statement:
+
+```shell
+akeyless connect -t <mysql-server>:3306 -g <gateway-url> -n "<Path to MySQL Dynamic Secret>" -C "pre:-A; post:SELECT NOW();"
+```
+
 ### Amazon EKS
 
 ```shell

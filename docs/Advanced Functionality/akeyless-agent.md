@@ -18,6 +18,7 @@ The supported items that can be fetched using the Agent are:
 
 * [Static Secrets](https://docs.akeyless.io/docs/static-secrets#/)
 * [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets#/)
+* [Dynamic Secrets](https://docs.akeyless.io/docs/dynamic-secrets)
 * [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates#/)
 * [PKI Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management#/)
 
@@ -54,6 +55,10 @@ destination = "path_to/static.txt"
 [[template]] 
 source = "path_to/rotated.tmpl"
 destination = "path_to/rotated.txt"
+
+[[template]]
+source = "path_to/dynamic.tmpl"
+destination = "path_to/dynamic.txt"
 
 [[template]] 
 source = "path_to/ssh_cert.tmpl"
@@ -110,6 +115,15 @@ This section describe how to fetch each item.
 {{- with rotatedSecret "/my_rotator" -}}
 username={{ .Data.Username }}
 password={{ .Data.Password }}
+{{- end -}}
+```
+
+### Dynamic Secret
+
+```shell
+{{- with dynamicSecret "/my_dynamic_secret" -}}
+username={{ .Data.user }}
+password={{ .Data.password }}
 {{- end -}}
 ```
 
