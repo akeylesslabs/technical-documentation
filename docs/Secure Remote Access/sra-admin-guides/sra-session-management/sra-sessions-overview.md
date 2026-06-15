@@ -21,7 +21,7 @@ The Session Overview page displays detailed information for each session. The fo
 * **Client Interface**: Indicates how the session was initiated. Options include: Web Portal - CLI, Web Portal - Web, CLI and Desktop Application)
 * **User**: The username of the individual who initiated the session.
 * **Gateway Name**: The name of the gateway through which the session is managed.
-* **Resource Type**: The type of resource accessed during the session. Examples include: SSH, RDP, web, databases, Kubernetes (K8s), and more.
+* **Resource Type**: The type of resource accessed during the session. Examples include: SSH, RDP, databases, Kubernetes (K8s), and more.
 * **Secret Name**: The identifier for the secret used during the session.
 * **Session ID**: The unique Secure Remote Access session identifier.
 * **Status**: The current state of the session (For example, active, closed, or terminated).
