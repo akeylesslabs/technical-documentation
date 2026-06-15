@@ -1,6 +1,6 @@
 ---
-title: User Guides
-slug: sra-user-guides
+title: Accessing Resources
+slug: sra-accessing-resources
 excerpt: ''
 deprecated: false
 hidden: false
@@ -11,16 +11,18 @@ metadata:
 next:
   description: ''
 ---
-Secure Remote Access (SRA) provides multiple flexible and secure ways to connect to resources, ensuring users can access targets efficiently while maintaining robust security standards. The Akeyless SRA platform offers three primary methods for accessing resources:
+Use this section for end-user access flows across portal, web, desktop, and CLI-based access paths.
 
-1. **[SRA Web Portal](https://docs.akeyless.io/docs/sra-portal)** - The Web Portal is a browser-based interface that allows users to securely access resources over the web or by using native CLI commands. **Ideal for**: users who prefer a lightweight, platform-agnostic solution without installing additional software.
+## Start Here by Access Goal
 
-2. **[Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application-beta)** - The Desktop Application can be installed on local machines running Windows or macOS. It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software. **Ideal for**: users who prefer a dedicated application for accessing resources or require native client support.
+1. Portal sign-in and target selection: [Portal Login and Target Discovery](https://docs.akeyless.io/docs/sra-portal)
+2. Browser isolation and proxy access: [Web Access (Browsing / Proxy)](https://docs.akeyless.io/docs/sra-web-access-browsing-proxy)
+3. CLI and file transfer workflows: [Akeyless File Transfer and Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp)
+4. Approval-gated access paths: [Request Access and Approval Flow](https://docs.akeyless.io/docs/sra-request-access-and-approval-flow)
+5. Native client launch workflows: [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application)
 
-    > ℹ️ **Note (Desktop Application beta):**
-    >
-    > The Desktop Application is in beta. For additional information, contact our support team.
+## Resource Type Mapping
 
-3. **[Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)** - The CLI method, powered by the `akeyless-connect` command, is designed for advanced users and administrators. It offers a powerful and scriptable way to connect to resources securely by way of a Unix terminal. **Ideal for**: developers, system administrators, and power users who rely on command-line tools for resource access and automation.
+Target-type configuration pages are documented under [Supported Resource Types](https://docs.akeyless.io/docs/sra-resource-types).
 
-4. **[Akeyless File Transfer](https://docs.akeyless.io/docs/sra-akeyless-scp)** - The `akeyless file` command is the current method for secure upload and download through the SRA bastion. This page also includes legacy `akeyless-scp` guidance for existing deployments. **Ideal for**: administrators and developers who need secure file transfer by way of Akeyless CLI workflows.
+Use those pages together with this section to choose the right access entrypoint for each target type.

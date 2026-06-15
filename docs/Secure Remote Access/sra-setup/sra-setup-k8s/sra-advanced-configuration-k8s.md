@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+For centralized policy guidance on entitlements, username claim mapping, redirect hardening, and session controls, see [Access Configuration and Policies](https://docs.akeyless.io/docs/sra-access-configuration-and-policies).
+
 ## SSH Legacy Algorithm
 
 As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
