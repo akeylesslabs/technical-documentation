@@ -53,6 +53,12 @@ class RequiredOrderFileViolation:
     reason: str
 
 
+@dataclass
+class DocsSubdirectoryViolation:
+    path: str
+    reason: str
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -176,6 +182,50 @@ def changed_order_files(changed_files: list[dict]) -> list[Path]:
         candidates.add(Path(filename))
 
     return sorted(candidates)
+
+
+def changed_docs_paths_for_directory_rules(changed_files: list[dict]) -> list[str]:
+    candidates: set[str] = set()
+    for item in changed_files:
+        if item["status"] not in {"added", "modified", "renamed"}:
+            continue
+
+        filename = normalize_path(item["filename"])
+        if not filename.lower().startswith("docs/"):
+            continue
+
+        # Only file paths are returned by GitHub pulls.listFiles, which is enough
+        # to enforce directory naming based on parent path segments.
+        candidates.add(filename)
+
+    return sorted(candidates)
+
+
+def collect_docs_subdirectory_violations(changed_docs_paths: list[str]) -> list[DocsSubdirectoryViolation]:
+    violations: list[DocsSubdirectoryViolation] = []
+
+    for path in changed_docs_paths:
+        parts = Path(normalize_path(path)).parts
+        if len(parts) < 3:
+            continue
+        if parts[0].lower() != "docs":
+            continue
+
+        # Allow first-level docs directories (docs/<dir>) to keep existing naming.
+        nested_dirs = parts[2:-1]
+        for segment in nested_dirs:
+            if segment != segment.lower() or bool(re.search(r"\s", segment)):
+                violations.append(
+                    DocsSubdirectoryViolation(
+                        path=path,
+                        reason=(
+                            "Nested docs subdirectories must be lowercase and must not contain whitespace"
+                        ),
+                    )
+                )
+                break
+
+    return violations
 
 
 def split_front_matter(text: str) -> list[str] | None:
@@ -363,6 +413,11 @@ def order_entry_targets_markdown_page(order_file: Path, entry: str) -> bool:
     return False
 
 
+def order_entry_references_index_page(entry: str) -> bool:
+    basename = Path(entry).name.lower()
+    return basename in {"index", "index.md"}
+
+
 def collect_required_order_file_violations(roots: Iterable[str]) -> list[RequiredOrderFileViolation]:
     violations: list[RequiredOrderFileViolation] = []
 
@@ -419,6 +474,7 @@ def main() -> int:
     changed_files = load_changed_files(changed_files_json)
     changed_docs = changed_docs_markdown_files(changed_files)
     changed_order = changed_order_files(changed_files)
+    changed_docs_paths = changed_docs_paths_for_directory_rules(changed_files)
 
     docs_files = collect_docs_files(docs_root)
     duplicate_groups = collect_duplicate_groups(docs_files)
@@ -433,6 +489,7 @@ def main() -> int:
     required_order_file_violations = collect_required_order_file_violations(args.required_order_roots)
     api_reference_suffix_violations = collect_api_reference_suffix_violations(Path("reference") / "Akeyless API")
     index_slug_violations = collect_index_slug_violations(changed_docs)
+    docs_subdirectory_violations = collect_docs_subdirectory_violations(changed_docs_paths)
 
     order_files_to_validate: set[Path] = set(changed_order)
 
@@ -484,6 +541,17 @@ def main() -> int:
         if order_errors:
             continue
         for entry in entries:
+            if order_entry_references_index_page(entry):
+                navigation_violations.append(
+                    NavigationViolation(
+                        path=order_file.as_posix(),
+                        reason=(
+                            f"Navigation entry '{entry}' is not allowed because _order.yaml must not include index pages"
+                        ),
+                    )
+                )
+                continue
+
             if order_entry_targets_markdown_page(order_file, entry) and entry != entry.lower():
                 navigation_violations.append(
                     NavigationViolation(
@@ -537,6 +605,7 @@ def main() -> int:
         or required_order_file_violations
         or api_reference_suffix_violations
         or index_slug_violations
+        or docs_subdirectory_violations
     )
 
     report = {
@@ -545,6 +614,7 @@ def main() -> int:
         "docs_markdown_files_scanned": len(docs_files),
         "changed_files_scanned": len(changed_files),
         "changed_docs_markdown_scanned": len(changed_docs),
+        "changed_docs_paths_scanned": len(changed_docs_paths),
         "duplicate_violations": [
             {
                 "basename": item.basename,
@@ -595,6 +665,13 @@ def main() -> int:
             }
             for item in sorted(index_slug_violations, key=lambda x: x.path)
         ],
+        "docs_subdirectory_violations": [
+            {
+                "path": item.path,
+                "reason": item.reason,
+            }
+            for item in sorted(docs_subdirectory_violations, key=lambda x: x.path)
+        ],
     }
 
     out_json.parent.mkdir(parents=True, exist_ok=True)
@@ -608,6 +685,7 @@ def main() -> int:
         f"- Docs markdown files scanned: {len(docs_files)}",
         f"- Changed files scanned: {len(changed_files)}",
         f"- Changed docs markdown files scanned: {len(changed_docs)}",
+        f"- Changed docs paths scanned (directory naming): {len(changed_docs_paths)}",
         "",
     ]
 
@@ -664,6 +742,13 @@ def main() -> int:
             md_lines.append(f"- `{violation.path}`: {violation.reason}")
         md_lines.append("")
 
+    if docs_subdirectory_violations:
+        md_lines.append("## Docs Subdirectory Naming Violations")
+        md_lines.append("")
+        for violation in sorted(docs_subdirectory_violations, key=lambda x: x.path):
+            md_lines.append(f"- `{violation.path}`: {violation.reason}")
+        md_lines.append("")
+
     if (
         not uniq_duplicate_violations
         and not depth_violations
@@ -672,6 +757,7 @@ def main() -> int:
         and not required_order_file_violations
         and not api_reference_suffix_violations
         and not index_slug_violations
+        and not docs_subdirectory_violations
     ):
         md_lines.append("No violations detected.")
         md_lines.append("")
@@ -682,7 +768,7 @@ def main() -> int:
         "failed={failed} duplicate_violations={dupes} depth_violations={depth} "
         "front_matter_violations={fm} navigation_violations={nav} "
         "required_order_file_violations={order} api_reference_suffix_violations={api_suffix} "
-        "index_slug_violations={index_slug}".format(
+        "index_slug_violations={index_slug} docs_subdirectory_violations={subdirs}".format(
             failed=failed,
             dupes=len(uniq_duplicate_violations),
             depth=len(depth_violations),
@@ -691,6 +777,7 @@ def main() -> int:
             order=len(required_order_file_violations),
             api_suffix=len(api_reference_suffix_violations),
             index_slug=len(index_slug_violations),
+            subdirs=len(docs_subdirectory_violations),
         )
     )
 
