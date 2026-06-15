@@ -36,6 +36,12 @@ This page documents all current GitHub Actions workflows in this repository and 
 
 Dependabot is configured in `.github/dependabot.yml` to run weekly on Mondays. It tracks the `github-actions` ecosystem and raises pull requests when `uses:` action references in `.github/workflows/` have newer versions available. This covers action version pins such as `actions/checkout@v4`, `actions/setup-node@v4`, and similar.
 
+## CodeRabbit
+
+CodeRabbit review execution is inherited from the organization-level GitHub App installation and does not require a repository-local GitHub Actions workflow in this repository.
+
+Repository-level behavior is configured with `.coderabbit.yaml` at the repository root. Use this file to tune review scope and defaults for documentation-heavy pull requests.
+
 ## Workflow Ownership and Maintenance
 
 When a workflow is created, renamed, removed, or behavior changes materially, update this page in the same pull request.
