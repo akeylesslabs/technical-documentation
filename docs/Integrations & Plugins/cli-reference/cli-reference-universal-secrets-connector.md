@@ -130,7 +130,7 @@ akeyless usc create \
 
 `--selected-repositories`: Explicit list of GitHub repositories selected for this operation
 
-## Folder Sync Commands (MVG)
+## Folder Sync Commands
 
 Use these commands to sync entire folder contents through Universal Secrets Connector (for example, HashiCorp Vault USC in MVG workflows).
 

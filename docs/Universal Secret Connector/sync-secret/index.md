@@ -27,7 +27,7 @@ Sync workflows are available for both [Static Secrets](https://docs.akeyless.io/
 
 This solution makes managing secrets in remote endpoints more efficient and consistent, enabling a secure, centralized approach to secret lifecycle management.
 
-## Sync Entire Folder Contents (MVG)
+## Sync Entire Folder Contents
 
 For HashiCorp Vault USC integrations in Multi-Vault Governance (MVG), you can sync all supported secrets under a folder in one operation.
 
