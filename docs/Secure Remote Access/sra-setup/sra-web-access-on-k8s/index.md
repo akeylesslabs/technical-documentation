@@ -259,6 +259,18 @@ sessionRecording:
 
 When enabled, the worker captures the browser session and the dispatcher prepares the upload artifact and uploads it to S3 or S3-compatible storage.
 
+For supported ZTWA versions, recordings, Session Overview entries, and Audit Log events share the same Secure Remote Access session identifier.
+
+#### Session visibility prerequisites
+
+If browser sessions work but Session Overview and Audit Log entries do not appear, verify the following:
+
+* Use a ZTWA version that includes session reporting (`v2.0.0-rc6` or later).
+* Ensure `clusterName` exactly matches the connected Akeyless Gateway cluster name.
+* Authenticate ZTWA by using the same Access ID that the Gateway is registered with.
+* If the Gateway certificate is private or self-signed, provide trust material to ZTWA.
+* Ensure the Gateway is running and registered in the same Akeyless account.
+
 #### Recording quality
 
 Set `sessionRecording.quality` to one of:
