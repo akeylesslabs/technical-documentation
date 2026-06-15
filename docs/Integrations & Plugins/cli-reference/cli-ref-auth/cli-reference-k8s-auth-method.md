@@ -240,19 +240,6 @@ akeyless gateway-update-k8s-auth-config \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-### TokenReview Rate Limit Configuration (Gateway 4.53.0+)
-
-TokenReview rate limiting is configured on the Gateway runtime (not as `gateway-create-k8s-auth-config` or `gateway-update-k8s-auth-config` flags).
-
-Set these environment variables on the Gateway deployment:
-
-* `K8S_TOKEN_REVIEW_QPS`: TokenReview client QPS value
-* `K8S_TOKEN_REVIEW_BURST`: TokenReview client burst value
-
-If not set, Gateway uses the Kubernetes client-go defaults: `QPS=5` and `Burst=10`.
-
-Scope: applies only to `native_k8s` TokenReview calls. Rancher TokenReview flows are not controlled by these variables.
-
 ## `update`
 
 Update a new Authentication Method that can authenticate using Kubernetes

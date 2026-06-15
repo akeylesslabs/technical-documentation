@@ -62,21 +62,6 @@ akeyless connect [flags]
 
 `-C, --command`: Command to execute on the target (non-interactive mode). Example: `-C='ls -al'`
 
-For MySQL targets, `-C` also supports pre-connect MySQL client flags using the `pre:` prefix.
-
-Supported pre-connect MySQL flags:
-
-* `--disable-auto-rehash`
-* `-A` (short alias of `--disable-auto-rehash`)
-
-You can combine pre-connect flags and post-connect payload in one command:
-
-* `-C "pre:-A; post:SELECT NOW();"`
-
-You can also pass only the pre-connect flag and continue in interactive mode:
-
-* `-C "pre:--disable-auto-rehash"`
-
 `--k8s-tunnel`: Create an SSH tunnel with a Kubernetes proxy on a specific local port (`1024`–`65535`). Overrides `--tunnel` and `--command` when set
 
 `-V, --ssh-version`: Print the local SSH client version and exit
@@ -114,26 +99,6 @@ akeyless connect \
   -t postgres-server:5432 \
   -n /producers/my-postgres \
   -g http://my-gw.example.com:8000
-```
-
-MySQL with an interactive pre-connect flag:
-
-```shell
-akeyless connect \
-  -t my-mysql.example.com:3306 \
-  -n /dynamic-secrets/my-mysql \
-  -g http://my-gw.example.com:8000 \
-  -C "pre:--disable-auto-rehash"
-```
-
-MySQL with pre-connect and post-connect payload in a single command:
-
-```shell
-akeyless connect \
-  -t my-mysql.example.com:3306 \
-  -n /dynamic-secrets/my-mysql \
-  -g http://my-gw.example.com:8000 \
-  -C "pre:-A; post:SELECT NOW();"
 ```
 
 Open a Kubernetes tunnel on local port 8443:

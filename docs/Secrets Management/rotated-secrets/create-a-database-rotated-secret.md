@@ -109,10 +109,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
     * **Rotator type:** Determines the rotator type:
         * **Password**: Rotates the password defined inside the Rotated Secret item.
         * **Target**: Rotates the password defined inside the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
-
-    > 👍 Note
-    >
-    > For credentials-based rotation flows (for example, **Password** rotator with either **User credentials** or **Target credentials**), creating the Rotated Secret supports list-only permissions on the associated target.
     * **Username:** Defines the DB username which password should be rotated.
     * **Password:** Defines the password to rotate.
 
