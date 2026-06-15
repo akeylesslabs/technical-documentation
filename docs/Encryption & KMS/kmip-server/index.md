@@ -67,7 +67,7 @@ Flags:
 
 * `hostname`: Hostname of this KMIP server.
 * `root`: Required path to store KMIP objects.
-* `certificate-ttl`: Optional. Server certificate TTL in days. Gateway `4.53.0` and later supports TTL values longer than one year.
+* `certificate-ttl`: Optional. Server certificate TTL in days. Values must be `90` days or longer. Gateway `4.53.0` and later supports TTL values longer than one year, and the KMIP implementation does not define a smaller product-specific upper bound.
 * `expiration-event-in`: Optional. Number of days before expiration to notify. Repeat the flag to set multiple events, for example `--expiration-event-in 1 --expiration-event-in 5`.
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
 
@@ -112,7 +112,7 @@ akeyless kmip-create-client \
 Flags:
 
 * `name`: A unique name of the KMIP client. The name can include the path to the virtual folder where you want to create the new client, using slash `/` separators. If the folder does not exist, it will be created together with the client.
-* `certificate-ttl`: Client certificate TTL in days.
+* `certificate-ttl`: Client certificate TTL in days. Values must be `90` days or longer. The KMIP implementation does not define a smaller product-specific upper bound.
 * `expiration-event-in`: Optional. Number of days before expiration to notify. Repeat the flag to set multiple events, for example `--expiration-event-in 1 --expiration-event-in 5`.
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL (port `8000`).
 * `output-file-folder`: Folder path to save client certificate files locally (for example, `.` for current working dir).
