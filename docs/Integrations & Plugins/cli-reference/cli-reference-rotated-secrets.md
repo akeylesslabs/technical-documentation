@@ -66,11 +66,6 @@ Commands to create a Rotated Secret
 
 These flags are used by multiple `rotated-secret create` and `rotated-secret update` subcommands.
 
-Permission behavior:
-
-* For credentials-based rotators (for example, `password` rotator flows using `use-user-creds` or `use-target-creds`), creating the rotated secret supports list-only permissions on the associated target.
-* For `target` rotator flows, read and update permissions on the target are still required.
-
 `--grace-rotation-timing[=after]`: Controls whether graceful rotation creates the replacement credential before or after the old credential is removed. Supported values are `before` and `after`.
 
 `--lock-during-sra-session`: Lock this rotated secret for read and update while a Secure Remote Access (SRA) session is active.

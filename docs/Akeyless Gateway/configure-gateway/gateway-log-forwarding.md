@@ -247,10 +247,6 @@ input {
 
 5. From the **Log Service** dropdown list, select `Standard Output`.
 
-> ℹ️ **Note:**
->
-> To emit structured logs to container standard output, set the log format to `JSON`.
-
 ## Sumo Logic
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.

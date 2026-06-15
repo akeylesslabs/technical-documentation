@@ -12,8 +12,6 @@ next:
 ---
 For some of the Auth Methods like JWT/OIDC, Kubernetes, SAML, and LDAP that contain sub-claims or attribute-based access control (ABAC), also known as policy-based access control, as part of the given signed token, you can restrict the authorizations of the associated role to these specific claims or attributes. In other words, only clients whose tokens contain these sub-claims (in the case of JWT/OIDC) or attributes (in the case of SAML) will be allowed to access the rules defined in the role.
 
-For UID tokens, token comments are available as a sub-claim key named `uid_comment`.
-
 The sub-claims definition is in the structure of a map that contains keys that represent the field name of the sub-claims, and each key can contain several values ​​so the sub-claim must contain one of those values. The keys and values are case-sensitive.
 
 For example, assume sub-claims are set to:

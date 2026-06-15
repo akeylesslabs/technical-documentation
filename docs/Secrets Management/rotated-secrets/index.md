@@ -28,7 +28,6 @@ You can configure:
 * [Database Rotated Secret](https://docs.akeyless.io/docs/create-a-database-rotated-secret)
 * [Docker Hub Rotated Secret](https://docs.akeyless.io/docs/create-a-docker-hub-rotated-secret)
 * [GCP Rotated Secret](https://docs.akeyless.io/docs/gcp-rotated-secret)
-* [HashiCorp Vault Rotated Secret](https://docs.akeyless.io/docs/create-a-hashicorp-vault-rotated-secret)
 * [LDAP Rotated Secret](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret)
 * [Linked Target Rotated Secret](https://docs.akeyless.io/docs/linked-target-rotated-secret)
 * [Splunk Rotated Secret](https://docs.akeyless.io/docs/splunk-rotated-secret)
