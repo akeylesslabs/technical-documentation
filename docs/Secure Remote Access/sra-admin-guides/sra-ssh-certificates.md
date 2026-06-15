@@ -24,6 +24,8 @@ You can sign the certificate with your own private key or generate a new one in 
 >
 > We put the SSH Certificates section in the Secure Remote Access section of the docs because it is an integral part of setting up remote access SSH sessions. However, this feature can still be used for basic SSH logins without the need for a public SSH key on the target server even outside of the remote access use case.
 
+For SRA entitlement and requester allowlist policy controls, see [Allowed Access IDs and SRA Entitlements](https://docs.akeyless.io/docs/sra-allowed-access-ids-and-sra-entitlements).
+
 ## Configuration
 
 To configure a CA, you will need an **RSA key** to match. You can either use an existing key or create a new one. Once you are logged in to your Akeyless account on the desired server, proceed to one of the following.

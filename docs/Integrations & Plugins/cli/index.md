@@ -1,6 +1,5 @@
 ---
 title: CLI
-slug: cli
 excerpt: Command Line Interface (CLI)
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: cli
 ---
 There are multiple methods to interact with the Akeyless Platform for managing, creating, and fetching multiple types of supported [secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview). One of them is our Command Line Interface (CLI).
 
@@ -47,7 +47,9 @@ curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/
 Alternatively, you can install it using a package manager, such as: `brew`, `apt`, `yum`, or `dnf`:
 
 ```shell brew
-brew install akeylesslabs/tap/akeyless
+brew tap akeylesslabs/tap
+brew trust akeylesslabs/tap
+brew install akeyless
 ```
 ```shell apt
 apt-get update && apt-get install -y curl gnupg
@@ -258,8 +260,8 @@ However, if the `AKEYLESS_GATEWAY_URL` environment variable is set, Akeyless wil
 
 For access-denied issues, ensure the following:
 
-* **Permissions**: Make sure the authentication method used to create the profile is associated with the proper role with the authority to perform the action you tried.
-* **Profile configuration file**: Make sure the profile configuration file is valid and that all values are spelled correctly and match the chosen authentication method.
+- **Permissions**: Make sure the authentication method used to create the profile is associated with the proper role with the authority to perform the action you tried.
+- **Profile configuration file**: Make sure the profile configuration file is valid and that all values are spelled correctly and match the chosen authentication method.
 
 ## Tutorial
 

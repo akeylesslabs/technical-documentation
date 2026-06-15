@@ -1,5 +1,5 @@
 ---
-title: Secure Remote Access Portal
+title: Portal Login and Target Discovery
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,16 +10,18 @@ metadata:
 next:
   description: ''
 ---
+Use this page to sign in to the Secure Remote Access (SRA) portal and discover authorized targets by type.
+
 The Secure Remote Access Portal is available through the main console at `http://Your-Akeyless-Gateway-URL:8000/sra/portal` or through the public SaaS console at `https://zerotrust.akeyless.io`.
 
-All Akeyless-supported [resource types](https://docs.akeyless.io/docs/sra-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli), or the [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application-beta).
+All Akeyless-supported [resource types](https://docs.akeyless.io/docs/sra-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli), or the [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application).
 
 Currently, the SRA Portal supports the following authentication methods:
 
-* [SAML](https://docs.akeyless.io/docs/auth-with-saml)
-* [OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
-* [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
-* [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
+- [SAML](https://docs.akeyless.io/docs/auth-with-saml)
+- [OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
+- [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
+- [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
 
 > ✅ **Tip (Allowed redirect URL):** If you are using SAML or OIDC auth methods, ensure your Gateway URL is trusted.
 
@@ -31,9 +33,23 @@ Currently, the SRA Portal supports the following authentication methods:
 4. Click the **Generate SAML Bookmark URL** to create a link to the completed form. The link is copied to your clipboard for you to save in a convenient place, such as your browser bookmarks, and use in the future to automatically complete the login details.
 5. Click **Sign in**.
 
-The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-resource-types) that you are authorized to access.
+The portal shows all [resource types](https://docs.akeyless.io/docs/sra-resource-types) that your identity is authorized to access.
 
-![A screenshot of the Akeyless Secure Remote Access product and its portal of available options.](https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png)
+## Target Discovery in the Portal
+
+After login, use the portal list view to discover targets by access mode and resource type.
+
+Recommended discovery workflow:
+
+1. Identify the relevant resource type (for example SSH, database, RDP, or web application).
+2. Use portal search and visible filters to narrow large target inventories.
+3. Launch directly when policy allows, or move to the request flow when approval is required.
+
+For approval-gated flows, see [Request Access and Approval Flow](https://docs.akeyless.io/docs/sra-request-access-and-approval-flow).
+
+![](https://files.readme.io/11ba4ba151caf6160d6f57e98c41057fd75b7415113415cbce25daaf528c4b0c-Screenshot_2026-06-11_at_12.52.16.png)
+
+<br />
 
 ## Switch the Portal Theme
 
@@ -59,9 +75,9 @@ In addition to existing hosts that are part of the allowed hosts on the [SSH Cer
 
 > ℹ️ **Note (Key Features):**
 >
-> * **On-the-Fly Connections**: Users can provide a hostname or IP address for **RDP** or **SSH** sessions as needed.
-> * **Temporary Host Addition**: Hostnames added through this feature are temporary and stored in the browser’s cache.
-> * **Edit** and **Delete** Capability: Users can edit or remove the last added host from the list.
+> - **On-the-Fly Connections**: Users can provide a hostname or IP address for **RDP** or **SSH** sessions as needed.
+> - **Temporary Host Addition**: Hostnames added through this feature are temporary and stored in the browser’s cache.
+> - **Edit** and **Delete** Capability: Users can edit or remove the last added host from the list.
 
 1. In the SSH or RDP window, choose **Custom Target** and click the **+** button.
 2. Select the **Permission Profile**. For example, [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh).

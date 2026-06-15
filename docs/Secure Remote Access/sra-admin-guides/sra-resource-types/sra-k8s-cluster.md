@@ -34,19 +34,19 @@ akeyless dynamic-secret update k8s \
 --secure-access-enable true \
 --secure-access-certificate-issuer </Path/to/SSH/Cert/Issuer> \
 --secure-access-cluster-endpoint <Kubernetes cluster endpoint URL> \
---secure-access-allow-port-forwading <true/false>
+--secure-access-allow-port-forwarding <true/false>
 ```
 
 Where:
 
 * `secure-access-certificate-issuer`: Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication..
 * `secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL.
-* `secure-access-allow-port-forwading`: Optional, allows running non-interactive kubectl commands, such as: exec / port-forward / and so on. Also allows using the --watch flag (-w), for example.
+* `secure-access-allow-port-forwarding`: Optional, allows running non-interactive `kubectl` commands, such as `exec` and `port-forward`. It also allows using the `--watch` flag (`-w`).
 
 For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) you can have Secure Remote Access for your Kubernetes Dashboard URL:
 
 * `secure-access-dashboard-url`: The Kubernetes Dashboard URL available only for Generic Kubernetes.
-* `secure-access-web-browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `secure-access-web-browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 ## Set Up Remote Access to a Kubernetes Cluster from the Akeyless Console
 
@@ -72,7 +72,7 @@ For **Web Access**:
 
 * `Dashboard URL`: Required to enable Secure Remote Access to your Kubernetes Dashboard.
 
-* `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 For **CLI Access**:
 

@@ -103,4 +103,4 @@ Use overrides only when service-specific behavior must differ from the shared `s
 * [RDP Session Recording](https://docs.akeyless.io/docs/sra-rdp-recordings)
 * [Session Management](https://docs.akeyless.io/docs/sra-session-management)
 * [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s)
-* [Session Log Forwarding](https://docs.akeyless.io/docs/sra-session-forwarding)
+* [Session Forwarding Destinations](https://docs.akeyless.io/docs/sra-session-forwarding-destinations)
