@@ -5,6 +5,7 @@ permissions:
   pull-requests: write
 
 on:
+  # Run on PR updates that can affect docs compatibility or this checker logic.
   pull_request:
     types:
       - opened
@@ -19,6 +20,7 @@ on:
       - ".github/scripts/check_readme_docs_constraints.py"
       - ".github/workflows/readme-docs-constraints.yml"
   workflow_dispatch:
+  # Expose outputs for upstream reusable workflow consumers.
   workflow_call:
     outputs:
       constraints_summary:
@@ -33,6 +35,7 @@ on:
 
 jobs:
   validate-readme-docs-constraints:
+    # Skip draft PRs to reduce noise until changes are ready for review.
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     outputs:
@@ -54,6 +57,8 @@ jobs:
         uses: actions/github-script@v9
         with:
           script: |
+            // Capture PR-changed files in a local JSON artifact so the Python checker
+            // can apply scoped checks only where appropriate.
             const fs = require('fs');
             const files = await github.paginate(
               github.rest.pulls.listFiles,
@@ -82,12 +87,16 @@ jobs:
       - name: Create fallback changed files list for manual runs
         if: github.event_name != 'pull_request'
         run: |
+          # For manual runs, provide an empty change set so the checker can still
+          # execute structural repository-wide validations.
           mkdir -p .github/automation-reports
           echo '[]' > .github/automation-reports/readme-constraints-pr-files.json
 
       - name: Validate ReadMe docs constraints
         id: validate
         run: |
+          # The checker emits both JSON (machine-consumable) and Markdown
+          # (human-readable) reports used by later workflow steps.
           python .github/scripts/check_readme_docs_constraints.py \
             --docs-root docs \
             --required-order-roots docs reference recipes \
@@ -100,11 +109,13 @@ jobs:
         id: capture
         if: always()
         run: |
+          # Always emit outputs so callers and dashboards receive stable values
+          # even when an earlier validation step fails.
           if [ -f .github/automation-reports/readme-constraints-report.json ]; then
             FAILED=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print('true' if r.get('failed') else 'false')")
-            TOTAL=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print(len(r.get('duplicate_violations',[]))+len(r.get('depth_violations',[]))+len(r.get('front_matter_violations',[]))+len(r.get('navigation_violations',[]))+len(r.get('required_order_file_violations',[]))+len(r.get('api_reference_suffix_violations',[]))+len(r.get('index_slug_violations',[])))")
+            TOTAL=$(python -c "import json,sys; r=json.load(open('.github/automation-reports/readme-constraints-report.json')); print(len(r.get('duplicate_violations',[]))+len(r.get('depth_violations',[]))+len(r.get('front_matter_violations',[]))+len(r.get('navigation_violations',[]))+len(r.get('required_order_file_violations',[]))+len(r.get('api_reference_suffix_violations',[]))+len(r.get('index_slug_violations',[]))+len(r.get('docs_subdirectory_violations',[])))")
           else
-            FAILED=false
+            FAILED=true
             TOTAL=0
           fi
           SUMMARY="ReadMe docs constraints: ${TOTAL} violation(s) found (failed=${FAILED})"
@@ -118,6 +129,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            // Marker keeps this comment sticky (update-in-place instead of spam).
             const marker = '<!-- readme-docs-constraints-comment -->';
             const reportPath = '.github/automation-reports/readme-constraints-report.md';
             const reportJsonPath = '.github/automation-reports/readme-constraints-report.json';
@@ -130,6 +142,43 @@ jobs:
             const report = fs.readFileSync(reportPath, 'utf8').trim();
             const reportJson = JSON.parse(fs.readFileSync(reportJsonPath, 'utf8'));
             const failed = Boolean(reportJson.failed);
+
+            // Map each violation bucket to a plain-English label for PR readability.
+            const categoryMap = [
+              ['duplicate_violations', 'Duplicate filename conflicts'],
+              ['depth_violations', 'Nesting depth exceeds the allowed maximum'],
+              ['front_matter_violations', 'Front matter is missing required keys or values'],
+              ['navigation_violations', 'Navigation entries are invalid or missing'],
+              ['required_order_file_violations', 'A required _order.yaml file is missing'],
+              ['api_reference_suffix_violations', "API reference page filename ends with '-1'"],
+              ['index_slug_violations', 'Nested index page is missing a slug'],
+              ['docs_subdirectory_violations', 'Nested docs subdirectory naming is invalid'],
+            ];
+
+            const plainEnglishViolations = [];
+            for (const [key, label] of categoryMap) {
+              const items = Array.isArray(reportJson[key]) ? reportJson[key] : [];
+              for (const item of items) {
+                if (!item || typeof item !== 'object') {
+                  continue;
+                }
+
+                const filePath = item.path || 'unknown file';
+
+                if (Array.isArray(item.paths) && item.paths.length > 0) {
+                  const joinedPaths = item.paths.map((p) => `\`${p}\``).join(', ');
+                  plainEnglishViolations.push(`- ${label}: ${joinedPaths}.`);
+                  continue;
+                }
+
+                const reason = item.reason || `See report details for \`${filePath}\`.`;
+                plainEnglishViolations.push(`- ${label} in \`${filePath}\`: ${reason}`);
+              }
+            }
+
+            const summaryLines = plainEnglishViolations.length > 0
+              ? plainEnglishViolations
+              : ['- Violations were detected, but no detailed entries were available in the JSON report.'];
 
             const comments = await github.paginate(
               github.rest.issues.listComments,
@@ -144,6 +193,7 @@ jobs:
             const existing = comments.find((comment) => comment.body && comment.body.includes(marker));
 
             if (!failed) {
+              // Remove stale sticky comment once the PR is clean.
               if (existing) {
                 await github.rest.issues.deleteComment({
                   owner: context.repo.owner,
@@ -158,10 +208,14 @@ jobs:
             }
 
             const heading = '### ReadMe docs constraints failed';
-            const summary = 'This pull request cannot be merged until the violations below are resolved.';
-            const body = `${marker}\n${heading}\n\n${summary}\n\n${report}\n`;
+            const summary = 'This pull request cannot be merged yet. The workflow found ReadMe compatibility issues.';
+            const detailsHeading = '#### What went wrong and where';
+            const details = summaryLines.join('\n');
+            const reportHeading = '#### Full report';
+            const body = `${marker}\n${heading}\n\n${summary}\n\n${detailsHeading}\n${details}\n\n${reportHeading}\n\n${report}\n`;
 
             if (existing) {
+              // Keep one sticky comment by updating in place.
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -169,6 +223,7 @@ jobs:
                 body,
               });
             } else {
+              // First failing run on this PR posts the initial sticky comment.
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -181,6 +236,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
+          # Upload all intermediate artifacts to support debugging and audits.
           name: readme-docs-constraints-report
           path: |
             .github/automation-reports/readme-constraints-pr-files.json
