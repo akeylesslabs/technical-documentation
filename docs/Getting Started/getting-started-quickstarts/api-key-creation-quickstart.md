@@ -16,16 +16,16 @@ This Quickstart walks you through creating an **Akeyless API Key**, which can be
 
 By the end of this guide, you will have:
 
-* An Akeyless **Access ID**
-* An Akeyless **Access Key**
-* An Authentication Method configured to use that API Key
+- An Akeyless **Access ID**
+- An Akeyless **Access Key**
+- An Authentication Method configured to use that API Key
 
 ## Prerequisites
 
 You will need:
 
-* An active Akeyless account
-* Access to the Internet
+- An active Akeyless account
+- Access to the Internet
 
 If you do not yet have an account, complete the [Creating an Akeyless Account Quickstart](https://docs.akeyless.io/docs/account-quickstart) first.
 
@@ -52,19 +52,20 @@ This opens the **Create Authentication Method** form.
 
 You will now see the new API Key displayed with two critical values:
 
-* **Access ID**
-* **Access Key**
+- **Access ID**
+- **Access Key**
 
 ## Step 5: Copy and Save the Access Credentials
 
 After the API Key is created:
 
-* Copy the **Access ID**
-* Copy the **Access Key**
+- Copy the **Access ID**
+- Copy the **Access Key**
 
 Store these values securely.
 
 > ⚠️ **Warning:** The **Access Key** is shown only once.
+>
 > If you lose it, you must create a new API Key.
 
 ## Step 6: Assign Permissions
@@ -78,7 +79,9 @@ The API Key must be associated with **Roles** to control what it can access.
 5. In the **Auth Method** drop-down menu, select `/My API Key`.
 6. Select **Save**.
 
-> ℹ️ **Note:** The `/` added in this drop-down menu indicates that `My API Key` was created at the root of the Items directory in your Akeyless account. You can create subdirectories to organize your Items.
+> ℹ️ **Note:**
+>
+> The `/` added in this drop-down menu indicates that `My API Key` was created at the root of the Items directory in your Akeyless account. You can create subdirectories to organize your Items.
 
 You can associate `My API Key` with a custom role later if desired.
 
