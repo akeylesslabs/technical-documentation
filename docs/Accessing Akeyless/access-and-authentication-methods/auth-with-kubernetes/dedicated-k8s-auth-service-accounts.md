@@ -223,7 +223,7 @@ Where:
 > * `K8S_TOKEN_REVIEW_QPS`
 > * `K8S_TOKEN_REVIEW_BURST`
 >
-> If these variables are not set, Gateway uses the Kubernetes client-go defaults.
+> If these variables are not set, Gateway uses the Kubernetes client-go defaults: `QPS=5` and `Burst=10`.
 >
 > Scope: This setting applies to `native_k8s` TokenReview flows.
 
