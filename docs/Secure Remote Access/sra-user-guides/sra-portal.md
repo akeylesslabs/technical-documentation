@@ -16,10 +16,10 @@ All Akeyless-supported [resource types](https://docs.akeyless.io/docs/sra-resour
 
 Currently, the SRA Portal supports the following authentication methods:
 
-- [SAML](https://docs.akeyless.io/docs/auth-with-saml)
-- [OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
-- [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
-- [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
+* [SAML](https://docs.akeyless.io/docs/auth-with-saml)
+* [OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
+* [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
+* [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
 
 > ✅ **Tip (Allowed redirect URL):** If you are using SAML or OIDC auth methods, ensure your Gateway URL is trusted.
 
@@ -33,9 +33,15 @@ Currently, the SRA Portal supports the following authentication methods:
 
 The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-resource-types) that you are authorized to access.
 
-![](https://files.readme.io/11ba4ba151caf6160d6f57e98c41057fd75b7415113415cbce25daaf528c4b0c-Screenshot_2026-06-11_at_12.52.16.png)
+![Secure Remote Access Portal resources view](https://files.readme.io/11ba4ba151caf6160d6f57e98c41057fd75b7415113415cbce25daaf528c4b0c-Screenshot_2026-06-11_at_12.52.16.png)
 
-<br />
+## Access Requests Lifecycle
+
+From Gateway `4.53.0` and later, the portal includes an **Access Requests** page that shows request lifecycle states (for example, pending, approved, and denied) for Secure Remote Access requests.
+
+Use this page to track request progress and quickly identify whether an SRA access request still requires approver action.
+
+For setup and permissions, see [Request Access](https://docs.akeyless.io/docs/request-access) and [RBAC](https://docs.akeyless.io/docs/rbac).
 
 ## Switch the Portal Theme
 
@@ -61,9 +67,9 @@ In addition to existing hosts that are part of the allowed hosts on the [SSH Cer
 
 > ℹ️ **Note (Key Features):**
 >
-> - **On-the-Fly Connections**: Users can provide a hostname or IP address for **RDP** or **SSH** sessions as needed.
-> - **Temporary Host Addition**: Hostnames added through this feature are temporary and stored in the browser’s cache.
-> - **Edit** and **Delete** Capability: Users can edit or remove the last added host from the list.
+> * **On-the-Fly Connections**: Users can provide a hostname or IP address for **RDP** or **SSH** sessions as needed.
+> * **Temporary Host Addition**: Hostnames added through this feature are temporary and stored in the browser’s cache.
+> * **Edit** and **Delete** Capability: Users can edit or remove the last added host from the list.
 
 1. In the SSH or RDP window, choose **Custom Target** and click the **+** button.
 2. Select the **Permission Profile**. For example, [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh).

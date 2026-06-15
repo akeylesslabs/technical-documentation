@@ -67,6 +67,7 @@ Flags:
 
 * `hostname`: Hostname of this KMIP server.
 * `root`: Required path to store KMIP objects.
+* `certificate-ttl`: Optional. Server certificate TTL in days. Gateway `4.53.0` and later supports TTL values longer than one year.
 * `expiration-event-in`: Optional. Number of days before expiration to notify. Repeat the flag to set multiple events, for example `--expiration-event-in 1 --expiration-event-in 5`.
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
 

@@ -20,9 +20,9 @@ This page also includes legacy `akeyless-scp` guidance for existing automation t
 
 The `akeyless file` command enables secure file transfer to and from remote targets through the SRA bastion. It is built into the Akeyless CLI and supports both upload and download operations without requiring additional scripts.
 
-These commands run on the client machine and invoke the local `scp`/`ssh` tooling to perform transfer over an SRA tunnel.
+These commands run on the client machine and use SFTP over an SRA tunnel.
 
-At runtime, the CLI resolves target and bastion connection parameters (from command flags or profile), requests short-lived access by way of the configured SSH certificate issuer, and then establishes the tunnel used by `scp` for upload/download.
+At runtime, the CLI resolves target and bastion connection parameters (from command flags or profile), requests short-lived access by way of the configured SSH certificate issuer, and then establishes the tunnel used by SFTP for upload and download.
 
 If local `scp`/`ssh` binaries are missing or not available in `PATH`, file transfer commands fail on the client before transfer starts.
 
@@ -35,7 +35,7 @@ If local `scp`/`ssh` binaries are missing or not available in `PATH`, file trans
 * Akeyless [CLI](https://docs.akeyless.io/docs/cli) (latest version recommended; run `akeyless update` to upgrade).
 * An [SSH certificate issuer](https://docs.akeyless.io/docs/sra-ssh-certificates).
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with Remote Access enabled.
-* A local `ssh` and `scp` client (for example, OpenSSH).
+* A local `ssh` client with SFTP support (for example, OpenSSH).
 * OpenSSH v7.3 or higher on target servers.
 * The appropriate SRA permission on your certificate issuer:
     * **Upload**: `sra_upload_files`.
