@@ -187,8 +187,8 @@ akeyless folder-sync-all --name </folder/path>
 akeyless folder-delete-sync --name </folder/path> --usc-name </usc-name>
 ```
 
-For Vault-specific mapping, `folder-sync` also supports `--namespace` and `--engine-name` (engine prefix must end with `/`).
+For Vault-specific mapping, `folder-sync` also supports `--namespace`.
 
-For full command flags and examples, see [CLI Reference - Universal Secrets Connector](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#folder-sync-commands-mvg).
+For full command flags and examples, see [CLI Reference - Universal Secrets Connector](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#folder-sync-commands).
 
 _Note:_ The **KV Secrets Engine v1** is not supported. Please use **KV Secrets Engine v2** when working with the Vault Universal Secrets Connector.

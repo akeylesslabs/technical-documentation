@@ -57,7 +57,7 @@ Console behavior note: in the current custom permission multi-select UI, `admin`
 
 Administrative operations for Gateway allowed access management require `admin` permission.
 
-Gateway visibility in the Console is permission-scoped. Users with Gateway access permissions can view the Gateway in the Console only when their role includes Gateway administrative scope (`scope` or `all`).
+Gateway visibility in the Console is permission-scoped. Users with Gateway access permissions can view the Gateway in the Console only when their role includes Gateway administrative scope (`scoped` or `all`).
 
 For item-related operations (`targets`, `classic_keys`, `dynamic_secret`, `rotated_secret`, and `rotate_secret_value`), access is evaluated in two scopes:
 

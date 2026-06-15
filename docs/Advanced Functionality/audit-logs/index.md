@@ -47,7 +47,7 @@ The logs will show up as a line of text, from which you can read the following i
 | `component` | Service component that emitted the audit event (for example, `microservices/uam`). |
 | `action` | Type of action performed, such as list items, create item, or get item. For common actions, see [Log Actions](https://docs.akeyless.io/docs/log-actions). |
 | `item_type` | If the action is item-specific (for example, create item), the item type is listed. |
-| `status` | Standard HTTP status code: informational (`100`-`199`), success (`200`-`299`), redirection (`300`-`399`), or client error (`400`-`499`). |
+| `status` | Standard HTTP status code: informational (`100`-`199`), success (`200`-`299`), redirection (`300`-`399`), client error (`400`-`499`), or server error (`500`-`599`). |
 | `remote_addr` | IP address from which the action was performed. |
 | `duration` | Duration of the action in milliseconds. |
 | `request_parameters` | Additional action details, such as dynamic secret details when a value is fetched. |

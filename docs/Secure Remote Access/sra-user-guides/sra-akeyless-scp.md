@@ -26,7 +26,7 @@ These commands run on the client machine and use SFTP over an SRA tunnel.
 
 At runtime, the CLI resolves target and bastion connection parameters (from command flags or profile), requests short-lived access by way of the configured SSH certificate issuer, and then establishes the tunnel used by SFTP for upload and download.
 
-If local `scp`/`ssh` binaries are missing or not available in `PATH`, file transfer commands fail on the client before transfer starts.
+The client must support SFTP; file transfer commands fail if SFTP capability is not available.
 
 > ℹ️ **Note:**
 >

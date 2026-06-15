@@ -47,4 +47,4 @@ Use `folder-delete-sync` to remove folder-level associations:
 akeyless folder-delete-sync --name </folder/path> --usc-name </usc-name>
 ```
 
-For complete flags and behavior details, see [CLI Reference - Universal Secrets Connector](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#folder-sync-commands-mvg).
+For complete flags and behavior details, see [CLI Reference - Universal Secrets Connector](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#folder-sync-commands).

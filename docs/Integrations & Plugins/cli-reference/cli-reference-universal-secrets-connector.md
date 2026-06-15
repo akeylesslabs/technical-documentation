@@ -154,8 +154,6 @@ akeyless folder-sync \
 
 `--namespace`: Vault namespace (HashiCorp Vault targets)
 
-`--engine-name`: HashiCorp Vault engine name prefix (must end with `/`)
-
 `--delete-remote`: Delete the remote secret as part of sync handling when relevant
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)

@@ -1,8 +1,11 @@
 ---
 title: Akeyless Agent
+excerpt: ''
 deprecated: false
 hidden: false
 metadata:
+  title: ''
+  description: ''
   robots: index
 ---
 The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) lets you set up an Agent that automatically delivers secrets from your Akeyless account and places them in specific locations on your system (**Linux** or **Windows** operating systems are supported).

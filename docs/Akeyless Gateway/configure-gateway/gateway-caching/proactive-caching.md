@@ -120,7 +120,7 @@ For the full key reference, see [Helm Values Reference](https://docs.akeyless.io
 * `PROACTIVE_CACHE_DUMP_INTERVAL`: Sets the periodic secure cache backup interval in minutes for the legacy implementation. This variable has no effect when `NEW_PROACTIVE_CACHE_ENABLE=true`. For most tuning decisions on the legacy implementation, prefer `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME`; adjust `PROACTIVE_CACHE_DUMP_INTERVAL` only when you need to change backup cadence specifically.
 
 > ℹ️ **Note:**
-> If Gateway starts without reachable SaaS configuration and initializes cache behavior from environment values, it assumes `NEW_PROACTIVE_CACHE_ENABLE=true` for startup continuity.
+> If Gateway starts without reachable SaaS configuration and initializes cache behavior from environment values, it temporarily enables `NEW_PROACTIVE_CACHE_ENABLE=true` for startup continuity until SaaS configuration becomes reachable.
 
 For Redis topology choices, see [Cluster Cache (Standalone)](https://docs.akeyless.io/docs/cluster-cache-standalone) and [Cluster Cache High Availability (HA)](https://docs.akeyless.io/docs/cluster-cache-ha).
 

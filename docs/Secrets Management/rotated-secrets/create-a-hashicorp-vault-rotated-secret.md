@@ -64,7 +64,7 @@ Where:
 
 * `rotation-interval`: The number of days to wait between every automatic rotation (1-365).
 
-The HashiCorp Vault variant also supports the shared rotated-secret settings for protection keys, max versions, tags, and description. For the full parameter list, see the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#hashi-vault) section.
+The HashiCorp Vault variant also supports the shared rotated-secret settings for protection keys, max versions, tags, and description. For the full parameter list, see the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#synchronization) section.
 
 ## Working With Version History
 
