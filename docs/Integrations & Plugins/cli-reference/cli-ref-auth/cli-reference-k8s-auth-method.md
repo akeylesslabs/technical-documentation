@@ -249,9 +249,9 @@ Set these environment variables on the Gateway deployment:
 * `K8S_TOKEN_REVIEW_QPS`: TokenReview client QPS value
 * `K8S_TOKEN_REVIEW_BURST`: TokenReview client burst value
 
-If not set, Gateway uses the Kubernetes client-go default values.
+If not set, Gateway uses the Kubernetes client-go defaults: `QPS=5` and `Burst=10`.
 
-Scope: applies to `native_k8s` TokenReview calls.
+Scope: applies only to `native_k8s` TokenReview calls. Rancher TokenReview flows are not controlled by these variables.
 
 ## `update`
 
