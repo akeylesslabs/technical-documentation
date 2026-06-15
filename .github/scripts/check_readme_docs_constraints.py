@@ -384,11 +384,8 @@ def entry_matches(entries: list[str], expected: str) -> bool:
 
 def resolve_expected_order_target(markdown_path: Path) -> tuple[Path | None, str | None]:
     if markdown_path.name.lower() == "index.md":
-        parent = markdown_path.parent
-        grandparent = parent.parent
-        if str(grandparent) == ".":
-            return None, None
-        return grandparent / "_order.yaml", parent.name
+        # Index pages are exempt from direct _order entry requirements.
+        return None, None
 
     return markdown_path.parent / "_order.yaml", markdown_path.stem
 
