@@ -188,8 +188,12 @@ To test AI Insights in the Akeyless Console, follow these steps:
 2. Navigate to AI Insights.
 3. Start a chat session
 4. Ask a natural language question.
+5. Open the chat list in the left panel to review previous chats.
+6. Use **Search chats** to find a specific chat in your history.
 
 ![Illustration for: 2. Navigate to AI Insights. 3. Start a chat session 4. Ask a natural language question.](https://files.readme.io/9214bc7c65691ab90764917b7da86d69a6be792b3c494b6289b338aabf90f851-chatInteraction.png)
+
+AI Insights stores chat sessions per gateway selection so you can return to prior conversations and search them by title.
 
 ## Troubleshooting
 

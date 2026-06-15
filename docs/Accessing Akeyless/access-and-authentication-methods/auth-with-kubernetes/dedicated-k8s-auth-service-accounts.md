@@ -216,6 +216,17 @@ Where:
 * `token-reviewer-jwt`: The ServiceAccount `JWT` used to access the `TokenReview` API
   (relevant only to `native_k8s` access type).
 
+> ℹ️ **Note (Gateway 4.53.0+):**
+>
+> You can configure TokenReview rate limiting for Gateway Kubernetes authentication by setting Gateway runtime environment variables:
+>
+> * `K8S_TOKEN_REVIEW_QPS`
+> * `K8S_TOKEN_REVIEW_BURST`
+>
+> If these variables are not set, Gateway uses the Kubernetes client-go defaults: `QPS=5` and `Burst=10`.
+>
+> Scope: This setting applies only to `native_k8s` TokenReview flows. Rancher TokenReview flows are not controlled by these variables.
+
 * `k8s-ca-cert`: The certificate to use to validate the Kubernetes cluster.
 
 * `k8s-issuer`: Optional, the [Kubernetes JWT issuer name](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) (default is `kubernetes/serviceaccount`).

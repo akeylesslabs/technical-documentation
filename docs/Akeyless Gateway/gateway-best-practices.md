@@ -141,6 +141,7 @@ Caching is optional and should be enabled based on business continuity, performa
 
 * Consider enabling Gateway caching to improve resilience during temporary SaaS connectivity interruptions and to reduce latency for repeated reads.
 * Consider enabling proactive cache when read performance and reduced first-read latency are priorities.
+* For proactive cache, prefer the recommended implementation (`NEW_PROACTIVE_CACHE_ENABLE=true`) to get shared `429` backoff handling and leadership-cycle worker restart behavior.
 * Consider cluster cache when running multiple Gateway instances that should share cache state.
 * Evaluate security and operational tradeoffs before enabling caching:
     * Operational benefits: improved continuity, lower read latency, and reduced repeated upstream calls.
