@@ -396,51 +396,51 @@ jobs:
 
       - name: Download link check artifacts
         if: always()
-        uses: actions/download-artifact@v5
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
         with:
           name: link-check-artifacts
           path: .github/automation-reports/link-check-artifacts
-          if-no-artifact-found: warn
 
       - name: Download markdownlint artifacts
         if: always()
-        uses: actions/download-artifact@v5
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
         with:
           name: markdownlint-artifacts
           path: .github/automation-reports/markdownlint-artifacts
-          if-no-artifact-found: warn
 
       - name: Download cspell artifacts
         if: always()
-        uses: actions/download-artifact@v5
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
         with:
           name: cspell-artifacts
           path: .github/automation-reports/cspell-artifacts
-          if-no-artifact-found: warn
 
       - name: Download CLI path artifacts
         if: always()
-        uses: actions/download-artifact@v5
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
         with:
           name: cli-command-path-artifacts
           path: .github/automation-reports/cli-command-path-artifacts
-          if-no-artifact-found: warn
 
       - name: Download ReadMe constraints artifacts
         if: always()
-        uses: actions/download-artifact@v5
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
         with:
           name: readme-docs-constraints-report
           path: .github/automation-reports/readme-docs-constraints-report
-          if-no-artifact-found: warn
 
       - name: Download dependency monitor artifacts
         if: always()
-        uses: actions/download-artifact@v5
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
         with:
           name: dependency-monitor-report
           path: .github/automation-reports/dependency-monitor-report
-          if-no-artifact-found: warn
 
       - name: Build aggregated findings report
         id: aggregate

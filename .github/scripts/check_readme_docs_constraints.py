@@ -448,6 +448,19 @@ def order_entry_target_exists(order_file: Path, entry: str) -> bool:
 def order_entry_targets_markdown_page(order_file: Path, entry: str) -> bool:
     """Return True when an _order entry points to a Markdown page target."""
     base_dir = order_file.parent
+
+    if entry.lower().endswith(".md"):
+        target_file = base_dir / entry
+        if target_file.exists():
+            return True
+
+        # Case-insensitive fallback keeps behavior consistent across filesystems.
+        entry_lower = entry.lower()
+        for markdown_file in base_dir.glob("*.md"):
+            if markdown_file.name.lower() == entry_lower:
+                return True
+        return False
+
     target_file = base_dir / f"{entry}.md"
     if target_file.exists():
         return True
@@ -594,6 +607,10 @@ def main() -> int:
     for order_file in sorted(order_files_to_validate):
         entries, order_errors = parse_order_entries(order_file)
         if order_errors:
+            for error in order_errors:
+                navigation_violations.append(
+                    NavigationViolation(path=order_file.as_posix(), reason=error)
+                )
             continue
         for entry in entries:
             if order_entry_references_index_page(entry):
