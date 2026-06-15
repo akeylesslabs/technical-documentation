@@ -14,6 +14,12 @@ Use this page to validate infrastructure requirements before deploying Akeyless 
 
 Port values below are default values from the official Helm charts and Docker Compose examples. Exact exposure can vary by deployment model, ingress, and service configuration.
 
+For deeper planning guidance, use Infrastructure and Capacity Planning:
+
+* [Runtime Components and Ports](https://docs.akeyless.io/docs/sra-runtime-components-and-ports)
+* [Scaling and HPA Patterns](https://docs.akeyless.io/docs/sra-scaling-and-hpa-patterns)
+* [Storage and Recording Capacity](https://docs.akeyless.io/docs/sra-storage-and-recording-capacity)
+
 ## Requirements Checklist
 
 Validate the following requirements before rollout.
@@ -49,9 +55,13 @@ Redis cache support is required for SRA components. For Gateway-only deployments
 
 For Redis defaults and operational guidance, see [Redis documentation](https://redis.io/docs/latest/).
 
+For runtime dependency paths that include Redis, see [Runtime Components and Ports](https://docs.akeyless.io/docs/sra-runtime-components-and-ports).
+
 ### Minimum Resources
 
 Use at least 1 vCPU and 2 GiB memory for each SRA component.
+
+For autoscaling policy and scale-in protection guidance, see [Scaling and HPA Patterns](https://docs.akeyless.io/docs/sra-scaling-and-hpa-patterns).
 
 ### Kubernetes-Specific Requirements
 
@@ -60,6 +70,18 @@ Use at least 1 vCPU and 2 GiB memory for each SRA component.
 * If metadata-service based cloud detection is restricted, explicitly configure the dispatcher cloud identity type in your deployment values (`aws_iam`, `azure_ad`, or `gcp`).
 
 For platform guidance, see [Kubernetes Service type LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) and [Linux kernel security constraints](https://kubernetes.io/docs/concepts/security/linux-kernel-security-constraints/).
+
+### Account Region and Authentication Service Configuration
+
+When deploying SRA in regions outside the default account region, configure the bastion authentication service endpoint to match your account location.
+
+For non-default account regions (for example, MEU for European accounts):
+
+* Ensure the `UAM_ADDR` environment variable in bastion deployment is set to the correct authentication service endpoint for your region.
+* Verify account region setting in Gateway console under **Remote Access** configuration.
+* When RDP or other session types fail to connect after authentication succeeds, cross-check the `UAM_ADDR` variable and account region setting as a first diagnostic step.
+
+Misalignment between account region and `UAM_ADDR` configuration can result in RDP sessions closing without meaningful error messages in logs.
 
 ### Gateway Certificate Trust Requirements
 
@@ -103,6 +125,8 @@ If you are not using NGINX ingress, use the equivalent session-persistence polic
 
 For Envoy policy reference, see [Envoy Gateway session persistence](https://gateway.envoyproxy.io/latest/api/extension_types/#sessionpersistence).
 
+For scale-event safeguards that reduce sticky-session disruption, see [Scaling and HPA Patterns](https://docs.akeyless.io/docs/sra-scaling-and-hpa-patterns#scale-in-risk-and-session-protection).
+
 ### SAML and Redirect Size Limits
 
 If SRA is published through identity-aware reverse proxies, validate request URI and redirect limits for your proxy tier.
@@ -144,6 +168,27 @@ If a custom bastion default session TTL is set, align these network timeout valu
 | Azure Application Gateway (L7) | `4m` TCP idle, `20s` HTTP request timeout | Increase both values to match session and backend response requirements. |
 | NGINX ingress | Often around `60s` without traffic | Increase `proxy-read-timeout` and `proxy-send-timeout` annotations. |
 
+### GKE Ingress Default Timeout Edge Case
+
+In GKE ingress environments, backend timeout defaults can terminate active SRA sessions if left unchanged.
+
+Before production rollout on GKE:
+
+1. Verify the effective backend timeout for SRA-related services.
+2. If timeout is still `30s`, set a higher `timeoutSec` value by using `BackendConfig` or `GCPBackendPolicy`.
+3. Validate long-lived SSH and RDP sessions after applying timeout changes.
+
+Example `BackendConfig`:
+
+```yaml
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: sra-backendconfig
+spec:
+  timeoutSec: 3600
+```
+
 Vendor references:
 
 * [Google Cloud backend service timeout](https://docs.cloud.google.com/load-balancing/docs/backend-service#timeout-setting)
@@ -153,6 +198,8 @@ Vendor references:
 * [Azure Load Balancer TCP idle timeout](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-tcp-idle-timeout)
 * [Azure Application Gateway FAQ](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-faq)
 * [NGINX WebSocket proxying](https://nginx.org/en/docs/http/websocket.html)
+
+For autoscaling decisions that should align with these timeout values, see [Scaling and HPA Patterns](https://docs.akeyless.io/docs/sra-scaling-and-hpa-patterns).
 
 ## Redirect URL Allowlist Requirements
 
@@ -173,9 +220,13 @@ When session recording upload is enabled, validate the dispatcher authentication
 
 If you observe post-session authentication failures, test alternative credential-source combinations for dispatcher runtime authentication and storage-upload authentication, and keep the stable combination for production rollout.
 
+For recording volume estimates, retention planning, and backend lifecycle controls, see [Storage and Recording Capacity](https://docs.akeyless.io/docs/sra-storage-and-recording-capacity).
+
 ## Port Inventory
 
 The following table lists the primary ports by component.
+
+For component topology and namespace isolation implementation patterns, see [Runtime Components and Ports](https://docs.akeyless.io/docs/sra-runtime-components-and-ports).
 
 | Component | Port(s) | Purpose |
 | --- | --- | --- |

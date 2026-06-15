@@ -21,4 +21,4 @@ After completing the quick start, continue with:
 
 * [Setup](https://docs.akeyless.io/docs/sra-setup)
 * [Admin Guides](https://docs.akeyless.io/docs/sra-admin-guides)
-* [User Guides](https://docs.akeyless.io/docs/sra-user-guides)
+* [Accessing Resources](https://docs.akeyless.io/docs/sra-accessing-resources)

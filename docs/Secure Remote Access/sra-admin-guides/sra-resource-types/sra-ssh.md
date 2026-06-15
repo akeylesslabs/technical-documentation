@@ -131,7 +131,7 @@ Akeyless enables CLI access from any Unix terminal.
 
    * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
 
-3. Use `akeyless connect` command to perform SSH authentication to the target server by way of Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/sra-web-access-on-k8s):
+3. Use `akeyless connect` command to perform SSH authentication to the target server through [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview):
 
     ```shell General Template
    akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>

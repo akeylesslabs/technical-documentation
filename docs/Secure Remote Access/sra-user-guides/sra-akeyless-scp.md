@@ -12,11 +12,23 @@ next:
 ---
 Use this page to transfer files securely through Akeyless Secure Remote Access (SRA), including both upload and download operations through the SRA bastion.
 
+For interactive SSH, database access, and generic tunnel workflows, use [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect).
+
 For current deployments, use `akeyless file upload` and `akeyless file download`, which are built into the Akeyless CLI.
 
 These commands use SFTP as the transfer protocol, replacing legacy SCP-style transfer flows for improved reliability and transfer performance.
 
 This page also includes legacy `akeyless-scp` guidance for existing automation that still depends on the script.
+
+## CLI Path Selection
+
+Use the command family that matches your access goal:
+
+1. `akeyless connect` for interactive sessions and tunnel-oriented workflows.
+2. `akeyless file upload` and `akeyless file download` for secure file transfer through SRA.
+3. Legacy `akeyless-scp` only for automation that has not moved to `akeyless file` yet.
+
+Effective access is controlled by SRA permissions, issuer policy, and target configuration.
 
 ## Akeyless File Transfer
 
