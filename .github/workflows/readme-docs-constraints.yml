@@ -131,6 +131,41 @@ jobs:
             const reportJson = JSON.parse(fs.readFileSync(reportJsonPath, 'utf8'));
             const failed = Boolean(reportJson.failed);
 
+            const categoryMap = [
+              ['duplicate_violations', 'Duplicate filename conflicts'],
+              ['depth_violations', 'Nesting depth exceeds the allowed maximum'],
+              ['front_matter_violations', 'Front matter is missing required keys or values'],
+              ['navigation_violations', 'Navigation entries are invalid or missing'],
+              ['required_order_file_violations', 'A required _order.yaml file is missing'],
+              ['api_reference_suffix_violations', "API reference page filename ends with '-1'"],
+              ['index_slug_violations', 'Nested index page is missing a slug'],
+            ];
+
+            const plainEnglishViolations = [];
+            for (const [key, label] of categoryMap) {
+              const items = Array.isArray(reportJson[key]) ? reportJson[key] : [];
+              for (const item of items) {
+                if (!item || typeof item !== 'object') {
+                  continue;
+                }
+
+                const filePath = item.path || 'unknown file';
+
+                if (Array.isArray(item.paths) && item.paths.length > 0) {
+                  const joinedPaths = item.paths.map((p) => `\`${p}\``).join(', ');
+                  plainEnglishViolations.push(`- ${label}: ${joinedPaths}.`);
+                  continue;
+                }
+
+                const reason = item.reason || `See report details for \`${filePath}\`.`;
+                plainEnglishViolations.push(`- ${label} in \`${filePath}\`: ${reason}`);
+              }
+            }
+
+            const summaryLines = plainEnglishViolations.length > 0
+              ? plainEnglishViolations
+              : ['- Violations were detected, but no detailed entries were available in the JSON report.'];
+
             const comments = await github.paginate(
               github.rest.issues.listComments,
               {
@@ -158,8 +193,11 @@ jobs:
             }
 
             const heading = '### ReadMe docs constraints failed';
-            const summary = 'This pull request cannot be merged until the violations below are resolved.';
-            const body = `${marker}\n${heading}\n\n${summary}\n\n${report}\n`;
+            const summary = 'This pull request cannot be merged yet. The workflow found ReadMe compatibility issues.';
+            const detailsHeading = '#### What went wrong and where';
+            const details = summaryLines.join('\n');
+            const reportHeading = '#### Full report';
+            const body = `${marker}\n${heading}\n\n${summary}\n\n${detailsHeading}\n${details}\n\n${reportHeading}\n\n${report}\n`;
 
             if (existing) {
               await github.rest.issues.updateComment({
