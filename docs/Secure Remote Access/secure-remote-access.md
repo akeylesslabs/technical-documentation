@@ -59,12 +59,7 @@ SRA is deployed with the [Akeyless Gateway](https://docs.akeyless.io/docs/gatewa
 SRA supports multiple deployment patterns:
 
 * Unified deployment: Deploy SRA by using the `akeyless-gateway` chart with SRA enabled.
-* Legacy split deployment: Existing environments might still use the standalone SRA chart model, but migration to unified deployment is recommended.
 * Topology variants: Kubernetes and Docker Compose are both supported, including Zero Trust Web Access patterns for browser-isolated access.
-
-> ❗ **Important (Migration):**
->
-> New deployments should use unified deployment with the `akeyless-gateway` chart. Existing split deployments should plan migration to reduce operational drift.
 
 ## Before Deployment
 
