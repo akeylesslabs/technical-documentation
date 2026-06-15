@@ -41,14 +41,17 @@ The logs will show up as a line of text, from which you can read the following i
 | Log Line | Description |
 | --- | --- |
 | `Timestamp` | The log starts with a timestamp string in Date `T` Time Timezone format. |
+| `seq_num` | Per-account sequence number used to preserve event ordering in audit logs. |
 | `account_id` | Account ID. |
 | `access_id` | Access ID. |
+| `component` | Service component that emitted the audit event (for example, `microservices/uam`). |
 | `action` | Type of action performed, such as list items, create item, or get item. For common actions, see [Log Actions](https://docs.akeyless.io/docs/log-actions). |
 | `item_type` | If the action is item-specific (for example, create item), the item type is listed. |
 | `status` | Standard HTTP status code: informational (`100`-`199`), success (`200`-`299`), redirection (`300`-`399`), or client error (`400`-`499`). |
 | `remote_addr` | IP address from which the action was performed. |
 | `duration` | Duration of the action in milliseconds. |
 | `request_parameters` | Additional action details, such as dynamic secret details when a value is fetched. |
+| `scope_params` | Optional scoped-access suffix appended to some logs for exact scope matching (for example, item, role, auth method, target, event forwarder, and client auth scopes). |
 | `unique_id` | Identifier for the specific user under the account (mostly relevant for human-to-machine auth methods). |
 | `client_sub_claims` | Sub-claims captured for the authenticated client when configured on the authentication method (for example, `email`, `username`, and `uid_comment` for UID token flows). |
 | `access_type` | [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type used for the action. |
