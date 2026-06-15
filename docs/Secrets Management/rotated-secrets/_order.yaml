@@ -3,7 +3,6 @@
 - create-a-database-rotated-secret
 - create-a-docker-hub-rotated-secret
 - gcp-rotated-secret
-- create-a-hashicorp-vault-rotated-secret
 - create-an-ldap-rotated-secret
 - linked-target-rotated-secret
 - openai-rotated-secret

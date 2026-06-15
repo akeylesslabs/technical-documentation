@@ -37,8 +37,6 @@ Use this starting decision flow:
 
 For planning guidance and tradeoffs, see [Gateway Best Practices: Caching strategy considerations](https://docs.akeyless.io/docs/gateway-best-practices#caching-strategy-considerations).
 
-For proactive deployments, use the recommended implementation (`NEW_PROACTIVE_CACHE_ENABLE=true`) to get shared 429 backoff handling and leadership-cycle worker restart behavior. For details, see [Proactive Caching](https://docs.akeyless.io/docs/proactive-caching).
-
 For Kubernetes proactive cache sizing guidance, see [Gateway Best Practices: Resource planning for Kubernetes proactive cache](https://docs.akeyless.io/docs/gateway-best-practices#resource-planning-for-kubernetes-proactive-cache).
 
 ## Configure in Gateway UI

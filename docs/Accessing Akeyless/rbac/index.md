@@ -114,8 +114,6 @@ The existing permissions for Secure Remote Access are as follows:
 * Upload Files: For RDP only. Allows a user to upload local files to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
 * Download Files: For RDP only. Allows a user to download files from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
 
-From Gateway `4.53.0` and later, SRA users can request access from the portal and approvers can process the request through the Event Center.
-
 ## Administrative Rules
 
 With Administrative Rules, you can choose whether users have access only to the resources they own (**Own**), access to items users have `list` permission for (**Scoped**), or access to all resources (**All**).
@@ -139,17 +137,6 @@ The following **Administrative Rules** can be set:
 * `Manage Event Forwarders`
 
 * `Usage Reports`
-
-## Reverse RBAC Review Coverage
-
-Reverse RBAC can be used to review who has access to object types beyond Items and Targets, including Secure Remote Access and Agentic Runtime Authority paths.
-
-For command syntax and full parameter details, see the [CLI Reference - Access Roles reverse-rbac command](https://docs.akeyless.io/docs/cli-reference-access-roles#reverse-rbac).
-
-Use the CLI `reverse-rbac` command with:
-
-* `--type sra` for Secure Remote Access rules
-* `--type ara` for Agentic Runtime Authority rules
 
 ## Event Center Rules
 

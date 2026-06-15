@@ -48,13 +48,9 @@ All `list-items` and `get-value` calls during warm-up are issued under this iden
 
 429 responses can occur when startup warm-up fan-out exhausts the per-access-ID limit window. The recommended implementation handles this automatically with a shared backoff gate:
 
-* Applies a shared backoff delay across proactive workers and RBAC refresh calls on 429.
+* Applies a shared backoff delay across all workers on 429.
 * Honors `Retry-After` or `will be released in <duration>` headers when available.
 * Retries up to `PROACTIVE_CACHE_WORKERS × 10` attempts before giving up on a cycle.
-
-### Leadership-Loss Handling
-
-In the recommended implementation, proactive workers are tied to the current leadership lease. When leadership is lost, active workers stop gracefully, the current cycle drains, and the next leadership cycle starts with a fresh jobs queue to avoid stale backlog carryover.
 
 To further reduce rate-limit risk:
 
@@ -118,9 +114,6 @@ For the full key reference, see [Helm Values Reference](https://docs.akeyless.io
 * `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME`: Sets the modified-secrets fetch interval in minutes for proactive caching. Default: `5`. Increase to reduce incremental cycle frequency. This value affects proactive refresh cadence in both the legacy and recommended implementations.
 * `CACHE_TTL`: Influences cache time-to-live and full-fetch cadence. Default: `60`.
 * `PROACTIVE_CACHE_DUMP_INTERVAL`: Sets the periodic secure cache backup interval in minutes for the legacy implementation. This variable has no effect when `NEW_PROACTIVE_CACHE_ENABLE=true`. For most tuning decisions on the legacy implementation, prefer `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME`; adjust `PROACTIVE_CACHE_DUMP_INTERVAL` only when you need to change backup cadence specifically.
-
-> ℹ️ **Note:**
-> If Gateway starts without reachable SaaS configuration and initializes cache behavior from environment values, it temporarily enables `NEW_PROACTIVE_CACHE_ENABLE=true` for startup continuity until SaaS configuration becomes reachable.
 
 For Redis topology choices, see [Cluster Cache (Standalone)](https://docs.akeyless.io/docs/cluster-cache-standalone) and [Cluster Cache High Availability (HA)](https://docs.akeyless.io/docs/cluster-cache-ha).
 

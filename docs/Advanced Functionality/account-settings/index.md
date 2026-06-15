@@ -70,7 +70,7 @@ To update the address information on the account, click on the pencil icons, upd
 
 #### Secret Versions
 
-When enabled, this account-level feature allows the user to choose the maximum number of versions of Static Secrets, Rotated Secrets, and Targets to keep in the account for a given item and review version history from the item details view. To update it, click on the pencil icon, choose a number, and click the check mark to save. In addition, you can choose to **force** a new version on update when versions are enabled in the account.
+When enabled, this feature allows the user to choose the maximum number of versions of Static Secrets, Rotated Secrets, and Targets to keep in the account for a given item. To update it, click on the pencil icon, choose a number, and click the check mark to save. In addition, you can choose to **force** a new version on update when versions are enabled in the account.
 
 #### Delete Protection
 
