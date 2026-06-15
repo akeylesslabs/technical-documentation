@@ -215,6 +215,10 @@ akeyless connect -t <mongo server IP>:27017 -g <gateway-url> -n "<Path to MongoD
 akeyless connect -t <mysql-server>:3306 -g <gateway-url> -n "<Path to MySQL Dynamic Secret>"
 ```
 
+> ℹ️ **Note (CLI v1.146.0+):**
+>
+> The `connect` command supports MySQL interactive flags. For the current supported options, run `akeyless connect -h`.
+
 ### Amazon EKS
 
 ```shell
