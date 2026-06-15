@@ -35,11 +35,11 @@ The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-reso
 
 ![Secure Remote Access Portal resources view](https://files.readme.io/11ba4ba151caf6160d6f57e98c41057fd75b7415113415cbce25daaf528c4b0c-Screenshot_2026-06-11_at_12.52.16.png)
 
-## Access Requests Lifecycle
+## Access Request Flow
 
-From Gateway `4.53.0` and later, the portal includes an **Access Requests** page that shows request lifecycle states (for example, pending, approved, and denied) for Secure Remote Access requests.
+From Gateway `4.53.0` and later, the portal supports Secure Remote Access request flows, and approvers can process those requests through the Event Center.
 
-Use this page to track request progress and quickly identify whether an SRA access request still requires approver action.
+Use this flow to track request progress and quickly identify whether an SRA access request still requires approver action.
 
 For setup and permissions, see [Request Access](https://docs.akeyless.io/docs/request-access) and [RBAC](https://docs.akeyless.io/docs/rbac).
 

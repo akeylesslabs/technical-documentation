@@ -114,7 +114,7 @@ The existing permissions for Secure Remote Access are as follows:
 * Upload Files: For RDP only. Allows a user to upload local files to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
 * Download Files: For RDP only. Allows a user to download files from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
 
-From Gateway `4.53.0` and later, SRA users can also track Secure Remote Access request lifecycle states from the portal **Access Requests** page.
+From Gateway `4.53.0` and later, SRA users can request access from the portal and approvers can process the request through the Event Center.
 
 ## Administrative Rules
 
