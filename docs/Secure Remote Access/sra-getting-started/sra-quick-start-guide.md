@@ -16,7 +16,7 @@ Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package 
 
 Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.
 
-> ℹ️ **Note (Security):**
+> ℹ️ **A Note on Security:**
 >
 > This guide was tested with Amazon EKS and is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
 
@@ -33,7 +33,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) | 8000 |
 | SSH Access                                                                       | 22   |
 
-> ℹ️ **Note (First things first):**
+> ℹ️ **First Things First:**
 >
 > Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/sra-quick-start-guide#remote-access-section) section.
 
