@@ -14,6 +14,8 @@ Use this page to transfer files securely through Akeyless Secure Remote Access (
 
 For current deployments, use `akeyless file upload` and `akeyless file download`, which are built into the Akeyless CLI.
 
+These commands use SFTP as the transfer protocol, replacing legacy SCP-style transfer flows for improved reliability and transfer performance.
+
 This page also includes legacy `akeyless-scp` guidance for existing automation that still depends on the script.
 
 ## Akeyless File Transfer
