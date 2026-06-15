@@ -218,7 +218,14 @@ Where:
 
 > ℹ️ **Note (Gateway 4.53.0+):**
 >
-> You can configure TokenReview rate limiting for Kubernetes authentication flows through Gateway-side Kubernetes auth configuration. For the current K8s auth config flags, see [CLI Reference - K8S Auth Method](https://docs.akeyless.io/docs/cli-reference-k8s-auth-method#gateway-create-k8s-auth-config).
+> You can configure TokenReview rate limiting for Gateway Kubernetes authentication by setting Gateway runtime environment variables:
+>
+> * `K8S_TOKEN_REVIEW_QPS`
+> * `K8S_TOKEN_REVIEW_BURST`
+>
+> If these variables are not set, Gateway uses the Kubernetes client-go defaults.
+>
+> Scope: This setting applies to `native_k8s` TokenReview flows.
 
 * `k8s-ca-cert`: The certificate to use to validate the Kubernetes cluster.
 
