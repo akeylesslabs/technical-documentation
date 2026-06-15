@@ -103,7 +103,7 @@ Follow the below commands:
    akeyless create-ssh-cert-issuer --name your-ssh-cert-issuer-name --signer-key-name MyRSAKey --allowed-users 'ubuntu' --ttl 300
    ```
 
-> ℹ️ **Note (SSH connection):**
+> ℹ️ **A Note on SSH Connections:**
 >
 > This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/sra-ssh-certificates).
 
