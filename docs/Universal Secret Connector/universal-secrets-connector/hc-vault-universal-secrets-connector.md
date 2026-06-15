@@ -165,7 +165,8 @@ More information and secret value can be viewed by selecting a specific secret, 
 
 Additional capabilities include:
 
-* When account-level secret versioning is enabled, the console can show version history for supported secrets.
+* Account-level secret versioning applies across Akeyless item types such as Static Secrets, Rotated Secrets, and Targets, and is not specific to HashiCorp integrations.
+* For USC-backed external secrets, the version details shown in the console can vary by provider and by the metadata and history returned by that provider.
 * For larger HashiCorp Vault structures, you can sync the contents of an entire folder by using the folder sync commands.
 
 _Note:_ The **KV Secrets Engine v1** is not supported. Please use **KV Secrets Engine v2** when working with the Vault Universal Secrets Connector.
