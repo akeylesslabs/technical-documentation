@@ -394,6 +394,54 @@ jobs:
         run: |
           mkdir -p .github/automation-reports
 
+      - name: Download link check artifacts
+        if: always()
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
+        with:
+          name: link-check-artifacts
+          path: .github/automation-reports/link-check-artifacts
+
+      - name: Download markdownlint artifacts
+        if: always()
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
+        with:
+          name: markdownlint-artifacts
+          path: .github/automation-reports/markdownlint-artifacts
+
+      - name: Download cspell artifacts
+        if: always()
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
+        with:
+          name: cspell-artifacts
+          path: .github/automation-reports/cspell-artifacts
+
+      - name: Download CLI path artifacts
+        if: always()
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
+        with:
+          name: cli-command-path-artifacts
+          path: .github/automation-reports/cli-command-path-artifacts
+
+      - name: Download ReadMe constraints artifacts
+        if: always()
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
+        with:
+          name: readme-docs-constraints-report
+          path: .github/automation-reports/readme-docs-constraints-report
+
+      - name: Download dependency monitor artifacts
+        if: always()
+        continue-on-error: true
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0
+        with:
+          name: dependency-monitor-report
+          path: .github/automation-reports/dependency-monitor-report
+
       - name: Build aggregated findings report
         id: aggregate
         env:
@@ -435,6 +483,16 @@ jobs:
         run: |
           set -e
 
+          read_report() {
+            local file_path="$1"
+            local fallback="$2"
+            if [ -f "$file_path" ]; then
+              cat "$file_path"
+            else
+              printf '%s' "$fallback"
+            fi
+          }
+
           LYCHEE_BROKEN="${LYCHEE_BROKEN:-0}"
           MARKDOWNLINT_VIOLATIONS="${MARKDOWNLINT_VIOLATIONS:-0}"
           CSPELL_ISSUE_COUNT="${CSPELL_ISSUE_COUNT:-0}"
@@ -445,8 +503,48 @@ jobs:
 
           FINDINGS_TOTAL=$((LYCHEE_BROKEN + MARKDOWNLINT_VIOLATIONS + CSPELL_ISSUE_COUNT + CLI_PATH_FAILURES + SECRET_SCAN_LEAKS + README_VIOLATIONS_TOTAL + DEP_FINDINGS))
 
+          LINK_CHECK_ALL=$(read_report \
+            ".github/automation-reports/link-check-artifacts/.github/lychee/lychee-out.md" \
+            "No link-check details artifact found.")
+          MARKDOWNLINT_ALL=$(read_report \
+            ".github/automation-reports/markdownlint-artifacts/.github/markdownlint/markdownlint-fix-out.txt" \
+            "No markdownlint details artifact found.")
+          CSPELL_ALL=$(read_report \
+            ".github/automation-reports/cspell-artifacts/.github/cspell/cspell-out.txt" \
+            "No cspell details artifact found.")
+          CLI_PATH_ALL=$(read_report \
+            ".github/automation-reports/cli-command-path-artifacts/.github/cli-command-paths/command-path-check.md" \
+            "No CLI command path details artifact found.")
+          README_CONSTRAINTS_ALL=$(read_report \
+            ".github/automation-reports/readme-docs-constraints-report/.github/automation-reports/readme-constraints-report.md" \
+            "No ReadMe constraints details artifact found.")
+          DEPENDENCY_ALL=$(read_report \
+            ".github/automation-reports/dependency-monitor-report/.github/dependency-monitor/dependency-monitor-report.md" \
+            "No dependency monitor details artifact found.")
+
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_OUTPUT"
           echo "findings_total=$FINDINGS_TOTAL" >> "$GITHUB_ENV"
+
+          {
+            echo "LINK_CHECK_ALL<<EOF"
+            echo "$LINK_CHECK_ALL"
+            echo "EOF"
+            echo "MARKDOWNLINT_ALL<<EOF"
+            echo "$MARKDOWNLINT_ALL"
+            echo "EOF"
+            echo "CSPELL_ALL<<EOF"
+            echo "$CSPELL_ALL"
+            echo "EOF"
+            echo "CLI_PATH_ALL<<EOF"
+            echo "$CLI_PATH_ALL"
+            echo "EOF"
+            echo "README_CONSTRAINTS_ALL<<EOF"
+            echo "$README_CONSTRAINTS_ALL"
+            echo "EOF"
+            echo "DEPENDENCY_ALL<<EOF"
+            echo "$DEPENDENCY_ALL"
+            echo "EOF"
+          } >> "$GITHUB_ENV"
 
           cat > .github/automation-reports/automated-workflow-fixes-summary.md <<EOF
           # Automated Workflow Fixes Summary
@@ -462,24 +560,30 @@ jobs:
           - ${LYCHEE_SUMMARY}
           - Commit: ${LYCHEE_COMMIT_URL}
 
+          ### All Link Check Findings
+          ${LINK_CHECK_ALL}
+
           ## Markdown Lint
           - ${MARKDOWNLINT_SUMMARY}
           - Violations: ${MARKDOWNLINT_VIOLATIONS}
           - Commit: ${MARKDOWNLINT_COMMIT_URL}
 
+          ### All Markdownlint Findings
+          ${MARKDOWNLINT_ALL}
+
           ## Spell Check
           - ${CSPELL_SUMMARY}
           - Commit: ${CSPELL_COMMIT_URL}
 
-          ### Top CSpell Findings
-          ${CSPELL_TOP5}
+          ### All CSpell Findings
+          ${CSPELL_ALL}
 
           ## CLI Command Path Check
           - ${CLI_PATH_SUMMARY}
           - Commit: ${CLI_PATH_COMMIT_URL}
 
-          ### Top CLI Command Path Findings
-          ${CLI_PATH_TOP5}
+          ### All CLI Command Path Findings
+          ${CLI_PATH_ALL}
 
           ## Secret Scan
           - ${SECRET_SCAN_SUMMARY}
@@ -488,6 +592,9 @@ jobs:
           - ${README_CONSTRAINTS_SUMMARY}
           - Violations: ${README_VIOLATIONS_TOTAL}
 
+          ### All ReadMe Constraint Findings
+          ${README_CONSTRAINTS_ALL}
+
           ## Dependency Change Monitor
           - ${DEP_SUMMARY}
           - Alert mode: ${DEP_ALERT_MODE}
@@ -495,8 +602,8 @@ jobs:
           - Dedupe label: ${DEP_DEDUPE_LABEL}
           - Jira issue: Created/updated when Jira write is enabled (see dependency-change-monitor logs)
 
-          ### Top Dependency Findings
-          ${DEP_TOP5}
+          ### All Dependency Findings
+          ${DEPENDENCY_ALL}
           EOF
 
       - name: Upload aggregated report artifact
@@ -579,15 +686,19 @@ jobs:
             --arg m2 "$MARKDOWNLINT_VIOLATIONS" \
             --arg s1 "$CSPELL_SUMMARY" \
             --arg s2 "$CSPELL_ISSUE_COUNT" \
-            --arg s3 "$CSPELL_TOP5" \
             --arg c1 "$CLI_PATH_SUMMARY" \
             --arg c2 "$CLI_PATH_FAILURES" \
-            --arg c3 "$CLI_PATH_TOP5" \
             --arg sec1 "$SECRET_SCAN_SUMMARY" \
             --arg sec2 "$SECRET_SCAN_LEAKS" \
             --arg sec3 "$SECRET_SCAN_RULES" \
             --arg rdme1 "$README_CONSTRAINTS_SUMMARY" \
             --arg rdme2 "$README_VIOLATIONS_TOTAL" \
+            --arg linkAll "$LINK_CHECK_ALL" \
+            --arg markdownAll "$MARKDOWNLINT_ALL" \
+            --arg cspellAll "$CSPELL_ALL" \
+            --arg cliAll "$CLI_PATH_ALL" \
+            --arg readmeAll "$README_CONSTRAINTS_ALL" \
+            --arg depAll "$DEPENDENCY_ALL" \
             --arg total "$FINDINGS_TOTAL" \
             'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
              def linkPara($label; $url):
@@ -614,21 +725,29 @@ jobs:
                  para("Link redirects: " + $l2),
                  para("Lychee summary: " + $l3),
                  para("Lychee broken links: " + $l3c),
+                 para("All link check findings:"),
+                 codeBlock($linkAll),
                  para("Markdown lint: " + $m1),
                  para("Markdown lint violations: " + $m2),
+                 para("All markdownlint findings:"),
+                 codeBlock($markdownAll),
                  para("CSpell summary: " + $s1),
                  para("CSpell issue count: " + $s2),
-                 para("Top CSpell findings:"),
-                 codeBlock($s3),
+                 para("All CSpell findings:"),
+                 codeBlock($cspellAll),
                  para("CLI command path summary: " + $c1),
                  para("CLI command path failures: " + $c2),
-                 para("Top CLI command path findings:"),
-                 codeBlock($c3),
+                 para("All CLI command path findings:"),
+                 codeBlock($cliAll),
                  para("Secret scan: " + $sec1),
                  para("Potential leaks found: " + $sec2),
                  (if ($sec3 != "" and $sec3 != "No leaks detected") then para("Rule breakdown: " + $sec3) else empty end),
                  para("ReadMe docs constraints: " + $rdme1),
                  para("ReadMe constraint violations: " + $rdme2),
+                 para("All ReadMe constraint findings:"),
+                 codeBlock($readmeAll),
+                 para("All dependency monitor findings:"),
+                 codeBlock($depAll),
                  para("This ticket was created automatically by GitHub Actions.")
                ]
              }')
