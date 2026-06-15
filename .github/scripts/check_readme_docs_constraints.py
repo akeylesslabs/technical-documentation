@@ -165,6 +165,19 @@ def changed_docs_markdown_files(changed_files: list[dict]) -> list[str]:
     return sorted(set(candidates))
 
 
+def changed_order_files(changed_files: list[dict]) -> list[Path]:
+    candidates: set[Path] = set()
+    for item in changed_files:
+        if item["status"] not in {"added", "modified", "renamed"}:
+            continue
+        filename = item["filename"]
+        if not filename.lower().endswith("/_order.yaml"):
+            continue
+        candidates.add(Path(filename))
+
+    return sorted(candidates)
+
+
 def split_front_matter(text: str) -> list[str] | None:
     lines = text.splitlines()
     if not lines:
@@ -335,6 +348,21 @@ def order_entry_target_exists(order_file: Path, entry: str) -> bool:
     return (base_dir / entry).exists() or (base_dir / f"{entry}.md").exists()
 
 
+def order_entry_targets_markdown_page(order_file: Path, entry: str) -> bool:
+    base_dir = order_file.parent
+    target_file = base_dir / f"{entry}.md"
+    if target_file.exists():
+        return True
+
+    # Case-insensitive fallback so this check behaves consistently on all OSes.
+    entry_lower = entry.lower()
+    for markdown_file in base_dir.glob("*.md"):
+        if markdown_file.stem.lower() == entry_lower:
+            return True
+
+    return False
+
+
 def collect_required_order_file_violations(roots: Iterable[str]) -> list[RequiredOrderFileViolation]:
     violations: list[RequiredOrderFileViolation] = []
 
@@ -390,6 +418,7 @@ def main() -> int:
 
     changed_files = load_changed_files(changed_files_json)
     changed_docs = changed_docs_markdown_files(changed_files)
+    changed_order = changed_order_files(changed_files)
 
     docs_files = collect_docs_files(docs_root)
     duplicate_groups = collect_duplicate_groups(docs_files)
@@ -405,7 +434,7 @@ def main() -> int:
     api_reference_suffix_violations = collect_api_reference_suffix_violations(Path("reference") / "Akeyless API")
     index_slug_violations = collect_index_slug_violations(changed_docs)
 
-    order_files_to_validate: set[Path] = set()
+    order_files_to_validate: set[Path] = set(changed_order)
 
     for filename in changed_docs:
         basename = Path(filename).name.lower()
@@ -455,6 +484,15 @@ def main() -> int:
         if order_errors:
             continue
         for entry in entries:
+            if order_entry_targets_markdown_page(order_file, entry) and entry != entry.lower():
+                navigation_violations.append(
+                    NavigationViolation(
+                        path=order_file.as_posix(),
+                        reason=(
+                            f"Navigation page entry '{entry}' must be lowercase for ReadMe compatibility"
+                        ),
+                    )
+                )
             if not order_entry_target_exists(order_file, entry):
                 navigation_violations.append(
                     NavigationViolation(
