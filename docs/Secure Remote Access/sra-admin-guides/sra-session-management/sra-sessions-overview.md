@@ -18,7 +18,7 @@ For CLI-driven monitoring and automation, use `list-sra-sessions` to query the s
 
 The Session Overview page displays detailed information for each session. The following key details are provided:
 
-* **Client Interface**: Indicates how the session was initiated. Options include: Web Portal - CLI, Web Portal - Web, CLI and Desktop Application)
+* **Client Interface**: Indicates how the session was initiated. Options include Portal CLI, Portal Web, and CLI.
 * **User**: The username of the individual who initiated the session.
 * **Gateway Name**: The name of the gateway through which the session is managed.
 * **Resource Type**: The type of resource accessed during the session. Examples include: SSH, RDP, databases, Kubernetes (K8s), and more.
