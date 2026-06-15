@@ -218,7 +218,7 @@ Where:
 
 > ℹ️ **Note (Gateway 4.53.0+):**
 >
-> You can configure TokenReview rate limiting for Kubernetes authentication flows. For the current CLI flags, see [CLI Reference - K8S Auth Method](https://docs.akeyless.io/docs/cli-reference-k8s-auth-method#gateway-create-k8s-auth-config).
+> You can configure TokenReview rate limiting for Kubernetes authentication flows through Gateway-side Kubernetes auth configuration. For the current K8s auth config flags, see [CLI Reference - K8S Auth Method](https://docs.akeyless.io/docs/cli-reference-k8s-auth-method#gateway-create-k8s-auth-config).
 
 * `k8s-ca-cert`: The certificate to use to validate the Kubernetes cluster.
 
