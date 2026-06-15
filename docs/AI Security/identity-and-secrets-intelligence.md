@@ -41,7 +41,11 @@ The current Inventory implementation exposes finding details for secret, identit
 
 The current Scanner implementation supports creating scanners, starting scans, stopping active scans, reviewing scan history, and navigating from a running scan directly to **Inventory**.
 
-Current early-access scanner coverage includes GCP Scanner support and AWS Scanner support for cloud identities.
+Current early-access scanner coverage includes:
+
+* **GCP Scanner** support, including enrichment of secret findings with last-access timestamps from Cloud Audit Logs when those logs are available in the scanned environment.
+* **GCP Scanner** identity resolution support for group-member identities.
+* **AWS Scanner** support for cloud identities, including scanner operation by way of AWS targets that use **Gateway Cloud Identity**.
 
 ## Operational Views
 
