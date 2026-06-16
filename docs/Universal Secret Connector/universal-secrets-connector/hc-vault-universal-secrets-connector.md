@@ -163,4 +163,32 @@ Once connected to a Target, you can access a Universal Secrets Connector in your
 
 More information and secret value can be viewed by selecting a specific secret, additionally, you will have the option to perform actions on the secret.
 
+Additional capabilities include:
+
+* Account-level secret versioning applies across Akeyless item types such as Static Secrets, Rotated Secrets, and Targets, and is not specific to HashiCorp integrations.
+* For USC-backed external secrets, the version details shown in the console can vary by provider and by the metadata and history returned by that provider.
+* For larger HashiCorp Vault structures, you can sync the contents of an entire folder by using the folder sync commands.
+
+### Sync Entire Folder Contents
+
+For HashiCorp Vault USC flows in Multi-Vault Governance (MVG), use folder-level sync commands to apply sync associations across all supported secrets in a folder path.
+
+Common commands:
+
+```shell
+akeyless folder sync --name </folder/path> --usc-name </usc-name>
+```
+
+```shell
+akeyless folder sync-all --name </folder/path>
+```
+
+```shell
+akeyless folder delete-sync --name </folder/path> --usc-name </usc-name>
+```
+
+For Vault-specific mapping, `folder sync` also supports `--namespace`.
+
+For full command flags and examples, see [CLI Reference - Universal Secrets Connector](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#folder-sync-commands).
+
 _Note:_ The **KV Secrets Engine v1** is not supported. Please use **KV Secrets Engine v2** when working with the Vault Universal Secrets Connector.
