@@ -29,22 +29,22 @@ This solution makes managing secrets in remote endpoints more efficient and cons
 
 ## Sync Entire Folder Contents
 
-For HashiCorp Vault USC integrations in Multi-Vault Governance (MVG), you can sync all supported secrets under a folder in one operation.
+You can sync all supported secrets under a folder in one operation.
 
-Use `folder-sync` to create sync associations for folder contents, and `folder-sync-all` to trigger sync for all folder associations:
+Use `folder sync` to create sync associations for folder contents, and `folder sync-all` to trigger sync for all folder associations:
 
 ```shell
-akeyless folder-sync --name </folder/path> --usc-name </usc-name>
+akeyless folder sync --name </folder/path> --usc-name </usc-name>
 ```
 
 ```shell
-akeyless folder-sync-all --name </folder/path>
+akeyless folder sync-all --name </folder/path>
 ```
 
-Use `folder-delete-sync` to remove folder-level associations:
+Use `folder delete-sync` to remove folder-level associations:
 
 ```shell
-akeyless folder-delete-sync --name </folder/path> --usc-name </usc-name>
+akeyless folder delete-sync --name </folder/path> --usc-name </usc-name>
 ```
 
 For complete flags and behavior details, see [CLI Reference - Universal Secrets Connector](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#folder-sync-commands).

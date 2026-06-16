@@ -132,16 +132,16 @@ akeyless usc create \
 
 ## Folder Sync Commands
 
-Use these commands to sync entire folder contents through Universal Secrets Connector (for example, HashiCorp Vault USC in MVG workflows).
+Use these commands to sync entire folder contents through Universal Secrets Connector.
 
-### `folder-sync`
+### `folder sync`
 
 Sync folder secrets by creating or updating sync associations for items in a folder.
 
 #### Usage
 
 ```shell
-akeyless folder-sync \
+akeyless folder sync \
 --name </folder/path> \
 --usc-name </usc-name>
 ```
@@ -158,14 +158,14 @@ akeyless folder-sync \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `folder-sync-all`
+### `folder sync-all`
 
 Trigger sync for all USC associations under a folder.
 
 #### Usage
 
 ```shell
-akeyless folder-sync-all --name </folder/path>
+akeyless folder sync-all --name </folder/path>
 ```
 
 #### Flags

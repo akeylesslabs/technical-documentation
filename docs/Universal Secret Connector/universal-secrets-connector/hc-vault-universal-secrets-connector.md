@@ -176,18 +176,18 @@ For HashiCorp Vault USC flows in Multi-Vault Governance (MVG), use folder-level 
 Common commands:
 
 ```shell
-akeyless folder-sync --name </folder/path> --usc-name </usc-name>
+akeyless folder sync --name </folder/path> --usc-name </usc-name>
 ```
 
 ```shell
-akeyless folder-sync-all --name </folder/path>
+akeyless folder sync-all --name </folder/path>
 ```
 
 ```shell
-akeyless folder-delete-sync --name </folder/path> --usc-name </usc-name>
+akeyless folder delete-sync --name </folder/path> --usc-name </usc-name>
 ```
 
-For Vault-specific mapping, `folder-sync` also supports `--namespace`.
+For Vault-specific mapping, `folder sync` also supports `--namespace`.
 
 For full command flags and examples, see [CLI Reference - Universal Secrets Connector](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#folder-sync-commands).
 
