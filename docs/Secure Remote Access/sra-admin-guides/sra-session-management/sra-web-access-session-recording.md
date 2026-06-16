@@ -33,7 +33,7 @@ For ongoing Secure Remote Access session behavior, manage web and SSH settings t
 
 ## Session Correlation
 
-ZTWA recordings, Session Overview entries, and Audit Log events are correlated by the same Secure Remote Access session identifier.
+ZTWA recordings use the same Secure Remote Access session identifier that appears in Session Overview and Audit Log entries.
 
 For supported ZTWA versions, this identifier is a 24-digit numeric session ID.
 

@@ -27,7 +27,7 @@ The Session Overview page displays detailed information for each session. The fo
 * **Status**: The current state of the session (For example, active, closed, or terminated).
 * **Duration**: The length of time the session has been active.
 
-For Zero Trust Web Access sessions, the same session ID is used in Session Overview, Audit Log entries, and recording artifacts.
+For Secure Remote Access sessions, the same session ID is used in Session Overview and Audit Log entries.
 
 ## Real-Time Updates
 
@@ -73,7 +73,7 @@ For API details, see [List SRA Sessions](https://docs.akeyless.io/reference/list
 
 Every session update is captured in the Audit Log, including the Secure Remote Access Session ID. This ensures that any changes (such as status updates or modifications) are recorded for compliance and troubleshooting purposes.
 
-For Zero Trust Web Access session events, user identity is recorded in `sra_unique_identifier`.
+For Secure Remote Access session events, user identity is recorded in `sra_unique_identifier`.
 
 ## Permissions
 

@@ -263,7 +263,7 @@ For supported ZTWA versions, recordings, Session Overview entries, and Audit Log
 
 #### Session visibility prerequisites
 
-If browser sessions work but Session Overview and Audit Log entries do not appear, verify the following:
+If browser sessions work but Session Overview and Audit Log entries do not appear, verify the following. These prerequisites are required for audit logs and session recording correlation:
 
 * Use a ZTWA version that includes session reporting (`v2.0.0-rc6` or later).
 * Ensure `clusterName` exactly matches the connected Akeyless Gateway cluster name.
