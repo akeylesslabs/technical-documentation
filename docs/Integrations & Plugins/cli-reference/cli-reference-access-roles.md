@@ -70,7 +70,7 @@ akeyless create-role --name <Role Name>
 
 `--isi-access`: Allow this role to access **Identity & Secrets Intelligence**. Currently only `none`, `scoped`, and `all` values are supported. For details, see [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence).
 
-`--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`own`', '`all`'.
+`--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`scoped`', '`all`'.
 
 `description`: Description of the object
 
@@ -212,7 +212,9 @@ akeyless reverse-rbac \
 
 `-p, --path`: **Required**, Path to an object
 
-`-t, --type`: **Required**, Type of object (`item`, `am`, `role`, `target`)
+`-t, --type`: **Required**, Type of object (`item`, `am`, `role`, `target`, `sra`, `ara`)
+
+Use `--type sra` to review Secure Remote Access rule access, and `--type ara` to review Agentic Runtime Authority rule access.
 
 ## `set-role-rule`
 
@@ -295,7 +297,7 @@ akeyless update-role -n <Role name> \
 
 `--isi-access`: Allow this role to access **Identity & Secrets Intelligence**. Currently only `none`, `scoped`, and `all` values are supported. For details, see [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence).
 
-`--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`own`', '`all`'.
+`--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`scoped`', '`all`'.
 
 `--description`: Description of the object
 
