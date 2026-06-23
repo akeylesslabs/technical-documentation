@@ -39,7 +39,7 @@ To set all authentication methods associated with a specific role access to all 
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --capability read --capability create --capability update
 ```
 
-To set the role with access for additional items type like **Targets**, **Auth Methods**, **Access Roles**, or **Secure Remote Access**, you can simply set the `rule-type` inside the command:
+To set the role with access for additional items type like **Targets**, **Auth Methods**, **Access Roles**, **Secure Remote Access&#x20;**&#x6F;r **Agentic Runtime Authority&#x20;**, you can simply set the `rule-type` inside the command:
 
 ```shell Targets
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type target-rule --capability read --capability create --capability update
@@ -114,10 +114,16 @@ The existing permissions for Secure Remote Access are as follows:
 - Request Access: Allows a user to request access and requires adding a reason for access. Once the request is sent, an admin or approver receives a notification in the Event Center to approve or deny. If approved, the user can then access the remote resource.
 - Justify Access Only: Allows a user to access a remote resource only after entering the reason for access.
 - Approval Authority: Allows a user to be part of the eligible approvers for Secure Remote Access Requests of the organization in the specified path. This option cannot be selected if “Request Access” is enabled.
-- Upload Files: For RDP only. Allows a user to upload local files to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
-- Download Files: For RDP only. Allows a user to download files from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
+- Upload Files: Allows a user to upload local files for example to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
+- Download Files: Allows a user to download files for example from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
 
-From Gateway `4.53.0` and later, SRA users can request access from the portal and approvers can process the request through the Event Center.
+From Gateway `4.53.0` and later, SRA users can request access from the portal and approvers can process the request through the Event Center.<br />
+
+### Permissions for Agentic Runtime Authority
+
+The existing permissions for Agentic Runtime Authority are as follows:
+
+- Allow Access: Allows an Agent access to login to a remote resource without exposing the secret value
 
 ## Administrative Rules
 
@@ -136,6 +142,8 @@ The following **Administrative Rules** can be set:
 - `Gateways`
 
 - `Secure Remote Access`
+
+- `Agentic Runtime Authority`
 
 - `Reverse RBAC`
 
