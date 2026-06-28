@@ -2,6 +2,7 @@
 - aws-targets
 - azure-targets
 - chef-infra-targets
+- claude-target
 - cloudflare-target
 - database-targets
 - digicert-target
