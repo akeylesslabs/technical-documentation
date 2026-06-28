@@ -75,6 +75,14 @@ akeyless target create google-trust \
 --dns-zone <Cloudflare DNS Zone>
 ```
 
+```shell
+akeyless target create google-trust \
+--name <Target Name> \
+--google-trust-url <production / staging> \
+--email <ACME Account Email> \
+--acme-challenge http
+```
+
 #### Key CLI flags
 
 - `name`: A unique name for the target. The name can include a path to a virtual folder by using slash `/` separators. If the folder does not exist, Akeyless creates it with the target.
@@ -87,7 +95,7 @@ akeyless target create google-trust \
 
 - `google-trust-url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
 
-- `acme-challenge`: Challenge type. Use `dns`.
+- `acme-challenge`: Challenge type. Either `dns` or `http`.
 
 - `dns-target-creds`: Use this when `--acme-challenge=dns`. This is required for DNS validation. Supported target types are AWS, Azure, GCP, and Cloudflare.
 
@@ -116,6 +124,8 @@ akeyless target create google-trust \
 4. Define the remaining parameters as follows:
 
 - **Email**: Email address used to register the ACME account.
+
+- **Challenge Type**: Either **DNS&#x20;**&#x20;or **HTTP.**
 
 - **URL**: Either [Production](https://dv.acme-v02.api.pki.goog/directory) or [Staging](https://dv.acme-v02.test-api.pki.goog/directory).
 
