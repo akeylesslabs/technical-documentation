@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-You can define a Custom DNS target for ACME challenges, supporting all DNS providers available through the Lego project.
+You can define a Custom DNS target for **ACME DNS-01** challenges, leveraging DNS providers supported by the [Lego project](https://go-acme.github.io/lego/dns/index.html).
 
 # Create a Custom DNS Target with the CLI
 
