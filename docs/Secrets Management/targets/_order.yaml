@@ -15,6 +15,7 @@
 - globalsign-target
 - godaddy-target
 - google-ca-target
+- grok-target
 - hashicorp-vault-target
 - kubernetes-targets
 - ldap-target
@@ -31,4 +32,3 @@
 - web-targets
 - windows-target
 - zerossl-target
-- grok-target
