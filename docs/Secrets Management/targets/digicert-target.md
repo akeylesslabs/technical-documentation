@@ -13,14 +13,14 @@ The DigiCert integration uses an [ACME Client (v2)](https://datatracker.ietf.org
 
 ## Before You Begin
 
-* Ensure an [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) is deployed and reachable.
-* Create a DNS provider target before creating the DigiCert target.
-* Confirm that the DNS target has permissions to manage TXT records in the relevant zone.
-* Collect DigiCert external account binding (EAB) values: `eab-key-id` and `eab-hmac-key`.
+- Ensure an [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) is deployed and reachable.
+- Create a DNS provider target before creating the DigiCert target.
+- Confirm that the DNS target has permissions to manage TXT records in the relevant zone.
+- Collect DigiCert external account binding (EAB) values: `eab-key-id` and `eab-hmac-key`.
 
 ## Validation Method
 
-DigiCert public CA integration in Akeyless uses DNS challenge (`dns`) for domain ownership validation.
+DigiCert public CA integration in Akeyless uses DNS and HTTP challenge for domain ownership validation.
 
 ## Configure the DigiCert Target
 
@@ -75,21 +75,31 @@ akeyless target create digicert \
 --dns-zone <Cloudflare DNS Zone>
 ```
 
+#### http challenge example
+
+```shell
+akeyless target create digicert \
+--name <Target Name> \
+--digicert-url <us-production / eu-production / us-demo / eu-demo> \
+--email <ACME Account Email> \
+--acme-challenge http
+```
+
 #### Key CLI flags
 
-* `name`: A unique name for the target. The name can include a path to a virtual folder by using slash `/` separators. If the folder does not exist, Akeyless creates it with the target.
-* `digicert-url`: DigiCert ACME environment selector. Supported values are `us-production`, `eu-production`, `us-demo`, and `eu-demo`.
-* `email`: Email address used for ACME account registration.
-* `eab-key-id`: External account binding key ID from DigiCert.
-* `eab-hmac-key`: External account binding HMAC key from DigiCert.
-* `acme-challenge`: Challenge type. Use `dns`.
-* `dns-target-creds`: Name of the DNS provider target. Supported target types are AWS, Azure, GCP, and Cloudflare.
-* `dns-zone`: Use this when `--dns-target-creds` points to a Cloudflare target.
-* `hosted-zone`: Use this when `--dns-target-creds` points to an AWS target.
-* `resource-group`: Use this when `--dns-target-creds` points to an Azure target.
-* `gcp-project`: Use this when `--dns-target-creds` points to a GCP target and the project ID cannot be derived automatically.
-* `timeout`: Challenge validation timeout. Default is `5m`. Supported range is `1m` to `1h`.
-* `key`: Protection key used to encrypt target secret values.
+- `name`: A unique name for the target. The name can include a path to a virtual folder by using slash `/` separators. If the folder does not exist, Akeyless creates it with the target.
+- `digicert-url`: DigiCert ACME environment selector. Supported values are `us-production`, `eu-production`, `us-demo`, and `eu-demo`.
+- `email`: Email address used for ACME account registration.
+- `eab-key-id`: External account binding key ID from DigiCert.
+- `eab-hmac-key`: External account binding HMAC key from DigiCert.
+- `acme-challenge`: Challenge type. Either `dns` or `http`.&#x20;
+- `dns-target-creds`: Name of the DNS provider target. Supported target types are AWS, Azure, GCP, and Cloudflare.
+- `dns-zone`: Use this when `--dns-target-creds` points to a Cloudflare target.
+- `hosted-zone`: Use this when `--dns-target-creds` points to an AWS target.
+- `resource-group`: Use this when `--dns-target-creds` points to an Azure target.
+- `gcp-project`: Use this when `--dns-target-creds` points to a GCP target and the project ID cannot be derived automatically.
+- `timeout`: Challenge validation timeout. Default is `5m`. Supported range is `1m` to `1h`.
+- `key`: Protection key used to encrypt target secret values.
 
 [View the complete list of target command parameters.](https://docs.akeyless.io/docs/cli-ref-targets)
 
@@ -100,16 +110,25 @@ akeyless target create digicert \
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge, and click **Next**. [Read more about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 4. Define the remaining parameters:
 
-* **Environment**: **US Production**, **EU Production**, **US Demo**, or **EU Demo**.
-* **Email**: Email address used to register the ACME account.
-* **EAB Key ID** and **EAB HMAC Key**: DigiCert external account binding values.
-* **DNS Provider**: **AWS**, **GCP**, **Azure**, or **Cloudflare**.
-* **Target**: DNS provider target that holds credentials.
-* **Hosted Zone**: Route 53 hosted zone identifier (AWS).
-* **Resource Group**: Azure DNS resource group name (Azure).
-* **GCP Project**: Optional GCP Cloud DNS project ID (GCP).
+- **Environment**: **US Production**, **EU Production**, **US Demo**, or **EU Demo**.
 
-* **DNS Zone**: Cloudflare DNS zone name (Cloudflare).
+- **Email**: Email address used to register the ACME account.
+
+- **Challenge Type**: Either **DNS&#x20;**&#x20;or **HTTP.**
+
+- **EAB Key ID** and **EAB HMAC Key**: DigiCert external account binding values.
+
+- **DNS Provider**: **AWS**, **GCP**, **Azure**, or **Cloudflare**.
+
+- **Target**: DNS provider target that holds credentials.
+
+- **Hosted Zone**: Route 53 hosted zone identifier (AWS).
+
+- **Resource Group**: Azure DNS resource group name (Azure).
+
+- **GCP Project**: Optional GCP Cloud DNS project ID (GCP).
+
+- **DNS Zone**: Cloudflare DNS zone name (Cloudflare).
 
 1. Click **Finish**.
 
@@ -142,33 +161,37 @@ akeyless target create gcp \
 
 When using `dns` challenge validation, the target referenced by `dns-target-creds` must have permission to create and update ACME TXT records in the relevant DNS zone.
 
-* **AWS Route 53**
-    * **Required for DNS-01 record changes**: `route53:ChangeResourceRecordSets` on the target hosted zone.
-    * **Common read permissions**: `route53:GetHostedZone`, `route53:ListHostedZonesByName`, and `route53:ListResourceRecordSets`.
-    * Reference: [Actions, resources, and condition keys for Amazon Route 53](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html) and [Permissions required to use the Route 53 API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/r53-api-permissions-ref.html)
+- **AWS Route 53**
+  - **Required for DNS-01 record changes**: `route53:ChangeResourceRecordSets` on the target hosted zone.
+  - **Common read permissions**: `route53:GetHostedZone`, `route53:ListHostedZonesByName`, and `route53:ListResourceRecordSets`.
+  - Reference: [Actions, resources, and condition keys for Amazon Route 53](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html) and [Permissions required to use the Route 53 API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/r53-api-permissions-ref.html)
 
-* **GCP Cloud DNS**
-    * **Required for DNS-01 record changes**: `dns.changes.create` and relevant record set permissions.
-    * **Common read permissions**: `dns.managedZones.get`, `dns.managedZones.list`, `dns.resourceRecordSets.get`, and `dns.resourceRecordSets.list`.
-    * Reference: [Access control with IAM](https://docs.cloud.google.com/dns/docs/access-control)
+- **GCP Cloud DNS**
+  - **Required for DNS-01 record changes**: `dns.changes.create` and relevant record set permissions.
+  - **Common read permissions**: `dns.managedZones.get`, `dns.managedZones.list`, `dns.resourceRecordSets.get`, and `dns.resourceRecordSets.list`.
+  - Reference: [Access control with IAM](https://docs.cloud.google.com/dns/docs/access-control)
 
-* **Azure DNS**
-    * **Recommended built-in role**: **DNS Zone Contributor** at the DNS zone scope.
-    * Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
+- **Azure DNS**
+  - **Recommended built-in role**: **DNS Zone Contributor** at the DNS zone scope.
+  - Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
 
 ## Troubleshoot DNS Challenge Flows
 
 If certificate issuance fails during DNS challenge validation, validate the following:
 
-* The `dns-target-creds` target exists and is configured for the expected provider.
-* The provider-specific parameter is set correctly:
-    * AWS: `hosted-zone`
-    * Azure: `resource-group`
-    * GCP: `gcp-project` (when project ID cannot be derived automatically)
-    * Cloudflare: `dns-zone`
-* The requested domain is hosted in the DNS zone managed by the provider target.
-* The Gateway has network access to provider DNS APIs.
+- The `dns-target-creds` target exists and is configured for the expected provider.
+- The provider-specific parameter is set correctly:
+  - AWS: `hosted-zone`
+  - Azure: `resource-group`
+  - GCP: `gcp-project` (when project ID cannot be derived automatically)
+  - Cloudflare: `dns-zone`
+- The requested domain is hosted in the DNS zone managed by the provider target.
+- The Gateway has network access to provider DNS APIs.
 
-> ℹ️ **Note (Least Privilege):**
->
-> Scope permissions to only the DNS zones and record operations required for certificate validation.
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Least Privilege):**
+
+  Scope permissions to only the DNS zones and record operations required for certificate validation.
+</Callout>
+
+<br />
