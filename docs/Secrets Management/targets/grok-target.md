@@ -15,7 +15,8 @@ To create a Grok target with the CLI, run the following command:
 akeyless target create grok \
 --name <target name> \
 --api-key <Grok API key> \
---grok-url <Grok API base URL> \
+--grok-url[=https://api.x.ai] <Grok API base URL> \
+--team-id <Team-ID>
 --key <protection key>
 ```
 
@@ -25,7 +26,7 @@ Where:
 
 `api-key`: The Grok API Key.
 
-`grok-url`: The Grok API base URL. Default: [https://api.anthropic.com](https://api.anthropic.com "https://api.anthropic.com")
+`grok-url`: The Grok API base URL. Default: [https://api.x.ai](https://api.x.ai)
 
 `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
@@ -37,6 +38,7 @@ Where:
    For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 4. Define the remaining parameters as follows:
    - **API Key**: The Grok API Key.
-   - **Grok URL**: The endpoint for the Grok API. Default: [https://api.anthropic.com](https://api.anthropic.com "https://api.anthropic.com")
+   - **Grok URL**: The endpoint for the Grok API. Default: [https://api.x.ai](https://api.x.ai)
+   - **Team-ID:&#x20;**&#x54;h&#x65;**&#x20;**&#x49;D of the team this API key belongs to.
 
 <br />
