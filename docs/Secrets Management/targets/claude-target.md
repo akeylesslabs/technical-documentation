@@ -21,13 +21,10 @@ akeyless target create claude \
 
 Where:
 
-`name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
-
-`api-key`: The Claude API Key.
-
-`claude-url`: The Claude API base URL. Default: [https://api.anthropic.com](https://api.anthropic.com "https://api.anthropic.com")
-
-`key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
+- `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+- `api-key`: The Claude API Key.
+- `claude-url`: The Claude API base URL. Default: [https://api.anthropic.com](https://api.anthropic.com "https://api.anthropic.com")
+- `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
 # Create a Claude Target in the Console
 
