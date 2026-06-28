@@ -21,13 +21,10 @@ akeyless target create okta \
 
 Where:
 
-`name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
-
-`api-token`: The Okta API token.
-
-`url`: The URL of your Okta account.
-
-`key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
+- `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+- `api-token`: The Okta API token.
+- `url`: The URL of your Okta account.
+- `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
 # Create a Okta Target in the Console
 
