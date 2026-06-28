@@ -37,6 +37,6 @@ Where:
    For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 4. Define the remaining parameters as follows:
    - **API Token**: The Okta API Token.
-   - **Okta URL**: Your Okta URL.&#x20;
+   - **Okta URL**: The URL of your Okta account.
 
 <br />
