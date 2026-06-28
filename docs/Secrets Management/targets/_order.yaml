@@ -34,3 +34,4 @@
 - windows-target
 - zerossl-target
 - keycloak-target
+- custom-dns-target
