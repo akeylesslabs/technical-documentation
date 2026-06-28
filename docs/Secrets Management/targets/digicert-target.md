@@ -20,7 +20,7 @@ The DigiCert integration uses an [ACME Client (v2)](https://datatracker.ietf.org
 
 ## Validation Method
 
-DigiCert public CA integration in Akeyless uses DNS and HTTP challenge for domain ownership validation.
+DigiCert public CA integration in Akeyless uses **DNS** and **HTTP** challenge for domain ownership validation.
 
 ## Configure the DigiCert Target
 
