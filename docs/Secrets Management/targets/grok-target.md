@@ -22,13 +22,10 @@ akeyless target create grok \
 
 Where:
 
-`name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
-
-`api-key`: The Grok API Key.
-
-`grok-url`: The Grok API base URL. Default: [https://api.x.ai](https://api.x.ai)
-
-`key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
+- `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+- `api-key`: The Grok API Key.
+- `grok-url`: The Grok API base URL. Default: [https://api.x.ai](https://api.x.ai)
+- `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
 # Create a Grok Target in the Console
 
