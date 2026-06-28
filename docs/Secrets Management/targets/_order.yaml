@@ -4,6 +4,7 @@
 - chef-infra-targets
 - claude-target
 - cloudflare-target
+- custom-dns-target
 - database-targets
 - digicert-target
 - docker-hub-target
@@ -34,4 +35,3 @@
 - windows-target
 - zerossl-target
 - keycloak-target
-- custom-dns-target
