@@ -6,7 +6,7 @@ metadata:
   robots: index
 ---
 <br />
-````md
+
 # Upcoming breaking changes for Akeyless Gateway v5.0.0
 
 The next Akeyless Gateway major version, v5.0.0, introduces changes to Gateway logs, metrics, and runtime architecture. This is the first step toward a more lightweight, secure, and higher-performing Gateway.
@@ -93,5 +93,5 @@ If you currently rely on Gateway-managed forwarding to OTel, Splunk Forwarder, L
 - Legacy telemetry documentation: <ADD_LINK>
 
 For questions or feedback, contact Akeyless Support or your Akeyless representative.
-````
+
 </br>
