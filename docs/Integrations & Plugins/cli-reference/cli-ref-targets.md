@@ -2594,6 +2594,30 @@ akeyless target update linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+#### `okta`
+
+Updates an existing Okta target in the current account
+
+##### Usage
+
+```shell
+akeyless target update okta \
+--name <Target name> \
+--new-name <New target name> \
+--api-token <Okta API token> \
+--url <Okta URL>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`api-token`: The Okta API token.
+
+`url`: The URL of your Okta account.
+
 #### `openai`
 
 Updates an existing OpenAI target in the current account
