@@ -30,7 +30,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## Create a Claude Target in the Console
 
-1. Log in to the Akeyless Console, and go to **Targets** > **New** > **AI (Claude)**.
+1. Log in to the Akeyless Console, and go to **Targets** > **New** > **AI (Claude)**.&#x20;
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
    For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
