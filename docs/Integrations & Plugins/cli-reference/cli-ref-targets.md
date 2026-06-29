@@ -110,6 +110,8 @@ Create a new Target
 
 `godaddy`
 
+`grok`
+
 `hashi-vault`
 
 `k8s`
@@ -831,6 +833,30 @@ akeyless target create godaddy \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+### `grok`
+
+Creates a new Grok target
+
+#### Usage
+
+```shell
+akeyless target create grok \
+--name <Target name> \
+--api-key <Grok API key> \
+--grok-url[=https://api.x.ai] <Grok API base URL> \
+--team-id <team ID> 
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`api-key`: The Grok API key
+
+`grok-url`: The Grok API base URL. Default: [https://api.x.ai](https://api.x.ai)
+
+`team-id`: The ID of the team this API key belongs to.
 
 ### `hashi-vault`
 
