@@ -18,6 +18,7 @@
 - google-ca-target
 - grok-target
 - hashicorp-vault-target
+- keycloak-target
 - kubernetes-targets
 - ldap-target
 - lets-encrypt
@@ -34,4 +35,3 @@
 - web-targets
 - windows-target
 - zerossl-target
-- keycloak-target
