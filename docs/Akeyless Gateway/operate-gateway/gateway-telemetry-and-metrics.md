@@ -13,28 +13,25 @@ next:
 
 Akeyless Gateway telemetry metrics provide time-series data about the Gateway application and runtime environment. You can use these metrics to build dashboards, configure alerts, and monitor Gateway health, usage, traffic, and resource utilization.
 
-Starting from Akeyless Gateway v5.0.0, Gateway metrics are exposed through a dedicated metrics endpoint:
-
-```text
-https://<Your-Gateway-URL>:8000/metrics
-```
+Starting from Akeyless Gateway v5.0.0, Gateway metrics are exposed through a dedicated metrics endpoint: `https://<Your-Gateway-URL>:8000/metrics`
 
 The endpoint can be scraped by monitoring and alerting tools such as Prometheus and Datadog.
 
 <Callout icon="📘" theme="info">
   ### New telemetry endpoint
 
-Starting from Akeyless Gateway v5.0.0, the legacy metrics solution is deprecated. Gateway metrics are now exposed through the `/metrics` endpoint on port `8000` and can be collected by external monitoring solutions. </Callout>
+  Starting from Akeyless Gateway v5.0.0, the legacy metrics solution is deprecated. Gateway metrics are now exposed through the `/metrics` endpoint on port `8000` and can be collected by external monitoring solutions.
+</Callout>
 
 ## Before You Begin
 
 Make sure that:
 
-* Gateway v5.0.0 or later is installed.
-* Metrics are enabled on the Gateway.
-* Your monitoring system can access the Gateway metrics endpoint.
-* Port `8000` is reachable from your monitoring system.
-* The correct HTTP or HTTPS scheme is used based on your Gateway deployment.
+- Gateway v5.0.0 or later is installed.
+- Metrics are enabled on the Gateway.
+- Your monitoring system can access the Gateway metrics endpoint.
+- Port `8000` is reachable from your monitoring system.
+- The correct `HTTP` or `HTTPS` scheme is used based on your Gateway deployment.
 
 ## Available Metrics
 
@@ -57,8 +54,8 @@ The following metric families are currently available:
 
 To monitor Gateway API traffic, use the following metrics together:
 
-* `akeyless_gw_system_request_count`
-* `akeyless_gw_system_http_response_status_code`
+- `akeyless_gw_system_request_count`
+- `akeyless_gw_system_http_response_status_code`
 
 The `akeyless_gw_system_network_*` metric family includes network interface and TCP connection behavior.
 
@@ -66,8 +63,8 @@ The `akeyless_gw_system_network_*` metric family includes network interface and 
 
 The following metrics report numeric status values:
 
-* `akeyless_gw_system_healthcheck_status`
-* `akeyless_gw_system_saas_connection_status`
+- `akeyless_gw_system_healthcheck_status`
+- `akeyless_gw_system_saas_connection_status`
 
 Use the following values when building dashboards and alerts:
 
@@ -89,19 +86,11 @@ These metrics are reported per Gateway pod. They are not replica counters.
 
 When Gateway replicas are scaled down, removed pods stop exposing metrics. As a result, their time series may become stale in the monitoring system.
 
-For example, if you scale from two replicas to one replica, the remaining healthy pod continues to report:
-
-```text
-akeyless_gw_system_healthcheck_status = 1
-```
+For example, if you scale from two replicas to one replica, the remaining healthy pod continues to report: `akeyless_gw_system_healthcheck_status = 1`
 
 This does not mean the metric is stuck. It means the removed pod no longer exposes metrics.
 
-To alert on replica availability, use Kubernetes metrics such as:
-
-```text
-kube_deployment_status_replicas_available
-```
+To alert on replica availability, use Kubernetes metrics such as: `kube_deployment_status_replicas_available`
 
 ## HTTP Response Metric Behavior
 
@@ -111,7 +100,7 @@ When using Prometheus, use `rate()` or `increase()` for alerts and dashboard cal
 
 Example:
 
-```promql
+```shell PromQL
 sum by (status_code) (
   rate(akeyless_gw_system_http_response_status_code[5m])
 )
@@ -129,11 +118,7 @@ docker run -d -p 8000:8000 -p 5696:5696 \
   --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-After the container starts, metrics are available at:
-
-```text
-https://<Your-Gateway-URL>:8000/metrics
-```
+After the container starts, metrics are available at: `https://<Your-Gateway-URL>:8000/metrics`
 
 Use `http` instead of `https` if your Gateway endpoint is not configured with TLS.
 
@@ -177,21 +162,13 @@ To use the dashboard:
 3. Go to **Dashboards**.
 4. Open the **Akeyless GW** dashboard.
 
-You can also use **Metrics Explorer** and filter by:
-
-```text
-akeyless_gw
-```
+You can also use **Metrics Explorer** and filter by: `akeyless_gw`
 
 ## Grafana Dashboard
 
 You can visualize Akeyless Gateway metrics in Grafana when using Prometheus as a data source.
 
 Import the Akeyless Gateway dashboard from Grafana:
-
-```text
-Grafana dashboard ID: 16927
-```
 
 ![A sample screenshot of a Grafana dashboard showing Gateway metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
 
@@ -215,8 +192,8 @@ For Datadog mapping details, see [Datadog OpenTelemetry semantic mapping](https:
 
 ## Related Pages
 
-* [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
-* [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
-* [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
+- [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
+- [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
+- [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
 
 <br />
