@@ -440,7 +440,7 @@ akeyless target create digicert \
 
 `--digicert-url[=us-production]`: DigiCert ACME endpoint selector. Options: \[`us-production`/`eu-production`/`us-demo`/`eu-demo`]
 
-`--acme-challenge[=dns]`: ACME challenge type. Options: \[`dns`]
+`--acme-challenge[=dns]`: ACME challenge type. Options: \[`dns | http`]
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
@@ -677,7 +677,7 @@ akeyless target create google-trust \
 
 `--google-trust-url[=production]`: Google Trust directory environment. Options: \[`production`/`staging`]
 
-`--acme-challenge[=dns]`: ACME challenge type. Options: \[`dns`]
+`--acme-challenge[=dns]`: ACME challenge type. Options: \[`dns | http`]
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
