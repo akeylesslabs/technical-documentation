@@ -30,7 +30,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/v1.0_GW_5.0.0/docs/cli-ref-targets#grok) section.
 
-## Create a Grok Target in the Console
+## Create a Grok Target in the Console&#x20;
 
 1. Log in to the Akeyless Console, and go to **Targets** > **New** > **AI (Grok)**.
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
