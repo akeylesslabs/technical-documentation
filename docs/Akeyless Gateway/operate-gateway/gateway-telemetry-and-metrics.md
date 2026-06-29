@@ -107,7 +107,7 @@ Import the Akeyless GW dashboard using [Grafana dashboard 16927](https://grafana
 
 ![A sample screenshot of a Grafana dashboard showing metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
 
-## Telemetry Config on Kubernetes
+## Kubernetes setup
 
 On Kubernetes, set the `globalConfig.metrics.enabled` with `true` :
 
