@@ -7,11 +7,12 @@ metadata:
 ---
 <br />
 
-<Callout icon="⚠️" theme="warning"> ### Legacy telemetry is deprecated in Gateway v5.0.0 and later
+<Callout icon="⚠️" theme="warning">
+  ### Legacy telemetry is deprecated in Gateway v5.0.0 and later
 
-Starting from Akeyless Gateway v5.0.0, this legacy telemetry flow is deprecated. For Gateway v5.0.0 and later, use the new telemetry metrics endpoint at /metrics on port 8000.
+  Starting from Akeyless Gateway `v5.0.0`, this legacy telemetry flow is deprecated. For Gateway `v5.0.0` and later, use the new telemetry metrics endpoint at `/metrics` on port `8000`.
 
-For the updated setup instructions, see Gateway Telemetry Metrics.
+  For the updated setup instructions, see [Telemetry and Metrics](doc:gateway-telemetry-and-metrics)
 </Callout>
 
 Akeyless Gateway telemetry metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** and **Prometheus**. You can find a full list of supported exporters on the [OpenTelemetry Collector Contrib exporter page](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
