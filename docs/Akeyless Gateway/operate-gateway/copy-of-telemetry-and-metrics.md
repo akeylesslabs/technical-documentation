@@ -1,7 +1,7 @@
 ---
 title: Copy of Telemetry and Metrics
 excerpt: For Docker Environment
-deprecated: false
+deprecated: true
 hidden: true
 metadata:
   robots: index
