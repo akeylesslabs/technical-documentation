@@ -110,8 +110,6 @@ Create a new Target
 
 `godaddy`
 
-`grok`
-
 `hashi-vault`
 
 `k8s`
@@ -249,7 +247,7 @@ akeyless target create azure \
 `--description`: Target description
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Claude`&#x20;
+### `claude`&#x20;
 
 Creates a new Azure target in the current account
 
@@ -833,30 +831,6 @@ akeyless target create godaddy \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
-
-### `grok`
-
-Creates a new Grok target
-
-#### Usage
-
-```shell
-akeyless target create grok \
---name <Target name> \
---api-key <Grok API Key> \
---grok-url[=https://api.x.ai] <Grok API base URL> \
---team-id <team ID>
-```
-
-##### Flags
-
-`-n, --name`: **Required**, Target name
-
-`api-key`: **Required**, The Grok API key.
-
-`grok-url`: The Grok API base URL. Default: [https://api.x.ai](https://api.x.ai)
-
-`team-id`: The ID of the team this API key belongs to.
 
 ### `hashi-vault`
 
@@ -1709,29 +1683,6 @@ akeyless target update azure \
 
 `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
-#### `Claude`&#x20;
-
-Updates an existing Claude target in the current account
-
-##### Usage
-
-```shell
-akeyless target create claude \
---name <Target name> \
---api-key <Claude API Key> \
---claude-url[=https://api.anthropic.com] <Claude API base URL>
-```
-
-##### Flags
-
-`-n, --name`: **Required**, Target name
-
-`--new-name`: New target name
-
-`--api-key`: Required, Claude API Key
-
-`--claude-url`: Claude API base URL
-
 #### `cloudflare`
 
 Updates an existing Cloudflare target in the current account
@@ -2331,33 +2282,6 @@ akeyless target update godaddy \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
-
-#### `grok`
-
-Creates a new Grok target
-
-##### Usage
-
-```shell
-akeyless target update grok \
---name <Target name> \
---new-name <New target name> \
---api-key <Grok API key> \
---grok-url <Grok API base URL> \
---team-id <team ID> \
-```
-
-##### Flags
-
-`-n, --name`: **Required**, Target name
-
-`--new-name`: New target name
-
-`api-key`: The Grok API key.
-
-`grok-url`: The Grok API base URL. Default: [https://api.x.ai](https://api.x.ai)
-
-`team-id`: The ID of the team this API key belongs to.
 
 #### `hashi-vault`
 
