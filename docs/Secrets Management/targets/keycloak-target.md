@@ -22,6 +22,7 @@ akeyless target create keycloak \
 ```
 
 Where:
+
 - `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 - `url`: The base URL of your Keycloak server.
 - `realm`: The Keycloak realm to connect to.
@@ -29,7 +30,7 @@ Where:
 - `client-secret`: The secret associated with the Keycloak client's service account.
 - `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
-You can find the complete list of parameters for this command in the CLI Reference - Akeyless Targets section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets]() section.
 
 ## Create a Keycloak Target in the Console
 
@@ -42,3 +43,5 @@ You can find the complete list of parameters for this command in the CLI Referen
    - **Realm**: The Keycloak realm to connect to.
    - **Client ID**: The ID of the Keycloak client configured for service account authentication.
    - **Client Secret**: The secret associated with the Keycloak client's service account.
+
+<br />
