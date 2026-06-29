@@ -14,9 +14,10 @@ To create a Keycloak target with the CLI, run the following command:
 ```shell
 akeyless target create okta \
 --name <target name> \
---realm <Keycloak realm>
---client-id <Keycloak client ID>
---client-secret <Keycloak client secret>
+--url <Keycloak URL> \
+--realm <Keycloak realm> \
+--client-id <Keycloak client ID> \
+--client-secret <Keycloak client secret> 
 ```
 
 Where:
