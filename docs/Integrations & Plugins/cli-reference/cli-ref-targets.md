@@ -122,6 +122,8 @@ Create a new Target
 
 `linked`
 
+`okta`
+
 `openai`
 
 `ping`
@@ -1043,6 +1045,27 @@ akeyless target create linked \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+### `okta`
+
+Creates a new Okta target in the current account
+
+#### Usage
+
+```shell
+akeyless target create okta \
+--name <Target name> \
+--api-token <Okta API token> \
+--url <Okta URL> \
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`api-token`: The Okta API token
+
+`url`: The URL of your Okta account
 
 ### `openai`
 
