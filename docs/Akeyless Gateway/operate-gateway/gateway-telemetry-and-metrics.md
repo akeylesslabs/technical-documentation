@@ -213,7 +213,7 @@ You can also use **Metrics Explorer** and filter by: `akeyless_gw`
 
 You can visualize Akeyless Gateway metrics in Grafana when using Prometheus as a data source.
 
-Import the Akeyless Gateway dashboard from Grafana:
+Import the Akeyless Gateway dashboard from Grafana: [Grafana dashboard 16927](https://grafana.com/grafana/dashboards/16927).
 
 ![A sample screenshot of a Grafana dashboard showing Gateway metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
 
