@@ -2290,7 +2290,7 @@ akeyless target update globalsign-atlas \
 
 #### `godaddy`
 
-Creates a new GoDaddy target
+Updates an existing GoDaddy target in the current account
 
 ##### Usage
 
@@ -2332,6 +2332,33 @@ akeyless target update godaddy \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+#### `grok`
+
+Updates an existing Grok target in the current account
+
+##### Usage
+
+```shell
+akeyless target update grok \
+--name <Target name> \
+--new-name <New target name> \
+--api-key <Grok API key> \
+--grok-url[=https://api.x.ai] <Grok API base URL> \
+--team-id <team ID> 
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`api-key`: The Grok API key&#x20;
+
+`grok-url`: The Grok API base URL. Default: [https://api.x.ai](https://api.x.ai)
+
+`team-id`: The ID of the team this API key belongs to
 
 #### `hashi-vault`
 
