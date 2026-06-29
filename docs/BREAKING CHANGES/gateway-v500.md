@@ -5,6 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
+<br />
 ````md
 # Upcoming breaking changes for Akeyless Gateway v5.0.0
 
@@ -93,3 +94,4 @@ If you currently rely on Gateway-managed forwarding to OTel, Splunk Forwarder, L
 
 For questions or feedback, contact Akeyless Support or your Akeyless representative.
 ````
+</br>
