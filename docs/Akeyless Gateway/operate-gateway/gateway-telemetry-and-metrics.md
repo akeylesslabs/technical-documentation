@@ -13,18 +13,15 @@ next:
 
 Akeyless Gateway telemetry metrics provide time-series data about the Gateway application and runtime environment. You can use these metrics to build dashboards, configure alerts, and monitor Gateway health, resource usage, API traffic, SaaS connectivity, and account quota usage.
 
-Starting from Akeyless Gateway v5.0.0, Gateway metrics are exposed through a dedicated metrics endpoint:
-
-```text
-https://<Your-Gateway-URL>:8000/metrics
-```
+Starting from Akeyless Gateway v5.0.0, Gateway metrics are exposed through a dedicated metrics endpoint: `https://<Your-Gateway-URL>:8000/metrics`
 
 The endpoint can be scraped or collected by monitoring and alerting solutions such as Prometheus and Datadog.
 
 <Callout icon="📘" theme="info">
   ### New telemetry endpoint
 
-Starting from Akeyless Gateway v5.0.0, the legacy metrics solution is deprecated. Gateway metrics are now exposed through the `/metrics` endpoint on port `8000` and can be collected by external monitoring solutions. </Callout>
+  Starting from Akeyless Gateway v5.0.0, the legacy metrics solution is deprecated. Gateway metrics are now exposed through the `/metrics` endpoint on port `8000` and can be collected by external monitoring solutions.
+</Callout>
 
 ## Overview
 
@@ -32,12 +29,12 @@ Gateway telemetry metrics help you monitor the operational status of your Gatewa
 
 You can use these metrics to track:
 
-* Gateway pod health
-* Connectivity to Akeyless SaaS backend services
-* Gateway API traffic
-* HTTP response status codes
-* Account quota usage
-* CPU, memory, disk, load, and network utilization
+- Gateway pod health
+- Connectivity to Akeyless SaaS backend services
+- Gateway API traffic
+- HTTP response status codes
+- Account quota usage
+- CPU, memory, disk, load, and network utilization
 
 ## Collection Model
 
@@ -51,11 +48,11 @@ The Gateway does not store long-term metric history. Use an external metrics bac
 
 Before enabling telemetry metrics, make sure that:
 
-* Gateway v5.0.0 or later is deployed.
-* Metrics are enabled on the Gateway.
-* Port `8000` is reachable from your monitoring system.
-* The monitoring system is configured with the correct `http` or `https` scheme.
-* For Kubernetes deployments, Prometheus or your monitoring agent can access the Gateway Service.
+- Gateway v5.0.0 or later is deployed.
+- Metrics are enabled on the Gateway.
+- Port `8000` is reachable from your monitoring system.
+- The monitoring system is configured with the correct `http` or `https` scheme.
+- For Kubernetes deployments, Prometheus or your monitoring agent can access the Gateway Service.
 
 ## Available Metrics
 
@@ -78,8 +75,8 @@ The following metric families are currently available:
 
 To monitor Gateway API traffic, use the following metrics together:
 
-* `akeyless_gw_system_request_count`
-* `akeyless_gw_system_http_response_status_code`
+- `akeyless_gw_system_request_count`
+- `akeyless_gw_system_http_response_status_code`
 
 The `akeyless_gw_system_network_*` metric family includes network interface and TCP connection behavior.
 
@@ -89,13 +86,13 @@ Gateway telemetry includes different metric types.
 
 Status metrics represent the current state of a Gateway pod. For example:
 
-* `akeyless_gw_system_healthcheck_status`
-* `akeyless_gw_system_saas_connection_status`
+- `akeyless_gw_system_healthcheck_status`
+- `akeyless_gw_system_saas_connection_status`
 
 Counter metrics increase over time. For example:
 
-* `akeyless_gw_system_http_response_status_code`
-* `akeyless_gw_system_request_count`
+- `akeyless_gw_system_http_response_status_code`
+- `akeyless_gw_system_request_count`
 
 When using Prometheus, use functions such as `rate()` or `increase()` for counter-based dashboards and alerts instead of using raw counter values.
 
@@ -103,8 +100,8 @@ When using Prometheus, use functions such as `rate()` or `increase()` for counte
 
 The following metrics report numeric status values:
 
-* `akeyless_gw_system_healthcheck_status`
-* `akeyless_gw_system_saas_connection_status`
+- `akeyless_gw_system_healthcheck_status`
+- `akeyless_gw_system_saas_connection_status`
 
 Use the following values when building dashboards and alerts:
 
@@ -128,7 +125,7 @@ When Gateway replicas are scaled down, removed pods stop exposing metrics. As a 
 
 For example, if you scale from two replicas to one replica, the remaining healthy pod continues to report:
 
-```text
+```shell
 akeyless_gw_system_healthcheck_status = 1
 ```
 
@@ -136,7 +133,7 @@ This does not mean the metric is stuck. It means the removed pod no longer expos
 
 To alert on replica availability, use Kubernetes metrics such as:
 
-```text
+```shell
 kube_deployment_status_replicas_available
 ```
 
@@ -148,7 +145,7 @@ When using Prometheus, use `rate()` or `increase()` for alerts and dashboard cal
 
 Example:
 
-```promql
+```shell PromQL
 sum by (status_code) (
   rate(akeyless_gw_system_http_response_status_code[5m])
 )
@@ -166,11 +163,7 @@ docker run -d -p 8000:8000 -p 5696:5696 \
   --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-After the container starts, metrics are available at:
-
-```text
-https://<Your-Gateway-URL>:8000/metrics
-```
+After the container starts, metrics are available at: `https://<Your-Gateway-URL>:8000/metrics`
 
 Use `http` instead of `https` if your Gateway endpoint is not configured with TLS.
 
@@ -214,21 +207,13 @@ To use the dashboard:
 3. Go to **Dashboards**.
 4. Open the **Akeyless GW** dashboard.
 
-You can also use **Metrics Explorer** and filter by:
-
-```text
-akeyless_gw
-```
+You can also use **Metrics Explorer** and filter by: `akeyless_gw`
 
 ## Grafana Dashboard with Prometheus
 
 You can visualize Akeyless Gateway metrics in Grafana when using Prometheus as a data source.
 
 Import the Akeyless Gateway dashboard from Grafana:
-
-```text
-Grafana dashboard ID: 16927
-```
 
 ![A sample screenshot of a Grafana dashboard showing Gateway metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
 
@@ -299,10 +284,10 @@ Also check that port `8000` is exposed and reachable from your monitoring system
 
 Check the following:
 
-* The Gateway Service includes the correct Prometheus scrape annotations.
-* Port `8000` is exposed and reachable.
-* The configured scrape scheme matches your deployment: `http` or `https`.
-* Network policies allow Prometheus to reach the Gateway Service.
+- The Gateway Service includes the correct Prometheus scrape annotations.
+- Port `8000` is exposed and reachable.
+- The configured scrape scheme matches your deployment: `http` or `https`.
+- Network policies allow Prometheus to reach the Gateway Service.
 
 ### Metrics from removed pods still appear
 
@@ -318,7 +303,7 @@ Use `rate()` or `increase()` to calculate changes over a time window.
 
 Example:
 
-```promql
+```shell PromQL
 sum by (status_code) (
   increase(akeyless_gw_system_http_response_status_code[5m])
 )
@@ -326,8 +311,8 @@ sum by (status_code) (
 
 ## Related Pages
 
-* [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
-* [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
-* [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
+- [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
+- [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
+- [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
 
 <br />
