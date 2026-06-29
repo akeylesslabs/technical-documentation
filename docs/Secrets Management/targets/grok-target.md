@@ -21,13 +21,14 @@ akeyless target create grok \
 ```
 
 Where:
+
 - `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 - `api-key`: The Grok API key.
 - `grok-url`: The Grok API base URL. Default: `https://api.x.ai`
 - `team-id`: The ID of the team this API key belongs to.
 - `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
-You can find the complete list of parameters for this command in the CLI Reference - Akeyless Targets section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/v1.0_GW_5.0.0/docs/cli-ref-targets#grok) section.
 
 ## Create a Grok Target in the Console
 
@@ -39,3 +40,5 @@ You can find the complete list of parameters for this command in the CLI Referen
    - **API Key**: The Grok API key.
    - **Grok URL**: The Grok API base URL. Default: `https://api.x.ai`
    - **Team ID**: The ID of the team this API key belongs to.
+
+<br />
