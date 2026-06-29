@@ -11,6 +11,12 @@ next:
 ---
 Akeyless Gateway telemetry metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** and **Prometheus**. You can find a full list of supported exporters on the [OpenTelemetry Collector Contrib exporter page](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
 
+<Callout icon="📘" theme="info">
+  ### New Telemetry endpoint&#x20;
+
+  Starting from Akeyless Gateway V5 , the legacy metrics solution is deprecated, and now all metrics are available for scraping on a dedicated endpoint using external solutions&#x20;
+</Callout>
+
 Telemetry metrics are time-series signals from the Gateway application and runtime environment, used for dashboards, alerting, and trend analysis.
 
 The following metrics are currently available:
