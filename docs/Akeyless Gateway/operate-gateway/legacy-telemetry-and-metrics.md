@@ -5,26 +5,35 @@ hidden: true
 metadata:
   robots: index
 ---
+<br />
+
+<Callout icon="⚠️" theme="warning"> ### Legacy telemetry is deprecated in Gateway v5.0.0 and later
+
+Starting from Akeyless Gateway v5.0.0, this legacy telemetry flow is deprecated. For Gateway v5.0.0 and later, use the new telemetry metrics endpoint at /metrics on port 8000.
+
+For the updated setup instructions, see Gateway Telemetry Metrics.
+</Callout>
+
 Akeyless Gateway telemetry metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** and **Prometheus**. You can find a full list of supported exporters on the [OpenTelemetry Collector Contrib exporter page](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
 
 Telemetry metrics are time-series signals from the Gateway application and runtime environment, used for dashboards, alerting, and trend analysis.
 
 The following metrics are currently available:
 
-| Metric | Description |
-| --- | --- |
-| `akeyless.gw.system.cpu.*` | CPU utilization metrics |
-| `akeyless.gw.system.disk.*` | Disk I/O metrics |
-| `akeyless.gw.system.load.*` | CPU load metrics |
-| `akeyless.gw.system.memory.*` | Memory utilization metrics |
-| `akeyless.gw.system.network.*` | Network interface I/O metrics and TCP connection metrics |
-| `akeyless.gw.system.saas.connection_status` | Monitor Gateway connectivity to Akeyless SaaS services. |
-| `akeyless.gw.quota.current_transactions_number` | Current total transaction count in the account |
-| `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity |
-| `akeyless.gw.quota.total_transactions_limit` | Total transaction limit per hour in the account |
-| `akeyless.gw.system.http_response_status_code` | HTTP response status codes for requests served by the Gateway API |
-| `akeyless.gw.system.request_count` | Total requests issued directly against the Gateway API |
-| `akeyless.gw.system.healthcheck.status` | Container health check status |
+| Metric                                           | Description                                                       |
+| ------------------------------------------------ | ----------------------------------------------------------------- |
+| `akeyless.gw.system.cpu.*`                       | CPU utilization metrics                                           |
+| `akeyless.gw.system.disk.*`                      | Disk I/O metrics                                                  |
+| `akeyless.gw.system.load.*`                      | CPU load metrics                                                  |
+| `akeyless.gw.system.memory.*`                    | Memory utilization metrics                                        |
+| `akeyless.gw.system.network.*`                   | Network interface I/O metrics and TCP connection metrics          |
+| `akeyless.gw.system.saas.connection_status`      | Monitor Gateway connectivity to Akeyless SaaS services.           |
+| `akeyless.gw.quota.current_transactions_number`  | Current total transaction count in the account                    |
+| `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity           |
+| `akeyless.gw.quota.total_transactions_limit`     | Total transaction limit per hour in the account                   |
+| `akeyless.gw.system.http_response_status_code`   | HTTP response status codes for requests served by the Gateway API |
+| `akeyless.gw.system.request_count`               | Total requests issued directly against the Gateway API            |
+| `akeyless.gw.system.healthcheck.status`          | Container health check status                                     |
 
 For Gateway API traffic monitoring, use `akeyless.gw.system.request_count` together with `akeyless.gw.system.http_response_status_code`.
 
@@ -34,18 +43,18 @@ For Gateway API traffic monitoring, use `akeyless.gw.system.request_count` toget
 
 The following metrics are numeric status metrics:
 
-* `akeyless.gw.system.healthcheck.status`
-* `akeyless.gw.system.saas.connection_status`
+- `akeyless.gw.system.healthcheck.status`
+- `akeyless.gw.system.saas.connection_status`
 
 Use the values below when building dashboards and alerts:
 
-* `1` = healthy/connected
-* `0` = unhealthy/not connected
+- `1` = healthy/connected
+- `0` = unhealthy/not connected
 
 ### What Each Metric Checks
 
-* `akeyless.gw.system.saas.connection_status`: Checks connectivity from each Gateway pod to Akeyless SaaS backend services.
-* `akeyless.gw.system.healthcheck.status`: Checks connectivity from each Gateway pod to the local cache service (Redis/Supersonic cache).
+- `akeyless.gw.system.saas.connection_status`: Checks connectivity from each Gateway pod to Akeyless SaaS backend services.
+- `akeyless.gw.system.healthcheck.status`: Checks connectivity from each Gateway pod to the local cache service (Redis/Supersonic cache).
 
 These are per-pod metrics. They are not replica counters.
 
@@ -65,9 +74,11 @@ Use `rate()` or `increase()` in PromQL for alerting and dashboard calculations, 
 
 In addition to these metrics, Gateway application logs can be forwarded through OpenTelemetry.
 
-> ℹ️ **Info:**
->
-> If direct `loki` exporter usage is not available in your environment, forward logs with `otlp` or `otlphttp`, then route to Loki from a downstream collector.
+<Callout icon="ℹ️" theme="info">
+  ### **Info:**
+
+  If direct `loki` exporter usage is not available in your environment, forward logs with `otlp` or `otlphttp`, then route to Loki from a downstream collector.
+</Callout>
 
 ## Datadog (Docker)
 
@@ -100,9 +111,9 @@ Alternatively, use `METRICS_CONFIG_BASE64` with a Base64-encoded OpenTelemetry c
 
 Akeyless is an official Datadog Partner and the dashboard is available in Datadog Integrations.
 
-* In Datadog, go to **Integrations** and install **Akeyless Gateway**.
-* Go to **Dashboards** and open the **Akeyless GW** dashboard.
-* Use **Metrics Explorer** and filter by `akeyless.gw` for additional metrics.
+- In Datadog, go to **Integrations** and install **Akeyless Gateway**.
+- Go to **Dashboards** and open the **Akeyless GW** dashboard.
+- Use **Metrics Explorer** and filter by `akeyless.gw` for additional metrics.
 
 ## Prometheus (Docker)
 
@@ -144,8 +155,8 @@ docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 \
 
 When scraped directly by Prometheus, metric names use underscores. For example:
 
-* `akeyless_gw_system_healthcheck_status`
-* `akeyless_gw_system_saas_connection_status`
+- `akeyless_gw_system_healthcheck_status`
+- `akeyless_gw_system_saas_connection_status`
 
 In OpenTelemetry-transformed backends, these metrics can appear as dotted names (for example, `akeyless.gw.system.healthcheck.status`).
 
@@ -198,9 +209,11 @@ For Loki-based analysis, send Gateway logs to an OTLP-capable collector and rout
 
 On Kubernetes, the Gateway loads the OpenTelemetry config file from a Kubernetes Secret that you create in advance. The `akeyless-gateway` Helm chart mounts the Secret into the Gateway pod at `/akeyless/otel-config.yaml` when `globalConfig.metrics.enabled` is `true` **and** `globalConfig.metrics.metricsExistingSecret` references an existing Secret.
 
-> ⚠️ **Warning:**
->
-> Setting `globalConfig.metrics.enabled: true` without also setting `globalConfig.metrics.metricsExistingSecret` is not supported. The Gateway pod requires `otel-config.yaml` at startup, and without the Secret reference the chart has no source for that file.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  Setting `globalConfig.metrics.enabled: true` without also setting `globalConfig.metrics.metricsExistingSecret` is not supported. The Gateway pod requires `otel-config.yaml` at startup, and without the Secret reference the chart has no source for that file.
+</Callout>
 
 Create the OpenTelemetry config Secret once, then reuse it across the Datadog, Prometheus, and log-forwarding flows below.
 
@@ -329,6 +342,8 @@ You can add tags to metrics using OpenTelemetry semantic conventions. For mappin
 
 ## Related Pages
 
-* [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
-* [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
-* [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
+- [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
+- [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
+- [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
+
+<br />
