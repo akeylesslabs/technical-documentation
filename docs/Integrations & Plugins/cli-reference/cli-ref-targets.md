@@ -116,6 +116,8 @@ Create a new Target
 
 `k8s`
 
+`keycloak`
+
 `ldap`
 
 `lets-encrypt`
@@ -935,6 +937,32 @@ akeyless target create k8s \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+### `keycloak`
+
+Creates a new Keycloak target in the current account
+
+#### Usage
+
+```shell
+akeyless target create keycloak \
+--name <Target name> \
+--realm <Keycloak realm> \
+--client-id <Keycloak client ID> \
+--client-secret <Keycloak client secret>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`realm`: The Keycloak realm to connect to
+
+`client-id`: The ID of the Keycloak client configured for service account authentication
+
+`client-secret`: The secret associated with the Keycloak client’s service account
+
+`url`: The base URL of your Keycloak server
 
 ### `ldap`
 
