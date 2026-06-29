@@ -947,6 +947,7 @@ Creates a new Keycloak target in the current account
 ```shell
 akeyless target create keycloak \
 --name <Target name> \
+--url <Keycloak URL> \
 --realm <Keycloak realm> \
 --client-id <Keycloak client ID> \
 --client-secret <Keycloak client secret>
@@ -957,6 +958,8 @@ akeyless target create keycloak \
 `-n, --name`: **Required**, Target name
 
 `realm`: The Keycloak realm to connect to
+
+`url`: The Keycloak API base URL
 
 `client-id`: The ID of the Keycloak client configured for service account authentication
 
@@ -2495,6 +2498,38 @@ akeyless target update k8s \
 `--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
 `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+
+#### `keycloak`
+
+Updates an existing Keycloak target in the current account
+
+##### Usage
+
+```shell
+akeyless target update keyclock \
+--name <Target name> \
+--new-name <New target name> \
+--url <Keycloak URL> \
+--realm <Keycloak realm> \
+--client-id <Keycloak client ID> \
+--client-secret <Keycloak client secret>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--url`: The Keycloak API base URL
+
+`--realm`: The Keycloak realm to connect to
+
+`--client-id`: The ID of the Keycloak client configured for service account authentication
+
+`--client-secret`: The secret associated with the Keycloak client’s service account.
+
+`--url`: The base URL of your Keycloak server
 
 #### `ldap`
 
