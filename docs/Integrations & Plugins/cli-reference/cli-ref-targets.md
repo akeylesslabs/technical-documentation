@@ -86,6 +86,8 @@ Create a new Target
 
 `cloudflare`
 
+`custom-dns`
+
 `db`
 
 `digicert`
@@ -300,6 +302,27 @@ akeyless target create cloudflare \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+### `custom-dns`
+
+Creates a new Custom-DNS target in the current account
+
+#### Usage
+
+```shell
+akeyless target create custom-dns \
+--name <Target name> \
+--provider-type <DNS Provider> \
+--dns-parameter <Key|Value>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`provider-type`: The DNS provider type. All DNS providers available through the Lego project are supported.
+
+`dns-parameter`: The parameters for the DNS provider.
 
 ### `db`
 
