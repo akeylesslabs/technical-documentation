@@ -1,6 +1,5 @@
 ---
-title: Copy of Telemetry and Metrics
-excerpt: For Docker Environment
+title: Legacy Telemetry and Metrics
 deprecated: true
 hidden: true
 metadata:
