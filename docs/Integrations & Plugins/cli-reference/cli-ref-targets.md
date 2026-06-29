@@ -1843,6 +1843,30 @@ akeyless target update cloudflare \
 
 `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
+#### `custom-dns`
+
+Updates an existing Custom-DNS target in the current account
+
+##### Usage
+
+```shell
+akeyless target update custom-dns \
+--name <Target name> \
+--new-name <New target name> \
+--provider-type <DNS Provider> \
+--dns-parameter <Key|Value>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`provider-type`: The DNS provider type. All DNS providers available through the Lego project are supported.
+
+`dns-parameter`: The parameters for the DNS provider.
+
 #### `db`
 
 Update an existing db target in the current account
