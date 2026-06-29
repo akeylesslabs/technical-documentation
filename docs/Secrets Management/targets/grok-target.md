@@ -15,7 +15,7 @@ To create a Grok target with the CLI, run the following command:
 akeyless target create grok \
   --name <target name> \
   --api-key <Grok API key> \
-  --grok-url <Grok API base URL> \
+  --grok-url[=https://api.x.ai] <Grok API base URL> \
   --team-id <team ID> \
   --key <protection key>
 ```
