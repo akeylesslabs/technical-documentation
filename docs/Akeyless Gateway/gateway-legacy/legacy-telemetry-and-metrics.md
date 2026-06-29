@@ -1,7 +1,7 @@
 ---
 title: Legacy Telemetry and Metrics
 deprecated: true
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
