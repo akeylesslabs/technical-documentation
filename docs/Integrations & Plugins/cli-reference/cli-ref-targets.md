@@ -1683,6 +1683,29 @@ akeyless target update azure \
 
 `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
+#### `Claude`&#x20;
+
+Updates an existing Claude target in the current account
+
+##### Usage
+
+```shell
+akeyless target create claude \
+--name <Target name> \
+--api-key <Claude API Key> \
+--claude-url[=https://api.anthropic.com] <Claude API base URL>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--api-key`: Required, Claude API Key
+
+`--claude-url`: Claude API base URL
+
 #### `cloudflare`
 
 Updates an existing Cloudflare target in the current account
