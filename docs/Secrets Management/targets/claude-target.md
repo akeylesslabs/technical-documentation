@@ -20,12 +20,13 @@ akeyless target create claude \
 ```
 
 Where:
+
 - `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 - `api-key`: The Claude API key.
 - `claude-url`: The Claude API base URL. Default: `https://api.anthropic.com`
 - `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
-You can find the complete list of parameters for this command in the CLI Reference - Akeyless Targets section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/v1.0_GW_5.0.0/docs/cli-ref-targets#claude-) section.
 
 ## Create a Claude Target in the Console
 
@@ -36,3 +37,5 @@ You can find the complete list of parameters for this command in the CLI Referen
 4. Define the remaining parameters as follows:
    - **API Key**: The Claude API key.
    - **Claude URL**: The Claude API base URL. Default: `https://api.anthropic.com`
+
+<br />
