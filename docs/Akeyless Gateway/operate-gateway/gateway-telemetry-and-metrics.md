@@ -117,7 +117,7 @@ globalConfig:
     enabled: true
 ```
 
-## Prometheus (Kubernetes)
+### Prometheus
 
 Annotate the Gateway Service so Prometheus can scrape port `8000`:
 
