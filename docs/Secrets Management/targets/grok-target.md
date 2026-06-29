@@ -28,7 +28,7 @@ Where:
 - `team-id`: The ID of the team this API key belongs to.
 - `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/v1.0_GW_5.0.0/docs/cli-ref-targets#grok) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets]() section.
 
 ## Create a Grok Target in the Console&#x20;
 
