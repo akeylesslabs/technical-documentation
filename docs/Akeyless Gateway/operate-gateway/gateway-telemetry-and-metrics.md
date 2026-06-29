@@ -79,7 +79,7 @@ Use `rate()` or `increase()` in PromQL for alerting and dashboard calculations, 
 
 To collect Gateway application logs together with metrics, you can simply collect the docker logs
 
-## Docker setup
+## Docker Setup
 
 To enable telemetry metrics on Docker set the environment variable  `ENABLE_METRICS=true`  as part of your docker command:&#x20;
 
@@ -107,7 +107,7 @@ Import the Akeyless GW dashboard using [Grafana dashboard 16927](https://grafana
 
 ![A sample screenshot of a Grafana dashboard showing metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
 
-## Kubernetes setup
+## Kubernetes Setup
 
 On Kubernetes, set the `globalConfig.metrics.enabled` with `true` :
 
