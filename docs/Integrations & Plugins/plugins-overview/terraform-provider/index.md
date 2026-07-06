@@ -1,6 +1,5 @@
 ---
 title: Terraform Provider
-slug: terraform-provider
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: terraform-provider
 ---
 The Terraform provider enables Terraform to use secrets, roles, authentication methods, and other entities from the Akeyless Platform.
 
@@ -21,22 +21,22 @@ For more information on the Terraform provider, see the [Akeyless GitHub Reposit
 
 1. Install Akeyless as a provider in your Terraform Registry by adding the following code to your Terraform configuration (Terraform V0.13).
 
-    ```shell
-    terraform {
-    required_providers {
-        akeyless = {
-        source = "akeyless-community/akeyless"
-        version = "2.0.1"
-        }
-    }
-    }
-    ```
+   ```shell
+   terraform {
+   required_providers {
+       akeyless = {
+       source = "akeyless-community/akeyless"
+       version = "2.0.1"
+       }
+   }
+   }
+   ```
 
 2. Run:
 
-    ```shell
-    terraform init
-    ```
+   ```shell
+   terraform init
+   ```
 
 3. Select an Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to use with the Terraform Provider, such as an **API Key** or Cloud Identity (CSP IAM) like **AWS IAM**, **Azure AD**.
 
@@ -44,7 +44,7 @@ For more information on the Terraform provider, see the [Akeyless GitHub Reposit
 
 The following example creates an API Key authentication method called **auth-method-api-key-demo** in the **terraform-tests** folder, and a static secret called **secret** in the same folder. It uses **AWS IAM** for authentication.
 
-To use your own [Gateway](https://docs.akeyless.io/docs/gateway-overview), set the `api_gateway_address` to your Gateway API endpoint on port `8081`:
+To use your own [Gateway](https://docs.akeyless.io/docs/gateway-overview), set the `api_gateway_address` to your Gateway API endpoint:  `https://Your-Gateway-URL:8000/api/v2`:
 
 ```shell
 provider "akeyless" {
@@ -98,11 +98,11 @@ terraform import akeyless_static_secret.resource-name /full-secret-name-in-akeyl
 
 Provider v2.0.0 removed resources and parameters that were deprecated in v1.5.0. Before upgrading from v1.x, update your configuration as follows:
 
-| Deprecated (removed in v2.0) | Replacement |
-| --- | --- |
-| `akeyless_producer_*` resources | `akeyless_dynamic_secret_*` resources |
+| Deprecated (removed in v2.0)        | Replacement                                |
+| ----------------------------------- | ------------------------------------------ |
+| `akeyless_producer_*` resources     | `akeyless_dynamic_secret_*` resources      |
 | `akeyless_rotated_secret` (generic) | `akeyless_rotated_secret_<type>` resources |
-| `metadata` and `comment` parameters | `description` parameter |
+| `metadata` and `comment` parameters | `description` parameter                    |
 
 ## Changelog
 

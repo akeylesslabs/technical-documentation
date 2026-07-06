@@ -1,6 +1,5 @@
 ---
 title: SAML
-slug: auth-with-saml
 excerpt: Security Assertion Markup Language (SAML)
 deprecated: false
 hidden: false
@@ -12,6 +11,7 @@ next:
   description: >-
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
+slug: auth-with-saml
 ---
 SAML authentication lets users sign in to Akeyless through an external Identity Provider (IdP), such as [Okta](https://docs.akeyless.io/docs/saml-auth-okta), [Ping Identity](https://docs.akeyless.io/docs/saml-auth-ping-identity), or [Microsoft Entra ID](https://docs.akeyless.io/docs/saml-auth-azure-ad).
 
@@ -23,7 +23,27 @@ This action is distinct from creating a new Akeyless account: it creates an addi
 
 Important SAML requirement:
 
-* **Dedicated endpoints per Authentication Method:** Each SAML authentication method has dedicated SAML endpoints. When configuring the IdP application, use the metadata and assertion consumer service (ACS) endpoint values generated for that specific SAML authentication method.
+- **Dedicated endpoints per Authentication Method:** Each SAML authentication method has dedicated SAML endpoints. When configuring the IdP application, use the metadata and assertion consumer service (ACS) endpoint values generated for that specific SAML authentication method.
+
+## Dedicated SAML Endpoints per Authentication Method
+
+Akeyless supports dedicated SAML endpoints for each SAML Authentication Method. This allows multiple SAML authentication methods to be configured in the same Akeyless account using the same IdP, for example to separate production, development, staging, or other environments.
+
+Each SAML Authentication Method has its own unique Entity ID, Assertion Consumer Service (ACS) URL, and metadata URL, based on the Authentication Method Access ID.
+
+This is useful when working with Identity Providers that require each SAML application to use a unique Entity ID or metadata URL. For example, Microsoft Entra ID may require each Enterprise Application to use unique SAML configuration values. Dedicated endpoints allow each Entra Enterprise Application to be mapped to a specific SAML Authentication Method.
+
+Dedicated endpoints also help ensure that each IdP application is explicitly tied to the intended Akeyless SAML Authentication Method.
+
+### Endpoint Format
+
+Replace `<SAML_AUTH_METHOD_ACCESS_ID>` with the Access ID of the matching  SAML Authentication Method.
+
+| Endpoint                 | Format                                                                |
+| ------------------------ | --------------------------------------------------------------------- |
+| Entity ID / Identifier   | `https://auth.akeyless.io/saml/sp/<SAML_AUTH_METHOD_ACCESS_ID>`       |
+| Reply URL / ACS URL      | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>`      |
+| Akeyless SP Metadata URL | `https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>` |
 
 ### Creating a SAML Authentication Method with the Console
 
@@ -36,9 +56,11 @@ To create a new SAML-based authentication method with the Console:
 5. Configure general and SAML-specific fields, including **Allowed Redirect URIs**, **Metadata URL** or **Metadata XML**, and **Unique Identifier**.
 6. Select **Finish**.
 
-> ⚠️ **Warning:**
->
-> The **Unique Identifier** must be a sub-claim key name, not a user value. For example, use `email`, not an actual email address.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  The **Unique Identifier** must be a sub-claim key name, not a user value. For example, use `email`, not an actual email address.
+</Callout>
 
 ### Creating a SAML Authentication Method with the CLI
 
@@ -87,7 +109,8 @@ akeyless configure \
 
 To authenticate and retrieve a temporary Akeyless token, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
-<!-- secret-stdout-scan:ok -->
+{/* secret-stdout-scan:ok */}
+
 ```shell
 akeyless auth \
   --access-type saml \
@@ -133,11 +156,11 @@ For all available update flags, see [CLI Reference - Authentication](https://doc
 
 If SAML sign-in fails, check the following:
 
-* The SAML Authentication Method **Access ID** is correct.
-* The IdP configuration uses the dedicated ACS and Entity ID values from the same SAML Authentication Method.
-* **Metadata URL** or **Metadata XML** is current.
-* **Unique Identifier** matches a key that exists in IdP assertions.
-* **Allowed Redirect URIs** includes the redirect URI used by the client.
+- The SAML Authentication Method **Access ID** is correct.
+- The IdP configuration uses the dedicated ACS and Entity ID values from the same SAML Authentication Method.
+- **Metadata URL** or **Metadata XML** is current.
+- **Unique Identifier** matches a key that exists in IdP assertions.
+- **Allowed Redirect URIs** includes the redirect URI used by the client.
 
 ## Optional Features
 
@@ -145,14 +168,16 @@ For optional features that apply across Authentication Methods, see [Common Opti
 
 ### SAML-Specific Optional Features
 
-* **Allowed Redirect URIs:** Restrict the redirect targets that can be used in the authentication flow.
-* **Unique Identifier:** Define which IdP sub-claim key identifies a user.
-* **Sub-claim Delimiters:** Configure custom delimiters if your IdP uses a format other than comma-separated values.
+- **Allowed Redirect URIs:** Restrict the redirect targets that can be used in the authentication flow.
+- **Unique Identifier:** Define which IdP sub-claim key identifies a user.
+- **Sub-claim Delimiters:** Configure custom delimiters if your IdP uses a format other than comma-separated values.
 
 ## Related Pages
 
 For end-to-end IdP setup examples, see:
 
-* [Set Up Okta as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-okta)
-* [Set Up Ping Identity as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-ping-identity)
-* [Set Up Microsoft Entra ID as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-azure-ad)
+- [Set Up Okta as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-okta)
+- [Set Up Ping Identity as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-ping-identity)
+- [Set Up Microsoft Entra ID as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-azure-ad)
+
+<br />
