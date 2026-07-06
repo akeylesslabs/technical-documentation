@@ -121,7 +121,7 @@ jobs:
           python-version: "3.11"
 
       - name: Restore dependency monitor state cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .github/dependency-monitor/state
           key: dep-monitor-state-${{ github.ref_name }}-${{ github.run_id }}
@@ -211,7 +211,7 @@ jobs:
 
       - name: Save dependency monitor state cache
         if: always()
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .github/dependency-monitor/state
           key: dep-monitor-state-${{ github.ref_name }}-${{ github.run_id }}

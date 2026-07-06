@@ -1,6 +1,5 @@
 ---
 title: Universal Identity
-slug: auth-with-universal-identity
 excerpt: Universal Identity (UID)
 deprecated: false
 hidden: false
@@ -8,6 +7,7 @@ metadata:
   title: Universal Identity
   description: ''
   robots: index
+slug: auth-with-universal-identity
 ---
 ## Introduction
 
@@ -32,9 +32,9 @@ akeyless auth-method create universal-identity \
 
 Where:
 
-* **name:** A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+- **name:** A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-* **ttl:** (Optional) The root token time-to-live in minutes. The TTL is renewed with every rotation. The default value is 60 minutes.
+- **ttl:** (Optional) The root token time-to-live in minutes. The TTL is renewed with every rotation. The default value is 60 minutes.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#create) section.
 
@@ -52,7 +52,8 @@ To use a Universal Identity token, it must be associated with a Role.
 
 To use it with the Akeyless CLI, add it to your Akeyless commands in one of the following ways:
 
-<!-- secret-stdout-scan:ok -->
+{/* secret-stdout-scan:ok */}
+
 ```shell
 akeyless list-items --uid-token u-XXXXXXXX
 akeyless get-secret-value -n MyFirstSecret --uid-token u-XXXXXXXX
@@ -92,10 +93,10 @@ Frequent token rotation is a best practice. To automate UID token rotation, use 
 
 The command set includes:
 
-* `init`: Installs and initializes automatic rotation.
-* `rotate`: Runs a manual rotation immediately.
-* `status`: Shows the current auto-rotation status.
-* `uninstall`: Removes the auto-rotation setup.
+- `init`: Installs and initializes automatic rotation.
+- `rotate`: Runs a manual rotation immediately.
+- `status`: Shows the current auto-rotation status.
+- `uninstall`: Removes the auto-rotation setup.
 
 Example:
 
@@ -183,26 +184,28 @@ Universal Identity Details:
 
 3. Define the remaining parameters as follows:
 
-   * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+   - **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-   * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+   - **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-   * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).
+   - **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).
      If empty, the Gateway's IP will be used in the logs.
 
-   * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
+   - **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-   * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`.
+   - **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`.
 
-   * Check **Deny Rotate** if you want to forbid token rotation.
+   - Check **Deny Rotate** if you want to forbid token rotation.
 
-   * Check **Deny Inheritance** if you want to forbid creating child tokens.
+   - Check **Deny Inheritance** if you want to forbid creating child tokens.
 
-   * **TTL (minutes):** Specify token TTL.
+   - **TTL (minutes):** Specify token TTL.
 
-   * **Tree Length:** Set the number of child tokens that can be created.
+   - **Tree Length:** Set the number of child tokens that can be created.
 
-   * **Limit Child TTL:** Set the limitation for the child tokens max TTL
+   - **Limit Child TTL:** Set the limitation for the child tokens max TTL.
+
+   - **Notify when remaining Token TTL reaches:&#x20;**&#x53;et a notification that triggers when a token’s remaining lifetime reaches a defined percentage threshold. Supported only for tokens with a TTL of `10` minutes or longer, and with thresholds of `50%` or higher.
 
 4. Click **Finish**.
 
@@ -213,9 +216,11 @@ To generate a token in the Console:
 1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab and then click **Generate**.
 
-> ⚠️ **Warning:**
->
-> If a UID token already exists, generating a new UID token resets the existing token.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  If a UID token already exists, generating a new UID token resets the existing token.
+</Callout>
 
 ### Revoke a Token
 
@@ -239,11 +244,11 @@ To create a child token in the Console:
 
 4. Define the parameters as follows:
 
-   * Check **Deny Rotate** if you want to forbid child token rotation.
+   - Check **Deny Rotate** if you want to forbid child token rotation.
 
-   * Check **Deny Inheritance** if you want to forbid creating child tokens.
+   - Check **Deny Inheritance** if you want to forbid creating child tokens.
 
-   * **Child TTL (minutes):** Specify child token TTL.
+   - **Child TTL (minutes):** Specify child token TTL.
 
 5. Click **Save**.
 
@@ -254,9 +259,11 @@ To get the token tree in the Console:
 1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab.
 
-> ℹ️ **Note:**
->
-> When your Token Tree becomes complex, you can use your mouse to **zoom in** to see a specific token better, or **zoom out** to see the whole Token Tree.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  When your Token Tree becomes complex, you can use your mouse to **zoom in** to see a specific token better, or **zoom out** to see the whole Token Tree.
+</Callout>
 
 ## Best Practices
 
