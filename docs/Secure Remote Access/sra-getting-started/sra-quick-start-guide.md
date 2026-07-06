@@ -16,9 +16,11 @@ Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package 
 
 Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.
 
-> ℹ️ **A Note on Security:**
->
-> This guide was tested with Amazon EKS and is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
+<Callout icon="ℹ️" theme="info">
+  ### **A Note on Security:**
+
+  This guide was tested with Amazon EKS and is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
+</Callout>
 
 ## Prerequisites
 
@@ -33,9 +35,11 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) | 8000 |
 | SSH Access                                                                       | 22   |
 
-> ℹ️ **First Things First:**
->
-> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/sra-quick-start-guide#remote-access-section) section.
+<Callout icon="ℹ️" theme="info">
+  ### **First Things First:**
+
+  Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/sra-quick-start-guide#remote-access-section) section.
+</Callout>
 
 ## Create Your Authentication Method
 
@@ -103,9 +107,11 @@ Follow the below commands:
    akeyless create-ssh-cert-issuer --name your-ssh-cert-issuer-name --signer-key-name MyRSAKey --allowed-users 'ubuntu' --ttl 300
    ```
 
-> ℹ️ **A Note on SSH Connections:**
->
-> This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/sra-ssh-certificates).
+<Callout icon="ℹ️" theme="info">
+  ### **A Note on SSH Connections:**
+
+  This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/sra-ssh-certificates).
+</Callout>
 
 ## Configuration
 
@@ -217,11 +223,7 @@ Here we will lay out the steps to get a SAML user to access the Remote Access Po
    akeyless auth-method create saml --name mySamlAuth --unique-identifier email --idp-metadata-url <your-okta-metadata-url> --allowed-redirect-uri https://console.akeyless.io/login-saml,http://127.0.0.1:*,http://<EXTERNAL-IP-of-K8s-Service>:*
    ```
 
-3. Create a role with access to Items with **List** permissions only. And set Secure Remote Access with Allow Access permissions.
-
-   ```shell
-   akeyless set-role-rule --role-name MySamlRole --path "/*" --capability list
-   ```
+3. Create a role with access to Items with Secure Remote Access with Allow Access permissions.
 
    ```shell
    akeyless set-role-rule --role-name MySamlRole --path "/\*" --rule-type sra-rule --capability allow_access
