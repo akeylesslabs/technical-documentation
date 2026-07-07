@@ -18,7 +18,12 @@ next:
 
 Secure Remote Access (SRA) is part of the Akeyless identity security platform. It provides Zero Trust access to private resources by brokering access through gateway and SRA services with dynamic and rotated secret patterns, rather than long-lived static credentials. This model follows a Zero Standing Privileges (ZSP) approach by minimizing persistent credentials in access flows.
 
-SRA supports interactive access to servers, databases, Kubernetes clusters, web applications, and cloud consoles. Users can connect from the Gateway-hosted portal, the public [SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal), the desktop application, or CLI tools such as [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp).&#x20;
+Users can connect [Supported Resource Types](doc:sra-resource-types) from:
+
+- Gateway-hosted portal.
+- Public [SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal).
+- Desktop application.
+- Akeyless CLI.&#x20;
 
 Supported access patterns include SSH, RDP, SQL, `kubectl`, LDAP, and web access workflows.
 
@@ -84,21 +89,7 @@ After baseline deployment, most teams configure these in order:
 3. Resource-specific access configuration for required target types.
 4. CLI and API workflows for automation.
 
-## Supported Resource Types
-
-The Akeyless Remote Access solution supports connections to the following resource types:
-
-- [Databases](https://docs.akeyless.io/docs/sra-database)
-- [Windows Remote Desktop](https://docs.akeyless.io/docs/sra-remote-desktop)
-- [AWS Console](https://docs.akeyless.io/docs/sra-aws-console)
-- [Azure Portal](https://docs.akeyless.io/docs/sra-azure-portal)
-- [GCP Portal](https://docs.akeyless.io/docs/sra-gcp-portal)
-- [SSH Servers](https://docs.akeyless.io/docs/sra-ssh)
-- [LDAP Servers](https://docs.akeyless.io/docs/auth-with-ldap)
-- [RabbitMQ](https://docs.akeyless.io/docs/sra-rabbitmq)
-- [Kubernetes](https://docs.akeyless.io/docs/sra-k8s-cluster)
-- [Web Applications](https://docs.akeyless.io/docs/sra-web-applications)
-- [kubectl](https://docs.akeyless.io/docs/kubectl-access)
+##
 
 ## Web Access
 
