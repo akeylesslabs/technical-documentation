@@ -18,14 +18,16 @@ For CLI-driven monitoring and automation, use `list-sra-sessions` to query the s
 
 The Session Overview page displays detailed information for each session. The following key details are provided:
 
-* **Client Interface**: Indicates how the session was initiated. Options include: Web Portal - CLI, Web Portal - Web, CLI and Desktop Application)
+* **Client Interface**: Indicates how the session was initiated. Options include Portal CLI, Portal Web, and CLI.
 * **User**: The username of the individual who initiated the session.
 * **Gateway Name**: The name of the gateway through which the session is managed.
-* **Resource Type**: The type of resource accessed during the session. Examples include: SSH, RDP, Databases, Kubernetes (K8s) and more.
+* **Resource Type**: The type of resource accessed during the session. Examples include: SSH, RDP, databases, Kubernetes (K8s), and more.
 * **Secret Name**: The identifier for the secret used during the session.
 * **Session ID**: The unique Secure Remote Access session identifier.
 * **Status**: The current state of the session (For example, active, closed, or terminated).
 * **Duration**: The length of time the session has been active.
+
+For Secure Remote Access sessions, the same session ID is used in Session Overview and Audit Log entries.
 
 ## Real-Time Updates
 
@@ -70,6 +72,8 @@ For API details, see [List SRA Sessions](https://docs.akeyless.io/reference/list
 ## Audit Logging
 
 Every session update is captured in the Audit Log, including the Secure Remote Access Session ID. This ensures that any changes (such as status updates or modifications) are recorded for compliance and troubleshooting purposes.
+
+For Secure Remote Access session events, user identity is recorded in `sra_unique_identifier`.
 
 ## Permissions
 
