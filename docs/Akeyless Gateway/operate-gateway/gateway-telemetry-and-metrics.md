@@ -1,6 +1,5 @@
 ---
 title: Telemetry and Metrics
-excerpt: For Docker Environment
 deprecated: false
 hidden: false
 metadata:
@@ -10,330 +9,310 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Gateway telemetry metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** and **Prometheus**. You can find a full list of supported exporters on the [OpenTelemetry Collector Contrib exporter page](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
+# Gateway Telemetry Metrics
 
-Telemetry metrics are time-series signals from the Gateway application and runtime environment, used for dashboards, alerting, and trend analysis.
+Akeyless Gateway telemetry metrics provide time-series data about the Gateway application and runtime environment. You can use these metrics to build dashboards, configure alerts, and monitor Gateway health, resource usage, API traffic, SaaS connectivity, and account quota usage.
 
-The following metrics are currently available:
+Starting from Akeyless Gateway v5.0.0, Gateway metrics are exposed through a dedicated metrics endpoint: `https://<Your-Gateway-URL>:8000/metrics`
 
-| Metric | Description |
-| --- | --- |
-| `akeyless.gw.system.cpu.*` | CPU utilization metrics |
-| `akeyless.gw.system.disk.*` | Disk I/O metrics |
-| `akeyless.gw.system.load.*` | CPU load metrics |
-| `akeyless.gw.system.memory.*` | Memory utilization metrics |
-| `akeyless.gw.system.network.*` | Network interface I/O metrics and TCP connection metrics |
-| `akeyless.gw.system.saas.connection_status` | Monitor Gateway connectivity to Akeyless SaaS services. |
-| `akeyless.gw.quota.current_transactions_number` | Current total transaction count in the account |
-| `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity |
-| `akeyless.gw.quota.total_transactions_limit` | Total transaction limit per hour in the account |
-| `akeyless.gw.system.http_response_status_code` | HTTP response status codes for requests served by the Gateway API |
-| `akeyless.gw.system.request_count` | Total requests issued directly against the Gateway API |
-| `akeyless.gw.system.healthcheck.status` | Container health check status |
+The endpoint can be scraped or collected by monitoring and alerting solutions such as Prometheus and Datadog.
 
-For Gateway API traffic monitoring, use `akeyless.gw.system.request_count` together with `akeyless.gw.system.http_response_status_code`.
+<Callout icon="📘" theme="info">
+  ### New telemetry endpoint
 
-`akeyless.gw.system.network.*` covers network interface and TCP connection behavior.
+  Starting from Akeyless Gateway v5.0.0, the legacy metrics solution is deprecated. Gateway metrics are now exposed through the `/metrics` endpoint on port `8000` and can be collected by external monitoring solutions.
+</Callout>
 
-## Health and Connection Status Values
+## Overview
 
-The following metrics are numeric status metrics:
+Gateway telemetry metrics help you monitor the operational status of your Gateway deployment.
 
-* `akeyless.gw.system.healthcheck.status`
-* `akeyless.gw.system.saas.connection_status`
+You can use these metrics to track:
 
-Use the values below when building dashboards and alerts:
+- Gateway pod health
+- Connectivity to Akeyless SaaS backend services
+- Gateway API traffic
+- HTTP response status codes
+- Account quota usage
+- CPU, memory, disk, load, and network utilization
 
-* `1` = healthy/connected
-* `0` = unhealthy/not connected
+## Collection Model
 
-### What Each Metric Checks
+Akeyless Gateway exposes metrics through a pull-based `/metrics` endpoint.
 
-* `akeyless.gw.system.saas.connection_status`: Checks connectivity from each Gateway pod to Akeyless SaaS backend services.
-* `akeyless.gw.system.healthcheck.status`: Checks connectivity from each Gateway pod to the local cache service (Redis/Supersonic cache).
+Monitoring systems such as Prometheus can scrape this endpoint directly. If you use Datadog or another observability backend, you can collect these metrics through the backend's Prometheus scraping support or by using an OpenTelemetry Collector pipeline.
 
-These are per-pod metrics. They are not replica counters.
+The Gateway does not store long-term metric history. Use an external metrics backend for historical analysis, dashboards, and alerting.
+
+## Prerequisites
+
+Before enabling telemetry metrics, make sure that:
+
+- Gateway v5.0.0 or later is deployed.
+- Metrics are enabled on the Gateway.
+- Port `8000` is reachable from your monitoring system.
+- The monitoring system is configured with the correct `http` or `https` scheme.
+- For Kubernetes deployments, Prometheus or your monitoring agent can access the Gateway Service.
+
+## Available Metrics
+
+The following metric families are currently available:
+
+| Metric                                           | Description                                                       |
+| ------------------------------------------------ | ----------------------------------------------------------------- |
+| `akeyless_gw_system_cpu_*`                       | CPU utilization metrics                                           |
+| `akeyless_gw_system_disk_*`                      | Disk I/O metrics                                                  |
+| `akeyless_gw_system_load_*`                      | CPU load metrics                                                  |
+| `akeyless_gw_system_memory_*`                    | Memory utilization metrics                                        |
+| `akeyless_gw_system_network_*`                   | Network interface I/O metrics and TCP connection metrics          |
+| `akeyless_gw_system_saas_connection_status`      | Gateway connectivity status to Akeyless SaaS services             |
+| `akeyless_gw_quota_current_transactions_number`  | Current total transaction count in the account                    |
+| `akeyless_gw_quota_gw_admin_client_transactions` | Total transactions made by the Gateway default identity           |
+| `akeyless_gw_quota_total_transactions_limit`     | Total hourly transaction limit for the account                    |
+| `akeyless_gw_system_http_response_status_code`   | HTTP response status codes for requests served by the Gateway API |
+| `akeyless_gw_system_request_count`               | Total requests issued directly against the Gateway API            |
+| `akeyless_gw_system_healthcheck_status`          | Gateway container health check status                             |
+
+To monitor Gateway API traffic, use the following metrics together:
+
+- `akeyless_gw_system_request_count`
+- `akeyless_gw_system_http_response_status_code`
+
+The `akeyless_gw_system_network_*` metric family includes network interface and TCP connection behavior.
+
+## Metric Types and Usage Notes
+
+Gateway telemetry includes different metric types.
+
+Status metrics represent the current state of a Gateway pod. For example:
+
+- `akeyless_gw_system_healthcheck_status`
+- `akeyless_gw_system_saas_connection_status`
+
+Counter metrics increase over time. For example:
+
+- `akeyless_gw_system_http_response_status_code`
+- `akeyless_gw_system_request_count`
+
+When using Prometheus, use functions such as `rate()` or `increase()` for counter-based dashboards and alerts instead of using raw counter values.
+
+## Status Metrics
+
+The following metrics report numeric status values:
+
+- `akeyless_gw_system_healthcheck_status`
+- `akeyless_gw_system_saas_connection_status`
+
+Use the following values when building dashboards and alerts:
+
+| Value | Meaning                    |
+| ----- | -------------------------- |
+| `1`   | Healthy or connected       |
+| `0`   | Unhealthy or not connected |
+
+### What Each Status Metric Checks
+
+| Metric                                      | Description                                                                                             |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `akeyless_gw_system_saas_connection_status` | Checks connectivity from each Gateway pod to Akeyless SaaS backend services                             |
+| `akeyless_gw_system_healthcheck_status`     | Checks connectivity from each Gateway pod to the local cache service, such as Redis or Supersonic cache |
+
+These metrics are reported per Gateway pod. They are not replica counters.
 
 ### Replica Scaling Behavior
 
-When you scale from 2 replicas to 1 replica, a healthy remaining pod still reports `1`.
+When Gateway replicas are scaled down, removed pods stop exposing metrics. As a result, their time series may become stale in the monitoring system.
 
-The removed pod stops exposing metrics, so its time series becomes stale. This behavior does not mean the metric is stuck.
+For example, if you scale from two replicas to one replica, the remaining healthy pod continues to report:
 
-For replica-count alerts, use Kubernetes metrics such as `kube_deployment_status_replicas_available`.
-
-### HTTP Response Metric Behavior
-
-`akeyless.gw.system.http_response_status_code` is a counter with status-code labels.
-
-Use `rate()` or `increase()` in PromQL for alerting and dashboard calculations, rather than using raw counter values.
-
-In addition to these metrics, Gateway application logs can be forwarded through OpenTelemetry.
-
-> ℹ️ **Info:**
->
-> If direct `loki` exporter usage is not available in your environment, forward logs with `otlp` or `otlphttp`, then route to Loki from a downstream collector.
-
-## Datadog (Docker)
-
-To enable telemetry metrics on Docker for Datadog, set `ENABLE_METRICS=true` and mount an OpenTelemetry config file such as `otel-config.yaml`.
-
-```yaml otel-config.yaml
-exporters:
-  datadog:
-    api:
-      key: "<Datadog API key>"
-      site: datadoghq.eu # optional. defaults to Datadog US when omitted
-service:
-  pipelines:
-    metrics:
-      exporters: [datadog]
+```shell
+akeyless_gw_system_healthcheck_status = 1
 ```
+
+This does not mean the metric is stuck. It means the removed pod no longer exposes metrics.
+
+To alert on replica availability, use Kubernetes metrics such as:
+
+```shell
+kube_deployment_status_replicas_available
+```
+
+## HTTP Response Metric Behavior
+
+`akeyless_gw_system_http_response_status_code` is a counter with status-code labels.
+
+When using Prometheus, use `rate()` or `increase()` for alerts and dashboard calculations instead of using the raw counter value.
+
+Example:
+
+```shell PromQL
+sum by (status_code) (
+  rate(akeyless_gw_system_http_response_status_code[5m])
+)
+```
+
+## Enable Metrics on Docker
+
+To enable Gateway telemetry metrics in a Docker deployment, set the `ENABLE_METRICS` environment variable to `true`:
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 \
   -e GATEWAY_ACCESS_ID="Access-id" \
   -e GATEWAY_ACCESS_KEY="Access-key" \
   -e ENABLE_METRICS="true" \
-  -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml \
   --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-Alternatively, use `METRICS_CONFIG_BASE64` with a Base64-encoded OpenTelemetry config.
+After the container starts, metrics are available at: `https://<Your-Gateway-URL>:8000/metrics`
 
-### Dashboard Setup
+Use `http` instead of `https` if your Gateway endpoint is not configured with TLS.
 
-Akeyless is an official Datadog Partner and the dashboard is available in Datadog Integrations.
+## Enable Metrics on Kubernetes
 
-* In Datadog, go to **Integrations** and install **Akeyless Gateway**.
-* Go to **Dashboards** and open the **Akeyless GW** dashboard.
-* Use **Metrics Explorer** and filter by `akeyless.gw` for additional metrics.
+To enable Gateway telemetry metrics on Kubernetes, set `globalConfig.metrics.enabled` to `true` in your `values.yaml` file:
 
-## Prometheus (Docker)
-
-To enable telemetry metrics on Docker for Prometheus, set `ENABLE_METRICS=true`, expose port `8889` (or another exporter port), and mount `otel-config.yaml`.
-
-```yaml Prometheus Exporter
-exporters:
-  prometheus:
-    endpoint: "0.0.0.0:8889"
-service:
-  pipelines:
-    metrics:
-      exporters: [prometheus]
-```
-
-Add a scraping target for the Gateway container in Prometheus:
-
-```yaml Prometheus Scraping
-scrape_configs:
-  - job_name: 'akeyless'
-    scrape_interval: 10s
-    static_configs:
-      # docker on linux
-      - targets: ['localhost:8889']
-      # docker on macOS
-      # - targets: ['host.docker.internal:8889']
-```
-
-Run the Gateway container with metrics enabled:
-
-```shell
-docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 \
-  -e GATEWAY_ACCESS_ID="Access-id" \
-  -e GATEWAY_ACCESS_KEY="Access-key" \
-  -e ENABLE_METRICS="true" \
-  -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml \
-  --name akeyless-gateway akeyless/base:latest-akeyless
-```
-
-When scraped directly by Prometheus, metric names use underscores. For example:
-
-* `akeyless_gw_system_healthcheck_status`
-* `akeyless_gw_system_saas_connection_status`
-
-In OpenTelemetry-transformed backends, these metrics can appear as dotted names (for example, `akeyless.gw.system.healthcheck.status`).
-
-### Grafana Dashboard
-
-You can visualize Akeyless metrics in Grafana when using Prometheus as a data source.
-
-Import the Akeyless GW dashboard using [Grafana dashboard 16927](https://grafana.com/grafana/dashboards/16927).
-
-![A sample screenshot of a Grafana dashboard showing metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
-
-## Gateway Application Log Forwarding (Docker)
-
-To collect Gateway application logs together with metrics, add an additional logs pipeline in `otel-config.yaml`.
-
-```yaml otel-config.yaml
-exporters:
-  prometheus:
-    endpoint: "0.0.0.0:8889"
-  otlphttp:
-    endpoint: "http://<otlp-collector-host>:4318"
-service:
-  pipelines:
-    metrics:
-      exporters: [prometheus]
-    logs:
-      receivers: [filelog]
-      processors: [batch]
-      exporters: [otlphttp]
-```
-
-Enable log forwarding and mount the same telemetry config:
-
-```shell
-docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 \
-  -e GATEWAY_ACCESS_ID="Access-id" \
-  -e GATEWAY_ACCESS_KEY="Access-key" \
-  -e ENABLE_METRICS="true" \
-  -e FORWARD_GW_APP_LOG="true" \
-  -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml \
-  --name akeyless-gateway akeyless/base:latest-akeyless
-```
-
-Application logs from all instances of this Gateway are forwarded in this format:
-`<date> <time> <gw-clustername-instance-id> <log>`.
-
-For Loki-based analysis, send Gateway logs to an OTLP-capable collector and route from that collector to Loki when needed. Then add a [Loki data source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/) in Grafana and query logs from **Explore**.
-
-## Telemetry Config on Kubernetes
-
-On Kubernetes, the Gateway loads the OpenTelemetry config file from a Kubernetes Secret that you create in advance. The `akeyless-gateway` Helm chart mounts the Secret into the Gateway pod at `/akeyless/otel-config.yaml` when `globalConfig.metrics.enabled` is `true` **and** `globalConfig.metrics.metricsExistingSecret` references an existing Secret.
-
-> ⚠️ **Warning:**
->
-> Setting `globalConfig.metrics.enabled: true` without also setting `globalConfig.metrics.metricsExistingSecret` is not supported. The Gateway pod requires `otel-config.yaml` at startup, and without the Secret reference the chart has no source for that file.
-
-Create the OpenTelemetry config Secret once, then reuse it across the Datadog, Prometheus, and log-forwarding flows below.
-
-Build an `otel-config.yaml` for your exporter (see the per-backend sections below for examples), Base64-encode it, and create the Secret:
-
-```yaml secret.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: gw-metrics-secret
-  namespace: <your-namespace>
-type: Opaque
-data:
-  otel-config.yaml: <base64-encoded-otel-config>
-```
-
-Apply the Secret in the target namespace:
-
-```shell
-kubectl apply -f secret.yaml -n <your-namespace>
-```
-
-Reference the Secret from Helm values:
-
-```yaml values.yaml
+```yaml
 globalConfig:
   metrics:
     enabled: true
-    metricsExistingSecret: gw-metrics-secret
 ```
 
-The Secret must contain a key named `otel-config.yaml` whose value is the Base64-encoded OpenTelemetry config. The chart mounts that key into the Gateway container at `/akeyless/otel-config.yaml`.
+## Configure Prometheus Scraping
 
-## Datadog (Kubernetes)
+To allow Prometheus to scrape Gateway metrics, annotate the Gateway Service:
 
-Create `otel-config.yaml` with the Datadog exporter:
-
-```yaml otel-config.yaml
-exporters:
-  datadog:
-    api:
-      key: "<Datadog API key>"
-      site: <Datadog site>
-service:
-  pipelines:
-    metrics:
-      exporters: [datadog]
-```
-
-If your Datadog account is in the EU site, use `datadoghq.eu`.
-
-Then create the `gw-metrics-secret` Kubernetes Secret and reference it via `globalConfig.metrics.metricsExistingSecret`, as described in [Telemetry Config on Kubernetes](#telemetry-config-on-kubernetes).
-
-## Prometheus (Kubernetes)
-
-Create `otel-config.yaml` with the Prometheus exporter and expose the exporter port on the Gateway Service:
-
-```yaml otel-config.yaml
-exporters:
-  prometheus:
-    endpoint: "0.0.0.0:8889"
-service:
-  pipelines:
-    metrics:
-      exporters: [prometheus]
-```
-
-Create the `gw-metrics-secret` Kubernetes Secret and reference it via `globalConfig.metrics.metricsExistingSecret`, as described in [Telemetry Config on Kubernetes](#telemetry-config-on-kubernetes), then annotate the Gateway Service so Prometheus can scrape port `8889`:
-
-```yaml values.yaml
+```yaml
 gateway:
   service:
     annotations:
       prometheus.io/scrape: "true"
-      prometheus.io/port: "8889"
+      prometheus.io/port: "8000"
+      prometheus.io/scheme: "http"
 
 globalConfig:
   metrics:
     enabled: true
-    metricsExistingSecret: gw-metrics-secret
 ```
 
-Add a scrape target in Prometheus:
+Use `prometheus.io/scheme: "https"` if your Gateway metrics endpoint is exposed over HTTPS.
 
-```yaml
-scrape_configs:
-  - job_name: 'akeyless'
-    scrape_interval: 10s
-    static_configs:
-      - targets: ['localhost:8889']
-```
+## Datadog Dashboard
 
-## Gateway Application Log Forwarding (Kubernetes)
+Akeyless is an official Datadog Partner, and the Akeyless Gateway dashboard is available through Datadog Integrations.
 
-To collect Gateway application logs together with metrics, add a logs pipeline to the same `otel-config.yaml`, recreate the Secret, and set `FORWARD_GW_APP_LOG=true` on the Gateway container.
+To use the dashboard:
 
-```yaml otel-config.yaml
-exporters:
-  prometheus:
-    endpoint: "0.0.0.0:8889"
-  otlphttp:
-    endpoint: "http://<otlp-collector-host>:4318"
-service:
-  pipelines:
-    metrics:
-      exporters: [prometheus]
-    logs:
-      receivers: [filelog]
-      processors: [batch]
-      exporters: [otlphttp]
-```
+1. In Datadog, go to **Integrations**.
+2. Install the **Akeyless Gateway** integration.
+3. Go to **Dashboards**.
+4. Open the **Akeyless GW** dashboard.
 
-```yaml values.yaml
-globalConfig:
-  metrics:
-    enabled: true
-    metricsExistingSecret: gw-metrics-secret
-  env:
-    - name: FORWARD_GW_APP_LOG
-      value: "true"
-```
+You can also use **Metrics Explorer** and filter by: `akeyless_gw`
+
+## Grafana Dashboard with Prometheus
+
+You can visualize Akeyless Gateway metrics in Grafana when using Prometheus as a data source.
+
+Import the Akeyless Gateway dashboard from Grafana: [Grafana dashboard 16927](https://grafana.com/grafana/dashboards/16927).
+
+![A sample screenshot of a Grafana dashboard showing Gateway metrics and charts.](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png)
+
+## Optional: Use OpenTelemetry Collector
+
+You can use the OpenTelemetry Collector to scrape Gateway metrics and export them to an observability backend.
+
+In this flow, the Collector scrapes the Gateway `/metrics` endpoint and then exports the collected metrics to the selected backend.
+
+For a full list of available exporters, see the [OpenTelemetry Collector Contrib exporter page](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
+
+## Gateway Application Log Forwarding
+
+Gateway application logs are not exposed through the metrics endpoint.
+
+To collect logs together with metrics, forward container logs from Docker or Kubernetes using your existing logging pipeline.
+
+For Docker deployments, collect logs from the Gateway container.
+
+For Kubernetes deployments, collect pod logs using your existing Kubernetes logging pipeline.
+
+For more information, see [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding).
 
 ## Metric Tag Configuration
 
-You can add tags to metrics using OpenTelemetry semantic conventions. For mapping details, see [Datadog OpenTelemetry semantic mapping](https://docs.datadoghq.com/opentelemetry/mapping/semantic_mapping/?tab=datadogexporter#metrics-attribute-mapping).
+You can enrich metrics with tags using OpenTelemetry semantic conventions.
+
+When sending metrics through Datadog or an OpenTelemetry Collector, make sure that the required resource attributes are mapped to tags according to your monitoring backend configuration.
+
+For Datadog mapping details, see [Datadog OpenTelemetry semantic mapping](https://docs.datadoghq.com/opentelemetry/mapping/semantic_mapping/?tab=datadogexporter#metrics-attribute-mapping).
+
+## Recommended Alerts
+
+Consider configuring alerts for the following conditions:
+
+| Area              | Metric                                                                                           | Suggested Alert                                    |
+| ----------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| Gateway health    | `akeyless_gw_system_healthcheck_status`                                                          | Alert when the value is `0` for one or more pods   |
+| SaaS connectivity | `akeyless_gw_system_saas_connection_status`                                                      | Alert when the value is `0` for one or more pods   |
+| API errors        | `akeyless_gw_system_http_response_status_code`                                                   | Alert on an increase in 5xx responses              |
+| API traffic       | `akeyless_gw_system_request_count`                                                               | Alert on unusual traffic drops or spikes           |
+| Account quota     | `akeyless_gw_quota_current_transactions_number` and `akeyless_gw_quota_total_transactions_limit` | Alert when usage approaches the hourly quota limit |
+| System resources  | `akeyless_gw_system_cpu_*`, `akeyless_gw_system_memory_*`, `akeyless_gw_system_disk_*`           | Alert on sustained high resource usage             |
+
+## Troubleshooting
+
+### Metrics endpoint is not available
+
+Verify that metrics are enabled.
+
+For Kubernetes deployments, check that the following value is configured:
+
+```yaml
+globalConfig:
+  metrics:
+    enabled: true
+```
+
+For Docker deployments, verify that the container was started with:
+
+```shell
+-e ENABLE_METRICS="true"
+```
+
+Also check that port `8000` is exposed and reachable from your monitoring system.
+
+### Prometheus is not scraping metrics
+
+Check the following:
+
+- The Gateway Service includes the correct Prometheus scrape annotations.
+- Port `8000` is exposed and reachable.
+- The configured scrape scheme matches your deployment: `http` or `https`.
+- Network policies allow Prometheus to reach the Gateway Service.
+
+### Metrics from removed pods still appear
+
+When a Gateway pod is removed, it stops exposing metrics. Some monitoring systems may keep the last time series until it becomes stale.
+
+This is expected behavior and does not mean the pod is still running.
+
+### HTTP status code values keep increasing
+
+`akeyless_gw_system_http_response_status_code` is a counter. Counter values are expected to increase over time.
+
+Use `rate()` or `increase()` to calculate changes over a time window.
+
+Example:
+
+```shell PromQL
+sum by (status_code) (
+  increase(akeyless_gw_system_http_response_status_code[5m])
+)
+```
 
 ## Related Pages
 
-* [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
-* [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
-* [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
+- [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
+- [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
+- [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
+
+<br />

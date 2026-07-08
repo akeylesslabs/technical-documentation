@@ -2,7 +2,9 @@
 - aws-targets
 - azure-targets
 - chef-infra-targets
+- claude-target
 - cloudflare-target
+- custom-dns-target
 - database-targets
 - digicert-target
 - docker-hub-target
@@ -14,11 +16,14 @@
 - globalsign-target
 - godaddy-target
 - google-ca-target
+- grok-target
 - hashicorp-vault-target
+- keycloak-target
 - kubernetes-targets
 - ldap-target
 - lets-encrypt
 - linked-target
+- okta-target
 - openai-target
 - ping-target
 - rabbitmq-targets

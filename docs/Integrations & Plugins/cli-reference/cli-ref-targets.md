@@ -50,7 +50,7 @@ akeyless assoc-target-item \
 
 `--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for GCP targets)
 
-`--tenant-secret-type`: The tenant secret type [Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for Salesforce targets)
+`--tenant-secret-type`: The tenant secret type \[Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for Salesforce targets)
 
 `--multi-region[=false]`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
 
@@ -82,7 +82,11 @@ Create a new Target
 
 `azure`
 
+`claude`
+
 `cloudflare`
+
+`custom-dns`
 
 `db`
 
@@ -108,15 +112,21 @@ Create a new Target
 
 `godaddy`
 
+`grok`
+
 `hashi-vault`
 
 `k8s`
+
+`keycloak`
 
 `ldap`
 
 `lets-encrypt`
 
 `linked`
+
+`okta`
 
 `openai`
 
@@ -245,9 +255,30 @@ akeyless target create azure \
 `--description`: Target description
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `claude`&#x20;
+
+Creates a new Azure target in the current account
+
+#### Usage
+
+```shell
+akeyless target create claude \
+--name <Target name> \
+--api-key <Claude API Key> \
+--claude-url[=https://api.anthropic.com] <Claude API base URL>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--api-key`: **Required**, Claude API Key
+
+`--claude-url`: Claude API base URL
+
 ### `cloudflare`
 
-Creates a new Cloudflare target in the current account
+Creates a new Claude target in the current account
 
 #### Usage
 
@@ -271,6 +302,27 @@ akeyless target create cloudflare \
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+### `custom-dns`
+
+Creates a new Custom-DNS target in the current account
+
+#### Usage
+
+```shell
+akeyless target create custom-dns \
+--name <Target name> \
+--provider-type <DNS Provider> \
+--dns-parameter <Key|Value>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`provider-type`: The DNS provider type. All DNS providers available through the Lego project are supported.
+
+`dns-parameter`: The parameters for the DNS provider.
 
 ### `db`
 
@@ -324,13 +376,13 @@ akeyless target create db \
 
 `--cloud-service-provider`: Cloud Service Provider (currently only supports Azure)
 
-`--connection-type[=credentials]`: Type of connection to MSSQL database [credentials/cloud-identity]
+`--connection-type[=credentials]`: Type of connection to MSSQL database \[credentials/cloud-identity]
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
-`--enable-mtls[=false]`: Enable/Disable mTLS [true/false]. Relevant only when `--ssl=true`
+`--enable-mtls[=false]`: Enable/Disable mTLS \[true/false]. Relevant only when `--ssl=true`
 
 `--client-certificate`: Client certificate in Base64 format. Relevant only when `--enable-mtls=true`
 
@@ -386,9 +438,9 @@ akeyless target create digicert \
 
 `-n, --name`: **Required**, Target name
 
-`--digicert-url[=us-production]`: DigiCert ACME endpoint selector. Options: [`us-production`/`eu-production`/`us-demo`/`eu-demo`]
+`--digicert-url[=us-production]`: DigiCert ACME endpoint selector. Options: \[`us-production`/`eu-production`/`us-demo`/`eu-demo`]
 
-`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+`--acme-challenge[=dns]`: ACME challenge type. Options: \[`dns | http`]
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
@@ -414,7 +466,7 @@ akeyless target create digicert \
 
 `--max-versions`: Maximum number of versions, limited by the account settings defaults
 
-`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
 
 ### `dockerhub`
 
@@ -468,7 +520,7 @@ akeyless target create eks \
 
 `-e, --eks-cluster-name`: **Required**, EKS cluster name
 
-`-c, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (that is, https://`<IP>` of the cluster)
+`-c, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (that is, https\://`<IP>` of the cluster)
 
 `-t, --eks-cluster-ca-cert`: **Required**, EKS cluster base-64 encoded certificate
 
@@ -601,7 +653,7 @@ akeyless target create gitlab \
 
 `--max-versions`: Maximum number of versions, limited by the account settings defaults
 
-`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
 
 `-k, --key`: Key name used to encrypt the target secret value
 
@@ -623,9 +675,9 @@ akeyless target create google-trust \
 
 `-n, --name`: **Required**, Target name
 
-`--google-trust-url[=production]`: Google Trust directory environment. Options: [`production`/`staging`]
+`--google-trust-url[=production]`: Google Trust directory environment. Options: \[`production`/`staging`]
 
-`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+`--acme-challenge[=dns]`: ACME challenge type. Options: \[`dns | http`]
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
@@ -647,7 +699,7 @@ akeyless target create google-trust \
 
 `--max-versions`: Maximum number of versions, limited by the account settings defaults
 
-`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
 
 ### `gke`
 
@@ -809,6 +861,30 @@ akeyless target create godaddy \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `grok`
+
+Creates a new Grok target
+
+#### Usage
+
+```shell
+akeyless target create grok \
+--name <Target name> \
+--api-key <Grok API key> \
+--grok-url[=https://api.x.ai] <Grok API base URL> \
+--team-id <team ID> 
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`api-key`: The Grok API key
+
+`grok-url`: The Grok API base URL. Default: [https://api.x.ai](https://api.x.ai)
+
+`team-id`: The ID of the team this API key belongs to.
+
 ### `hashi-vault`
 
 Creates a new HashiCorp Vault target
@@ -885,6 +961,35 @@ akeyless target create k8s \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `keycloak`
+
+Creates a new Keycloak target in the current account
+
+#### Usage
+
+```shell
+akeyless target create keycloak \
+--name <Target name> \
+--url <Keycloak URL> \
+--realm <Keycloak realm> \
+--client-id <Keycloak client ID> \
+--client-secret <Keycloak client secret>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`realm`: The Keycloak realm to connect to
+
+`url`: The Keycloak API base URL
+
+`client-id`: The ID of the Keycloak client configured for service account authentication
+
+`client-secret`: The secret associated with the Keycloak client’s service account
+
+`url`: The base URL of your Keycloak server
+
 ### `ldap`
 
 Creates a new LDAP target in the current account
@@ -913,7 +1018,7 @@ akeyless target create ldap \
 
 `-p, --bind-dn-password`: **Required**, Password for LDAP Bind DN
 
-`-s, --server-type[=OpenLDAP]`: Set LDAP server type, Options:[OpenLDAP, ActiveDirectory]. Default is OpenLDAP
+`-s, --server-type[=OpenLDAP]`: Set LDAP server type, Options:\[OpenLDAP, ActiveDirectory]. Default is OpenLDAP
 
 `-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate
 
@@ -950,13 +1055,13 @@ akeyless target create lets-encrypt \
 
 `-n, --name`: **Required**, Target name
 
-`--lets-encrypt-url[=production]`: Let's Encrypt directory environment. Options: [`production`/`staging`]
+`--lets-encrypt-url[=production]`: Let's Encrypt directory environment. Options: \[`production`/`staging`]
 
-`--acme-challenge[=http]`: ACME challenge type. Options: [`http`/`dns`]
+`--acme-challenge[=http]`: ACME challenge type. Options: \[`http`/`dns`]
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
-`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`/`Cloudflare`]). Relevant only when `--acme-challenge=dns`
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: \[`AWS`/`Azure`/`GCP`/`Cloudflare`]). Relevant only when `--acme-challenge=dns`
 
 `--dns-zone`: **Cloudflare DNS zone** name. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is Cloudflare
 
@@ -995,6 +1100,27 @@ akeyless target create linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `okta`
+
+Creates a new Okta target in the current account
+
+#### Usage
+
+```shell
+akeyless target create okta \
+--name <Target name> \
+--api-token <Okta API token> \
+--url <Okta URL> \
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`api-token`: The Okta API token
+
+`url`: The URL of your Okta account
+
 ### `openai`
 
 Creates a new OpenAI target in the current account
@@ -1032,7 +1158,7 @@ akeyless target create openai \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 ### `ping`
 
@@ -1328,7 +1454,7 @@ akeyless target create windows \
 
 `-r, --port[=5986]`: Windows Server WinRM port, by default, set to `5986` for `Https`
 
-`--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS [true/false]
+`--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS \[true/false]
 
 `--certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
@@ -1484,7 +1610,7 @@ List of all targets in the account
 
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 ## `lock-target`
 
@@ -1556,9 +1682,9 @@ akeyless target update artifactory \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `aws`
 
@@ -1601,9 +1727,9 @@ akeyless target update aws \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 `--description`: Target description
 
@@ -1656,9 +1782,33 @@ akeyless target update azure \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+
+#### `claude`
+
+Updates an existing Claude target in the current account
+
+##### Usage
+
+```shell
+akeyless target update claude \
+--name <Target name> \
+--new-name <New target name> \
+--api-key <Claude API key> \
+--claude-url <Claude API base URL> 
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`api-key`: The Claude API key.
+
+`claude-url`: The Claude API base URL. Default: [https://api.anthropic.com](https://api.anthropic.com)
 
 #### `cloudflare`
 
@@ -1691,7 +1841,31 @@ akeyless target update cloudflare \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+
+#### `custom-dns`
+
+Updates an existing Custom-DNS target in the current account
+
+##### Usage
+
+```shell
+akeyless target update custom-dns \
+--name <Target name> \
+--new-name <New target name> \
+--provider-type <DNS Provider> \
+--dns-parameter <Key|Value>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`provider-type`: The DNS provider type. All DNS providers available through the Lego project are supported.
+
+`dns-parameter`: The parameters for the DNS provider.
 
 #### `db`
 
@@ -1753,15 +1927,15 @@ akeyless target update db \
 
 `--cluster-mode`: Flag, if set, define this target as cluster mode. relevant for MSSQL targets
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `dockerhub`
 
@@ -1793,9 +1967,9 @@ akeyless target update dockerhub \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `eks`
 
@@ -1820,7 +1994,7 @@ akeyless target update eks \
 
 `-c, --eks-cluster-name`: **Required**, EKS cluster name
 
-`-e, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (that is, https://`<IP>` of the cluster)
+`-e, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (that is, https\://`<IP>` of the cluster)
 
 `-r, --eks-cluster-ca-cert`: **Required**, EKS cluster base-64 encoded certificate
 
@@ -1840,9 +2014,9 @@ akeyless target update eks \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `gcp`
 
@@ -1878,9 +2052,9 @@ akeyless target update gcp \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `digicert`
 
@@ -1900,9 +2074,9 @@ akeyless target update digicert \
 
 `-n, --name`: **Required**, Target name
 
-`--digicert-url[=us-production]`: DigiCert ACME endpoint selector. Options: [`us-production`/`eu-production`/`us-demo`/`eu-demo`]
+`--digicert-url[=us-production]`: DigiCert ACME endpoint selector. Options: \[`us-production`/`eu-production`/`us-demo`/`eu-demo`]
 
-`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+`--acme-challenge[=dns]`: ACME challenge type. Options: \[`dns`]
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
@@ -1926,7 +2100,7 @@ akeyless target update digicert \
 
 `-k, --key`: Key name used to encrypt the target secret value
 
-`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+`--keep-prev-version`: Whether to keep the previous version \[`true`/`false`]
 
 `--description`: Description of the object
 
@@ -1995,9 +2169,9 @@ akeyless target update github \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `gitlab`
 
@@ -2027,11 +2201,11 @@ akeyless target update gitlab \
 
 `--max-versions`: Maximum number of versions, limited by the account settings defaults
 
-`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
 
 `-k, --key`: Key name used to encrypt the target secret value
 
-`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+`--keep-prev-version`: Whether to keep the previous version \[`true`/`false`]
 
 #### `google-trust`
 
@@ -2051,9 +2225,9 @@ akeyless target update google-trust \
 
 `-n, --name`: **Required**, Target name
 
-`--google-trust-url[=production]`: Google Trust directory environment. Options: [`production`/`staging`]
+`--google-trust-url[=production]`: Google Trust directory environment. Options: \[`production`/`staging`]
 
-`--acme-challenge[=dns]`: ACME challenge type. Options: [`dns`]
+`--acme-challenge[=dns]`: ACME challenge type. Options: \[`dns`]
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
@@ -2073,7 +2247,7 @@ akeyless target update google-trust \
 
 `-k, --key`: Key name used to encrypt the target secret value
 
-`--keep-prev-version`: Whether to keep the previous version [`true`/`false`]
+`--keep-prev-version`: Whether to keep the previous version \[`true`/`false`]
 
 `--description`: Description of the object
 
@@ -2123,9 +2297,9 @@ akeyless target update gke \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `globalsign`
 
@@ -2170,7 +2344,7 @@ akeyless target update globalsign \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 `--description`: Description of the object
 
@@ -2217,7 +2391,7 @@ akeyless target update globalsign-atlas \
 
 #### `godaddy`
 
-Creates a new GoDaddy target
+Updates an existing GoDaddy target in the current account
 
 ##### Usage
 
@@ -2254,11 +2428,38 @@ akeyless target update godaddy \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+#### `grok`
+
+Updates an existing Grok target in the current account
+
+##### Usage
+
+```shell
+akeyless target update grok \
+--name <Target name> \
+--new-name <New target name> \
+--api-key <Grok API key> \
+--grok-url[=https://api.x.ai] <Grok API base URL> \
+--team-id <team ID> 
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`api-key`: The Grok API key&#x20;
+
+`grok-url`: The Grok API base URL. Default: [https://api.x.ai](https://api.x.ai)
+
+`team-id`: The ID of the team this API key belongs to
 
 #### `hashi-vault`
 
@@ -2313,7 +2514,7 @@ akeyless target update k8s \
 
 `-n, --name`: **Required**, Target name
 
-`-e, --k8s-cluster-endpoint`: **Required**, Kubernetes Cluster endpoint. https://, \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: **Required**, Kubernetes Cluster endpoint. https\://, \<DNS / IP> of the cluster
 
 `-c, --k8s-cluster-ca-cert`: **Required**, Kubernetes Cluster certificate. Base 64 encoded certificate
 
@@ -2341,9 +2542,41 @@ akeyless target update k8s \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+
+#### `keycloak`
+
+Updates an existing Keycloak target in the current account
+
+##### Usage
+
+```shell
+akeyless target update keyclock \
+--name <Target name> \
+--new-name <New target name> \
+--url <Keycloak URL> \
+--realm <Keycloak realm> \
+--client-id <Keycloak client ID> \
+--client-secret <Keycloak client secret>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--url`: The Keycloak API base URL
+
+`--realm`: The Keycloak realm to connect to
+
+`--client-id`: The ID of the Keycloak client configured for service account authentication
+
+`--client-secret`: The secret associated with the Keycloak client’s service account.
+
+`--url`: The base URL of your Keycloak server
 
 #### `ldap`
 
@@ -2371,7 +2604,7 @@ akeyless target update ldap \
 
 `-p, --bind-dn-password`: **Required**, Password for LDAP Bind DN
 
-`-s, --server-type`: Set LDAP server type, Options:[OpenLDAP, ActiveDirectory]
+`-s, --server-type`: Set LDAP server type, Options:\[OpenLDAP, ActiveDirectory]
 
 `--new-name`: New target name
 
@@ -2385,9 +2618,9 @@ akeyless target update ldap \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 ### `lets-encrypt`
 
@@ -2417,13 +2650,13 @@ akeyless target update lets-encrypt \
 
 `--new-name`: New Target Name
 
-`--lets-encrypt-url[=production]`: Let's Encrypt directory environment. Options: [`production`/`staging`]
+`--lets-encrypt-url[=production]`: Let's Encrypt directory environment. Options: \[`production`/`staging`]
 
-`--acme-challenge[=http]`: ACME challenge type. Options: [`http`/`dns`]
+`--acme-challenge[=http]`: ACME challenge type. Options: \[`http`/`dns`]
 
 `-e, --email`: **Required**, Email address for ACME account registration
 
-`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`/`Cloudflare`]). Relevant only when `--acme-challenge=dns`
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: \[`AWS`/`Azure`/`GCP`/`Cloudflare`]). Relevant only when `--acme-challenge=dns`
 
 `--dns-zone`: **Cloudflare DNS zone** name. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is Cloudflare
 
@@ -2471,6 +2704,30 @@ akeyless target update linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+#### `okta`
+
+Updates an existing Okta target in the current account
+
+##### Usage
+
+```shell
+akeyless target update okta \
+--name <Target name> \
+--new-name <New target name> \
+--api-token <Okta API token> \
+--url <Okta URL>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`api-token`: The Okta API token.
+
+`url`: The URL of your Okta account.
+
 #### `openai`
 
 Updates an existing OpenAI target in the current account
@@ -2508,11 +2765,11 @@ akeyless target update openai \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `ping`
 
@@ -2547,13 +2804,13 @@ akeyless target update ping \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 `--description`: Description of the object
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 #### `rabbitmq`
 
@@ -2589,9 +2846,9 @@ akeyless target update rabbitmq \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `salesforce`
 
@@ -2644,9 +2901,9 @@ akeyless target update salesforce \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `sectigo`
 
@@ -2738,9 +2995,9 @@ akeyless target update ssh \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `web`
 
@@ -2769,9 +3026,9 @@ akeyless target update web \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 #### `windows`
 
@@ -2804,13 +3061,13 @@ akeyless target update windows \
 
 `-r, --port[=5986]`: Server WinRM port
 
-`--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS [true/false]
+`--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS \[true/false]
 
 `--certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 `--description`: Description of the object
 
@@ -2851,7 +3108,7 @@ akeyless target update zerossl \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value
 
-`--keep-prev-version`: Whether to keep the previous version, options:[true, false], If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[true, false], If not set, use default according to account settings
 
 `--description`: Description of the object
 
@@ -2879,4 +3136,4 @@ akeyless update-target \
 
 `--max-versions`: Maximum number of versions, limited by the account settings defaults
 
-`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
