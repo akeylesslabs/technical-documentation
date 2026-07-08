@@ -103,3 +103,29 @@ To handle this, use temporary unique placeholder values when creating the Entra 
    Use temporary unique HTTPS values for the Identifier and Reply URL. These values are used only to allow the Entra application to be saved and to expose the App Federation Metadata URL.
 
    For example:
+
+Identifier / Entity ID:
+https://auth.akeyless.io/saml/sp/prod
+Reply URL / ACS URL:
+https://auth.akeyless.io/saml/acs/prod
+> **Important**
+   > These are temporary bootstrap values only. They must be unique and use HTTPS. After the Akeyless SAML Authentication Method is created, replace them with the real dedicated endpoints based on the Auth Method Access ID.
+
+2. **Copy the Entra App Federation Metadata URL.**
+
+   From the Entra SAML configuration page, copy the **App Federation Metadata URL** for the Enterprise Application.
+
+3. **Create the Akeyless SAML Authentication Method with Dedicated SAML Endpoint enabled.**
+
+```shell
+   akeyless auth-method create saml \
+     --name "<SAML Auth Method Name>" \
+     --idp-metadata-url "<ENTRA_APP_FEDERATION_METADATA_URL>" \
+     --unique-identifier <email|username|UPN>
+```
+
+   Enable **Dedicated SAML Endpoint** for this method in the Console if not set via CLI. After the Authentication Method is created, copy the returned SAML Authentication Method Access ID.
+
+4. **Replace the temporary values in Microsoft Entra ID.**
+
+   Go back to the Entra Enterprise Application and replace the temporary SAML values with the dedicated Akeyless endpoints for the matching SAML Authentication Method.
