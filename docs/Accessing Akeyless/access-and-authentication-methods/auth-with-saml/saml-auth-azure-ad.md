@@ -134,7 +134,8 @@ The dedicated Entity ID and Reply URL depend on the Access ID, which only exists
    akeyless auth-method update saml \
      --name "<SAML Auth Method Name>" \
      --idp-metadata-url "<ENTRA_APP_FEDERATION_METADATA_URL>" \
-     --unique-identifier <email|username|UPN>
+     --unique-identifier <email|username|UPN> \
+     --dedicated-saml-endpoint true
    ```
 
    Or, in the Console: go to **Administration** > **Users & Auth Methods**, select the Authentication Method, update the **Metadata URL** field, and save.
