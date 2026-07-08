@@ -30,8 +30,11 @@ Unlike IdPs that need placeholder endpoint values up front, Ping Identity import
 4. In the **Metadata URL** field, you'll add your Ping IdP metadata URL once it's available — continue to the Ping setup below and return to finish this step, or save a draft with a placeholder value if your workflow requires an early record.
 5. Set the **Unique Identifier** field with `email`.
 
-> 👍 **Note:**
-> **Unique Identifier** should be a **key** name, not the value itself. For example, `email` should be provided as is, and not the actual email address.
+<Callout icon="👍" theme="okay">
+  ### **Note:**
+
+  **Unique Identifier** should be a **key** name, not the value itself. For example, `email` should be provided as is, and not the actual email address.
+</Callout>
 
 6. Leave **Dedicated SAML Endpoint** off to use the shared Akeyless metadata URL (see [Optional: Dedicated SAML Endpoints](#optional-dedicated-saml-endpoints-for-ping-identity) below if you need a per-method URL instead).
 7. Select **Finish**.
@@ -39,7 +42,9 @@ Unlike IdPs that need placeholder endpoint values up front, Ping Identity import
 ## Create a Ping Identity Application
 
 1. Log in to [PingOne](https://admin.pingone.com/web-portal/login), and go to **Applications > Add Application > New SAML Application**.
+
 2. On the **Application Details** page, define the application name, description, and category, then select **Continue to Next Step**.
+
 3. On the **SAML Configuration** page, select **Import from URL**, and import the shared Akeyless SAML metadata URL:
 
    `https://auth.akeyless.io/saml/metadata`
@@ -47,12 +52,17 @@ Unlike IdPs that need placeholder endpoint values up front, Ping Identity import
 4. Once the metadata has been uploaded, configuration information appears. Confirm that:
    - **Assertion Consumer Service (ACS)** is set to `https://auth.akeyless.io/saml/acs`.
    - **Entity ID** matches the imported metadata's entity ID.
+
 5. From the **Signing** options, select the **Sign Assertion** radio button, then select **Continue to Next Step**.
+
 6. On the **Attribute Mapping** tab, select **Add New Attribute**, and add the following attribute settings:
    - **Application Attribute**: `SAML_SUBJECT` mapped to `User ID`
    - **Application Attribute**: `Email` mapped to `Email Address`
+
 7. Edit your Application configuration and in the `SUBJECT NAMEID FORMAT` field, select `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
+
 8. Select **Continue to Next Step**.
+
 9. Add the groups in your Ping Identity account to this application, then select **Continue to Next Step** and **Finish**.
 
 Your new application appears in the list of available applications.
@@ -72,7 +82,7 @@ After creating the method, associate it with one or more Access Roles so authent
 
 ### Akeyless Console
 
-1. Open <https://console.akeyless.io>.
+1. Open [https://console.akeyless.io](https://console.akeyless.io).
 2. In the **Or continue with** section, select **SAML**.
 3. Enter the SAML Authentication Method **Access ID**.
 4. Complete sign-in in Ping Identity.
@@ -86,17 +96,17 @@ akeyless configure \
   --access-type saml
 ```
 
-## Optional: Dedicated SAML Endpoints for Ping Identity
+## Dedicated SAML Endpoints for Ping Identity
 
-The **Dedicated SAML Endpoint** flag is set per Authentication Method, not per account — you can enable it for this Ping Identity Authentication Method while other SAML methods in the same Akeyless account keep using the shared endpoints. Enable it if you plan to run more than one PingOne application against Akeyless and need each one to have unique SAML values.
+The **Dedicated SAML Endpoint** flag is set per Authentication Method, you can enable it for one Ping Identity Authentication Method while other SAML methods in the same Akeyless account keep using the shared endpoints. Enable it if you plan to run more than one PingOne application against Akeyless and need each one to have unique SAML values.
 
 When enabled, this Authentication Method exposes its own endpoints scoped to its Access ID. Replace `<SAML_AUTH_METHOD_ACCESS_ID>` with the Access ID of this method:
 
-| Endpoint | Format |
-| --- | --- |
-| Assertion Consumer Service (ACS) | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>` |
-| Entity ID | `https://auth.akeyless.io/saml/sp/<SAML_AUTH_METHOD_ACCESS_ID>` |
-| SAML Metadata URL | `https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>` |
+| Endpoint                         | Format                                                                |
+| -------------------------------- | --------------------------------------------------------------------- |
+| Assertion Consumer Service (ACS) | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>`      |
+| Entity ID                        | `https://auth.akeyless.io/saml/sp/<SAML_AUTH_METHOD_ACCESS_ID>`       |
+| SAML Metadata URL                | `https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>` |
 
 Since the Akeyless Access ID must exist before you can build this dedicated metadata URL, create the Akeyless Authentication Method first with **Dedicated SAML Endpoint** enabled, copy its Access ID, then import the resulting dedicated metadata URL into PingOne in place of the shared one.
 
@@ -108,3 +118,5 @@ If authentication fails, check the following:
 - The Ping assertion includes the key configured in **Unique Identifier**.
 - The user is assigned to the Ping application.
 - The metadata URL configured in Akeyless is valid and current.
+
+<br />
