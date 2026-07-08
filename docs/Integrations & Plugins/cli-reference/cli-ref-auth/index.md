@@ -1,6 +1,5 @@
 ---
 title: CLI Reference - Authentication
-slug: cli-ref-auth
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: cli-ref-auth
 ---
 This section outlines the CLI commands relevant to authentication.
 
@@ -35,7 +35,7 @@ with the relevant flags according to the `access-type` being used.
 
 `--cloud-id`: The cloud identity (relevant only for `access-type=azure_ad`, `aws_iam`, `gcp`)
 
-`--uid_token`: The universal_identity token (relevant only for `access-type=universal_identity`)
+`--uid_token`: The universal\_identity token (relevant only for `access-type=universal_identity`)
 
 `--jwt`: The JSON Web Token (relevant only for `access-type=jwt` and `access-type=oidc`)
 
@@ -149,15 +149,15 @@ akeyless auth-method create api-key --name <Auth method name>
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 ### `aws-iam`
 
@@ -190,15 +190,15 @@ akeyless auth-method create aws-iam \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to
 
@@ -248,21 +248,21 @@ akeyless auth-method create azure-ad \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `-b, --bound-tenant-id`: **Required**, The Azure tenant ID that the access is restricted to
 
 `--issuer`: Issuer URL (=`https://sts.windows.net/bound_tenant_id`)
 
-`--jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server (=`[https://login.microsoftonline.com/common/discovery/keys](https://login.microsoftonline.com/common/discovery/keys))
+`--jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server (=\`[https://login.microsoftonline.com/common/discovery/keys](https://login.microsoftonline.com/common/discovery/keys))
 
 `--audience[=https://management.azure.com/]`: The audience in the JWT
 
@@ -313,15 +313,15 @@ akeyless auth-method create cert \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--certificate-data`: The certificate data in Base64, if no file was provided
 
@@ -375,15 +375,15 @@ akeyless auth-method create email \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--email`: **Required**, An email address to be invited to have access
 
@@ -417,15 +417,15 @@ akeyless auth-method create gcp \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `-t, --type`: **Required**, The type of the GCP Auth Method (IAM/GCE)
 
@@ -478,13 +478,13 @@ akeyless auth-method create oauth2 \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `-j, --jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server
 
@@ -537,15 +537,15 @@ akeyless auth-method create oci \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 ### `oidc`
 
@@ -578,15 +578,15 @@ akeyless auth-method create oidc \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--issuer`: Issuer URL
 `--client-id`: Client ID
@@ -633,15 +633,15 @@ akeyless auth-method create saml \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or UPN for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
@@ -654,6 +654,8 @@ akeyless auth-method create saml \
 `--idp-metadata-xml-data`: IdP metadata as XML encoded in Base64
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
+
+`--dedicated-saml-endpoint[=false]`: Enable a dedicated SAML ACS and metadata endpoint for this authentication method. When enabled, this SAML auth method uses endpoints that are unique to its Access ID instead of the account-level global SAML endpoints
 
 ## `get-cloud-identity`
 
@@ -719,13 +721,13 @@ akeyless auth-method update api-key --name <Auth method>
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 #### `aws-iam`
 
@@ -758,7 +760,7 @@ akeyless auth-method update aws-iam \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
@@ -782,7 +784,7 @@ For partition support and endpoint examples, see [AWS Partition and Deployment S
 
 `--bound-user-id`: A list of full user ids that the access is restricted to
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 #### `azure-ad`
 
@@ -815,13 +817,13 @@ akeyless auth-method update azure-ad \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `-b, --bound-tenant-id`: **Required**, The Azure tenant ID that the access is restricted to
 
@@ -878,13 +880,13 @@ akeyless auth-method update cert \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--certificate-data`: The certificate data in Base64, if no file was provided.
 
@@ -938,17 +940,17 @@ akeyless auth-method update email \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-`--enable-mfa`: Enable MFA for this authentication method [true/false]
+`--enable-mfa`: Enable MFA for this authentication method \[true/false]
 
-`--mfa-type[=email]`: Enable two-factor authentication via [email/app]
+`--mfa-type[=email]`: Enable two-factor authentication via \[email/app]
 
 #### `gcp`
 
@@ -982,13 +984,13 @@ akeyless auth-method update gcp \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `-t, --type`: **Required**, The type of the GCP Auth Method (`iam`/`gce`)
 
@@ -1039,13 +1041,13 @@ akeyless auth-method update oauth2 \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `-j, --jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server.
 
@@ -1099,13 +1101,13 @@ akeyless auth-method update oci \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 #### `oidc`
 
@@ -1140,13 +1142,13 @@ akeyless auth-method update oidc \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--issuer`: Issuer URL
 
@@ -1194,13 +1196,13 @@ akeyless auth-method update saml \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
 
@@ -1253,7 +1255,7 @@ akeyless auth-method list \
 
 #### Flags
 
-`-t, --type`: The Auth Method types list of the requested method. If it is empty, all Auth Method types are returned. options: [`api_key`, `azure_ad`, `oauth2/jwt`, `saml2`, `ldap`, `aws_iam`, `oidc`, `universal_identity`, `gcp`, `k8s`, `cert`]
+`-t, --type`: The Auth Method types list of the requested method. If it is empty, all Auth Method types are returned. options: \[`api_key`, `azure_ad`, `oauth2/jwt`, `saml2`, `ldap`, `aws_iam`, `oidc`, `universal_identity`, `gcp`, `k8s`, `cert`]
 
 `--filter`: Filter by Auth Method name or part of it
 
