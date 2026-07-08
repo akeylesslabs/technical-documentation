@@ -32,7 +32,7 @@ This guide explains how to configure Microsoft Entra ID (Azure AD) as the Identi
 6. Copy the **App Federation Metadata URL** from the SAML configuration. You will use it in Akeyless.
 7. Assign the required users and groups to the enterprise application.
 
-If you need this application to use dedicated, isolated endpoint values instead — because you're configuring multiple Entra applications against Akeyless — skip the values in step 4 and follow [Configure Dedicated SAML Endpoints](#configure-dedicated-saml-endpoints-for-microsoft-entra-id) instead.
+If you need this application to use dedicated, isolated endpoint values instead — because you're configuring multiple Entra applications against Akeyless — skip this section and follow [Configure Dedicated SAML Endpoints](#configure-dedicated-saml-endpoints-for-microsoft-entra-id) instead.
 
 ## Create the SAML Authentication Method in Akeyless
 
@@ -92,47 +92,27 @@ When enabled, this Authentication Method exposes its own Entity ID, Assertion Co
 | Reply URL / ACS URL | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>` |
 | Akeyless SP Metadata URL | `https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>` |
 
-When configuring Microsoft Entra ID, you may need to create the Entra Enterprise Application before the Akeyless SAML Authentication Method exists. However, Akeyless needs the Entra App Federation Metadata URL to create the SAML Authentication Method, while Entra needs the Akeyless Entity ID and ACS URL to save the SAML application.
+The dedicated Entity ID and Reply URL depend on the Access ID, which only exists after the Akeyless Authentication Method is created — but Akeyless needs an IdP metadata value to create the method in the first place, and that metadata isn't available until the Entra application exists. Since **Identifier** and **Reply URL** fields cannot reliably be edited on an existing Entra Enterprise Application after creation, avoid editing Entra at all: create the Akeyless method first with a temporary metadata value, configure Entra once with the real dedicated endpoints, then finish by updating the Akeyless method with Entra's real metadata. No step requires going back into Entra to change a value.
 
-To handle this, use temporary unique placeholder values when creating the Entra Enterprise Application. After the Akeyless SAML Authentication Method is created, replace the placeholders with the real dedicated Akeyless endpoints.
+1. **Create the Akeyless SAML Authentication Method with a temporary metadata value.**
 
-1. **Create the Microsoft Entra Enterprise Application.**
-
-   In Microsoft Entra ID, create a new Enterprise Application and configure SAML.
-
-   Use temporary unique HTTPS values for the Identifier and Reply URL. These values are used only to allow the Entra application to be saved and to expose the App Federation Metadata URL.
-
-   For example:
-
-   ```
-   Identifier / Entity ID:
-   https://auth.akeyless.io/saml/sp/prod
-
-   Reply URL / ACS URL:
-   https://auth.akeyless.io/saml/acs/prod
-   ```
-
-   > **Important**
-   > These are temporary bootstrap values only. They must be unique and use HTTPS. After the Akeyless SAML Authentication Method is created, replace them with the real dedicated endpoints based on the Auth Method Access ID.
-
-2. **Copy the Entra App Federation Metadata URL.**
-
-   From the Entra SAML configuration page, copy the **App Federation Metadata URL** for the Enterprise Application.
-
-3. **Create the Akeyless SAML Authentication Method with Dedicated SAML Endpoint enabled.**
+   Create the method with **Dedicated SAML Endpoint** enabled and a placeholder metadata URL or XML file — the value only needs to satisfy the create command for now and will be replaced in step 4.
 
    ```shell
    akeyless auth-method create saml \
      --name "<SAML Auth Method Name>" \
-     --idp-metadata-url "<ENTRA_APP_FEDERATION_METADATA_URL>" \
+     --idp-metadata-url "https://auth.akeyless.io/saml/metadata" \
      --unique-identifier <email|username|UPN>
    ```
 
-   Enable **Dedicated SAML Endpoint** for this method in the Console if not set via CLI. After the Authentication Method is created, copy the returned SAML Authentication Method Access ID.
+   > **Note**
+   > The `--idp-metadata-url` value above is a placeholder only, used to satisfy method creation before the real Entra metadata exists. It is not used for authentication until it's replaced in step 4.
 
-4. **Replace the temporary values in Microsoft Entra ID.**
+   Enable **Dedicated SAML Endpoint** for this method in the Console if it isn't set by your CLI version. After creation, copy the returned SAML Authentication Method **Access ID** — you will not need to touch Entra's Identifier or Reply URL fields again after this point.
 
-   Go back to the Entra Enterprise Application and replace the temporary SAML values with the dedicated Akeyless endpoints for the matching SAML Authentication Method.
+2. **Create the Microsoft Entra Enterprise Application with the real dedicated endpoints.**
+
+   In Microsoft Entra ID, create a new Enterprise Application and configure SAML using the dedicated values built from the Access ID in step 1 — set these once, correctly, the first time:
 
    ```
    Identifier / Entity ID:
@@ -142,17 +122,26 @@ To handle this, use temporary unique placeholder values when creating the Entra 
    https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>
    ```
 
-   Optionally, configure the Akeyless SP Metadata URL:
+3. **Copy the Entra App Federation Metadata URL.**
 
+   From the Entra SAML configuration page, copy the **App Federation Metadata URL** for the Enterprise Application.
+
+4. **Update the Akeyless SAML Authentication Method with the real Entra metadata.**
+
+   Replace the placeholder metadata from step 1 with the real App Federation Metadata URL from Entra:
+
+   ```shell
+   akeyless auth-method update saml \
+     --name "<SAML Auth Method Name>" \
+     --idp-metadata-url "<ENTRA_APP_FEDERATION_METADATA_URL>" \
+     --unique-identifier <email|username|UPN>
    ```
-   https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>
-   ```
+
+   Or, in the Console: go to **Administration** > **Users & Auth Methods**, select the Authentication Method, update the **Metadata URL** field, and save.
 
 5. **Test SAML authentication.**
 
-   Test the SAML login using the matching Akeyless SAML Authentication Method Access ID.
-
-   Make sure the Entra Enterprise Application and the Akeyless SAML Authentication Method use the same dedicated endpoint values.
+   Test the SAML login using the Akeyless SAML Authentication Method Access ID. Since the Entra application was configured with its final dedicated values in step 2 and never edited afterward, no further changes are needed on the Entra side.
 
 ## Troubleshooting
 
@@ -161,5 +150,4 @@ If authentication fails, check the following:
 - The Microsoft Entra application uses the correct endpoint values for this specific Authentication Method — the shared endpoints, or the dedicated endpoints if **Dedicated SAML Endpoint** is enabled on this method.
 - The configured **Unique Identifier** key exists in SAML claims.
 - The user is assigned to the Microsoft Entra enterprise application.
-- The App Federation Metadata URL is still valid and reachable.
-
+- The App Federation Metadata URL configured in Akeyless is current — if the Entra application's certificate or configuration changed since the metadata was last copied, re-run the update step above with a fresh App Federation Metadata URL.
