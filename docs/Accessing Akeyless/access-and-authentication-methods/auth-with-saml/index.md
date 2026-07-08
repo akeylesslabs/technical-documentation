@@ -19,32 +19,28 @@ This page explains how to create and use a SAML Authentication Method in Akeyles
 
 ## Creating a SAML Authentication Method
 
-By default, all SAML Authentication Methods use the following Akeyless endpoints:
+This action is distinct from creating a new Akeyless account: it creates an additional SAML-based authentication method for an existing account.
 
-| Endpoint               | Format                                   |
-| ---------------------- | ---------------------------------------- |
+### SAML Endpoints
+
+By default, every SAML Authentication Method uses the same shared Akeyless endpoints. Use these values when configuring your IdP application:
+
+| Endpoint | Format |
+| --- | --- |
 | Entity ID / Identifier | `https://auth.akeyless.io/saml/metadata` |
-| Reply URL / ACS URL    | `https://auth.akeyless.io/saml/acs`      |
+| Reply URL / ACS URL | `https://auth.akeyless.io/saml/acs` |
 
-## Dedicated SAML Endpoints per Authentication Method
+**Optional — Dedicated SAML Endpoints:** Some IdPs (for example, Microsoft Entra ID) require each SAML application to use unique Entity ID and ACS URL values, which the shared endpoints above can't satisfy if you plan to configure more than one application against the same Akeyless account. When the **Dedicated SAML Endpoint** flag is enabled on a given Authentication Method, that method exposes its own unique set of endpoints, scoped to its Access ID.
 
-Akeyless supports dedicated SAML endpoints for each SAML Authentication Method. This allows multiple SAML authentication methods to be configured in the same IdP account, for example to separate production, development, staging, or other environments.
+Replace `<SAML_AUTH_METHOD_ACCESS_ID>` with the Access ID of the matching SAML Authentication Method.
 
-Each SAML Authentication Method has its own unique Entity ID, Assertion Consumer Service (ACS) URL, and metadata URL, based on the Authentication Method Access ID.
-
-This is useful when working with Identity Providers that require each SAML application to use a unique Entity ID or metadata URL. For example, Microsoft Entra ID may require each Enterprise Application to use unique SAML configuration values. Dedicated endpoints allow each Entra Enterprise Application to be mapped to a specific SAML Authentication Method.
-
-Dedicated endpoints also help ensure that each IdP application is explicitly tied to the intended Akeyless SAML Authentication Method.
-
-### Endpoint Format
-
-Replace `<SAML_AUTH_METHOD_ACCESS_ID>` with the Access ID of the matching  SAML Authentication Method.
-
-| Endpoint                 | Format                                                                |
-| ------------------------ | --------------------------------------------------------------------- |
-| Entity ID / Identifier   | `https://auth.akeyless.io/saml/sp/<SAML_AUTH_METHOD_ACCESS_ID>`       |
-| Reply URL / ACS URL      | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>`      |
+| Endpoint | Format |
+| --- | --- |
+| Entity ID / Identifier | `https://auth.akeyless.io/saml/sp/<SAML_AUTH_METHOD_ACCESS_ID>` |
+| Reply URL / ACS URL | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>` |
 | Akeyless SP Metadata URL | `https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>` |
+
+See the IdP-specific guides ([Okta](https://docs.akeyless.io/docs/saml-auth-okta), [Ping Identity](https://docs.akeyless.io/docs/saml-auth-ping-identity), [Azure AD](https://docs.akeyless.io/docs/saml-auth-azure-ad)) for setup order and IdP-specific screens when using dedicated endpoints.
 
 ### Creating a SAML Authentication Method with the Console
 
@@ -54,14 +50,11 @@ To create a new SAML-based authentication method with the Console:
 2. Select **New**. This opens the authentication method creation wizard.
 3. In **Select Type**, select **SAML**, then select **Next →**.
 4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
-5. Configure general and SAML-specific fields, including **Allowed Redirect URIs**, **Metadata URL** or **Metadata XML**, and **Unique Identifier**.
+5. Configure general and SAML-specific fields, including **Allowed Redirect URIs**, **Metadata URL** or **Metadata XML**, **Unique Identifier**, and, if this method needs isolated endpoint values, the **Dedicated SAML Endpoint** toggle.
 6. Select **Finish**.
 
-<Callout icon="⚠️" theme="warn">
-  ### **Warning:**
-
-  The **Unique Identifier** must be a sub-claim key name, not a user value. For example, use `email`, not an actual email address.
-</Callout>
+> ⚠️ **Warning:**
+> The **Unique Identifier** must be a sub-claim key name, not a user value. For example, use `email`, not an actual email address.
 
 ### Creating a SAML Authentication Method with the CLI
 
@@ -110,8 +103,6 @@ akeyless configure \
 
 To authenticate and retrieve a temporary Akeyless token, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
-{/* secret-stdout-scan:ok */}
-
 ```shell
 akeyless auth \
   --access-type saml \
@@ -139,7 +130,7 @@ To update in the Console:
 
 1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
 2. Select the SAML Authentication Method to update.
-3. Update the relevant fields, such as **Metadata URL**, **Metadata XML**, **Allowed Redirect URIs**, and **Unique Identifier**.
+3. Update the relevant fields, such as **Metadata URL**, **Metadata XML**, **Allowed Redirect URIs**, **Unique Identifier**, and the **Dedicated SAML Endpoint** toggle.
 4. Save the changes.
 
 To update with the CLI:
@@ -153,12 +144,15 @@ akeyless auth-method update saml \
 
 For all available update flags, see [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#saml-1).
 
+> ⚠️ **Note:**
+> Toggling **Dedicated SAML Endpoint** on an existing Authentication Method changes its Entity ID and ACS URL. Update the IdP application with the new values before or immediately after the change to avoid a sign-in outage for that method.
+
 ## Troubleshooting
 
 If SAML sign-in fails, check the following:
 
 - The SAML Authentication Method **Access ID** is correct.
-- The IdP configuration uses the dedicated ACS and Entity ID values from the same SAML Authentication Method.
+- The IdP configuration uses the correct endpoint values for this specific Authentication Method — the shared endpoints by default, or the dedicated endpoints if **Dedicated SAML Endpoint** is enabled on that method.
 - **Metadata URL** or **Metadata XML** is current.
 - **Unique Identifier** matches a key that exists in IdP assertions.
 - **Allowed Redirect URIs** includes the redirect URI used by the client.
@@ -169,6 +163,7 @@ For optional features that apply across Authentication Methods, see [Common Opti
 
 ### SAML-Specific Optional Features
 
+- **Dedicated SAML Endpoint:** Set per Authentication Method (not account-wide) to give this method its own Entity ID, ACS URL, and Metadata URL instead of the shared endpoints. Useful for IdPs that reject reused SAML application values across multiple applications, or when running separate environments (prod/staging/dev) against distinct IdP applications.
 - **Allowed Redirect URIs:** Restrict the redirect targets that can be used in the authentication flow.
 - **Unique Identifier:** Define which IdP sub-claim key identifies a user.
 - **Sub-claim Delimiters:** Configure custom delimiters if your IdP uses a format other than comma-separated values.
@@ -180,5 +175,3 @@ For end-to-end IdP setup examples, see:
 - [Set Up Okta as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-okta)
 - [Set Up Ping Identity as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-ping-identity)
 - [Set Up Microsoft Entra ID as a SAML Authentication Method](https://docs.akeyless.io/docs/saml-auth-azure-ad)
-
-<br />
