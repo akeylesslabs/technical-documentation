@@ -102,7 +102,8 @@ The dedicated Entity ID and Reply URL depend on the Access ID, which only exists
    akeyless auth-method create saml \
      --name "<SAML Auth Method Name>" \
      --idp-metadata-url "https://auth.akeyless.io/saml/metadata" \
-     --unique-identifier <email|username|UPN>
+     --unique-identifier <email|username|UPN> \ 
+     --dedicated-saml-endpoint true
    ```
 
    > **Note**
