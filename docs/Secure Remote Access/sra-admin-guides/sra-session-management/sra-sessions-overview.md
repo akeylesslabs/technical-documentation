@@ -12,18 +12,22 @@ next:
 ---
 The Sessions Overview provides administrators and authorized users with the ability to view and track the status of SRA sessions. This view helps ensure that all session activities are visible, auditable, and managed effectively over a specified timeframe (default: last 30 days).
 
+For CLI-driven monitoring and automation, use `list-sra-sessions` to query the same operational inventory by status and resource type.
+
 ## Session Overview Grid
 
 The Session Overview page displays detailed information for each session. The following key details are provided:
 
-* **Client Interface**: Indicates how the session was initiated. Options include: Web Portal - CLI, Web Portal - Web, CLI and Desktop Application)
+* **Client Interface**: Indicates how the session was initiated. Options include Portal CLI, Portal Web, and CLI.
 * **User**: The username of the individual who initiated the session.
 * **Gateway Name**: The name of the gateway through which the session is managed.
-* **Resource Type**: The type of resource accessed during the session. Examples include: SSH, RDP, Databases, Kubernetes (K8s) and more.
+* **Resource Type**: The type of resource accessed during the session. Examples include: SSH, RDP, databases, Kubernetes (K8s), and more.
 * **Secret Name**: The identifier for the secret used during the session.
 * **Session ID**: The unique Secure Remote Access session identifier.
 * **Status**: The current state of the session (For example, active, closed, or terminated).
 * **Duration**: The length of time the session has been active.
+
+For Secure Remote Access sessions, the same session ID is used in Session Overview and Audit Log entries.
 
 ## Real-Time Updates
 
@@ -39,9 +43,37 @@ Users can filter the session list based on the following criteria to quickly loc
 * Gateway Name
 * Status
 
+## CLI Session Inventory
+
+Use `list-sra-sessions` to retrieve session inventory from the command line:
+
+```shell
+akeyless list-sra-sessions
+```
+
+By default, this command returns active statuses only (`connecting`, `connected`).
+
+To include closed or ended sessions, specify status filters explicitly:
+
+```shell
+akeyless list-sra-sessions --status-type completed
+```
+
+Filter by resource type as needed:
+
+```shell
+akeyless list-sra-sessions --status-type connected --resource-type ssh
+```
+
+Supported status filters include `connecting`, `connected`, `failed`, `completed`, and `terminated`.
+
+For API details, see [List SRA Sessions](https://docs.akeyless.io/reference/listsrasessions).
+
 ## Audit Logging
 
 Every session update is captured in the Audit Log, including the Secure Remote Access Session ID. This ensures that any changes (such as status updates or modifications) are recorded for compliance and troubleshooting purposes.
+
+For Secure Remote Access session events, user identity is recorded in `sra_unique_identifier`.
 
 ## Permissions
 
@@ -60,4 +92,4 @@ Every session update is captured in the Audit Log, including the Secure Remote A
 To access the Session Monitoring feature:
 
 1. Log in to the Console UI.
-2. Navigate to: Platform → Secure Remote Access → Sessions Overview. From this interface, you can view all SRA sessions within the selected timeframe, apply filters, refresh session data, and review Audit Logs.
+2. Open the Secure Remote Access sessions view in the Console UI. From this interface, you can view all SRA sessions within the selected timeframe, apply filters, refresh session data, and review Audit Logs.

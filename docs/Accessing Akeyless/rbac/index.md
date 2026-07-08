@@ -1,6 +1,5 @@
 ---
 title: RBAC
-slug: rbac
 excerpt: Role-Based Access Control
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: rbac
 ---
 Akeyless Role-Based Access Control (RBAC) follows the least privilege principle to limit access rights for machines/human users to the bare minimum of permissions they need to perform their work.
 
@@ -39,7 +39,7 @@ To set all authentication methods associated with a specific role access to all 
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --capability read --capability create --capability update
 ```
 
-To set the role with access for additional items type like **Targets**, **Auth Methods**, **Access Roles**, or **Secure Remote Access**, you can simply set the `rule-type` inside the command:
+To set the role with access for additional items type like **Targets**, **Auth Methods**, **Access Roles**, **Secure Remote Access&#x20;**&#x6F;r **Agentic Runtime Authority&#x20;**, you can simply set the `rule-type` inside the command:
 
 ```shell Targets
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type target-rule --capability read --capability create --capability update
@@ -52,6 +52,9 @@ akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type 
 ```
 ```shell Secure Remote Access
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type sra-rule --capability allow_access # other options '--capability justify_access_only' '--capability request_access'
+```
+```shell Agentic Runtime Authority
+akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type ara-rule --capability allow_access 
 ```
 
 Despite the fact that users do not have access to items unless granted explicitly, to protect sensitive items from access, you can **deny** all the authentication methods associated with a role to access the relevant item, for example **/path/to/folder/topSecret** (does not include Secure Remote Access):
@@ -80,12 +83,12 @@ The built-in admin role has full access to all parts of the accounts.
 
 The existing permissions for Items, Access Roles, Auth Methods, and Targets are as follows:
 
-* List: Allows a user to list the items available under an authorized path.
-* Read: Allows a user to read the items available in an authorized path.
-* Create: Allows a user to create new secrets and items in an authorized path.
-* Update: Allows a user to update existing secrets and items in an authorized path.
-* Delete: Allows a user to delete existing secrets and items in an authorized path.
-* Deny: Allows a user to deny any permission to other users in their authorized path.
+- List: Allows a user to list the items available under an authorized path.
+- Read: Allows a user to read the items available in an authorized path.
+- Create: Allows a user to create new secrets and items in an authorized path.
+- Update: Allows a user to update existing secrets and items in an authorized path.
+- Delete: Allows a user to delete existing secrets and items in an authorized path.
+- Deny: Allows a user to deny any permission to other users in their authorized path.
 
 > ℹ️ **Note (Permission Hierarchy):**
 >
@@ -107,12 +110,20 @@ This design ensures that the RBAC system remains resilient against permission el
 
 The existing permissions for Secure Remote Access are as follows:
 
-* Allow Access: Allows a user full access to login to a remote resource.
-* Request Access: Allows a user to request access and requires adding a reason for access. Once the request is sent, an admin or approver receives a notification in the Event Center to approve or deny. If approved, the user can then access the remote resource.
-* Justify Access Only: Allows a user to access a remote resource only after entering the reason for access.
-* Approval Authority: Allows a user to be part of the eligible approvers for Secure Remote Access Requests of the organization in the specified path. This option cannot be selected if “Request Access” is enabled.
-* Upload Files: For RDP only. Allows a user to upload local files to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
-* Download Files: For RDP only. Allows a user to download files from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
+- Allow Access: Allows a user full access to login to a remote resource.
+- Request Access: Allows a user to request access and requires adding a reason for access. Once the request is sent, an admin or approver receives a notification in the Event Center to approve or deny. If approved, the user can then access the remote resource.
+- Justify Access Only: Allows a user to access a remote resource only after entering the reason for access.
+- Approval Authority: Allows a user to be part of the eligible approvers for Secure Remote Access Requests of the organization in the specified path. This option cannot be selected if “Request Access” is enabled.
+- Upload Files: Allows a user to upload local files for example to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
+- Download Files: Allows a user to download files for example from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
+
+From Gateway `4.53.0` and later, SRA users can request access from the portal and approvers can process the request through the Event Center.<br />
+
+### Permissions for Agentic Runtime Authority
+
+The existing permissions for Agentic Runtime Authority are as follows:
+
+- Allow Access: Allows an Agent access to login to a remote resource without exposing the secret value
 
 ## Administrative Rules
 
@@ -124,38 +135,51 @@ With Administrative Rules, you can choose whether users have access only to the 
 
 The following **Administrative Rules** can be set:
 
-* `Audit Log`
+- `Audit Log`
 
-* `Analytics`
+- `Analytics`
 
-* `Gateways`
+- `Gateways`
 
-* `Secure Remote Access`
+- `Secure Remote Access`
 
-* `Reverse RBAC`
+- `Agentic Runtime Authority`
 
-* `Manage Event Forwarders`
+- `Reverse RBAC`
 
-* `Usage Reports`
+- `Manage Event Forwarders`
+
+- `Usage Reports`
+
+## Reverse RBAC Review Coverage
+
+Reverse RBAC can be used to review who has access to object types beyond Items and Targets, including Secure Remote Access and Agentic Runtime Authority paths.
+
+For command syntax and full parameter details, see the [CLI Reference - Access Roles reverse-rbac command](https://docs.akeyless.io/docs/cli-reference-access-roles#reverse-rbac).
+
+Use the CLI `reverse-rbac` command with:
+
+- `--type sra` for Secure Remote Access rules
+- `--type ara` for Agentic Runtime Authority rules
 
 ## Event Center Rules
 
 You can define which events users are allowed to view based on their account permissions.
 Users can either:
 
-* View **All** events in the account
-* View only events related to objects for which they have `Read` permissions, by using the **Own** option.
+- View **All** events in the account
+- View only events related to objects for which they have `Read` permissions, by using the **Own** option.
 
 In addition, you can control which Event Forwarders users are allowed to manage.
 Users can either:
 
-* Manage **All** Event Forwarders in the account, or
-* Be restricted to managing specific forwarders
+- Manage **All** Event Forwarders in the account, or
+- Be restricted to managing specific forwarders
 
 You can set the allowed Forwarder names in two ways:
 
-* **Explicit name**: Specify an exact Event Forwarders name that users can manage, for example: `Demo-Event-Forwarder`: allows users to create or manage an Event Forwarder with this exact name.
-* **Template-based name**: Use templates to define allowed names dynamically, based on user claims. For example: `{{username\}}-*`: uses the value of the username claim. If the claim value is `bob`, the user will be allowed to create or use Event Forwarders with names like `bob-*`.
+- **Explicit name**: Specify an exact Event Forwarders name that users can manage, for example: `Demo-Event-Forwarder`: allows users to create or manage an Event Forwarder with this exact name.
+- **Template-based name**: Use templates to define allowed names dynamically, based on user claims. For example: `{{username\}}-*`: uses the value of the username claim. If the claim value is `bob`, the user will be allowed to create or use Event Forwarders with names like `bob-*`.
 
 > ℹ️ **Note (Gateway access permissions):** Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access#/).
 
@@ -183,8 +207,7 @@ In addition, a `+` can be used to denote any number of characters bounded within
 akeyless set-role-rule --role-name role1 --path "foo/+/+/bar/*" --capability read
 ```
 
-This Access Role will permit reading secrets under those folders path:  
-`foo/any/folder/bar/*`, `foo/other/folder/bar/*`, and so on.
+This Access Role will permit reading secrets under those folders path:<br />`foo/any/folder/bar/*`, `foo/other/folder/bar/*`, and so on.
 
 ## Multiple Rules
 
@@ -219,9 +242,7 @@ Where the relevant Akeyless paths, for example, `secret/foo` and `secret/bar` co
 
 ## View As
 
-To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.  
-Click your account logo in the top-right corner of your console, and select **Impersonate As**.  
-In the dialog, choose from the drop-down menu an existing [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
+To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.<br />Click your account logo in the top-right corner of your console, and select **Impersonate As**.<br />In the dialog, choose from the drop-down menu an existing [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
 
 ## Tutorial
 

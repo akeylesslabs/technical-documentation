@@ -1,5 +1,5 @@
 ---
-title: Secure Remote Access Portal
+title: Portal Login and Target Discovery
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,9 +10,11 @@ metadata:
 next:
   description: ''
 ---
+Use this page to sign in to the Secure Remote Access (SRA) portal and discover authorized targets by type.
+
 The Secure Remote Access Portal is available through the main console at `http://Your-Akeyless-Gateway-URL:8000/sra/portal` or through the public SaaS console at `https://zerotrust.akeyless.io`.
 
-All Akeyless-supported [resource types](https://docs.akeyless.io/docs/sra-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli), or the [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application-beta).
+All Akeyless-supported [resource types](https://docs.akeyless.io/docs/sra-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli), or the [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application).
 
 Currently, the SRA Portal supports the following authentication methods:
 
@@ -31,9 +33,37 @@ Currently, the SRA Portal supports the following authentication methods:
 4. Click the **Generate SAML Bookmark URL** to create a link to the completed form. The link is copied to your clipboard for you to save in a convenient place, such as your browser bookmarks, and use in the future to automatically complete the login details.
 5. Click **Sign in**.
 
-The portal shows all the [resource types](https://docs.akeyless.io/docs/sra-resource-types) that you are authorized to access.
+The portal shows all [resource types](https://docs.akeyless.io/docs/sra-resource-types) that your identity is authorized to access.
 
-![A screenshot of the Akeyless Secure Remote Access product and its portal of available options.](https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png)
+## Target Discovery in the Portal
+
+After login, use the portal list view to discover targets by access mode and resource type.
+
+Recommended discovery workflow:
+
+1. Identify the relevant resource type (for example SSH, database, RDP, or web application).
+2. Use portal search and visible filters to narrow large target inventories.
+3. Launch directly when policy allows, or move to the request flow when approval is required.
+
+For approval-gated flows, see [Request Access and Approval Flow](https://docs.akeyless.io/docs/sra-request-access-and-approval-flow).
+
+![Secure Remote Access Portal resources view](https://files.readme.io/11ba4ba151caf6160d6f57e98c41057fd75b7415113415cbce25daaf528c4b0c-Screenshot_2026-06-11_at_12.52.16.png)
+
+## Access Request Flow
+
+From Gateway `4.53.0` and later, the portal supports Secure Remote Access request flows, and approvers can process those requests through the Event Center.
+
+Use this flow to track request progress and quickly identify whether an SRA access request still requires approver action.
+
+For setup and permissions, see [Request Access](https://docs.akeyless.io/docs/request-access) and [RBAC](https://docs.akeyless.io/docs/rbac).
+
+## Switch the Portal Theme
+
+Use the theme switch button on the right side of the portal header to toggle between light and dark mode.
+
+1. Open the Secure Remote Access Portal and sign in.
+2. In the portal header, select **Switch to Dark mode** or **Switch to Light mode**.
+3. The portal updates immediately after the switch.
 
 ## Clipboard Behavior for Long Text
 

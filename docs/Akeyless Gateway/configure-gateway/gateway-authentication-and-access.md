@@ -135,32 +135,7 @@ For role-and-scope planning across common deployment patterns, see [Permission b
 
 Use the minimum permissions required for each operational role.
 
-> ℹ️ **Note:**
->
-> In current Gateway behavior, `general` and `defaults` are treated as a compatible pair for effective access. If one is configured, the other is included in effective permission evaluation.
-
-| Permission | Typical use |
-| --- | --- |
-| `admin` | Full Gateway administration, including access permission management. |
-| `defaults` | Manage default login and default encryption settings. |
-| `targets` | Manage target-related operations through the Gateway. |
-| `classic_keys` | Manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys) through the Gateway. |
-| `dynamic_secret` | Manage dynamic secret configuration. |
-| `rotated_secret` | Manage rotated secret configuration. |
-| `rotate_secret_value` | Rotate secret values through the Gateway without enabling broader manual secret editing. |
-| `log_forwarding` | Manage log forwarding settings. |
-| `caching` | Manage cache and offline behavior settings. |
-| `kmip` | Manage KMIP service configuration. |
-| `general` | Manage general Gateway settings, including URL and TLS behavior. |
-
-Administrative operations for Gateway Allowed Access management require `admin` permission.
-
-For item-related operations (`targets`, `classic_keys`, `dynamic_secret`, `rotated_secret`, and `rotate_secret_value`), access is evaluated in two scopes:
-
-1. Gateway Allowed Access permission for the relevant component.
-2. RBAC path permission for the specific item path.
-
-Both scopes must allow the operation.
+For the complete and current permission catalog, including permission behavior notes, see [Gateway Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
 
 ## Recommended Access Pattern
 
@@ -182,6 +157,6 @@ After applying authentication and access configuration:
 ## Related Pages
 
 * [Gateway Authentication](https://docs.akeyless.io/docs/gateway-authentication-and-access)
-* [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access)
+* [Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference)
 * [Kubernetes with Helm Deployment](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm)
 * [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration)

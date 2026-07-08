@@ -1,4 +1,5 @@
+- sra-cluster-and-instance-health
 - sra-sessions-overview
-- sra-session-forwarding
 - sra-rdp-recordings
 - sra-web-access-session-recording
+- sra-version-drift-and-upgrade-signals

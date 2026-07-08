@@ -1,0 +1,32 @@
+language: en-US
+
+reviews:
+  auto_review:
+    enabled: true
+    drafts: false
+  high_level_summary: true
+  review_status: true
+  collapse_walkthrough: false
+  path_filters:
+    - docs/**
+    - reference/**
+    - recipes/**
+    - custom_blocks/**
+    - .github/workflows/**
+    - .github/scripts/**
+    - .github/dependency-monitor/**
+    - .github/copilot-instructions.md
+    - README.md
+    - SECURITY.md
+    - '!.github/automation-reports/**'
+    - '!**/*.lock'
+    - '!**/*.png'
+    - '!**/*.jpg'
+    - '!**/*.jpeg'
+    - '!**/*.gif'
+    - '!**/*.webp'
+    - '!**/*.svg'
+    - '!**/*.pdf'
+
+chat:
+  auto_reply: true

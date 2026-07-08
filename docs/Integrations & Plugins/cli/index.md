@@ -1,6 +1,5 @@
 ---
 title: CLI
-slug: cli
 excerpt: Command Line Interface (CLI)
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: cli
 ---
 There are multiple methods to interact with the Akeyless Platform for managing, creating, and fetching multiple types of supported [secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview). One of them is our Command Line Interface (CLI).
 
@@ -47,7 +47,9 @@ curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/
 Alternatively, you can install it using a package manager, such as: `brew`, `apt`, `yum`, or `dnf`:
 
 ```shell brew
-brew install akeylesslabs/tap/akeyless
+brew tap akeylesslabs/tap
+brew trust akeylesslabs/tap
+brew install akeyless
 ```
 ```shell apt
 apt-get update && apt-get install -y curl gnupg
@@ -192,14 +194,24 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Non-Interactive Mode
 
-To initiate the CLI non-interactively, run `./akeyless --init`. This command works only the first time you run the CLI in that environment.
+To configure the CLI non-interactively, use the [configure command](https://docs.akeyless.io/docs/cli-reference#configure) with the relevant flags. This also works on a fresh install when no `~/.akeyless` directory exists.
 
-If you're working with a different tenant environment than the default, that is `vault.akeyless.io`, use the `--akeyless-url` flag to specify the tenant that the CLI should communicate with.
-
-For example, to work with the `eu` tenant:
+For example, to configure a default profile with an API Key authentication method:
 
 ```shell
-./akeyless --init --akeyless-url vault.eu.akeyless.io
+akeyless configure --access-id '<Access-ID>' --access-key '<Access-Key>'
+```
+
+To configure a named profile:
+
+```shell
+akeyless configure --profile my-profile --access-id '<Access-ID>' --access-key '<Access-Key>'
+```
+
+To route API calls through a [Gateway](https://docs.akeyless.io/docs/gateway-overview), add the `--gateway-url` flag:
+
+```shell
+akeyless configure --access-id '<Access-ID>' --access-key '<Access-Key>' --gateway-url 'https://<Gateway-URL>:8000/api/v1'
 ```
 
 ## Authentication
@@ -248,8 +260,8 @@ However, if the `AKEYLESS_GATEWAY_URL` environment variable is set, Akeyless wil
 
 For access-denied issues, ensure the following:
 
-* **Permissions**: Make sure the authentication method used to create the profile is associated with the proper role with the authority to perform the action you tried.
-* **Profile configuration file**: Make sure the profile configuration file is valid and that all values are spelled correctly and match the chosen authentication method.
+- **Permissions**: Make sure the authentication method used to create the profile is associated with the proper role with the authority to perform the action you tried.
+- **Profile configuration file**: Make sure the profile configuration file is valid and that all values are spelled correctly and match the chosen authentication method.
 
 ## Tutorial
 

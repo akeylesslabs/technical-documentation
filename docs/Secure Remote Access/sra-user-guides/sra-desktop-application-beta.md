@@ -1,5 +1,6 @@
 ---
 title: Desktop Application
+slug: sra-desktop-application
 excerpt: ''
 deprecated: false
 hidden: false
@@ -18,9 +19,7 @@ Who benefits from using this application?
 * Security Professionals
 * Developers and Engineers
 
-> ℹ️ **Note:**
->
-> The Desktop Application is currently in beta.
+The Desktop Application supports desktop-native access flows for environments that require local client applications.
 
 ## Prerequisites
 

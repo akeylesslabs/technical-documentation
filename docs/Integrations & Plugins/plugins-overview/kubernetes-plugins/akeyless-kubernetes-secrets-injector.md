@@ -91,7 +91,7 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
     helm show values akeyless/akeyless-secrets-injection > values.yaml
     ```
 
-    Modify the following values under the `env` section as follows:
+    Modify the following values in `values.yaml` as follows:
 
     * Set `AKEYLESS_ACCESS_ID` to the Access ID of the Auth Method with access to the secret.
 
@@ -102,10 +102,15 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
     * Set `AKEYLESS_K8S_AUTH_CONF_NAME` with your Gateway Kubernetes Auth name. Relevant **only** for Access type of `k8s`.
 
     * Set `AKEYLESS_API_GW_URL` with the URL of your Gateway API v1 endpoint: `/8000/api/v1` or port `8080`.
+      * If `AKEYLESS_API_GW_URL` points to a Gateway that uses a private or internal CA certificate, set the top-level `gatewayCert.tlsCertsSecretName` value to a Kubernetes secret that contains `tls.crt`.
 
     * Optional `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list).
 
-    * Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`. To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list) to disable this on the deployment level.
+    * Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`. To control which deployments are not affected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list) to disable this on the deployment level.
+
+      > ❗ **Important:**
+      >
+      > When `restartRollout` is enabled, the injector pod must be able to call `list-items` on the Akeyless API to detect secret changes. Ensure the Auth Method configured by `AKEYLESS_ACCESS_ID` grants the injector service account, which runs in the injector namespace, both `list` and `read` permissions on the monitored secret paths. For namespace claim considerations, see [Restart Rollout](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#restart-rollout).
 
     * `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#override-entrypoint-automatically) the Docker entrypoint, can be used at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector#annotations-list). not required for **public** registry.
 
@@ -115,19 +120,30 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
     ```yaml
     restartRollout:
-    enabled: false
-    interval: 1m
+      enabled: false
+      interval: 1m
+
+    gatewayCert:
+      tlsCertsSecretName: "gateway-ca-cert"
     
     env:
-    AKEYLESS_ACCESS_ID: "<AccessID>"
-    AKEYLESS_ACCESS_TYPE: "k8s"
-    # For azure_ad authentication (when selecting a user-assigned identity):
-    # AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
-    AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_Auth_Name"
-    AKEYLESS_API_GW_URL: "https://Your-Gateway-URL:8000/api/v1" 
-    # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
-    # AKEYLESS_IGNORE_CACHE: "enable"
+      AKEYLESS_ACCESS_ID: "<AccessID>"
+      AKEYLESS_ACCESS_TYPE: "k8s"
+      # For azure_ad authentication (when selecting a user-assigned identity):
+      # AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
+      AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_Auth_Name"
+      AKEYLESS_API_GW_URL: "https://Your-Gateway-URL:8000/api/v1"
+      # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
+      # AKEYLESS_IGNORE_CACHE: "enable"
     ```
+
+    Create the certificate secret before deploying the chart:
+
+    ```shell
+    kubectl create secret generic gateway-ca-cert -n akeyless --from-file=tls.crt=<path-to-gateway-ca-certificate>
+    ```
+
+    The chart also supports the legacy inline certificate approach with `AKEYLESS_GW_CERTIFICATE`, but using `gatewayCert.tlsCertsSecretName` is the recommended method.
 
     > 👍 Note
     >
@@ -701,6 +717,23 @@ Apply:
 kubectl apply -f Akeyless_sidecar.yaml
 ```
 
+### Restart Rollout
+
+Restart rollout tracks secret updates and triggers workload rollout restarts so pods reload updated secret values. This feature runs in the injector webhook server pod, not in application pods.
+
+> ❗ **Important (Auth Method Requirements):**
+>
+> The injector authenticates to Akeyless using credentials configured in its own deployment, such as `AKEYLESS_ACCESS_ID` and `AKEYLESS_ACCESS_TYPE`, and polls for changes through the `list-items` API.
+>
+> The injector identity must have both `list` and `read` permissions on monitored secret paths. If a Kubernetes Auth Method is scoped with a namespace claim for an application namespace, for example `namespace=my-app-ns`, the injector token can fail to match when the injector runs in a different namespace such as `akeyless`.
+>
+> In this case, `list-items` can return empty results without errors, and restart rollout does not trigger.
+
+To resolve namespace-scope mismatches:
+
+* Add a second role-auth-method association with a namespace claim for the injector namespace, for example `namespace=akeyless`, and grant `list` and `read` on the required paths.
+* Configure a separate Auth Method for the injector that is not restricted by an application namespace claim.
+
 ## Annotations List
 
 The following table lists the available annotations:
@@ -709,7 +742,7 @@ The following table lists the available annotations:
 | --- | --- | --- |
 | `akeyless/enabled: "true"` | `"true"` or `"false"` | Enable the Kubernetes plugin. |
 | `akeyless/side_car_enabled: "true"` | `"true"` or `"false"` | Set the Kubernetes plugin to work in sidecar mode. |
-| `akeyless/disable_restart_rollout: "true"` | `"true"` or `"false"` | Disable the restart-rollout on a specific deployment. |
+| `akeyless/disable_restart_rollout: "true"` | `"true"` or `"false"` | Disable the restart-rollout on a specific deployment. Note that this annotation is presence-based: any value, including `"false"`, disables restart rollout. To re-enable restart rollout, remove the annotation. |
 | `akeyless/side_car_refresh_interval: "30m"` | `Int` followed by `"s"`, `"m"`, or `"h"` units | Set the desired refresh time interval for the Akeyless sidecar. Default is `30m`. |
 | `akeyless/side_car_versions_to_retrieve: "2"` | `"2"` or higher | Fetch the last X versions of your secret. |
 | `akeyless/inject_file: "/mysecret/\|location=/path to save secret name"` | `location=/path to save secret name` | Set the location for your secrets to be saved within your pod file system. **Note:** Available for files only. |
@@ -907,6 +940,23 @@ When you are working with a GKE cluster, make sure that port **8443** is opened 
     ```shell
     gcloud compute firewall-rules update <firewall-rule-name> --allow tcp:10250,tcp:443,tcp:8443
     ```
+
+### Restart rollout does not trigger
+
+If restart rollout is enabled but workloads do not restart after secret changes, use the following checks:
+
+1. Check injector pod logs for `restart-rollout` or `list items change` messages. If restart-related logs are missing, the restart manager might not have started.
+2. Verify that `RESTART_ROLLOUT` is set to `enable` in the injector deployment environment variables.
+3. Ensure `akeyless/disable_restart_rollout` is not present on the target workload. Presence of this annotation with any value disables restart rollout.
+4. Confirm the injector Auth Method grants `list` and `read` from the injector namespace, not only from the application namespace.
+5. Verify leader election:
+
+    ```shell
+    kubectl get lease -n <injector-ns> akeyless.injector -o yaml
+    ```
+
+    The `holderIdentity` value should match a running injector pod.
+6. Confirm the target workload type is `Deployment`, `DaemonSet`, or `StatefulSet`. OpenShift `DeploymentConfig` is not supported.
 
 ## Tutorial
 

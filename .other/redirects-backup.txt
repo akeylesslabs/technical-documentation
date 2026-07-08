@@ -187,6 +187,8 @@
 /v2/docs/remote-access-advanced-configuration -> /docs/sra-advanced-configuration-k8s
 /docs/akeyless-connect-new -> /docs/sra-akeyless-connect
 /v2/docs/akeyless-connect-new -> /docs/sra-akeyless-connect
+/docs/sra-akeyless-connect-and-scp-cli -> /docs/sra-akeyless-scp
+/v2/docs/sra-akeyless-connect-and-scp-cli -> /docs/sra-akeyless-scp
 /docs/remote-access-on-docker -> /docs/remote-access-docker
 /v2/docs/remote-access-on-docker -> /docs/remote-access-docker
 /docs/faqs -> /docs/sra-overview
@@ -199,8 +201,8 @@
 /v2/docs/quick-start-guide -> /docs/sra-quick-start-guide
 /docs/rdp-recordings -> /docs/sra-rdp-recordings
 /v2/docs/rdp-recordings -> /docs/sra-rdp-recordings
-/docs/session-forwarding -> /docs/sra-session-forwarding
-/v2/docs/session-forwarding -> /docs/sra-session-forwarding
+/docs/session-forwarding -> /docs/sra-session-forwarding-destinations
+/v2/docs/session-forwarding -> /docs/sra-session-forwarding-destinations
 /docs/session-recording -> /docs/remote-access-session-management
 /v2/docs/session-recording -> /docs/remote-access-session-management
 /docs/setup -> /docs/remote-access-setup
@@ -732,6 +734,8 @@
 /v2/docs/sra-session-monitoring -> /docs/sra-sessions-overview
 /docs/sra-access-resources -> /docs/sra-portal
 /v2/docs/sra-access-resources -> /docs/sra-portal
+/docs/sra-user-guides -> /docs/sra-accessing-resources
+/v2/docs/sra-user-guides -> /docs/sra-accessing-resources
 /docs/akeyless-scp-1 -> /docs/sra-akeyless-scp
 /v2/docs/akeyless-scp-1 -> /docs/sra-akeyless-scp
 /docs/remote-access-akeyless-connect -> /docs/sra-akeyless-connect
@@ -762,8 +766,8 @@
 /v2/docs/web-applications-secure-remote-access -> /docs/sra-web-applications
 /docs/remote-access-rdp-recordings -> /docs/sra-rdp-recordings
 /v2/docs/remote-access-rdp-recordings -> /docs/sra-rdp-recordings
-/docs/remote-access-session-forwarding -> /docs/sra-session-forwarding
-/v2/docs/remote-access-session-forwarding -> /docs/sra-session-forwarding
+/docs/remote-access-session-forwarding -> /docs/sra-session-forwarding-destinations
+/v2/docs/remote-access-session-forwarding -> /docs/sra-session-forwarding-destinations
 /docs/session-monitoring -> /docs/sra-sessions-overview
 /v2/docs/session-monitoring -> /docs/sra-sessions-overview
 /docs/remote-access-overview -> /docs/sra-overview
@@ -841,8 +845,8 @@
 /v2/docs/remote-access-advanced-configuration-k8s -> /docs/sra-advanced-configuration-k8s
 /docs/access-resources-remotely -> /docs/sra-portal
 /v2/docs/access-resources-remotely -> /docs/sra-portal
-/docs/remote-access-desktop-application-beta -> /docs/sra-desktop-application-beta
-/v2/docs/remote-access-desktop-application-beta -> /docs/sra-desktop-application-beta
+/docs/remote-access-desktop-application-beta -> /docs/sra-desktop-application
+/v2/docs/remote-access-desktop-application-beta -> /docs/sra-desktop-application
 /docs/copy-of-remote-access-on-k8s -> /docs/sra-setup-k8s
 /v2/docs/copy-of-remote-access-on-k8s -> /docs/sra-setup-k8s
 /docs/akeyless-mcp-model-context-protocol-command -> /docs/mcp

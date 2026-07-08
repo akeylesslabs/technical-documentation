@@ -1,6 +1,5 @@
 ---
 title: Audit Logs
-slug: audit-logs
 excerpt: ''
 deprecated: false
 hidden: false
@@ -14,6 +13,7 @@ next:
     - type: basic
       slug: log-forwarding
       title: Log Forwarding
+slug: audit-logs
 ---
 Akeyless collects detailed Audit Logs per secret type, operation, user, time, and so on.
 
@@ -27,7 +27,7 @@ Akeyless log auditing is important for cybersecurity because it provides records
 
 When using the console, you can navigate to the **Audit Logs** tab to view logs in the following format:
 
-![Screenshot of Audit Logs in the Akeyless Platform Console](https://files.readme.io/800a8f4-Screenshot_at_Nov_10_13-44-36.png)
+![Audit Logs view in the Akeyless Console.](https://files.readme.io/7ec054a7174c4de9426983fab4b975d5eeee76db3c232f68c249ee7beea90113-Screenshot_2026-06-11_at_12.21.37.png)
 
 These logs show you the time of the described action, what it was, whether it was successful or unsuccessful (status codes in the four hundreds means error), the client performing it, what IP it was performed from, and additional parameter tags such as access type or product type.
 
@@ -40,18 +40,24 @@ The logs will show up as a line of text, from which you can read the following i
 
 | Log Line | Description |
 | --- | --- |
-| `Timestamp` | The log will start with a timestamp string in the format of Date `T` Time Timezone. |
+| `Timestamp` | The log starts with a timestamp string in Date `T` Time Timezone format. |
+| `seq_num` | Per-account sequence number used to preserve event ordering in audit logs. |
 | `account_id` | Account ID. |
 | `access_id` | Access ID. |
-| `action` | The type of action performed, for example, list items, create item, get item, and so on. A list of common log items can be found [here](https://docs.akeyless.io/docs/log-actions) |
-| `item_type` | If the action was item specific, like create item, the item type will be listed here. |
-| `status` | Standard HTTP status code of the following types, Informational responses (100–199), Successful responses (200–299), Redirection messages (300–399), or Client error responses (400–499). |
-| `remote_addr` | The IP address from which the action was performed. |
-| `duration` | The duration of the action in milliseconds. |
-| `request_parameters` | More details about the action, for example, the name and details of a dynamic secret if one was fetched. |
-| `unique_id` | Identifier for the specific user ID under the account (mostly relevant for human-to-machine auth methods). |
-| `access_type` | [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type from which the action was performed. |
-| `product` | Which Akeyless product does this log concern. For example, currently this could be **Secrets Management**, **Secure Remote Access**, or **Password Management**. |
+| `component` | Service component that emitted the audit event (for example, `microservices/uam`). |
+| `action` | Type of action performed, such as list items, create item, or get item. For common actions, see [Log Actions](https://docs.akeyless.io/docs/log-actions). |
+| `item_type` | If the action is item-specific (for example, create item), the item type is listed. |
+| `status` | Standard HTTP status code: informational (`100`-`199`), success (`200`-`299`), redirection (`300`-`399`), client error (`400`-`499`), or server error (`500`-`599`). |
+| `remote_addr` | IP address from which the action was performed. |
+| `duration` | Duration of the action in milliseconds. |
+| `request_parameters` | Additional action details, such as dynamic secret details when a value is fetched. |
+| `scope_params` | Optional scoped-access suffix appended to some logs for exact scope matching (for example, item, role, auth method, target, event forwarder, and client auth scopes). |
+| `unique_id` | Identifier for the specific user under the account (mostly relevant for human-to-machine auth methods). |
+| `client_sub_claims` | Sub-claims captured for the authenticated client when configured on the authentication method (for example, `email`, `username`, and `uid_comment` for UID token flows). |
+| `access_type` | [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type used for the action. |
+| `product` | Akeyless product associated with the log, such as **Secrets Management**, **Secure Remote Access**, or **Password Management**. |
+
+To enrich Audit Logs with additional token parameters, configure **Audit Log Sub-Claims** on the relevant authentication method. For UID tokens, `uid_comment` is available as a sub-claim key.
 
 ## Tutorial
 

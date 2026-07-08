@@ -16,24 +16,24 @@ Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package 
 
 Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.
 
-> ℹ️ **Note (Security):**
+> ℹ️ **A Note on Security:**
 >
 > This guide was tested with Amazon EKS and is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
 
 ## Prerequisites
 
-* A Kubernetes Cluster
-* [Helm](https://helm.sh/) Installed
-* [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
-* Minimum 1 vCPU available with 2 GB RAM per resource
-* The following ports need to be open on the cluster:
+- A Kubernetes Cluster
+- [Helm](https://helm.sh/) Installed
+- [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
+- Minimum 1 vCPU available with 2 GB RAM per resource
+- The following ports need to be open on the cluster:
 
-| Service | Port |
-| --- | --- |
+| Service                                                                          | Port |
+| -------------------------------------------------------------------------------- | ---- |
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) | 8000 |
-| SSH Access | 22 |
+| SSH Access                                                                       | 22   |
 
-> ℹ️ **Note (First things first):**
+> ℹ️ **First Things First:**
 >
 > Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/sra-quick-start-guide#remote-access-section) section.
 
@@ -103,7 +103,7 @@ Follow the below commands:
    akeyless create-ssh-cert-issuer --name your-ssh-cert-issuer-name --signer-key-name MyRSAKey --allowed-users 'ubuntu' --ttl 300
    ```
 
-> ℹ️ **Note (SSH connection):**
+> ℹ️ **A Note on SSH Connections:**
 >
 > This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/sra-ssh-certificates).
 
@@ -195,17 +195,15 @@ Then run `kubectl get services` and look for the `EXTERNAL-IP` of the service st
 
 For the Gateway, you can access the following:
 
-* The Gateway's Internal Console is located at `http://<Your-Akeyless-GW-URL>:8000/console`. The internal console means you are working from inside the Gateway and talking directly with the SaaS. If you are using `https://console.akeyless.io`, you will not be able to interact with this Gateway as it is not secured with TLS.
+- The Gateway's Internal Console is located at `http://<Your-Akeyless-GW-URL>:8000/console`. The internal console means you are working from inside the Gateway and talking directly with the SaaS. If you are using `https://console.akeyless.io`, you will not be able to interact with this Gateway as it is not secured with TLS.
 
 #### Remote Access URLs
 
 For Remote Access, you can access the following:
 
-* The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL>:8000/sra/portal`
+- The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL>:8000/sra/portal`
 
-  ![Illustration for: A screenshot of the Remote Access Internal Web Portal](https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png)
-
-* Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/web-client`
+- Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/web-client`
 
 ## Testing Out Remote Access
 
@@ -237,9 +235,7 @@ Here we will lay out the steps to get a SAML user to access the Remote Access Po
 
 5. Next, open your browser and go to your Remote Access internal endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/portal`
 
-6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that will redirect you to a page with various resources you can set at a later time (refer to the following image). Congrats!
-
-![Illustration for: 6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that will redirect you to a page with…](https://files.readme.io/e0af62a-sra.png)
+6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that will redirect you to a page with various resources you can set at a later time.
 
 ## Next Steps
 

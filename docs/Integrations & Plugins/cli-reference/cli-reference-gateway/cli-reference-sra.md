@@ -419,13 +419,13 @@ For HTTP endpoint details that map to these commands, see:
 
 ## File Transfer Commands
 
-The Akeyless CLI supports SRA file transfer with `file upload` and `file download` when using version 1.145 or later.
+The Akeyless CLI supports SRA file transfer with `file upload` and `file download` when using version 1.146 or later.
 
-These commands run on the client machine and invoke the local `scp`/`ssh` tooling to perform transfer over an SRA tunnel.
+These commands run on the client machine and use SFTP over an SRA tunnel.
 
-At runtime, the CLI resolves target and bastion connection parameters (from command flags or profile), requests short-lived access by way of the configured SSH certificate issuer, and then establishes the tunnel used by `scp` for upload/download.
+At runtime, the CLI resolves target and bastion connection parameters (from command flags or profile), requests short-lived access by way of the configured SSH certificate issuer, and then establishes the tunnel used by SFTP for upload and download.
 
-If local `scp`/`ssh` binaries are missing or not available in `PATH`, file transfer commands fail on the client before transfer starts.
+The client must support SFTP; file transfer commands fail if SFTP capability is not available.
 
 ```shell Command group
 akeyless file upload

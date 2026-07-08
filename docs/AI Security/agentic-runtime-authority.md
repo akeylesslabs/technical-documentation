@@ -12,21 +12,50 @@ metadata:
 > ⚠️ **Warning:**
 >
 > Agentic Runtime Authority is currently in early access. Features, behavior, and availability can change between releases.
+> Use the CLI and hosted agent environment with caution. An agent running on a hosted machine can potentially discover other credentials or local access available on that host. Scope Agentic Runtime Authority access only to the secret paths the agent needs, avoid granting access to broad secret sets, and prefer least-privilege authentication methods for the runtime environment.
 
 Agentic Runtime Authority allows AI agents to securely communicate with protected resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with supported secrets without exposing long-lived credentials. In this context, **runtime control** means the authorization checks and input or output rules that Akeyless enforces when an agent sends a live request to a protected resource. Policies on Dynamic Secrets define what agents can and cannot do—input rules restrict allowed operations, and output rules filter returned data—ensuring secure and compliant runtime execution.
 
-**Agentic Runtime Authority** currently supports these target categories for runtime execution:
+## Supported Targets And Secret Types
+
+**Agentic Runtime Authority** supports these target categories for runtime execution:
 
 * **Database targets**: MySQL, PostgreSQL, MSSQL, Oracle, Snowflake, HanaDB, Redshift, MongoDB, Redis, and Cassandra.
-* **Service targets**: AWS, GCP, Azure, and GitHub.
+* **Service targets**: AWS, GCP, Azure, Kubernetes (native K8s, EKS, and GKE), and GitHub.
 
-The `runtime-authority` command and the MCP execution tools operate on supported:
+The runtime authority execution path supports these secret types:
 
-* **Dynamic secrets**: For temporary, rotated credentials.
+* **Dynamic secrets**: For just-in-time, temporary credentials with zero standing privileges.
 * **Rotated secrets**: For regularly rotated credentials.
-* **Static secrets**: Typically used for OAuth 2.1-based MCP workflows and connection-string-based integrations.
+* **Static secrets**: For MCP-based service workflows, including OAuth authorization-code flows.
 
 Agentic Runtime Authority extends Akeyless AI security beyond secretless credential retrieval by adding runtime controls and reporting for agent access.
+
+## Runtime Entry Points
+
+Runtime authority is exposed through these code-backed entry points:
+
+* The [runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#runtime-authority) for direct runtime execution through Gateway target query.
+* The [mcp-runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority) for MCP-based integrations.
+* MCP tools: `list-secrets`, `query-db`, and `service-execute`.
+* The `ara-reports-access` role administrative rule for dashboard visibility.
+* The ARA role-rule **Allow Access** capability (`allow_access`) for runtime execution.
+* Repeated `--input-rule` and `--output-rule` flags on Dynamic Secret create and update commands.
+
+## Prerequisites
+
+### Required
+
+* [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with runtime authority support enabled. See [Configure Agentic Runtime Authority In The Console](https://docs.akeyless.io/docs/agentic-runtime-authority#configure-agentic-runtime-authority-in-the-console).
+* **[Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight)** configured for the account and Gateway. Runtime query validation depends on AI validation. See [High-Level Setup Steps](https://docs.akeyless.io/docs/akeyless-ai-insight#high-level-setup-steps).
+* A Dynamic Secret, Rotated Secret, or Static Secret configured for your runtime workflow.
+* A role with ARA execution permissions to the relevant secret path and, when required, reporting visibility.
+* An authentication method associated with that role.
+
+### Optional
+
+* A supported desktop client, such as Claude Desktop or Cursor, if you plan to use MCP.
+* Akeyless CLI installed when you plan to use CLI-based setup or execution flows.
 
 ## Policy Control And Traceability Summary
 
@@ -39,29 +68,9 @@ Agentic Runtime Authority policy controls are central to secure agent execution.
 
 ### Traceability: Full Audit Trail
 
-* **Session recording**: Each runtime session and query event is recorded with full context.
+* **Session recording**: Each runtime request is recorded as an ARA session with execution metadata (for example secret path, target type, agent or MCP identifiers, status, and payload).
 * **Access scope**: Runtime behavior is scoped by role rules and secret permissions.
-* **Monitoring and audit**: Use the `ara-reports-access` role rule to grant access to Agentic Runtime Authority reporting data for compliance and investigation workflows.
-
-The current implementation exposes Agentic Runtime Authority in these places:
-
-* The **Agentic Runtime Authority** step or details tab on supported Dynamic Secrets in the Akeyless Console
-* The [runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#runtime-authority) for direct runtime queries through the Gateway
-* The [mcp-runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority) for MCP-based agent integrations
-* The MCP tools exposed by `mcp-runtime-authority`: `list-secrets`, `query-db`, and `service-execute`
-* The `ara-reports-access` role rule for dashboard visibility
-* The **Agentic Runtime Authority** role-rule type with the **Allow Access** capability in the Console role editor
-* Repeated `--input-rule` and `--output-rule` flags on Dynamic Secret create and update commands
-
-## Prerequisites
-
-* [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.51.0` or later.
-* **[AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) enabled on the Gateway.** This is required for runtime authority functionality.
-* A Dynamic Secret configured with Agentic Runtime Authority enabled.
-* A role with access to the relevant Dynamic Secret and, when required, reporting access to Agentic Runtime Authority.
-* An authentication method associated with that role.
-* A supported desktop client, such as Claude Desktop or Cursor, if you plan to use MCP.
-* _(Optional)_ Akeyless CLI version `1.144.0` or later when you plan to use CLI-based setup or execution flows. CLI is not required for MCP-based workflows or direct Gateway queries via API.
+* **Monitoring and audit**: Use the `ara-reports-access` administrative rule to grant access to Agentic Runtime Authority reporting data for compliance and investigation workflows.
 
 ## Control Access With RBAC
 
@@ -73,9 +82,9 @@ Use the `ara-reports-access` administrative rule on a role to control access to 
 
 Supported values are:
 
-* `none`
-* `scoped`
-* `all`
+* `none` - No dashboard access.
+* `scoped` - Shows sessions that match the role scope.
+* `all` - Shows all sessions in the account.
 
 Use the Console when you want to configure dashboard visibility on a role without using the CLI:
 
@@ -153,9 +162,92 @@ name=mask-email,rule=Mask email addresses in the returned results.
 
 The current CLI parser requires both `name` and `rule` for each repeated flag.
 
+## Secret Structure Requirements
+
+Agentic Runtime Authority (ARA) runs against existing Akeyless secrets. The required structure depends on the target type, but these baseline requirements apply in all cases:
+
+* The secret path is stable and scoped by RBAC so the calling role can access only the intended path.
+* The secret type is supported for ARA runtime execution (dynamic, rotated, or static).
+* ARA is enabled on the secret in the Console.
+* Input and output rules are configured when you need runtime guardrails.
+
+For OAuth 2.1-backed service workflows, use a static secret that includes the service's OAuth client configuration. At minimum, keep the following values available in the secret definition and service setup:
+
+* Client identity values (for example, client ID and client secret).
+* Authorization and token endpoints for the target service.
+* Redirect URI values that match your OAuth app registration.
+* Required scopes for the operations the agent must run.
+
+### Static MCP Secret JSON Fields
+
+When a static secret is used as an MCP target for `service-execute`, the secret value must be JSON with MCP connection and auth settings.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `mcp_url` | string | yes | MCP server URL. |
+| `mcp_type` | string | no | Short vendor label (for example, `hubspot`). Auto-derived from `mcp_url` host when omitted. |
+| `auth_type` | string | no | Use `header`, `oauth_client_credentials`, or `oauth_authorization_code`. If omitted, the runtime treats the MCP server as unauthenticated. |
+| `header_name` | string | only `header` | Use `Authorization` for bearer auth headers. |
+| `header_value` | string | only `header` | For example, `Bearer <api-key>`. |
+| `oauth_client_id` | string | both OAuth modes | Required for `oauth_client_credentials` and `oauth_authorization_code`. |
+| `oauth_client_secret` | string | only `oauth_client_credentials` | Client secret for machine-to-machine token exchange. |
+| `oauth_token_url` | string | no | Token endpoint. Auto-discovered from MCP metadata when omitted. |
+| `oauth_scopes` | []string | no | Optional scopes list. |
+| `oauth_redirect_uri` | string | no | Required for hosted IdP flows. Local CLI defaults typically use localhost. |
+| `oauth_refresh_token` | string | no | Persisted by runtime after first auth-code exchange; usually not set manually. |
+
+Examples by `auth_type`:
+
+`header` (static bearer token):
+
+```json
+{
+  "mcp_url": "https://mcp.postman.com/minimal",
+  "auth_type": "header",
+  "header_name": "Authorization",
+  "header_value": "Bearer <api-key>"
+}
+```
+`oauth_client_credentials` (machine-to-machine):
+
+```json
+{
+  "mcp_url": "https://mcp.example.com/sse",
+  "auth_type": "oauth_client_credentials",
+  "oauth_client_id": "client-id",
+  "oauth_client_secret": "client-secret",
+  "oauth_token_url": "https://auth.example.com/oauth/token",
+  "oauth_scopes": ["read", "write"]
+}
+```
+`oauth_authorization_code` (browser user flow):
+
+```json
+{
+  "mcp_url": "https://mcp.linear.app/sse",
+  "auth_type": "oauth_authorization_code",
+  "oauth_client_id": "client-id",
+  "oauth_redirect_uri": "https://your-tenant.akeyless.io/oauth/callback",
+  "oauth_scopes": ["read"]
+}
+```
+
+## OAuth 2.1 Workflow For `service-execute`
+
+When `service-execute` targets an OAuth-backed service, use this runtime sequence:
+
+1. The agent calls `service-execute` with `secret-name`, `payload`, and `agent-id`.
+2. The runtime returns an authorization URL when user consent is required.
+3. The user signs in and approves access in the provider consent page.
+4. The provider redirects back with an authorization code and state value.
+5. The agent calls `service-execute` again with `auth-code` and `state` (plus the original request context) to complete the flow.
+6. The action is executed and returned through the ARA runtime path.
+
+Treat `state` as a required anti-forgery value and preserve it exactly between the initial and follow-up calls.
+
 ## Set Up The AI Agent
 
-To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [Akeyless MCP Model Context Protocol Command](https://docs.akeyless.io/docs/mcp). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
+To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [Akeyless MCP Model Context Protocol Command](https://docs.akeyless.io/docs/akeyless-mcp-model-context-protocol-command). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
 
 ### For Claude
 
@@ -224,7 +316,7 @@ akeyless mcp-runtime-authority \
 
 ## Monitoring Access
 
-Each session and resource query is logged by the runtime services. Use the `ara-reports-access` role rule to grant access to Agentic Runtime Authority reporting data. See [Control Access With RBAC](#control-access-with-rbac) for role setup details.
+Each session and resource query is logged by the runtime services. Use the `ara-reports-access` administrative rule to grant access to Agentic Runtime Authority reporting data. See [Control Access With RBAC](#control-access-with-rbac) for role setup details.
 
 ## Control Agent Behavior With Rules
 
@@ -241,15 +333,40 @@ This approach keeps the AI agent useful for legitimate queries while ensuring ac
 
 ## Examples
 
-Example CLI role setup for reporting access:
+### Security Administrator
 
-```shell
-akeyless create-role \
-  --name <role-name> \
-  --ara-reports-access scoped
-```
+Use this example to grant dashboard visibility for compliance and investigations.
 
-Example input rules:
+1. Create a role with scoped ARA reporting visibility.
+   ```shell
+   akeyless create-role \
+     --name <role-name> \
+     --ara-reports-access scoped
+   ```
+
+   If the role already exists, update it instead:
+
+   ```shell
+   akeyless update-role \
+     --name <role-name> \
+     --ara-reports-access scoped
+   ```
+2. Assign this role to the users or auth methods that should view ARA reports.
+
+   ```shell
+   akeyless assoc-role-am \
+     --role-name <role-name> \
+     --am-name <auth-method-name>
+   ```
+3. After a runtime query is executed, open the Agentic Runtime Authority reporting view in the Console and verify that session records are visible.
+
+### Platform Engineer
+
+Use this example to set baseline runtime guardrails on a Dynamic Secret using input and output rules.
+
+1. Define producer-appropriate input rules.
+2. Apply the rules on Dynamic Secret create or update.
+3. Save and test a safe query to confirm rule behavior.
 
 ```text PostgreSQL
 name=read-only-sql,rule=Only allow read-only SQL statements: SELECT, SHOW, DESCRIBE, DESC, EXPLAIN, WITH. Reject any DML or DDL statements such as INSERT, UPDATE, DELETE, DROP, ALTER, CREATE, TRUNCATE, GRANT, REVOKE.
@@ -258,7 +375,22 @@ name=read-only-sql,rule=Only allow read-only SQL statements: SELECT, SHOW, DESCR
 name=denied-commands,rule=Deny the following Redis commands: KEYS, FLUSHALL, FLUSHDB, DEBUG, SHUTDOWN, BGSAVE, BGREWRITEAOF, SLAVEOF, REPLICAOF, CLUSTER, MIGRATE, MONITOR, SUBSCRIBE, PSUBSCRIBE, EVAL, EVALSHA, EVALRO, EVALSHA_RO, SCRIPT. Also deny CONFIG subcommands SET, REWRITE, and RESETSTAT.
 ```
 
-Example direct runtime query:
+Example update command:
+
+```shell
+akeyless update-dynamic-secret \
+  --name /demo/apps/analytics/postgres-ro \
+  --input-rule "name=read-only-sql,rule=Only allow read-only SQL statements: SELECT, SHOW, DESCRIBE, DESC, EXPLAIN, WITH. Reject any DML or DDL statements such as INSERT, UPDATE, DELETE, DROP, ALTER, CREATE, TRUNCATE, GRANT, REVOKE." \
+  --output-rule "name=mask-email,rule=Mask email addresses in the returned results."
+```
+
+### Security Analyst
+
+Use this example to run an auditable read-only query through Gateway runtime authority.
+
+1. Run a read-only query against an ARA-enabled secret.
+2. Confirm the request succeeds and returns expected rows.
+3. Verify the session in ARA reporting.
 
 ```shell
 akeyless runtime-authority \
@@ -267,6 +399,68 @@ akeyless runtime-authority \
   --agent-id ai-assistant-01 \
   -u https://<gateway-url>:8000 \
   --profile <profile-name>
+```
+
+Expected output (example; response fields vary by target type and query):
+
+```json
+{
+  "target_type": "postgres",
+  "results": [
+    {
+      "count": 42
+    }
+  ]
+}
+```
+
+### Application Developer
+
+Use this example to request a service action through MCP and then complete OAuth when consent is required.
+
+1. Start the MCP runtime authority server.
+2. Send the initial `service-execute` request without `auth-code` and `state`.
+3. Open the returned authorization URL and approve consent.
+4. Send a follow-up `service-execute` request with `auth-code` and `state`.
+
+Start MCP runtime authority:
+
+```shell
+akeyless mcp-runtime-authority \
+  --gateway-url https://<gateway-url>:8000 \
+  --profile <profile-name>
+```
+
+```text
+Use service-execute on /demo/services/github/oauth-app to list open pull requests in akeylesslabs/technical-documentation.
+```
+
+Initial MCP tool call (before consent):
+
+```json
+{
+  "tool": "service-execute",
+  "arguments": {
+    "secret-name": "/demo/services/github/oauth-app",
+    "payload": "{\"action\":\"list-repositories\"}",
+    "agent-id": "ai-assistant-01"
+  }
+}
+```
+
+Follow-up MCP tool call (after consent redirect):
+
+```json
+{
+  "tool": "service-execute",
+  "arguments": {
+    "secret-name": "/demo/services/github/oauth-app",
+    "payload": "{\"action\":\"list-repositories\"}",
+    "agent-id": "ai-assistant-01",
+    "auth-code": "<oauth-authorization-code>",
+    "state": "<oauth-state-from-initial-response>"
+  }
+}
 ```
 
 ## Related AI Guides

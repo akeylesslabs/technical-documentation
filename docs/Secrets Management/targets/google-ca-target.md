@@ -11,13 +11,24 @@ With a public CA, Akeyless cannot access the private key that signs certificates
 
 The **Google CA** integration uses an [ACME Client (v2)](https://datatracker.ietf.org/doc/html/rfc8555).
 
-To prove domain ownership, the Akeyless integration supports DNS validation:
+## Before You Begin
 
-* **DNS validation**: Ownership is proven by adding a DNS TXT record. This requires the domain to be managed in a supported DNS provider's hosted zone (for example, Amazon Route 53, GCP Cloud DNS, or Azure DNS).
+- Ensure an [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) is deployed and reachable.
+- Create a DNS provider target before creating the Google CA target.
+- Confirm that the DNS target has permissions to manage TXT records in the relevant zone.
+- Collect Google CA external account binding (EAB) values: `eab-key-id` and `eab-hmac-key`.
 
-## Create a Google CA Target with the CLI
+## Validation Method
 
-To create a Google CA target with the CLI, use one of the following examples based on the challenge method and DNS provider:
+DigiCert public CA integration in Akeyless uses **DNS** and **HTTP** challenge for domain ownership validation.
+
+## Configure the Google CA Target
+
+### Use the CLI
+
+Use one of the following DNS challenge examples by provider.
+
+#### DNS challenge examples
 
 ```shell DNS with AWS
 akeyless target create google-trust \
@@ -64,37 +75,45 @@ akeyless target create google-trust \
 --dns-zone <Cloudflare DNS Zone>
 ```
 
-Where:
+```shell
+akeyless target create google-trust \
+--name <Target Name> \
+--google-trust-url <production / staging> \
+--email <ACME Account Email> \
+--acme-challenge http
+```
 
-* `name`: A unique name for the target. The name can include a path to a virtual folder by using slash `/` separators. If the folder does not exist, Akeyless creates it with the target.
+#### Key CLI flags
 
-* `email`: Email address used for ACME account registration.
+- `name`: A unique name for the target. The name can include a path to a virtual folder by using slash `/` separators. If the folder does not exist, Akeyless creates it with the target.
 
-* `eab-key-id`: External Account Binding Key ID from Google CA Services.
+- `email`: Email address used for ACME account registration.
 
-* `eab-hmac-key`: External Account Binding HMAC Key from Google CA Services.
+- `eab-key-id`: External Account Binding Key ID from Google CA Services.
 
-* `google-trust-url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
+- `eab-hmac-key`: External Account Binding HMAC Key from Google CA Services.
 
-* `acme-challenge`: Use this when you need DNS validation or want to set the challenge type explicitly.
+- `google-trust-url`: Use this when you want to select the ACME environment explicitly. Supported values are `production` (default) and `staging`.
 
-* `dns-target-creds`: Use this when `--acme-challenge=dns`. This is required for DNS validation. Supported target types are AWS, Azure, GCP, and Cloudflare.
+- `acme-challenge`: Challenge type. Either `dns` or `http`.
 
-* `dns-zone`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to a Cloudflare target.
+- `dns-target-creds`: Use this when `--acme-challenge=dns`. This is required for DNS validation. Supported target types are AWS, Azure, GCP, and Cloudflare.
 
-* `hosted-zone`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to an AWS target. This identifies the Route 53 hosted zone.
+- `dns-zone`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to a Cloudflare target.
 
-* `resource-group`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to an Azure target.
+- `hosted-zone`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to an AWS target. This identifies the Route 53 hosted zone.
 
-* `gcp-project`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to a GCP target and the project ID cannot be derived automatically.
+- `resource-group`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to an Azure target.
 
-* `timeout`: Use this when challenge validation needs a custom wait time. Default is `5m`. Supported range is `1m` to `1h`.
+- `gcp-project`: Use this when `--acme-challenge=dns` and `--dns-target-creds` points to a GCP target and the project ID cannot be derived automatically.
 
-* `key`: Use this when you want to encrypt target secret values with a specific protection key instead of the account default key.
+- `timeout`: Challenge validation timeout. Default is `5m`. Supported range is `1m` to `1h`.
 
-[View the complete list of parameters for this command.](https://docs.akeyless.io/docs/cli-ref-targets#lets-encrypt)
+- `key`: Use this when you want to encrypt target secret values with a specific protection key instead of the account default key.
 
-## Create a Google CA Target in the Console
+[View the complete list of target command parameters.](https://docs.akeyless.io/docs/cli-ref-targets)
+
+### Use the Console
 
 1. Log in to the Akeyless Console, and go to **Targets**, then **New**, then **Certificate Automation (Google CA)**.
 
@@ -104,26 +123,90 @@ Where:
 
 4. Define the remaining parameters as follows:
 
-* **Email**: Email address used to register the ACME account.
+- **Email**: Email address used to register the ACME account.
 
-* **URL**: Either [Production](https://acme-v02.api.letsencrypt.org/directory) or [Staging](https://acme-staging-v02.api.letsencrypt.org/directory).
+- **Challenge Type**: Either **DNS&#x20;**&#x20;or **HTTP.**
 
-* **EAB KID**: External Account Binding Key ID from Google CA Services.
+- **URL**: Either [Production](https://dv.acme-v02.api.pki.goog/directory) or [Staging](https://dv.acme-v02.test-api.pki.goog/directory).
 
-* **EAB HMAC Key**: External Account Binding HMAC Key from Google CA Services.
+- **EAB KID**: External Account Binding Key ID from Google CA Services.
 
-* **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
+- **EAB HMAC Key**: External Account Binding HMAC Key from Google CA Services.
 
-* **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
+- **DNS Provider**: Either **AWS**, **GCP**, **Azure**, or **Cloudflare** (relevant only if **Challenge Type** is **DNS**).
 
-    * **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+- **Target**: Select a target that contains the DNS provider credentials (relevant only if **Challenge Type** is **DNS**).
 
-    * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
+  - **Hosted Zone**: [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
 
-    * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
+  - **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
-* **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
+  - **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
-* **Timeout**: Challenge validation timeout in seconds. Default is 300 seconds (5 minutes).
+  - **DNS Zone**: Cloudflare DNS zone name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Cloudflare**).
 
 1. Click Finish.
+
+## Configure DNS Provider Authentication (Optional)
+
+For DNS challenge flows, a provider target can use Gateway cloud identity instead of static credentials.
+
+### Gateway Cloud Identity Examples
+
+```shell AWS
+akeyless target create aws \
+--name <AWS DNS Target Name> \
+--use-gw-cloud-identity \
+--region <AWS Region>
+```
+```shell Azure
+akeyless target create azure \
+--name <Azure DNS Target Name> \
+--connection-type cloud-identity \
+--subscription-id <Azure Subscription ID> \
+--resource-group-name <Azure DNS Resource Group Name>
+```
+```shell GCP
+akeyless target create gcp \
+--name <GCP DNS Target Name> \
+--use-gw-cloud-identity
+```
+
+## DNS Provider Permissions for DNS-01
+
+When using `dns` challenge validation, the target referenced by `dns-target-creds` must have permission to create and update ACME TXT records in the relevant DNS zone.
+
+- **AWS Route 53**
+  - **Required for DNS-01 record changes**: `route53:ChangeResourceRecordSets` on the target hosted zone.
+  - **Common read permissions**: `route53:GetHostedZone`, `route53:ListHostedZonesByName`, and `route53:ListResourceRecordSets`.
+  - Reference: [Actions, resources, and condition keys for Amazon Route 53](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html) and [Permissions required to use the Route 53 API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/r53-api-permissions-ref.html)
+
+- **GCP Cloud DNS**
+  - **Required for DNS-01 record changes**: `dns.changes.create` and relevant record set permissions.
+  - **Common read permissions**: `dns.managedZones.get`, `dns.managedZones.list`, `dns.resourceRecordSets.get`, and `dns.resourceRecordSets.list`.
+  - Reference: [Access control with IAM](https://docs.cloud.google.com/dns/docs/access-control)
+
+- **Azure DNS**
+  - **Recommended built-in role**: **DNS Zone Contributor** at the DNS zone scope.
+  - Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
+
+## Troubleshoot DNS Challenge Flows
+
+If certificate issuance fails during DNS challenge validation, validate the following:
+
+- The `dns-target-creds` target exists and is configured for the expected provider.
+- The provider-specific parameter is set correctly:
+  - AWS: `hosted-zone`
+  - Azure: `resource-group`
+  - GCP: `gcp-project` (when project ID cannot be derived automatically)
+  - Cloudflare: `dns-zone`
+- The requested domain is hosted in the DNS zone managed by the provider target.
+- The Gateway has network access to provider DNS APIs.
+
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Least Privilege):**
+
+  Scope permissions to only the DNS zones and record operations required for certificate validation.
+</Callout>
+
+<br />

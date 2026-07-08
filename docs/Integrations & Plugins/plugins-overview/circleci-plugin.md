@@ -55,7 +55,7 @@ Associate your new Role with the created Authentication Method, and assign it Su
 
 ```shell
 akeyless assoc-role-am --role-name /Dev/CI/CircleCIRole \
---am-name \Dev\CI\CircleCIAuth \
+--am-name /Dev/CI/CircleCIAuth \
 --sub-claims iss=https://oidc.circleci.com/org/<ORGANIZATION_ID>
 ```
 

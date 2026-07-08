@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
+"""Validate ReadMe-specific documentation constraints for PR-changed content.
+
+This script is designed for CI usage in pull requests. It reads a JSON file
+containing changed files (as returned by GitHub's pull files API), evaluates a
+set of repository rules, and emits both machine-readable JSON and human-readable
+Markdown reports.
+
+Important scope notes:
+- Some checks are limited to changed docs files to keep PR feedback actionable.
+- Some checks are repository-wide (for example required _order.yaml coverage)
+    because they are structural requirements for navigation consistency.
+"""
 
 from __future__ import annotations
 
@@ -53,7 +65,14 @@ class RequiredOrderFileViolation:
     reason: str
 
 
+@dataclass
+class DocsSubdirectoryViolation:
+    path: str
+    reason: str
+
+
 def parse_args() -> argparse.Namespace:
+    """Parse CLI arguments used by the workflow and local debugging runs."""
     parser = argparse.ArgumentParser(
         description=(
             "Validate docs constraints for ReadMe compatibility: duplicate Markdown "
@@ -88,15 +107,18 @@ def parse_args() -> argparse.Namespace:
 
 
 def normalize_path(value: str) -> str:
+    """Normalize path separators for cross-platform consistency in comparisons."""
     return value.replace("\\", "/").strip()
 
 
 def is_docs_markdown(path: str) -> bool:
+    """Return True when a path points to a Markdown file under docs/."""
     normalized = normalize_path(path).lower()
     return normalized.startswith("docs/") and normalized.endswith(".md")
 
 
 def load_changed_files(path: Path) -> list[dict]:
+    """Load and sanitize changed-file metadata from a GitHub-generated JSON list."""
     raw = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(raw, list):
         raise ValueError("changed files JSON must be a list")
@@ -118,16 +140,22 @@ def load_changed_files(path: Path) -> list[dict]:
 
 
 def docs_depth(path: str) -> int:
+    """Compute docs nesting depth relative to docs/.
+
+    Example:
+    - docs/a/b/file.md => depth 2 (a, b)
+    """
     parts = Path(normalize_path(path)).parts
-    # Example: docs/a/b/file.md => depth 2 (a, b)
     return max(len(parts) - 2, 0)
 
 
 def collect_docs_files(docs_root: Path) -> list[str]:
+    """Collect all Markdown files under the docs root in stable sorted order."""
     return [p.as_posix() for p in sorted(docs_root.rglob("*.md")) if p.is_file()]
 
 
 def collect_duplicate_groups(docs_files: Iterable[str]) -> list[DuplicateGroup]:
+    """Group docs files by case-insensitive basename to detect filename collisions."""
     by_basename: dict[str, list[str]] = {}
     for path in docs_files:
         basename = Path(path).name.lower()
@@ -141,6 +169,7 @@ def collect_duplicate_groups(docs_files: Iterable[str]) -> list[DuplicateGroup]:
 
 
 def collect_index_parent_groups(docs_files: Iterable[str]) -> dict[str, list[str]]:
+    """Collect index.md files grouped by parent directory name (case-insensitive)."""
     by_parent_name: dict[str, list[str]] = {}
     for path in docs_files:
         normalized = normalize_path(path)
@@ -155,6 +184,7 @@ def collect_index_parent_groups(docs_files: Iterable[str]) -> dict[str, list[str
 
 
 def changed_docs_markdown_files(changed_files: list[dict]) -> list[str]:
+    """Return added/renamed docs Markdown files targeted for PR-scoped checks."""
     candidates: list[str] = []
     for item in changed_files:
         if item["status"] not in {"added", "renamed"}:
@@ -165,7 +195,73 @@ def changed_docs_markdown_files(changed_files: list[dict]) -> list[str]:
     return sorted(set(candidates))
 
 
+def changed_order_files(changed_files: list[dict]) -> list[Path]:
+    """Return changed _order.yaml files that require navigation integrity checks."""
+    candidates: set[Path] = set()
+    for item in changed_files:
+        if item["status"] not in {"added", "modified", "renamed"}:
+            continue
+        filename = item["filename"]
+        if not filename.lower().endswith("/_order.yaml"):
+            continue
+        candidates.add(Path(filename))
+
+    return sorted(candidates)
+
+
+def changed_docs_paths_for_directory_rules(changed_files: list[dict]) -> list[str]:
+    """Return changed docs paths used for directory naming policy checks."""
+    candidates: set[str] = set()
+    for item in changed_files:
+        if item["status"] not in {"added", "modified", "renamed"}:
+            continue
+
+        filename = normalize_path(item["filename"])
+        if not filename.lower().startswith("docs/"):
+            continue
+
+        # GitHub's pulls.listFiles returns files (not directories). Directory
+        # naming can still be validated by inspecting parent path segments.
+        candidates.add(filename)
+
+    return sorted(candidates)
+
+
+def collect_docs_subdirectory_violations(changed_docs_paths: list[str]) -> list[DocsSubdirectoryViolation]:
+    """Validate nested docs directory naming rules for changed docs paths.
+
+    Rule intent:
+    - docs/<first-level>/ is allowed to keep legacy naming patterns.
+    - Deeper directories must be lowercase and contain no whitespace.
+    """
+    violations: list[DocsSubdirectoryViolation] = []
+
+    for path in changed_docs_paths:
+        parts = Path(normalize_path(path)).parts
+        if len(parts) < 3:
+            continue
+        if parts[0].lower() != "docs":
+            continue
+
+        # Allow first-level docs directories (docs/<dir>) to keep existing naming.
+        nested_dirs = parts[2:-1]
+        for segment in nested_dirs:
+            if segment != segment.lower() or bool(re.search(r"\s", segment)):
+                violations.append(
+                    DocsSubdirectoryViolation(
+                        path=path,
+                        reason=(
+                            "Nested docs subdirectories must be lowercase and must not contain whitespace"
+                        ),
+                    )
+                )
+                break
+
+    return violations
+
+
 def split_front_matter(text: str) -> list[str] | None:
+    """Return YAML front matter lines without delimiters, or None if missing/invalid."""
     lines = text.splitlines()
     if not lines:
         return None
@@ -185,6 +281,7 @@ def split_front_matter(text: str) -> list[str] | None:
 
 
 def validate_front_matter(path: Path) -> list[str]:
+    """Validate required front matter keys and value formats for one Markdown file."""
     if not path.exists():
         return ["File does not exist in repository state"]
 
@@ -222,6 +319,7 @@ def validate_front_matter(path: Path) -> list[str]:
 
 
 def get_front_matter_block(path: Path) -> str | None:
+    """Read and return the raw front matter block for a Markdown file, if present."""
     if not path.exists():
         return None
 
@@ -234,6 +332,7 @@ def get_front_matter_block(path: Path) -> str | None:
 
 
 def extract_front_matter_value(block: str, key: str) -> str | None:
+    """Extract a single top-level front matter scalar value by key."""
     match = re.search(rf"(?m)^{re.escape(key)}\s*:\s*(.+?)\s*$", block)
     if not match:
         return None
@@ -249,6 +348,7 @@ def extract_front_matter_value(block: str, key: str) -> str | None:
 
 
 def collect_index_slug_violations(changed_docs: list[str]) -> list[IndexSlugViolation]:
+    """Require non-empty slug on nested index pages changed in the PR."""
     violations: list[IndexSlugViolation] = []
 
     for filename in changed_docs:
@@ -281,6 +381,13 @@ def collect_index_slug_violations(changed_docs: list[str]) -> list[IndexSlugViol
 
 
 def parse_order_entries(order_file: Path) -> tuple[list[str], list[str]]:
+    """Parse a simple list-style _order.yaml file.
+
+    Supported format:
+    - one entry per line as '- <entry>'
+    - optional quoted entries
+    - comments and blank lines ignored
+    """
     if not order_file.exists():
         return [], ["Missing _order.yaml"]
 
@@ -315,27 +422,67 @@ def parse_order_entries(order_file: Path) -> tuple[list[str], list[str]]:
 
 
 def entry_matches(entries: list[str], expected: str) -> bool:
+    """Case-insensitive entry existence check for compatibility-focused matching."""
     expected_lower = expected.lower()
     return any(item.lower() == expected_lower for item in entries)
 
 
 def resolve_expected_order_target(markdown_path: Path) -> tuple[Path | None, str | None]:
+    """Resolve the _order.yaml and expected entry for a changed Markdown file.
+
+    Index pages are intentionally exempt from direct _order entry requirements.
+    """
     if markdown_path.name.lower() == "index.md":
-        parent = markdown_path.parent
-        grandparent = parent.parent
-        if str(grandparent) == ".":
-            return None, None
-        return grandparent / "_order.yaml", parent.name
+        # Index pages are exempt from direct _order entry requirements.
+        return None, None
 
     return markdown_path.parent / "_order.yaml", markdown_path.stem
 
 
 def order_entry_target_exists(order_file: Path, entry: str) -> bool:
+    """Return True when an _order entry resolves to an existing child file/dir."""
     base_dir = order_file.parent
     return (base_dir / entry).exists() or (base_dir / f"{entry}.md").exists()
 
 
+def order_entry_targets_markdown_page(order_file: Path, entry: str) -> bool:
+    """Return True when an _order entry points to a Markdown page target."""
+    base_dir = order_file.parent
+
+    if entry.lower().endswith(".md"):
+        target_file = base_dir / entry
+        if target_file.exists():
+            return True
+
+        # Case-insensitive fallback keeps behavior consistent across filesystems.
+        entry_lower = entry.lower()
+        for markdown_file in base_dir.glob("*.md"):
+            if markdown_file.name.lower() == entry_lower:
+                return True
+        return False
+
+    target_file = base_dir / f"{entry}.md"
+    if target_file.exists():
+        return True
+
+    # Case-insensitive fallback keeps behavior consistent on case-sensitive and
+    # case-insensitive filesystems.
+    entry_lower = entry.lower()
+    for markdown_file in base_dir.glob("*.md"):
+        if markdown_file.stem.lower() == entry_lower:
+            return True
+
+    return False
+
+
+def order_entry_references_index_page(entry: str) -> bool:
+    """Return True when an _order entry references an index page, which is forbidden."""
+    basename = Path(entry).name.lower()
+    return basename in {"index", "index.md"}
+
+
 def collect_required_order_file_violations(roots: Iterable[str]) -> list[RequiredOrderFileViolation]:
+    """Enforce presence of _order.yaml in every directory under required roots."""
     violations: list[RequiredOrderFileViolation] = []
 
     for root in roots:
@@ -357,6 +504,7 @@ def collect_required_order_file_violations(roots: Iterable[str]) -> list[Require
     return violations
 
 def collect_api_reference_suffix_violations(api_reference_root: Path) -> list[ApiReferenceSuffixViolation]:
+    """Block API reference filenames ending in '-1.md' for URL consistency."""
     violations: list[ApiReferenceSuffixViolation] = []
 
     if not api_reference_root.exists() or not api_reference_root.is_dir():
@@ -377,6 +525,7 @@ def collect_api_reference_suffix_violations(api_reference_root: Path) -> list[Ap
 
 
 def main() -> int:
+    """Run all checks and write JSON/Markdown reports consumed by CI and PR comments."""
     args = parse_args()
     docs_root = Path(args.docs_root)
     changed_files_json = Path(args.changed_files_json)
@@ -390,6 +539,8 @@ def main() -> int:
 
     changed_files = load_changed_files(changed_files_json)
     changed_docs = changed_docs_markdown_files(changed_files)
+    changed_order = changed_order_files(changed_files)
+    changed_docs_paths = changed_docs_paths_for_directory_rules(changed_files)
 
     docs_files = collect_docs_files(docs_root)
     duplicate_groups = collect_duplicate_groups(docs_files)
@@ -404,8 +555,11 @@ def main() -> int:
     required_order_file_violations = collect_required_order_file_violations(args.required_order_roots)
     api_reference_suffix_violations = collect_api_reference_suffix_violations(Path("reference") / "Akeyless API")
     index_slug_violations = collect_index_slug_violations(changed_docs)
+    docs_subdirectory_violations = collect_docs_subdirectory_violations(changed_docs_paths)
 
-    order_files_to_validate: set[Path] = set()
+    # Validate all changed _order files directly, plus _order files impacted by
+    # changed Markdown pages that are expected to appear in navigation.
+    order_files_to_validate: set[Path] = set(changed_order)
 
     for filename in changed_docs:
         basename = Path(filename).name.lower()
@@ -449,12 +603,36 @@ def main() -> int:
                     )
                 )
 
-    # Validate target existence for entries in impacted _order.yaml files.
+    # Validate content rules and target resolution for impacted _order.yaml files.
     for order_file in sorted(order_files_to_validate):
         entries, order_errors = parse_order_entries(order_file)
         if order_errors:
+            for error in order_errors:
+                navigation_violations.append(
+                    NavigationViolation(path=order_file.as_posix(), reason=error)
+                )
             continue
         for entry in entries:
+            if order_entry_references_index_page(entry):
+                navigation_violations.append(
+                    NavigationViolation(
+                        path=order_file.as_posix(),
+                        reason=(
+                            f"Navigation entry '{entry}' is not allowed because _order.yaml must not include index pages"
+                        ),
+                    )
+                )
+                continue
+
+            if order_entry_targets_markdown_page(order_file, entry) and entry != entry.lower():
+                navigation_violations.append(
+                    NavigationViolation(
+                        path=order_file.as_posix(),
+                        reason=(
+                            f"Navigation page entry '{entry}' must be lowercase for ReadMe compatibility"
+                        ),
+                    )
+                )
             if not order_entry_target_exists(order_file, entry):
                 navigation_violations.append(
                     NavigationViolation(
@@ -463,7 +641,7 @@ def main() -> int:
                     )
                 )
 
-    # De-duplicate duplicate violations by basename.
+    # De-duplicate violations for deterministic output and stable PR comments.
     seen_dupes: set[str] = set()
     uniq_duplicate_violations: list[DuplicateGroup] = []
     for item in duplicate_violations:
@@ -499,6 +677,7 @@ def main() -> int:
         or required_order_file_violations
         or api_reference_suffix_violations
         or index_slug_violations
+        or docs_subdirectory_violations
     )
 
     report = {
@@ -507,6 +686,7 @@ def main() -> int:
         "docs_markdown_files_scanned": len(docs_files),
         "changed_files_scanned": len(changed_files),
         "changed_docs_markdown_scanned": len(changed_docs),
+        "changed_docs_paths_scanned": len(changed_docs_paths),
         "duplicate_violations": [
             {
                 "basename": item.basename,
@@ -557,6 +737,13 @@ def main() -> int:
             }
             for item in sorted(index_slug_violations, key=lambda x: x.path)
         ],
+        "docs_subdirectory_violations": [
+            {
+                "path": item.path,
+                "reason": item.reason,
+            }
+            for item in sorted(docs_subdirectory_violations, key=lambda x: x.path)
+        ],
     }
 
     out_json.parent.mkdir(parents=True, exist_ok=True)
@@ -570,6 +757,7 @@ def main() -> int:
         f"- Docs markdown files scanned: {len(docs_files)}",
         f"- Changed files scanned: {len(changed_files)}",
         f"- Changed docs markdown files scanned: {len(changed_docs)}",
+        f"- Changed docs paths scanned (directory naming): {len(changed_docs_paths)}",
         "",
     ]
 
@@ -626,6 +814,13 @@ def main() -> int:
             md_lines.append(f"- `{violation.path}`: {violation.reason}")
         md_lines.append("")
 
+    if docs_subdirectory_violations:
+        md_lines.append("## Docs Subdirectory Naming Violations")
+        md_lines.append("")
+        for violation in sorted(docs_subdirectory_violations, key=lambda x: x.path):
+            md_lines.append(f"- `{violation.path}`: {violation.reason}")
+        md_lines.append("")
+
     if (
         not uniq_duplicate_violations
         and not depth_violations
@@ -634,6 +829,7 @@ def main() -> int:
         and not required_order_file_violations
         and not api_reference_suffix_violations
         and not index_slug_violations
+        and not docs_subdirectory_violations
     ):
         md_lines.append("No violations detected.")
         md_lines.append("")
@@ -641,10 +837,11 @@ def main() -> int:
     out_md.write_text("\n".join(md_lines), encoding="utf-8")
 
     print(
+        # Keep this summary line parse-friendly for workflow logs and quick triage.
         "failed={failed} duplicate_violations={dupes} depth_violations={depth} "
         "front_matter_violations={fm} navigation_violations={nav} "
         "required_order_file_violations={order} api_reference_suffix_violations={api_suffix} "
-        "index_slug_violations={index_slug}".format(
+        "index_slug_violations={index_slug} docs_subdirectory_violations={subdirs}".format(
             failed=failed,
             dupes=len(uniq_duplicate_violations),
             depth=len(depth_violations),
@@ -653,6 +850,7 @@ def main() -> int:
             order=len(required_order_file_violations),
             api_suffix=len(api_reference_suffix_violations),
             index_slug=len(index_slug_violations),
+            subdirs=len(docs_subdirectory_violations),
         )
     )
 

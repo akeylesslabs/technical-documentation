@@ -38,6 +38,17 @@ akeyless gateway update certificate-store \
 --certificate-data <certificate data in base64 format>
 ```
 
+To configure multiple expiration events for a certificate, run the following command:
+
+```shell
+akeyless gateway update certificate-store \
+--name <Certificate Display name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--certificate-path <path/to/certificate/file> \
+--expiration-event-in 1 \
+--expiration-event-in 5
+```
+
 To delete certificates from your gateway using the CLI, run the following command:
 
 ```shell

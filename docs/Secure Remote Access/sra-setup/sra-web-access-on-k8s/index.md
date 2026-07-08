@@ -259,6 +259,20 @@ sessionRecording:
 
 When enabled, the worker captures the browser session and the dispatcher prepares the upload artifact and uploads it to S3 or S3-compatible storage.
 
+For supported ZTWA versions, recordings, Session Overview entries, and Audit Log events share the same Secure Remote Access session identifier.
+
+#### Session visibility prerequisites
+
+If browser sessions work but Session Overview and Audit Log entries do not appear, the deployment must meet the following requirements for audit logs and session recording correlation:
+
+* Use a ZTWA version that includes session reporting (`v2.0.0-rc6` or later).
+* Ensure `clusterName` exactly matches the connected Akeyless Gateway cluster name.
+* Authenticate ZTWA by using the same Access ID that the Gateway is registered with.
+* If the Gateway certificate is private or self-signed, provide trust material to ZTWA.
+* Ensure the Gateway is running and registered in the same Akeyless account.
+
+The same cluster name and Gateway Access ID are required to correlate audit logs and session recordings.
+
 #### Recording quality
 
 Set `sessionRecording.quality` to one of:
@@ -364,7 +378,7 @@ privilegedAccess:
     - <ALLOWED_ACCESS_ID>
 ```
 
-If the dispatcher cannot detect AWS through the instance metadata service, set `dispatcher.config.cloudIdentity.type` to `aws_iam` to skip auto-detection and use the configured AWS IAM identity directly. This is useful when the metadata service is unreachable, such as on EKS nodes that use the default IMDSv2 hop limit or in clusters with restrictive network policies.
+The dispatcher determines its cloud provider by probing the instance metadata service at `169.254.169.254`. When the instance metadata service is unreachable, provider detection can fail with `unknown-cloud-provider`. Set `dispatcher.config.cloudIdentity.type` to `aws_iam` to skip the instance metadata service probe and authenticate with the configured AWS IAM cloud identity directly.
 
 ```yaml
 dispatcher:
@@ -378,7 +392,16 @@ dispatcher:
       type: "aws_iam"
 ```
 
-Use this override when auto-detection fails. Leave `accessKey` empty for AWS IAM machine-to-machine authentication.
+Alternatively, set the `ADMIN_ACCESS_ID_TYPE` environment variable to `aws_iam` on the dispatcher. This renders the same override as the Helm value and matches the Akeyless Gateway fallback behavior:
+
+```yaml
+dispatcher:
+  env:
+    - name: ADMIN_ACCESS_ID_TYPE
+      value: "aws_iam"
+```
+
+Use either override when auto-detection fails. Leave `accessKey` empty for AWS IAM machine-to-machine authentication.
 
 ### Azure Active Directory authentication
 
