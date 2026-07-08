@@ -30,8 +30,11 @@ This guide explains how to configure Okta as the Identity Provider (IdP) for SAM
 5. If you use group-based role association, add a group claim for `groups`.
 6. Save the application.
 
-> ℹ️ **Note:**
-> These are the default, shared Akeyless endpoints and work for most setups. If you need Okta to use unique endpoint values scoped to this specific Authentication Method — for example, to run multiple isolated Okta apps against the same Akeyless account — see [Optional: Dedicated SAML Endpoints](#optional-dedicated-saml-endpoints-for-okta) below.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  These are the default, shared Akeyless endpoints and work for most setups. If you need Okta to use unique endpoint values scoped to this specific Authentication Method — for example, to run multiple isolated Okta apps against the same Akeyless account — see [Optional: Dedicated SAML Endpoints](#optional-dedicated-saml-endpoints-for-okta) below.
+</Callout>
 
 ## Get Okta IdP Metadata
 
@@ -92,22 +95,22 @@ akeyless list-items --profile okta-app
 
 ### Akeyless Console
 
-1. Open <https://console.akeyless.io>.
+1. Open [https://console.akeyless.io](https://console.akeyless.io).
 2. Select **SAML**.
 3. Enter the SAML Authentication Method **Access ID**.
 4. Complete sign-in in Okta.
 
-## Optional: Dedicated SAML Endpoints for Okta
+## Dedicated SAML Endpoints for Okta
 
-The **Dedicated SAML Endpoint** flag is set per Authentication Method, not per account — you can enable it for this Okta Authentication Method while other SAML methods in the same Akeyless account keep using the shared endpoints. Enable it if you plan to run more than one Okta app against Akeyless and need each one to have unique SAML values.
+The **Dedicated SAML Endpoint** flag is set per Authentication Method,  you can enable it for one Authentication Method while other SAML methods in the same Akeyless account keep using the shared endpoints. Enable it if you plan to run more than one Okta app against Akeyless and need each one to have unique SAML values.
 
 When enabled, this Authentication Method exposes its own endpoints scoped to its Access ID. Replace `<SAML_AUTH_METHOD_ACCESS_ID>` with the Access ID of this method:
 
-| Endpoint | Format |
-| --- | --- |
-| Single sign-on URL / ACS URL | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>` |
-| Audience URI / Entity ID | `https://auth.akeyless.io/saml/sp/<SAML_AUTH_METHOD_ACCESS_ID>` |
-| SP Metadata URL | `https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>` |
+| Endpoint                     | Format                                                                |
+| ---------------------------- | --------------------------------------------------------------------- |
+| Single sign-on URL / ACS URL | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>`      |
+| Audience URI / Entity ID     | `https://auth.akeyless.io/saml/sp/<SAML_AUTH_METHOD_ACCESS_ID>`       |
+| SP Metadata URL              | `https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>` |
 
 Because the Access ID doesn't exist until the Akeyless Authentication Method is created, and Akeyless needs Okta's IdP metadata to create it, use this order:
 
@@ -124,3 +127,5 @@ If authentication fails, check the following:
 - Okta SAML app uses the correct endpoint values for this specific Authentication Method — the shared endpoints by default, or the dedicated endpoints if **Dedicated SAML Endpoint** is enabled on this method.
 - The metadata source in Akeyless is valid and current.
 - The user or group is assigned to the Okta application.
+
+<br />
