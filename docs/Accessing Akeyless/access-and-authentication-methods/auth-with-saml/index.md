@@ -19,15 +19,16 @@ This page explains how to create and use a SAML Authentication Method in Akeyles
 
 ## Creating a SAML Authentication Method
 
-This action is distinct from creating a new Akeyless account: it creates an additional SAML-based authentication method for an existing account.
+By default, all SAML Authentication Methods use the following Akeyless endpoints:
 
-Important SAML requirement:
-
-- **Dedicated endpoints per Authentication Method:** Each SAML authentication method has dedicated SAML endpoints. When configuring the IdP application, use the metadata and assertion consumer service (ACS) endpoint values generated for that specific SAML authentication method.
+| Endpoint               | Format                                   |
+| ---------------------- | ---------------------------------------- |
+| Entity ID / Identifier | `https://auth.akeyless.io/saml/metadata` |
+| Reply URL / ACS URL    | `https://auth.akeyless.io/saml/acs`      |
 
 ## Dedicated SAML Endpoints per Authentication Method
 
-Akeyless supports dedicated SAML endpoints for each SAML Authentication Method. This allows multiple SAML authentication methods to be configured in the same Akeyless account using the same IdP, for example to separate production, development, staging, or other environments.
+Akeyless supports dedicated SAML endpoints for each SAML Authentication Method. This allows multiple SAML authentication methods to be configured in the same IdP account, for example to separate production, development, staging, or other environments.
 
 Each SAML Authentication Method has its own unique Entity ID, Assertion Consumer Service (ACS) URL, and metadata URL, based on the Authentication Method Access ID.
 
