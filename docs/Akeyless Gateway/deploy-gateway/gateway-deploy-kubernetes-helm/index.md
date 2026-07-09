@@ -491,3 +491,7 @@ helm upgrade gw akeyless/akeyless-gateway -f values.yaml
 ```
 
 Check that the new pods are starting.
+
+## Tutorial
+
+Check out our tutorial video on [Installing and Configuring the Gateway on Kubernetes](https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-gateway).
