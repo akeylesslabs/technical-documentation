@@ -67,10 +67,6 @@ To configure your Akeyless Gateway:
 
 2. Navigate to **Gateways > Select Your Gateway > Manage Gateway**
 
-## Tutorial
-
-Check out our tutorial video on [Installing and Configuring the Gateway on Docker](https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-gateway).
-
 ## Legacy Deployment
 
 If you are using an older Gateway deployment, see [Gateway Legacy](https://docs.akeyless.io/docs/gateway-legacy).
