@@ -78,7 +78,7 @@ jobs:
             --out-md .github/lychee/absolute-docs-link-policy.md
 
       - name: Run Lychee (discovery)
-        uses: lycheeverse/lychee-action@v2.8.0
+        uses: lycheeverse/lychee-action@v2.9.0
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -199,7 +199,7 @@ jobs:
           echo "redirect_summary=$REDIRECT_SUMMARY" >> "$GITHUB_OUTPUT"
 
       - name: Run Lychee (final)
-        uses: lycheeverse/lychee-action@v2.8.0
+        uses: lycheeverse/lychee-action@v2.9.0
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
