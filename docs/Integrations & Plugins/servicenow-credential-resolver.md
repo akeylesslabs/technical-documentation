@@ -11,9 +11,9 @@ metadata:
 
 The **Akeyless Credentials Resolver** is Akeyless's official ServiceNow application. It installs a MID Server external credential resolver that retrieves secrets from Akeyless at runtime and maps them to ServiceNow Discovery credential fields, so no static passwords are stored in ServiceNow. The resolver class is `com.snc.discovery.CredentialResolver`.
 
-App listing: <https://store.servicenow.com/store/app/3bad4acf97f98f10cbe2f5411153af6a>
+App listing: [https://store.servicenow.com/store/app/3bad4acf97f98f10cbe2f5411153af6a](https://store.servicenow.com/store/app/3bad4acf97f98f10cbe2f5411153af6a)
 
-If you'd rather build the resolver JAR from source (for example, to customize it or contribute), see the source repository instead: <https://github.com/akeylesslabs/akeyless-servicenow-credential-resolver>. That path isn't covered here.
+If you'd rather build the resolver JAR from source (for example, to customize it or contribute), see the source repository instead: [https://github.com/akeylesslabs/akeyless-servicenow-credential-resolver](https://github.com/akeylesslabs/akeyless-servicenow-credential-resolver). That path isn't covered here.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ With the MID Server set up, configure the following properties on your instance 
 - `ext.cred.akeyless.access_type` (string): One of `access_key`, `aws_iam`, `azure_ad`, `gcp`, `universal_identity`/`uid`, `cert`/`certificate`. Default: `access_key`
 - `ext.cred.akeyless.access_id` (string): Your Akeyless Access ID (required)
 - `ext.cred.akeyless.access_key` (string): Your Akeyless Access Key (required for `access_key` only)
-- `ext.cred.akeyless.uid_token_file` (string): File path on the MID host containing the UID token, for `universal_identity`/`uid`. **Preferred** — the first non-empty line is read on each use, so an external rotation job can refresh the file's contents without a MID restart.
+- `ext.cred.akeyless.uid_token_file` (string): File path on the MID host containing the UID token, for `universal_identity`/`uid`. **Preferred**, the first non-empty line is read on each use, so an external rotation job can refresh the file's contents without a MID restart.
 - `ext.cred.akeyless.uid_token` (string): Inline UID token, for `universal_identity`/`uid`. Used as a fallback only when `uid_token_file` is unset or unreadable.
 - `ext.cred.akeyless.cert_data` (string): Inline certificate PEM content, for `cert`
 - `ext.cred.akeyless.key_data` (string): Inline private key PEM content, for `cert`
@@ -230,7 +230,7 @@ Custom field names by way of mapping overrides (example): set `ext.cred.akeyless
 
 will then map to ServiceNow `username = alice`, `password = secret`.
 
-## CloudID Notes (aws_iam / azure_ad / gcp)
+## CloudID Notes (aws\_iam / azure\_ad / gcp)
 
 - When `ext.cred.akeyless.access_type` (or `AKEYLESS_ACCESS_TYPE`) is `aws_iam`, `azure_ad`, or `gcp`, the resolver fetches a CloudID and sends it to Akeyless during authentication.
 - Ensure the MID Server host is running in the target cloud with the appropriate identity, or that the cloud SDK environment is present to retrieve a CloudID.
@@ -244,8 +244,10 @@ will then map to ServiceNow `username = alice`, `password = secret`.
 
 ## Troubleshooting
 
-- **HTTP 400 "Missing required parameter - timestamp" on `/auth`**: Usually indicates the wrong auth flow or missing parameters. Verify `access_type` is set correctly. For CloudID flows, do not set an `access_key`. For `access_key` flows, ensure both `access_id` and `access_key` are set. For `uid`, set `uid_token_file` (preferred) or `uid_token` (fallback). For `cert`, provide both certificate and key material, either inline or by file path.
-- **HTTP 404 from `/v2/*` endpoints**: The resolver automatically falls back to the non-`/v2` endpoints. If both fail, verify the Gateway URL and network reachability.
+- **HTTP 400 "Missing required parameter - timestamp" on&#x20;**`/auth`: Usually indicates the wrong auth flow or missing parameters. Verify `access_type` is set correctly. For CloudID flows, do not set an `access_key`. For `access_key` flows, ensure both `access_id` and `access_key` are set. For `uid`, set `uid_token_file` (preferred) or `uid_token` (fallback). For `cert`, provide both certificate and key material, either inline or by file path.
+- **HTTP 404 from&#x20;**`/v2/*`**&#x20;endpoints**: The resolver automatically falls back to the non-`/v2` endpoints. If both fail, verify the Gateway URL and network reachability.
 - **"Secret value not found for name ..."**: Confirm the Credential ID (secret path) is correct and the Akeyless identity has permission to read it.
-- **Everything maps to a single password field (`pswd`)**: This usually happens when the secret isn't strict JSON, because PEM or key content was pasted with literal line breaks inside quoted strings. Prefer `\n` inside the JSON string values. If PEM markers are still present, the resolver retries parsing with a lenient Jackson mode.
+- **Everything maps to a single password field (**`pswd`**)**: This usually happens when the secret isn't strict JSON, because PEM or key content was pasted with literal line breaks inside quoted strings. Prefer `\n` inside the JSON string values. If PEM markers are still present, the resolver retries parsing with a lenient Jackson mode.
 - **Logging**: Resolver logs go through Commons Logging — check MID Server logs for entries containing "Akeyless resolver". The resolver also writes its own daily-rotated log files under the MID agent `logs/` folder (for example, `/opt/agent/logs/akeyless-resolver-YYYY-MM-DD.log` on Linux, or `C:\ServiceNow\agent\logs\akeyless-resolver-YYYY-MM-DD.log` on Windows). These file logs contain the same safe diagnostic messages as the MID logs (arguments, secret path, item type, resolved field keys) — secret values and tokens are never written to the file.
+
+<br />
