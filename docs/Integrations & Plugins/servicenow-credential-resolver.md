@@ -25,12 +25,12 @@ If you'd rather build the resolver JAR from source (for example, to customize it
 
 ## Supported Akeyless Authentication Methods
 
-- `access_key`: Access ID + Access Key
-- `aws_iam`: CloudID from AWS
-- `azure_ad`: CloudID from Azure
-- `gcp`: CloudID from GCP
-- `universal_identity` (or alias `uid`): Access ID + UID token
-- `cert` (or alias `certificate`): Access ID + client certificate and private key material
+- `access_key`
+- `aws_iam`
+- `azure_ad`
+- `gcp`
+- `universal_identity`&#x20;
+- `cert`&#x20;
 
 For cloud-based methods, the resolver detects a CloudID from the cloud environment the MID Server is running in (for example, an EC2 instance profile, an Azure VM managed identity, or GCP default credentials). For Universal Identity, using a **UID token file** is the preferred setup because it supports automatic token rotation without touching MID configuration (see [Automatic UID Rotation](#automatic-uid-rotation) below).
 
