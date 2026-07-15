@@ -10,31 +10,30 @@ metadata:
 next:
   description: ''
 ---
-
 The `apache-airflow-providers-akeyless` package integrates the Akeyless identity security platform with [Apache Airflow](https://airflow.apache.org/). It lets you fetch secrets, manage credentials, and use Akeyless as a native Airflow Secrets Backend.
 
 The provider is maintained in the [apache/airflow](https://github.com/apache/airflow/tree/main/providers/akeyless) repository.
 
 ## Before you begin
 
-* You have an Akeyless account with at least one [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) configured.
-* If using `api_key` authentication, you have your Access ID and Access Key ready.
-* If using a cloud-based authentication method (AWS IAM, GCP, or Azure AD), install the `cloud_id` extras package (see [Installation](#installation)).
-* Apache Airflow 2.11.0 or later is installed.
+- You have an Akeyless account with at least one [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) configured.
+- If using `api_key` authentication, you have your Access ID and Access Key ready.
+- If using a cloud-based authentication method (AWS IAM, GCP, or Azure AD), install the `cloud_id` extras package (see [Installation](#installation)).
+- Apache Airflow 2.11.0 or later is installed.
 
-| Capability | Class | Description |
-| --- | --- | --- |
-| **Hook** | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook` | Interact with Akeyless directly from Directed Acyclic Graph (DAG) code — fetch static, dynamic, and rotated secrets; create, update, or delete items; list paths. |
-| **Connection type** | `akeyless` | Airflow connection type identifier. Create a connection with this type in the Airflow UI or environment to supply credentials to the hook. |
+| Capability          | Class                                                         | Description                                                                                                                                                                                |
+| ------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Hook**            | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook`      | Interact with Akeyless directly from Directed Acyclic Graph (DAG) code — fetch static, dynamic, and rotated secrets; create, update, or delete items; list paths.                          |
+| **Connection type** | `akeyless`                                                    | Airflow connection type identifier. Create a connection with this type in the Airflow UI or environment to supply credentials to the hook.                                                 |
 | **Secrets Backend** | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend` | Transparently resolve Airflow Connections, Variables, and Config from Akeyless — no DAG code changes required. Supports `api_key`, `uid`, `aws_iam`, `gcp`, and `azure_ad` authentication. |
 
 ## Requirements
 
-| Requirement | Minimum version |
-| --- | --- |
-| Python | 3.10 |
-| `apache-airflow` | 2.11.0 |
-| `akeyless` | 5.0.0 |
+| Requirement      | Minimum version |
+| ---------------- | --------------- |
+| Python           | 3.10            |
+| `apache-airflow` | 2.11.0          |
+| `akeyless`       | 5.0.0           |
 
 ## Installation
 
@@ -54,18 +53,20 @@ pip install apache-airflow-providers-akeyless[cloud_id]
 
 The provider supports the following Akeyless [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
-| `access_type` | Required fields | Extras package | Supported by |
-| --- | --- | --- | --- |
-| `api_key` _default_ | `access_id`, `access_key` | — | Hook, Secrets Backend |
-| `aws_iam` | `access_id` | `cloud_id` | Hook, Secrets Backend |
-| `gcp` | `access_id`; optional: `gcp_audience` | `cloud_id` | Hook, Secrets Backend |
-| `azure_ad` | `access_id`; optional: `azure_object_id` | `cloud_id` | Hook, Secrets Backend |
-| `uid` | `uid_token` | — | Hook, Secrets Backend |
-| `jwt` | `access_id`, `jwt` | — | Hook only |
-| `k8s` | `access_id`, `k8s_auth_config_name` | — | Hook only |
-| `certificate` | `access_id`, `certificate_data`, `private_key_data` | — | Hook only |
+| `access_type`       | Required fields                                     | Extras package | Supported by          |
+| ------------------- | --------------------------------------------------- | -------------- | --------------------- |
+| `api_key` _default_ | `access_id`, `access_key`                           | —              | Hook, Secrets Backend |
+| `aws_iam`           | `access_id`                                         | `cloud_id`     | Hook, Secrets Backend |
+| `gcp`               | `access_id`; optional: `gcp_audience`               | `cloud_id`     | Hook, Secrets Backend |
+| `azure_ad`          | `access_id`; optional: `azure_object_id`            | `cloud_id`     | Hook, Secrets Backend |
+| `uid`               | `uid_token`                                         | —              | Hook, Secrets Backend |
+| `jwt`               | `access_id`, `jwt`                                  | —              | Hook only             |
+| `k8s`               | `access_id`, `k8s_auth_config_name`                 | —              | Hook only             |
+| `certificate`       | `access_id`, `certificate_data`, `private_key_data` | —              | Hook only             |
 
-> ⚠️ **Unsupported authentication methods:** The following Akeyless authentication methods are **not** supported by this provider: OCI IAM, Kerberos, LDAP, SAML, OIDC, and Email.
+<Callout icon="⚠️" theme="warn">
+  ### **Unsupported authentication methods:** The following Akeyless authentication methods are **not** supported by this provider: OCI IAM, Kerberos, LDAP, SAML, OIDC, and Email.
+</Callout>
 
 ## Usage
 
@@ -77,11 +78,11 @@ Create an Airflow Connection with **Connection Type** = `akeyless`.
 
 In the Airflow UI connection form, the following fields are available:
 
-| UI field | Value |
-| --- | --- |
-| API URL | `https://api.akeyless.io` (or your Gateway URL) |
-| Access ID | Your Akeyless Access ID |
-| Access Key | Your Akeyless Access Key (for `api_key` authentication; leave blank for other types) |
+| UI field    | Value                                                                                                       |
+| ----------- | ----------------------------------------------------------------------------------------------------------- |
+| API URL     | `https://api.akeyless.io` (or your Gateway URL)                                                             |
+| Access ID   | Your Akeyless Access ID                                                                                     |
+| Access Key  | Your Akeyless Access Key (for `api_key` authentication; leave blank for other types)                        |
 | Access type | One of the `access_type` values from [Authentication Methods](#authentication-methods) (default: `api_key`) |
 
 The form also shows dedicated fields for each authentication-method-specific parameter: **UID Token**, **JWT**, **K8s Auth Config Name**, **Certificate Data (PEM)**, **Private Key Data (PEM)**, **GCP Audience**, and **Azure Object ID**. The raw **Extra**, **Schema**, and **Port** fields are hidden.
@@ -90,16 +91,16 @@ The form also shows dedicated fields for each authentication-method-specific par
 
 When defining connections outside the UI (for example, with `AIRFLOW_CONN_*` environment variables), provide the `extra` field as a JSON object:
 
-| `access_type` | `extra` JSON |
-| --- | --- |
-| `api_key` (default) | `{"access_type": "api_key"}` |
-| `uid` | `{"access_type": "uid", "uid_token": "<UID token>"}` — `login` and `password` are unused |
-| `jwt` | `{"access_type": "jwt", "jwt": "<JWT>"}` |
-| `k8s` | `{"access_type": "k8s", "k8s_auth_config_name": "<config name>"}` |
-| `aws_iam` | `{"access_type": "aws_iam"}` — cloud identity resolved automatically |
-| `gcp` | `{"access_type": "gcp"}` or `{"access_type": "gcp", "gcp_audience": "<audience>"}` |
-| `azure_ad` | `{"access_type": "azure_ad"}` or `{"access_type": "azure_ad", "azure_object_id": "<object ID>"}` |
-| `certificate` | `{"access_type": "certificate", "certificate_data": "<PEM>", "private_key_data": "<PEM>"}` |
+| `access_type`       | `extra` JSON                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------ |
+| `api_key` (default) | `{"access_type": "api_key"}`                                                                     |
+| `uid`               | `{"access_type": "uid", "uid_token": "<UID token>"}` — `login` and `password` are unused         |
+| `jwt`               | `{"access_type": "jwt", "jwt": "<JWT>"}`                                                         |
+| `k8s`               | `{"access_type": "k8s", "k8s_auth_config_name": "<config name>"}`                                |
+| `aws_iam`           | `{"access_type": "aws_iam"}` — cloud identity resolved automatically                             |
+| `gcp`               | `{"access_type": "gcp"}` or `{"access_type": "gcp", "gcp_audience": "<audience>"}`               |
+| `azure_ad`          | `{"access_type": "azure_ad"}` or `{"access_type": "azure_ad", "azure_object_id": "<object ID>"}` |
+| `certificate`       | `{"access_type": "certificate", "certificate_data": "<PEM>", "private_key_data": "<PEM>"}`       |
 
 Then use the hook in a DAG:
 
@@ -148,7 +149,7 @@ Configure Airflow to fetch Connections, Variables, and Config directly from Akey
 
 Add to `airflow.cfg`:
 
-```text
+```shell airflow.cfg
 [secrets]
 backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
 backend_kwargs = {
@@ -160,13 +161,16 @@ backend_kwargs = {
     "access_key": "<Access Key>",
     "access_type": "api_key"
     }
+
 ```
 
-> ℹ️ In `airflow.cfg`, multi-line `backend_kwargs` values must have each continuation line indented with at least one space. Alternatively, provide the value as a single-line JSON string.
+<Callout icon="ℹ️" theme="info">
+  ### In `airflow.cfg`, multi-line `backend_kwargs` values must have each continuation line indented with at least one space. Alternatively, provide the value as a single-line JSON string.
+</Callout>
 
 For `uid` authentication, omit `access_key` and include `uid_token` in `backend_kwargs` instead:
 
-```text
+```shell airflow.cfg
 [secrets]
 backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
 backend_kwargs = {
@@ -178,6 +182,7 @@ backend_kwargs = {
     "access_type": "uid",
     "uid_token": "<UID token>"
     }
+
 ```
 
 Or with environment variables:
@@ -193,7 +198,7 @@ The Secrets Backend supports `aws_iam`, `gcp`, and `azure_ad` authentication, al
 
 **AWS IAM** (for [Amazon MWAA](https://aws.amazon.com/managed-workflows-for-apache-airflow/) and EC2/ECS/EKS workloads):
 
-```text
+```shell airflow.cfg
 [secrets]
 backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
 backend_kwargs = {
@@ -204,11 +209,12 @@ backend_kwargs = {
     "access_id": "<Access ID>",
     "access_type": "aws_iam"
     }
+
 ```
 
 **GCP** (for [Managed Service for Apache Airflow](https://cloud.google.com/composer/docs) and GCE/GKE workloads):
 
-```text
+```shell aifrflow.cfg
 [secrets]
 backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
 backend_kwargs = {
@@ -220,11 +226,12 @@ backend_kwargs = {
     "access_type": "gcp",
     "gcp_audience": "akeyless.io"
     }
+
 ```
 
 **Azure AD** (for Azure-hosted workloads):
 
-```text
+```shell afirflow.cfg
 [secrets]
 backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
 backend_kwargs = {
@@ -238,7 +245,9 @@ backend_kwargs = {
     }
 ```
 
-> ℹ️ Cloud-based authentication requires the `cloud_id` extras package. See [Installation](#installation).
+<Callout icon="ℹ️" theme="info">
+  ### Cloud-based authentication requires the `cloud_id` extras package. See [Installation](#installation).
+</Callout>
 
 ##### Using with Amazon MWAA
 
@@ -250,9 +259,9 @@ backend_kwargs = {
 
 2. In the MWAA console under **Airflow configuration options**, add:
 
-   | Key | Value |
-   | --- | --- |
-   | `secrets.backend` | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend` |
+   | Key                      | Value                                                                                          |
+   | ------------------------ | ---------------------------------------------------------------------------------------------- |
+   | `secrets.backend`        | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend`                                  |
    | `secrets.backend_kwargs` | `{"api_url": "https://api.akeyless.io", "access_id": "<Access ID>", "access_type": "aws_iam"}` |
 
 3. Ensure the MWAA VPC has outbound HTTPS access to your Akeyless API endpoint (`api.akeyless.io` or your Akeyless Gateway).
@@ -265,11 +274,11 @@ backend_kwargs = {
 
 Secrets are looked up by joining `<base_path>/<key>`:
 
-| Type | Example lookup path |
-| --- | --- |
+| Type                          | Example lookup path                     |
+| ----------------------------- | --------------------------------------- |
 | Connection `postgres_default` | `/airflow/connections/postgres_default` |
-| Variable `my_var` | `/airflow/variables/my_var` |
-| Config `smtp_host` | `/airflow/config/smtp_host` |
+| Variable `my_var`             | `/airflow/variables/my_var`             |
+| Config `smtp_host`            | `/airflow/config/smtp_host`             |
 
 #### Storing Connections in Akeyless
 
@@ -277,7 +286,7 @@ Store the connection secret value in one of these formats:
 
 URI format:
 
-```text
+```shell
 postgresql://user:password@host:5432/dbname
 ```
 
@@ -339,6 +348,8 @@ Verify that the secret path in Akeyless matches the expected naming convention: 
 
 ### Authentication fails with `401 Unauthorized`
 
-* For `api_key`: confirm the **Access ID** and **Access Key** fields in the connection are correct.
-* For `uid`: confirm the `uid_token` value is valid and not expired.
-* For cloud-based authentication methods: confirm the workload has the expected IAM role or service account attached.
+- For `api_key`: confirm the **Access ID** and **Access Key** fields in the connection are correct.
+- For `uid`: confirm the `uid_token` value is valid and not expired.
+- For cloud-based authentication methods: confirm the workload has the expected IAM role or service account attached.
+
+<br />
