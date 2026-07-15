@@ -1,11 +1,15 @@
 ---
 title: Akeyless AI Insights
-excerpt: Configure Akeyless AI Insights with supported LLM targets and gateway settings.
+excerpt: >-
+  Configure Akeyless AI Insights with supported LLM targets and gateway
+  settings.
 deprecated: false
 hidden: false
 metadata:
   title: Akeyless AI Insights
-  description: Configure Akeyless AI Insights at account and gateway levels with supported LLM targets.
+  description: >-
+    Configure Akeyless AI Insights at account and gateway levels with supported
+    LLM targets.
   robots: index
 ---
 ## Overview
@@ -17,30 +21,33 @@ Akeyless AI Insights enables natural-language interaction with the Akeyless Plat
 
 ### Supported LLM Providers
 
-* OpenAI (GPT models)
-* Gemini (Gemini models)
+- [OpenAI](https://openai.com/)
+- [Gemini](https://gemini.google.com/app)&#x20;
+- [Claude](https://claude.ai/login)
+- [Grok](https://grok.com/)
+- [Bedrock](https://aws.amazon.com/bedrock/)
 
-This guide uses **OpenAI** examples. You can also use **Gemini** by creating a Gemini target and setting a compatible model.
+This guide uses **OpenAI** examples. You can also use **Gemini** by creating a Gemini target and setting a compatible model or any other option.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
-* Akeyless CLI installed and authenticated with admin access
-* LLM Provider account and API Key
-    * OpenAI - [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-* Akeyless Gateway running
-* Ability to create and manage Targets in Akeyless
-* Protection key available for encrypting API credentials
+- Akeyless CLI installed and authenticated with admin access
+- LLM Provider account and API Key
+  - OpenAI - [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+- Akeyless Gateway running
+- Ability to create and manage Targets in Akeyless
+- Protection key available for encrypting API credentials
 
 ## High-Level Setup Steps
 
-| Step | Description | Tool |
-| --- | --- | --- |
-| 1 | Enable AI Insights at the account level | CLI |
-| 2 | Create an OpenAI / Gemini Target | CLI |
-| 3 | Configure the Akeyless Gateway for AI Insights | REST API |
-| 4 | Validate the configuration and test | CLI or Console |
+| Step | Description                                    | Tool           |
+| ---- | ---------------------------------------------- | -------------- |
+| 1    | Enable AI Insights at the account level        | CLI            |
+| 2    | Create an OpenAI / Gemini Target               | CLI            |
+| 3    | Configure the Akeyless Gateway for AI Insights | REST API       |
+| 4    | Validate the configuration and test            | CLI or Console |
 
 ### Step 1: Enable AI Insights at the Account Level
 
@@ -54,9 +61,11 @@ AI Insights can also be enabled at the account level using the Akeyless Console.
 
 ![Illustration for: Step 1: Enable AI Insights at the Account Level To enable AI Insights, run the following command: AI Insights can also be enabled at the account level using the Web UI.](https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png)
 
-> ℹ️ **Note:** To disable AI Insights, run the following command:
->
-> `akeyless update-account-settings --enable-ai-insights false`
+<Callout icon="ℹ️" theme="info">
+  ### **Note:** To disable AI Insights, run the following command:
+
+  `akeyless update-account-settings --enable-ai-insights false`
+</Callout>
 
 ### Step 2: Create an LLM Target
 
@@ -103,8 +112,8 @@ akeyless get-target --name <target-name>
 
 OpenAI models must use the `gpt-` prefix. The following are valid examples:
 
-* gpt-4
-* gpt-3.5-turbo
+- gpt-4
+- gpt-3.5-turbo
 
 ### Step 3: Configure the Gateway
 
@@ -197,30 +206,32 @@ AI Insights stores chat sessions per gateway selection so you can return to prio
 
 ## Troubleshooting
 
-| Issue | Resolution |
-| --- | --- |
-| AI Insights disabled | Enable AI Insights at the account level |
-| Gateway disabled | Update gateway configuration |
-| Invalid model | Ensure the model value uses the `gpt-` prefix |
-| Invalid target | Ensure the target is a supported LLM target (OpenAI or Gemini) |
-| Target not found | Validate the target name and ID |
-| Authentication failure | Re-authenticate by running `akeyless auth` |
-| Gateway unreachable | Check that port 8000 is open and firewall rules allow access |
-| API Key errors | Verify the API Key is valid and check the base URL |
+| Issue                  | Resolution                                                     |
+| ---------------------- | -------------------------------------------------------------- |
+| AI Insights disabled   | Enable AI Insights at the account level                        |
+| Gateway disabled       | Update gateway configuration                                   |
+| Invalid model          | Ensure the model value uses the `gpt-` prefix                  |
+| Invalid target         | Ensure the target is a supported LLM target (OpenAI or Gemini) |
+| Target not found       | Validate the target name and ID                                |
+| Authentication failure | Re-authenticate by running `akeyless auth`                     |
+| Gateway unreachable    | Check that port 8000 is open and firewall rules allow access   |
+| API Key errors         | Verify the API Key is valid and check the base URL             |
 
 ## Configuration Checklist
 
-* [ ] Enable AI Insights
-* [ ] Create OpenAI or Gemini target
-* [ ] Store target ID
-* [ ] Configure gateway
-* [ ] Verify the Gateway configuration
-* [ ] Test in the Console
+- [ ] Enable AI Insights
+- [ ] Create OpenAI or Gemini target
+- [ ] Store target ID
+- [ ] Configure gateway
+- [ ] Verify the Gateway configuration
+- [ ] Test in the Console
 
 ## Related AI Guides
 
-* [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence)
-* [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority)
-* [MCP Server](https://docs.akeyless.io/docs/mcp)
-* [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents)
-* [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
+- [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence)
+- [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority)
+- [MCP Server](https://docs.akeyless.io/docs/mcp)
+- [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents)
+- [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
+
+<br />
