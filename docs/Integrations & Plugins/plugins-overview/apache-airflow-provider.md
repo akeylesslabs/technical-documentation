@@ -26,7 +26,7 @@ The provider is maintained in the [apache/airflow](https://github.com/apache/air
 | --- | --- | --- |
 | **Hook** | `airflow.providers.akeyless.hooks.akeyless.AkeylessHook` | Interact with Akeyless directly from Directed Acyclic Graph (DAG) code — fetch static, dynamic, and rotated secrets; create, update, or delete items; list paths. |
 | **Connection type** | `akeyless` | Airflow connection type identifier. Create a connection with this type in the Airflow UI or environment to supply credentials to the hook. |
-| **Secrets Backend** | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend` | Transparently resolve Airflow Connections, Variables, and Config from Akeyless — no DAG code changes required. Supports `api_key` and `uid` authentication only. |
+| **Secrets Backend** | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend` | Transparently resolve Airflow Connections, Variables, and Config from Akeyless — no DAG code changes required. Supports `api_key`, `uid`, `aws_iam`, `gcp`, and `azure_ad` authentication. |
 
 ## Requirements
 
@@ -54,16 +54,16 @@ pip install apache-airflow-providers-akeyless[cloud_id]
 
 The provider supports the following Akeyless [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
-| `access_type` | Required fields | Supported by |
-| --- | --- | --- |
-| `api_key` _default_ | `access_id`, `access_key` | Hook, Secrets Backend |
-| `aws_iam` | `access_id` + `cloud_id` extras package | Hook only |
-| `gcp` | `access_id` + `cloud_id` extras package; optional: `gcp_audience` | Hook only |
-| `azure_ad` | `access_id` + `cloud_id` extras package; optional: `azure_object_id` | Hook only |
-| `uid` | `uid_token` | Hook, Secrets Backend |
-| `jwt` | `access_id`, `jwt` | Hook only |
-| `k8s` | `access_id`, `k8s_auth_config_name` | Hook only |
-| `certificate` | `access_id`, `certificate_data`, `private_key_data` | Hook only |
+| `access_type` | Required fields | Extras package | Supported by |
+| --- | --- | --- | --- |
+| `api_key` _default_ | `access_id`, `access_key` | — | Hook, Secrets Backend |
+| `aws_iam` | `access_id` | `cloud_id` | Hook, Secrets Backend |
+| `gcp` | `access_id`; optional: `gcp_audience` | `cloud_id` | Hook, Secrets Backend |
+| `azure_ad` | `access_id`; optional: `azure_object_id` | `cloud_id` | Hook, Secrets Backend |
+| `uid` | `uid_token` | — | Hook, Secrets Backend |
+| `jwt` | `access_id`, `jwt` | — | Hook only |
+| `k8s` | `access_id`, `k8s_auth_config_name` | — | Hook only |
+| `certificate` | `access_id`, `certificate_data`, `private_key_data` | — | Hook only |
 
 > ⚠️ **Unsupported authentication methods:** The following Akeyless authentication methods are **not** supported by this provider: OCI IAM, Kerberos, LDAP, SAML, OIDC, and Email.
 
@@ -187,6 +187,80 @@ export AIRFLOW__SECRETS__BACKEND="airflow.providers.akeyless.secrets.akeyless.Ak
 export AIRFLOW__SECRETS__BACKEND_KWARGS='{"connections_path": "/airflow/connections", "variables_path": "/airflow/variables", "config_path": "/airflow/config", "api_url": "https://api.akeyless.io", "access_id": "<Access ID>", "access_key": "<Access Key>", "access_type": "api_key"}'
 ```
 
+#### Cloud-based authentication in the Secrets Backend
+
+The Secrets Backend supports `aws_iam`, `gcp`, and `azure_ad` authentication, allowing managed Airflow services to authenticate using their workload identity — no static API keys required.
+
+**AWS IAM** (for [Amazon MWAA](https://aws.amazon.com/managed-workflows-for-apache-airflow/) and EC2/ECS/EKS workloads):
+
+```text
+[secrets]
+backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
+backend_kwargs = {
+    "connections_path": "/airflow/connections",
+    "variables_path": "/airflow/variables",
+    "config_path": "/airflow/config",
+    "api_url": "https://api.akeyless.io",
+    "access_id": "<Access ID>",
+    "access_type": "aws_iam"
+    }
+```
+
+**GCP** (for [Managed Service for Apache Airflow](https://cloud.google.com/composer/docs) and GCE/GKE workloads):
+
+```text
+[secrets]
+backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
+backend_kwargs = {
+    "connections_path": "/airflow/connections",
+    "variables_path": "/airflow/variables",
+    "config_path": "/airflow/config",
+    "api_url": "https://api.akeyless.io",
+    "access_id": "<Access ID>",
+    "access_type": "gcp",
+    "gcp_audience": "akeyless.io"
+    }
+```
+
+**Azure AD** (for Azure-hosted workloads):
+
+```text
+[secrets]
+backend = airflow.providers.akeyless.secrets.akeyless.AkeylessBackend
+backend_kwargs = {
+    "connections_path": "/airflow/connections",
+    "variables_path": "/airflow/variables",
+    "config_path": "/airflow/config",
+    "api_url": "https://api.akeyless.io",
+    "access_id": "<Access ID>",
+    "access_type": "azure_ad",
+    "azure_object_id": "<Azure Object ID>"
+    }
+```
+
+> ℹ️ Cloud-based authentication requires the `cloud_id` extras package. See [Installation](#installation).
+
+##### Using with Amazon MWAA
+
+1. Upload a `requirements.txt` to your MWAA S3 bucket containing:
+
+   ```text
+   apache-airflow-providers-akeyless[cloud_id]
+   ```
+
+2. In the MWAA console under **Airflow configuration options**, add:
+
+   | Key | Value |
+   | --- | --- |
+   | `secrets.backend` | `airflow.providers.akeyless.secrets.akeyless.AkeylessBackend` |
+   | `secrets.backend_kwargs` | `{"api_url": "https://api.akeyless.io", "access_id": "<Access ID>", "access_type": "aws_iam"}` |
+
+3. Ensure the MWAA VPC has outbound HTTPS access to your Akeyless API endpoint (`api.akeyless.io` or your Akeyless Gateway).
+
+4. In Akeyless, create an `aws_iam` [Authentication Method](https://docs.akeyless.io/docs/aws-iam-auth-method) bounded to the MWAA execution role ARN.
+
+5. Assign the Authentication Method to an Akeyless [Access Role](https://docs.akeyless.io/docs/rbac#access-roles) that has **read** permissions on the configured secret paths (for example, `/airflow/connections/*`, `/airflow/variables/*`).
+
 #### Naming Convention
 
 Secrets are looked up by joining `<base_path>/<key>`:
@@ -230,9 +304,7 @@ JSON with `conn_uri`:
 
 ### Cloud-Based Authentication
 
-For AWS IAM, GCP, or Azure AD, omit `access_key` and set the appropriate `access_type`. The provider uses the workload's cloud identity automatically.
-
-> ⚠️ **Secrets Backend limitation:** `AkeylessBackend` only supports `api_key` and `uid` authentication. For cloud-based authentication (AWS IAM, GCP, Azure AD) use `AkeylessHook` directly in your DAGs.
+For AWS IAM, GCP, or Azure AD, omit `access_key` and set the appropriate `access_type`. The provider uses the workload's cloud identity automatically. Both the **Hook** and the **Secrets Backend** support cloud-based authentication.
 
 Example using AWS IAM with the hook:
 
@@ -244,6 +316,8 @@ value = hook.get_secret_value("/my/secret")
 ```
 
 Set the connection `access_type` extra field to `aws_iam` and install the `cloud_id` extras. The hook authenticates using the workload's AWS IAM identity (EC2 instance profile, ECS task role, and so on) — no static credentials required.
+
+For Secrets Backend cloud authentication configuration examples, see [Cloud-based authentication in the Secrets Backend](https://docs.akeyless.io/docs/apache-airflow-provider#cloud-based-authentication-in-the-secrets-backend).
 
 ## Troubleshooting
 
@@ -257,7 +331,7 @@ pip install apache-airflow-providers-akeyless[cloud_id]
 
 ### `ValueError: Unsupported access_type for AkeylessBackend`
 
-`AkeylessBackend` only supports `api_key` and `uid`. For cloud-based authentication in the Secrets Backend, use `AkeylessHook` directly in your DAGs instead.
+`AkeylessBackend` supports `api_key`, `uid`, `aws_iam`, `gcp`, and `azure_ad`. Other authentication types (`jwt`, `k8s`, `certificate`) are only available through `AkeylessHook`.
 
 ### Secret not found when using Secrets Backend
 
