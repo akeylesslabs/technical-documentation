@@ -58,14 +58,4 @@ SRA supports secure access to: Databases, Windows Remote Desktop, AWS Console, A
 
 <br />
 
-Web Access (3 modes):
-
-Direct Access - Uses browser extension without bastion
-
-Secure Web Browsing - Isolated browser session through bastion (browser-in-browser)
-
-Secure Web Proxy - Layer 7 VPN-style proxy access through bastion
-
-<br />
-
 <br />
