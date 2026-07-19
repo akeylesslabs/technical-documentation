@@ -58,7 +58,7 @@ Plain-English definitions — you'll need these words for every step below:
 
 Tick every box **before** starting Step 3. Most guide failures trace back to one of these being skipped.
 
-- [ ] An Akeyless account (sign up at [console.akeyless.io](https://console.akeyless.io) if you don't have one — free trial is enough for this guide)
+- [ ] An Akeyless account [Creating an Akeyless Account Quickstart](doc:account-quickstart)&#x20;
 - [ ] Docker Engine **20.10+** and Docker Compose **v1.29+** installed (`docker --version`, `docker compose version`)
 - [ ] Docker daemon actually running (`docker ps` doesn't error out)
 - [ ] At least **1 vCPU / 2 GiB RAM free** per component (Gateway + SRA Web + SRA SSH ≈ 3–4 vCPU / 6–8 GiB total to be safe)
