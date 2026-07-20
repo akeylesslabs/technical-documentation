@@ -218,6 +218,7 @@ spec:
     akeyless:
       # Public SaaS API
       akeylessGWApiURL: "https://api.akeyless.io"
+      # ignoreCache: true  # bypass Gateway cache when using an Akeyless Gateway URL
       authSecretRef:
         secretRef:
           accessID:
@@ -352,6 +353,7 @@ spec:
 * `target.name`: Name of the Kubernetes Secret created.
 * `data[*].secretKey`: Key name inside the Kubernetes Secret.
 * `data[*].remoteRef.key`: Full path of the item in Akeyless.
+* `ignoreCache`: Fetch the secret directly from SaaS without cache involved.
 
 Retrieve values:
 
