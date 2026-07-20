@@ -24,9 +24,10 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 ## Prerequisites
 
-- A Kubernetes Cluster
+- An Akeyless account ([Creating an Akeyless Account Quickstart](doc:account-quickstart))
+- A Kubernetes Cluster&#x20;
+- [kubectl](https://kubernetes.io/docs/tasks/tools/) installed context pointing to the Kubernetes Cluster
 - [Helm](https://helm.sh/) Installed
-- [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
 - Minimum 1 vCPU available with 2 GB RAM per resource
 - The following ports need to be open on the cluster:
 
