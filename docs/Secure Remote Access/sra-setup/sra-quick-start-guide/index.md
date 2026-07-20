@@ -31,7 +31,7 @@ By the end you will have:
 ## Prerequisites
 
 - An Akeyless account ([Creating an Akeyless Account Quickstart](doc:account-quickstart))
-- Akeyless cli installed. ([Download CLI](doc:cli))
+- Akeyless CLI installed. ([Download CLI](doc:cli))
 - A Kubernetes Cluster&#x20;
 - [kubectl](https://kubernetes.io/docs/tasks/tools/) installed context pointing to the Kubernetes Cluster
 - [Helm](https://helm.sh/) Installed
