@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This quick start guide deploys an Akeyless Gateway with Secure Remote Access on Kubernetes cluster.&#x20;
+This quick start guide deploys an Akeyless Gateway with Secure Remote Access on Kubernetes cluster via CLI commands, all Akeyless commands can be executed via API or Akeyless console.&#x20;
 
 By the end you will have:
 
@@ -36,42 +36,30 @@ By the end you will have:
 - [kubectl](https://kubernetes.io/docs/tasks/tools/) installed context pointing to the Kubernetes Cluster
 - [Helm](https://helm.sh/) Installed
 - Minimum 1 vCPU available with 2 GB RAM per resource
-- The following ports need to be open on the cluster to internal network access only:
+- The following ports need to be open on the cluster to **internal network access only**:
 
 | Service                                                                          | Port |
 | -------------------------------------------------------------------------------- | ---- |
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) | 8000 |
 | SSH Access                                                                       | 22   |
 
-<Callout icon="ℹ️" theme="info">
-  ### **First Things First:**
+<br />
 
-  Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/sra-quick-start-guide#remote-access-section) section.
-</Callout>
+## Create Authentication Method
 
-## Create Your Authentication Method
-
-this authentication method will be used to authenticate your Akeyless Gateway to your Akeyless account. <br />For this guide, API key authentication is used for simplicity.
+This authentication method will be used to authenticate your Akeyless Gateway to your Akeyless account. <br />For this guide, API key authentication is used for simplicity.
 
 <ApiKeyWarning />
 
-To create your API Key follow the below CLI commands:
+Create an API Key authentication method:
 
-1. Create an API Key authentication method with the CLI, run the following command:
+```shell
+akeyless auth-method create api-key --name MyFirstAPIKey
+```
 
-   ```shell
-   akeyless auth-method create api-key --name MyFirstAPIKey
-   ```
+## Create Access Role
 
-2. Configure your CLI to work with the API Key by running the following command:
-
-   ```shell
-   akeyless configure --profile default --access-id <Your API Key Auth AccessID> --access-key <Your API Key>
-   ```
-
-## Create Your Access Role
-
-Follow this tutorial to create an Access Role and associate your Authentication Method or you can follow the below CLI commands:
+This Access Role will be used to authorized your Gateway to execute actions in the Akeyless account.
 
 1. Create a new access role:
 
