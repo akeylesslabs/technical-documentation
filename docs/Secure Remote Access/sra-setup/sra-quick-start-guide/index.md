@@ -10,26 +10,33 @@ metadata:
 next:
   description: ''
 ---
-This quick start guide is intended to get you started with deploying a Gateway (with Remote Access) using the most basic, required parameters and a clean Kubernetes cluster. Within just a few minutes you will see how easy it is to complete the Gateway deployment and secure your user and machine access. You can also use just-in-time credentials with remote access to log into your various applications and services.
+This quick start guide deploys an Akeyless Gateway with Secure Remote Access on Kubernetes cluster.&#x20;
 
-Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed using Docker Compose, but this guide will focus on Kubernetes.
+By the end you will have:
 
-Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.
+- A Gateway + SRA running as pods in your Kubernetes cluster, authenticated via API key
+- A real SSH server registered as a protected target
+- An actual SSH session proven to work **through** SRA
+
+**Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed using Docker Compose, but this guide will focus on Kubernetes.**
+
+**Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.**
 
 <Callout icon="ℹ️" theme="info">
-  ### **A Note on Security:**
+  ### **Security:**
 
-  This guide was tested with Amazon EKS and is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
+  This guide is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials. (how hard is it to add we need to create a test target)
 </Callout>
 
 ## Prerequisites
 
 - An Akeyless account ([Creating an Akeyless Account Quickstart](doc:account-quickstart))
+- Akeyless cli installed. ([Download CLI](doc:cli))
 - A Kubernetes Cluster&#x20;
 - [kubectl](https://kubernetes.io/docs/tasks/tools/) installed context pointing to the Kubernetes Cluster
 - [Helm](https://helm.sh/) Installed
 - Minimum 1 vCPU available with 2 GB RAM per resource
-- The following ports need to be open on the cluster:
+- The following ports need to be open on the cluster to internal network access only:
 
 | Service                                                                          | Port |
 | -------------------------------------------------------------------------------- | ---- |
@@ -44,7 +51,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 ## Create Your Authentication Method
 
-For this guide, API key authentication is used for simplicity.
+this authentication method will be used to authenticate your Akeyless Gateway to your Akeyless account. <br />For this guide, API key authentication is used for simplicity.
 
 <ApiKeyWarning />
 
