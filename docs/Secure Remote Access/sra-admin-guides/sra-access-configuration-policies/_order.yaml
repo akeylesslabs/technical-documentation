@@ -1,7 +1,6 @@
 - sra-allowed-access-ids-and-sra-entitlements
 - sra-username-sub-claim-mapping
 - sra-redirect-and-ssh-url-hardening
-- copy-of-redirect-and-ssh-url-hardening
 - sra-session-ttl-and-security-controls
 - copy-of-session-ttl-and-security-controls
 - sra-cluster-and-instance-health
