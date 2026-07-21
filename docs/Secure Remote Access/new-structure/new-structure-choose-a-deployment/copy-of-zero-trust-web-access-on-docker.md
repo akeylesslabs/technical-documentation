@@ -1,5 +1,5 @@
 ---
-title: Copy of Zero Trust Web Access on Docker
+title: Zero Trust Web Access on Docker
 deprecated: false
 hidden: true
 metadata:
