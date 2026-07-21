@@ -16,7 +16,7 @@ By the end you will have:
 <Callout icon="ℹ️" theme="info">
   ### **Security:**
 
-  This guide is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials. (how hard is it to add we need to create a test target)
+  This guide deployment is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
 </Callout>
 
 ## Prerequisites
@@ -180,7 +180,7 @@ helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
 
 ### Verify Deployment Success
 
-Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.
+Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.<br /><br />צריך לאמת
 
 Then run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`. Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (for example, `http://<Your-Akeyless-GW-URL>:8000/console`). If you get the login page, you have successfully deployed the Gateway!
 
