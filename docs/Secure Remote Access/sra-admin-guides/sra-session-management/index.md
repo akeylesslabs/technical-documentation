@@ -1,6 +1,5 @@
 ---
 title: Session Management
-slug: sra-session-management
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: sra-session-management
 ---
 Session Operations and Monitoring provides operational guidance for administrators who monitor active sessions, review recording data, track bastion fleet health, and detect upgrade-related drift.
 
@@ -21,6 +21,7 @@ Use this section to move from reactive troubleshooting to continuous runtime mon
 2. Active and historical session visibility: [Sessions Overview](https://docs.akeyless.io/docs/sra-sessions-overview)
 3. Session recording storage and retrieval: [RDP Recordings](https://docs.akeyless.io/docs/sra-rdp-recordings) and [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording)
 4. Upgrade and compatibility monitoring: [Version Drift and Upgrade Signals](https://docs.akeyless.io/docs/sra-version-drift-and-upgrade-signals)
+5. **request access**
 
 For storage sizing and retention planning, use [Storage and Recording Capacity](https://docs.akeyless.io/docs/sra-storage-and-recording-capacity).
 
@@ -48,17 +49,19 @@ For full recording configuration options (quality, upload destination, compressi
 
 For terminal-based sessions (such as SSH, DB, and Kubernetes), the system records a full transcript of the commands entered and their corresponding outputs. Session forwarding destination guidance is documented under Integrations and Automation.
 
-> ℹ️ **Note:**
->
-> Session recording and terminal session forwarding are different features. Use [RDP Recordings](https://docs.akeyless.io/docs/sra-rdp-recordings) for RDP video capture and [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording) for browser-based ZTWA video capture.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Session recording and terminal session forwarding are different features. Use [RDP Recordings](https://docs.akeyless.io/docs/sra-rdp-recordings) for RDP video capture and [Web Access Session Recording](https://docs.akeyless.io/docs/sra-web-access-session-recording) for browser-based ZTWA video capture.
+</Callout>
 
 ## Secret Locking and Rotation Timing
 
 For sessions that use **Static Secret** and **Rotated Secret** items, Session Management supports the following controls:
 
-* **Lock secret while session is active:** Locks the secret for read and update actions while the SRA session is active.
-* **Rotate after disconnection:** Rotates the secret value when the SRA session ends.
-* **Delayed rotation after disconnection:** For rotated secrets, schedules rotation to run after a configured delay in minutes.
+- **Lock secret while session is active:** Locks the secret for read and update actions while the SRA session is active.
+- **Rotate after disconnection:** Rotates the secret value when the SRA session ends.
+- **Delayed rotation after disconnection:** For rotated secrets, schedules rotation to run after a configured delay in minutes.
 
 To configure these controls, open the relevant item and edit its **Secure Remote Access** settings in the Akeyless Console.
 
