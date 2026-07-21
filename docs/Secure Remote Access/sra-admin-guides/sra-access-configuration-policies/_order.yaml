@@ -2,4 +2,5 @@
 - sra-username-sub-claim-mapping
 - sra-redirect-and-ssh-url-hardening
 - sra-session-ttl-and-security-controls
+- sra-cluster-and-instance-health
 - sra-desktop-app-default-connection-settings
