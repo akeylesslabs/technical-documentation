@@ -1,5 +1,5 @@
 ---
-title: New structure
+title: New
 deprecated: false
 hidden: false
 metadata:
