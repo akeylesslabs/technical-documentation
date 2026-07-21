@@ -1,5 +1,5 @@
 ---
-title: Copy of SRA Requirements
+title: SRA Requirements
 deprecated: false
 hidden: true
 metadata:
