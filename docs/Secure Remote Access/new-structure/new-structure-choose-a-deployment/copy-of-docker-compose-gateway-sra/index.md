@@ -1,5 +1,5 @@
 ---
-title: Copy of Docker Compose (Gateway + SRA)
+title: Docker Compose (Gateway + SRA)
 deprecated: false
 hidden: true
 metadata:
