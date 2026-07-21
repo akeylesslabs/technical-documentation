@@ -5,6 +5,7 @@
 - Akeyless Gateway
 - Secrets Management
 - Certificate Lifecycle Management
+- New Structure
 - Encryption & KMS
 - Password Manager
 - Secure Remote Access
@@ -16,4 +17,3 @@
 - BREAKING CHANGES
 - Contributing Guides
 - Secure20remote20access
-- New Structure
