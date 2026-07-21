@@ -1,5 +1,5 @@
 ---
-title: Copy of Zero Trust Web Access on K8s
+title: Zero Trust Web Access on K8s
 deprecated: false
 hidden: true
 metadata:
