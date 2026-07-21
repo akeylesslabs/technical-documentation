@@ -1,5 +1,5 @@
 ---
-title: Copy of Zero Trust Web Access Topology
+title: Zero Trust Web Access Topology
 deprecated: false
 hidden: true
 metadata:
