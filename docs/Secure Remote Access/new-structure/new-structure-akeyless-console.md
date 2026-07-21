@@ -1,3 +1,3 @@
 ---
-title: Akeyless Console
+title: Akeyless Connect
 ---
