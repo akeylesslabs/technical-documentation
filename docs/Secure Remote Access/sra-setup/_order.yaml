@@ -2,7 +2,7 @@
 - sra-requirements
 - sra-setup-k8s
 - sra-docker
+- copy-of-docker-compose-gateway-sra
 - sra-web-access-topology
 - sra-web-access-on-k8s
 - sra-web-access-docker
-- copy-of-docker-compose-gateway-sra
