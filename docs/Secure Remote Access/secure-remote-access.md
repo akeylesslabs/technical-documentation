@@ -53,7 +53,7 @@ SRA supports secure access to: Databases, Windows Remote Desktop, AWS Console, A
 ## Next Steps
 
 - New to SRA? Start with the Quick Start Guide, the fastest path to a working deployment.
-- Choosing the right setup for your environment? See [SRA Setup](doc:sra-setup-overview) for deployment guides tailored to each supported environment (Kubernetes, Docker Compose, etc.).
+- Choosing the right setup for your environment? See [SRA Setup](doc:sra-setup-overview) for deployment guides tailored to each supported environment (Kubernetes, Docker Compose).
 - Need to configure access to a specific resource? Jump to [Supported Resource Types](doc:sra-resource-types).
 
 <br />
