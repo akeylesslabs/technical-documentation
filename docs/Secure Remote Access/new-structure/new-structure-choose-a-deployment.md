@@ -1,3 +1,3 @@
 ---
-title: Choose a Deployment
+title: Choose a Deployment Model
 ---
