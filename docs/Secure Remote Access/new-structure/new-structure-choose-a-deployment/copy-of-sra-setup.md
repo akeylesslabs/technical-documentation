@@ -1,5 +1,5 @@
 ---
-title: Copy of SRA Setup
+title: SRA Setup
 deprecated: false
 hidden: true
 metadata:
