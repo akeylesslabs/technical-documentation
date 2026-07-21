@@ -1,5 +1,5 @@
 ---
-title: Copy of Kubernetes (Gateway + SRA)
+title: Kubernetes (Gateway + SRA)
 deprecated: false
 hidden: true
 metadata:
