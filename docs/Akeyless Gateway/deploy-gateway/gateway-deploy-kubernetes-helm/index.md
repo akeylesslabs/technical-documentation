@@ -474,21 +474,6 @@ TLSConf:
 
 ## Upgrade Gateway
 
-<Callout icon="❗" theme="error">
-  ### **Important:**
-
-  Unified Gateway chart upgrades use the `gw` image by default.
-  If an existing deployment requires `akeyless/base`, set an explicit override in your `values.yaml` before running `helm upgrade`:
-
-  ```yaml values.yaml
-  gateway:
-    deployment:
-      image:
-        repository: akeyless/base
-        tag: latest # use latest-akeyless for non-root
-  ```
-</Callout>
-
 To upgrade your Gateway, when working with a specific version, first edit the version in your `values.yaml` file for example:
 
 ```yaml
