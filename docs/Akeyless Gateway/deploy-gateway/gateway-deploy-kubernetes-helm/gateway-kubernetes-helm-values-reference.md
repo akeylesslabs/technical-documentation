@@ -489,7 +489,7 @@ You can explicitly provide the Kubernetes Secret name that contains the credenti
 gateway:
   deployment:
     image:
-      repository: akeyless/gw
+      repository: akeyless/gateway
       pullPolicy: Always
       tag: latest
       imagePullSecrets:
