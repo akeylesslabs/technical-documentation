@@ -14,14 +14,14 @@ Akeyless [Secure Remote Access (SRA)](https://docs.akeyless.io/docs/secure-remot
 
 - Gateway core services
 - SRA web and SSH bastion components
-- Zero Trust Web Access (ZTWA) components when needed
+- [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-topology) components when needed
 
 ## Deployment Models
 
 Choose one deployment model for Gateway + SRA:
 
-1. [Kubernetes (Gateway + SRA)](https://docs.akeyless.io/docs/sra-setup-k8s)
-2. [Docker Compose (Gateway + SRA)](https://docs.akeyless.io/docs/sra-docker)
+1. [Kubernetes ](https://docs.akeyless.io/docs/sra-setup-k8s)
+2. [Docker Compose ](https://docs.akeyless.io/docs/sra-docker)
 
 If you also need isolated browser access for web applications, follow [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology).
 
