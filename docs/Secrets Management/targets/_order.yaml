@@ -1,6 +1,7 @@
 - artifactory-targets
 - aws-targets
 - azure-targets
+- bedrock-target
 - chef-infra-targets
 - claude-target
 - cloudflare-target
@@ -35,4 +36,3 @@
 - web-targets
 - windows-target
 - zerossl-target
-- bedrock-target
