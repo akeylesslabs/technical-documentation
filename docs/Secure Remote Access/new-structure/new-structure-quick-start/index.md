@@ -3,11 +3,7 @@ title: Quick Start
 ---
 This quick start guide deploys an Akeyless Gateway with Secure Remote Access on Kubernetes cluster via CLI commands, all Akeyless commands can be executed via Akeyless console or API's.&#x20;
 
-<br />
-
-**Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed using Docker Compose, but this guide will focus on Kubernetes.**
-
-**Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.**
+for more deployment model check our \[choosing a deployment model]
 
 ## Prerequisites
 
@@ -28,7 +24,7 @@ This quick start guide deploys an Akeyless Gateway with Secure Remote Access on 
 
 ## Create Authentication Method
 
-This authentication method will be used to authenticate your Akeyless Gateway to your Akeyless account. <br />For this guide, API key authentication is used for simplicity.
+This [Authentication Method](doc:access-and-authentication-methods) will be used to authenticate your Akeyless Gateway to your Akeyless account. <br />For this guide, API key authentication is used for simplicity.
 
 <ApiKeyWarning />
 
