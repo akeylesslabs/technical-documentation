@@ -3,21 +3,11 @@ title: Quick Start
 ---
 This quick start guide deploys an Akeyless Gateway with Secure Remote Access on Kubernetes cluster via CLI commands, all Akeyless commands can be executed via Akeyless console or API's.&#x20;
 
-By the end you will have:
-
-- A Gateway + SRA running as pods in your Kubernetes cluster, authenticated via API key
-- A real SSH server registered as a protected target
-- An actual SSH session proven to work **through** SRA
+<br />
 
 **Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed using Docker Compose, but this guide will focus on Kubernetes.**
 
 **Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.**
-
-<Callout icon="ℹ️" theme="info">
-  ### **Security:**
-
-  This guide deployment is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
-</Callout>
 
 ## Prerequisites
 
@@ -196,6 +186,14 @@ For Remote Access, you can access the following:
 
 - The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL>:8000/sra/portal`
 
-- Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/web-client`
+- Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/web-client`<br />
+
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  This guide deployment is **not secured with TLS**. We strongly recommend not using this setup in production or with real credentials.
+
+  To configure Gateway with TLS check our [TLS Settings](doc:gateway-tls-settings) doc.
+</Callout>
 
 <br />
