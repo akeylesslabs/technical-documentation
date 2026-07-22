@@ -3,5 +3,4 @@
 - sra-setup-k8s
 - sra-docker
 - sra-web-access-topology
-- sra-web-access-on-k8s
 - sra-web-access-docker
