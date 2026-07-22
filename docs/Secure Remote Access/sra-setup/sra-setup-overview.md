@@ -1,5 +1,5 @@
 ---
-title: SRA Setup
+title: Choose a Deployment Model
 excerpt: ''
 deprecated: false
 hidden: false
