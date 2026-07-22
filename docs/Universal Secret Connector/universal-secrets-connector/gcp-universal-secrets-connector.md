@@ -14,8 +14,8 @@ This page discusses the creation of GCP [Universal Secrets Connectors](https://d
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
-* [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Secret Manager Admin](https://cloud.google.com/secret-manager/docs/access-control) role assigned, to allow selecting a KMS encryption key for the secret, add the following roles: [Cloud KMS Viewer](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.viewer) and [Cloud KMS CryptoKey Encrypter and Decrypter](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.cryptoKeyEncrypterDecrypter).
+- An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
+- [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Secret Manager Admin](https://cloud.google.com/secret-manager/docs/access-control) role assigned, to allow selecting a KMS encryption key for the secret, add the following roles: [Cloud KMS Viewer](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.viewer) and [Cloud KMS CryptoKey Encrypter and Decrypter](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.cryptoKeyEncrypterDecrypter).
 
 ## Working with Universal Secrets Connector with the CLI
 
@@ -31,11 +31,11 @@ akeyless create-usc --usc-name <name> --target-to-associate <target name>
 
 The main parameters are:
 
-* `name`: Name for the Universal Secrets Connector. You may specify the location by adding a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
+- `name`: Name for the Universal Secrets Connector. You may specify the location by adding a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
 
-* `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
+- `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
-* `gcp-sm-regions`: Optional, comma-separated list of GCP Secret Manager regions used when listing regional secrets (maximum 12).
+- `gcp-sm-regions`: Optional, comma-separated list of GCP Secret Manager regions used when listing regional secrets (maximum 12).
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create-usc).
 
@@ -83,9 +83,11 @@ akeyless usc get --usc-name <usc name> --secret-id <secret id>
 
 The main parameters are:
 
-* `usc-name`: Name of the Universal Secrets Connector.
+- `usc-name`: Name of the Universal Secrets Connector.
 
-* `secret-id`: The ID of the secret you would like to fetch.
+- `secret-id`: The ID of the secret you would like to fetch.
+
+**Note:&#x20;**&#x54;he **full secret ID** must be provided, e.g. `projects/<project_id>/secrets/<secret_name>`
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#get).
 
@@ -111,13 +113,13 @@ akeyless usc create --usc-name <USC name> --secret-id <secret id> --value <new s
 
 The main parameters are:
 
-* `usc-name`: Name of the Universal Secrets Connector.
+- `usc-name`: Name of the Universal Secrets Connector.
 
-* `secret-name`: The name of the secret you would like to create.
+- `secret-name`: The name of the secret you would like to create.
 
-* `value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
+- `value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
 
-* `--remote-secret-expires`: Optional. Expiration time for the secret in GCP Secret Manager, in UTC format: `YYYY-MM-DDTHH:MM:SSZ`. Once this time passes, GCP automatically disables access to the secret.
+- `--remote-secret-expires`: Optional. Expiration time for the secret in GCP Secret Manager, in UTC format: `YYYY-MM-DDTHH:MM:SSZ`. Once this time passes, GCP automatically disables access to the secret.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
 
@@ -140,8 +142,10 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 To delete an existing secret in your USC, use the following command:
 
 ```shell
-akeyless usc delete --usc-name <USC name> --secret-id <secret id>
+akeyless usc delete --usc-name <USC name> --secret-id <full secret id>
 ```
+
+**Note:&#x20;**&#x54;he **full secret ID** must be provided, e.g. `projects/<project_id>/secrets/<secret_name>`
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).
 
@@ -155,19 +159,19 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 4. Define the remaining settings as follows:
 
-   * **Description:** Optional, enter a description of the Universal Secrets Connector.
+   - **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-   * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+   - **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-   * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
+   - **Delete Protection:** Optional, turn on this setting to protect the item from deletion
 
-   * **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
+   - **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
-   * **Project ID:** Optional. The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
+   - **Project ID:** Optional. The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
-   * **Region:** Optional. Choose the regions where this Universal Secrets Connector can manage secrets. You can select up to 12 regions.
+   - **Region:** Optional. Choose the regions where this Universal Secrets Connector can manage secrets. You can select up to 12 regions.
 
-   * **Gateway:** Select the desired corresponding Gateway.
+   - **Gateway:** Select the desired corresponding Gateway.
 
 5. Click **Finish**.
 
@@ -175,16 +179,16 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 Once connected to a Target, you can access a Universal Secrets Connector in your Akeyless Console page, which allows you to manage your Universal Secrets and display the following information about the secret:
 
-* **Name:** Secret name
+- **Name:** Secret name
 
-* **Location:** Secret location
+- **Location:** Secret location
 
-* **Encryption:** Encryption information
+- **Encryption:** Encryption information
 
-* **Labels:** GCP connected labels
+- **Labels:** GCP connected labels
 
-* **Status:** Secret status of enabled/disabled
+- **Status:** Secret status of enabled/disabled
 
-* **Created:** Secret date of creation
+- **Created:** Secret date of creation
 
 More information and secret value can be viewed by selecting a specific secret, additionally, you will have the option to perform actions on the secret.
