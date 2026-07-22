@@ -23,6 +23,7 @@ Secure Remote Access (SRA) is Akeyless's modern Privileged Access Management (PA
 - **Full session auditing and recording**: every session is logged, with video recording for RDP and web sessions along with transcripts for SSH, supporting compliance and forensic review.
 - **Session revocation on demand**: administrators can terminate an active session at any time, cutting off access immediately if something looks wrong.
 - **Request and approval workflows**: access can be granted on demand with time-limited grants instead of always-on permissions.
+- **File transfer via SFTP**: upload and download to protected targets over the same brokered, certificate-based tunnel, no local keys, no standing credentials.
 
 ## Ways to Access
 
