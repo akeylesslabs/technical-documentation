@@ -130,9 +130,11 @@ access-key '<Access-Key>'
 'Profile default successfully configured'
 ```
 
-> ℹ️ **Note:**
->
-> During first-time setup, the CLI prompts for an Akeyless URL only when the configured Access ID is in legacy form, without an environment tag.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  During first-time setup, the CLI prompts for an Akeyless URL only when the configured Access ID is in legacy form, without an environment tag.
+</Callout>
 
 Continue with installing the Akeyless CLI, depending on your operating system.
 
@@ -158,9 +160,11 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Windows
 
-> ℹ️ **Note:**
->
-> PowerShell ISE does not support interactive input mode. Use the PowerShell cmdlet to set up the Akeyless CLI.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  PowerShell ISE does not support interactive input mode. Use the PowerShell cmdlet to set up the Akeyless CLI.
+</Callout>
 
 Once the authentication succeeds, the following prompt appears:
 
@@ -180,9 +184,11 @@ set "PATH=%PATH%;C:\Users\username\.akeyless\bin" (Update PATH for current sessi
 setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permanently)
 ```
 
-> ℹ️ **Note:**
->
-> The CLI updates the path environment variable for the **current user only**. This change takes effect after the user logs off and logs back on.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  The CLI updates the path environment variable for the **current user only**. This change takes effect after the user logs off and logs back on.
+</Callout>
 
 Copy and run the relevant command for your purpose, `permanent` or `current session`. After that, the CLI is ready to use.
 
@@ -213,6 +219,8 @@ To route API calls through a [Gateway](https://docs.akeyless.io/docs/gateway-ove
 ```shell
 akeyless configure --access-id '<Access-ID>' --access-key '<Access-Key>' --gateway-url 'https://<Gateway-URL>:8000/api/v1'
 ```
+
+When working with non-interactive platforms without home folders access, simply set the following environment variable `AKEYLESS_CLI_NON_INTERACTIVE=true`
 
 ## Authentication
 
