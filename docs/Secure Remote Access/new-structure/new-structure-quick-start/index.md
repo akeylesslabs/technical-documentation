@@ -168,15 +168,13 @@ helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
 
 ### Verify Deployment Success
 
-Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.<br /><br />צריך לאמת
+Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.<br /><br />צריך להוסיף תמונה של איך אמור להיראות&#x20;
 
-Then run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`. Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (for example, `http://<Your-Akeyless-GW-URL>:8000/console`). If you get the login page, you have successfully deployed the Gateway!
+#### Gateway URL
 
-#### Gateway URLs
+run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`. Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (for example, `http://<Your-Akeyless-GW-URL>:8000/console`). If you get the login page, you have successfully deployed the Gateway!
 
-For the Gateway, you can access the following:
-
-- The Gateway's Internal Console is located at `http://<Your-Akeyless-GW-URL>:8000/console`. The internal console means you are working from inside the Gateway and talking directly with the SaaS. If you are using `https://console.akeyless.io`, you will not be able to interact with this Gateway as it is not secured with TLS.
+####
 
 #### Remote Access URLs
 
@@ -189,7 +187,7 @@ For Remote Access, you can access the following:
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
 
-  This guide deployment is **not secured with TLS**. We strongly recommend not using this setup in production or with real credentials.
+  This guide deployment is **not secured with TLS**.  <br />If you are using `https://console.akeyless.io`, you will not be able to interact with this Gateway as it is not secured with TLS.<br />We strongly recommend not using this setup in production or with real credentials.
 
   To configure Gateway with TLS check our [TLS Settings](doc:gateway-tls-settings) doc.
 </Callout>
