@@ -75,9 +75,11 @@ Akeyless has six main permission types for Items, Access Roles, Auth Methods, an
 
 The built-in admin role has full access to all parts of the accounts.
 
-> ⚠️ **Warning:**
->
-> It is considered a best practice **not** to use an API Key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methods)
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  It is considered a best practice **not** to use an API Key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methods)
+</Callout>
 
 ### Permissions for Items, Access Roles, Auth Methods, and Targets
 
@@ -90,9 +92,11 @@ The existing permissions for Items, Access Roles, Auth Methods, and Targets are 
 - Delete: Allows a user to delete existing secrets and items in an authorized path.
 - Deny: Allows a user to deny any permission to other users in their authorized path.
 
-> ℹ️ **Note (Permission Hierarchy):**
->
-> Some Akeyless permissions include others in them. For example, `list` is included under all other permissions, and `deny` has a complete override over any other permission.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Some Akeyless permissions include others in them. For example, `list` is included under all other permissions, and `deny` has a complete override over any other permission.
+</Callout>
 
 #### Privilege Elevation Prevention
 
@@ -129,9 +133,11 @@ The existing permissions for Agentic Runtime Authority are as follows:
 
 With Administrative Rules, you can choose whether users have access only to the resources they own (**Own**), access to items users have `list` permission for (**Scoped**), or access to all resources (**All**).
 
-> ℹ️ **Note:**
->
-> The **Own** option is only relevant for **Audit Logs** and **Analytics**.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  The **Own** option is only relevant for **Audit Logs** and **Analytics**.
+</Callout>
 
 The following **Administrative Rules** can be set:
 
@@ -181,7 +187,9 @@ You can set the allowed Forwarder names in two ways:
 - **Explicit name**: Specify an exact Event Forwarders name that users can manage, for example: `Demo-Event-Forwarder`: allows users to create or manage an Event Forwarder with this exact name.
 - **Template-based name**: Use templates to define allowed names dynamically, based on user claims. For example: `{{username\}}-*`: uses the value of the username claim. If the claim value is `bob`, the user will be allowed to create or use Event Forwarders with names like `bob-*`.
 
-> ℹ️ **Note (Gateway access permissions):** Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access#/).
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Gateway access permissions):** Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access#/).
+</Callout>
 
 ## Access Roles Syntax
 
