@@ -81,7 +81,7 @@ Follow the below commands:
    ```
 
 <Callout icon="ℹ️" theme="info">
-  ### **A Note on SSH Connections:**
+  ### **Note:**
 
   This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/sra-ssh-certificates).
 </Callout>
@@ -99,9 +99,11 @@ helm repo update
 
 ### Configure the Helm Chart
 
-Here you will find the bare minimum values you will need in your Helm chart to get up and running.
+Fetch the Helm chart from helm repo:
 
-You can [download the chart](https://raw.githubusercontent.com/akeylesslabs/helm-charts/refs/heads/main/charts/akeyless-gateway/values.yaml) and open it in your favorite editor.
+```shell
+helm show values akeyless/akeyless-gateway > values.yaml
+```
 
 Below is an explanation of the minimum required fields by section. Find them in the file and edit them as per the instructions.
 
@@ -119,7 +121,7 @@ akeylessGatewayAuth:
 
 ```
 
-`gatewayAccessId`: For this quick start, we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) authentication method. Add your API Key's `Access ID`.
+`gatewayAccessId`: here we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) authentication method we created. Add your API Key's `Access ID`.
 
 `gatewayAccessType`: This is already set to `access_key` for API Key authentication.
 
