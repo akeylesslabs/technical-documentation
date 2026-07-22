@@ -1,11 +1,11 @@
 ---
 title: Bedrock Target
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
-You can define a [Bedrock](https://www.anthropic.com/api) target to be used for [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) in your account.
+You can define a [Bedrock](https://aws.amazon.com/bedrock/?trk=5d83343f-40c5-4167-8ec4-5b70bac566f7\&sc_channel=ps\&trk=a3a1d5b1-eaa2-4ade-8305-ede5684ce2b6\&sc_channel=ps\&ef_id=CjwKCAjw1IHTBhAaEiwA4AYNFiypinsb6zK7VY5O7zl3XPrX2d6J8c_GG_7BS2DsLTgrMZ-43FhBeBoCDckQAvD_BwE:G:s\&s_kwcid=AL!4422!3!808746982981!e!!g!!bedrock!23846236754!200318271070\&gad_campaignid=23846236754\&gbraid=0AAAAADjHtp-m1a0w96g5PAPxuzP1e6NrX\&gclid=CjwKCAjw1IHTBhAaEiwA4AYNFiypinsb6zK7VY5O7zl3XPrX2d6J8c_GG_7BS2DsLTgrMZ-43FhBeBoCDckQAvD_BwE) target to be used for [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) in your account.
 
 ## Create a Bedrock Target with the CLI
 
