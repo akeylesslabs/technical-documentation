@@ -1,6 +1,5 @@
 ---
-title: Kubernetes (Gateway + SRA)
-slug: sra-setup-k8s
+title: SRA on Kubernetes
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: sra-setup-k8s
 ---
 Use this page to deploy Akeyless Gateway with Secure Remote Access (SRA) components on Kubernetes by using Helm.
 
