@@ -1,5 +1,5 @@
 ---
-title: Zero Trust Web Access Topology
+title: Zero Trust Web Access
 excerpt: ''
 deprecated: false
 hidden: false
