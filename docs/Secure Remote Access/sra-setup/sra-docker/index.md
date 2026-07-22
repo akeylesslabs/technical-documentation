@@ -1,6 +1,5 @@
 ---
-title: Docker Compose (Gateway + SRA)
-slug: sra-docker
+title: 'SRA on Docker Compose '
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: sra-docker
 ---
 Use this page to deploy Akeyless Gateway with Secure Remote Access (SRA) components by using Docker Compose.
 
