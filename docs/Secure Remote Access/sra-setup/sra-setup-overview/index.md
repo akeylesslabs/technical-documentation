@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access (SRA) runs as part of a unified Gateway deployment. The same deployment pattern can host:
+Akeyless [Secure Remote Access (SRA)](https://docs.akeyless.io/docs/secure-remote-access) runs as part of a unified Gateway deployment. The same deployment pattern can host:
 
-* Gateway core services
-* SRA web and SSH bastion components
-* Zero Trust Web Access (ZTWA) components when needed
+- Gateway core services
+- SRA web and SSH bastion components
+- Zero Trust Web Access (ZTWA) components when needed
 
 ## Deployment Models
 
@@ -33,7 +33,9 @@ Review [Requirements](https://docs.akeyless.io/docs/sra-requirements) first for 
 
 ## Related Features
 
-* [Session Management](https://docs.akeyless.io/docs/sra-session-management)
-* [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)
-* [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp)
-* [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates)
+- [Session Management](https://docs.akeyless.io/docs/sra-session-management)
+- [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)
+- [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp)
+- [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates)
+
+<br />
