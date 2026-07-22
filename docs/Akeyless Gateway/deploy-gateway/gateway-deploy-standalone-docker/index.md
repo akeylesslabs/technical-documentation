@@ -1,6 +1,5 @@
 ---
 title: Standalone Docker Deployment
-slug: gateway-deploy-standalone-docker
 excerpt: Installation
 deprecated: false
 hidden: false
@@ -20,28 +19,35 @@ next:
     - type: basic
       slug: gateway-deploy-kubernetes-helm
       title: Kubernetes with Helm Deployment
+slug: gateway-deploy-standalone-docker
 ---
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). For Gateway Console (UI) access, the admin role must include an RBAC Administrative rule scoped to Gateway management, with permission scope set to `scope` or `all`. CLI and API management can still be allowed when the role grants the required permissions.
+- An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). For Gateway Console (UI) access, the admin role must include an RBAC Administrative rule scoped to Gateway management, with permission scope set to `scope` or `all`. CLI and API management can still be allowed when the role grants the required permissions.
 
-> ℹ️ **Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), using the account owner's email and password with superuser privileges on the account.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**&#x20;
 
-* A Linux or a Windows machine with [Docker Engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2 GB RAM.
+  The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), using the account owner's email and password with superuser privileges on the account.
+</Callout>
 
-* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
+- A Linux or a Windows machine with [Docker Engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2 GB RAM.
 
-| Service | Endpoint |
-| --- | --- |
-| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway) | `/console` |
-| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
-| Akeyless V1 REST API | `/api/v1` |
-| Akeyless V2 REST API | `/api/v2` |
-| [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
+- Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-> ⚠️ **Warning:**
->
-> Make sure that this server is not globally open to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
+| Service                                                                      | Endpoint   |
+| ---------------------------------------------------------------------------- | ---------- |
+| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway)           | `/console` |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp`     |
+| Akeyless V1 REST API                                                         | `/api/v1`  |
+| Akeyless V2 REST API                                                         | `/api/v2`  |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                     | `5696`     |
+
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  Make sure that this server is not globally open to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
+</Callout>
 
 ## Deployment
 
@@ -55,7 +61,11 @@ After executing the above command, a new container named `akeyless-gateway` shou
 
 To upgrade your current Gateway version, simply restart the container using the `docker restart <container name>` command.
 
-> ℹ️ **Note:** In this example, the Gateway was deployed without a default Authentication Method as part of the deployment. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**&#x20;
+
+  In this example, the Gateway was deployed without a default Authentication Method as part of the deployment. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
+</Callout>
 
 For further deployment options, visit the [Gateway Docker Advanced Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration) page.
 
