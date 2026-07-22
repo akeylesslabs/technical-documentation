@@ -1,6 +1,5 @@
 ---
 title: Kubernetes with Helm Deployment
-slug: gateway-deploy-kubernetes-helm
 excerpt: ''
 deprecated: false
 hidden: false
@@ -14,63 +13,66 @@ next:
     - type: basic
       slug: gateway-kubernetes-helm-values-reference
       title: Helm Values Reference
+slug: gateway-deploy-kubernetes-helm
 ---
 Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway) to bootstrap the Akeyless Gateway deployment.
 
-> ℹ️ **Note (New Chart):**
->
-> This guide describe the flow using the **latest** chart of the Akeyless Gateway.
->
-> The documentation for the legacy charts is available [here](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment)
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  This guide describe the flow using the **latest** chart of the Akeyless Gateway.
+
+  The documentation for the legacy charts is available [here](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment)
+</Callout>
 
 ## Choose Your Platform
 
 Use this page for shared Helm setup and installation, then apply provider-specific delta steps:
 
-| Platform | Use this when | Provider guide |
-| --- | --- | --- |
-| Amazon EKS | The cluster runs in Amazon EKS and uses AWS IAM or IRSA for workload identity. | [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-deploy-amazon-eks) |
-| Azure Kubernetes Service (AKS) | The cluster runs in AKS and uses Microsoft Entra workload identity. | [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-kubernetes-service) |
-| Google Kubernetes Engine (GKE) | The cluster runs in GKE and uses Google Workload Identity. | [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-deploy-google-kubernetes-engine) |
+| Platform                       | Use this when                                                                  | Provider guide                                                                                               |
+| ------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Amazon EKS                     | The cluster runs in Amazon EKS and uses AWS IAM or IRSA for workload identity. | [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-deploy-amazon-eks)                             |
+| Azure Kubernetes Service (AKS) | The cluster runs in AKS and uses Microsoft Entra workload identity.            | [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-kubernetes-service) |
+| Google Kubernetes Engine (GKE) | The cluster runs in GKE and uses Google Workload Identity.                     | [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-deploy-google-kubernetes-engine) |
 
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with an [Access Role](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview), and [Targets](https://docs.akeyless.io/docs/targets)
+- An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with an [Access Role](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview), and [Targets](https://docs.akeyless.io/docs/targets)
 
-* [Helm](https://helm.sh/) Installed
+- [Helm](https://helm.sh/) Installed
 
-* Kubernetes installed with the [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
+- Kubernetes installed with the [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
 
-* Minimum 1 vCPU available with 2 GB RAM
+- Minimum 1 vCPU available with 2 GB RAM
 
-* For **Argo CD–based** deployments, verify that your configuration meets the required settings as [documented](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway#argo-cd-instructions).
+- For **Argo CD–based** deployments, verify that your configuration meets the required settings as [documented](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway#argo-cd-instructions).
 
-* Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/gateway-network-connectivity) from your cluster.
+- Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/gateway-network-connectivity) from your cluster.
 
-* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
+- Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service | Endpoint |
-| --- | --- |
-| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway) | `/console` |
-| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
-| Akeyless V1 REST API | `/api/v1` |
-| Akeyless V2 REST API | `/api/v2` |
-| [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
+| Service                                                                      | Endpoint   |
+| ---------------------------------------------------------------------------- | ---------- |
+| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway)           | `/console` |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp`     |
+| Akeyless V1 REST API                                                         | `/api/v1`  |
+| Akeyless V2 REST API                                                         | `/api/v2`  |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                     | `5696`     |
 
 ## Helm Chart Configuration
 
 1. Add the following repository to the Helm repository list:
 
-    ```shell
-    helm repo add akeyless https://akeylesslabs.github.io/helm-charts
-    helm repo update
-    ```
+   ```shell
+   helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+   helm repo update
+   ```
 
 2. Fetch the `values.yaml` file from the Akeyless repository:
 
-    ```shell
-    helm show values akeyless/akeyless-gateway > values.yaml
-    ```
+   ```shell
+   helm show values akeyless/akeyless-gateway > values.yaml
+   ```
 
 3. Set the relevant parameters in the `values.yaml` file with a text editor or IDE.
 
@@ -80,17 +82,17 @@ Configure the Akeyless Gateway with a default [Authentication Method](https://do
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported for Kubernetes deployments:
 
-* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+- [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+- [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
 
-* [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
+- [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
 
-* [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
+- [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
-* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+- [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 
-* [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
+- [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
 
 ### API Key Authentication
 
@@ -142,9 +144,9 @@ Set the `gatewayAccessId` with your IAM [Authentication Method](https://docs.ake
 
 AWS IAM can be used in the following approaches:
 
-* Instance IAM Role
+- Instance IAM Role
 
-* Service Account IAM Role
+- Service Account IAM Role
 
 In both cases, provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Authentication Method's Access ID as your `gatewayAccessId`, and at least one other Access ID in the `allowedAccessPermissions` section to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm):
 
@@ -194,11 +196,13 @@ Create a Kubernetes ServiceAccount for Akeyless Gateway to use. You can also use
 
 Use the existing IAM service account that is bound to your [GCP](https://docs.akeyless.io/docs/auth-with-gcp) Auth Method.
 
-> ℹ️ **Note:**
->
-> When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
->
-> To work with the GKE Workload Identity you must configure **only** the `Bound Service Accounts` field in your [GCP Auth Method](https://docs.akeyless.io/docs/auth-with-gcp).
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
+
+  To work with the GKE Workload Identity you must configure **only** the `Bound Service Accounts` field in your [GCP Auth Method](https://docs.akeyless.io/docs/auth-with-gcp).
+</Callout>
 
 Allow the Kubernetes ServiceAccount to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes ServiceAccount to act as the IAM service account.
 
@@ -248,9 +252,11 @@ nodeSelector:
   iam.gke.io/gke-metadata-server-enabled: "true"
 ```
 
-> ℹ️ **Info:**
->
-> **NodeSelector** - For Autopilot clusters, omit the `nodeSelector` field. Autopilot rejects this `nodeSelector` because all nodes use Workload Identity.
+<Callout icon="ℹ️" theme="info">
+  ### **Info:**
+
+  **NodeSelector** - For Autopilot clusters, omit the `nodeSelector` field. Autopilot rejects this `nodeSelector` because all nodes use Workload Identity.
+</Callout>
 
 Save the file and proceed with the [installation](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#installation) instructions.
 
@@ -423,9 +429,11 @@ Set the name of the secret `allowed-permissions` under `allowedAccessPermissions
 
 For the complete and current list, see [Gateway Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
 
-> ℹ️ **Note:**
->
-> Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
+</Callout>
 
 You may also edit this parameter on your console, by going to the Gateways tab and selecting the desired Gateway. On the right of the screen, you will see the Gateway details, including **Access Permissions**.
 
@@ -438,44 +446,48 @@ TLSConf:
   enableSniProxy: true
 ```
 
-> ℹ️ **Note:**
->
-> All changes to allowed access IDs, such as editing, removing, and so on, can only be performed on **post-deployment allowed access IDs**. If an ID was defined during deployment it can't be removed or changed.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  All changes to allowed access IDs, such as editing, removing, and so on, can only be performed on **post-deployment allowed access IDs**. If an ID was defined during deployment it can't be removed or changed.
+</Callout>
 
 ## Installation
 
 1. To deploy the Gateway using the edited `values.yaml` file, run the following command:
 
-    ```shell
-    helm install gw akeyless/akeyless-gateway -f values.yaml
-    ```
+   ```shell
+   helm install gw akeyless/akeyless-gateway -f values.yaml
+   ```
 
 2. Check if the pods are up and running:
 
-    ```shell
-    kubectl get pod
+   ```shell
+   kubectl get pod
 
-    NAME                                       READY   STATUS    RESTARTS       AGE
-    gw-akeyless-gateway-6554f7c66c-56fgs       1/1     Running   0              5s
-    gw-akeyless-gateway-6554f7c66c-7jt8r       1/1     Running   0              5s
-    ```
+   NAME                                       READY   STATUS    RESTARTS       AGE
+   gw-akeyless-gateway-6554f7c66c-56fgs       1/1     Running   0              5s
+   gw-akeyless-gateway-6554f7c66c-7jt8r       1/1     Running   0              5s
+   ```
 
 3. Log in to the Gateway using your browser (`http://Your-Akeyless-Gateway-URL:8000`) with your Gateway admin credentials.
 
 ## Upgrade Gateway
 
-> ❗ **Important:**
->
-> Unified Gateway chart upgrades use the `gw` image by default.
-> If an existing deployment requires `akeyless/base`, set an explicit override in your `values.yaml` before running `helm upgrade`:
->
-> ```yaml values.yaml
-> gateway:
->   deployment:
->     image:
->       repository: akeyless/base
->       tag: latest # use latest-akeyless for non-root
-> ```
+<Callout icon="❗" theme="error">
+  ### **Important:**
+
+  Unified Gateway chart upgrades use the `gw` image by default.
+  If an existing deployment requires `akeyless/base`, set an explicit override in your `values.yaml` before running `helm upgrade`:
+
+  ```yaml values.yaml
+  gateway:
+    deployment:
+      image:
+        repository: akeyless/base
+        tag: latest # use latest-akeyless for non-root
+  ```
+</Callout>
 
 To upgrade your Gateway, when working with a specific version, first edit the version in your `values.yaml` file for example:
 
