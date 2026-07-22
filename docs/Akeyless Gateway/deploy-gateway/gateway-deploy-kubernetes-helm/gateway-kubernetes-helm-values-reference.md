@@ -12,12 +12,12 @@ next:
 ---
 Use this page to find Helm settings by deployment goal:
 
-| Goal | Section |
-| --- | --- |
-| Set cluster identity and login behavior | [Identity and Access Settings](#identity-and-access-settings) |
-| Configure transport security and trust | [Security Settings](#security-settings) |
-| Configure cache behavior and high availability | [Cache Settings](#cache-settings) |
-| Configure deployment runtime options | [Operational Settings](#operational-settings) |
+| Goal                                           | Section                                                       |
+| ---------------------------------------------- | ------------------------------------------------------------- |
+| Set cluster identity and login behavior        | [Identity and Access Settings](#identity-and-access-settings) |
+| Configure transport security and trust         | [Security Settings](#security-settings)                       |
+| Configure cache behavior and high availability | [Cache Settings](#cache-settings)                             |
+| Configure deployment runtime options           | [Operational Settings](#operational-settings)                 |
 
 ## Identity and Access Settings
 
@@ -50,9 +50,11 @@ To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-
 
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
-> ⚠️ **Warning:**
->
-> This key can be determined on cluster deployment only, and **cannot** be modified afterward.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  This key can be determined on cluster deployment only, and **cannot** be modified afterward.
+</Callout>
 
 #### Customer Fragment
 
@@ -133,8 +135,8 @@ To verify PQC support, open the Gateway endpoint over HTTPS in Chrome, check the
 
 `X25519MLKEM768` confirms a hybrid key exchange:
 
-* `X25519` (classical elliptic-curve cryptography)
-* ML-KEM 768 (post-quantum cryptography)
+- `X25519` (classical elliptic-curve cryptography)
+- ML-KEM 768 (post-quantum cryptography)
 
 ### OIDC Configuration
 
@@ -182,10 +184,10 @@ If `globalConfig.clusterCache.persistence.enabled` is `false`, the standalone ca
 
 Optional Redis runtime flags can be passed through `globalConfig.clusterCache.extraArgs`. This key is a direct pass-through to the `redis-server` command arguments for the standalone cluster cache pod.
 
-* Supported options are Redis server command-line flags, documented by Redis:
-    * [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/)
-    * [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
-* There are no Akeyless-specific `extraArgs` keys. Akeyless does not parse custom keys under this field.
+- Supported options are Redis server command-line flags, documented by Redis:
+  - [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/)
+  - [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
+- There are no Akeyless-specific `extraArgs` keys. Akeyless does not parse custom keys under this field.
 
 Example (`values.yaml`):
 
@@ -315,11 +317,11 @@ globalConfig:
 
 Accepted Values:
 
-* `false` (default): The Gateway does not read or generate a Kubernetes Secret for the cluster cache encryption key. The Kubernetes Secret–based encryption key flow is disabled, even if cache is enabled.
-* `true`: The Gateway will read or generate a Kubernetes Secret to support offline scale-out.
-    * If encryptionKeyExistingSecret is set, the Gateway uses that Secret.
-    * If not set, the Helm chart generates a new encryption key and stores it in a Kubernetes Secret.
-    * **RBAC Requirement:** When `enableScaleOutOnDisconnectedMode: true`, the Gateway ServiceAccount must have permission to get Kubernetes Secrets in the namespace. Missing permissions will cause Gateway startup to fail with a forbidden: cannot get resource "secrets" error.
+- `false` (default): The Gateway does not read or generate a Kubernetes Secret for the cluster cache encryption key. The Kubernetes Secret–based encryption key flow is disabled, even if cache is enabled.
+- `true`: The Gateway will read or generate a Kubernetes Secret to support offline scale-out.
+  - If encryptionKeyExistingSecret is set, the Gateway uses that Secret.
+  - If not set, the Helm chart generates a new encryption key and stores it in a Kubernetes Secret.
+  - **RBAC Requirement:** When `enableScaleOutOnDisconnectedMode: true`, the Gateway ServiceAccount must have permission to get Kubernetes Secrets in the namespace. Missing permissions will cause Gateway startup to fail with a forbidden: cannot get resource "secrets" error.
 
 ## Operational Settings
 
@@ -413,9 +415,11 @@ For a broader discussion of pod scheduling and HA best practices for Gateway, se
 
 To provide the settings of your Gateway deployment directly from your local Kubernetes secrets store, you can set the following settings
 
-> ⚠️ **Warning:**
->
-> Providing any of those settings using an existing Kubernetes Secret, make sure that the corresponding parameters are left empty in your `values.yaml` file.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  Providing any of those settings using an existing Kubernetes Secret, make sure that the corresponding parameters are left empty in your `values.yaml` file.
+</Callout>
 
 ```yaml values.yaml
 gatewayCredentialsExistingSecret:
@@ -454,17 +458,19 @@ In some environments where an IP address must be whitelisted, to pull Akeyless o
 gateway:
   deployment:
     image:
-      repository: akeyless/gw
+      repository: akeyless/gateway
       pullPolicy: Always
       tag: latest
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
 
-> ℹ️ **Note:**
->
-> In Unified Gateway Helm deployments, setting `repository: akeyless/base` with `tag: latest` resolves to `akeyless/base:latest-akeyless` at runtime (non-root image path).
->
-> Legacy API Gateway deployments use `akeyless/base:latest`.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  In Unified Gateway Helm deployments, setting `repository: akeyless/base` with `tag: latest` resolves to `akeyless/base:latest-akeyless` at runtime (non-root image path).
+
+  Legacy API Gateway deployments use `akeyless/base:latest`.
+</Callout>
 
 ```yaml
 # Example rendered container image for Unified Gateway
