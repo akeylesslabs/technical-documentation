@@ -1,15 +1,15 @@
 ---
 title: Allowed Access IDs and SRA Entitlements
-slug: sra-allowed-access-ids-and-sra-entitlements
 excerpt: ''
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
   robots: index
 next:
   description: ''
+slug: sra-allowed-access-ids-and-sra-entitlements
 ---
 Use this page to configure which identities can request SRA sessions and which privileged machine identity is used by bastion components.
 
