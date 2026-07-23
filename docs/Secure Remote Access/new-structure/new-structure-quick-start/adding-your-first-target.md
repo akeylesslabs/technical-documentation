@@ -5,7 +5,57 @@ hidden: false
 metadata:
   robots: index
 ---
-add a guide with reference to [Resource Types](doc:new-structure-resource-types)
+Akeyless SSH Secure Remote Access enables traffic connections to servers that are not directly accessible by way of SSH but directed through a `ssh-sra` host, which proxies the connection between the SSH client and the remote servers. In addition, you can record all SSH sessions traffic and expose them to the filesystem for log forwarding.
+
+In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/sra-ssh-certificates).
+
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
+  For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/sra-ssh#legacy-mode) at the bottom of this page.
+</Callout>
+
+## Prerequisites
+
+- [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployment.
+
+- An [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) for certificate authentication.
+
+- SSH sessions behind a **GKE HTTP(S)** Load Balancer may disconnect after `30` seconds due to the default backend timeout. You can increase it by configuring a BackendConfig (`spec.timeoutSec`) and annotating your Service as described in the GCP docs on [backend service timeouts](https://docs.cloud.google.com/load-balancing/docs/backend-service#timeout-setting) and [Ingress BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration#backendconfig).
+
+## Set Up Certificate-Based SSH Access from the Akeyless CLI
+
+Let's set up remote access to an SSH host using the Akeyless CLI.
+
+1. Run the `update-item` command to set the following fields on the SSH Certificate Issuer item:
+
+```shell
+akeyless update-ssh-cert-issuer \
+--name <SSH Cert Issuer Name > \
+--secure-access-enable true \
+--secure-access-api <ssh-sra service control API endpoint URL> \
+--secure-access-ssh  <ssh-sra service server IP and Port> \
+--secure-access-ssh-creds-user <SSH username> \
+--host-provider[=explicit] \
+--secure-access-host <remote host> 
+```
+
+where:
+
+- `secure-access-api`: Secure Access SSH control API endpoint. For example, `https://my.sra-server:9900`.
+
+- `secure-access-ssh`: Secure Access SSH server. For example, `my.sra-server:22`.
+
+- `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users` list. Starting with Gateway **v4.45.0**, Secure Remote Access (SRA) works out of the box with any **SSH Cert Issuer** where SRA is enabled. If you’re using an older Gateway version, make sure the SSH Cert Issuer `allowed_users` includes `session_*`, so just in time users are authorized.
+
+- `host-provider`: Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
+
+- `secure-access-host`: Target servers for connections. Repeat this flag for multiple values. Starting with SRA v2.9.0, CIDR notation is supported in addition to individual hostnames and IP addresses (for example, `192.168.1.0/24`).
+
+- `secure-access-enforce-hosts-restriction`: When set to `true`, restricts SRA connections to only the hosts specified in `--secure-access-host`. Users attempting to connect to unlisted hosts are denied.
+
+<br /><br />add a guide with reference to [Resource Types](doc:new-structure-resource-types)
 
 <br /><br />
 
