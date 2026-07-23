@@ -35,7 +35,7 @@ Review [Requirements](https://docs.akeyless.io/docs/sra-requirements) first for 
 
 - [Session Management](https://docs.akeyless.io/docs/sra-session-management)
 - [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)
-- [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp)
+- [Akeyless File Transfer](https://docs.akeyless.io/docs/sra-akeyless-scp)
 - [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates)
 
 <br />

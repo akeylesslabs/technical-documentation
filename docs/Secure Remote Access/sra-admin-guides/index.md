@@ -26,5 +26,5 @@ Use this path based on the immediate objective:
 5. Integrations and automation workflows: [Integrations and Automation](https://docs.akeyless.io/docs/sra-integrations-and-automation)
 6. Resource onboarding by target type: [Supported Resource Types](https://docs.akeyless.io/docs/sra-resource-types)
 7. CLI-based access from local environments: [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)
-8. Secure file transfer operations: [Akeyless SCP](https://docs.akeyless.io/docs/sra-akeyless-scp)
+8. Secure file transfer operations: [Akeyless File Transfer](https://docs.akeyless.io/docs/sra-akeyless-scp)
 9. SSH certificate-based access setup: [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates)
