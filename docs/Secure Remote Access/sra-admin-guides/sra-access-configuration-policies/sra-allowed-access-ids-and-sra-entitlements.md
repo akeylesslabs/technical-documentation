@@ -2,7 +2,7 @@
 title: Allowed Access IDs and SRA Entitlements
 excerpt: ''
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
