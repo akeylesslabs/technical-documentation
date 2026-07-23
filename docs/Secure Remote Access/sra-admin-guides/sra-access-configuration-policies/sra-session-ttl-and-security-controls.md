@@ -1,6 +1,5 @@
 ---
 title: Session TTL and Security Controls
-slug: sra-session-ttl-and-security-controls
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: sra-session-ttl-and-security-controls
 ---
 Use this page to configure session lifetime and key runtime security controls for Secure Remote Access.
 
@@ -53,7 +53,7 @@ DLP settings include enablement, host and path configuration, mode, log level, a
 
 For configuration structure, see [Zero Trust Web Access on K8s Advanced Configuration](https://docs.akeyless.io/docs/sra-web-access-on-k8s-adv-config).
 
-## Fullscreen and Browser Control Context
+## Full screen and Browser Control Context
 
 ZTWA worker runtime can disable fullscreen mode and expose internal browser address bar by setting `DISABLE_FULLSCREEN=true` in the worker environment configuration.
 
@@ -63,8 +63,8 @@ Use this control when operations teams require explicit browser chrome visibilit
 
 Additional controls commonly configured with these settings include:
 
-* Keyboard layout mapping for remote desktop sessions.
-* Maximum unauthenticated startup connection thresholds.
-* Proxy and no-proxy configuration for bastion runtime egress.
+- Keyboard layout mapping for remote desktop sessions.
+- Maximum unauthenticated startup connection thresholds.
+- Proxy and no-proxy configuration for bastion runtime egress.
 
 See [Kubernetes Advanced Configuration](https://docs.akeyless.io/docs/sra-advanced-configuration-k8s) and [Docker Compose Advanced Configuration](https://docs.akeyless.io/docs/sra-advanced-configuration-docker).
