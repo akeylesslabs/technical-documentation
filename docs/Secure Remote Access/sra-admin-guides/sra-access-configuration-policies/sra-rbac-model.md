@@ -58,6 +58,5 @@ This is the rule set:
 - [RBAC](https://docs.akeyless.io/docs/rbac)
 - [Sub-Claims](https://docs.akeyless.io/docs/sub-claims)
 - [Request Access and Approval Flow](https://docs.akeyless.io/docs/sra-request-access-and-approval-flow)
-- [Allowed Access IDs and SRA Entitlements](https://docs.akeyless.io/docs/sra-allowed-access-ids-and-sra-entitlements)
 
 <br />
