@@ -28,7 +28,7 @@ These settings combine RBAC (SRA-specific permissions, separate from Secrets Man
 
 SRA covers more than one deployment type - the Gateway (Unified SRA) and Zero Trust Web Access (ZTWA) and the field/variable that restricts _which requester identities may use a given deployment_ is named differently between them. See [Allowed Access IDs and SRA Entitlements](https://docs.akeyless.io/docs/sra-allowed-access-ids-and-sra-entitlements) for the authoritative name-per-deployment-type table (Gateway vs. ZTWA, Helm vs. Docker Compose).
 
-This is also the mechanism behind the advanced setting some teams look for as "restrict who can get service from a specific Gateway" or "create an allow list for this deployment" -it  is the same Allowed/Authorized Access ID configuration.
+This is also the mechanism behind the advanced setting some teams look for as "restrict who can get service from a specific Gateway" or "create an allow list for this deployment" - it is the same Allowed/Authorized Access ID configuration.
 
 ## Related Pages
 
