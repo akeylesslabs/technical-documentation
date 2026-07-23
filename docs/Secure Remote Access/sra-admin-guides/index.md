@@ -1,6 +1,5 @@
 ---
-title: Admin Guides
-slug: sra-admin-guides
+title: Configure SRA
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,8 +9,9 @@ metadata:
   robots: index
 next:
   description: ''
+slug: sra-admin-guides
 ---
-Secure Remote Access (SRA) Admin Guides provide operational guidance for administrators who configure resource access, entitlement policy, session controls, and CLI workflows.
+Configure Secure Remote Access (SRA) Guides provide operational guidance for administrators who configure resource access, entitlement policy, session controls, and CLI workflows.
 
 Use this page as the entry point for administration tasks after baseline SRA deployment.
 
@@ -28,3 +28,5 @@ Use this path based on the immediate objective:
 7. CLI-based access from local environments: [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)
 8. Secure file transfer operations: [Akeyless File Transfer](https://docs.akeyless.io/docs/sra-akeyless-scp)
 9. SSH certificate-based access setup: [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates)
+
+<br />
