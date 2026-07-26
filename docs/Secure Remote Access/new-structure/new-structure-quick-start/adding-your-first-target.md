@@ -5,7 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-Akeyless SSH Secure Remote Access enables traffic connections to servers that are not directly accessible by way of SSH but directed through a `ssh-sra` host, which proxies the connection between the SSH client and the remote servers. In addition, you can record all SSH sessions traffic and expose them to the filesystem for log forwarding.
+1. SAML auth method
+2. create item
+3. enable SRA on item
+4. enable SRA on cert issuer
+5. connect (can i run it with token from auth that arent SAML OIDC cert LDAP?)<br /><br /><br />akeyless create-secret --name /sra/ec2-password --value '\<EC2_PASSWORD>'<br /><br /><br /><br />Akeyless SSH Secure Remote Access enables traffic connections to servers that are not directly accessible by way of SSH but directed through a `ssh-sra` host, which proxies the connection between the SSH client and the remote servers. In addition, you can record all SSH sessions traffic and expose them to the filesystem for log forwarding.
 
 In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/sra-ssh-certificates).
 
