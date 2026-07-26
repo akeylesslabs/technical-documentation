@@ -168,7 +168,7 @@ helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
 
 ### Verify Deployment Success
 
-Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.<br /><br />צריך להוסיף תמונה של איך אמור להיראות&#x20;
+Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.<br />
 
 #### Gateway URL
 
