@@ -1,7 +1,7 @@
 ---
 title: Quick Start
 ---
-This quick start guide deploys an [Akeyless Gateway](doc:gateway-overview) with Secure Remote Access on Kubernetes cluster via CLI commands, all Akeyless commands can be executed via Akeyless console or API's.&#x20;
+This quick start guide deploys an [Akeyless Gateway](doc:gateway-overview) with Secure Remote Access on Kubernetes cluster via CLI commands, all Akeyless commands can be executed via Akeyless console (<Anchor target="_blank" href="https://console.akeyless.io">console.akeyless.io</Anchor>) or <Anchor target="_blank" href="https://docs.akeyless.io/reference">API's</Anchor>.&#x20;
 
 for more deployment model check our \[choosing a deployment model]
 
