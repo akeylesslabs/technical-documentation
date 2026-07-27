@@ -1,24 +1,25 @@
 ---
-title: 'Connecting Your First Resource '
+title: 'Connecting Your First SRA Resource '
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-This guide walks you through connecting your **first protected SSH resource via** the Akeyless Console. the target host in the guide is ubuntu server.<br />the connection itself is made from the CLI with `akeyless connect`, authenticated with an **API key**.
+This guide walks you through connecting your first protected resource for SRA.<br />As a concrete example, it walks through an SSH session to a target host and connecting to it using the [Akeyless Connect](doc:new-structure-akeyless-console) CLI command. In this example, the target host is an Ubuntu server. <br />check our [Supported Resource Types](doc:sra-resource-types).
 
-By the end, you'll have a real SSH session open **from your terminal**, proxied through
-SRA to a real target host.
+Configuration is done in the Akeyless Console, the connection itself is established from the CLI, authenticated with an API key.
+
+By the end, you'll have a real SSH session open from your terminal, proxied through SRA to your target host.
 
 ***
 
 ## Prerequisites
 
-- Gateway + SRA already deployed.
+- Gateway with SRA.
 - An existing SSH Certificate Issuer&#x20;
-- A reachable target host you can already reach over SSH&#x20;
-- **Console access with permission to edit SSH Certificate Issuers and targets.**
-- The `akeyless` CLI installed locally
+- A target host reachable over SSH.
+- Console access with permission to edit SSH Certificate Issuers.
+- The `akeyless` CLI installed locally.
 
 ***
 
