@@ -14,11 +14,11 @@ You can use Akeyless Dynamic Secrets to generate programmatic access credentials
 
 There are three GCP dynamic secret modes:
 
-* **Fixed Service Account**
+- **Fixed Service Account**
 
-* **Dynamic Service Account**
+- **Dynamic Service Account**
 
-* **Fixed User**
+- **Fixed User**
 
 **Fixed Service Accounts** are existing GCP service accounts that Akeyless generates JIT tokens or keys and manage them. TTL in GCP is 1 hour by default, but this may be configured for up to 12 hours, as explained in GCP [documentation](https://cloud.google.com/iam/docs/create-short-lived-credentials-delegated#sa-credentials-oauth).
 
@@ -49,19 +49,21 @@ For example:
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview).
+- An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview).
 
-* A GCP [privileged service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) to generate keys and access tokens.
+- A [GCP Target](https://docs.akeyless.io/docs/gcp-targets)
 
-* A [privileged service account roles](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) includes `Service Account Key Admin` and `Service Account Token Creator`.
+- A GCP [privileged service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) to generate keys and access tokens.
 
-* For **Dynamic Service Account** mode, the privileged service account also needs permissions to create and delete temporary service accounts and to update IAM bindings on target resources:
+- A [privileged service account roles](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) includes `Service Account Key Admin` and `Service Account Token Creator`.
 
-    * Add [Service Account Admin](https://cloud.google.com/iam/docs/understanding-roles#iam.serviceAccountAdmin) (`roles/iam.serviceAccountAdmin`) to allow temporary service account lifecycle operations (for example, `iam.serviceAccounts.create`).
+- For **Dynamic Service Account** mode, the privileged service account also needs permissions to create and delete temporary service accounts and to update IAM bindings on target resources:
 
-    * If your role bindings target project resources, add [Project IAM Admin](https://cloud.google.com/iam/docs/understanding-roles#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`) to allow IAM policy changes on the project.
+  - Add [Service Account Admin](https://cloud.google.com/iam/docs/understanding-roles#iam.serviceAccountAdmin) (`roles/iam.serviceAccountAdmin`) to allow temporary service account lifecycle operations (for example, `iam.serviceAccounts.create`).
 
-* A [key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) of the privilege service account.
+  - If your role bindings target project resources, add [Project IAM Admin](https://cloud.google.com/iam/docs/understanding-roles#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`) to allow IAM policy changes on the project.
+
+- A [key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) of the privilege service account.
 
 Example list of GCP Service Account permissions:
 
@@ -81,9 +83,11 @@ resourcemanager.projects.setIamPolicy
 
 ## Create a Dynamic GCP Secret with the CLI
 
-> ℹ️ **Note:**
->
-> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/gcp-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gcp-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/gcp-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gcp-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+</Callout>
 
 To create a dynamic GCP secret with the CLI using an existing [GCP Targets](https://docs.akeyless.io/docs/gcp-targets), run the following command:
 
@@ -118,53 +122,31 @@ akeyless dynamic-secret create gcp \
 --fixed-user-claim-keyname[=ext_email] <Sub-Claim Name>
 ```
 
-Or using an inline connection string:
-
-```shell
-akeyless dynamic-secret create gcp \
---name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---gcp-sa-email <service account email>
---gcp-cred-type <token|key> \
---gcp-token-scopes <Token Scopes> \
---gcp-key-algo <Service Key Algorithm> \
---gcp-sa-email <GCP Service Account Email> \
---gcp-key-file-path <GCP Service Account Private Key>
-```
-
 Where:
 
-* `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
+- `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* `target-name`: A name of the target that enables connection to the GCP server. The name can include the path to the virtual folder where this target resides.
+- `target-name`: A name of the target that enables connection to the GCP server. The name can include the path to the virtual folder where this target resides.
 
-* `gateway-url`: Akeyless Gateway URL (port `8000`).
+- `gateway-url`: Akeyless Gateway URL (port `8000`).
 
-* `service-account-type`: `Fixed`, `Dynamic` type. By default set to **Fixed**.
+- `service-account-type`: `Fixed`, `Dynamic` type. By default set to **Fixed**.
 
-* `role-binding`: A path to a JSON file that holds the relevant resource with roles to bind for the created Service Account. Relevant only for **Dynamic** type.
+- `role-binding`: A path to a JSON file that holds the relevant resource with roles to bind for the created Service Account. Relevant only for **Dynamic** type.
 
-* `gcp-sa-email`: The email of the Service Account to create JIT keys/tokens. Relevant only for **Fixed** Service Account.
+- `gcp-sa-email`: The email of the Service Account to create JIT keys/tokens. Relevant only for **Fixed** Service Account.
 
-* `gcp-cred-type`: Credentials type. Available options are: `token`, `key`.
+- `gcp-cred-type`: Credentials type. Available options are: `token`, `key`.
 
-* `gcp-token-scopes`: Access token scopes list.
+- `gcp-token-scopes`: Access token scopes list.
 
-* `gcp-key-algo`: Service account key algorithm, for example, `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`.
+- `gcp-key-algo`: Service account key algorithm, for example, `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`.
 
-* `access-type[=sa]`: Either generate a service account or assign an existing role to a user, to assign a role, set to `external`.
+- `access-type[=sa]`: Either generate a service account or assign an existing role to a user, to assign a role, set to `external`.
 
-* `role-name`: The role to assign to the user (Relevant only for **External** access type).
+- `role-name`: The role to assign to the user (Relevant only for **External** access type).
 
-* `fixed-user-claim-keyname[=ext_email]`: For externally provided users, denotes the key-name of IdP claim to extract the username from.
-
-### Inline Connection String
-
-If you don't have a [GCP Target](https://docs.akeyless.io/docs/gcp-targets) yet, you can use the command with your GCP connection strings:
-
-* `gcp-sa-email`: privileged service account email.
-
-* `gcp-key-file-path`: Path to file with the Base64-encoded privileged service account private key.
+- `fixed-user-claim-keyname[=ext_email]`: For externally provided users, denotes the key-name of IdP claim to extract the username from.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#gcp) section.
 
@@ -178,9 +160,11 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic GCP Secret in the Akeyless Console
 
-> ℹ️ **Note:**
->
-> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/gcp-dynamic-secrets#create-a-dynamic-gcp-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/gcp-dynamic-secrets#create-a-dynamic-gcp-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+</Callout>
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
@@ -188,56 +172,44 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 3. Define a **Name** of the dynamic secret, and specify the **Location** as a path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-    The Location determines where the dynamic secret appears in the Items hierarchy, so use the path that matches the folder structure you want users to see.
+   The Location determines where the dynamic secret appears in the Items hierarchy, so use the path that matches the folder structure you want users to see.
 
 4. Define the remaining parameters as follows:
 
-    * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
+   - **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-    * **Target mode:** In this section, you can either select an existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets) or specify details of the GCP target explicitly.
+   - **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
-        * Use the **Choose an existing target** drop-down list to select the existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
+   - **Fixed SA:** A fixed Service Account with **Service Account Email** to create JIT Keys/Tokens for.
 
-        * Check the **Explicitly specify target properties** to provide details of the GCP target in the next step.
+   - **Dynamic SA:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
+     - **Project ID:** Optional. The GCP Project ID to create the Just In Time Service Account. By default, the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used. (Relevant only for **Dynamic SA** mode).
 
-    * **Fixed SA:** A fixed Service Account with **Service Account Email** to create JIT Keys/Tokens for.
+   - **Fixed:** Assigns a role to a user based on the user's sub-claim.
 
-    * **Dynamic SA:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
-        * **Project ID:** Optional. The GCP Project ID to create the Just In Time Service Account. By default, the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used. (Relevant only for **Dynamic SA** mode).
+   - **Access Token:** Select this option to create a GCP access token as a dynamic secret.
 
-    * **Fixed:** Assigns a role to a user based on the user's sub-claim.
+   - **Service Account Key:** Select this option to create a GCP service account key as a dynamic secret.
 
-    * **Access Token:** Select this option to create a GCP access token as a dynamic secret.
+   - **Token Scopes:** Provide a comma-separated list of [GCP access token scopes](https://developers.google.com/identity/protocols/oauth2/scopes). (If **Access Token** is selected.)
 
-    * **Service Account Key:** Select this option to create a GCP service account key as a dynamic secret.
+   - **Key Algorithm:** Key algorithm. Available options: `KEY_ALG_UNSPECIFIED`, `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`. (If **Service Account Key** is selected.)
 
-    * **Token Scopes:** Provide a comma-separated list of [GCP access token scopes](https://developers.google.com/identity/protocols/oauth2/scopes). (If **Access Token** is selected.)
+   - **Sub Claim Name:** From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_email`
 
-    * **Key Algorithm:** Key algorithm. Available options: `KEY_ALG_UNSPECIFIED`, `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`. (If **Service Account Key** is selected.)
+   - **Role:** The role that will be assigned to the user (Relevant only for **Fixed** mode).
 
-    * **Sub Claim Name:** From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_email`
+   - **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only for **Dynamic Secret** mode).
 
-    * **Role:** The role that will be assigned to the user (Relevant only for **Fixed** mode).
+   - **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
 
-    * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only for **Dynamic Secret** mode).
+   - **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
-    * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
+   - **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-    * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+   - **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
-    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
-
-5. If you checked **Explicitly specify target properties**, click **Next**.
-
-6. Provide the connection string to your GCP:
-
-    * **Service Account Email:** privileged service account email.
-
-    * **Service Account Key:** Base64-encoded privileged service account key.
-
-7. Click **Finish**.
+5. Click **Finish**.
 
 ## Fetch a Dynamic GCP Secret Value from the Akeyless Console
 
@@ -246,3 +218,5 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 2. Browse to the folder where you created a dynamic secret.
 
 3. Select the secret and click the **Get Dynamic Secret** button.
+
+<br />
