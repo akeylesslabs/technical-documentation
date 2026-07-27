@@ -67,23 +67,6 @@ akeyless dynamic-secret create azure \
 --password-length 16
 ```
 
-Or using an inline connection string:
-
-```shell
-akeyless dynamic-secret create azure \
---name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---azure-user-portal-access <true|false> \
---azure-user-programmatic-access <true|false> \
---azure-app-obj-id <Azure App Object ID> \
---azure-user-principal-name <Azure User Principal Name> \
---fixed-user-only <true|false> \
---fixed-user-claim-keyname <Key name of the IdP claim> \
---azure-tenant-id <Azure Tenant ID> \
---azure-client-id <Azure Client ID> \
---azure-client-secret <Azure AD Client Secret>
-```
-
 Where:
 
 - `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
