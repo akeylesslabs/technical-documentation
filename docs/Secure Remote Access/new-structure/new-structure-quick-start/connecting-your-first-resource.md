@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide walks you through connecting your **first protected SSH resource via** the Akeyless Console.&#x20;
+This guide walks you through connecting your **first protected SSH resource via** the Akeyless Console. <br />the connection itself is made from the CLI with `akeyless connect`, authenticated with an **API key**.
 
-By the end, you'll have a real SSH session open **in your browser**, proxied through
+By the end, you'll have a real SSH session open **from your terminal**, proxied through
 SRA to a real target host.
 
 ***
@@ -18,6 +18,7 @@ SRA to a real target host.
 - An existing SSH Certificate Issuer&#x20;
 - A reachable target host you can already reach over SSH&#x20;
 - **Console access with permission to edit SSH Certificate Issuers and targets.**
+- The `akeyless` CLI installed locally
 
 ***
 
@@ -47,6 +48,12 @@ Ordered actions:
 
 ***
 
+## Create Authentication Method
+
+This [Authentication Method](doc:access-and-authentication-methods) will be used to authenticate your Akeyless Gateway to your Akeyless account. <br />For this guide, API key authentication is used for simplicity.
+
+<ApiKeyWarning />
+
 ## Connect via SRA web portal)
 
 You can now open a session entirely from your browser:
@@ -60,6 +67,34 @@ You can now open a session entirely from your browser:
 
 Landing in a real in-browser terminal on your target host means SRA is genuinely
 working end-to-end. That's your confirmation — not just that the settings saved.
+
+<br />
+
+## 4. Connect — from the CLI with `akeyless connect`, authenticated via API key
+
+You can now open the session from your terminal. Authenticate the CLI with your API key
+(Access ID + Access Key) — this is independent of the SSH certificate flow you just
+configured in the Console:
+
+```bash
+akeyless auth --access-id <your-access-id> --access-key <your-access-key>
+```
+
+Then connect through the SSH Certificate Issuer you configured in step 2:
+
+```bash
+akeyless connect \
+  -t "ubuntu@<host-ip-address>:22" \
+  -n <cert-issuer-name>
+```
+
+| Flag | Value                         | What it does                                                                                                         |
+| ---- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `-t` | `ubuntu@<host-ip-address>:22` | The OS user and target host/port to connect to — must match **Allowed Users** and **Secure Access Host** from step 2 |
+| `-n` | `<cert-issuer-name>`          | The existing SSH Certificate Issuer you enabled Secure Access on in step 2                                           |
+
+Landing in a real shell on your target host means SRA is genuinely working end-to-end.
+That's your confirmation — not just that the settings saved.
 
 ***
 
