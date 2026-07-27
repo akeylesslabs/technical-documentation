@@ -5,6 +5,14 @@ hidden: false
 metadata:
   robots: index
 ---
+ssh connection through the cert issuer.
+
+make sure host allows ssh-gw-akeyless-gateway-... pod to ssh
+
+use the existing cert issuer, enable SRA and fill host target info
+
+akeyless update-ssh-cert-issuer --name <cert-issuer-name> --signer-key-name <singner-name> --ttl 300 --allowed-users `'ubuntu'` --secure-access-enable true --secure-access-ssh-creds-user `'ubuntu'` --secure-access-host <host-ip-address><br /><br />unset manually "Override default SSH Certificate Issuer"  <br /><br />connect from cli with any auth method.<br /><br /><br />
+
 1. SAML auth method
 2. create item
 3. enable SRA on item
