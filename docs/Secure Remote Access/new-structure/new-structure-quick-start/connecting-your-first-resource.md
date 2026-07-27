@@ -5,9 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide assumes Akeyless Gateway + SRA are already deployed and running (see
-[SRA Beginner Quick Start](sra-quick-start-beginner.md) if not) and walks you through
-connecting your **first protected SSH resource**, reusing an **existing SSH Certificate
+This guide walks you through connecting your **first protected SSH resource**, reusing an **existing SSH Certificate
 Issuer** — entirely through the Akeyless Console. No CLI commands are needed for
 configuration or connection.
 
