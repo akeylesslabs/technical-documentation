@@ -19,7 +19,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 # Prerequisites
 
 - An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
-- [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets)
+- An [Artifactory Target](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer)
 
 ## Create a Dynamic Artifactory Secret with the CLI
 
