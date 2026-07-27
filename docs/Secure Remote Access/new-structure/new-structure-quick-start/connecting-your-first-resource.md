@@ -5,100 +5,49 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide walks you through connecting your **first protected SSH resource**, reusing an **existing SSH Certificate
-Issuer** — entirely through the Akeyless Console. No CLI commands are needed for
-configuration or connection.
+This guide walks you through connecting your **first protected SSH resource via** the Akeyless Console.&#x20;
 
 By the end, you'll have a real SSH session open **in your browser**, proxied through
-SRA to a real target host. A working in-browser terminal session is the only real
-confirmation that everything below was done correctly — "settings saved" is not enough.
+SRA to a real target host.
 
 ***
 
-## Prerequisites checklist
+## Prerequisites
 
-- [ ] Gateway + SRA already deployed and showing **Active** in the Akeyless Console
-- [ ] An **existing SSH Certificate Issuer** already created (this guide reuses it —
-  it does not create a new one)
-- [ ] The signer key backing that issuer already exists and is attached to it
-- [ ] A real, reachable target host you can already reach over SSH some other way
-  (e.g. via an existing key or bastion) — this is what you're about to connect
-  through SRA
-- [ ] Console access with permission to edit SSH Certificate Issuers and targets
+- Gateway + SRA already deployed.
+- An existing SSH Certificate Issuer&#x20;
+- A reachable target host you can already reach over SSH&#x20;
+- **Console access with permission to edit SSH Certificate Issuers and targets.**
 
 ***
 
-## 1. Network prerequisite — allow the SRA SSH gateway pod to reach the host
+## Allow the SRA SSH gateway pod to reach the host
 
-Do this **first**. Every step after this one will look correctly configured even if
-this is wrong, and the connection will still fail — this is the single most common
-thing people forget.
+The target host's firewall / security group must allow inbound SSH (port 22) from the SRA SSH gateway pod. In your cluster, this pod is named`ssh-gw-akeyless-gateway-...`. Allow-list the pod's outbound IP/CIDR or the node group subnet range it runs in, on port 22 on the target host.
 
-The target host's firewall / security group must allow **inbound SSH (port 22)** from
-the SRA SSH gateway pod. In your cluster, this pod is named something like
-`ssh-gw-akeyless-gateway-...`. Allow-list the pod's outbound IP/CIDR — or the node
-group / subnet range it runs in — on port 22 on the target host.
+Every step after this one will look correctly configured even if this is wrong, and the connection will still fail.
 
-Verify this before moving on. If you skip it, steps 2 and 3 will save cleanly, the
-issuer will show as configured, and you'll still get a connection timeout at the very
-last step.
+<br />
 
 ***
 
-## 2. Reuse the existing SSH Certificate Issuer — enable SRA and set the target (Console)
+## Enable SRA on SSH Certificate Issuer and set the target
 
-Do **not** create a new issuer, and do not use the CLI for this. You're editing the
-existing issuer's settings directly in the Akeyless Console.
+Editing the existing issuer's we created in the GW deployment settings directly in the Akeyless Console.
 
-**Navigation:** Console → **Secrets & Keys** (PKI / SSH Certificate Issuers section) →
-locate your existing SSH Certificate Issuer → **Edit**
-
-> **TODO (verify before publishing):** confirm the exact console breadcrumb and section
-> name in the current Console UI — this may differ slightly (e.g. a dedicated
-> "Certificate Issuers" or "SSH" tab) depending on your Console version.
-
-On the issuer's edit screen, set/confirm the following fields, then **Save**:
-
-| Field                        | Value               | What it does                                                           |
-| ---------------------------- | ------------------- | ---------------------------------------------------------------------- |
-| Allowed Users                | `ubuntu`            | Which OS user(s) on the target the issued SSH certificate is valid for |
-| TTL                          | `300` (seconds)     | Lifetime of certificates issued by this issuer                         |
-| Secure Access                | **ON**              | Enables SRA (Secure Remote Access) for this issuer                     |
-| Secure Access SSH Creds User | `ubuntu`            | The OS user SRA uses to broker the session on the target               |
-| Secure Access Host           | `<host-ip-address>` | The target host SRA will connect to                                    |
+**Navigation:** Console → **Items** → locate your existing SSH Certificate Issuer → **Secure Remote Access**
 
 Ordered actions:
 
-1. Open the existing SSH Certificate Issuer for editing.
-2. Turn the **Secure Access** toggle **ON**.
-3. Fill in **Secure Access SSH Creds User** and **Secure Access Host**.
-4. Confirm **Allowed Users** and **TTL** match the table above (adjust `ubuntu` /
-   `300` to your actual OS username and desired certificate lifetime).
+1. Press edit button.
+2. Turn the **Enable Secure Remote Access** toggle **ON**.
+3. &#x20;Press on Add and enter your target host IP-address.(internal for same network as the GW and public for different network)
+4. Fill in **Default SSH Username&#x20;**`ubuntu`**&#x2009;**.
 5. **Save**.
 
-> **TODO (verify before publishing):** confirm these field labels match the live
-> Console exactly — they're presented here as the source of truth for _behavior_,
-> but exact label wording should be checked against the current UI.
-
 ***
 
-## 3. Unset "Override default SSH Certificate Issuer"
-
-On the same issuer/target configuration area (or wherever it lives in your Console
-version — flag this as a TODO if uncertain), there is a separate toggle called
-**"Override default SSH Certificate Issuer."**
-
-This must be turned **OFF** for the issuer settings you just saved in step 2 to
-actually take effect. It's easy to miss because it's a separate control from the
-fields you just edited — if it's left on, the target will keep using whatever issuer
-it was overridden to, ignoring your changes.
-
-> **TODO (verify before publishing):** confirm the exact screen/location of this
-> toggle in the current Console.
-
-***
-
-## 4. Connect — via the Console (SRA web portal)
+## Connect via SRA web portal)
 
 You can now open a session entirely from your browser:
 
