@@ -23,40 +23,39 @@ By the end, you'll have a real SSH session open from your terminal, proxied thro
 
 ***
 
-## Allow the SRA SSH gateway pod to reach the host
+## **Allow Gateway Access to the Host**
 
-The target host's firewall / security group must allow inbound SSH (port 22) from the SRA SSH gateway pod. In your cluster, this pod is named`ssh-gw-akeyless-gateway-...`. Allow-list the pod's outbound IP/CIDR or the node group subnet range it runs in, on port 22 on the target host.
+1. The target host's firewall or security group must allow inbound SSH (port 22) from the SSH gateway pod.
+2. Allow-list the pod's outbound IP/CIDR or the node group/subnet range it runs in for port 22 on the target host.
 
-Every step after this one will look correctly configured even if this is wrong, and the connection will still fail.
+In your cluster, this pod is named `ssh-gw-akeyless-gateway-...`
 
-<br />
+If this step is skipped, every step that follows will still appear correctly configured, but the connection will fail.
 
 ***
 
 ## Enable SRA on SSH Certificate Issuer and set the target
 
-Editing the existing issuer's we created in the GW deployment settings directly in the Akeyless Console.
+Edit the existing SSH Certificate Issuer created during the Gateway deployment directly in the Akeyless Console.
 
-**Navigation:** Console → **Items** → locate your existing SSH Certificate Issuer → **Secure Remote Access**
+**Navigation:** Console → **Items** → locate the existing SSH Certificate Issuer → **Secure Remote Access**
 
-Ordered actions:
-
-1. Press edit button.
-2. Turn the **Enable Secure Remote Access** toggle **ON**.
-3. &#x20;Press on Add and enter your target host IP-address.(internal for same network as the GW and public for different network)
-4. Fill in **Default SSH Username&#x20;**`ubuntu`**&#x2009;**.
-5. **Save**.
+1. Click **Edit&#x20;**&#x70;en.
+2. Check the **Enable Secure Remote Access** checkbox.
+3. Click **Add** and enter the target host's IP address.
+4. Set **Default SSH Username** to `ubuntu`.
+5. Click **Save**.
 
 ***
 
 ## Create Authentication Method
 
-This [Authentication Method](doc:access-and-authentication-methods) will be used to authenticate as a user that connect to your resource. <br />For this guide, API key authentication is used for simplicity.
+This [Authentication Method](doc:access-and-authentication-methods) authenticates the user connecting to your resource. For this guide, API key authentication is used for simplicity.
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
 
-  in order to connect through akeyless zerotrust portal or GW web portal you will need auth method of SAML, OIDC certificate or LDAP(just GW web portal) &#x20;
+  To connect using Akeyless's SRA web portal - <br />either the public facing ZeroTrust portal at `https://zerotrust.akeyless.io` or your internal GW SRA Portal at `https://<gateway-host>:8000/sra/portal` <br />you must use SAML, OIDC, or certificate-based authentication. Note that LDAP is supported only on the GW SRA Portal.
 </Callout>
 
 ```shell
