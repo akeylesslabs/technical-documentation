@@ -16,7 +16,7 @@ You can define a Docker Hub Dynamic Secret to generate just-in-time personal acc
 
 - An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 
-- A [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets)
+- A [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target)
 
 - A Docker privileged user to be used to generate access tokens
 
