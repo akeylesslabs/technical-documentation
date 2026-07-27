@@ -50,14 +50,6 @@ Where:
 
 Each permission scope includes lower-permission scopes, that is, `repo:admin` includes all the rest of the permission scopes, `repo:write` contains `repo:read` and `repo:public_read`, and so on.
 
-<Callout icon="ℹ️" theme="info">
-  ### **Note:**
-
-  If you don't have a configured Docker Hub target yet, you should [create](https://docs.akeyless.io/docs/docker-hub-target) it first.
-</Callout>
-
-### Inline Connection String
-
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#dockerhub) section.
 
 ## Fetch a Dynamic Docker Hub Secret Value with the CLI
