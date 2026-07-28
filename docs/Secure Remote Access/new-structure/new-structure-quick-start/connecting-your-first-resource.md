@@ -98,14 +98,14 @@ Copy the user t-token and connect:
 akeyless connect \
   -t "ubuntu@<host-ip-address>:22" \
   -c <cert-issuer-name> \
-	--token <t-token>
+  --token <t-token>
 ```
 
-| Flag      | Value                         | Description                                                                                                                |
-| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `-t`      | `ubuntu@<host-ip-address>:22` | The OS user and target host/port to connect to. Must match the SSH username and host configured on the certificate issuer. |
-| `-c`      | `<cert-issuer-name>`          | The existing SSH Certificate Issuer with Secure Remote Access enabled.                                                     |
-| `--token` | `<t-token>`                   | The SRA user token to Akeyless.                                                                                            |
+where:
+
+- `-t`   The OS user and target host/port to connect to. Must match the SSH username and host configured on the certificate issuer.
+- `-c` The existing SSH Certificate Issuer with Secure Remote Access enabled.
+- `--token`  The user token to Akeyless.
 
 Landing in a real shell on your target host confirms that SRA is working end-to-end.
 
