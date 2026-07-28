@@ -64,7 +64,7 @@ akeyless auth-method create api-key --name MySraAPIKey
 
 ## Create Access Role
 
-This Access Role will be used to authorized your SRA user to connect to the resource.
+This Access Role authorizes your SRA user to connect to the resource.
 
 1. Create a new access role:
 
@@ -72,42 +72,42 @@ This Access Role will be used to authorized your SRA user to connect to the reso
    akeyless create-role --name MySraRole
    ```
 
-2. Set the role with access to the SSH certificate issuer Item List and allow_access permissions:
+2. Grant the role `list` and `allow_access` permissions on the SSH Certificate Issuer's path:
 
    ```shell
-   akeyless set-role-rule --role-name MySraRole --path "/path/to/SSH certificate issuer" --capability list --capability allow_access
+   akeyless set-role-rule --role-name MySraRole --path "/path/to/ssh-certificate-issuer" --capability list --capability allow_access
    ```
 
-3. Associate the Authentication Method with the Role:
+3. Associate the authentication method with the role:
 
    ```shell
    akeyless assoc-role-am --role-name MySraRole --am-name MySraAPIKey
    ```
 
-## Connect from the CLI with `akeyless connect`, authenticated via API key
+## Connect to Resource via CLI
 
-You can now open the session from your terminal. Authenticate the CLI with your API key
-(Access ID + Access Key)&#x20;
+Authenticate the CLI with your API key (Access ID and Access Key):
 
 ```bash
 akeyless auth --access-id <your-access-id> --access-key <your-access-key>
 ```
 
-Then connect through the SSH Certificate Issuer you configured in step 2:
+Copy the user t-token and connect:
 
 ```bash
 akeyless connect \
   -t "ubuntu@<host-ip-address>:22" \
-  -c <cert-issuer-name>
+  -c <cert-issuer-name> \
+	--token <t-token>
 ```
 
-| Flag | Value                         | What it does                                                                                                |
-| ---- | ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `-t` | `ubuntu@<host-ip-address>:22` | The OS user and target host/port to connect to, must match **Allowed Users** in the SSH certificate issuer. |
-| `-c` | `<cert-issuer-name>`          | The existing SSH Certificate Issuer you enabled Secure Access on in step 2                                  |
+| Flag      | Value                         | Description                                                                                                                |
+| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `-t`      | `ubuntu@<host-ip-address>:22` | The OS user and target host/port to connect to. Must match the SSH username and host configured on the certificate issuer. |
+| `-c`      | `<cert-issuer-name>`          | The existing SSH Certificate Issuer with Secure Remote Access enabled.                                                     |
+| `--token` | `<t-token>`                   | The SRA user token to Akeyless.                                                                                            |
 
-Landing in a real shell on your target host means SRA is genuinely working end-to-end.
-That's your confirmation — not just that the settings saved.
+Landing in a real shell on your target host confirms that SRA is working end-to-end.
 
 ***
 
