@@ -62,7 +62,7 @@ This Access Role will be used to authorized your Gateway to execute actions in t
    akeyless assoc-role-am --role-name MyFirstRole --am-name MyFirstAPIKey
    ```
 
-Now you have an Authentication Method with the right access to deploy the Gateway.
+   Now you have an Authentication Method with the right access to deploy the Gateway.
 
 ## Create Your SSH Certificate Issuer
 
