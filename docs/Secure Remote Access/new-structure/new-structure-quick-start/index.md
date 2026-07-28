@@ -44,7 +44,7 @@ This Access Role will be used to authorized your Gateway to execute actions in t
    akeyless create-role --name MyFirstRole
    ```
 
-2. Set the role with access to all Items under /path/to/folder/ with Read and List permissions:
+2. Set the role with access to all Items under `/path/to/folder/` with Read and List permissions:
 
    ```shell
    akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --capability read --capability list
