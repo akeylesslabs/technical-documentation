@@ -166,11 +166,9 @@ Once you have finished those steps, run the following command to create your dep
 helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
 ```
 
-### Verify Deployment Success
+In order to verify..........., run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.
 
-Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.<br />
-
-#### Gateway URL
+**Gateway URL**
 
 run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`. Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (for example, `http://<Your-Akeyless-GW-URL>:8000/console`). If you get the login page, you have successfully deployed the Gateway!
 
