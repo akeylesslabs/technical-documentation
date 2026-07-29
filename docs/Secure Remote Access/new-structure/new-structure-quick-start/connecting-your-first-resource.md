@@ -62,7 +62,7 @@ akeyless auth-method create api-key --name MySraAPIKey
 
 ## Create an Access Role
 
-This Access Role authorizes your SRA user to connect to the resource.
+This [Access Role](doc:rbac) authorizes your SRA user to connect to the resource.
 
 1. Create a new access role:
 
