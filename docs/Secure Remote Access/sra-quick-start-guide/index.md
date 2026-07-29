@@ -10,23 +10,9 @@ metadata:
 next:
   description: ''
 ---
-This quick start guide deploys an Akeyless Gateway with Secure Remote Access on Kubernetes cluster via CLI commands, all Akeyless commands can be executed via API or Akeyless console.&#x20;
+This quick start guide deploys an [Akeyless Gateway](doc:gateway-overview) with [Secure Remote Access](doc:new-structure-overview) on Kubernetes cluster via CLI commands, all Akeyless commands can be executed via Akeyless console (<Anchor target="_blank" href="https://console.akeyless.io">console.akeyless.io</Anchor>) or <Anchor target="_blank" href="https://docs.akeyless.io/reference">API's</Anchor>.&#x20;
 
-By the end you will have:
-
-- A Gateway + SRA running as pods in your Kubernetes cluster, authenticated via API key
-- A real SSH server registered as a protected target
-- An actual SSH session proven to work **through** SRA
-
-**Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed using Docker Compose, but this guide will focus on Kubernetes.**
-
-**Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.**
-
-<Callout icon="ℹ️" theme="info">
-  ### **Security:**
-
-  This guide is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials. (how hard is it to add we need to create a test target)
-</Callout>
+for more deployment model check our \[choosing a deployment model]
 
 ## Prerequisites
 
@@ -47,7 +33,7 @@ By the end you will have:
 
 ## Create Authentication Method
 
-This authentication method will be used to authenticate your Akeyless Gateway to your Akeyless account. <br />For this guide, API key authentication is used for simplicity.
+This [Authentication Method](doc:access-and-authentication-methods) will be used to authenticate your Akeyless Gateway to your Akeyless account. <br />For this guide, API key authentication is used for simplicity.
 
 <ApiKeyWarning />
 
@@ -67,7 +53,7 @@ This Access Role will be used to authorized your Gateway to execute actions in t
    akeyless create-role --name MyFirstRole
    ```
 
-2. Set the role with access to all Items under /path/to/folder/ with Read and List permissions:
+2. Set the role with access to all Items under `/path/to/folder/` with Read and List permissions:
 
    ```shell
    akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --capability read --capability list
@@ -85,7 +71,7 @@ This Access Role will be used to authorized your Gateway to execute actions in t
    akeyless assoc-role-am --role-name MyFirstRole --am-name MyFirstAPIKey
    ```
 
-Now you have an Authentication Method with the right access to deploy the Gateway.
+   Now you have an Authentication Method with the right access to deploy the Gateway.
 
 ## Create Your SSH Certificate Issuer
 
@@ -104,7 +90,7 @@ Follow the below commands:
    ```
 
 <Callout icon="ℹ️" theme="info">
-  ### **A Note on SSH Connections:**
+  ### **Note:**
 
   This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/sra-ssh-certificates).
 </Callout>
@@ -122,9 +108,11 @@ helm repo update
 
 ### Configure the Helm Chart
 
-Here you will find the bare minimum values you will need in your Helm chart to get up and running.
+Fetch the Helm chart from helm repo:
 
-You can [download the chart](https://raw.githubusercontent.com/akeylesslabs/helm-charts/refs/heads/main/charts/akeyless-gateway/values.yaml) and open it in your favorite editor.
+```shell
+helm show values akeyless/akeyless-gateway > values.yaml
+```
 
 Below is an explanation of the minimum required fields by section. Find them in the file and edit them as per the instructions.
 
@@ -142,7 +130,7 @@ akeylessGatewayAuth:
 
 ```
 
-`gatewayAccessId`: For this quick start, we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) authentication method. Add your API Key's `Access ID`.
+`gatewayAccessId`: here we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) authentication method we created. Add your API Key's `Access ID`.
 
 `gatewayAccessType`: This is already set to `access_key` for API Key authentication.
 
@@ -187,19 +175,17 @@ Once you have finished those steps, run the following command to create your dep
 helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
 ```
 
-### Verify Deployment Success
+In order to verify..........., run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.
 
-Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.
+**Retrieve the Gateway URL**
 
-Then run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`. Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (for example, `http://<Your-Akeyless-GW-URL>:8000/console`). If you get the login page, you have successfully deployed the Gateway!
+Run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`.&#x20;
 
-#### Gateway URLs
+Copy the `EXTERNAL-IP` and paste that into your browser with port `8000/console` (for example, `http://<Your-Akeyless-GW-URL>:8000/console`).&#x20;
 
-For the Gateway, you can access the following:
+If you get the login page, you have successfully deployed the Gateway!
 
-- The Gateway's Internal Console is located at `http://<Your-Akeyless-GW-URL>:8000/console`. The internal console means you are working from inside the Gateway and talking directly with the SaaS. If you are using `https://console.akeyless.io`, you will not be able to interact with this Gateway as it is not secured with TLS.
-
-#### Remote Access URLs
+#### **Retrieve the&#x20;**&#x52;emote Access URLs
 
 For Remote Access, you can access the following:
 
@@ -207,40 +193,12 @@ For Remote Access, you can access the following:
 
 - Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/web-client`
 
-## Testing Out Remote Access
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
 
-Here we will lay out the steps to get a SAML user to access the Remote Access Portal.
+  This guide deployment is **not secured with TLS**.  <br />If you are using `https://console.akeyless.io`, you will not be able to interact with this Gateway as it is not secured with TLS.<br />We strongly recommend not using this setup in production or with real credentials.
 
-1. Firstly, you need to make sure you have your SAML application set up, for example, an Okta account set up with the Akeyless application configured. You will also need to retrieve your Metadata URL for this.
-
-2. Next, run the following command to create your SAML Auth Method and make sure to input your Kubernetes Service External-IP address:
-
-   ```shell
-   akeyless auth-method create saml --name mySamlAuth --unique-identifier email --idp-metadata-url <your-okta-metadata-url> --allowed-redirect-uri https://console.akeyless.io/login-saml,http://127.0.0.1:*,http://<EXTERNAL-IP-of-K8s-Service>:*
-   ```
-
-3. Create a role with access to Items with Secure Remote Access with Allow Access permissions.
-
-   ```shell
-   akeyless set-role-rule --role-name MySamlRole --path "/\*" --rule-type sra-rule --capability allow_access
-   ```
-
-4. Associate your Auth Method as follows:
-
-   ```shell
-   akeyless assoc-role-am --role-name MySamlRole --am-name MySamlAuth
-   ```
-
-5. Next, open your browser and go to your Remote Access internal endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/portal`
-
-6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that will redirect you to a page with various resources you can set at a later time.
-
-## Next Steps
-
-With a Gateway deployed, you can now test out using just-in-time [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) for various applications and services by setting up [Targets](https://docs.akeyless.io/docs/targets). If you are also using Remote Access, you can also set up Remote Access on those Targets and log into those [Resources](https://docs.akeyless.io/docs/supported-resource-types) securely from anywhere by [reading the docs](https://docs.akeyless.io/docs/sra-overview).<br /><br />
-
-- [Admin Guides](https://docs.akeyless.io/docs/sra-admin-guides)
-
-- [Accessing Resources](https://docs.akeyless.io/docs/sra-accessing-resources)
+  To configure Gateway with TLS check our [TLS Settings](doc:gateway-tls-settings) doc.
+</Callout>
 
 <br />
