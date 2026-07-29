@@ -29,13 +29,14 @@ Secure Remote Access (SRA) is Akeyless's modern Privileged Access Management (PA
 
 <br />
 
-## Why Teams Use It
+## Key Features&#x20;
 
 - **Zero Trust by design**: users never see or touch real credentials. Every connection is brokered and injected by the Gateway.
 - **Just-in-time access**: credentials are generated per session and expire automatically. There's no standing access and no long-lived secrets.
 - **Full session auditing and recording**: every session is logged, with video recording for RDP and web sessions along with transcripts for SSH, supporting compliance and forensic review.
 - **Session revocation on demand**: administrators can terminate an active session at any time, cutting off access immediately if something looks wrong.
 - **Request and approval workflows**: access can be granted on demand with time-limited grants instead of always-on permissions.
+- **File transfer via SFTP**: upload and download to protected targets over the same brokered, certificate-based tunnel, no local keys, no standing credentials.
 
 ## Ways to Access
 
