@@ -1,5 +1,5 @@
 ---
-title: Quick Start
+title: Connecting Your First SRA Resource
 deprecated: false
 hidden: false
 metadata:
