@@ -16,7 +16,7 @@ By the end, you'll have a real SSH session open from your terminal, proxied thro
 ## Prerequisites
 
 - [Gateway with SRA](doc:sra-quick-start-guide).
-- An existing SSH Certificate Issuer&#x20;
+- An existing [SSH Certificates Issuer](doc:sra-ssh-certificates)&#x20;
 - A target host reachable over SSH.
 - Console access with permission to edit SSH Certificate Issuers.
 - The `akeyless` CLI installed locally.
@@ -25,10 +25,8 @@ By the end, you'll have a real SSH session open from your terminal, proxied thro
 
 ## **Allow Gateway Access to the Host**
 
-1. The target host's firewall or security group must allow inbound SSH (port 22) from the SSH gateway pod.
-2. Allow-list the pod's outbound IP/CIDR or the node group/subnet range it runs in for port 22 on the target host.
-
-In your cluster, this pod is named `ssh-gw-akeyless-gateway-...`
+1. Allow outbound traffic from the gateway pod to the target host on `port 22`, In your cluster, this pod is named `ssh-gw-akeyless-gateway-....`
+2. Allow inbound traffic on the target host's firewall or security group from the gateway pod's IP/CIDR or node/subnet range on `port 22` .
 
 If this step is skipped, every step that follows will still appear correctly configured, but the connection will fail.
 
@@ -48,7 +46,7 @@ Edit the existing SSH Certificate Issuer created during the Gateway deployment d
 
 ***
 
-## Create Authentication Method
+## Create an Authentication Method
 
 This [Authentication Method](doc:access-and-authentication-methods) authenticates the user connecting to your resource. For this guide, API key authentication is used for simplicity.
 
@@ -62,7 +60,7 @@ This [Authentication Method](doc:access-and-authentication-methods) authenticate
 akeyless auth-method create api-key --name MySraAPIKey
 ```
 
-## Create Access Role
+## Create an Access Role
 
 This Access Role authorizes your SRA user to connect to the resource.
 
