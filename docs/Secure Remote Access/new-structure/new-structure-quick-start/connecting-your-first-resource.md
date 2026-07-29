@@ -116,11 +116,6 @@ Landing in a real shell on your target host confirms that SRA is working end-to-
 | Connection times out                   | Step 1 (network/firewall) was skipped or the pod's IP/CIDR isn't actually allow-listed on the target host                  | Re-check the target's firewall/security group against the SRA SSH gateway pod's real egress IP or subnet |
 | "Permission denied" when session opens | Username not included in **Allowed Users**, or **Secure Access SSH Creds User** doesn't match a real OS user on the target | Re-check both fields on the issuer against the actual OS username on the target host                     |
 
-***
-
-## Related Documentation
-
-- [SRA Beginner Quick Start](sra-quick-start-beginner.md)
-- SSH Certificate Issuer reference — _(TODO: add real docs.akeyless.io link before publishing)_
+<br />
 
 <br />
