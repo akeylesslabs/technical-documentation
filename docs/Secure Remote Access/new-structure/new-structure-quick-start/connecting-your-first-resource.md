@@ -7,7 +7,7 @@ metadata:
 ---
 This guide walks you through connecting your first protected resource for SRA.<br />As a concrete example, it walks through an SSH session to a target host and connecting to it using the [Akeyless Connect](doc:new-structure-akeyless-console) CLI command. In this example, the target host is an Ubuntu server. <br />check our [Supported Resource Types](doc:sra-resource-types).
 
-Configuration is done in the Akeyless Console, the connection itself is established from the CLI, authenticated with an API key.
+Configure the resource in the Akeyless Console, then authenticate the CLI with an [API key](doc:auth-with-api-key) to establish the connection.
 
 By the end, you'll have a real SSH session open from your terminal, proxied through SRA to your target host.
 
