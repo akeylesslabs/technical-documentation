@@ -98,7 +98,7 @@ Add the Akeyless Helm repository and configure your `values.yaml` before deployi
 
 ### Add the Akeyless Helm Repo
 
-Add the following repository to your Helm repository list:
+In order to Add the following repository to your Helm repository list, run the following commands:
 
 1. Add the Akeyless Helm repository to your local Helm client:
    ```shell
@@ -111,7 +111,7 @@ Add the following repository to your Helm repository list:
 
 ### Configure the Helm Chart
 
-Below is an explanation of the minimum required fields by section. Find them in the file and edit them as per the instructions.
+Below is an explanation of the minimum required fields by section. Find them in the file and edit them as per the instructions:
 
 1. Fetch the Default Values File:<br />
    ```shell
@@ -159,17 +159,17 @@ Below is an explanation of the minimum required fields by section. Find them in 
 
 ## Deployment
 
-With `values.yaml` configured, deploy the Helm chart and verify the Gateway and Remote Access pods come up correctly.
+In order to deploy the Helm chart with `values.yaml` configured and verify the Gateway and Remote Access pods come up correctly, run the following commands:
 
-### Deploy the Helm Chart
-
-Once you have finished those steps, run the following command to create your deployment:
-
-```shell
-helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
-```
-
-In order to verify..........., run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.
+1. Deploy the Helm Chart:
+   ```shell
+   helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
+   ```
+2. verify:
+   ```shell
+   kubectl get pods -w
+   ```
+   Confirm the Gateway and Remote Access pods reach `Running` state and that the Gateway and Remote Access services are available.
 
 **Retrieve the Gateway URL**
 
