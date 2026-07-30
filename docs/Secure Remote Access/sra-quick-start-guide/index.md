@@ -12,12 +12,11 @@ next:
 ---
 This quick start guide deploys an [Akeyless Gateway](doc:gateway-overview) with [Secure Remote Access](doc:new-structure-overview) on Kubernetes cluster via CLI commands, all Akeyless commands can be executed via Akeyless console (<Anchor target="_blank" href="https://console.akeyless.io">console.akeyless.io</Anchor>) or <Anchor target="_blank" href="https://docs.akeyless.io/reference">API's</Anchor>.&#x20;
 
-for more deployment model check our \[choosing a deployment model]
+for more deployment model check our \[Choose a deployment model]
 
 ## Prerequisites
 
-- An Akeyless account ([Creating an Akeyless Account Quickstart](doc:account-quickstart))
-- Akeyless CLI installed. ([Download CLI](doc:cli))
+- Akeyless [CLI installed](doc:cli).
 - A Kubernetes Cluster&#x20;
 - [kubectl](https://kubernetes.io/docs/tasks/tools/) installed context pointing to the Kubernetes Cluster
 - [Helm](https://helm.sh/) Installed
@@ -28,8 +27,6 @@ for more deployment model check our \[choosing a deployment model]
 | -------------------------------------------------------------------------------- | ---- |
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/configure-gateway) | 8000 |
 | SSH Access                                                                       | 22   |
-
-<br />
 
 ## Create Authentication Method
 
