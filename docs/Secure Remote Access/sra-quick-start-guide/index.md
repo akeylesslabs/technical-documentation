@@ -165,7 +165,7 @@ In order to deploy the Helm chart with `values.yaml` configured and verify the G
    ```shell
    helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
    ```
-2. verify:
+2. Verify the Deployment:
    ```shell
    kubectl get pods -w
    ```
