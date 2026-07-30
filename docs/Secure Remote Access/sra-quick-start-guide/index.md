@@ -169,23 +169,33 @@ In order to deploy the Helm chart with `values.yaml` configured and verify the G
    ```shell
    kubectl get pods -w
    ```
-   Confirm the Gateway and Remote Access pods reach `Running` state and that the Gateway and Remote Access services are available.
+   Confirm the Gateway and Remote Access pods reach `Running` state
+   ```shell
+   kubectl get services
+   ```
+   ```text
+   ```
+   &#x20;Confirm that the Gateway and Remote Access services are available.
 
-**Retrieve the Gateway URL**
+### Retrieve the Gateway URL
 
-Run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`.&#x20;
+In order to retrieve the Gateway URL run the following commands:
 
-Copy the `EXTERNAL-IP` and paste that into your browser with port `8000/console` (for example, `http://<Your-Akeyless-GW-URL>:8000/console`).&#x20;
+1. Get the external IP:
+   ```shell
+   kubectl get services
+   ```
+   &#x20;Look for the `EXTERNAL-IP `of the service starting with `quick-start-gw`.
+2. Open the Gateway console:<br />Copy the EXTERNAL-IP and open it in your browser on port 8000/console, for example:<br />`http://<Your-Akeyless-GW-URL>:8000/console`
+3. Confirm success:<br />If you see the login page, you've successfully deployed the Gateway.
 
-If you get the login page, you have successfully deployed the Gateway!
-
-#### **Retrieve the&#x20;**&#x52;emote Access URLs
+### Remote Access URLs
 
 For Remote Access, you can access the following:
 
-- The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL>:8000/sra/portal`
+- The Secure Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL>:8000/sra/portal`
 
-- Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/web-client`
+- Secure Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/web-client`
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
