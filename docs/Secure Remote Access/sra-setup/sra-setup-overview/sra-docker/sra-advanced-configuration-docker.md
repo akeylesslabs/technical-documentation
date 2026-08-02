@@ -115,7 +115,7 @@ SSH_HOST_KEYS_PATH=/MY_SSH_REMOTE_ACCESS_HOST_KEYS
 
 ## SSH Session Liveness Settings&#x20;
 
-To control how the bastion checks that both sides of a session are still responsive, the connection from the client into the bastion, and the connection from the bastion onward the target server, set the `SSH_CLIENT_ALIVE_INTERVAL`, `SSH_CLIENT_ALIVE_COUNT_MAX`, `SSH_SERVER_ALIVE_INTERVAL`, and `SSH_SERVER_ALIVE_COUNT_MAX` variables as part of your deployment in the `sra.env` config file:&#x20;
+To control how the bastion checks that both sides of a session are still responsive: the connection from the client into the gateway, and the connection from the gateway onward to the target server, set the `SSH_CLIENT_ALIVE_INTERVAL`, `SSH_CLIENT_ALIVE_COUNT_MAX`, `SSH_SERVER_ALIVE_INTERVAL`, and `SSH_SERVER_ALIVE_COUNT_MAX` variables as part of your deployment in the `sra.env` config file:
 
 ```yaml
 SSH_CLIENT_ALIVE_INTERVAL=120
