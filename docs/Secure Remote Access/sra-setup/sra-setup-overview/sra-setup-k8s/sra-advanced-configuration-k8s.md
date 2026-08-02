@@ -141,11 +141,7 @@ httpProxySettings:
 
 ## SSH Session Liveness Settings
 
-The following values control how SSH liveness probes behave across both hops of a bastion session.&#x20;
-
-The client-to-bastion connection and the bastion-to-target connection, determining how quickly an unresponsive session is detected and disconnected on each side.
-
-They're exposed as environment variables on the ssh-proxy container, surfaced through Helm values under `sshProxy.keepalive`:
+These values control how the bastion checks that both sides of a session are still responsive: the connection from the client into the gateway, and the connection from the gateway onward to the target server. They're exposed as environment variables under the `keepalive` key:
 
 ```yaml
 sshProxy:
@@ -155,10 +151,3 @@ sshProxy:
     serverAliveInterval: 120
     serverAliveCountMax: 2
 ```
-
-Where:
-
-- `clientAliveInterval`: Seconds between server-to-client SSH probes on the client-to-bastion flow.
-- `clientAliveCountMax` : Number of unanswered probes allowed before `sshd` disconnects the session.
-- `serverAliveInterval` : Seconds between client-to-server SSH probes on the bastion-to-target flow.
-- `serverAliveCountMax` : Number of unanswered probes allowed before the SSH client closes the session.
