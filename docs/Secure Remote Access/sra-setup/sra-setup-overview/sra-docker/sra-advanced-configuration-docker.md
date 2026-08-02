@@ -30,16 +30,16 @@ akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url h
 
 The options for this are:
 
-* `curve25519-sha256`
-* `diffie-hellman-group-exchange-sha1`
-* `diffie-hellman-group-exchange-sha256`
-* `diffie-hellman-group14-sha1`
-* `diffie-hellman-group14-sha256`
-* `diffie-hellman-group16-sha512`
-* `diffie-hellman-group18-sha512`
-* `ecdh-sha2-nistp256`
-* `ecdh-sha2-nistp384`
-* `ecdh-sha2-nistp521`
+- `curve25519-sha256`
+- `diffie-hellman-group-exchange-sha1`
+- `diffie-hellman-group-exchange-sha256`
+- `diffie-hellman-group14-sha1`
+- `diffie-hellman-group14-sha256`
+- `diffie-hellman-group16-sha512`
+- `diffie-hellman-group18-sha512`
+- `ecdh-sha2-nistp256`
+- `ecdh-sha2-nistp384`
+- `ecdh-sha2-nistp521`
 
 ## RDP Configuration
 
@@ -111,4 +111,15 @@ Use this parameter inside your deployment to store fingerprint information in a 
 
 ```yaml
 SSH_HOST_KEYS_PATH=/MY_SSH_REMOTE_ACCESS_HOST_KEYS
+```
+
+## SSH Session Liveness Settings&#x20;
+
+To control how the bastion checks that both sides of a session are still responsive, the connection from the client into the bastion, and the connection from the bastion onward the target server, set the `SSH_CLIENT_ALIVE_INTERVAL`, `SSH_CLIENT_ALIVE_COUNT_MAX`, `SSH_SERVER_ALIVE_INTERVAL`, and `SSH_SERVER_ALIVE_COUNT_MAX` variables as part of your deployment in the `sra.env` config file:&#x20;
+
+```yaml
+SSH_CLIENT_ALIVE_INTERVAL=120
+SSH_CLIENT_ALIVE_COUNT_MAX=2
+SSH_SERVER_ALIVE_INTERVAL=120
+SSH_SERVER_ALIVE_COUNT_MAX=2
 ```
