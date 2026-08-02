@@ -30,16 +30,16 @@ akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url h
 
 The options for this are:
 
-* `curve25519-sha256`
-* `diffie-hellman-group-exchange-sha1`
-* `diffie-hellman-group-exchange-sha256`
-* `diffie-hellman-group14-sha1`
-* `diffie-hellman-group14-sha256`
-* `diffie-hellman-group16-sha512`
-* `diffie-hellman-group18-sha512`
-* `ecdh-sha2-nistp256`
-* `ecdh-sha2-nistp384`
-* `ecdh-sha2-nistp521`
+- `curve25519-sha256`
+- `diffie-hellman-group-exchange-sha1`
+- `diffie-hellman-group-exchange-sha256`
+- `diffie-hellman-group14-sha1`
+- `diffie-hellman-group14-sha256`
+- `diffie-hellman-group16-sha512`
+- `diffie-hellman-group18-sha512`
+- `ecdh-sha2-nistp256`
+- `ecdh-sha2-nistp384`
+- `ecdh-sha2-nistp521`
 
 ## RDP Configuration
 
@@ -138,3 +138,27 @@ httpProxySettings:
   https_proxy: ""
   no_proxy: ""
 ```
+
+## SSH Session Liveness Settings
+
+The following values control how SSH liveness probes behave across both hops of a bastion session.&#x20;
+
+The client-to-bastion connection and the bastion-to-target connection, determining how quickly an unresponsive session is detected and disconnected on each side.
+
+They're exposed as environment variables on the ssh-proxy container, surfaced through Helm values under `sshProxy.keepalive`:
+
+```yaml
+sshProxy:
+  keepalive:
+    clientAliveInterval: 120
+    clientAliveCountMax: 2
+    serverAliveInterval: 120
+    serverAliveCountMax: 2
+```
+
+Where:
+
+- `clientAliveInterval`: Seconds between server-to-client SSH probes on the client-to-bastion flow.
+- `clientAliveCountMax` : Number of unanswered probes allowed before `sshd` disconnects the session.
+- `serverAliveInterval` : Seconds between client-to-server SSH probes on the bastion-to-target flow.
+- `serverAliveCountMax` : Number of unanswered probes allowed before the SSH client closes the session.
