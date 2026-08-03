@@ -186,16 +186,16 @@ In order to retrieve the Gateway URL run the following commands:
    kubectl get services
    ```
    &#x20;Look for the `EXTERNAL-IP `of the service starting with `quick-start-gw`.
-2. Open the Gateway console:<br />Copy the EXTERNAL-IP and open it in your browser on port 8000/console, for example:<br />`http://<Your-Akeyless-GW-URL>:8000/console`
+2. Open the Gateway console:<br />Copy the EXTERNAL-IP and open it in your browser on port 8000/console, for example:<br />`http://<Gateway-EXTERNAL-IP>:8000/console`
 3. Confirm success:<br />If you see the login page, you've successfully deployed the Gateway.
 
 ### Remote Access URLs
 
 For Remote Access, you can access the following:
 
-- The Secure Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL>:8000/sra/portal`
+- The Secure Remote Access Internal Web Portal is located at `http://<Gateway-EXTERNAL-IP>:8000/sra/portal`
 
-- Secure Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL>:8000/sra/web-client`
+- Secure Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Gateway-EXTERNAL-IP>:8000/sra/web-client`
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
@@ -204,5 +204,3 @@ For Remote Access, you can access the following:
 
   To configure Gateway with TLS check our [TLS Settings](doc:gateway-tls-settings) doc.
 </Callout>
-
-<br />
