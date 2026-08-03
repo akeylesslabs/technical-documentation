@@ -106,7 +106,7 @@ where:
 - `-t`   The OS user and target host/port to connect to. Must match the SSH username and host configured on the certificate issuer.
 - `-c` The existing SSH Certificate Issuer with Secure Remote Access enabled.
 - `-v` The external endpoint of your Gateway's SSH Access service, the `EXTERNAL-IP` (or DNS name) retrieved via `kubectl get services` of the service starting with `ssh-quick-start-gw,` and port `22` exposed by the SRA SSH service.
-- `-g` The base URL of your Akeyless Gateway, the endpoint the CLI uses to authenticate the session and issue the SSH certificate, e.g. `http://<Gateway-EXTERNAL-IP>:8080`.
+- `-g` The base URL of your Akeyless Gateway, the endpoint the CLI uses to authenticate the session and issue the SSH certificate, e.g. `http://<Gateway-EXTERNAL-IP>:8080` retrieved via `kubectl get services` of the service starting with `quick-start-gw`.
 - `--token`  The user token to Akeyless.
 
 Landing in a real shell on your target host with the banner "You are connecting to your remote server via Akeyless Bastion", confirms that SRA is working end-to-end.
