@@ -1,7 +1,7 @@
 ---
 title: Hashicorp Vault Proxy Legacy Configuration
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
