@@ -96,6 +96,8 @@ Copy the user t-token and connect:
 akeyless connect \
   -t "ubuntu@<host-ip-address>:22" \
   -c <cert-issuer-name> \
+  -v <Gateway-SSH-EXTERNAL-IP>:22 \
+	-g http://<Gateway-EXTERNAL-IP>
   --token <t-token>
 ```
 
@@ -103,6 +105,8 @@ where:
 
 - `-t`   The OS user and target host/port to connect to. Must match the SSH username and host configured on the certificate issuer.
 - `-c` The existing SSH Certificate Issuer with Secure Remote Access enabled.
+- `-v` The external endpoint of your Gateway's SSH Access service, the `EXTERNAL-IP` (or DNS name) retrieved via `kubectl get services` of the service starting with `ssh-quick-start-gw,` and port `22` exposed by the SRA SSH service.
+- `-g` The base URL of your Akeyless Gateway, the endpoint the CLI uses to authenticate the session and issue the SSH certificate, e.g. `http://<Gateway-EXTERNAL-IP>:8080`.
 - `--token`  The user token to Akeyless.
 
 Landing in a real shell on your target host confirms that SRA is working end-to-end.
