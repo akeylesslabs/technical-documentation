@@ -109,7 +109,7 @@ where:
 - `-g` The base URL of your Akeyless Gateway, the endpoint the CLI uses to authenticate the session and issue the SSH certificate, e.g. `http://<Gateway-EXTERNAL-IP>:8080`.
 - `--token`  The user token to Akeyless.
 
-Landing in a real shell on your target host confirms that SRA is working end-to-end.
+Landing in a real shell on your target host with the banner "You are connecting to your remote server via Akeyless Bastion", confirms that SRA is working end-to-end.
 
 ***
 
