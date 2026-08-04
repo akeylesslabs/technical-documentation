@@ -16,11 +16,13 @@ You can enable Secure Remote Access to a Windows machine with a [Dynamic Secret]
 
 To enable Secure Remote Access to a Windows machine you need:
 
-* [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
+- [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
-> ℹ️ **Note (Custom CA certificates):**
->
-> If your Windows machine uses a certificate signed by a custom or private certificate authority, add the CA certificate to the [Akeyless Gateway trust store](https://docs.akeyless.io/docs/gateway-certificate-store). The gateway validates the RDP connection certificate chain against the configured store, including any custom CA certificates.
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Custom CA certificates):**
+
+  If your Windows machine uses a certificate signed by a custom or private certificate authority, add the CA certificate to the [Akeyless Gateway trust store](https://docs.akeyless.io/docs/gateway-certificate-store). The gateway validates the RDP connection certificate chain against the configured store, including any custom CA certificates.
+</Callout>
 
 ## Create an RDP Secret
 
@@ -53,16 +55,16 @@ akeyless rotated-secret update windows \
 
 Where:
 
-* **secure-access-host:** The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret. For multiple values repeat this flag.
-* **secure-access-rdp-domain:** Optional, only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
+- **secure-access-host:** The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret. For multiple values repeat this flag.
+- **secure-access-rdp-domain:** Optional, only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
 
 Optional:
 
-* **secure-access-rdp-user:** Override the RDP Domain username.
-* **secure-access-allow-external-user:** Allow providing external user for a domain users [true/false].
-* **lock-during-sra-session:** Optional for Rotated Secret. Lock this secret for read and update while an SRA session is active.
-* **rotate-after-disconnect:** Optional for Rotated Secret. Controls post-session rotation. Supported values are `false`, `true`, `0` (immediate), or a positive number of minutes to delay rotation.
-* **secure-access-rd-gateway-server:** Optional for Dynamic Secret, to connect from SRA to the remote host by way of an RD-Gateway server.
+- **secure-access-rdp-user:** Override the RDP Domain username.
+- **secure-access-allow-external-user:** Allow providing external user for a domain users \[true/false].
+- **lock-during-sra-session:** Optional for Rotated Secret. Lock this secret for read and update while an SRA session is active.
+- **rotate-after-disconnect:** Optional for Rotated Secret. Controls post-session rotation. Supported values are `false`, `true`, `0` (immediate), or a positive number of minutes to delay rotation.
+- **secure-access-rd-gateway-server:** Optional for Dynamic Secret, to connect from SRA to the remote host by way of an RD-Gateway server.
 
 ## Set Up Remote Access to a Windows Machine from the Akeyless Console
 
@@ -74,13 +76,13 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
-    * `Host(s)`: The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret.
-    * `Domain`: Optional for Dynamic Secret. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
-    * `Override User`: Optional for Dynamic Secret. Override the RDP Domain username.
-    * `Allow Providing External Username`: Optional for Dynamic Secret. Select to enable an external username to log in to the target host.
-    * `RD Gateway`: Optional for Dynamic Secret. Connect from SRA to the remote host by way of an RD-Gateway server.
-    * `Lock secret while session is active`: Optional for Rotated Secret. Prevents read and update while a session is active.
-    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate immediately or set a delayed rotation schedule after the session ends.
+   - `Host(s)`: The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret.
+   - `Domain`: Optional for Dynamic Secret. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
+   - `Override User`: Optional for Dynamic Secret. Override the RDP Domain username.
+   - `Allow Providing External Username`: Optional for Dynamic Secret. Select to enable an external username to log in to the target host.
+   - `RD Gateway`: Optional for Dynamic Secret. Connect from SRA to the remote host by way of an RD-Gateway server.
+   - `Lock secret while session is active`: Optional for Rotated Secret. Prevents read and update while a session is active.
+   - `Rotate after disconnection`: Optional for Rotated Secret. Rotate immediately or set a delayed rotation schedule after the session ends.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
@@ -94,11 +96,13 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 4. If you are locked out of a session, click on the "Unlock" button at the top of your screen and you will be given the option to reconnect to your session. **IMPORTANT** This option is only supported with the installation of our [Remote Access (SRA) Web Extension](https://chromewebstore.google.com/search/Akeyless%20SRA) on your browser.
 
-> ℹ️ **Note (Session In Use Indicator):**
->
-> For RDP sessions using a **Rotated Secret** or **Static Secret**, the **In use** indicator is tracked **per host**. A session marked **In use** on one host does not mark the same secret as **In use** on other hosts.
->
-> To enable this feature, the Auth Method used for the Gateway-SRA privileged Access-ID requires an Access Role with the _Update_ permission on the relevant items' path
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Session In Use Indicator):**
+
+  For RDP sessions using a **Rotated Secret** or **Static Secret**, the **In use** indicator is tracked **per host**. A session marked **In use** on one host does not mark the same secret as **In use** on other hosts.
+
+  To enable this feature, the Auth Method used for the Gateway-SRA privileged Access-ID requires an Access Role with the _Update_ permission on the relevant items' path
+</Callout>
 
 ## Inject a Fixed User Password Automatically
 
@@ -110,7 +114,15 @@ Create a new [Static Secret](https://docs.akeyless.io/docs/static-secrets) under
 
 Based on your permissions, you will have the ability to upload files from your local machine into the remote Windows machine or download files from the remote Windows machine to your local machine.
 
-To download files from a remote server, simply drag the desired files into the `Download` folder inside the mounted virtual disk named `file-share on Guacamole RDP` located under `This PC`, and a download process will start immediately where the file will be put into your local machine's Download folder. To upload files, use the **Upload** button on top of your session actions bar menu. The files you upload will be located in the same shared drive.
+To upload or download files from a remote server, use the following locations:
 
-> ℹ️ **Info (Mounted Folder):**
-> Notice that upload stores (temporarily) the file on the Secure Remote Access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.
+| Session | Upload (Your PC → Remote)                                        | Download (Remote → Your PC)                           |
+| ------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
+| RDP     | Files are saved directly to`This PC\file-share on Guacamole RDP` | Move file to `\tsclient\file-share\Download`          |
+| SSH     | Files are uploaded straight to`/home/<user`                      | Move file to `akl-downloads`, then click **Download** |
+
+<Callout icon="ℹ️" theme="info">
+  ### **Info (Mounted Folder):**
+
+  Notice that upload stores (temporarily) the file on the Secure Remote Access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.
+</Callout>
