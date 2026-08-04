@@ -97,7 +97,7 @@ akeyless connect \
   -t "ubuntu@<host-ip-address>:22" \
   -c <cert-issuer-name> \
   -v <Gateway-SSH-EXTERNAL-IP>:22 \
-	-g http://<Gateway-EXTERNAL-IP>
+	-g http://<Gateway-EXTERNAL-IP> \
   --token <t-token>
 ```
 
