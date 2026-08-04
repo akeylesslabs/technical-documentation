@@ -186,7 +186,7 @@ In order to retrieve the Gateway URL run the following commands:
    kubectl get services
    ```
    &#x20;Look for the `EXTERNAL-IP `of the service starting with `quick-start-gw`.
-2. Open the Gateway console:<br />Copy the EXTERNAL-IP and open it in your browser on port 8000/console, for example:<br />`http://<Gateway-EXTERNAL-IP>:8000/console`
+2. Open the Gateway console:<br />Copy the EXTERNAL-IP and open it in your browser on port `8000/console`, for example:<br />`http://<Gateway-EXTERNAL-IP>:8000/console`
 3. Confirm success:<br />If you see the login page, you've successfully deployed the Gateway.
 
 ### Remote Access URLs
