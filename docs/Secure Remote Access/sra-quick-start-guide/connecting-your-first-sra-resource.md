@@ -19,7 +19,7 @@ By the end, you'll have a real SSH session open from your terminal, proxied thro
 - An existing [SSH Certificates Issuer](doc:sra-ssh-certificates)&#x20;
 - A target host reachable over SSH.
 - Console access with permission to edit [SSH Certificate Issuers](doc:sra-ssh-certificates).
-- The `akeyless` CLI installed locally.
+- The [akeyless CLI ](doc:cli)installed locally.
 
 ***
 
@@ -97,7 +97,7 @@ akeyless connect \
   -t "ubuntu@<host-ip-address>:22" \
   -c <cert-issuer-name> \
   -v <Gateway-SSH-EXTERNAL-IP>:22 \
-  -g http://<Gateway-EXTERNAL-IP> \
+  -g https://<Gateway-EXTERNAL-IP> \
 	--token <t-token>
 ```
 
