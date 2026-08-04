@@ -120,9 +120,3 @@ To upload or download files from a remote server, use the following locations:
 | ------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
 | RDP     | Files are saved directly to`This PC\file-share on Guacamole RDP` | Move file to `\tsclient\file-share\Download`          |
 | SSH     | Files are uploaded straight to`/home/<user`                      | Move file to `akl-downloads`, then click **Download** |
-
-<Callout icon="ℹ️" theme="info">
-  ### **Info (Mounted Folder):**
-
-  Notice that upload stores (temporarily) the file on the Secure Remote Access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.
-</Callout>
