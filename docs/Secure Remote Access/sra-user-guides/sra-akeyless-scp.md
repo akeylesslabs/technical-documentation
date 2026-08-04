@@ -25,13 +25,6 @@ Use the command family that matches your access goal:
 1. `akeyless connect` for interactive sessions and tunnel-oriented workflows.
 2. `akeyless file upload` and `akeyless file download` for secure file transfer through SRA.
 
-Depending on your session type, files will be transferred to and from the following locations:
-
-| Session | Upload (Your PC → Remote)                                        | Download (Remote → Your PC)                           |
-| ------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
-| RDP     | Files are saved directly to`This PC\file-share on Guacamole RDP` | Move file to `\tsclient\file-share\Download`          |
-| SSH     | Files are uploaded straight to`/home/<user`                      | Move file to `akl-downloads`, then click **Download** |
-
 Effective access is controlled by SRA permissions, issuer policy, and target configuration.
 
 ## File Transfer
