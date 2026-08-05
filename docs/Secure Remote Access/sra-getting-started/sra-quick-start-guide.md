@@ -12,7 +12,7 @@ next:
 ---
 This quick start guide deploys an [Akeyless Gateway](doc:gateway-overview) with [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) on Kubernetes cluster using the [Akeyless CLI](https://docs.akeyless.io/docs/cli), this can also be achieved via Akeyless console.
 
-for more deployment model check our [Choose a deployment model](https://docs.akeyless.io/docs/sra-setup-overview) guide.
+For more deployment model check our [Choose a deployment model](https://docs.akeyless.io/docs/sra-setup-overview) guide.
 
 ## &#x20;Prerequisites
 
