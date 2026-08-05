@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-This quick start guide deploys an [Akeyless Gateway](doc:gateway-overview) with [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) on Kubernetes cluster via CLI commands, all Akeyless commands can be executed via Akeyless console or <Anchor target="_blank" href="https://docs.akeyless.io/reference">API's</Anchor>.&#x20;
+This quick start guide deploys an [Akeyless Gateway](doc:gateway-overview) with [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) on Kubernetes cluster using the [Akeyless CLI](https://docs.akeyless.io/docs/cli), this can also be achieved via Akeyless console.
 
-for more deployment model check our \[Choose a deployment model]
+for more deployment model check our [Choose a deployment model](https://docs.akeyless.io/docs/sra-setup-overview) guide.
 
-## Prerequisites
+## &#x20;Prerequisites
 
 - Akeyless [CLI installed](doc:cli).
 - A Kubernetes Cluster&#x20;
