@@ -164,10 +164,12 @@ Below is an explanation of the minimum required fields by section. Find them in 
 In order to deploy the Helm chart with `values.yaml` configured and verify the Gateway and Remote Access pods come up correctly, run the following commands:
 
 1. Deploy the Helm Chart:
+
    ```shell
    helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
    ```
 2. Verify the Deployment:
+
    ```shell
    kubectl get pods -w
    ```
