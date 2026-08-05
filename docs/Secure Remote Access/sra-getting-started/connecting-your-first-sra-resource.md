@@ -26,10 +26,9 @@ By the end, you'll have a real SSH session open from your terminal, proxied thro
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
 
-  This guide continues from the [Quick Start](doc:sra-structure-quick-start) Guide, where the Gateway was deployed without TLS, so the steps below use `http://`.<br />
-  We strongly recommend not using this setup in production or with real credentials.
+  This guide continues from the [Quick Start](doc:sra-structure-quick-start) Guide, where the Gateway was deployed without TLS.<br /><br />We strongly recommend not using this setup in production or with real credentials.
 
-  To configure your Gateway with TLS, see our [TLS Settings](doc:gateway-tls-settings) doc, then use `https://` instead.
+  To configure your Gateway with TLS, see our [TLS Settings](doc:gateway-tls-settings) doc.
 </Callout>
 
 ## **Allow Gateway Access to the Host**
