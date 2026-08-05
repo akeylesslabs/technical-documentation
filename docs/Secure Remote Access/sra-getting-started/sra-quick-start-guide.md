@@ -30,11 +30,13 @@ For more deployment model check our [Choose a deployment model](https://docs.ake
 
 ## Create an Authentication Method
 
-This [Authentication Method](doc:access-and-authentication-methods) will be used to authenticate your [Akeyless Gateway ](doc:gateway-overview)to your Akeyless account. <br />For this guide, [API Key](doc:auth-with-api-key) authentication is used for simplicity.
+In this section, we will create an [Authentication Method](doc:access-and-authentication-methods) which will be used to authenticate your [Akeyless Gateway ](doc:gateway-overview)to your Akeyless account.&#x20;
+
+For this guide, [API Key](doc:auth-with-api-key) authentication is used for simplicity.
 
 <ApiKeyWarning />
 
-Create an API Key authentication method:
+Run the following command to create an API Key authentication method:
 
 ```shell
 akeyless auth-method create api-key --name MyFirstAPIKey
@@ -42,9 +44,9 @@ akeyless auth-method create api-key --name MyFirstAPIKey
 
 ## Create an Access Role
 
-This [Access Role](doc:rbac) will be used to authorized your Gateway to execute actions in the Akeyless account.
+In this section, we will create an [Access Role](doc:rbac) that will be used to authorized your Gateway to execute actions in the Akeyless account.
 
-1. Create a new access role:
+1. Run the following command to create a new access role:
 
    ```shell
    akeyless create-role --name MyFirstRole
@@ -94,7 +96,7 @@ In order to create an [SSH Certificates issuer](doc:sra-ssh-certificates), run t
 
 ## Configuration
 
-Add the Akeyless Helm repository and configure your `values.yaml` before deploying the Gateway and Secure Remote Access.
+In this section we will add the Akeyless Helm repository and configure your `values.yaml` before deploying the Gateway and Secure Remote Access.
 
 ### Add the Akeyless Helm Repo
 
@@ -113,7 +115,7 @@ In order to Add the following repository to your Helm repository list, run the f
 
 Below is an explanation of the minimum required fields by section. Find them in the file and edit them as per the instructions:
 
-1. Fetch the Default Values File:<br />
+1. Fetch the Default Values File:
    ```shell
    helm show values akeyless/akeyless-gateway > values.yaml
    ```
