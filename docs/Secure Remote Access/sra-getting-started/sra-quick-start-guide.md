@@ -186,6 +186,7 @@ In order to deploy the Helm chart with `values.yaml` configured and verify the G
 In order to retrieve the Gateway URL run the following commands:
 
 1. Get the external IP:
+
    ```shell
    kubectl get services
    ```
