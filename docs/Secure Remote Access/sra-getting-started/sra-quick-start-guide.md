@@ -173,12 +173,15 @@ In order to deploy the Helm chart with `values.yaml` configured and verify the G
    ```shell
    kubectl get pods -w
    ```
+
    Confirm the Gateway and Remote Access pods reach `Running` state
+
    ```shell
    kubectl get services
    ```
    ```text
    ```
+
    &#x20;Confirm that the Gateway and Remote Access services are available.
 
 ### Retrieve the Gateway URL
@@ -190,9 +193,10 @@ In order to retrieve the Gateway URL run the following commands:
    ```shell
    kubectl get services
    ```
+
    &#x20;Look for the `EXTERNAL-IP `of the service starting with `quick-start-gw`.
-2. Open the Gateway console:<br />Copy the EXTERNAL-IP and open it in your browser on port `8000/console`, for example:<br />`http://<Gateway-EXTERNAL-IP>:8000/console`
-3. Confirm success:<br />If you see the login page, you've successfully deployed the Gateway.
+2. Open the Gateway console: Copy the EXTERNAL-IP and open it in your browser on port `8000/console`, for example: `http://<Gateway-EXTERNAL-IP>:8000/console`
+3. If you see the login page, you've successfully deployed the Gateway.
 
 ### Remote Access URLs
 
