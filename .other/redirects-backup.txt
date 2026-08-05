@@ -853,4 +853,4 @@
 /v2/docs/akeyless-mcp-model-context-protocol-command -> /docs/mcp
 /docs/akeyless-mcp-plugin-jetbrains-ides -> /docs/mcp-jetbrains-ides
 /v2/docs/akeyless-mcp-plugin-jetbrains-ides -> /docs/mcp-jetbrains-ides
-/docs/sra-setup-k8s -> docs/sra-setup-k8s
+/docs/sra-setup-k8s -> /docs/sra-setup-k8s
