@@ -29,5 +29,3 @@ Related operations:
 - [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect)
 - [Akeyless File Transfer](https://docs.akeyless.io/docs/sra-akeyless-scp)
 - [SSH Certificates](https://docs.akeyless.io/docs/sra-ssh-certificates)
-
-<br />
