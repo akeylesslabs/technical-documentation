@@ -50,13 +50,13 @@ This [Access Role](doc:rbac) will be used to authorized your Gateway to execute 
    akeyless create-role --name MyFirstRole
    ```
 
-2. Set the role with access to all Items under `/path/to/folder/` with Read and List permissions:
+2. Set the role with access to all Items under `/path/to/folder/` with `Read` and `List` permissions:
 
    ```shell
    akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --capability read --capability list
    ```
 
-3. Also, set the role with access to Targets:
+3. Also, set the role with access to [Targets](https://docs.akeyless.io/docs/targets):
 
    ```shell
    akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --rule-type target-rule --capability read --capability list
