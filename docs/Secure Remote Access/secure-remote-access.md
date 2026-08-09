@@ -78,7 +78,7 @@ Use this path based on the immediate objective:
 1. Baseline deployment: [Quick Start](https://docs.akeyless.io/docs/sra-quick-start-guide)
 2. Deployment planning and architecture: [Setup Overview](https://docs.akeyless.io/docs/sra-setup-overview)
 3. Resource onboarding: [Supported Resource Types](https://docs.akeyless.io/docs/sra-resource-types)
-4. User operation model: [Accessing Resources](https://docs.akeyless.io/docs/sra-accessing-resources)
+4. User operation model: [Accessing Resources](https://docs.akeyless.io/docs/sra-user-guides)
 5. Admin controls and policies: [SRA Admin Guides](https://docs.akeyless.io/docs/sra-admin-guides)
 
 ## Documentation Map
