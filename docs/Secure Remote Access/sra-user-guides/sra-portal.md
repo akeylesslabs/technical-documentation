@@ -18,12 +18,16 @@ All Akeyless-supported [resource types](https://docs.akeyless.io/docs/sra-resour
 
 Currently, the SRA Portal supports the following authentication methods:
 
-* [SAML](https://docs.akeyless.io/docs/auth-with-saml)
-* [OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
-* [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
-* [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
+- [SAML](https://docs.akeyless.io/docs/auth-with-saml)
+- [OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
+- [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
+- [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
 
-> ✅ **Tip (Allowed redirect URL):** If you are using SAML or OIDC auth methods, ensure your Gateway URL is trusted.
+<Callout icon="✅" theme="okay">
+  ### **Tip&#x20;**
+
+  **(Allowed redirect URL):** If you are using SAML or OIDC auth methods, ensure your Gateway URL is trusted.
+</Callout>
 
 ## Connect from the Secure Remote Access Portal
 
@@ -79,11 +83,13 @@ For large payload transfers, use file transfer workflows instead of clipboard co
 
 In addition to existing hosts that are part of the allowed hosts on the [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh), you can add new hostnames or IP addresses on the fly by using a matching SSH Cert Issuer that can provide access.
 
-> ℹ️ **Note (Key Features):**
->
-> * **On-the-Fly Connections**: Users can provide a hostname or IP address for **RDP** or **SSH** sessions as needed.
-> * **Temporary Host Addition**: Hostnames added through this feature are temporary and stored in the browser’s cache.
-> * **Edit** and **Delete** Capability: Users can edit or remove the last added host from the list.
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Key Features):**
+
+  - **On-the-Fly Connections**: Users can provide a hostname or IP address for **RDP** or **SSH** sessions as needed.
+  - **Temporary Host Addition**: Hostnames added through this feature are temporary and stored in the browser’s cache.
+  - **Edit** and **Delete** Capability: Users can edit or remove the last added host from the list.
+</Callout>
 
 1. In the SSH or RDP window, choose **Custom Target** and click the **+** button.
 2. Select the **Permission Profile**. For example, [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh).
