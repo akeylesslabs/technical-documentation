@@ -12,36 +12,39 @@ next:
 ---
 ## Configuring HashiCorp Vault Proxy
 
-1. Set Akeyless HashiCorp Vault Proxy URL in: `VAULT_ADDR` environment variable:
+1. Set the `VAULT_ADDR` environment variable to point to your proxy endpoint
 
-   ```shell hvp.akeyless.io
-   export VAULT_ADDR=https://hvp.akeyless.io
-   ```
-   ```shell Custom Gateway
+   **Custom Endpoint:**
+
+   ```shell Shell
    export VAULT_ADDR=https://your_gw_url:8200
    ```
 
+   **Akeyless SaaS Proxy:**
+
+   ```shell
+   export VAULT_ADDR=https://hvp.akeyless.io
+   ```
+
+**Note:&#x20;**&#x43;ustom Gateways require port `:8200` for Vault Proxy traffic.
+
 2. Now, you'll need to configure the authentication token that would be used by Vault CLI to fetch secrets from Akeyless.
 
-3. Set your Akeyless token in `~/.vault-token`: `Access Id..Access Key`, for example:
-
+   Set your Akeyless token in `~/.vault-token`: `Access Id..Access Key`, for example:
    ```shell
    AccessID..AccessKey
    ```
-
-4. Verify `"hvp_route_version"`  is set to `2` on the gateway:
+3. Verify `"hvp_route_version"`  is set to `2` on the gateway (Custom Gateway Only):
    ```shell
    akeyless gateway get defaults --gateway-url <your_gateway_url>
    ```
 
-You will see `hvp_route_version`  in the output, if it is set to `1` , update it to `2` .
+For Custom Gateways, ensure that `hvp_route_version` is set to `2`.
 
 <Callout icon="📘" theme="info">
-  ### Note
+  ### Legacy Route Version 1:
 
-  This guide refers to `"hvp_route_version": 2`.
-
-  If your gateway is configured with `"hvp_route_version": 1` , please refer to the legacy configuration [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy-legacy-configuration).&#x20;
+  If your environment strictly requires `hvp_route_version": 1`, please refer to our [Legacy HVP Configuration Guide](https://docs.akeyless.io/docs/hashicorp-vault-proxy-legacy-configuration).
 </Callout>
 
 # Examples
