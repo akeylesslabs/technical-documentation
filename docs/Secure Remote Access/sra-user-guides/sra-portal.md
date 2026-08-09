@@ -16,6 +16,8 @@ The Secure Remote Access Portal is available through the main console at `http:/
 
 All Akeyless-supported [resource types](https://docs.akeyless.io/docs/sra-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli), or the [Desktop Application](https://docs.akeyless.io/docs/sra-desktop-application).
 
+**Note**: If you are managing multiple Secure Remote Access sessions concurrently, your web browser might suspend background tabs to save system resources. As a result, inactive SRA connections may unexpectedly terminate when you navigate back to them.
+
 Currently, the SRA Portal supports the following authentication methods:
 
 - [SAML](https://docs.akeyless.io/docs/auth-with-saml)
