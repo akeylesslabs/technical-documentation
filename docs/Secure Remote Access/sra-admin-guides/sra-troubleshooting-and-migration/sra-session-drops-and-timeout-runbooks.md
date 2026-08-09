@@ -1,6 +1,5 @@
 ---
 title: Session Drops and Timeout Runbooks
-slug: sra-session-drops-and-timeout-runbooks
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,17 +9,18 @@ metadata:
   robots: index
 next:
   description: ''
+slug: sra-session-drops-and-timeout-runbooks
 ---
 Use this page to diagnose and resolve unexpected session termination in SSH, RDP, and web-access flows.
 
 ## Common Causes
 
-| Symptom pattern | Common cause |
-| --- | --- |
+| Symptom pattern                                         | Common cause                                                                   |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | Active sessions terminate during rollout or autoscaling | Bastion pod restart or HPA scale-in terminated a pod that held active sessions |
-| Sessions close after fixed idle window | Ingress or load balancer timeout shorter than expected session duration |
-| New SSH sessions fail during spikes | `CONFIG_MAX_STARTUPS` threshold reached on SSH bastion |
-| Session ends near a configured policy limit | Session TTL expiry from Gateway SRA configuration |
+| Sessions close after fixed idle window                  | Ingress or load balancer timeout shorter than expected session duration        |
+| New SSH sessions fail during spikes                     | `CONFIG_MAX_STARTUPS` threshold reached on SSH bastion                         |
+| Session ends near a configured policy limit             | Session TTL expiry from Gateway SRA configuration                              |
 
 ## Runbook 1: Bastion Restart or HPA Scale-In
 
@@ -101,11 +101,11 @@ For TTL policy configuration, see [Session TTL and Security Controls](https://do
 
 When escalating an incident, collect:
 
-* Affected cluster name and deployment mode (unified or split).
-* Session ID samples and status transitions.
-* Bastion/gateway restart evidence and scale-event timestamps.
-* Ingress or load balancer timeout values.
-* Effective `CONFIG_MAX_STARTUPS` setting.
+- Affected cluster name and deployment mode (unified or split).
+- Session ID samples and status transitions.
+- Bastion/gateway restart evidence and scale-event timestamps.
+- Ingress or load balancer timeout values.
+- Effective `CONFIG_MAX_STARTUPS` setting.
 
 ## Runbook 5: RDP Tab Closes Without Error
 
@@ -127,9 +127,9 @@ When escalating an incident, collect:
 
 When escalating RDP connection failures, collect in addition to the above:
 
-* Bastion deployment `UAM_ADDR` environment variable value.
-* Account region setting from Gateway console.
-* Bastion authentication log excerpts around the time of RDP session initiation.
+- Bastion deployment `UAM_ADDR` environment variable value.
+- Account region setting from Gateway console.
+- Bastion authentication log excerpts around the time of RDP session initiation.
 
 ## Runbook 6: Active SSH Sessions Drop at Fixed Short Intervals
 
@@ -148,5 +148,21 @@ Use this runbook when SSH sessions disconnect around a fixed short interval (for
 2. For GKE ingress, configure `BackendConfig` or `GCPBackendPolicy` `timeoutSec` for SRA services.
 3. If multiple ingress controllers or site-specific ingress resources are used, verify timeout settings are consistent across all SRA-related ingress objects.
 4. Re-test sustained SSH activity sessions after timeout updates.
+
+## Runbook 7: Inactive Session Terminates After Tab Backgrounding
+
+Use this runbook when a session that was left idle in a background tab has disconnected by the time the user returns to it, with no server-side restart, timeout, or TTL expiry to explain it.
+
+### Diagnostics
+
+1. Confirm no bastion pod restart, scale event, ingress timeout, or TTL expiry occurred in the relevant window.
+2. Check whether the user was running multiple concurrent SRA sessions in separate browser tabs.
+3. Ask the affected user whether the tab was backgrounded (minimized, switched away from, or left inactive) for an extended period before the disconnect was noticed.
+
+### Resolution
+
+1. Tell the affected user this is expected browser behavior, not an SRA or Gateway-side issue: browsers can suspend inactive background tabs to conserve system resources, and a suspended tab can cause its SRA connection to drop.
+2. Advise the user to keep the SRA tab active/focused for long-running sessions, or to reduce the number of concurrent SRA tabs open at once.
+3. If your organization has guidance for it, point the user to their browser's settings for exempting a tab from memory-saving/tab-suspension features.
 
 For platform timeout baselines, see [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements#session-timeout-and-ttl-alignment).
