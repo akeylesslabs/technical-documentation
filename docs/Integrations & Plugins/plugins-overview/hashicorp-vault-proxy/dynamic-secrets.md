@@ -14,8 +14,11 @@ next:
 
 1. Set Akeyless HashiCorp Vault Proxy URL in: `VAULT_ADDR` environment variable:
 
-   ```shell
+   ```shell hvp.akeyless.io
    export VAULT_ADDR=https://hvp.akeyless.io
+   ```
+   ```shell Custom Gateway
+   export VAULT_ADDR=https://your_gw_url:8200
    ```
 
 2. Now, you'll need to configure the authentication token that would be used by Vault CLI to fetch secrets from Akeyless.
@@ -45,7 +48,9 @@ You will see `hvp_route_version`  in the output, if it is set to `1` , update it
 
 The following section shows the usage of working with the vault CLI to manage resources in your Akeyless account:
 
-## Get Secret:
+## Fetching Secrets:
+
+To retrieve a [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated](https://docs.akeyless.io/docs/rotated-secrets) and [Static](http://docs.akeyless.io/docs/static-secrets) using the Vault CLI via HashiCorp Vault Proxy, run:
 
 ```shell
 vault read /<full_secret_name>
