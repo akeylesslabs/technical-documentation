@@ -19,3 +19,4 @@
 - rdp-dynamic-secrets
 - snowflake-dynamic-secrets
 - custom-producer
+- aerospike-dynamic-secrets
