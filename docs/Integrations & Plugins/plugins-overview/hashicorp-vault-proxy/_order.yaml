@@ -1,6 +1,6 @@
 - github-actions-hvp
 - vault-proxy-authentication-methods
-- dynamic-secrets
+- hvp-proxy-conf
 - jenkins-plugin-via-hvp
 - teamcity-hcv-plugin
 - hashicorp-vault-proxy-legacy-configuration
