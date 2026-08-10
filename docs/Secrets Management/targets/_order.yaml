@@ -1,4 +1,5 @@
 - artifactory-targets
+- aerospike-target
 - aws-targets
 - azure-targets
 - bedrock-target
@@ -36,4 +37,3 @@
 - web-targets
 - windows-target
 - zerossl-target
-- aerospike-target
