@@ -844,7 +844,7 @@ If you prefer simplified guidance without detailed calculations, use these guide
 * **1001–2500 pods**: 1 Gateway replica minimum; **2** Gateway replicas recommended; 2 Injector replicas.
 * **Over 2500 pods**: use `r = 2 + ceil((p - 2500) / 1500)` — add **1** Gateway replica per additional **1500** concurrent inject pods (for example, **2501–4000** pods → **3** Gateway replicas; **4001–5500** → **4**). Keep **2** Injector replicas (scale injectors for HA/webhook only). Confirm worker node capacity first — at very large N the limiter is often nodes, not Gateway.
 
-With TokenReview tuned as above, one Gateway replica can handle on the order of **1000–2500** concurrent inject pods within the injector HTTP timeout (lab p95 stays comfortable through ~2500 on adequately sized nodes). A second Gateway replica further reduces latency and is recommended above 1000 pods for headroom/HA. Injector replica count has little effect on inject latency once TokenReview is tuned; run at least two injectors for availability.
+With TokenReview tuned as above, one Gateway replica can handle on the order of **1000–2500** concurrent inject pods when queue drain time and injection latency stay below both the Kubernetes mutating webhook timeout (`30` seconds) and the Injector HTTP timeout (typically about `55` seconds). The Injector timeout does not extend the API server’s admission window — keep latency under the `30`-second webhook limit. A second Gateway replica further reduces latency and is recommended above 1000 pods for headroom/HA. Injector replica count has little effect on inject latency once TokenReview is tuned; run at least two injectors for availability.
 
 Use this planning table for the same guidance in tabular form.
 
@@ -887,7 +887,7 @@ For Injector:
 ### Webhook timeout guidance
 
 * Set the mutating webhook timeout to `30` seconds when sizing for large concurrent bursts.
-* Keep Gateway queue drain time and inject latency comfortably below the injector HTTP timeout (typically about `55` seconds).
+* Keep Gateway queue drain time and injection latency below both the mutating webhook timeout (`30` seconds) and the Injector HTTP timeout (typically about `55` seconds). The Injector timeout cannot extend the API server’s `30`-second admission limit.
 * If queue drain time approaches the timeout, confirm TokenReview QPS/Burst environment variables first, then increase Gateway replicas; tune Injector replicas mainly for availability.
 
 ### Deployment optimization for injector latency
