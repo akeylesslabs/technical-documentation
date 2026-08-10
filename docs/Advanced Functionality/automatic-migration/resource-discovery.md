@@ -16,77 +16,84 @@ The discovery process will search for domain users and migrate them as [LDAP Rot
 
 The [LDAP Target](https://docs.akeyless.io/docs/ldap-target) should contain a **Privilege Domain User** that has permission to perform the following:
 
-* Run LDAP search query
+- Run LDAP search query
 
-* Change the domain user's password
+- Change the domain user's password
 
-* Connecting to Windows and Linux domain servers (through NTLM, SSH)
+- Connecting to Windows and Linux domain servers (through NTLM, SSH)
 
-* Installing OpenSSH.Server by way of Windows features, **relevant** only for [SSH Targets](https://docs.akeyless.io/docs/ssh-target).
+- Installing OpenSSH.Server by way of Windows features, **relevant** only for [SSH Targets](https://docs.akeyless.io/docs/ssh-target).
 
-* Search for local users and change their password
+- Search for local users and change their password
 
 When working with [SSH Target](https://docs.akeyless.io/docs/ssh-target), the migration process will try to install the `OpenSSH.Server` Windows feature on Windows servers where SSH is not installed, for domain servers using WinRM over `https` or `http` using NTLM for authentication over port `5986` or `5985` correspondingly.
 
-> ⚠️ **Warning:**
->
-> Running WinRM over `http` should not be used on production environments.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  Running WinRM over `http` should not be used on production environments.
+</Callout>
 
 Note: When using Self Signed Certificate, please mount the matching certificate to the Akeyless Gateway server at `etc/ssl/certs`
 
-> ℹ️ **Note (Active Directory migration compatibility):**
->
-> The OpenSSH server is available as a supported Feature-on-Demand in Windows Server 2022, Windows Server 2019, and Windows 10 (build 1809 and later)
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Active Directory migration compatibility):**
+
+  The OpenSSH server is available as a supported Feature-on-Demand in Windows Server 2022, Windows Server 2019, and Windows 10 (build 1809 and later)
+</Callout>
 
 ## Set Up Automatic Migration for Active Directory
 
 To create the migration from your Active Directory, log in to your **Gateway Console**, navigate to **Automatic Migration > Active Directory > Add**, and set the following:
 
-* **Name:** A unique name for the migration object.
+- **Name:** A unique name for the migration object.
 
-* **Target:** Select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) in Akeyless, where the `Server type` should be `Active Directory`.
+- **Target:** Select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) in Akeyless, where the `Server type` should be `Active Directory`.
 
-* **Discovery Type**: Set the desired discovery mode. Supported options are **Domain Users**, **Local Users**, **Computers** and **Certificates**.
+- **Discovery Type**: Set the desired discovery mode. Supported options are **Domain Users**, **Local Users**, **Computers** and **Certificates**.
 
-* **Destination Folder:** Destination folder path inside the Akeyless Platform for the migrated items. Make sure your Gateway has enough permissions to create items under this location. All migrated items, both [Targets](https://docs.akeyless.io/docs/targets) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) of your Domain Servers and domain\local Users will be saved under this folder.
+- **Destination Folder:** Destination folder path inside the Akeyless Platform for the migrated items. Make sure your Gateway has enough permissions to create items under this location. All migrated items, both [Targets](https://docs.akeyless.io/docs/targets) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) of your Domain Servers and domain\local Users will be saved under this folder.
 
-* **Domain Name:** Active Directory Domain Name.
+- **Domain Name:** Active Directory Domain Name.
 
-* **User Base DN:** Distinguished Name of User objects to search in Active Directory  
-  (For example: `OU=OU_Name`, `CN=Users`, `DC=example`, `DC=com` or `OU=User_Name,DC=example,DC=com`).
+- **User Base DN:** Distinguished Name of User objects to search in Active Directory<br />(For example: `OU=OU_Name`, `CN=Users`, `DC=example`, `DC=com` or `OU=User_Name,DC=example,DC=com`).
 
-* **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, for example, `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
+- **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, for example, `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
 
-* **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
+- **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
 
-* **Discover Services:** Discover any Windows service that runs with explicit user credentials, as part of the rotated secret those services will be reflected, and upon Rotation, the relevant services will be restarted with the latest password.
+- **Discover Services:** Discover any Windows service that runs with explicit user credentials, as part of the rotated secret those services will be reflected, and upon Rotation, the relevant services will be restarted with the latest password.
 
-* **Discover Local Users:** Enable/Disable discover local users from each domain server and migrate them as SSH Rotated Secrets. Default is false - Only domain users will be migrated.
+- **Discover Local Users:** Enable/Disable discover local users from each domain server and migrate them as SSH Rotated Secrets. Default is false - Only domain users will be migrated.
 
-* **Discover IIS Applications:** Discover any existing IIS Application that runs with explicit user credentials, as part of the rotated secret those IIS Application will be reflected, and upon Rotation, the relevant IIS Application will be restarted with the latest password.
+- **Discover IIS Applications:** Discover any existing IIS Application that runs with explicit user credentials, as part of the rotated secret those IIS Application will be reflected, and upon Rotation, the relevant IIS Application will be restarted with the latest password.
 
-* **AI Certificate Discovery:** Discover existing certificates across the environment using an AI-driven scanner as part of Active Directory Migration.
+- **AI Certificate Discovery:** Discover existing certificates across the environment using an AI-driven scanner as part of Active Directory Migration.
 
-> ℹ️ **Note:**
->
-> Discover Local Users might require further installations of SSH on the servers, based on the supplied Computer Base DN. This will be done automatically by the migration process
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
 
-* **Computer Base DN:** Distinguished Name of Computer (server) objects to search in Active Directory, for example, `CN=Computers`, `DC=example`, `DC=com`.
+  Discover Local Users might require further installations of SSH on the servers, based on the supplied Computer Base DN. This will be done automatically by the migration process
+</Callout>
 
-* **Target Name Template:** A template for the created items, where the imported Domain Servers will be saved as [SSH Targets](https://docs.akeyless.io/docs/ssh-target) inside the Akeyless Platform, for example, `/Servers/{{COMPUTER_NAME}}`. This path includes the prefix of the Destination Folder.
+- **Computer Base DN:** Distinguished Name of Computer (server) objects to search in Active Directory, for example, `CN=Computers`, `DC=example`, `DC=com`.
 
-* **Local User Name Template:** A template for the created items, where the imported Local Users will be saved as Rotated Secrets ) inside the Akeyless Platform, for example, `/LocalUsers/{{COMPUTER_NAME}}/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
+- **Target Name Template:** A template for the created items, where the imported Domain Servers will be saved as [SSH Targets](https://docs.akeyless.io/docs/ssh-target) inside the Akeyless Platform, for example, `/Servers/{{COMPUTER_NAME}}`. This path includes the prefix of the Destination Folder.
 
-* **Ignore the Following Local Users:** Comma-separated list of Local Usernames to exclude while migrating.
+- **Local User Name Template:** A template for the created items, where the imported Local Users will be saved as Rotated Secrets ) inside the Akeyless Platform, for example, `/LocalUsers/{{COMPUTER_NAME}}/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
 
-* **Target Type:** Set the Target type of the domain servers, which could be **SSH** or a **Windows** target.
+- **Ignore the Following Local Users:** Comma-separated list of Local Usernames to exclude while migrating.
 
-* **SSH Port:** For **Target Type** of SSH, Set the default SSH Port for connecting to the Domain Servers, default `22`.
+- **Custom Password Policy:&#x20;**&#x53;et a custom password policy that will apply to the users.&#x20;
 
-* **WinRM Port:** For **Target Type** of Windows, Set the default WinRM Port for connecting to the Domain Servers default `5986`. Note, WinRM, by default, works over `https`.
+- **Target Type:** Set the Target type of the domain servers, which could be **SSH** or a **Windows** target.
 
-* **Enable SRA:** Enable/Disable RDP Secure Remote Access setup for the migrated local users by way of the Rotated Secrets. Default is Disabled, the Rotated Secrets will not be created with SRA configuration. **Available only for accounts with the SRA package** .
+- **SSH Port:** For **Target Type** of SSH, Set the default SSH Port for connecting to the Domain Servers, default `22`.
 
-* **Target Format:** Relevant only for **Computers Discovery Type**, the output Target format to migrate all discovered computers supporting [Linked Target](https://docs.akeyless.io/docs/linked-target) for Secure Remote Access.
+- **WinRM Port:** For **Target Type** of Windows, Set the default WinRM Port for connecting to the Domain Servers default `5986`. Note, WinRM, by default, works over `https`.
 
-* **Auto Rotate:** Enable/Disable automatic/recurrent rotation for the migrated secrets. Default is Disabled. Only manual rotation is allowed for migrated secrets. If Enabled, this should be set with rotation-interval and rotation-hour settings.
+- **Enable SRA:** Enable/Disable RDP Secure Remote Access setup for the migrated local users by way of the Rotated Secrets. Default is Disabled, the Rotated Secrets will not be created with SRA configuration. **Available only for accounts with the SRA package** .
+
+- **Target Format:** Relevant only for **Computers Discovery Type**, the output Target format to migrate all discovered computers supporting [Linked Target](https://docs.akeyless.io/docs/linked-target) for Secure Remote Access.
+
+- **Auto Rotate:** Enable/Disable automatic/recurrent rotation for the migrated secrets. Default is Disabled. Only manual rotation is allowed for migrated secrets. If Enabled, this should be set with rotation-interval and rotation-hour settings.
