@@ -53,7 +53,7 @@ The following section shows the usage of working with the vault CLI to manage re
 
 ## Fetching Secrets:
 
-To retrieve a [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated](https://docs.akeyless.io/docs/rotated-secrets) and [Static](http://docs.akeyless.io/docs/static-secrets) using the Vault CLI via HashiCorp Vault Proxy, run:
+To retrieve a [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated](https://docs.akeyless.io/docs/rotated-secrets) and [Static](https://docs.akeyless.io/docs/static-secrets) using the Vault CLI via HashiCorp Vault Proxy, run:
 
 ```shell
 vault read /<full_secret_name>
