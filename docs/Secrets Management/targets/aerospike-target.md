@@ -57,6 +57,6 @@ You can find the complete list of parameters for this command in the CLI Referen
    - **Client Private Key**: Client private key in Base64 format. Relevant only when mTLS is enabled.<br />Client Private Key Passphrase: Optional passphrase for the client private key. Relevant only when mTLS is enabled.
    - **DB Server Name**: The server name used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address.
 
- 5.Click Finish.
+5.Click **Finish**.
 
 # <br />
