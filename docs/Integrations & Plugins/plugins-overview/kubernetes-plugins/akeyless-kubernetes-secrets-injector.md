@@ -813,33 +813,53 @@ The metrics can be viewed using monitoring tools like [Grafana](https://grafana.
 
 ## Scalability guidance for Gateway and Injector
 
-Use the following formulas and sizing baselines for production Kubernetes environments that use both Akeyless Gateway and Akeyless Kubernetes Secrets Injector.
+Use the following sizing baselines for production Kubernetes environments that use both Akeyless Gateway and Akeyless Kubernetes Secrets Injector.
+
+### Required Gateway TokenReview environment variables
+
+Before using the planning table below, set these environment variables on the **Gateway** deployment (Gateway 4.53.0+). They control TokenReview client rate limits for `native_k8s` auth:
+
+```yaml
+env:
+  - name: K8S_TOKEN_REVIEW_QPS
+    value: "100"
+  - name: K8S_TOKEN_REVIEW_BURST
+    value: "100"
+```
+
+* Add them as environment variables on the Gateway container (Helm values `env` / deployment `env`), not as Kubernetes Auth Method create/update flags.
+* If unset, Gateway uses the Kubernetes client-go defaults: `QPS=5` and `Burst=10`. Those defaults are not suitable for large concurrent injection bursts; scaling Gateway replicas alone does not compensate.
+* Prefer raising `K8S_TOKEN_REVIEW_QPS` for capacity and latency. Raising Burst alone (for example `100` QPS with `200` Burst versus `100`/`100`) has little effect at high concurrency.
+* For configuration details, see [TokenReview Rate Limit Configuration](https://docs.akeyless.io/docs/cli-reference-k8s-auth-method#tokenreview-rate-limit-configuration-gateway-4530).
+
+The planning table and quick guidelines below assume `K8S_TOKEN_REVIEW_QPS=100`, `K8S_TOKEN_REVIEW_BURST=100`, a single Kubernetes auth configuration, adequately sized worker nodes, and a healthy Injector webhook. Start with these values and adjust based on metrics such as request latency and Gateway response time.
 
 ### Quick sizing guidelines
 
 If you prefer simplified guidance without detailed calculations, use these guidelines based on peak concurrent pods requesting secret injection:
 
-* **Up to 50 pods**: 1 Gateway replica and 1 Injector replica each.
-* **50–300 pods**: 2 Gateway replicas and 2 Injector replicas each.
-* **300–750 pods**: 4 Gateway replicas and 5 Injector replicas each.
-* **Over 750 pods**: 1 additional Gateway replica for every 90–150 pods, and 1 additional Injector replica for every 75 pods.
+* **Up to 50 pods**: 1 Gateway replica and 1–2 Injector replicas.
+* **51–750 pods**: 1 Gateway replica (1–2 recommended for headroom/HA) and 2 Injector replicas.
+* **751–1000 pods**: 1 Gateway replica minimum; 1–2 Gateway replicas recommended; 2 Injector replicas.
 
-These guidelines assume a single Kubernetes auth configuration and include recommended headroom. Start with these values and adjust based on metrics such as request latency and Gateway response time.
+With TokenReview tuned as above, one Gateway replica can handle on the order of 1000 concurrent inject pods within the injector HTTP timeout. A second Gateway replica further reduces latency. Injector replica count has little effect on inject latency once TokenReview is tuned; run at least two injectors for availability.
 
 Use this planning table for the same guidance in tabular form.
 
 | Peak concurrent pods | Min Gateway replicas | Recommended Gateway replicas | Recommended Injector replicas |
 | --- | --- | --- | --- |
-| <= 50 | 1 | 1 | 1 |
-| 51 - 150 | 1 | 2 | 2 |
-| 151 - 300 | 2 | 4 | 3 - 4 |
-| 301 - 500 | 3 | 5 - 6 | 4 |
-| 501 - 750 | 4 | 7 | 5 |
-| 751 - 1000 | 5 - 6 | 9 | 6 - 7 |
+| <= 50 | 1 | 1 | 1 - 2 |
+| 51 - 150 | 1 | 1 | 2 |
+| 151 - 300 | 1 | 1 - 2 | 2 |
+| 301 - 500 | 1 | 1 - 2 | 2 |
+| 501 - 750 | 1 | 1 - 2 | 2 |
+| 751 - 1000 | 1 | 1 - 2 | 2 |
+
+> **Note:** If `K8S_TOKEN_REVIEW_QPS` and `K8S_TOKEN_REVIEW_BURST` are unset (defaults `5`/`10`), do not use this table for large storms. In that configuration, even several Gateway replicas may not meet latency targets for concurrent injection of hundreds to ~1000 pods. Set the environment variables above first, then size replicas.
 
 ### Advanced sizing formulas
 
-Use these variables:
+Use these variables when TokenReview QPS/Burst are set to `100`/`100` as above:
 
 * `p`: peak concurrent pods that request secrets injection.
 * `r`: required Gateway replica count.
@@ -848,24 +868,23 @@ Use these variables:
 
 For Gateway with one Kubernetes auth configuration (`k=1`):
 
-* Minimum starting point: `r = ceil(p / 150)`
-* Recommended starting point with headroom: `r = ceil(p / 90)`
+* Minimum starting point: `r = ceil(p / 1000)` (at least `1`)
+* Recommended starting point with headroom or HA: `1`–`2` Gateway replicas for up to about `1000` concurrent inject pods
 
 For Gateway with multiple Kubernetes auth configurations:
 
 * Effective per-replica throughput scales by `k`.
-* Minimum starting point: `r = ceil(p / (150 * k))`
-* Recommended starting point with headroom: `r = ceil(p / (90 * k))`
+* Minimum starting point: `r = ceil(p / (1000 * k))` (at least `1`)
 
-For Injector (`1 vCPU` per replica):
+For Injector:
 
-* Recommended starting point: `i = ceil(p / 75)`
+* Recommended starting point: `i = 2` for availability and webhook headroom (do not scale injectors primarily to reduce inject latency once TokenReview is tuned).
 
 ### Webhook timeout guidance
 
 * Set the mutating webhook timeout to `30` seconds when sizing for large concurrent bursts.
-* Keep Gateway queue drain time below the configured webhook timeout.
-* If queue drain time approaches the timeout, increase Gateway replicas first, then tune Injector replicas.
+* Keep Gateway queue drain time and inject latency comfortably below the injector HTTP timeout (typically about `55` seconds).
+* If queue drain time approaches the timeout, confirm TokenReview QPS/Burst environment variables first, then increase Gateway replicas; tune Injector replicas mainly for availability.
 
 ### Deployment optimization for injector latency
 
