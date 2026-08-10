@@ -12,10 +12,6 @@ next:
 ---
 You can create a PingFederate secret to allow users to dynamically receive short-lived authentication options to interact with a PingFederate service using an API Key, a public key (private key JWT) and client certificates.
 
-> ℹ️ **Note:**
->
-> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/ping-target). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
-
 ## Working With Ping Dynamic Secrets with the CLI
 
 ### Create a Dynamic Ping Secret
@@ -34,17 +30,17 @@ akeyless dynamic-secret create ping \
 
 Where:
 
-* `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
+- `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* `target-name`: A name of the target that enables connection to the Ping server. The name can include the path to the virtual folder where this target resides.
+- `target-name`: A name of the target that enables connection to the Ping server. The name can include the path to the virtual folder where this target resides.
 
-* `gateway-url`: Akeyless Gateway URL (port `8000`).
+- `gateway-url`: Akeyless Gateway URL (port `8000`).
 
-* `ping-client-authentication-type`: OAuth Client Authentication Type, this can be either `CLIENT_SECRET`, `PRIVATE_KEY_JWT` or `CLIENT_TLS_CERTIFICATE`, with `CLIENT_SECRET` being the default. Each of these selections has its own set of related parameters, which are elaborated upon in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/ping).
+- `ping-client-authentication-type`: OAuth Client Authentication Type, this can be either `CLIENT_SECRET`, `PRIVATE_KEY_JWT` or `CLIENT_TLS_CERTIFICATE`, with `CLIENT_SECRET` being the default. Each of these selections has its own set of related parameters, which are elaborated upon in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/ping).
 
-* `ping-grant-types`: The grant type (or types) given to the OAuth client. This can be either `IMPLICIT`, `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`, `TOKEN_EXCHANGE`, `REFRESH_TOKEN`, `ASSERTION_GRANTS`, `PASSWORD`, or `RESOURCE_OWNER_CREDENTIALS`, with `AUTHORIZATION_CODE` being the default. This flag can be added multiple times for multiple grant types. Some of these selections have their own set of related parameters, which are elaborated upon in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/ping).
+- `ping-grant-types`: The grant type (or types) given to the OAuth client. This can be either `IMPLICIT`, `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`, `TOKEN_EXCHANGE`, `REFRESH_TOKEN`, `ASSERTION_GRANTS`, `PASSWORD`, or `RESOURCE_OWNER_CREDENTIALS`, with `AUTHORIZATION_CODE` being the default. This flag can be added multiple times for multiple grant types. Some of these selections have their own set of related parameters, which are elaborated upon in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/ping).
 
-* `ping-redirect-uris`: a URI to which the OAuth authorization server may redirect the resource owner's user-agent after authorization is obtained. At least one redirection **URI** is required for the `AUTHORIZATION_CODE` and `IMPLICIT` grant types. For multiple values repeat this flag.
+- `ping-redirect-uris`: a URI to which the OAuth authorization server may redirect the resource owner's user-agent after authorization is obtained. At least one redirection **URI** is required for the `AUTHORIZATION_CODE` and `IMPLICIT` grant types. For multiple values repeat this flag.
 
 To create a Ping Dynamic Secret without using an existing target, amend the command to show as follows:
 
@@ -62,11 +58,11 @@ akeyless dynamic-secret create ping \
 
 Where:
 
-* `ping-url`: A URL address related to the Ping service.
+- `ping-url`: A URL address related to the Ping service.
 
-* `ping-privileged-user`: A username of a user on your Ping service that may create OAuth Clients through Ping Federate Administrative API.
+- `ping-privileged-user`: A username of a user on your Ping service that may create OAuth Clients through Ping Federate Administrative API.
 
-* `ping-password`: Password related to the privileged user.
+- `ping-password`: Password related to the privileged user.
 
 All other parameters have the same meaning whether or not you choose to use a target. Additional parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#ping).
 
@@ -78,11 +74,13 @@ akeyless dynamic-secret update ping
 
 ### Fetch a Dynamic Ping Secret Value
 
-> ⚠️ **Warning:**
->
-> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration):
->
-> `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration):
+
+  `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
+</Callout>
 
 To fetch a dynamic Ping secret value with the CLI, run the following command:
 
@@ -103,9 +101,11 @@ The output should look as follows:
 
 ## Working With Ping Dynamic Secrets from the Console
 
-> ℹ️ **Note:**
->
-> To start working with Dynamic Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/gateway-overview) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  To start working with Dynamic Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/gateway-overview) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+</Callout>
 
 ### Create a Dynamic Ping Secret
 
@@ -117,44 +117,34 @@ The output should look as follows:
 
 4. Define the remaining settings as follows:
 
-    * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-    * **Target mode:** In this section, you can either select an existing [Ping Target](https://docs.akeyless.io/docs/ping-target) or specify details you would fill in the target creation.
-    * **Client Authentication Type**: OAuth Client Authentication Type.
-    * **Redirect URIs**: List URIs to which the OAuth authorization server may redirect the resource owner's user-agent after authorization is obtained.
-    * **Grant Types**: The grant type (or list of types) given to the OAuth client.
-    * **Access Token Manager Instance ID**: Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM ID. If no explicit value is given, the default PingFederate server ATM will be set.
-    * **Restricted Scopes**: Limit the OAuth client to specific scopes.
-    * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
-    * **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.
-    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
+   - **Delete Protection**: When enabled, protects the secret from accidental deletion.
+   - **Target:** Select an existing [Ping Target](https://docs.akeyless.io/docs/ping-target).
+   - **Client Authentication Type**: OAuth Client Authentication Type.
+   - **Redirect URIs**: List URIs to which the OAuth authorization server may redirect the resource owner's user-agent after authorization is obtained.
+   - **Grant Types**: The grant type (or list of types) given to the OAuth client.
+   - **Access Token Manager Instance ID**: Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM ID. If no explicit value is given, the default PingFederate server ATM will be set.
+   - **Restricted Scopes**: Limit the OAuth client to specific scopes.
+   - **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
+   - **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.
+   - **Gateway:** Select the Gateway through which the dynamic secret will create users.
+   - **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
-5. If you selected the **Explicitly specify target properties** mode, click **Next**.
-
-6. Provide details of the target Ping server:
-
-    * **Ping URL**: A URL address related to the Ping service.
-
-    * **Privileged User**: A username of a user on your Ping service that may create OAuth Clients through Ping Federate Administrative API.
-
-    * **Password**: Password related to the privileged user.
-
-    * **Administrative Port**: PingFederate administrative port, default is 9999.
-
-    * **Authorization Port**: PingFederate authorization port, default is 9031.
-
-7. Click **Finish**.
+5. Click **Finish**.
 
 ### Fetch a Dynamic Ping Secret Value
 
-> ⚠️ **Warning:**
->
-> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration):
->
-> `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration):
+
+  `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
+</Callout>
 
 1. Log in to the Akeyless Console, and go to **Items**.
 
 2. Browse to the folder where you created a dynamic secret.
 
 3. Select the secret and click the **Get Dynamic Secret** button.
+
+<br />

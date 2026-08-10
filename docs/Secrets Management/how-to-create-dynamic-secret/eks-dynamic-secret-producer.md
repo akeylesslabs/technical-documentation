@@ -14,9 +14,11 @@ You can create a dynamic Amazon Elastic Kubernetes Service (EKS) secret to allow
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
+- An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 
-* AWS IAM principal (role or user)
+- An [EKS Target](https://docs.akeyless.io/docs/kubernetes-targets)
+
+- AWS IAM principal (role or user)
 
 To use a dynamic Amazon EKS secret, you need an AWS IAM principal (for example, a role or user) with the permissions to be given to users. That IAM principal will serve as the user for each individual connection, with access tokens that will last for 15 minutes.
 
@@ -43,10 +45,6 @@ For more information about Kubernetes RBAC, see [the Kubernetes documentation](h
 
 ## Create an Amazon EKS Dynamic Secret with the CLI
 
-> ℹ️ **Note:**
->
-> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/kubernetes-targets#eks). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/eks-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
-
 To create an Amazon EKS Dynamic Secret with the CLI using an existing [Target](https://docs.akeyless.io/docs/kubernetes-targets#eks), run the following command:
 
 ```shell
@@ -57,52 +55,23 @@ akeyless dynamic-secret create eks \
 --eks-assume-role <Role ARN>
 ```
 
-Or using an inline connection string:
-
-```shell
-akeyless dynamic-secret create eks \
---name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---eks-assume-role <Role ARN> \
---eks-access-key-id <IAM user Access Key ID> \
---eks-secret-access-key <IAM user secret Access Key> \
---eks-region <EKS cluster region> \
---eks-cluster-name <EKS cluster Name> \
---eks-cluster-endpoint <EKS Cluster endpoint URL> \
---eks-cluster-ca-cert <Base64-encoded EKS cluster CA certificate>
-```
-
 Where:
 
-* `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
+- `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* `target-name`: A name of the target that enables connection to the Amazon EKS cluster. The name can include the path to the virtual folder where this target resides.
+- `target-name`: A name of the target that enables connection to the Amazon EKS cluster. The name can include the path to the virtual folder where this target resides.
 
-* `gateway-url`: Akeyless Gateway URL (port `8000`).
+- `gateway-url`: Akeyless Gateway URL (port `8000`).
 
-* `eks-assume-role`: The role to assume when connecting to the Amazon EKS cluster with provided credentials.
+- `eks-assume-role`: The role to assume when connecting to the Amazon EKS cluster with provided credentials.
 
-> ℹ️ **Note:**
->
-> The `eks-assume-role` parameter is required when the `aws-auth` ConfigMap is configured to allow the provided AWS IAM user to connect through the `mapRoles` key.
->
-> For more information, see [the Amazon EKS guide on user roles](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
 
-### Inline Connection String
+  The `eks-assume-role` parameter is required when the `aws-auth` ConfigMap is configured to allow the provided AWS IAM user to connect through the `mapRoles` key.
 
-If you don't have a configured [Amazon EKS Target](https://docs.akeyless.io/docs/kubernetes-targets#eks) yet, you can use the command with an inline connection string:
-
-* `eks-access-key-id`: The access key ID of the AWS IAM user to be used to connect to the Amazon EKS target.
-
-* `eks-secret-access-key`: The secret access key of the AWS IAM user.
-
-* `eks-region`: The region in which the Amazon EKS cluster resides.
-
-* `eks-cluster-name`: The name of the Amazon EKS cluster you want to connect to.
-
-* `eks-cluster-endpoint`: Amazon EKS cluster endpoint URL.
-
-* `eks-cluster-ca-cert`: Base64-encoded Amazon EKS cluster CA certificate.
+  For more information, see [the Amazon EKS guide on user roles](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
+</Callout>
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#eks) section.
 
@@ -169,6 +138,10 @@ akeyless dynamic-secret get-value --name <Path to the dynamic secret>
 
 Then on the `kubeconfig` you need to replace the `<Dynamic Secret Value goes here >` with the response token exactly as you received it.
 
-> ℹ️ **Note (Single `kubeconfig` Generation):**
->
-> Akeyless supports generation of a single `kubeconfig` file. For more information see [here](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#single-kubeconfig-generation)
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Single&#x20;**`kubeconfig`**&#x20;Generation):**
+
+  Akeyless supports generation of a single `kubeconfig` file. For more information see [here](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#single-kubeconfig-generation)
+</Callout>
+
+<br />

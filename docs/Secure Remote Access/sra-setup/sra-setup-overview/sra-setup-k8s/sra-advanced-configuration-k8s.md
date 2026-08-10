@@ -30,16 +30,16 @@ akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url h
 
 The options for this are:
 
-* `curve25519-sha256`
-* `diffie-hellman-group-exchange-sha1`
-* `diffie-hellman-group-exchange-sha256`
-* `diffie-hellman-group14-sha1`
-* `diffie-hellman-group14-sha256`
-* `diffie-hellman-group16-sha512`
-* `diffie-hellman-group18-sha512`
-* `ecdh-sha2-nistp256`
-* `ecdh-sha2-nistp384`
-* `ecdh-sha2-nistp521`
+- `curve25519-sha256`
+- `diffie-hellman-group-exchange-sha1`
+- `diffie-hellman-group-exchange-sha256`
+- `diffie-hellman-group14-sha1`
+- `diffie-hellman-group14-sha256`
+- `diffie-hellman-group16-sha512`
+- `diffie-hellman-group18-sha512`
+- `ecdh-sha2-nistp256`
+- `ecdh-sha2-nistp384`
+- `ecdh-sha2-nistp521`
 
 ## RDP Configuration
 
@@ -137,4 +137,17 @@ httpProxySettings:
   http_proxy: ""
   https_proxy: ""
   no_proxy: ""
+```
+
+## SSH Session Liveness Settings
+
+These values control how the bastion checks that both sides of a session are still responsive: the connection from the client into the gateway, and the connection from the gateway onward to the target server. They're exposed as environment variables under the `keepalive` key:
+
+```yaml
+sshProxy:
+  keepalive:
+    clientAliveInterval: 120
+    clientAliveCountMax: 2
+    serverAliveInterval: 120
+    serverAliveCountMax: 2
 ```

@@ -1,6 +1,6 @@
 ---
-title: Vault Proxy Dynamic Secrets
-excerpt: Configuring Dynamic Secrets with HashiCorp Vault Proxy
+title: Vault Proxy Configuration
+excerpt: Configuring Secrets with HashiCorp Vault Proxy
 deprecated: false
 hidden: false
 metadata:
@@ -12,71 +12,54 @@ next:
 ---
 ## Configuring HashiCorp Vault Proxy
 
-1. Set Akeyless HashiCorp Vault Proxy URL in: `VAULT_ADDR` environment variable:
+1. Set the `VAULT_ADDR` environment variable to point to your proxy endpoint
 
-    ```shell
-    export VAULT_ADDR=https://hvp.akeyless.io
-    ```
+   **Custom Endpoint:**
+
+   ```shell Shell
+   export VAULT_ADDR=https://your_gw_url:8200
+   ```
+
+   **Akeyless SaaS Proxy:**
+
+   ```shell
+   export VAULT_ADDR=https://hvp.akeyless.io
+   ```
+
+**Note:&#x20;**&#x43;ustom Gateways require port `:8200` for Vault Proxy traffic.
 
 2. Now, you'll need to configure the authentication token that would be used by Vault CLI to fetch secrets from Akeyless.
-3. Set your Akeyless token in `~/.vault-token`: `Access Id..Access Key`, for example:
 
-    ```shell
-    p-XXXXX..AccessKey
-    ```
+   Set your Akeyless token in `~/.vault-token`: `Access Id..Access Key`, for example:
+   ```shell
+   AccessID..AccessKey
+   ```
+3. Verify `"hvp_route_version"`  is set to `2` on the gateway (Custom Gateway Only):
+   ```shell
+   akeyless gateway get defaults --gateway-url <your_gateway_url>
+   ```
 
-## Get Dynamic Secret With Vault CLI
+For Custom Gateways, ensure that `hvp_route_version` is set to `2`.
 
-```shell
-vault read {producer-type}/creds/{full/path/to/producer-name}
-```
+<Callout icon="📘" theme="info">
+  ### Legacy Route Version 1:
 
-Supported producer types:
+  If your environment strictly requires `hvp_route_version": 1`, please refer to our [Legacy HVP Configuration Guide](https://docs.akeyless.io/docs/hashicorp-vault-proxy-legacy-configuration).
+</Callout>
 
-```shell
-"*"
-"db"           
-"mysql"
-"mssql"
-"mongodb"
-"rdp"
-"rabbitmq"
-"chef"
-"aws"
-"azure"
-```
+# Examples
 
-Example:
+The following section shows the usage of working with the vault CLI to manage resources in your Akeyless account:
+
+## Fetching Secrets:
+
+To retrieve a [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated](https://docs.akeyless.io/docs/rotated-secrets) and [Static](http://docs.akeyless.io/docs/static-secrets) using the Vault CLI via HashiCorp Vault Proxy, run:
 
 ```shell
-vault read */creds/prod/ds-db1
-vault read db/creds/prod/ds-db1
-vault read mysql/creds/prod/ds-db1
-
-Key                Value
----                -----
-lease_id           */creds/prod/ds-db1/vTyDFRr5m01gVaNBYsokIRop
-lease_duration     768h
-lease_renewable    true
-password           of6B6IY/~+i$$Z80
-username           tmp.rnnds.hOKbRAqI5j
-
-vault read */creds/my-aws-producer
-vault read aws/creds/my-aws-producer
-
-Key                  Value
----                  -----
-lease_id             */creds/my-aws-producer/25F5E8gupyoi2dQIynoM9nff
-lease_duration       768h
-lease_renewable      true
-access_key_id        <Access ID>
-secret_access_key    <Access Key>
-username             tmp.JJRXoSsvDuj1Dp
+vault read /<full_secret_name>
 ```
 
-## Working With Static Secrets
-
-### Create or Update Secret
+### Create or Update a Static Secret
 
 Create a new static secret in Akeyless. If it already exists, it will add a new version of that secret.
 
@@ -84,30 +67,10 @@ Create a new static secret in Akeyless. If it already exists, it will add a new 
 
 `vault kv put secret/{secret-name} {my-key}={my-value}`
 
-### Get Secret
-
-To retrieve the value from Akeyless:
-
-`vault kv get secret/{secret-name}`
-
-> ℹ️ **Info:**
->
-> An optional flag: `-version` to get a specific version of the secret for example:
->
-> `vault kv get -version=3 secret/{secret-name}`
->
-> Default value is the latest version.
-
-### Delete Secret
+### Delete a Static Secret
 
 To delete a secret from Akeyless:
 
 `vault kv delete secret/{secret-name}`
 
-> ℹ️ **Info:**
->
-> An optional flag: `-versions`, a list of specific versions you would like to delete from Akeyless, for example:
->
-> `vault kv delete -versions=2,6,15 secret/{secret-name}`
->
-> If no version is sent all your secret versions will be deleted as well
+<br />

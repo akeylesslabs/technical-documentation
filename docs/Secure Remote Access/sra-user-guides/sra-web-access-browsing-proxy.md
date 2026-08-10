@@ -29,10 +29,10 @@ For deployment requirements and endpoint planning, see [SRA Requirements](https:
 
 Use this guidance to choose the access mode per use case.
 
-| Mode | Where session runs | Best for | Key consideration |
-| --- | --- | --- | --- |
-| Secure Web Browsing | Isolated remote browser runtime | Strong browser isolation and policy control | Requires web-worker runtime readiness |
-| Secure Web Proxy | User local browser, traffic routed through proxy | Access to internal web apps from approved entry points | Requires validated proxy endpoint and allowlists |
+| Mode                | Where session runs                               | Best for                                               | Key consideration                                |
+| ------------------- | ------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------ |
+| Secure Web Browsing | Isolated remote browser runtime                  | Strong browser isolation and policy control            | Requires web-worker runtime readiness            |
+| Secure Web Proxy    | User local browser, traffic routed through proxy | Access to internal web apps from approved entry points | Requires validated proxy endpoint and allowlists |
 
 If both modes are available for the same target, prefer:
 
@@ -49,9 +49,9 @@ Use this mode when you want tighter isolation and stronger control over browser 
 
 Typical scenarios:
 
-* Access to sensitive administrative consoles.
-* Sessions that require strict browser-policy enforcement.
-* Environments where local browser context should not directly interact with target credentials.
+- Access to sensitive administrative consoles.
+- Sessions that require strict browser-policy enforcement.
+- Environments where local browser context should not directly interact with target credentials.
 
 ### Secure Web Proxy
 
@@ -61,9 +61,9 @@ Use this mode when users need direct browser interaction with internal web appli
 
 Typical scenarios:
 
-* Internal web applications that are not directly reachable from user networks.
-* Workflows where users must stay in their local browser.
-* Access paths that require controlled, policy-backed proxy routing.
+- Internal web applications that are not directly reachable from user networks.
+- Workflows where users must stay in their local browser.
+- Access paths that require controlled, policy-backed proxy routing.
 
 ## Connect from the Portal
 
@@ -94,9 +94,9 @@ After launch, the session opens in an isolated browser runtime managed by the SR
 
 Expected behavior:
 
-* Session controls and policy enforcement are applied from the remote browser side.
-* Navigation and browser capabilities can be restricted by deployment policy.
-* Session recording behavior depends on your Zero Trust Web Access (ZTWA) recording configuration.
+- Session controls and policy enforcement are applied from the remote browser side.
+- Navigation and browser capabilities can be restricted by deployment policy.
+- Session recording behavior depends on your Zero Trust Web Access (ZTWA) recording configuration.
 
 ### Secure Web Proxy Session
 
@@ -104,8 +104,9 @@ After launch, the session opens in your local browser while traffic is routed th
 
 Expected behavior:
 
-* Connectivity depends on valid proxy endpoint configuration and URL allowlists.
-* Access is limited to routes and targets permitted by your policy and target configuration.
+- Connectivity depends on valid proxy endpoint configuration and URL allowlists.
+- Access is limited to routes and targets permitted by your policy and target configuration.
+- If you have several SRA sessions open concurrently, your browser may suspend inactive background tabs to save resources. This can cause an inactive proxy session to disconnect, which surfaces as an unexpected termination when you switch back to that tab.
 
 ## Configuration Inputs
 
@@ -130,12 +131,12 @@ For infrastructure-level diagnostics, see [Session Drops and Timeout Runbooks](h
 
 ### Symptom-to-Check Mapping
 
-| Symptom | First check | Next check |
-| --- | --- | --- |
-| Target does not appear in web access view | Confirm identity and SRA permissions | Confirm target is configured for web access |
-| Session opens in wrong mode | Confirm target mode setting | Confirm dispatcher or proxy URL mapping |
-| Session launches, then drops quickly | Confirm endpoint reachability and timeout behavior | Review ingress affinity and session routing patterns |
-| Proxy launch fails for selected users only | Confirm approval and policy state | Confirm allowlist and identity mapping for that user group |
+| Symptom                                    | First check                                        | Next check                                                 |
+| ------------------------------------------ | -------------------------------------------------- | ---------------------------------------------------------- |
+| Target does not appear in web access view  | Confirm identity and SRA permissions               | Confirm target is configured for web access                |
+| Session opens in wrong mode                | Confirm target mode setting                        | Confirm dispatcher or proxy URL mapping                    |
+| Session launches, then drops quickly       | Confirm endpoint reachability and timeout behavior | Review ingress affinity and session routing patterns       |
+| Proxy launch fails for selected users only | Confirm approval and policy state                  | Confirm allowlist and identity mapping for that user group |
 
 ## Resource Discovery Scope
 
@@ -145,7 +146,7 @@ For resource onboarding details by target type, see [Supported Resource Types](h
 
 ## Related Pages
 
-* [Portal Login and Target Discovery](https://docs.akeyless.io/docs/sra-portal)
-* [Request Access and Approval Flow](https://docs.akeyless.io/docs/sra-request-access-and-approval-flow)
-* [Zero Trust Web Applications Access](https://docs.akeyless.io/docs/sra-web-applications)
-* [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology)
+- [Portal Login and Target Discovery](https://docs.akeyless.io/docs/sra-portal)
+- [Request Access and Approval Flow](https://docs.akeyless.io/docs/sra-request-access-and-approval-flow)
+- [Zero Trust Web Applications Access](https://docs.akeyless.io/docs/sra-web-applications)
+- [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology)

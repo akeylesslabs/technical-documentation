@@ -14,17 +14,15 @@ You can create a dynamic Google Kubernetes Engine (GKE) secret to allow users re
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
+- An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview)
 
-* GKE Service Account
+- A [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke)
+
+- GKE Service Account
 
 To use a dynamic GKE secret, your GCP administrator needs to create a GCP IAM service account with the desired [Kubernetes Engine role](https://cloud.google.com/iam/docs/understanding-roles#kubernetes-engine-roles) that should be given to users. The service account itself will serve as the user for each individual connection, with access tokens that will last for 60 minutes.
 
 ## Create a Dynamic GKE Secret with the CLI
-
-> ℹ️ **Note:**
->
-> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/kubernetes-targets#gke). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gke-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic GKE secret with the CLI using an existing [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke), run the following command:
 
@@ -35,40 +33,13 @@ akeyless dynamic-secret create gke \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
-Or using an inline connection string:
-
-```shell
-akeyless dynamic-secret create gke \
---name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---gke-account-email <GKE service account email> \
---gke-account-key <GKE service account Key>
---gke-cluster-endpoint <GKE cluster endpoint URL> \
---gke-cluster-ca-cert <Base64-encoded GKE cluster CA certificate> \
---gke-cluster-name <GKE cluster name>
-```
-
 Where:
 
-* `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
+- `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* `target-name`: A name of the [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke) that enables connection to the GKE cluster.
+- `target-name`: A name of the [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke) that enables connection to the GKE cluster.
 
-* `gateway-url`: Akeyless Gateway URL (port `8000`).
-
-### Inline Connection Strings
-
-If you don't have a [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke) yet, you can use the command with your GKE connection string:
-
-* `gke-cluster-name`: The name of the GKE cluster you want to connect to.
-
-* `gke-cluster-ca-cert`: Base64-encoded GKE cluster CA certificate.
-
-* `gke-cluster-endpoint`: GKE Cluster endpoint URL.
-
-* `gke-account-email`: GKE service account email.
-
-* `gke-account-key`: GKE service account key.
+- `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#gke) section.
 
@@ -149,8 +120,12 @@ akeyless dynamic-secret get-value --name <Path to the dynamic secret>
 
 Then you need to replace under the **kubeconfig** `< Dynamic Secret Value goes here >` with the response token exactly as you received it.
 
-> ℹ️ **Note:**
->
-> To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
->
-> Akeyless supports generation of a single kubeconfig file. For more information see [here](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#single-kubeconfig-generation)
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+
+  Akeyless supports generation of a single kubeconfig file. For more information see [here](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#single-kubeconfig-generation)
+</Callout>
+
+<br />

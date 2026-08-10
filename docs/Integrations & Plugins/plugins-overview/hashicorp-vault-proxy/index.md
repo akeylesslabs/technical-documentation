@@ -1,6 +1,5 @@
 ---
 title: HashiCorp Vault Proxy
-slug: hashicorp-vault-proxy
 excerpt: HashiCorp Vault Proxy
 deprecated: false
 hidden: false
@@ -14,15 +13,16 @@ next:
     - type: link
       title: Vault Proxy Dynamic Secrets
       url: https://docs.akeyless.io/docs/dynamic-secrets
+slug: hashicorp-vault-proxy
 ---
-Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets.
+Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static, Rotated and Dynamic Secrets.
 
 Benefits:
 
-* Extending the variety of platform plugins
-* Side-by-side scenarios with vault repositories
-* Easing migrations from existing solutions
-* Supporting **KV** and Dynamic Secrets.
+- Extending the variety of platform plugins
+- Side-by-side scenarios with vault repositories
+- Easing migrations from existing solutions
+- Supporting **KV** and Dynamic Secrets.
 
 Interaction with the Akeyless vault proxy can be done against our public endpoint: `https://hvp.akeyless.io`
 
@@ -32,11 +32,11 @@ Or directly through your [Gateway](https://docs.akeyless.io/docs/gateway-overvie
 
 Use the following pages for HashiCorp Vault Proxy integrations and configuration details:
 
-* [GitHub Actions by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/github-actions-hvp)
-* [HashiCorp Vault Proxy Authentication Methods](https://docs.akeyless.io/docs/vault-proxy-authentication-methods)
-* [Vault Proxy Dynamic Secrets](https://docs.akeyless.io/docs/dynamic-secrets)
-* [Jenkins Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/jenkins-plugin-via-hvp)
-* [TeamCity Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/teamcity-hcv-plugin)
+- [GitHub Actions by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/github-actions-hvp)
+- [HashiCorp Vault Proxy Authentication Methods](https://docs.akeyless.io/docs/vault-proxy-authentication-methods)
+- [Vault Proxy Dynamic Secrets](https://docs.akeyless.io/docs/dynamic-secrets)
+- [Jenkins Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/jenkins-plugin-via-hvp)
+- [TeamCity Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/teamcity-hcv-plugin)
 
 ## Usage
 
@@ -54,7 +54,7 @@ curl --header "X-Vault-Token: XXXX" https://hvp.akeyless.io/v1/secret/data/{secr
 
 If the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 
- `secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key Names**
+`secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key Names**
 
 ### Custom Engine Name
 
@@ -63,3 +63,5 @@ Custom engine names can also be used for accessing secrets by replacing the defa
 ```shell
 curl --header "X-Vault-Token: XXXXX" https://hvp.akeyless.io/v1/{custom-engine-name}/{secret-name}
 ```
+
+<br />

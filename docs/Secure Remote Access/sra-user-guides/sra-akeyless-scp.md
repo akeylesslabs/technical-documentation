@@ -1,5 +1,5 @@
 ---
-title: Akeyless File Transfer and Akeyless SCP
+title: 'Akeyless File Transfer '
 excerpt: ''
 deprecated: false
 hidden: false
@@ -16,9 +16,7 @@ For interactive SSH, database access, and generic tunnel workflows, use [Akeyles
 
 For current deployments, use `akeyless file upload` and `akeyless file download`, which are built into the Akeyless CLI.
 
-These commands use SFTP as the transfer protocol, replacing legacy SCP-style transfer flows for improved reliability and transfer performance.
-
-This page also includes legacy `akeyless-scp` guidance for existing automation that still depends on the script.
+These commands use SFTP as the transfer protocol, for improved reliability and transfer performance.
 
 ## CLI Path Selection
 
@@ -26,11 +24,10 @@ Use the command family that matches your access goal:
 
 1. `akeyless connect` for interactive sessions and tunnel-oriented workflows.
 2. `akeyless file upload` and `akeyless file download` for secure file transfer through SRA.
-3. Legacy `akeyless-scp` only for automation that has not moved to `akeyless file` yet.
 
 Effective access is controlled by SRA permissions, issuer policy, and target configuration.
 
-## Akeyless File Transfer
+## File Transfer
 
 The `akeyless file` command enables secure file transfer to and from remote targets through the SRA bastion. It is built into the Akeyless CLI and supports both upload and download operations without requiring additional scripts.
 
@@ -40,20 +37,22 @@ At runtime, the CLI resolves target and bastion connection parameters (from comm
 
 The client must support SFTP; file transfer commands fail if SFTP capability is not available.
 
-> ℹ️ **Note:**
->
-> `akeyless file` currently supports only Unix-like operating systems. On Windows, use [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl/) and run the command from your Linux shell.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  `akeyless file` currently supports only Unix-like operating systems. On Windows, use [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl/) and run the command from your Linux shell.
+</Callout>
 
 ### Prerequisites
 
-* Akeyless [CLI](https://docs.akeyless.io/docs/cli) (latest version recommended; run `akeyless update` to upgrade).
-* An [SSH certificate issuer](https://docs.akeyless.io/docs/sra-ssh-certificates).
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with Remote Access enabled.
-* A local `ssh` client with SFTP support (for example, OpenSSH).
-* OpenSSH v7.3 or higher on target servers.
-* The appropriate SRA permission on your certificate issuer:
-    * **Upload**: `sra_upload_files`.
-    * **Download**: `sra_download_files`.
+- Akeyless [CLI](https://docs.akeyless.io/docs/cli) (latest version recommended; run `akeyless update` to upgrade).
+- An [SSH certificate issuer](https://docs.akeyless.io/docs/sra-ssh-certificates).
+- An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with Remote Access enabled.
+- A local `ssh` client with SFTP support (for example, OpenSSH).
+- OpenSSH v7.3 or higher on target servers.
+- The appropriate SRA permission on your certificate issuer:
+  - **Upload**: `sra_upload_files`.
+  - **Download**: `sra_download_files`.
 
 ### Permission Model
 
@@ -89,9 +88,11 @@ akeyless file download \
   -c <cert-issuer-name>
 ```
 
-> ℹ️ **Note:**
->
-> `akeyless file upload` and `akeyless file download` are also available as the aliases `akeyless file-upload` and `akeyless file-download`.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  `akeyless file upload` and `akeyless file download` are also available as the aliases `akeyless file-upload` and `akeyless file-download`.
+</Callout>
 
 ### Options
 
@@ -129,54 +130,4 @@ Options:
   -h, --help               display help information
 ```
 
-## Legacy: Akeyless SCP Script
-
-> ⚠️ **Legacy:**
->
-> `akeyless-scp` is a legacy script maintained for existing workflows. For new deployments, use `akeyless file`.
-
-### Legacy Prerequisites
-
-* Akeyless [Remote Access](https://docs.akeyless.io/docs/sra-setup-overview).
-* An [SSH certificate issuer](https://docs.akeyless.io/docs/sra-ssh-certificates).
-* OpenSSH v7.3 or higher on target servers.
-* Unix-like operating system support.
-
-### Install the Legacy Script
-
-```shell
-curl -o akeyless-scp https://download.akeyless.io/Akeyless_Artifacts/Linux/SSH/akeyless-scp
-chmod +x akeyless-scp
-mv akeyless-scp /usr/local/bin
-```
-
-### Legacy Usage
-
-```shell
-Usage: /usr/local/bin/akeyless-scp <user@remote-server[:port]> -v <bastion-server[:port]> [options]
-
-optional arguments:
-    -i, --identity_file     Selects a file from which the identity (private key) for public key authentication is read [default is '~/.ssh/id_rsa']
-    -c, --cert-issuer-name  Akeyless certificate issuer name [mandatory]
-    -l, --local-file        File to copy [mandatory]
-    -r, --remote-file       File to copy [default is '~/']
-    -d, --direction         Transfer direction, can be: upload/download [default is 'upload']
-    --profile               Use a specific profile from your Akeyless CLI
-    --ssh-extra-args        Use to add official SSH arguments (except -i)
-```
-
-Example upload:
-
-```shell
-akeyless-scp user@destination-server -v <sra-bastion-ssh-service> --local-file /full/local/location/file --remote-file /remote/location/file
-```
-
-### Legacy SSH Key Flow
-
-When the remote host does not support SSH certificates, you can use `akeyless-scp` with SSH keys by storing the private key as a [Static Secret](https://docs.akeyless.io/docs/static-secrets).
-
-```shell
-akeyless-scp <username>@<target-host> -v <sra-bastion-ssh-service> --local-file demo_file --remote-file /home/ubuntu/demo_file --name "/path/to/static-secret-of-ssh_private_key"
-```
-
-For this flow, `--name` points to the static secret that holds the private key. Users should have `list` permission on the secret, and the bastion should have `read` permission.
+###
