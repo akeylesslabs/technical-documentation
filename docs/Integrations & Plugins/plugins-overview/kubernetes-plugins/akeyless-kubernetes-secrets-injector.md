@@ -842,7 +842,7 @@ If you prefer simplified guidance without detailed calculations, use these guide
 * **51–750 pods**: 1 Gateway replica (1–2 recommended for headroom/HA) and 2 Injector replicas.
 * **751–1000 pods**: 1 Gateway replica minimum; 1–2 Gateway replicas recommended; 2 Injector replicas.
 * **1001–2500 pods**: 1 Gateway replica minimum; **2** Gateway replicas recommended; 2 Injector replicas.
-* **Over 2500 pods**: start at **2** Gateway replicas; add about **1** Gateway replica per additional **1000–1500** concurrent inject pods; keep **2** Injector replicas (scale injectors for HA/webhook only). Confirm worker node capacity first — at very large N the limiter is often nodes, not Gateway.
+* **Over 2500 pods**: use `r = 2 + ceil((p - 2500) / 1500)` — add **1** Gateway replica per additional **1500** concurrent inject pods (for example, **2501–4000** pods → **3** Gateway replicas; **4001–5500** → **4**). Keep **2** Injector replicas (scale injectors for HA/webhook only). Confirm worker node capacity first — at very large N the limiter is often nodes, not Gateway.
 
 With TokenReview tuned as above, one Gateway replica can handle on the order of **1000–2500** concurrent inject pods within the injector HTTP timeout (lab p95 stays comfortable through ~2500 on adequately sized nodes). A second Gateway replica further reduces latency and is recommended above 1000 pods for headroom/HA. Injector replica count has little effect on inject latency once TokenReview is tuned; run at least two injectors for availability.
 
@@ -857,7 +857,7 @@ Use this planning table for the same guidance in tabular form.
 | 501 - 750 | 1 | 1 - 2 | 2 |
 | 751 - 1000 | 1 | 1 - 2 | 2 |
 | 1001 - 2500 | 1 | 2 | 2 |
-| Over 2500 | 2 | `2 + ceil((p - 2500) / 1500)` | 2 |
+| Over 2500 | 2 | `2 + ceil((p - 2500) / 1500)` (for example, 2501–4000 → 3) | 2 |
 
 > ℹ️ **Note:** If `K8S_TOKEN_REVIEW_QPS` and `K8S_TOKEN_REVIEW_BURST` are unset (defaults `5`/`10`), do not use this table for large storms. In that configuration, even several Gateway replicas may not meet latency targets for concurrent injection of hundreds to ~1000 pods. Set the environment variables above first, then size replicas.
 
@@ -873,7 +873,7 @@ Use these variables when TokenReview QPS/Burst are set to `100`/`100` as above:
 For Gateway with one Kubernetes auth configuration (`k=1`):
 
 * For `p <= 2500`: minimum starting point `r = 1`; recommended `r = 1`–`2` (prefer `2` when `p > 1000` for latency headroom/HA)
-* For `p > 2500`: minimum starting point `r = 2`; recommended `r = 2 + ceil((p - 2500) / 1500)`
+* For `p > 2500`: minimum starting point `r = 2`; recommended `r = 2 + ceil((p - 2500) / 1500)` — add **1** Gateway replica per additional **1500** concurrent inject pods (for example, **2501–4000** → **3** Gateway replicas; **4001–5500** → **4**)
 
 For Gateway with multiple Kubernetes auth configurations:
 
