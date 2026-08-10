@@ -50,8 +50,8 @@ You can find the complete list of parameters for this command in the CLI Referen
      - **Hostname**: The hostname or IP address of the Aerospike seed node.
      - **Port**: The port of the Aerospike service (default **3000**).
      - **Namespace**: The target Aerospike namespace.
-     - **Admin Username**: A privileged Aerospike user name with sufficient rights to create andmanage users. You can either enter this value directly or link it to an existing Akeyless secret.
-     - **Password**: The password of the privileged Aerospike user. You can either enter this value directly or link it to an existing Akeyless secret.
+     - **Admin Username**: A privileged Aerospike user name with sufficient rights to create and manage users.&#x20;
+     - **Password**: The password of the privileged Aerospike user.&#x20;
      - **SSL**: Check to enable TLS to the Aerospike cluster.
    - For **Aerospike Cloud**:
      - **Hostname**: The hostname or IP address of the Aerospike seed node.
@@ -63,4 +63,3 @@ You can find the complete list of parameters for this command in the CLI Referen
      - **SSL**: Check to enable TLS to the Aerospike cluster.
 5. Click **Finish**
 
-       <br />
