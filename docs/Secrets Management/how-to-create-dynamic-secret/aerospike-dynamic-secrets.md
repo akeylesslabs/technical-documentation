@@ -66,4 +66,8 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 5. Click **Finish**.
 
-##
+## Fetch a Dynamic Aerospike Secret Value from the Akeyless Console
+
+1. Log in to the Akeyless Console, and go to **Items**.
+2. Browse to the folder where you created a dynamic secret.
+3. Select the secret and click the **Get Dynamic Secret** button.
