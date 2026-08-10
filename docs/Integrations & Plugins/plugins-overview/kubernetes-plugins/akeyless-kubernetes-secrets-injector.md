@@ -859,7 +859,7 @@ Use this planning table for the same guidance in tabular form.
 | 1001 - 2500 | 1 | 2 | 2 |
 | Over 2500 | 2 | `2 + ceil((p - 2500) / 1500)` | 2 |
 
-> **Note:** If `K8S_TOKEN_REVIEW_QPS` and `K8S_TOKEN_REVIEW_BURST` are unset (defaults `5`/`10`), do not use this table for large storms. In that configuration, even several Gateway replicas may not meet latency targets for concurrent injection of hundreds to ~1000 pods. Set the environment variables above first, then size replicas.
+> ℹ️ **Note:** If `K8S_TOKEN_REVIEW_QPS` and `K8S_TOKEN_REVIEW_BURST` are unset (defaults `5`/`10`), do not use this table for large storms. In that configuration, even several Gateway replicas may not meet latency targets for concurrent injection of hundreds to ~1000 pods. Set the environment variables above first, then size replicas.
 
 ### Advanced sizing formulas
 
