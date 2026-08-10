@@ -1,4 +1,5 @@
 - artifactory-dynamic-secret-producer
+- aerospike-dynamic-secrets
 - aws-producer
 - azure-ad-dynamic-secrets
 - create-an-azure-ad-app-service-account
@@ -19,4 +20,3 @@
 - rdp-dynamic-secrets
 - snowflake-dynamic-secrets
 - custom-producer
-- aerospike-dynamic-secrets
