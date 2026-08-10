@@ -1,6 +1,5 @@
 ---
 title: Event Center
-slug: event-center
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: event-center
 ---
 ## Overview
 
@@ -27,10 +27,10 @@ On the upper left-hand side of the table, you will see a few interactive buttons
 
 Akeyless events are defined by object types, supporting:
 
-* **Items** events, for all items types, for example, [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
-* [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
-* [Targets](https://docs.akeyless.io/docs/targets)
-* Gateway
+- **Items** events, for all items types, for example, [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
+- [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
+- [Targets](https://docs.akeyless.io/docs/targets)
+- Gateway
 
 For each object type, a **Forwarder** can be set to forward all events for a folder, path, and even a specific item inside Akeyless.
 
@@ -38,61 +38,67 @@ The following Events are currently supported:
 
 For `items-event-source-locations`:
 
-* `certificate-pending-expiration`: When a certificate is about to expire, the user sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
+- `certificate-pending-expiration`: When a certificate is about to expire, the user sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
 
-* `certificate-expired`: When a certificate is expired.
+- `certificate-expired`: When a certificate is expired.
 
-* `certificate-error`: When an error occurs during certificate issuance.
+- `certificate-error`: When an error occurs during certificate issuance.
 
-* `certificate-provisioning-success`: When a certificate is successfully provisioned
+- `certificate-provisioning-success`: When a certificate is successfully provisioned
 
-* `certificate-provisioning-failure`: Upon **certificate provisioning** failure
+- `certificate-provisioning-failure`: Upon **certificate provisioning** failure
 
-* `next-automatic-rotation`: When a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) or an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) is about to rotate automatically, the user sets and controls this event directly from the items.
+- `next-automatic-rotation`: When a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) or an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) is about to rotate automatically, the user sets and controls this event directly from the items.
 
-* `rotated-secret-success`: Upon successful **automatic** rotation.
+- `rotated-secret-success`: Upon successful **automatic** rotation.
 
-* `rotated-secret-failure`: Upon **automatic** rotation failure, including the error details.
+- `rotated-secret-failure`: Upon **automatic** rotation failure, including the error details.
 
-* `rotated-secret-partial-failure`: When an automatic rotation partially succeeds, some targets rotate successfully but at least one fails.
+- `rotated-secret-partial-failure`: When an automatic rotation partially succeeds, some targets rotate successfully but at least one fails.
 
-* `secret-sync`: Upon **automatic** sync failure, including the error details.
+- `secret-sync`: Upon **automatic** sync failure, including the error details.
 
-* `dynamic-secret-failure`: On general failure of a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
+- `dynamic-secret-failure`: On general failure of a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
-* `static-secret-updated`: When a [Static Secret](https://docs.akeyless.io/docs/static-secrets) is set to trigger events on value changes.
+- `static-secret-updated`: When a [Static Secret](https://docs.akeyless.io/docs/static-secrets) is set to trigger events on value changes.
 
-* `usage-unused`: When a global event is set in the Account settings, for secrets that have not been used or changed within the defined interval.
+- `usage-unused`: When a global event is set in the Account settings, for secrets that have not been used or changed within the defined interval.
 
-* `usage-unrotated`: When a global event is set in the Account settings, for [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) that have not been rotated within the defined interval.
+- `usage-unrotated`: When a global event is set in the Account settings, for [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) that have not been rotated within the defined interval.
 
-* `request-access`: When a user requests access, either for privilege permission or for a Secure Remote Access session. **Note**: Relevant also for `targets-event-source-locations`.
+- `request-access`: When a user requests access, either for privilege permission or for a Secure Remote Access session. **Note**: Relevant also for `targets-event-source-locations`.
 
-* `apply-justification`: When the user provides a connection justification as part of the Secure Remote Access session.
+- `apply-justification`: When the user provides a connection justification as part of the Secure Remote Access session.
 
 For `auth-methods-event-source-locations`:
 
-* `uid-rotation-failure`: On [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) rotation failure, to track the automatic rotation.
+- `uid-rotation-failure`: On [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) rotation failure, to track the automatic rotation.
 
-* `auth-method-pending-expiration`: by default **30 days** in advance before an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is about to expire can be customized.
+- `auth-method-pending-expiration`: by default **30 days** in advance before an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is about to expire can be customized.
 
-* `auth-method-expired`: When an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is expired.
+- `auth-method-expired`: When an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is expired.
 
-* `email-auth-method-approved`: When the invite of user based on [Email](https://docs.akeyless.io/docs/auth-with-email) Auth Method is approved.
+- `email-auth-method-approved`: When the invite of user based on [Email](https://docs.akeyless.io/docs/auth-with-email) Auth Method is approved.
 
-* `multi-auth-failure`: When an auth attempt keeps failing, once blocked (after 5 consecutive attempts)
+- `multi-auth-failure`: When an auth attempt keeps failing, once blocked (after 5 consecutive attempts)
 
-* `rate-limiting`: When a client reaches the rate-limiting threshold.
+- `rate-limiting`: When a client reaches the rate-limiting threshold.
 
-* `usage-report`: When the number of clients reaches the threshold (can be set by way of **Usage Report** screen)
+- `usage-report`: When the number of clients reaches the threshold (can be set by way of **Usage Report** screen)
 
 For `gateways-event-source-locations`:
 
-* `gateway-inactive`: When a Gateway changes its state to inactive, it must be set on the Gateway.
+- `gateway-inactive`: When a Gateway changes its state to inactive, it must be set on the Gateway.
 
-* `gateway-cert-pending-expiration`: When a Gateway certificate (Gateway Certificate Store) is about to expire, it must be set on the Gateway.
+- `gateway-cert-pending-expiration`: When a Gateway certificate (Gateway Certificate Store) is about to expire, it must be set on the Gateway.
 
-* `gateway-cert-expired`: When a Gateway certificate (Gateway Certificate Store) is expired, it must be set on the Gateway.
+- `gateway-cert-expired`: When a Gateway certificate (Gateway Certificate Store) is expired, it must be set on the Gateway.
+
+- `locked-user`: When a user is locked.
+
+- `unlock-user` : When a user is unlocked.
+
+- `password-reset` : When a user reset's the password.
 
 ### KMIP Certificate Expiry Coverage
 
@@ -100,8 +106,8 @@ Certificate expiration events also apply to certificates used by the [KMIP Serve
 
 Use the following event types to monitor KMIP certificate lifecycle:
 
-* `kmip-cert-pending-expiration`: When a KMIP certificate is about to expire, it must be set on the Gateway.
-* `kmip-cert-expired`: When a KMIP certificate has expired, it must be set on the Gateway.
+- `kmip-cert-pending-expiration`: When a KMIP certificate is about to expire, it must be set on the Gateway.
+- `kmip-cert-expired`: When a KMIP certificate has expired, it must be set on the Gateway.
 
 To notify operations teams, configure forwarding rules in [Event Forwarders](https://docs.akeyless.io/docs/event-center#event-forwarders).
 
@@ -111,9 +117,11 @@ Event forwarders are tools you can configure through the Event Center to get not
 
 Event Forwarders can only be managed by **Admins** or by users with explicit [permissions](https://docs.akeyless.io/docs/rbac).
 
-> ℹ️ **Note:**
->
-> Event Forwarders require a running [Gateway](https://docs.akeyless.io/docs/gateway-overview). Both **Admins** and authorized users need to have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) on at least one [Gateway](https://docs.akeyless.io/docs/gateway-overview) to create and manage Event Forwarders.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Event Forwarders require a running [Gateway](https://docs.akeyless.io/docs/gateway-overview). Both **Admins** and authorized users need to have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) on at least one [Gateway](https://docs.akeyless.io/docs/gateway-overview) to create and manage Event Forwarders.
+</Callout>
 
 ### Forwarded Events Format
 
