@@ -54,19 +54,13 @@ You can find the complete list of parameters for this command in the CLI Referen
      - **Password**: The password of the privileged Aerospike user. You can either enter this value directly or link it to an existing Akeyless secret.
      - **SSL**: Check to enable TLS to the Aerospike cluster.
    - For **Aerospike Cloud**:
-     - - **Hostname**: The hostname or IP address of the Aerospike seed node.
+     - **Hostname**: The hostname or IP address of the Aerospike seed node.
+     - **Port**: The port of the Aerospike service (default **3000**).
+     - **Namespace**: The target Aerospike namespace.
+     - **Cluster ID**: The ID of the target Aerospike Cloud cluster.
+     - **Client ID**: The Client ID used to authenticate with Aerospike Cloud.
+     - **Client Secret**: The Client Secret used to authenticate with Aerospike Cloud.
+     - **SSL**: Check to enable TLS to the Aerospike cluster.
+5. Click **Finish**
 
-       - **Port**: The port of the Aerospike service (default **3000**).
-
-       - **Namespace**: The target Aerospike namespace.
-
-       - **Cluster ID**: The ID of the target Aerospike Cloud cluster.
-
-       - **Client ID**: The Client ID used to authenticate with Aerospike Cloud.
-
-       - **Client Secret**: The Client Secret used to authenticate with Aerospike Cloud.
-
-       - **SSL**: Check to enable TLS to the Aerospike cluster.
-   5\. Click **Finish**
-
-# <br />
+       <br />
