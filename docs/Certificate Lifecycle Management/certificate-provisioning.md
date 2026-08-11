@@ -12,6 +12,12 @@ next:
 ---
 Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a [Windows](https://docs.akeyless.io/docs/windows-target) and [F5](https://www.f5.com/) endpoints utilizing [Targets](https://docs.akeyless.io/docs/targets).
 
+<Callout icon="📘" theme="info">
+  ### F5 Certificate Type
+
+  For F5 target, the certificate type is Traffic by default.
+</Callout>
+
 Any [stored](https://docs.akeyless.io/docs/certificate-storage) certificate can be provisioned through the [Gateway](https://docs.akeyless.io/docs/gateway-overview), whereupon successful provisioning, future renewals of the certificate will be provisioned automatically.
 
 Setting up certificate provisioning requires **Target** permissions on the Gateway.
@@ -48,8 +54,6 @@ Where:
 
 - `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning, for example, restarting a service.
 
-- `f5-certificate-type[=traffic]` : Specifies the F5 certificate type for certificate items (relevant only for F5 targets).&#x20;
-
 You can find the complete list of additional parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#assoc-target-item) section.
 
 ## Provisioning a Certificate Using the Akeyless Console
@@ -69,3 +73,5 @@ You can find the complete list of additional parameters for this command in the 
 - **Certificate Chain Path** - A path on the target to store the full chain.
 
 - **Post Provision Command** - A custom command of your choice that will be executed on the remote machine as part of the provisioning process.
+
+-
