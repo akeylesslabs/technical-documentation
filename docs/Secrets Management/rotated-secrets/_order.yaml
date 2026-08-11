@@ -3,6 +3,7 @@
 - create-an-azure-rotated-secret
 - create-a-database-rotated-secret
 - create-a-docker-hub-rotated-secret
+- f5-rotated-secret
 - gcp-rotated-secret
 - create-a-hashicorp-vault-rotated-secret
 - create-an-ldap-rotated-secret
@@ -13,4 +14,3 @@
 - windows-rotated-secret
 - create-a-custom-rotated-secret
 - cloud-providers-graceful-rotation
-- f5-rotated-secret
