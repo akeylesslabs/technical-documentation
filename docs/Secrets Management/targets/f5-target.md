@@ -13,9 +13,7 @@ An F5 Target can be used to [provision certificates](https://docs.akeyless.io/do
 
 To create an F5 target with the CLI, run the following command:
 
-Shell
-
-```
+```shell
 akeyless target create f5-big-ip \
 --name <Target name> \
 --url <F5 Big IP target URL> \
