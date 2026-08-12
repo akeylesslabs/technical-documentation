@@ -822,7 +822,7 @@ Use the following sizing baselines for production Kubernetes environments that u
 Set them only when Kubernetes client-side TokenReview throttling appears in Gateway logs during large concurrent injection bursts. A typical log line looks like:
 
 ```text
-"Waited before sending request" delay="<duration>"
+"Waited before sending request" delay="4m7.99s"
 reason="client-side throttling, not priority and fairness"
 ```
 When that throttling is observed, raise the limits using the `K8S_TOKEN_REVIEW_QPS` and `K8S_TOKEN_REVIEW_BURST` values from the planning table for your peak concurrent inject scale. Add them as environment variables on the Gateway container (Helm values `env` / deployment `env`), not as Kubernetes Auth Method create/update flags:
