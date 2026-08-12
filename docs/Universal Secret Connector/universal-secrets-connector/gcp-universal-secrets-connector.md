@@ -167,11 +167,20 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
    - **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
-   - **Project ID:** Optional. The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
+   - **Gateway:** Select the desired corresponding Gateway.
+
+   - **USC Scope:&#x20;**&#x45;ither **Project (default)**, **Folder** or **Organization**.
+     - If **Project&#x20;**&#x69;s selected:
+       - **Project ID:** Optional. If left empty, the project attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) is used. Otherwise, specify the GCP Project ID to fetch secrets from a different project than the one attached to the GCP Target (relevant for Project scope only).&#x20;
+     - If **Folder&#x20;**&#x69;s selected:
+       - **Organization ID:&#x20;**&#x54;he Organization ID the folder is located in.
+       - **Folder ID:** The Folder ID where the projects are located. All projects within this folder will be manageable from the USC.
+     - If **Organization&#x20;**&#x69;s selected:&#x20;
+       - **Organization ID:&#x20;**&#x54;he organization where the projects are located. All projects within this organization will be manageable from the USC.
 
    - **Region:** Optional. Choose the regions where this Universal Secrets Connector can manage secrets. You can select up to 12 regions.
 
-   - **Gateway:** Select the desired corresponding Gateway.
+   -
 
 5. Click **Finish**.
 
