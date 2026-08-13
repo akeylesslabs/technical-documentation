@@ -157,7 +157,7 @@ The following **Administrative Rules** can be set:
 
 - `Usage Reports`
 
-## Reverse RBAC Review Coverage
+## Reverse RBAC Review
 
 Reverse RBAC can be used to review who has access to object types beyond Items and Targets, including Secure Remote Access and Agentic Runtime Authority paths.
 
@@ -167,6 +167,17 @@ Use the CLI `reverse-rbac` command with:
 
 - `--type sra` for Secure Remote Access rules
 - `--type ara` for Agentic Runtime Authority rules
+
+## Access Permissions View: Scoped Reverse RBAC Requirements
+
+With Reverse RBAC set to **Scoped**, `read` access to a resource alone isn't enough to load a complete Access Permissions view.
+
+For the view to display all relevant data, the user must have:
+
+- `read` access on the resource.
+- `list` access on associated resource types (Auth Methods / Access Roles).
+
+Missing either of these will result in a partial or incomplete view, since the cross-referenced entries can't be looked up without list access to those related types.
 
 ## Event Center Rules
 
