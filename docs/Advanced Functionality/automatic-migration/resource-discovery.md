@@ -94,6 +94,10 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 
 - **Enable SRA:** Enable/Disable RDP Secure Remote Access setup for the migrated local users by way of the Rotated Secrets. Default is Disabled, the Rotated Secrets will not be created with SRA configuration. **Available only for accounts with the SRA package** .
 
+- **Skip dry-run validation:** Skip dry-run validation when creating rotated secrets for migrated Domain/Local Users.
+
+- **Custom Password Policy:&#x20;**&#x41;pply a custom password policy when generating passwords for migrated Domain/Local Users.
+
 - **Target Format:** Relevant only for **Computers Discovery Type**, the output Target format to migrate all discovered computers supporting [Linked Target](https://docs.akeyless.io/docs/linked-target) for Secure Remote Access.
 
 - **Auto Rotate:** Enable/Disable automatic/recurrent rotation for the migrated secrets. Default is Disabled. Only manual rotation is allowed for migrated secrets. If Enabled, this should be set with rotation-interval and rotation-hour settings.
