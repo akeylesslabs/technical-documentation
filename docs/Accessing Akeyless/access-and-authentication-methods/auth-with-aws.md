@@ -34,7 +34,7 @@ This action is distinct from creating a new Akeyless account: it creates an addi
 
 Required AWS IAM setting:
 
-* **Bounded AWS Account IDs:** Configure one or more AWS account IDs that are allowed to authenticate by using this authentication method.
+- **Bounded AWS Account IDs:** Configure one or more AWS account IDs that are allowed to authenticate by using this authentication method.
   In the Console, enter values as a comma-separated list (for example, `123456789012,210987654321`).
   With the CLI, repeat `--bound-aws-account-id` for each value.
 
@@ -84,16 +84,19 @@ akeyless get-cloud-identity \
 
 To authenticate and retrieve a temporary Akeyless token, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
-<!-- secret-stdout-scan:ok -->
+{/* secret-stdout-scan:ok */}
+
 ```shell
 akeyless auth \
   --access-id <Access ID> \
   --access-type aws_iam
 ```
 
-> ℹ️ **Note (Least Privilege):**
->
-> AWS IAM authentication does not require privileged AWS permissions. Attach a minimally privileged IAM role to the resource that authenticates to Akeyless (for example, an EC2 instance, ECS task, or EKS pod).
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Least Privilege):**
+
+  AWS IAM authentication does not require privileged AWS permissions. Attach a minimally privileged IAM role to the resource that authenticates to Akeyless (for example, an EC2 instance, ECS task, or EKS pod).
+</Callout>
 
 ## Associate with Access Roles
 
@@ -123,10 +126,10 @@ To update with the CLI, use the relevant `akeyless auth-method update aws-iam` f
 
 If AWS IAM authentication fails, check the following:
 
-* The workload is running with the expected IAM principal.
-* The workload account matches configured bounded account IDs, ARNs, or other bounded fields.
-* The configured **Access ID** and `aws_iam` access type are correct.
-* For EC2-based flows, verify instance metadata service settings and hop limit requirements.
+- The workload is running with the expected IAM principal.
+- The workload account matches configured bounded account IDs, ARNs, or other bounded fields.
+- The configured **Access ID** and `aws_iam` access type are correct.
+- For EC2-based flows, verify instance metadata service settings and hop limit requirements.
 
 ## Optional Features
 
@@ -134,12 +137,12 @@ For optional features that apply across Authentication Methods, see [Common Opti
 
 ### AWS IAM-Specific Optional Features
 
-* **Bounded ARNs:** Enter one or more full IAM role or user ARNs that are allowed to authenticate by using this method. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-arn` for each value. Supports wildcard patterns such as `*` and `?`.
-* **Bounded Role Names:** Enter one or more IAM role names that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-role-name` for each value.
-* **Bounded Role IDs:** Enter one or more IAM role IDs that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-role-id` for each value.
-* **Bounded User names:** Enter one or more IAM user names that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-user-name` for each value.
-* **Custom STS Endpoint:** Set a custom AWS STS endpoint URL if your environment requires a non-default endpoint. If not set, Akeyless uses `https://sts.amazonaws.com`. For partition-specific requirements and examples (`aws`, `aws-us-gov`, and `aws-cn`), see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support#aws-partition-support).
-* **Unique Identifier:** Set a sub-claim key used to uniquely identify authenticated IAM principals.
+- **Bounded ARNs:** Enter one or more full IAM role or user ARNs that are allowed to authenticate by using this method. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-arn` for each value. Supports wildcard patterns such as `*` and `?`.
+- **Bounded Role Names:** Enter one or more IAM role names that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-role-name` for each value.
+- **Bounded Role IDs:** Enter one or more IAM role IDs that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-role-id` for each value.
+- **Bounded User names:** Enter one or more IAM user names that are allowed to authenticate. In the Console, enter values as a comma-separated list. With the CLI, repeat `--bound-user-name` for each value.
+- **Custom STS Endpoint:** Set a custom AWS STS endpoint URL if your environment requires a non-default endpoint. If not set, Akeyless uses `https://sts.amazonaws.com`. For partition-specific requirements and examples (`aws`, `aws-us-gov`, and `aws-cn`), see [AWS Partition and Deployment Support](https://docs.akeyless.io/docs/aws-partition-and-deployment-support#aws-partition-support).
+- **Unique Identifier:** Set a sub-claim key used to uniquely identify authenticated IAM principals.
 
 ## AWS Instance Metadata Service
 
@@ -171,6 +174,8 @@ globalConfig:
 ```
 
 Replace `CLUSTER_URL` with the Gateway URL for the relevant environment.
+
+Alternatively, you can use IAM Roles for Service Accounts (IRSA) instead of adjusting the hop limit. When the Gateway Service Account authenticates via IRSA, the hop limit can remain at its default value of `1`. See the [EKS IRSA guide](https://docs.akeyless.io/docs/gateway-deploy-amazon-eks#eks-identity-delta) for setup instructions.
 
 ## Tutorial
 
