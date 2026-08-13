@@ -174,7 +174,7 @@ With Reverse RBAC set to **Scoped**, `read` access to a resource alone isn't eno
 
 For the view to display all relevant data, the user must have:
 
-- `read` access on the resource.
+- `list` access on the resource.
 - `list` access on associated resource types (Auth Methods / Access Roles).
 
 Missing either of these will result in a partial or incomplete view, since the cross-referenced entries can't be looked up without list access to those related types.
