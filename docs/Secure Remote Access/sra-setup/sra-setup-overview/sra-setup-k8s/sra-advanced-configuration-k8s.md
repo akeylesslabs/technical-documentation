@@ -144,7 +144,7 @@ httpProxySettings:
 These values control how the bastion checks that both sides of a session are still responsive: the connection from the client into the gateway, and the connection from the gateway onward to the target server. They're exposed as environment variables under the `keepalive` key:
 
 ```yaml
-sshProxy:
+sshConfig:
   keepalive:
     clientAliveInterval: 120
     clientAliveCountMax: 2
