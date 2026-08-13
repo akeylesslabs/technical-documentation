@@ -170,29 +170,53 @@ You can find the complete list of parameters for this command in the [CLI Refere
 ### Creating a Certificate Signing Request Using the Akeyless Console
 
 1. Go to **Certificate Management> Certificates > generate CSR**
+
 2. **CSR Key:&#x20;**&#x45;ither generate a new key or use an existing one.
+
 3. **Key Type:&#x20;**&#x45;ither [Classic](https://docs.akeyless.io/docs/classic-keys) or [DFC](https://docs.akeyless.io/docs/encryption-keys).
+
 4. **Key Name:&#x20;**&#x44;efine a **Name** of the encryption key, and specify the **Location** as a path to the virtual folder where you want to create it, using slash `/` separators. If the folder does not exist, it will be created together with the encryption key.
+
 5. Define the remaining parameters as follows:
+
    - **Key Algorithm:&#x20;**&#x43;hoose the Key Algorithm.
+
    - **Hash Algorithm:&#x20;**&#x43;hoose the Hash Algorithm.
+
    - **Export Private Key**: if checked, the private key will be exposed (only relevant for Classic Keys).
+
    - **Gateway:** Choose a Gateway from the Drop-Down list (only relevant to Classic Keys).
+
 6. Click **Next**
+
    - **Common Name:&#x20;**&#x53;et the Common Name for the certificate.
+
    - **Subject Alternative Name:&#x20;**&#x41; comma-seperated list of DNS alternative names.
+
    - **Email Addresses:&#x20;**&#x41; comma-seperated list of Email Address alternative names.
+
    - **IP Address SAN:&#x20;**&#x41; comma-seperated list of IP Address alternative names.
+
    - **URI SANs:&#x20;**&#x41; comma-seperated list of URI alternative names.
+
    - **Mark key usage as critical:&#x20;**&#x41;dd **Critical&#x20;**&#x20;to the key usage extension.&#x20;
+
    - **Key Usage:** Choose the Key Usage from the Drop-Down list.
+
    - **Extended Key Usage:** Choose the Extended Key Usage from the Drop-Down list.
+
 7. Click **Next:**
+
    - **Country**: The country to be included in the CSR.
+
    - **Organization**: The organization name to be included in the CSR.
+
    - **Department**: The department or organizational unit name.
+
    - **City**: The city or locality name.
+
    - **State**: The state, province, or region name.
+
 8. Click **Finish**
 
 A pop-up window displays the generated CSR, allowing you to copy it.
