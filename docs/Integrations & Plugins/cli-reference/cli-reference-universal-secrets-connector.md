@@ -46,27 +46,35 @@ akeyless create-usc \
 
 `--usc-prefix`: A prefix for all secret that will be created on the USC endpoint (relevant only for AWS targets)
 
-`--use-prefix-as-filter[=true]`: Filter the USC secret list by the usc-prefix [`true`/`false`]
+`--use-prefix-as-filter[=true]`: Filter the USC secret list by the usc-prefix \[`true`/`false`]
 
 `--gcp-project-id`: GCP Project ID (Relevant only for GCP targets)
+
+`--gcp-scope`: The gcp usc scope \[ `project` / `organization` / `folder`]
+
+`--gcp-folder-id`: GCP Folder ID (Relevant only for GCP targets with folder scope)
+
+`--gcp-organization-id`: GCP Organization ID (Relevant only for GCP targets)
 
 `--gcp-sm-regions`: GCP Secret Manager regions for regional secrets (comma-separated, for example: `us-east1,us-west1`). USC with GCP targets only. Maximum 12 regions.
 
 `--environment-names`: Comma-separated list of environment names to associate with the connector
 
-`--github-scope[=repository]`: GitHub scope to use [`repository`/`organization`] (GitHub targets only)
+`--github-scope[=repository]`: GitHub scope to use \[`repository`/`organization`] (GitHub targets only)
 
 `--organization-name`: GitHub organization name (organization-scoped GitHub targets only)
 
-`--repository-access[=public]`: GitHub repository access level [`public`/`private`/`all`] (GitHub targets only)
+`--repository-access[=public]`: GitHub repository access level \[`public`/`private`/`all`] (GitHub targets only)
 
 `--repository-names`: Comma-separated list of GitHub repositories to include (GitHub targets only)
 
 `--usc-tags`: Comma-separated list of tags to apply to remote secrets created or synced by this connector
 
-`--use-tags-as-filter`: Filter the remote secret list using the specified `usc-tags` values [`true`/`false`]
+`--use-tags-as-filter`: Filter the remote secret list using the specified `usc-tags` values \[`true`/`false`]
 
-`--delete-protection`: Protection from accidental deletion of this item, [true/false]
+`--item-custom-fields`: Additional custom fields to associate with the item, to specify multiple fields repeat the argument: `--item-custom-fields fieldName1=value1` `--item-custom-fields fieldName2=value2`
+
+`--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
