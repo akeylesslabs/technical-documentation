@@ -31,11 +31,11 @@ akeyless create-secret \
 
 `--name`: **Required**, Secret name
 
-`--type[=generic]`: The secret sub type [`generic`/`password`]
+`--type[=generic]`: The secret sub type \[`generic`/`password`]
 
 `--value`: **Required**, The secret value (relevant only for type `generic`)
 
-`-f, --format[=text]`: Secret format [`text`/`json` / `key-value`] (relevant only for type '`generic`')
+`-f, --format[=text]`: Secret format \[`text`/`json` / `key-value`] (relevant only for type '`generic`')
 
 `--url, --inject-url`: Comma-separated list of URLs associated with the item (only relevant for type `password`)
 
@@ -45,7 +45,7 @@ akeyless create-secret \
 
 `-c, --custom-field`: Additional custom fields to associate with the item. To specify multiple fields, repeat the argument: `--custom-field fieldName1=value1 -c fieldName2=value2` (only relevant for type `password`)
 
-`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder \[regular/personal]
 
 `-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: --tag Tag1 -t Tag2
 
@@ -57,7 +57,7 @@ akeyless create-secret \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, 'true'/'false'
 
-`--secure-access-ssh-creds`: Static-Secret values contains SSH Credentials, either Private Key or Password [password/private-key]
+`--secure-access-ssh-creds`: Static-Secret values contains SSH Credentials, either Private Key or Password \[password/private-key]
 
 `--secure-access-url`: Destination URL to inject secrets
 
@@ -77,9 +77,9 @@ akeyless create-secret \
 
 `--description`: Secret description
 
-`--delete-protection`: Protection from accidental deletion of this item, [true/false]
+`--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
-`--change-event`: Trigger an event when a secret value changed, [True/False]
+`--change-event`: Trigger an event when a secret value changed, \[True/False]
 
 ## `delete sync`
 
@@ -141,7 +141,7 @@ akeyless describe-item \
 
 `--services-details[=false]`: Include all associated services details
 
-`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder \[regular/personal]
 
 See [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects) and also [Updating and versioning Static Secrets](https://docs.akeyless.io/docs/staticversions) for details.
 
@@ -151,7 +151,8 @@ Get static secret value
 
 ### Usage
 
-<!-- secret-stdout-scan:ok -->
+{/* secret-stdout-scan:ok */}
+
 ```shell
 akeyless get-secret-value --name <Secret Name>
 ```
@@ -162,17 +163,19 @@ akeyless get-secret-value --name <Secret Name>
 
 `--version`: Secret version, if negative value N is provided (--version=-N) the last N versions will return (maximum 20)
 
-`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the REST API
+`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache \[true/false]. This flag is only relevant when using the REST API
 
-`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder \[regular/personal]
 
 ## `import-passwords`
 
 Import passwords from CSV file
 
-> ℹ️ **Note (CSV Example):**
->
-> The box below has an example CSV that is valid for importing in the format of Chrome
+<Callout icon="ℹ️" theme="info">
+  ### **Note (CSV Example):**
+
+  The box below has an example CSV that is valid for importing in the format of Chrome
+</Callout>
 
 ### Usage
 
@@ -193,9 +196,9 @@ name,url,username,password,description
 
 `-p, --import-path`: **Required**, Path to the CSV file that contains passwords to import
 
-`--format[=LastPass]`: Password format type [`LastPass`/`Chrome`/`Firefox`,`1password`,`keeper`,`bitwarden`,`dashlane`]
+`--format[=LastPass]`: Password format type \[`LastPass`/`Chrome`/`Firefox`,`1password`,`keeper`,`bitwarden`,`dashlane`]
 
-`--accessibility[=personal]`: Whether passwords should be imported to the user's personal folder [regular/personal]
+`--accessibility[=personal]`: Whether passwords should be imported to the user's personal folder \[regular/personal]
 
 `--target-folder[=/]`: Target folder for imported passwords
 
@@ -227,7 +230,7 @@ akeyless rollback-secret \
 
 ## `share-item`
 
-Sharing item operation [start sharing/stop sharing/sharing describe]
+Sharing item operation \[start sharing/stop sharing/sharing describe]
 
 ### Usage
 
@@ -242,9 +245,9 @@ akeyless share-item \
 
 `-n, --item-name`: **Required**, The secret name (supported types: static secret)
 
-`-a, --action`: **Required**, The action to perform [`start`/`stop`/`describe`]
+`-a, --action`: **Required**, The action to perform \[`start`/`stop`/`describe`]
 
-`--share-type[=email]`: Share type [`email`/`token`]
+`--share-type[=email]`: Share type \[`email`/`token`]
 
 `-e, --email`: List of emails to start/stop sharing the secret with, To specify multiple emails use argument multiple times: -e email1 -e email2
 
@@ -252,9 +255,9 @@ akeyless share-item \
 
 `-t, --ttl`: Availability of the shared secret in seconds
 
-`-v, --view-once[=false]`: Shared secrets can only be viewed once [true/false]
+`-v, --view-once[=false]`: Shared secrets can only be viewed once \[true/false]
 
-`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder \[regular/personal]
 
 ## `static-secret-sync`
 
@@ -276,6 +279,10 @@ akeyless static-secret-sync \
 `--usc-name`: Universal Secret Connector name, If not provided all attached USC's will be synced
 
 `--remote-secret-name`: Remote Secret Name that will be synced on the remote endpoint
+
+`--reposirories[=all]` : GitHub repositories to sync to. Relevant only for GitHub targets.
+
+`--environments[=all]` : GitHub environments to sync to. Relevant only for GitHub targets.&#x20;
 
 `--namespace`: Vault Namespace, relevant only for HashiCorp Vault Target
 
@@ -332,11 +339,11 @@ akeyless update-secret-val \
 
 `--last-version`: The last version number before the update
 
-`--new-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--new-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
-`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder \[regular/personal]
 
 For other data, such as description or tags, use `update-item` as described in [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects).
 
@@ -361,9 +368,11 @@ akeyless static-secret-sync \
 
 `--remote-secret-name`: Remote Secret Name that will be synced on the remote endpoint
 
-> ℹ️ **Note (AWS Targets):**
->
-> For AWS Universal Secret Connector targets, Akeyless-initiated sync updates secret values while preserving existing AWS-side custom tags and description unless those fields are explicitly updated.
+<Callout icon="ℹ️" theme="info">
+  ### **Note (AWS Targets):**
+
+  For AWS Universal Secret Connector targets, Akeyless-initiated sync updates secret values while preserving existing AWS-side custom tags and description unless those fields are explicitly updated.
+</Callout>
 
 `--namespace`: Vault Namespace, relevant only for HashiCorp Vault Target
 
