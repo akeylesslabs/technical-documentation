@@ -12,14 +12,13 @@ You can define an [Aerospike](https://aerospike.com/) target to be used with Dat
 To create an Aerospike target with the CLI, run the following command:
 
 ```shell
-akeyless target create db \
+akeyless target create aerospike \
 --name <Target name> \
---db-type aerospike \
---host <Aerospike host> \
+--hostname <Aerospike host> \
 --port <Aerospike port> \
---user-name <Aerospike user name> \
---pwd <Aerospike password> \
---db-name <Aerospike namespace> 
+--admin-usernmae <Aerospike user name> \
+--password <Aerospike password> \
+--namespace <Aerospike namespace> 
 ```
 
 Where:
@@ -28,15 +27,15 @@ Where:
 
 - `db-type`: Required, set to aerospike.
 
-- `host`: The hostname or IP address of the Aerospike seed node.
+- `hostname`: The hostname or IP address of the Aerospike seed node.
 
 - `port`: The port of the Aerospike service (default 3000).
 
-- `user-name`: A privileged Aerospike user name with sufficient rights to create and manage users.
+- `admin-username`: A privileged Aerospike user name with sufficient rights to create and manage users.
 
-- `pwd`: The password of the privileged Aerospike user.
+- `password`: The password of the privileged Aerospike user.
 
-- `db-name`: The target Aerospike namespace.
+- `namespace`: The target Aerospike namespace.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#aerospike) section.
 
