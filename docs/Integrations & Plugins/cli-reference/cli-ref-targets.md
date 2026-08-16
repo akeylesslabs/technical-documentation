@@ -78,6 +78,8 @@ Create a new Target
 
 `artifactory`
 
+`aerospike`
+
 `aws`
 
 `azure`
@@ -176,6 +178,78 @@ akeyless target create artifactory \
 `--description`: Target description
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+### `aerospike`
+
+Creates a new aerospike target in the current account
+
+#### Usage
+
+```shell
+akeyless target create artifactory \
+--name <Target name> \
+--aerospike-cloud <true|false> \
+--hostname <Aerospike Hostname> \
+--port <Database port> \
+--namespace <Namespace Name> \
+--admin-username <Admin Username> \
+--password <Admin Usernames Password> \
+--aerospike-cluster-id <Cloud cluster ID> \
+--aerospike-client-id <Client ID> \
+--aerospike-client-secret <Aerospike Client Secret> \
+--ssl <Enable SSL Encryption> \
+--ssl-certificate <Base64-encoded SSL CA certificate> \ f
+--ssl-certificate-file-path <Path to a file containing the SSL CA certificate> \
+--enable-mtls <Enable mutual TLS authentication> \
+--client-certificate <Client certificate> \ 
+--client-certificate-file-path <Path to a file containing the client certificate> 
+--client-private-key <Client private key> \
+--client-private-key-file-path <Path to a file containing the client private key> \
+--db-server-name <TLS server name used to verify the certificate hostname> \
+--skip-server-name-validation <Skip server name verification while still validating the certificate chain>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--aerospike-cloud`: Set to `true` for Aerospike Cloud deployments
+
+`--hostname`: Aerospike host address and port (for example: `url.to.aerospike.db`)
+
+`--port`: Database connection port
+
+`--namespace`: Namespace name (relevant only for Aerospike databases)
+
+`--admin-username`: **Required**, Username of an account with the `user-admin` role
+
+`--password`: **Required**, Password for the admin user
+
+`--aerospike-cluster-id`: Cloud cluster ID (relevant only for Aerospike Cloud)
+
+`--aerospike-client-id`: Client ID for Aerospike Cloud authentication (relevant only for Aerospike Cloud)
+
+`--aerospike-client-secret`: Client secret for Aerospike Cloud authentication (relevant only for Aerospike Cloud)
+
+`--ssl`: Enable SSL encryption (`true`/`false`)
+
+`--ssl-certificate`: Base64-encoded SSL CA certificate from a trusted Certificate Authority (CA)
+
+`--ssl-certificate-file-path`: Path to a file containing the SSL CA certificate from a trusted Certificate Authority (CA)
+
+`--enable-mtls`: Enable mutual TLS (mTLS) authentication. Requires `--ssl=true`
+
+`--client-certificate`: Client certificate used for mTLS authentication
+
+`--client-certificate-file-path`: Path to a file containing the client certificate used for mTLS authentication
+
+`--client-private-key`: Client private key used for mTLS authentication
+
+`--client-private-key-file-path`: Path to a file containing the client private key used for mTLS authentication
+
+`--db-server-name`: TLS server name used to verify the certificate hostname. If not specified, the Aerospike hostname is used
+
+`--skip-server-name-validation`: Skip server name verification while still validating the certificate chain (`true`/`false`). If empty, server name validation is performed normally.
 
 ### `aws`
 
@@ -1610,7 +1684,7 @@ List of all targets in the account
 
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal\_identity authentication
+`--uid-token`: The universal identity token, Required only for universal_identity authentication
 
 ## `lock-target`
 
@@ -1685,6 +1759,81 @@ akeyless target update artifactory \
 `--update-version`: \[Deprecated: Use keep-prev-version instead] Whether to create a new version
 
 `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+
+### `aerospike`
+
+Updates an existing aerospike target in the current account
+
+#### Usage
+
+```shell
+akeyless target create artifactory \
+--name <Target name> \
+--new-name <New target name> \
+--aerospike-cloud <true|false> \
+--hostname <Aerospike Hostname> \
+--port <Database port> \
+--namespace <Namespace Name> \
+--admin-username <Admin Username> \
+--password <Admin Usernames Password> \
+--aerospike-cluster-id <Cloud cluster ID> \
+--aerospike-client-id <Client ID> \
+--aerospike-client-secret <Aerospike Client Secret> \
+--ssl <Enable SSL Encryption> \
+--ssl-certificate <Base64-encoded SSL CA certificate> \ f
+--ssl-certificate-file-path <Path to a file containing the SSL CA certificate> \
+--enable-mtls <Enable mutual TLS authentication> \
+--client-certificate <Client certificate> \ 
+--client-certificate-file-path <Path to a file containing the client certificate> 
+--client-private-key <Client private key> \
+--client-private-key-file-path <Path to a file containing the client private key> \
+--db-server-name <TLS server name used to verify the certificate hostname> \
+--skip-server-name-validation <Skip server name verification while still validating the certificate chain>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name` : New Target Name
+
+`--aerospike-cloud`: Set to `true` for Aerospike Cloud deployments
+
+`--hostname`: Aerospike host address and port (for example: `url.to.aerospike.db`)
+
+`--port`: Database connection port
+
+`--namespace`: Namespace name (relevant only for Aerospike databases)
+
+`--admin-username`: **Required**, Username of an account with the `user-admin` role
+
+`--password`: **Required**, Password for the admin user
+
+`--aerospike-cluster-id`: Cloud cluster ID (relevant only for Aerospike Cloud)
+
+`--aerospike-client-id`: Client ID for Aerospike Cloud authentication (relevant only for Aerospike Cloud)
+
+`--aerospike-client-secret`: Client secret for Aerospike Cloud authentication (relevant only for Aerospike Cloud)
+
+`--ssl`: Enable SSL encryption (`true`/`false`)
+
+`--ssl-certificate`: Base64-encoded SSL CA certificate from a trusted Certificate Authority (CA)
+
+`--ssl-certificate-file-path`: Path to a file containing the SSL CA certificate from a trusted Certificate Authority (CA)
+
+`--enable-mtls`: Enable mutual TLS (mTLS) authentication. Requires `--ssl=true`
+
+`--client-certificate`: Client certificate used for mTLS authentication
+
+`--client-certificate-file-path`: Path to a file containing the client certificate used for mTLS authentication
+
+`--client-private-key`: Client private key used for mTLS authentication
+
+`--client-private-key-file-path`: Path to a file containing the client private key used for mTLS authentication
+
+`--db-server-name`: TLS server name used to verify the certificate hostname. If not specified, the Aerospike hostname is used
+
+`--skip-server-name-validation`: Skip server name verification while still validating the certificate chain (`true`/`false`). If empty, server name validation is performed normally.
 
 #### `aws`
 
