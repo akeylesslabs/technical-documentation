@@ -22,7 +22,7 @@ You can create a dynamic secret using an existing [target](https://docs.akeyless
 
 `--description`: Description of the object
 
-`--delete-protection`: Protection from accidental deletion of this item, [true/false]
+`--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
 ## `create`
 
@@ -37,6 +37,8 @@ Command to create a Dynamic Secret
 ### Subcommands
 
 `artifactory`: Creates Artifactory dynamic secret
+
+`aerospike`: Creates aerosipke dynamic secret
 
 `aws`: Creates AWS dynamic secret
 
@@ -141,6 +143,76 @@ akeyless dynamic-secret create artifactory \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
+### `aerospike`
+
+Creates Aerospike Dynamic Secret
+
+#### Usage
+
+```shell Using target
+akeyless dynamic-secret create aerospike \
+--name <Dynamic Secret Name> \
+--target-name <Aerospike Target Name> \
+--aerospike-roles <Role Name> \
+--user-ttl <User TTL> \
+--custom-username-template <Username Template> \
+--password-length <Generated Password Length> \
+--password-policy-contains-capital-letters <true|false> \
+--password-policy-contains-lower-letters <true|false> \
+--password-policy-contains-numbers <true|false> \
+--password-policy-contains-special-characters <true|false> \
+--skip-dry-run <true|false> \
+--gateway-url <Gateway URL> \
+--input-rule "name=<Rule Name>,rule=<Rule Definition>" \
+--output-rule "name=<Rule Name>,rule=<Rule Definition>" \
+--ara-enabled <true|false> \
+--item-custom-fields <FieldName=Value>
+```
+```shell Inline connection
+akeyless dynamic-secret create artifactory \
+--name <Dynamic Secret Name> \
+--artifactory-token-scope *<Space-separated list of scopes> \
+--artifactory-token-audience *<Space-separated list of instances> \
+--gateway-url <Artifactory REST URL:8000 must end with "artifactory" postfix) \
+--base-url <Artifactory REST URL> \
+--artifactory-admin-name <Artifactory Admin username> \
+--artifactory-admin-pwd <Artifactory Admin API Key or password>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic secret name
+
+`--target-name`: **Required**, Name of an existing Aerospike target to use for dynamic secret creation
+
+`--aerospike-roles`: Aerospike roles to assign to generated users. To specify multiple roles, repeat the flag or provide a JSON array
+
+`--user-ttl`: Time-to-live (TTL) for generated users (for example: `60s`, `60m`, `60h`). Default: `60m`
+
+`--custom-username-template`: Customize how temporary usernames are generated using a Go template
+
+`--password-length`: Length of the generated password
+
+`--password-policy-contains-capital-letters`: Require generated passwords to contain at least one uppercase letter (`A-Z`) (`true`/`false`)
+
+`--password-policy-contains-lower-letters`: Require generated passwords to contain at least one lowercase letter (`a-z`) (`true`/`false`)
+
+`--password-policy-contains-numbers`: Require generated passwords to contain at least one numeric character (`0-9`) (`true`/`false`)
+
+`--password-policy-contains-special-characters`: Require generated passwords to contain at least one non-alphanumeric character (for example: `!`, `@`, `#`, `$`) (`true`/`false`)
+
+`--skip-dry-run`: Skip the dry-run validation before creating the dynamic secret (`true`/`false`)
+
+`-u, --gateway-url`: Gateway URL (Configuration Management port). Default: `http://localhost:8000`
+
+`--input-rule`: Agentic input rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--output-rule`: Agentic output rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--ara-enabled`: Enable Agentic Runtime Authority (ARA) rule enforcement (`true`/`false`). When set to `false`, custom input and output rules are not enforced
+
+`--item-custom-fields`: Additional custom fields to associate with the item. To specify multiple fields, repeat the flag (for example: `--item-custom-fields fieldName1=value1`)
+
 ### `aws`
 
 Creates AWS Dynamic Secret
@@ -182,7 +254,7 @@ akeyless dynamic-secret create aws \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port), Default = [http://localhost:8000](http://localhost:8000)
 
-`--aws-access-mode`: The types of credentials to retrieve from AWS. Options:[iam_user,assume_role]
+`--aws-access-mode`: The types of credentials to retrieve from AWS. Options:\[iam_user,assume_role]
 
 `--aws-region[=us-east-2]`: Region, Default = us-east-2
 
@@ -214,7 +286,7 @@ akeyless dynamic-secret create aws \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-aws-account-id`: The AWS account ID
 
@@ -299,7 +371,7 @@ akeyless dynamic-secret create azure \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
@@ -355,7 +427,7 @@ akeyless dynamic-secret create cassandra \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
@@ -544,7 +616,7 @@ akeyless dynamic-secret create eks \
 
 `--user-ttl[=60m]`: User TTL, Default = 60m
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL
 
@@ -590,7 +662,7 @@ akeyless dynamic-secret create gcp \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`--gcp-cred-type[=token]`: Credentials type, options are [token, key]
+`--gcp-cred-type[=token]`: Credentials type, options are \[token, key]
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -606,7 +678,7 @@ akeyless dynamic-secret create gcp \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`-s, --service-account-type[=fixed]`: **Required**, The type of the GCP dynamic secret. Options[fixed, dynamic]
+`-s, --service-account-type[=fixed]`: **Required**, The type of the GCP dynamic secret. Options\[fixed, dynamic]
 
 `-e, --gcp-sa-email`: The email of the fixed service account to generate keys or tokens for. (relevant for service-account-type=fixed)
 
@@ -640,7 +712,7 @@ akeyless dynamic-secret create google-workspace \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`-a, --access-mode`: **Required**, Adding a user to an existing group or assign an admin role to a user [`group`/`role`]
+`-a, --access-mode`: **Required**, Adding a user to an existing group or assign an admin role to a user \[`group`/`role`]
 
 `-d, --admin-email`: **Required**, Email of an admin user within the account
 
@@ -650,11 +722,11 @@ akeyless dynamic-secret create google-workspace \
 
 `--group-email`: Email address of the group to add the user to (relevant only for `group access-mode`)
 
-`--group-role`: Group role [`OWNER`/`MANAGER`/`MEMBER`], (relevant only for `group access-mode`)
+`--group-role`: Group role \[`OWNER`/`MANAGER`/`MEMBER`], (relevant only for `group access-mode`)
 
 `--role-name`: Name of the admin role the user will be assign to, (relevant only for `role access-mode`)
 
-`--role-scope[=customer]`: The scope in which this role is assigned [`customer`/`org_unit`], relevant only for `role access-mode`
+`--role-scope[=customer]`: The scope in which this role is assigned \[`customer`/`org_unit`], relevant only for `role access-mode`
 
 `--fixed-user-claim-keyname[=ext_email]`: For externally provided users, denotes the key-name of IdP claim to extract the username from
 
@@ -707,7 +779,7 @@ akeyless dynamic-secret create github \
 
 `--github-base-url[=https://api.github.com/]`: Github base URL
 
-`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, for example, - -p contents=read -p issues=write or -p '\{content:read}'
+`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, for example, - -p contents=read -p issues=write or -p '\{content:read\}'
 
 `-r, --token-repositories`: Tokens' allowed repositories. By default use installation allowed repositories. To specify multiple repositories use the argument multiple times: -r RepoName -r RepoName
 
@@ -741,7 +813,7 @@ akeyless dynamic-secret create gitlab \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--gitlab-access-type`: GitLab access token type [`project`/`group`]
+`--gitlab-access-type`: GitLab access token type \[`project`/`group`]
 
 `--project-name`: GitLab project name. Required for `project` access type
 
@@ -765,7 +837,7 @@ akeyless dynamic-secret create gitlab \
 
 `--description`: Description of the object
 
-`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
 
 ### `gke`
 
@@ -798,7 +870,7 @@ akeyless dynamic-secret create gke \
 
 `-a, --gke-account-email`: GKE service account email
 
-`-e, --gke-cluster-endpoint`: GKE cluster endpoint, that is, cluster URI https://\<DNS/IP>
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, that is, cluster URI https\://\<DNS/IP>
 
 `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
@@ -812,7 +884,7 @@ akeyless dynamic-secret create gke \
 
 `--user-ttl[=60m]`: User TTL, Default = 60m
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL
 
@@ -879,7 +951,7 @@ akeyless dynamic-secret create hanadb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -958,7 +1030,7 @@ akeyless dynamic-secret create k8s \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint
 
@@ -1034,11 +1106,11 @@ akeyless dynamic-secret create ldap \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
-`--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
+`--host-provider`: Host provider type \[explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for Dynamic Secrets/producers)
 
@@ -1082,7 +1154,7 @@ akeyless dynamic-secret create mongodb \
 
 `--mongodb-roles\[=\[]]`: MongoDB roles (For example, MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`)
 
-`--mongodb-custom-data`: MongoDB custom data (For example, \{team:blue})
+`--mongodb-custom-data`: MongoDB custom data (For example, \{team:blue\})
 
 `--mongodb-scopes`: Restrict the user so it can only access the specified MongoDB Atlas cluster(s).
 
@@ -1112,7 +1184,7 @@ akeyless dynamic-secret create mongodb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -1179,7 +1251,7 @@ akeyless dynamic-secret create mssql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -1234,7 +1306,7 @@ akeyless dynamic-secret create mysql \
 
 `--mysql-revocation-statements`: MySQL Revocation Statements
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
@@ -1252,7 +1324,7 @@ akeyless dynamic-secret create mysql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -1319,7 +1391,7 @@ akeyless dynamic-secret create oracledb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable[=false]`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable[=false]`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -1372,7 +1444,7 @@ akeyless dynamic-secret create ping \
 
 `-j, --ping-authorization-port[=9031]`: Ping Federate authorization port
 
-`-t, --ping-client-authentication-type[=CLIENT_SECRET]`: OAuth Client Authentication Type [CLIENT_SECRET, PRIVATE_KEY_JWT, CLIENT_TLS_CERTIFICATE]
+`-t, --ping-client-authentication-type[=CLIENT_SECRET]`: OAuth Client Authentication Type \[CLIENT_SECRET, PRIVATE_KEY_JWT, CLIENT_TLS_CERTIFICATE]
 
 `--ping-issuer-dn`: Issuer DN of trusted CA certificate that imported into Ping Federate server. You may select Trust Any to trust all the existing issuers in Ping Federate server. Used in conjunction with --ping-cert-subject-dn (relevant for CLIENT_TLS_CERTIFICATE authentication method)
 
@@ -1384,9 +1456,9 @@ akeyless dynamic-secret create ping \
 
 `--ping-jwks-url`: The URL of the JSON Web Key Set (JWKS). If no explicit value is given, the Dynamic Secret will create JWKs and matched signed JWT and return it as value (relevant for PRIVATE_KEY_JWT authentication method)
 
-`--ping-signing-algo`: The signing algorithm that the client must use to sign its request objects [RS56, RS384, RS5, ES56, ES384, ES5, PS56, PS384, PS5] If no explicit value is given, the client can use any of the supported signing algorithms (relevant for PRIVATE_KEY_JWT authentication method)
+`--ping-signing-algo`: The signing algorithm that the client must use to sign its request objects \[RS56, RS384, RS5, ES56, ES384, ES5, PS56, PS384, PS5] If no explicit value is given, the client can use any of the supported signing algorithms (relevant for PRIVATE_KEY_JWT authentication method)
 
-`-g, --ping-grant-types`: OAuth client grant types [IMPLICIT, AUTHORIZATION_CODE, CLIENT_CREDENTIALS, TOKEN_EXCHANGE, REFRESH_TOKEN, ASSERTION_GRANTS, PASSWORD, RESOURCE_OWNER_CREDENTIALS]. If no explicit value is given, AUTHORIZATION_CODE will be selected as default. For multiple values repeat this flag.
+`-g, --ping-grant-types`: OAuth client grant types \[IMPLICIT, AUTHORIZATION_CODE, CLIENT_CREDENTIALS, TOKEN_EXCHANGE, REFRESH_TOKEN, ASSERTION_GRANTS, PASSWORD, RESOURCE_OWNER_CREDENTIALS]. If no explicit value is given, AUTHORIZATION_CODE will be selected as default. For multiple values repeat this flag.
 
 `-r, --ping-redirect-uris`: URI to which the OAuth authorization server may redirect the resource owner's user agent after authorization is obtained. At least one redirection URI is required for the AUTHORIZATION_CODE and IMPLICIT grant types. For multiple values repeat this flag.
 
@@ -1449,7 +1521,7 @@ akeyless dynamic-secret create postgresql \
 
 `--enc-key-name`: Encrypt (Dynamic Secret) producer with the following key
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--user-ttl[=60m]`: User TTL
 
@@ -1459,7 +1531,7 @@ akeyless dynamic-secret create postgresql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion.
 
@@ -1505,11 +1577,11 @@ akeyless dynamic-secret create rabbitmq \
 
 `-s, --rabbitmq-server-uri`: RabbitMQ server URI
 
-`-c, --rabbitmq-user-conf-permission`: User configuration permission, for example:[.*,queue-name]
+`-c, --rabbitmq-user-conf-permission`: User configuration permission, for example:\[.\*,queue-name]
 
-`-w, --rabbitmq-user-write-permission`: User write permission, for example:[.*,queue-name]
+`-w, --rabbitmq-user-write-permission`: User write permission, for example:\[.\*,queue-name]
 
-`-r, --rabbitmq-user-read-permission`: User read permission, for example:[.*,queue-name]
+`-r, --rabbitmq-user-read-permission`: User read permission, for example:\[.\*,queue-name]
 
 `-a, --rabbitmq-admin-user`: RabbitMQ server user
 
@@ -1527,7 +1599,7 @@ akeyless dynamic-secret create rabbitmq \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
@@ -1595,7 +1667,7 @@ akeyless dynamic-secret create rdp \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1638,9 +1710,9 @@ akeyless dynamic-secret create redis \
 
 `--port[=6379]`: Redis port
 
-`--acl-rules`: A JSON array list of Redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys ([~*, +@read])
+`--acl-rules`: A JSON array list of Redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys (\[\~\*, +\@read])
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
@@ -1698,7 +1770,7 @@ akeyless dynamic-secret create redshift \
 
 `--redshift-statements[=CREATE USER {{username}} WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{username}};]`: Redshift Creation Statements
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--enc-key-name`: Encrypt (Dynamic Secret) producer with the following key
 
@@ -1708,7 +1780,7 @@ akeyless dynamic-secret create redshift \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag.
 
@@ -1762,9 +1834,9 @@ akeyless dynamic-secret create snowflake \
 
 `--private-key-passphrase`: The Private key passphrase
 
-`--auth-mode[=password]`: The authentication mode for the temporary user [`password`/`key`]
+`--auth-mode[=password]`: The authentication mode for the temporary user \[`password`/`key`]
 
-`--key-algo[=RSA2048]`: he temporary key algorithm to generate (relevant only for `auth-mode`=`key`) [`RSA2048`/`RSA3072`/`RSA4096`]
+`--key-algo[=RSA2048]`: he temporary key algorithm to generate (relevant only for `auth-mode`=`key`) \[`RSA2048`/`RSA3072`/`RSA4096`]
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -1778,7 +1850,9 @@ akeyless dynamic-secret create snowflake \
 
 Creates a Venafi dynamic secret to create certificates generated by Venafi or monitored by Venafi and generated by Akeyless PKI
 
-> ℹ️ **Note:** Venafi is now CyberArk Machine Identity Security. This CLI subcommand remains `venafi` for backward compatibility.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:** Venafi is now CyberArk Machine Identity Security. This CLI subcommand remains `venafi` for backward compatibility.
+</Callout>
 
 #### Usage
 
@@ -1915,7 +1989,7 @@ akeyless dynamic-secret get-value \
 
 `target`: Target Name
 
-`args`: Optional arguments as `key`=`value` pairs or JSON strings, for example, - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
+`args`: Optional arguments as `key`=`value` pairs or JSON strings, for example, - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"\}. It is possible to combine both formats.' \[role_arn,username,csr,common_name]
 
 `--dbname`: Override the database name, which must be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**)
 
@@ -1953,7 +2027,7 @@ akeyless set-item-state \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`-s, --desired-state`: **Required** Desired item state [Enabled, Disabled]
+`-s, --desired-state`: **Required** Desired item state \[Enabled, Disabled]
 
 `--version[=0]`: The specific version you want to update: 0=item level state (default) (relevant only for keys)
 
@@ -2145,6 +2219,77 @@ akeyless dynamic-secret update artifactory \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
+### `aerospike`
+
+#### Usage
+
+```shell Using target
+akeyless dynamic-secret create aerospike \
+--name <Dynamic Secret Name> \
+--new-name <New Item Name> \
+--target-name <Aerospike Target Name> \
+--aerospike-roles <Role Name> \
+--user-ttl <User TTL> \
+--custom-username-template <Username Template> \
+--password-length <Generated Password Length> \
+--password-policy-contains-capital-letters <true|false> \
+--password-policy-contains-lower-letters <true|false> \
+--password-policy-contains-numbers <true|false> \
+--password-policy-contains-special-characters <true|false> \
+--skip-dry-run <true|false> \
+--gateway-url <Gateway URL> \
+--input-rule "name=<Rule Name>,rule=<Rule Definition>" \
+--output-rule "name=<Rule Name>,rule=<Rule Definition>" \
+--ara-enabled <true|false> \
+--item-custom-fields <FieldName=Value>
+```
+```shell Inline connection
+akeyless dynamic-secret create artifactory \
+--name <Dynamic Secret Name> \
+--artifactory-token-scope *<Space-separated list of scopes> \
+--artifactory-token-audience *<Space-separated list of instances> \
+--gateway-url <Artifactory REST URL:8000 must end with "artifactory" postfix) \
+--base-url <Artifactory REST URL> \
+--artifactory-admin-name <Artifactory Admin username> \
+--artifactory-admin-pwd <Artifactory Admin API Key or password>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic secret name
+
+`--new-name`: Dynamic Secret New name
+
+`--target-name`: **Required**, Name of an existing Aerospike target to use for dynamic secret creation
+
+`--aerospike-roles`: Aerospike roles to assign to generated users. To specify multiple roles, repeat the flag or provide a JSON array
+
+`--user-ttl`: Time-to-live (TTL) for generated users (for example: `60s`, `60m`, `60h`). Default: `60m`
+
+`--custom-username-template`: Customize how temporary usernames are generated using a Go template
+
+`--password-length`: Length of the generated password
+
+`--password-policy-contains-capital-letters`: Require generated passwords to contain at least one uppercase letter (`A-Z`) (`true`/`false`)
+
+`--password-policy-contains-lower-letters`: Require generated passwords to contain at least one lowercase letter (`a-z`) (`true`/`false`)
+
+`--password-policy-contains-numbers`: Require generated passwords to contain at least one numeric character (`0-9`) (`true`/`false`)
+
+`--password-policy-contains-special-characters`: Require generated passwords to contain at least one non-alphanumeric character (for example: `!`, `@`, `#`, `$`) (`true`/`false`)
+
+`--skip-dry-run`: Skip the dry-run validation before creating the dynamic secret (`true`/`false`)
+
+`-u, --gateway-url`: Gateway URL (Configuration Management port). Default: `http://localhost:8000`
+
+`--input-rule`: Agentic input rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--output-rule`: Agentic output rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--ara-enabled`: Enable Agentic Runtime Authority (ARA) rule enforcement (`true`/`false`). When set to `false`, custom input and output rules are not enforced
+
+`--item-custom-fields`: Additional custom fields to associate with the item. To specify multiple fields, repeat the flag (for example: `--item-custom-fields fieldName1=value1`)
+
 ### `aws`
 
 #### Usage
@@ -2175,7 +2320,7 @@ akeyless dynamic-secret update aws \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--aws-access-mode`: The types of credentials to retrieve from AWS. Options:[iam_user,assume_role]
+`--aws-access-mode`: The types of credentials to retrieve from AWS. Options:\[iam_user,assume_role]
 
 `--aws-region[=us-east-2]`: Region, Default = us-east-2
 
@@ -2185,7 +2330,7 @@ akeyless dynamic-secret update aws \
 
 `--aws-role-arns`: AWS Role ARNs to be use in the Assume Role operation. Multiple values should be separated by comma
 
-`--aws-external-id`: The AWS External ID associated with the AWS role, relevant only for Assumed role`
+`--aws-external-id`: The AWS External ID associated with the AWS role, relevant only for Assumed role\`
 
 `--aws-user-console-access[=false]`: Enable AWS User console access
 
@@ -2207,7 +2352,7 @@ akeyless dynamic-secret update aws \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-aws-account-id`: The AWS account ID
 
@@ -2277,7 +2422,7 @@ akeyless dynamic-secret update azure \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
@@ -2321,7 +2466,7 @@ akeyless dynamic-secret update cassandra \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
@@ -2467,7 +2612,7 @@ akeyless dynamic-secret update eks \
 
 `-c, --eks-cluster-name`: EKS cluster name. Must match the EKS cluster name you want to connect to
 
-`-e, --eks-cluster-endpoint`: EKS Cluster endpoint. https://, \<DNS / IP> of the cluster
+`-e, --eks-cluster-endpoint`: EKS Cluster endpoint. https\://, \<DNS / IP> of the cluster
 
 `-r, --eks-cluster-ca-cert`: EKS Cluster certificate. Base 64 encoded certificate
 
@@ -2485,7 +2630,7 @@ akeyless dynamic-secret update eks \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL
 
@@ -2573,7 +2718,7 @@ akeyless dynamic-secret update google-workspace \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`-a, --access-mode`: **Required**, Adding a user to an existing group or assign an admin role to a user [`group`/`role`]
+`-a, --access-mode`: **Required**, Adding a user to an existing group or assign an admin role to a user \[`group`/`role`]
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
@@ -2581,11 +2726,11 @@ akeyless dynamic-secret update google-workspace \
 
 `--group-email`: Email address of the group to add the user to (relevant only for `group access-mode`)
 
-`--group-role`: Group role [`OWNER`/`MANAGER`/`MEMBER`], (relevant only for `group access-mode`)
+`--group-role`: Group role \[`OWNER`/`MANAGER`/`MEMBER`], (relevant only for `group access-mode`)
 
 `--role-name`: Name of the admin role the user will be assign to, (relevant only for `role access-mode`)
 
-`--role-scope[=CUSTOMER]`: The scope in which this role is assigned [`customer`/`org_unit`], relevant only for `role access-mode`
+`--role-scope[=CUSTOMER]`: The scope in which this role is assigned \[`customer`/`org_unit`], relevant only for `role access-mode`
 
 `--gcp-key-file-path`: Path to file with the service account private key
 
@@ -2634,7 +2779,7 @@ akeyless dynamic-secret update github \
 
 `--github-base-url[=https://api.github.com/]`: Github base url
 
-`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, for example, - -p contents=read -p issues=write or -p '\{content:read}'
+`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, for example, - -p contents=read -p issues=write or -p '\{content:read\}'
 
 `-r, --token-repositories`: Tokens' allowed repositories. By default use installation allowed repositories. To specify multiple repositories use argument multiple times: -r RepoName -r RepoName
 
@@ -2665,7 +2810,7 @@ akeyless dynamic-secret update gitlab \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--gitlab-access-type`: GitLab access token type [`project`/`group`]
+`--gitlab-access-type`: GitLab access token type \[`project`/`group`]
 
 `--project-name`: GitLab project name. Required for `project` access type
 
@@ -2689,7 +2834,7 @@ akeyless dynamic-secret update gitlab \
 
 `--description`: Description of the object
 
-`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
 
 ### `gke`
 
@@ -2719,7 +2864,7 @@ akeyless dynamic-secret update gke \
 
 `-a, --gke-account-email`: GKE service account email
 
-`-e, --gke-cluster-endpoint`: GKE cluster endpoint, that is, cluster URI https://\<DNS/IP>
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, that is, cluster URI https\://\<DNS/IP>
 
 `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
@@ -2735,7 +2880,7 @@ akeyless dynamic-secret update gke \
 
 `--user-ttl[=60m]`: User TTL
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL
 
@@ -2794,7 +2939,7 @@ akeyless dynamic-secret update hanadb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -2823,7 +2968,7 @@ akeyless dynamic-secret update k8s \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-e, --k8s-cluster-endpoint`: Kubernetes Cluster endpoint. https://, \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: Kubernetes Cluster endpoint. https\://, \<DNS / IP> of the cluster
 
 `-c, --k8s-cluster-ca-cert`: Kubernetes Cluster certificate. Base 64 encoded certificate
 
@@ -2831,7 +2976,7 @@ akeyless dynamic-secret update k8s \
 
 `-i, --use-gw-service-account`: Use the Gateway's service account
 
-`--k8s-service-account-type[=fixed]`: Kubernetes ServiceAccount type [fixed, dynamic]
+`--k8s-service-account-type[=fixed]`: Kubernetes ServiceAccount type \[fixed, dynamic]
 
 `-s, --k8s-service-account`: Kubernetes ServiceAccount to extract token from
 
@@ -2841,7 +2986,7 @@ akeyless dynamic-secret update k8s \
 
 `--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for `k8s-service-account-type=dynamic`)
 
-`--k8s-predefined-role-type`: Specifies the type of the pre-existing Kubernetes role [Role, ClusterRole] (relevant only for `k8s-service-account-type=dynamic`)
+`--k8s-predefined-role-type`: Specifies the type of the pre-existing Kubernetes role \[Role, ClusterRole] (relevant only for `k8s-service-account-type=dynamic`)
 
 `--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of Kubernetes Role and RoleBinding (relevant only for `k8s-service-account-type=dynamic`)
 
@@ -2857,7 +3002,7 @@ akeyless dynamic-secret update k8s \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint
 
@@ -2920,11 +3065,11 @@ akeyless dynamic-secret update ldap \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
-`--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
+`--host-provider`: Host provider type \[explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for Dynamic Secrets/producers)
 
@@ -2991,7 +3136,7 @@ akeyless dynamic-secret update mongodb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -3050,7 +3195,7 @@ akeyless dynamic-secret update mssql \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -3098,7 +3243,7 @@ akeyless dynamic-secret update mysql \
 
 `--mysql-revocation-statements`: MySQL Revocation Statements
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
@@ -3116,7 +3261,7 @@ akeyless dynamic-secret update mysql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -3176,7 +3321,7 @@ akeyless dynamic-secret update oracledb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable[=false]`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable[=false]`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -3228,7 +3373,7 @@ akeyless dynamic-secret update postgresql \
 
 `--enc-key-name`: Encrypt Dynamic Secret with following key
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--user-ttl[=60m]`: User TTL
 
@@ -3238,7 +3383,7 @@ akeyless dynamic-secret update postgresql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -3275,11 +3420,11 @@ akeyless dynamic-secret update rabbitmq \
 
 `-s, --rabbitmq-server-uri`: RabbitMQ server URI
 
-`-c, --rabbitmq-user-conf-permission`: User configuration permission, for example:[.*,queue-name]
+`-c, --rabbitmq-user-conf-permission`: User configuration permission, for example:\[.\*,queue-name]
 
-`-w, --rabbitmq-user-write-permission`: User write permission, for example:[.*,queue-name]
+`-w, --rabbitmq-user-write-permission`: User write permission, for example:\[.\*,queue-name]
 
-`-r, --rabbitmq-user-read-permission`: User read permission, for example:[.*,queue-name]
+`-r, --rabbitmq-user-read-permission`: User read permission, for example:\[.\*,queue-name]
 
 `-a, --rabbitmq-admin-user`: RabbitMQ server user
 
@@ -3297,7 +3442,7 @@ akeyless dynamic-secret update rabbitmq \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
@@ -3352,7 +3497,7 @@ akeyless dynamic-secret update rdp \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -3394,9 +3539,9 @@ akeyless dynamic-secret update redis \
 
 `--port[=6379]`: Redis port
 
-`--acl-rules`: A JSON array list of Redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys ([~*, +@read])
+`--acl-rules`: A JSON array list of Redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys (\[\~\*, +\@read])
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
@@ -3450,7 +3595,7 @@ akeyless dynamic-secret update redshift \
 
 `--redshift-statements[=CREATE USER {{username}} WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{username}};]`: Redshift Creation Statements
 
-`--ssl[=false]`: Enable/Disable SSL [true/false]
+`--ssl[=false]`: Enable/Disable SSL \[true/false]
 
 `--enc-key-name`: Encrypt Dynamic Secret with following key
 
@@ -3460,7 +3605,7 @@ akeyless dynamic-secret update redshift \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, \[true/false]
 
 `--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag
 
@@ -3507,9 +3652,9 @@ akeyless dynamic-secret update snowflake \
 
 `--private-key-passphrase`: The Private key passphrase
 
-`--auth-mode[=password]`: The authentication mode for the temporary user [`password`/`key`]
+`--auth-mode[=password]`: The authentication mode for the temporary user \[`password`/`key`]
 
-`--key-algo[=RSA2048]`: The temporary key algorithm to generate (relevant only for `auth-mode`=`key`) [`RSA2048`/`RSA3072`/`RSA4096`]
+`--key-algo[=RSA2048]`: The temporary key algorithm to generate (relevant only for `auth-mode`=`key`) \[`RSA2048`/`RSA3072`/`RSA4096`]
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -3521,7 +3666,9 @@ akeyless dynamic-secret update snowflake \
 
 ### `venafi`
 
-> ℹ️ **Note:** Venafi is now CyberArk Machine Identity Security. This CLI subcommand remains `venafi` for backward compatibility.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:** Venafi is now CyberArk Machine Identity Security. This CLI subcommand remains `venafi` for backward compatibility.
+</Callout>
 
 #### Usage
 
