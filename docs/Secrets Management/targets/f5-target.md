@@ -33,7 +33,7 @@ Where:
 
 - `key`: **Optional**, a key name to be used to encrypt the target secret value. If a key name is not specified, the account default protection key is used.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#f5-) section.
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
