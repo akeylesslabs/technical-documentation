@@ -38,7 +38,7 @@ Where:
 
 - `db-name`: The target Aerospike namespace.
 
-You can find the complete list of parameters for this command in the CLI Reference - Akeyless Targets section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#aerospike) section.
 
 # Create an Aerospike Target in the Console&#x20;
 
@@ -62,4 +62,3 @@ You can find the complete list of parameters for this command in the CLI Referen
      - **Client Secret**: The Client Secret used to authenticate with Aerospike Cloud.
      - **SSL**: Check to enable TLS to the Aerospike cluster.
 5. Click **Finish**
-
