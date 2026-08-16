@@ -457,7 +457,74 @@ akeyless rotated-secret create dockerhub \
 
 `--password-length`: The length of the password to be generated
 
-`-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
+`-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`&#x20;
+
+### `f5-big-ip`
+
+Creates a new F5 BIG-IP rotated secret in the current account.
+
+#### Usage
+
+```shell
+akeyless rotated-secret create f5-big-ip \
+--name <Rotated Secret Name> \
+--target-name <Target Name> \
+--rotator-type <target|password> \
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Rotated secret name
+
+`-r, --target-name`: **Required**, The F5 BIG-IP target to associate with the rotated secret
+
+`--description`: Description of the object
+
+`--rotator-type`: **Required**, Rotator type. Options: `target`, `password`
+
+`--rotated-username`: Username to rotate. If `use-user-creds` is selected for `--authentication-credentials`, this user rotates its own password. If `use-target-creds` is selected, the target credentials are used to rotate this user's password. Relevant only when `--rotator-type=password`
+
+`--rotated-password`: Current password of the rotated user. Relevant only when `--rotator-type=password`
+
+`--skip-dry-run`: Skip the dry-run validation before creating the rotated secret (`true`/`false`)
+
+`-u, --gateway-url`: Gateway URL (Configuration Management port). Default: `http://localhost:8000`
+
+`-k, --key`: The name of a key used to encrypt the secret value. If empty, the account default `protectionKey` key is used
+
+`--auto-rotate`: Enable or disable automatic rotation based on the configured rotation interval
+
+`--rotation-interval`: Number of days between automatic rotations (`1-365`). For custom rotators, the interval is set in minutes
+
+`--rotation-hour`: Hour of the automatic rotation in UTC
+
+`--rotation-event-in`: Number of days before rotation when a notification should be sent. To specify multiple notifications, repeat the flag (for example: `--rotation-event-in 1 --rotation-event-in 5`)
+
+`--password-length`: Length of the generated password
+
+`--max-versions`: Maximum number of versions to retain, limited by account settings
+
+`--input-rule`: Agentic input rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--output-rule`: Agentic output rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--ara-enabled`: Enable Agentic Runtime Authority (ARA) rule enforcement (`true`/`false`). When set to `false`, custom input and output rules are not enforced
+
+`--item-custom-fields`: Additional custom fields to associate with the item. To specify multiple fields, repeat the flag (for example: `--item-custom-fields fieldName1=value1`)
+
+`--password-policy-contains-capital-letters`: Require generated passwords to contain at least one uppercase letter (`A-Z`) (`true`/`false`)
+
+`--password-policy-contains-lower-letters`: Require generated passwords to contain at least one lowercase letter (`a-z`) (`true`/`false`)
+
+`--password-policy-contains-numbers`: Require generated passwords to contain at least one numeric character (`0-9`) (`true`/`false`)
+
+`--password-policy-contains-special-characters`: Require generated passwords to contain at least one non-alphanumeric character (for example: `!`, `@`, `#`, `$`) (`true`/`false`)
+
+`--authentication-credentials`: Credentials used to connect and perform the rotation. Options: `use-user-creds`, `use-target-creds`
+
+`-t, --tag`: Add tags to the object. To specify multiple tags, repeat the flag (for example: `--tag Tag1 --tag Tag2`)
+
+`--delete-protection`: Protect the object from accidental deletion (`true`/`false`)
 
 ### `gcp`
 
@@ -1791,6 +1858,76 @@ akeyless rotated-secret update dockerhub \
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
 `--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
+
+### `f5-big-ip`
+
+Creates a new F5 BIG-IP rotated secret in the current account.
+
+#### Usage
+
+```shell
+akeyless rotated-secret create f5-big-ip \
+--name <Rotated Secret Name> \
+--new-name <New Item Name> \
+--target-name <Target Name> \
+--rotator-type <target|password> \
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Rotated secret name
+
+`--new-name`: New Item name
+
+`-r, --target-name`: **Required**, The F5 BIG-IP target to associate with the rotated secret
+
+`--description`: Description of the object
+
+`--rotator-type`: **Required**, Rotator type. Options: `target`, `password`
+
+`--rotated-username`: Username to rotate. If `use-user-creds` is selected for `--authentication-credentials`, this user rotates its own password. If `use-target-creds` is selected, the target credentials are used to rotate this user's password. Relevant only when `--rotator-type=password`
+
+`--rotated-password`: Current password of the rotated user. Relevant only when `--rotator-type=password`
+
+`--skip-dry-run`: Skip the dry-run validation before creating the rotated secret (`true`/`false`)
+
+`-u, --gateway-url`: Gateway URL (Configuration Management port). Default: `http://localhost:8000`
+
+`-k, --key`: The name of a key used to encrypt the secret value. If empty, the account default `protectionKey` key is used
+
+`--auto-rotate`: Enable or disable automatic rotation based on the configured rotation interval
+
+`--rotation-interval`: Number of days between automatic rotations (`1-365`). For custom rotators, the interval is set in minutes
+
+`--rotation-hour`: Hour of the automatic rotation in UTC
+
+`--rotation-event-in`: Number of days before rotation when a notification should be sent. To specify multiple notifications, repeat the flag (for example: `--rotation-event-in 1 --rotation-event-in 5`)
+
+`--password-length`: Length of the generated password
+
+`--max-versions`: Maximum number of versions to retain, limited by account settings
+
+`--input-rule`: Agentic input rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--output-rule`: Agentic output rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--ara-enabled`: Enable Agentic Runtime Authority (ARA) rule enforcement (`true`/`false`). When set to `false`, custom input and output rules are not enforced
+
+`--item-custom-fields`: Additional custom fields to associate with the item. To specify multiple fields, repeat the flag (for example: `--item-custom-fields fieldName1=value1`)
+
+`--password-policy-contains-capital-letters`: Require generated passwords to contain at least one uppercase letter (`A-Z`) (`true`/`false`)
+
+`--password-policy-contains-lower-letters`: Require generated passwords to contain at least one lowercase letter (`a-z`) (`true`/`false`)
+
+`--password-policy-contains-numbers`: Require generated passwords to contain at least one numeric character (`0-9`) (`true`/`false`)
+
+`--password-policy-contains-special-characters`: Require generated passwords to contain at least one non-alphanumeric character (for example: `!`, `@`, `#`, `$`) (`true`/`false`)
+
+`--authentication-credentials`: Credentials used to connect and perform the rotation. Options: `use-user-creds`, `use-target-creds`
+
+`-t, --tag`: Add tags to the object. To specify multiple tags, repeat the flag (for example: `--tag Tag1 --tag Tag2`)
+
+`--delete-protection`: Protect the object from accidental deletion (`true`/`false`)
 
 ### `gcp`
 
