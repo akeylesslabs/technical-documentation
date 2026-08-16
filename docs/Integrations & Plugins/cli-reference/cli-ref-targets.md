@@ -2205,6 +2205,45 @@ akeyless target update eks \
 
 `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
+### `F5`&#x20;
+
+Update an existing F5 target in the current account
+
+#### Usage
+
+```shell
+akeyless target create f5-big-ip \
+--name <Target name> \
+--new-name <New Target Name> \
+--url <F5 BIG-IP URL> \
+--username <F5 Username> \
+--password <F5 Password> \
+--key <Key name> \
+--description <Description> \
+--max-versions <Maximum Number of Versions> \
+--delete-protection <true|false>
+```
+
+##### Flags
+
+`-n, --name`: Required, Target name
+
+`--new-name`: New target name
+
+`-u, --url`: Required, F5 BIG-IP target URL
+
+`--username`: Required, F5 username with permission to manage certificates
+
+`--password`: F5 BIG-IP password
+
+`-k, --key`: The name of a key used to encrypt the target secret value. If not specified, the account default protectionKey is used
+
+`--description`: Target description
+
+`--max-versions`: Maximum number of versions to retain, limited by account settings
+
+`--delete-protection`: Protect the object from accidental deletion (true/false)
+
 #### `gcp`
 
 Update an existing GCP target in the current account
