@@ -54,7 +54,7 @@ Where:
 - `rotated-password`: The password to rotate.
 - `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.&#x20;
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#create) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#aerospike) section.
 
 ## Create a Rotated Aerospike Secret in the Akeyless Console
 
