@@ -1247,12 +1247,18 @@ akeyless target create openai \
 --api-key-id <OpenAI API key ID> \
 --model <Default OpenAI model name> \
 --organization-id <OpenAI Organization ID> \
+--codex-oauth-mode <Authentication Mode> \
+--codex-oauth-access-token <Codex OAuth access token> \
+--codex-oauth-refresh-token <Codex OAuth refresh token> \
+--codex-oauth-account-id <Codex OAuth account id> \
 --key <Key name>
 ```
 
 ##### Flags
 
 `-n, --name`: **Required**, Target name
+
+`--codex-oauth-mode`: Empty for a static api-key, or `chatgpt_oauth` to authenticate with a customer Codex OAuth session instead of an api-key.
 
 `-u, --openai-url[=https://api.openai.com/v1]`: OpenAI API base URL
 
@@ -1263,6 +1269,14 @@ akeyless target create openai \
 `-m, --model`: Default OpenAI model name
 
 `-o, --organization-id`: OpenAI Organization ID
+
+\``--codex-oauth-mode` : Empty for a static api-key, or `chatgpt_oauth` to authenticate with a customer Codex OAuth session instead of an api-key.
+
+`--codex-oauth-access-token` : Codex OAuth access token from a codex login session `auth.json tokens.access_token`), optional, auto-populated during refresh when `codex-oauth-modechatgpt_oauth`&#x20;
+
+`--codex-oauth-refresh-token` : Codex OAuth refresh token from a codex login session `auth.json tokens.refresh_token`), required when `codex-oauth-modechatgpt_oauth` .
+
+`--codex-oauth-account-id` : Codex OAuth account id from a codex login session `auth.json tokens.account_id`), required when `codex-oauth-modechatgpt_oauth`
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
