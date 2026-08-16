@@ -1861,12 +1861,12 @@ akeyless rotated-secret update dockerhub \
 
 ### `f5-big-ip`
 
-Creates a new F5 BIG-IP rotated secret in the current account.
+Updates an existing F5 BIG-IP rotated secret in the current account.
 
 #### Usage
 
 ```shell
-akeyless rotated-secret create f5-big-ip \
+akeyless rotated-secret update f5-big-ip \
 --name <Rotated Secret Name> \
 --new-name <New Item Name> \
 --target-name <Target Name> \
