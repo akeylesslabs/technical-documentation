@@ -68,8 +68,8 @@ These flags are used by multiple `rotated-secret create` and `rotated-secret upd
 
 Permission behavior:
 
-* For credentials-based rotators (for example, `password` rotator flows using `use-user-creds` or `use-target-creds`), creating the rotated secret supports list-only permissions on the associated target.
-* For `target` rotator flows, read and update permissions on the target are still required.
+- For credentials-based rotators (for example, `password` rotator flows using `use-user-creds` or `use-target-creds`), creating the rotated secret supports list-only permissions on the associated target.
+- For `target` rotator flows, read and update permissions on the target are still required.
 
 `--grace-rotation-timing[=after]`: Controls whether graceful rotation creates the replacement credential before or after the old credential is removed. Supported values are `before` and `after`.
 
@@ -78,6 +78,96 @@ Permission behavior:
 `--public-key-remote-path`: Remote path where the SSH public key is stored on the target host.
 
 `--secure-access-target-type`: Secure Remote Access target type for SSH rotated secrets.
+
+### `aerospike`
+
+Creates a new Aerospike rotated secret item
+
+#### Usage
+
+```shell
+akeyless rotated-secret create aerospike \
+--name <Rotated Secret Name> \
+--target-name <Target Name> \
+--description <Description> \
+--rotator-type <target|password> \
+--rotated-username <Username to Rotate> \
+--rotated-password <Current Password of Rotated User> \
+--skip-dry-run <true|false> \
+--gateway-url <Gateway URL> \
+--key <Encryption Key Name> \
+--auto-rotate <true|false> \
+--rotation-interval <Rotation Interval> \
+--rotation-hour <Rotation Hour (UTC)> \
+--rotation-event-in <Days Before Rotation Notification> \
+--password-length <Generated Password Length> \
+--max-versions <Maximum Number of Versions> \
+--input-rule "name=<Rule Name>,rule=<Rule Definition>" \
+--output-rule "name=<Rule Name>,rule=<Rule Definition>" \
+--ara-enabled <true|false> \
+--item-custom-fields <FieldName=Value> \
+--password-policy-contains-capital-letters <true|false> \
+--password-policy-contains-lower-letters <true|false> \
+--password-policy-contains-numbers <true|false> \
+--password-policy-contains-special-characters <true|false> \
+--authentication-credentials <use-user-creds|use-target-creds> \
+--tag <Tag Name> \
+--delete-protection <true|false>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Rotated secret name
+
+`-r, --target-name`: **Required**, The target to associate with the rotated secret
+
+`--description`: Description of the object
+
+`--rotator-type`: **Required**, Rotator type. Options: `target`, `password`
+
+`--rotated-username`: Username to rotate. If `use-self-creds` is selected for `--authentication-credentials`, this user rotates its own password. If `use-target-creds` is selected, the target credentials are used to rotate this user's password. Relevant only when `--rotator-type=password`
+
+`--rotated-password`: Current password of the rotated user. Relevant only when `--rotator-type=password`
+
+`--skip-dry-run`: Skip the dry-run validation before creating the rotated secret (`true`/`false`)
+
+`-u, --gateway-url`: Gateway URL (Configuration Management port). Default: `http://localhost:8000`
+
+`-k, --key`: The name of a key used to encrypt the secret value (if empty, the account default `protectionKey` key is used)
+
+`--auto-rotate`: Enable or disable automatic rotation based on the configured rotation interval
+
+`--rotation-interval`: Number of days between automatic rotations (`1-365`). For custom rotators, the interval is set in minutes
+
+`--rotation-hour`: Hour of the automatic rotation in UTC
+
+`--rotation-event-in`: Number of days before rotation when a notification should be sent. To specify multiple notifications, repeat the flag (for example: `--rotation-event-in 1 --rotation-event-in 5`)
+
+`--password-length`: Length of the generated password
+
+`--max-versions`: Maximum number of versions to retain, limited by account settings
+
+`--input-rule`: Agentic input rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--output-rule`: Agentic output rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--ara-enabled`: Enable Agentic Runtime Authority (ARA) rule enforcement (`true`/`false`). When set to `false`, custom input and output rules are not enforced
+
+`--item-custom-fields`: Additional custom fields to associate with the item. To specify multiple fields, repeat the flag (for example: `--item-custom-fields fieldName1=value1`)
+
+`--password-policy-contains-capital-letters`: Require generated passwords to contain at least one uppercase letter (`A-Z`) (`true`/`false`)
+
+`--password-policy-contains-lower-letters`: Require generated passwords to contain at least one lowercase letter (`a-z`) (`true`/`false`)
+
+`--password-policy-contains-numbers`: Require generated passwords to contain at least one numeric character (`0-9`) (`true`/`false`)
+
+`--password-policy-contains-special-characters`: Require generated passwords to contain at least one non-alphanumeric character (for example: `!`, `@`, `#`, `$`) (`true`/`false`)
+
+`--authentication-credentials`: Credentials used to connect and perform the rotation. Options: `use-user-creds`, `use-target-creds`
+
+`-t, --tag`: Add tags to the object. To specify multiple tags, repeat the flag (for example: `--tag Tag1 --tag Tag2`)
+
+`--delete-protection`: Protect the object from accidental deletion (`true`/`false`)
 
 ### `aws`
 
@@ -99,7 +189,7 @@ akeyless rotated-secret create aws \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`api-key`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`api-key`]
 
 `--api-id`: **API ID** to rotate (relevant only for `rotator-type`=`api-key`)
 
@@ -129,9 +219,9 @@ akeyless rotated-secret create aws \
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -143,7 +233,7 @@ akeyless rotated-secret create aws \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `azure`
 
@@ -165,7 +255,7 @@ akeyless rotated-secret create azure \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`api-key`/`azure-storage-account`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`api-key`/`azure-storage-account`/`password`]
 
 `--app-id`: ID of the Azure app that holds the secret to be rotated (relevant only for `rotator-type=api-key` and `authentication-credentials=use-target-creds`)
 
@@ -173,11 +263,11 @@ akeyless rotated-secret create azure \
 
 `--api-key`: **API Key** to rotate (relevant only for `rotator-type`=`api-key`)
 
-`--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevant to `azure-storage-account`)
+`--storage-account-key-name`: The name of the Storage Account key to rotate \[`key1`/`key2`/`kerb1`/`kerb2`] (relevant to `azure-storage-account`)
 
 `--username`: The user principal name to rotate his password (relevant only for `rotator-type`=`password`)
 
-`--explicitly-set-sa[=false]`: If set, explicitly provide the Storage Account details [`true`/`false`]
+`--explicitly-set-sa[=false]`: If set, explicitly provide the Storage Account details \[`true`/`false`]
 
 `--resource-group-name`: The resource group name (only relevant when `explicitly-set-sa`=`true`)
 
@@ -205,7 +295,7 @@ akeyless rotated-secret create azure \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `cassandra`
 
@@ -227,7 +317,7 @@ Creates a new Cassandra rotated secret item
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -251,7 +341,7 @@ Creates a new Cassandra rotated secret item
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `custom`
 
@@ -274,13 +364,13 @@ akeyless rotated-secret create custom \
 
 `--custom-payload`: Secret payload to be sent with rotation request
 
-`--password-policy-contains-capital-letters`: Password must contain capital letters [`true`/`false`]
+`--password-policy-contains-capital-letters`: Password must contain capital letters \[`true`/`false`]
 
-`--password-policy-contains-lower-letters`: Password must contain lower case letters [`true`/`false`]
+`--password-policy-contains-lower-letters`: Password must contain lower case letters \[`true`/`false`]
 
-`--password-policy-contains-numbers`: Password must contain numbers [`true`/`false`]
+`--password-policy-contains-numbers`: Password must contain numbers \[`true`/`false`]
 
-`--password-policy-contains-special-characters`: Password must contain special characters [`true`/`false`]
+`--password-policy-contains-special-characters`: Password must contain special characters \[`true`/`false`]
 
 `--enable-password-policy`: Enable password policy
 
@@ -304,9 +394,9 @@ akeyless rotated-secret create custom \
 
 `--timeout-sec[=40]`: Maximum allowed timeout in seconds for the custom rotator to return the results
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -330,7 +420,7 @@ akeyless rotated-secret create custom \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `dockerhub`
 
@@ -389,7 +479,7 @@ akeyless rotated-secret create gcp \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`service-account-rotator`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`service-account-rotator`]
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -425,7 +515,7 @@ akeyless rotated-secret create gcp \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `hanadb`
 
@@ -447,7 +537,7 @@ akeyless rotated-secret create hanadb \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -469,7 +559,7 @@ akeyless rotated-secret create hanadb \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `ldap`
 
@@ -491,7 +581,7 @@ akeyless rotated-secret create ldap \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`ldap`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`ldap`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`ldap`)
 
@@ -517,11 +607,11 @@ akeyless rotated-secret create ldap \
 
 `--password-length`: The length of the password to be generated
 
-`--grace-rotation`: Create a new `access key` without deleting the old key from **AWS** for backup (relevant only for AWS) [`true`/`false`]
+`--grace-rotation`: Create a new `access key` without deleting the old key from **AWS** for backup (relevant only for AWS) \[`true`/`false`]
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -529,7 +619,7 @@ akeyless rotated-secret create ldap \
 
 `--secure-access-url`: Destination **URL** to inject secrets
 
-`--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
+`--host-provider[=explicit]`: Host provider type \[`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -537,7 +627,7 @@ akeyless rotated-secret create ldap \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `mongodb`
 
@@ -559,7 +649,7 @@ akeyless rotated-secret create mongodb \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -581,9 +671,9 @@ akeyless rotated-secret create mongodb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -595,7 +685,7 @@ akeyless rotated-secret create mongodb \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `mssql`
 
@@ -617,7 +707,7 @@ akeyless rotated-secret create mssql \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -639,9 +729,9 @@ akeyless rotated-secret create mssql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -655,7 +745,7 @@ akeyless rotated-secret create mssql \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `mysql`
 
@@ -677,7 +767,7 @@ akeyless rotated-secret create mysql \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -699,9 +789,9 @@ akeyless rotated-secret create mysql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -713,7 +803,7 @@ akeyless rotated-secret create mysql \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `openai`
 
@@ -741,7 +831,7 @@ akeyless rotated-secret create openai \
 
 `api-key`: Admin API key value to rotate (relevant only for `rotator-type=api-key`)
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`api-key`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`api-key`]
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -777,7 +867,7 @@ akeyless rotated-secret create oracledb \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -799,9 +889,9 @@ akeyless rotated-secret create oracledb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -811,7 +901,7 @@ akeyless rotated-secret create oracledb \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `postgresql`
 
@@ -833,7 +923,7 @@ akeyless rotated-secret create postgresql \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -855,9 +945,9 @@ akeyless rotated-secret create postgresql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -871,7 +961,7 @@ akeyless rotated-secret create postgresql \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `redis`
 
@@ -893,7 +983,7 @@ akeyless rotated-secret create redis \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -917,7 +1007,7 @@ akeyless rotated-secret create redis \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2\`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `redshift`
 
@@ -939,7 +1029,7 @@ akeyless rotated-secret create redshift \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -961,9 +1051,9 @@ akeyless rotated-secret create redshift \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -971,7 +1061,7 @@ akeyless rotated-secret create redshift \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2\`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `snowflake`
 
@@ -993,7 +1083,7 @@ akeyless rotated-secret create snowflake \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password` / `key`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password` / `key`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password` or `rotator-type`=`key`)
 
@@ -1021,7 +1111,7 @@ akeyless rotated-secret create snowflake \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2\`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `splunk`
 
@@ -1043,7 +1133,7 @@ akeyless rotated-secret create splunk \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`/`token`/`hec-token`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`/`token`/`hec-token`]
 
 `--rotated-username`: **username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate it's own password, if `use-target-creds` is selected, target credentials will be use to rotate the rotated-password (relevant only for `rotator-type`=`password`)
 
@@ -1097,7 +1187,7 @@ akeyless rotated-secret create ssh \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -1123,9 +1213,9 @@ akeyless rotated-secret create ssh \
 
 `--rotator-custom-cmd`: Custom rotation command
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -1141,7 +1231,7 @@ akeyless rotated-secret create ssh \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2\`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `windows`
 
@@ -1163,7 +1253,7 @@ akeyless rotated-secret create windows \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`]
 
 `--rotated-username`: **Username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate its password, if `use-target-creds` is selected, target credentials will be used to rotate the rotated password (relevant only for `rotator-type`=`password`)
 
@@ -1187,9 +1277,9 @@ akeyless rotated-secret create windows \
 
 `--same-password`: Rotate the same password for each host from the Linked Target (**relevant only for Linked Target**)
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1201,7 +1291,7 @@ akeyless rotated-secret create windows \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ## `gateway-rotate-secret`
 
@@ -1326,6 +1416,97 @@ Commands to update a Rotated Secret
 
 `windows`: Updates a Windows rotated secret item
 
+### `aerospike`
+
+#### Usage
+
+```shell
+akeyless rotated-secret create aerospike \
+--name <Rotated Secret Name> \
+--new-name <New item name> \
+--target-name <Target Name> \
+--description <Description> \
+--rotator-type <target|password> \
+--rotated-username <Username to Rotate> \
+--rotated-password <Current Password of Rotated User> \
+--skip-dry-run <true|false> \
+--gateway-url <Gateway URL> \
+--key <Encryption Key Name> \
+--auto-rotate <true|false> \
+--rotation-interval <Rotation Interval> \
+--rotation-hour <Rotation Hour (UTC)> \
+--rotation-event-in <Days Before Rotation Notification> \
+--password-length <Generated Password Length> \
+--max-versions <Maximum Number of Versions> \
+--input-rule "name=<Rule Name>,rule=<Rule Definition>" \
+--output-rule "name=<Rule Name>,rule=<Rule Definition>" \
+--ara-enabled <true|false> \
+--item-custom-fields <FieldName=Value> \
+--password-policy-contains-capital-letters <true|false> \
+--password-policy-contains-lower-letters <true|false> \
+--password-policy-contains-numbers <true|false> \
+--password-policy-contains-special-characters <true|false> \
+--authentication-credentials <use-user-creds|use-target-creds> \
+--tag <Tag Name> \
+--delete-protection <true|false>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Rotated secret name
+
+`--new-name`: New item name
+
+`-r, --target-name`: **Required**, The target to associate with the rotated secret
+
+`--description`: Description of the object
+
+`--rotator-type`: **Required**, Rotator type. Options: `target`, `password`
+
+`--rotated-username`: Username to rotate. If `use-self-creds` is selected for `--authentication-credentials`, this user rotates its own password. If `use-target-creds` is selected, the target credentials are used to rotate this user's password. Relevant only when `--rotator-type=password`
+
+`--rotated-password`: Current password of the rotated user. Relevant only when `--rotator-type=password`
+
+`--skip-dry-run`: Skip the dry-run validation before creating the rotated secret (`true`/`false`)
+
+`-u, --gateway-url`: Gateway URL (Configuration Management port). Default: `http://localhost:8000`
+
+`-k, --key`: The name of a key used to encrypt the secret value (if empty, the account default `protectionKey` key is used)
+
+`--auto-rotate`: Enable or disable automatic rotation based on the configured rotation interval
+
+`--rotation-interval`: Number of days between automatic rotations (`1-365`). For custom rotators, the interval is set in minutes
+
+`--rotation-hour`: Hour of the automatic rotation in UTC
+
+`--rotation-event-in`: Number of days before rotation when a notification should be sent. To specify multiple notifications, repeat the flag (for example: `--rotation-event-in 1 --rotation-event-in 5`)
+
+`--password-length`: Length of the generated password
+
+`--max-versions`: Maximum number of versions to retain, limited by account settings
+
+`--input-rule`: Agentic input rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--output-rule`: Agentic output rule in `name=...,rule=...` format. To specify multiple rules, repeat the flag
+
+`--ara-enabled`: Enable Agentic Runtime Authority (ARA) rule enforcement (`true`/`false`). When set to `false`, custom input and output rules are not enforced
+
+`--item-custom-fields`: Additional custom fields to associate with the item. To specify multiple fields, repeat the flag (for example: `--item-custom-fields fieldName1=value1`)
+
+`--password-policy-contains-capital-letters`: Require generated passwords to contain at least one uppercase letter (`A-Z`) (`true`/`false`)
+
+`--password-policy-contains-lower-letters`: Require generated passwords to contain at least one lowercase letter (`a-z`) (`true`/`false`)
+
+`--password-policy-contains-numbers`: Require generated passwords to contain at least one numeric character (`0-9`) (`true`/`false`)
+
+`--password-policy-contains-special-characters`: Require generated passwords to contain at least one non-alphanumeric character (for example: `!`, `@`, `#`, `$`) (`true`/`false`)
+
+`--authentication-credentials`: Credentials used to connect and perform the rotation. Options: `use-user-creds`, `use-target-creds`
+
+`-t, --tag`: Add tags to the object. To specify multiple tags, repeat the flag (for example: `--tag Tag1 --tag Tag2`)
+
+`--delete-protection`: Protect the object from accidental deletion (`true`/`false`)
+
 ### `aws`
 
 #### Usage
@@ -1375,9 +1556,9 @@ akeyless rotated-secret update aws \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -1387,7 +1568,7 @@ akeyless rotated-secret update aws \
 
 `--secure-access-aws-native-cli`: The **AWS** native CLI
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `azure`
 
@@ -1414,7 +1595,7 @@ akeyless rotated-secret update azure \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevant to `azure-storage-account`)
+`--storage-account-key-name`: The name of the Storage Account key to rotate \[`key1`/`key2`/`kerb1`/`kerb2`] (relevant to `azure-storage-account`)
 
 `-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used)
 
@@ -1442,9 +1623,9 @@ akeyless rotated-secret update azure \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `cassandra`
 
@@ -1487,9 +1668,9 @@ akeyless rotated-secret update azure \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `custom`
 
@@ -1510,13 +1691,13 @@ akeyless rotated-secret update custom \
 
 `--custom-payload`: Secret payload to be sent with rotation request
 
-`--password-policy-contains-capital-letters`: Password must contain capital letters [`true`/`false`]
+`--password-policy-contains-capital-letters`: Password must contain capital letters \[`true`/`false`]
 
-`--password-policy-contains-lower-letters`: Password must contain lower case letters [`true`/`false`]
+`--password-policy-contains-lower-letters`: Password must contain lower case letters \[`true`/`false`]
 
-`--password-policy-contains-numbers`: Password must contain numbers [`true`/`false`]
+`--password-policy-contains-numbers`: Password must contain numbers \[`true`/`false`]
 
-`--password-policy-contains-special-characters`: Password must contain special characters [`true`/`false`]
+`--password-policy-contains-special-characters`: Password must contain special characters \[`true`/`false`]
 
 `--enable-password-policy`: Enable password policy
 
@@ -1540,9 +1721,9 @@ akeyless rotated-secret update custom \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -1568,9 +1749,9 @@ akeyless rotated-secret update custom \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `dockerhub`
 
@@ -1609,7 +1790,7 @@ akeyless rotated-secret update dockerhub \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
 ### `gcp`
 
@@ -1628,7 +1809,7 @@ akeyless rotated-secret update gcp \
 
 `--new-name`: New Item name
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`service-account-rotator`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`service-account-rotator`]
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -1666,9 +1847,9 @@ akeyless rotated-secret update gcp \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `hanadb`
 
@@ -1709,9 +1890,9 @@ akeyless rotated-secret update hanadb \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `ldap`
 
@@ -1754,11 +1935,11 @@ akeyless rotated-secret update ldap \
 
 `--password-length`: The length of the password to be generated
 
-`--grace-rotation`: Create a new `access key` without deleting the old key from **AWS** for backup (relevant only for AWS) [`true`/`false`]
+`--grace-rotation`: Create a new `access key` without deleting the old key from **AWS** for backup (relevant only for AWS) \[`true`/`false`]
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1766,7 +1947,7 @@ akeyless rotated-secret update ldap \
 
 `--secure-access-url`: Destination **URL** to inject secrets
 
-`--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
+`--host-provider[=explicit]`: Host provider type \[`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1776,9 +1957,9 @@ akeyless rotated-secret update ldap \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `mongodb`
 
@@ -1817,9 +1998,9 @@ akeyless rotated-secret update mongodb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1833,9 +2014,9 @@ akeyless rotated-secret update mongodb \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `mssql`
 
@@ -1874,9 +2055,9 @@ akeyless rotated-secret update mssql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1890,9 +2071,9 @@ akeyless rotated-secret update mssql \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `mysql`
 
@@ -1931,9 +2112,9 @@ akeyless rotated-secret update mysql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1947,9 +2128,9 @@ akeyless rotated-secret update mysql \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `openai`
 
@@ -2027,9 +2208,9 @@ akeyless rotated-secret update oracledb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -2041,11 +2222,11 @@ akeyless rotated-secret update oracledb \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `postgresql`
 
@@ -2084,9 +2265,9 @@ akeyless rotated-secret update postgresql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -2102,9 +2283,9 @@ akeyless rotated-secret update postgresql \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `redis`
 
@@ -2147,9 +2328,9 @@ akeyless rotated-secret update redis \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `redshift`
 
@@ -2188,9 +2369,9 @@ akeyless rotated-secret update redshift \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -2200,9 +2381,9 @@ akeyless rotated-secret update redshift \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `snowflake`
 
@@ -2250,9 +2431,9 @@ akeyless rotated-secret update snowflake \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `splunk`
 
@@ -2276,7 +2457,7 @@ akeyless rotated-secret update splunk \
 
 `--target-name`: **Required**, the target name to associate
 
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`/`token`/`hec-token`]
+`--rotator-type`: **Required**, The rotator type. options: \[`target`/`password`/`token`/`hec-token`]
 
 `--rotated-username`: **username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate it's own password, if `use-target-creds` is selected, target credentials will be use to rotate the rotated-password (relevant only for `rotator-type`=`password`)
 
@@ -2351,9 +2532,9 @@ akeyless rotated-secret update ssh \
 
 `--rotator-custom-cmd`: Custom rotation command
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
@@ -2371,9 +2552,9 @@ akeyless rotated-secret update ssh \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ### `windows`
 
@@ -2414,9 +2595,9 @@ akeyless rotated-secret update windows \
 
 `--same-password`: Rotate the same password for each host from the Linked Target (**relevant only for Linked Target**)
 
-`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, \[`true`/`false`]
 
-`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA [use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
+`--rotate-after-disconnect[=false]`: Post-session rotation policy for SRA \[use `false` to disable rotation, `true` or `0` for immediate rotation at disconnect, or a positive integer `N` to delay rotation by `N` minutes]
 
 `--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
@@ -2430,9 +2611,9 @@ akeyless rotated-secret update windows \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:\[`true`, `false`]. If not set, use default according to account settings
 
-`--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this item, \[`true`/`false`]
 
 ## Retrieve Information
 
@@ -2450,7 +2631,7 @@ akeyless rotated-secret get-value \
 
 `--host`: Get rotated secret value of specific Host (relevant only for Linked Target)
 
-`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the REST API
+`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache \[true/false]. This flag is only relevant when using the REST API
 
 ### `list`
 
@@ -2484,9 +2665,11 @@ akeyless rotated-secret sync \
 
 `--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
 
-> ℹ️ **Note (AWS Targets):**
->
-> For AWS Universal Secret Connector targets, Akeyless-initiated sync updates secret values while preserving existing AWS-side custom tags and description unless those fields are explicitly updated.
+<Callout icon="ℹ️" theme="info">
+  ### **Note (AWS Targets):**
+
+  For AWS Universal Secret Connector targets, Akeyless-initiated sync updates secret values while preserving existing AWS-side custom tags and description unless those fields are explicitly updated.
+</Callout>
 
 `--namespace`: Namespace name, Relevant only for HashiCorp Vault target.
 
