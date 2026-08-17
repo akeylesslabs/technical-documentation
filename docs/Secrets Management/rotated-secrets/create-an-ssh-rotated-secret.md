@@ -66,8 +66,9 @@ Where:
 
 - `password-length`: **Optional**, The user's password length.
 - `rotator-type`: The type of credentials to be rotated. For [SSH Targets](https://docs.akeyless.io/docs/ssh-target), choose:
-  - `password` - to rotate the SSH user password specified in the Rotated Secret
-  - `target` - to rotate the password for the user specified in the [SSH Target](https://docs.akeyless.io/docs/ssh-target).
+  - `password` : To rotate the SSH user password specified in the Rotated Secret
+  - `target`: To rotate the password for the user specified in the [SSH Target](https://docs.akeyless.io/docs/ssh-target).
+  - `key`: To rotate the SSH private key for a specific user.
 - `rotated-username`: The SSH user whose password should be rotated.
 - `rotated-password`: The password to rotate.
 - `public-key-path`: The path of the public key that will be rotated on the server.
