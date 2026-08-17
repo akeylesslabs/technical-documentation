@@ -121,7 +121,7 @@ The existing permissions for Secure Remote Access are as follows:
 - Upload Files: Allows a user to upload local files for example to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
 - Download Files: Allows a user to download files for example from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/sra-remote-desktop#download--upload-files).
 
-From Gateway `4.53.0` and later, SRA users can request access from the portal and approvers can process the request through the Event Center.<br />
+SRA users can request access from the portal and approvers can process the request through the Event Center.<br />
 
 ### Permissions for Agentic Runtime Authority
 
