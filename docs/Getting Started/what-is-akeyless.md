@@ -13,13 +13,13 @@ next:
       title: Quickstarts
       type: basic
 ---
-Akeyless is an **identity security platform** that protects the credentials, keys, and certificates that modern applications and systems use to authenticate and authorize access. The platform centralizes identity management for both human and machine users and applies consistent controls across distributed environments.
+Akeyless is an **identity security platform** that protects the credentials, keys, and certificates that modern applications and systems use to authenticate and authorize access. The platform centralizes identity management for both human, ai agent and machine users and applies consistent controls across distributed environments.
 
 Akeyless provides a single cloud-based control plane that supports application-to-application authentication, certificate issuance, privileged access, and automated identity workflows in hybrid and multi-cloud environments.
 
 ## Core Purpose
 
-Akeyless enables organizations to control human and machine identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. These identities are critical for securing communication between applications, services, infrastructure, and automated workloads.
+Akeyless enables organizations to control human, ai agent and machine identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. These identities are critical for securing communication between applications, services, infrastructure, and automated workloads.
 
 Akeyless provides a platform for creating, retrieving, issuing, rotating, and enforcing policies on these identities, reducing the operational challenges of managing identity material across distributed systems.
 
@@ -50,7 +50,7 @@ Akeyless consists of several cooperating components:
 - **Akeyless Platform** — The SaaS control plane that manages authentication, authorization, policy evaluation, and orchestration of identity operations.
 - **Akeyless Gateway** — A lightweight component deployed in customer environments to access private networks, integrate with on-premises systems, and optionally handle customer-controlled key fragments.
 - **Connectors** — Integrations that support dynamic credentials, rotation workflows, and communication with cloud providers, databases, and other external targets.
-- **Client Tools** — The CLI, SDKs, and REST API used by applications and administrators to request identity operations.
+- **Client Tools** — The CLI, SDKs, REST API, and MCP server used by applications, administrators and AI agents to request identity operations.
 
 These components work together to enforce identity security with no requirement to store or reconstruct complete secrets or private keys.
 
