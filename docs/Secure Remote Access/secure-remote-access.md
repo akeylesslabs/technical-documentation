@@ -57,5 +57,3 @@ SRA supports secure access to: **Databases**, **Windows Remote Desktop**, **Clou
 - Need to configure access to a specific resource? Jump to [Supported Resource Types](doc:sra-resource-types).
 
 <br />
-
-<br />
