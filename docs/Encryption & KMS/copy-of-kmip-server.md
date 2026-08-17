@@ -88,4 +88,170 @@ Flags:
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server ](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-server-setup)section.
 
-<br />
+<Callout icon="📘" theme="info">
+  ### Note:&#x20;
+
+  Make sure to replace the `hostname` field with your **Akeyless Gateway** hostname.
+</Callout>
+
+## Step 2: Create a KMIP client
+
+<br />To create a KMIP client and issue a client certificate signed by the active CA, run the following command:
+
+```shell
+akeyless kmip-create-client \
+--name <client-name> \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
+```
+
+
+Flags:
+
+- `name`: Name of the KMIP client.
+- `certificate-ttl`: Optional. Client certificate TTL in days. Values must be 90 days or longer (default: 90).
+- `output-file-folder`: Optional. Folder location to save the client cert and key files (default: .).
+- `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
+
+## Step 3: Rotate KMIP CA
+
+<br />To generate a new **Root CA**, set it to active, and demote the current CA to trusted without dropping client connections, run:
+
+```shell
+akeyless kmip-rotate-ca \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
+--output-file-folder .
+```
+
+Flags:
+
+- `certificate-ttl`: Optional. CA certificate TTL in days (default: 3650).
+- `output-file-folder`: Optional. Folder location to save the new `ca.cert` and updated `ca-bundle.cert` (default: `.`).
+- `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
+
+## Step 4: Get CA Bundle
+
+
+To retrieve a PEM-concatenated bundle containing all active and trusted CAs for distribution to clients, run:
+
+```shell
+akeyless kmip-get-ca-bundle \
+  --gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
+  --output-file-folder .
+```
+
+Flags:
+
+- `output-file-folder`: Optional. Folder location to save ca-bundle.cert (default: .).
+- `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
+
+## Step 5: Renew a KMIP client
+
+
+To re-issue a client certificate signed by the current active CA while preserving client rules and permissions, run:
+
+```shell
+akeyless kmip-renew-client \
+--name <client-name> \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
+```
+
+Flags:
+
+- `name`: Name of the KMIP client (either name or client-id is required).
+- `client-id`: ID of the KMIP client.
+- `certificate-ttl`: Optional. Defaults to original TTL.
+- `output-file-folder`: Optional. Folder location to save the new cert and key files (default: .).
+- `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
+
+## Step 6: List CAs
+
+
+To list all CAs registered in the Gateway along with their state, validity window, and issued client count, run:
+
+```shell
+akeyless kmip-list-cas \
+  --gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
+```
+
+Flags:
+
+- `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
+
+## Step 7: Sunset a KMIP CA
+
+
+To remove an old trusted CA from the trust store after client migration is complete, run:
+
+```shell
+akeyless kmip-sunset-ca \
+  --ca-id <ca-id> \
+  --gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
+```
+
+Flags:
+
+- `ca-id`: ID of the CA to sunset.
+- `force`: Optional. Bypass the 7-day active client safety check.
+- `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
+
+# Zero-Downtime CA Rotation
+
+Follow this step-by-step procedure to rotate the KMIP **Root CA&#x20;**&#x77;ithout causing downtime on client targets.
+
+## Prerequisites
+
+- All KMIP clients are operational and connected.
+- Operator has admin access to Akeyless Gateway and target systems.
+
+## Step 1: Rotate CA on Akeyless Gateway
+
+<br />Run `kmip-rotate-ca` to introduce the new CA. This sets the new CA as active and keeps the old CA as trusted:
+
+```shell
+akeyless kmip-rotate-ca \
+  --gateway-url 'https://<GW_HOST>:8000' \
+  --output-file-folder /tmp/kmip-rotation
+```
+
+Verify that both CAs are present:
+
+```shell
+akeyless kmip-list-cas --gateway-url 'https://<GW_HOST>:8000'
+```
+
+## Step 2: Distribute the CA Bundle to KMIP Clients
+
+Fetch and apply `ca-bundle.cert` using `kmip-get-ca-bundle` and distribute it to your target environments so clients trust both old and new CAs.
+
+## Step 3: Re-issue Client Certificates
+
+<br />Re-issue certificates for each client using `kmip-renew-client`
+
+```shell
+akeyless kmip-renew-client \
+  --name <client-name> \
+  --output-file-folder /tmp/kmip-rotation/<client-name> \
+  --gateway-url 'https://<GW_HOST>:8000'
+```
+
+Apply the newly generated certificate (`.cert`) and private key `.key`) to each target client. The old certificate remains valid until its expiration, preventing forced disconnects.
+
+## Step 4: Verify Client Migration
+
+Confirm all clients have successfully migrated to the new CA:
+
+```shell
+akeyless kmip-list-cas --gateway-url 'https://<GW_HOST>:8000'
+```
+
+Ensure the count of Issued clients under the old CA reaches `0`.
+
+## Step 5: Sunset the Old CA
+
+Once all clients are verified on the new CA, remove the old CA from the trust store:
+
+```shell
+akeyless kmip-sunset-ca \
+  --ca-id ca-v1 \
+  --gateway-url 'https://<GW_HOST>:8000'
+```
