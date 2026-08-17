@@ -82,7 +82,7 @@ Perform encryption, decryption, signing, and key lifecycle operations without ex
 
 Provide zero-trust privileged access to internal systems without distributing long-lived credentials.
 
-### AI Workload Security
+### AI Agents Security
 
 Provide short-lived credentials and secure retrieval patterns for AI pipelines, automated agents, and model-serving systems.
 
