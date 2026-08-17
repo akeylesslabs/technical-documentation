@@ -96,14 +96,13 @@ You can find the complete list of settings for this command in the [CLI Referenc
 
 ## Step 2: Create a KMIP client
 
-<br />To create a KMIP client and issue a client certificate signed by the active CA, run the following command:
+To create a KMIP client and issue a client certificate signed by the active CA, run the following command:
 
 ```shell
 akeyless kmip-create-client \
 --name <client-name> \
 --gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
 ```
-
 
 Flags:
 
@@ -114,7 +113,7 @@ Flags:
 
 ## Step 3: Rotate KMIP CA
 
-<br />To generate a new **Root CA**, set it to active, and demote the current CA to trusted without dropping client connections, run:
+To generate a new **Root CA**, set it to active, and demote the current CA to trusted without dropping client connections, run:
 
 ```shell
 akeyless kmip-rotate-ca \
@@ -130,7 +129,6 @@ Flags:
 
 ## Step 4: Get CA Bundle
 
-
 To retrieve a PEM-concatenated bundle containing all active and trusted CAs for distribution to clients, run:
 
 ```shell
@@ -145,7 +143,6 @@ Flags:
 - `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
 
 ## Step 5: Renew a KMIP client
-
 
 To re-issue a client certificate signed by the current active CA while preserving client rules and permissions, run:
 
@@ -165,7 +162,6 @@ Flags:
 
 ## Step 6: List CAs
 
-
 To list all CAs registered in the Gateway along with their state, validity window, and issued client count, run:
 
 ```shell
@@ -178,7 +174,6 @@ Flags:
 - `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
 
 ## Step 7: Sunset a KMIP CA
-
 
 To remove an old trusted CA from the trust store after client migration is complete, run:
 
