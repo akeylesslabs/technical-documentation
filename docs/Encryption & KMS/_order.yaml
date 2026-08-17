@@ -7,7 +7,6 @@
 - gpg-keys
 - key-rotation
 - kmip-server
-- copy-of-kmip-server
 - passkey-1
 - tde
 - tokenization
