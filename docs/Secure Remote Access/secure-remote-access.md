@@ -16,7 +16,7 @@ next:
 ---
 ## What Is Secure Remote Access?
 
-Secure Remote Access (SRA) is Akeyless's modern Privileged Access Management (PAM) solution. it gives users just-in-time, zero-trust access to your infrastructure, without ever exposing credentials to the user. Every connection is brokered by the Akeyless Gateway, so access stays temporary, tightly scoped, and fully auditable.
+Secure Remote Access (SRA) is Akeyless's modern Privileged Access Management (PAM) solution. <br />It provides just-in-time, zero-trust access to your infrastructure, without ever exposing credentials to the user. Every connection is brokered by the Akeyless Gateway, so access stays temporary, tightly scoped, and fully auditable.
 
 ## How It Works
 
