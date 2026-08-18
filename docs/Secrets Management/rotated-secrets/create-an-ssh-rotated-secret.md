@@ -34,7 +34,7 @@ akeyless rotated-secret create ssh \
 --rotator-type <password|target|key> \
 --rotated-username <username> \
 --rotated-password <password> \
---public-key-path ~/.ssh/authorized_keys
+--public-key-remote-path ~/.ssh/authorized_keys
 --key-file-path </path/to/PRV-Key>                                
 --key-data-base64 <base-64 format PRV Key>                             
 --auto-rotate <true|false> \
@@ -70,7 +70,7 @@ Where:
 - `key-data-base64`: The private key encoded in Base64 format.
 - `key-file-path`: The path to the private key that will be rotated.
 - `public-key-remote-path`: The path of the public key that will be rotated on the server.
-- `key-algorithm[=ED25519]`: The key algorithm to generate with when no private key is supplied. options: \[ED25519/RSA2048/RSA3072/RSA4096/ECDSA256/ECDSA384/ECDSA521]
+- `key-algorithm[=ED25519]`: The key algorithm to generate with when no private key is supplied. options: `ED25519`/ `RSA2048`/ `RSA3072`/ `RSA4096`/ `ECDSA256`/ `ECDSA384`/ `ECDSA521`]
 - `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#ssh) section.
