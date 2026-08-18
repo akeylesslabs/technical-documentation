@@ -302,7 +302,7 @@ Setting `webhook.tls.existingSecretName` to a non-empty value tells the chart to
 | `webhook.tls.caBundle`            | Raw **PEM CA** certificate, base64-encoded by the chart into the webhook's caBundle. Use this when you have the CA on hand and are not using an injector like cert-manager's ca-injector.                                                                                           |
 | `webhook.tls.caBundleAnnotations` | Annotations added to the `MutatingWebhookConfiguration` so an external controller (for example, cert-manager's ca-injector, via `cert-manager.io/inject-ca-from`) populates **caBundle** for you. Only valid together with **existingSecretName**.                                  |
 
-### Usage Example
+#### Usage Example
 
 The following is an example for using the `webhook.tls.existingSecretName` value with a cert-manager-managed CA bundle:
 
@@ -314,7 +314,7 @@ webhook:
       cert-manager.io/inject-ca-from: "akeyless/akeyless-injector-tls"
 ```
 
-### Render-Time Validation
+#### Render-Time Validation
 
 The chart will fail to render if:
 
@@ -322,7 +322,7 @@ The chart will fail to render if:
 - `existingSecretName` matches the chart's own resource name
 - `caBundleAnnotations` is set without `existingSecretName`&#x20;
 
-### Caveats
+#### Caveats
 
 - **Startup**: Pods may crash-loop briefly until the certificate secret exists, then recover on their own.
 - **GitOps drift**: With `caBundleAnnotations`, a self-healing controller (like **ArgoCD**) may strip the CA that cert-manager injects. Exclude that field from sync, or it will keep getting removed.
