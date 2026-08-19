@@ -18,28 +18,30 @@ Repository: [jenkinsci/akeyless-plugin](https://github.com/jenkinsci/akeyless-pl
 
 If you are deciding between Jenkins integration paths:
 
-* [Jenkins Plugin](https://docs.akeyless.io/docs/jenkins): Native Akeyless plugin. Use this for new implementations.
-* [Jenkins Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/jenkins-plugin-via-hvp): HashiCorp Vault plugin talking to the Akeyless HashiCorp Vault Proxy.
+- [Jenkins Plugin](https://docs.akeyless.io/docs/jenkins): Native Akeyless plugin. Use this for new implementations.
+- [Jenkins Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/jenkins-plugin-via-hvp): HashiCorp Vault plugin talking to the Akeyless HashiCorp Vault Proxy.
 
 ## Features
 
-| Capability | How you use it | Description |
-| --- | --- | --- |
-| **Build Wrapper** | Freestyle **Build Environment → Akeyless Plugin** | Fetch secrets and certificates into environment variables for the duration of the build. Secret values are masked in the console log. |
-| **Pipeline step** | `withAkeyless { ... }` | Same fetch behavior inside a Pipeline / Jenkinsfile. Values are available only inside the block. |
-| **Synced Credentials** | **Manage Jenkins → System → Akeyless Synced Credentials** | Optional. Surfaces Akeyless items as native Jenkins credentials for `credentials('id')` / `withCredentials`. |
-| **JSON key selection** | **Key Name** / `secretKey` | Fetch a single JSON field (for example `username`) or the full payload with `data`. |
-| **Folder and global config** | Folder properties or **Manage Jenkins** | Share Gateway URL and credential ID across jobs. Child jobs can inherit or override. |
+| Capability                   | How you use it                                            | Description                                                                                                                           |
+| ---------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **Build Wrapper**            | Freestyle **Build Environment → Akeyless Plugin**         | Fetch secrets and certificates into environment variables for the duration of the build. Secret values are masked in the console log. |
+| **Pipeline step**            | `withAkeyless { ... }`                                    | Same fetch behavior inside a Pipeline / Jenkinsfile. Values are available only inside the block.                                      |
+| **Synced Credentials**       | **Manage Jenkins → System → Akeyless Synced Credentials** | Optional. Surfaces Akeyless items as native Jenkins credentials for `credentials('id')` / `withCredentials`.                          |
+| **JSON key selection**       | **Key Name** / `secretKey`                                | Fetch a single JSON field (for example `username`) or the full payload with `data`.                                                   |
+| **Folder and global config** | Folder properties or **Manage Jenkins**                   | Share Gateway URL and credential ID across jobs. Child jobs can inherit or override.                                                  |
 
 ## Prerequisites
 
-* Jenkins LTS **2.479.3** or later (the plugin baseline).
-* An Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) associated with an [Access Role](https://docs.akeyless.io/docs/rbac) that has **read** (and **list** if you use folder discovery) on the target items.
-* Network connectivity from the Jenkins controller to your Akeyless API endpoint (`https://api.akeyless.io` or your Gateway `https://<gateway-host>:8000/api/v2`).
+- Jenkins LTS **2.479.3** or later (the plugin baseline).
+- An Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) associated with an [Access Role](https://docs.akeyless.io/docs/rbac) that has **read** (and **list** if you use folder discovery) on the target items.
+- Network connectivity from the Jenkins controller to your Akeyless API endpoint (`https://api.akeyless.io` or your Gateway `https://<gateway-host>:8000/api/v2`).
 
-> ℹ️ **Note (Zero-Knowledge Encryption):**
->
-> If you use a customer [key fragment](https://docs.akeyless.io/docs/dfc-overview), set **Akeyless URL** to your Gateway REST API endpoint, for example `https://Your_GW_URL:8000/api/v2`.
+<Callout icon="ℹ️" theme="info">
+  ### **Note (Zero-Knowledge Encryption):**
+
+  If you use a customer [key fragment](https://docs.akeyless.io/docs/dfc-overview), set **Akeyless URL** to your Gateway REST API endpoint, for example `https://Your_GW_URL:8000/api/v2`.
+</Callout>
 
 ## Installation
 
@@ -52,16 +54,15 @@ To install a specific build, use **Manage Jenkins → Plugins → Advanced → U
 
 ## Supported Authentication Methods
 
-* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
-* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
-* [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
-* [Google Cloud Platform (GCP)](https://docs.akeyless.io/docs/auth-with-gcp)
-* [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
-* [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
-* [JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
-* [Email](https://docs.akeyless.io/docs/auth-with-email)
-* t-Token
+- [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+- [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+- [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
+- [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
+- [Google Cloud Platform (GCP)](https://docs.akeyless.io/docs/auth-with-gcp)
+- [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
+- [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
+- [JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
+- [Email](https://docs.akeyless.io/docs/auth-with-email)
 
 ## Configuration
 
@@ -74,34 +75,35 @@ You can set **Akeyless URL** and credentials at the Jenkins global level, on a f
 3. Set **Akeyless URL** to `https://api.akeyless.io` or your Gateway URL with the `/api/v2` endpoint.
 4. Add credentials:
 
-   * Under **Vault Credential**, select **Add → Jenkins**.
-   * Choose the authentication method from the **Kind** drop-down:
+   - Under **Vault Credential**, select **Add → Jenkins**.
 
-     | Kind | Akeyless Authentication Method |
-     | --- | --- |
-     | **Akeyless Access Key Credentials** | API Key |
-     | **Akeyless Cloud Provider Credentials** | AWS IAM, Azure AD, or GCP |
-     | **Akeyless Certificate Credentials** | Certificate |
-     | **Akeyless Kubernetes Credentials** | Kubernetes |
-     | **Akeyless Universal Identity Credentials** | Universal Identity |
-     | **Akeyless JWT** | OAuth 2.0 / JWT |
-     | **Username with password** | Email |
-     | **Akeyless t-Token Credentials** | t-Token |
+   - Choose the authentication method from the **Kind** drop-down:
 
-   * Select **Add** to save the credential, then select it in the job.
+     | Kind                                        | Akeyless Authentication Method |
+     | ------------------------------------------- | ------------------------------ |
+     | **Akeyless Access Key Credentials**         | API Key                        |
+     | **Akeyless Cloud Provider Credentials**     | AWS IAM, Azure AD, or GCP      |
+     | **Akeyless Certificate Credentials**        | Certificate                    |
+     | **Akeyless Kubernetes Credentials**         | Kubernetes                     |
+     | **Akeyless Universal Identity Credentials** | Universal Identity             |
+     | **Akeyless JWT**                            | OAuth 2.0 / JWT                |
+     | **Username with password**                  | Email                          |
+     | **Akeyless t-Token Credentials**            | t-Token                        |
+
+   - Select **Add** to save the credential, then select it in the job.
 
 Optional job settings:
 
-* **Skip SSL verification**: use only for lab environments with self-signed certificates.
-* **Timeout**: HTTP timeout in seconds (default `60`).
+- **Skip SSL verification**: use only for lab environments with self-signed certificates.
+- **Timeout**: HTTP timeout in seconds (default `60`).
 
 ### Cloud IAM on the Jenkins controller
 
 For **Akeyless Cloud Provider Credentials**, the Jenkins controller (or agent, depending on where the build runs) must present a valid AWS, Azure, or GCP identity. Typical setups:
 
-* AWS: instance profile, IRSA, or ECS/EKS task role on the Jenkins host.
-* Azure: managed identity on the Jenkins VM or AKS workload identity.
-* GCP: attached service account on GCE/GKE.
+- AWS: instance profile, IRSA, or ECS/EKS task role on the Jenkins host.
+- Azure: managed identity on the Jenkins VM or AKS workload identity.
+- GCP: attached service account on GCE/GKE.
 
 No static Access Key is stored in Jenkins for these methods. You still provide the Akeyless **Access ID**.
 
@@ -114,9 +116,9 @@ The plugin retrieves **Static**, **Dynamic**, and **Rotated** Secrets and issues
 1. Select **Add Akeyless Secret**.
 2. Configure:
 
-   * **Path**: Full Akeyless path, for example `/DevOps/Jenkins/db`.
-   * **Environment Variable**: Name of the environment variable that receives the value.
-   * **Key Name**: JSON field to extract. Use `data` to store the full secret payload.
+   - **Path**: Full Akeyless path, for example `/DevOps/Jenkins/db`.
+   - **Environment Variable**: Name of the environment variable that receives the value.
+   - **Key Name**: JSON field to extract. Use `data` to store the full secret payload.
 
 Dynamic producer values are typically JSON with `username` and `password`. Map each field to its own environment variable.
 
@@ -127,14 +129,14 @@ Rotated secrets that store JSON (for example `username` / `password`) work the s
 1. Select **Add Akeyless Issuer**.
 2. Configure:
 
-   * **Path**: Full path of the certificate issuer.
-   * **Output Name**: Name of the retrieved certificate.
-   * **Certificate User Name**: For SSH certificates, the principal to sign (for example `ubuntu`).
-   * **Public Key**: Public key to sign (SSH).
-   * **CSR in Base64**: Certificate Signing Request in Base64 (PKI).
-   * **TTL**: Requested certificate lifetime when the issuer allows it.
-   * **Environment Variable**: Variable that stores the issued material.
-   * **Key Name**: JSON field to extract, or `data` for the full payload.
+   - **Path**: Full path of the certificate issuer.
+   - **Output Name**: Name of the retrieved certificate.
+   - **Certificate User Name**: For SSH certificates, the principal to sign (for example `ubuntu`).
+   - **Public Key**: Public key to sign (SSH).
+   - **CSR in Base64**: Certificate Signing Request in Base64 (PKI).
+   - **TTL**: Requested certificate lifetime when the issuer allows it.
+   - **Environment Variable**: Variable that stores the issued material.
+   - **Key Name**: JSON field to extract, or `data` for the full payload.
 
 ## Pipeline (`withAkeyless`)
 
@@ -234,44 +236,46 @@ Optional. When configured, Akeyless items appear in **Manage Jenkins → Credent
 ### Configure
 
 1. Open **Manage Jenkins → System**.
+
 2. Find **Akeyless Synced Credentials (Credentials Provider)**.
+
 3. Set:
 
-   * **Akeyless URL**: Gateway or SaaS API URL used as-is (no suffix is added). If the Gateway is behind a load balancer, include the path, for example `https://gateway.example.com/api/v2`.
-   * **Authentication scope**:
-     * **Global**: one Akeyless identity for all Jenkins users (configured on this page).
-     * **Per user**: each Jenkins user configures Akeyless auth on **People → user → Configure**.
-   * **Access ID** and **Authentication Method** (when using Global scope): API Key, JWT, AWS IAM, Azure AD, GCP, Certificate, Kubernetes, Universal Identity, or Email.
-   * **Cache**: when enabled, folder `list-items` results are cached for 5 minutes.
-   * **Folder path**: Akeyless folder, for example `/CICD/jenkins/secrets`. Cannot be `/` alone (that would list the entire vault).
-   * **Secret names**: optional. One name per line. Full path is `folder + / + name`. The name is the Jenkins credential ID, for example `credentials('jenkinsai')`.
-   * **Secret paths**: optional. Full paths, one per line, as an alternative to folder + names.
+   - **Akeyless URL**: Gateway or SaaS API URL used as-is (no suffix is added). If the Gateway is behind a load balancer, include the path, for example `https://gateway.example.com/api/v2`.
+   - **Authentication scope**:
+     - **Global**: one Akeyless identity for all Jenkins users (configured on this page).
+     - **Per user**: each Jenkins user configures Akeyless auth on **People → user → Configure**.
+   - **Access ID** and **Authentication Method** (when using Global scope): API Key, JWT, AWS IAM, Azure AD, GCP, Certificate, Kubernetes, Universal Identity, or Email.
+   - **Cache**: when enabled, folder `list-items` results are cached for 5 minutes.
+   - **Folder path**: Akeyless folder, for example `/CICD/jenkins/secrets`. Cannot be `/` alone (that would list the entire vault).
+   - **Secret names**: optional. One name per line. Full path is `folder + / + name`. The name is the Jenkins credential ID, for example `credentials('jenkinsai')`.
+   - **Secret paths**: optional. Full paths, one per line, as an alternative to folder + names.
 
 4. Save, then open **Manage Jenkins → Credentials** and confirm items appear under the Akeyless store.
 
 Discovery modes:
 
-| What you fill in | Behavior |
-| --- | --- |
-| Folder path only | Recursive `list-items` under that folder (requires **list** permission). Credential ID is the last path segment when unique. |
-| Folder path + secret names | No listing. Each name is fetched at `folder/name`. |
-| Secret paths | No listing. Each full path is fetched. |
+| What you fill in           | Behavior                                                                                                                     |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Folder path only           | Recursive `list-items` under that folder (requires **list** permission). Credential ID is the last path segment when unique. |
+| Folder path + secret names | No listing. Each name is fetched at `folder/name`.                                                                           |
+| Secret paths               | No listing. Each full path is fetched.                                                                                       |
 
 ### Map Akeyless items to Jenkins credential types
 
 Tag the Akeyless item (same convention as the AWS Secrets Manager Credentials Provider):
 
-| Tag | Values | Meaning |
-| --- | --- | --- |
-| `jenkins:credentials:type` | `string` (default), `usernamePassword`, `sshUserPrivateKey`, `certificate`, `file` | Jenkins credential kind |
-| `jenkins:credentials:username` | string | Username when the secret body is not JSON |
-| `jenkins:credentials:valueFormat` | `json` | Parse username/password (or username/privateKey) from a JSON secret body |
-| `jenkins:credentials:filename` | string | File name for `file` credentials |
+| Tag                               | Values                                                                             | Meaning                                                                  |
+| --------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `jenkins:credentials:type`        | `string` (default), `usernamePassword`, `sshUserPrivateKey`, `certificate`, `file` | Jenkins credential kind                                                  |
+| `jenkins:credentials:username`    | string                                                                             | Username when the secret body is not JSON                                |
+| `jenkins:credentials:valueFormat` | `json`                                                                             | Parse username/password (or username/privateKey) from a JSON secret body |
+| `jenkins:credentials:filename`    | string                                                                             | File name for `file` credentials                                         |
 
 When `jenkins:credentials:valueFormat=json`:
 
-* **usernamePassword** reads `username` / `user` / `usr` and `password` / `psw` / `secret` / `passwd`.
-* **sshUserPrivateKey** reads `username` and `privateKey` / `private_key` / `key`, plus optional `passphrase`.
+- **usernamePassword** reads `username` / `user` / `usr` and `password` / `psw` / `secret` / `passwd`.
+- **sshUserPrivateKey** reads `username` and `privateKey` / `private_key` / `key`, plus optional `passphrase`.
 
 ### Use in a Pipeline
 
@@ -333,10 +337,10 @@ The following example generates a PKI certificate using a predefined Certificate
 
 ### Authentication fails
 
-* Confirm **Akeyless URL** includes `/api/v2` for classic job binding (Build Wrapper / `withAkeyless`).
-* Confirm the selected Jenkins credential Kind matches the Authentication Method in Akeyless.
-* Confirm the Access Role associated with that method has **read** on the item path.
-* For cloud IAM, confirm the Jenkins host actually has the expected AWS/Azure/GCP identity.
+- Confirm **Akeyless URL** includes `/api/v2` for classic job binding (Build Wrapper / `withAkeyless`).
+- Confirm the selected Jenkins credential Kind matches the Authentication Method in Akeyless.
+- Confirm the Access Role associated with that method has **read** on the item path.
+- For cloud IAM, confirm the Jenkins host actually has the expected AWS/Azure/GCP identity.
 
 ### `Required secret ... is either null or empty`
 
@@ -348,10 +352,10 @@ The Gateway/API returned a newer `describe-item` field than the Java SDK bundled
 
 ### Synced credentials do not appear
 
-* Confirm **Akeyless URL**, Access ID, and auth method under **Manage Jenkins → System**.
-* Folder path cannot be `/` alone.
-* Folder-only discovery needs **list** permission on that folder.
-* Credential ID is the last path segment (for example `/CICD/jenkins/secrets/jenkinsai` → `jenkinsai`) unless that ID is already used.
+- Confirm **Akeyless URL**, Access ID, and auth method under **Manage Jenkins → System**.
+- Folder path cannot be `/` alone.
+- Folder-only discovery needs **list** permission on that folder.
+- Credential ID is the last path segment (for example `/CICD/jenkins/secrets/jenkinsai` → `jenkinsai`) unless that ID is already used.
 
 ### SSL errors talking to the Gateway
 
