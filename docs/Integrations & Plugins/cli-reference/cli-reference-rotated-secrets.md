@@ -1160,7 +1160,7 @@ akeyless rotated-secret create snowflake \
 
 `--private-key-file-name`: The path to the file containing the private key (relevant only for `rotator-type`=`key`)
 
-`rotation-statement`: Snowflake rotation statement
+`--rotation-statement`: Snowflake rotation statement
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
