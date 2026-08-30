@@ -35,7 +35,9 @@ These commands run on the client machine and use SFTP over an SRA tunnel.
 
 At runtime, the CLI resolves target and bastion connection parameters (from command flags or profile), requests short-lived access by way of the configured SSH certificate issuer, and then establishes the tunnel used by SFTP for upload and download.
 
-The client must support SFTP; file transfer commands fail if SFTP capability is not available.
+The client must support SFTP, file transfer commands fail if SFTP capability is not available.
+
+SRA does not enforce a fixed file size limit for `upload` / `download`. Transfers go through the Akeyless Gateway, so they can take longer than connecting to the server directly - the bigger the file, the more noticeable the difference.
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
