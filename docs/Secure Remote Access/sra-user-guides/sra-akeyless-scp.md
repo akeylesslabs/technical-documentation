@@ -37,7 +37,7 @@ At runtime, the CLI resolves target and bastion connection parameters (from comm
 
 The client must support SFTP, file transfer commands fail if SFTP capability is not available.
 
-SRA does not enforce a fixed file size limit for `upload` / `download`. Transfers go through the Akeyless Gateway, so they can take longer than connecting to the server directly - the bigger the file, the more noticeable the difference.
+SRA does not enforce a fixed file size limit for uploads or downloads. However, because transfers are routed through the Akeyless Gateway rather than directly to the target server, larger files may experience longer transfer times.
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
