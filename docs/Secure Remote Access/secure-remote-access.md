@@ -31,29 +31,29 @@ Secure Remote Access (SRA) is Akeyless's modern Privileged Access Management (PA
 
 ## Key Features&#x20;
 
-- **Zero Trust by design**: users never see or touch real credentials. Every connection is brokered and injected by the Gateway.
-- **Just-in-time access**: credentials are generated per session and expire automatically. There's no standing access and no long-lived secrets.
-- **Full session auditing and recording**: every session is logged, with video recording for RDP and web sessions along with transcripts for SSH, supporting compliance and forensic review.
-- **Session revocation on demand**: administrators can terminate an active session at any time, cutting off access immediately if something looks wrong.
-- **Request and approval workflows**: access can be granted on demand with time-limited grants instead of always-on permissions.
-- **File transfer&#x20;**: upload and download to protected targets over the same brokered, certificate-based tunnel, no local keys, no standing credentials.
+* **Zero Trust by design**: users never see or touch real credentials. Every connection is brokered and injected by the Gateway.
+* **Just-in-time access**: credentials are generated per session and expire automatically. There's no standing access and no long-lived secrets.
+* **Full session auditing and recording**: every session is logged, with video recording for RDP and web sessions along with transcripts for SSH, supporting compliance and forensic review.
+* **Session revocation on demand**: administrators can terminate an active session at any time, cutting off access immediately if something looks wrong.
+* **Request and approval workflows**: access can be granted on demand with time-limited grants instead of always-on permissions.
+* **File transfer&#x20;**: upload and download to protected targets over the same brokered, certificate-based tunnel, no local keys, no standing credentials.
 
 ## Ways to Access
 
 All access methods below connect through your deployed Akeyless Gateway. They differ only in where the user-facing client lives.
 
-- **&#x20;[SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal)**: Akeyless hosts the portal UI for you, but access still routes through your deployed Gateway.
-- **Akeyless CLI**: scriptable, terminal-based access, also routed through your deployed Gateway.
-- **Desktop Application**: a native app installed on the user's machine. The Desktop app creates the connection locally and routes it through your deployed Gateway.
+* **&#x20;[SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal)**: Akeyless hosts the portal UI for you, but access still routes through your deployed Gateway.
+* **Akeyless CLI**: scriptable, terminal-based access, also routed through your deployed Gateway.
+* **Desktop Application**: a native app installed on the user's machine. The Desktop app creates the connection locally and routes it through your deployed Gateway.
 
 ## Supported Resources
 
-SRA supports secure access to: **Databases**, **Windows Remote Desktop**, **Cloud Services,&#x20;**&#x20;**SSH Servers**, **RabbitMQ**, **Kubernetes**, **Web Applications**. See [Supported Resource Types ](https://docs.akeyless.io/docs/sra-resource-types)for setup details on each.
+SRA supports secure access to: **Databases**, **Windows Remote Desktop**, **Cloud Services,&#x20;**&#x20;**SSH Servers**, **RabbitMQ**, **Kubernetes**, **Web Applications**. See [Supported Resource Types](https://docs.akeyless.io/docs/sra-resource-types)for setup details on each.
 
 ## Next Steps
 
-- New to SRA? Start with the [Quick Start](doc:sra-quick-start-guide) guide, the fastest path to a working deployment.
-- Choosing the right setup for your environment? See [SRA Setup](doc:sra-setup-overview) for deployment guides tailored to each supported environment (Kubernetes, Docker Compose).
-- Need to configure access to a specific resource? Jump to [Supported Resource Types](doc:sra-resource-types).
+* New to SRA? Start with the [Quick Start](doc:sra-quick-start-guide) guide, the fastest path to a working deployment.
+* Choosing the right setup for your environment? See [SRA Setup](doc:sra-setup-overview) for deployment guides tailored to each supported environment (Kubernetes, Docker Compose).
+* Need to configure access to a specific resource? Jump to [Supported Resource Types](doc:sra-resource-types).
 
 <br />

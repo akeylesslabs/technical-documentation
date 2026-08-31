@@ -21,11 +21,11 @@ Akeyless AI Insights enables natural-language interaction with the Akeyless Plat
 
 ### Supported LLM Providers
 
-- [OpenAI](https://openai.com/)
-- [Gemini](https://gemini.google.com/app)&#x20;
-- [Claude](https://claude.ai/login)
-- [Grok](https://grok.com/)
-- [Bedrock](https://aws.amazon.com/bedrock/)
+* [OpenAI](https://openai.com/)
+* [Gemini](https://gemini.google.com/app)&#x20;
+* [Claude](https://claude.ai/login)
+* [Grok](https://grok.com/)
+* [Bedrock](https://aws.amazon.com/bedrock/)
 
 This guide uses **OpenAI** examples. You can also use **Gemini** by creating a Gemini target and setting a compatible model or any other option.
 
@@ -33,12 +33,12 @@ This guide uses **OpenAI** examples. You can also use **Gemini** by creating a G
 
 Before you begin, ensure you have the following:
 
-- Akeyless CLI installed and authenticated with admin access
-- LLM Provider account and API Key
-  - OpenAI - [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-- Akeyless Gateway running
-- Ability to create and manage Targets in Akeyless
-- Protection key available for encrypting API credentials
+* Akeyless CLI installed and authenticated with admin access
+* LLM Provider account and API Key
+    * OpenAI - [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+* Akeyless Gateway running
+* Ability to create and manage Targets in Akeyless
+* Protection key available for encrypting API credentials
 
 ## High-Level Setup Steps
 
@@ -112,8 +112,8 @@ akeyless get-target --name <target-name>
 
 OpenAI models must use the `gpt-` prefix. The following are valid examples:
 
-- gpt-4
-- gpt-3.5-turbo
+* gpt-4
+* gpt-3.5-turbo
 
 ### Step 3: Configure the Gateway
 
@@ -219,19 +219,19 @@ AI Insights stores chat sessions per gateway selection so you can return to prio
 
 ## Configuration Checklist
 
-- [ ] Enable AI Insights
-- [ ] Create OpenAI or Gemini target
-- [ ] Store target ID
-- [ ] Configure gateway
-- [ ] Verify the Gateway configuration
-- [ ] Test in the Console
+* [ ] Enable AI Insights
+* [ ] Create OpenAI or Gemini target
+* [ ] Store target ID
+* [ ] Configure gateway
+* [ ] Verify the Gateway configuration
+* [ ] Test in the Console
 
 ## Related AI Guides
 
-- [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence)
-- [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority)
-- [MCP Server](https://docs.akeyless.io/docs/mcp)
-- [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents)
-- [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
+* [Identity and Secrets Intelligence](https://docs.akeyless.io/docs/identity-and-secrets-intelligence)
+* [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority)
+* [MCP Server](https://docs.akeyless.io/docs/mcp)
+* [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents)
+* [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
 
 <br />
