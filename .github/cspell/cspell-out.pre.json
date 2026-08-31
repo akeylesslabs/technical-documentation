@@ -1,13 +1,1394 @@
 {
-    "issues": [],
+    "issues": [
+        {
+            "text": "pply",
+            "offset": 6726,
+            "line": {
+                "text": "- **Custom Password Policy:&#x20;**&#x41;pply a custom password policy when generating passwords for migrated Domain/Local Users.\n",
+                "offset": 6685
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 99,
+            "col": 42,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Advanced%20Functionality/automatic-migration/resource-discovery.md",
+            "context": {
+                "text": "- **Custom Password Policy:&#x20;**&#x41;pply a custom password policy when generating passwords for migrated Domain/Local Users.\n",
+                "offset": 6685
+            }
+        },
+        {
+            "text": "ntegrations",
+            "offset": 2348,
+            "line": {
+                "text": "If you currently rely on one of these **Internal&#x20;**&#x69;ntegrations, move the forwarding responsibility to your runtime, orchestration platform, or logging agent.\n",
+                "offset": 2286
+            },
+            "length": 11,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 59,
+            "col": 63,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/BREAKING%20CHANGES/gateway-v500.md",
+            "context": {
+                "text": "If you currently rely on one of these **Internal&#x20;**&#x69;ntegrations, move the forwarding responsibility to your runtime, orchestration platform, or logging agent.\n",
+                "offset": 2286
+            }
+        },
+        {
+            "text": "ither",
+            "offset": 7708,
+            "line": {
+                "text": "2. **CSR Key:&#x20;**&#x45;ither generate a new key or use an existing one.\n",
+                "offset": 7681
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 174,
+            "col": 28,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Certificate%20Lifecycle%20Management/ssh-and-pkitls-certificates/index.md",
+            "context": {
+                "text": "2. **CSR Key:&#x20;**&#x45;ither generate a new key or use an existing one.\n",
+                "offset": 7681
+            }
+        },
+        {
+            "text": "ither",
+            "offset": 7786,
+            "line": {
+                "text": "3. **Key Type:&#x20;**&#x45;ither [Classic](https://docs.akeyless.io/docs/classic-keys) or [DFC](https://docs.akeyless.io/docs/encryption-keys).\n",
+                "offset": 7758
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 176,
+            "col": 29,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Certificate%20Lifecycle%20Management/ssh-and-pkitls-certificates/index.md",
+            "context": {
+                "text": "3. **Key Type:&#x20;**&#x45;ither [Classic](https://docs.akeyless.io/docs/classic-keys) or [DFC](https://docs.akeyless.io/docs/encryption-keys).\n",
+                "offset": 7758
+            }
+        },
+        {
+            "text": "efine",
+            "offset": 7932,
+            "line": {
+                "text": "4. **Key Name:&#x20;**&#x44;efine a **Name** of the encryption key, and specify the **Location** as a path to the virtual folder where you want to create it, using slash `/` separators. If the folder does not exist, it will be created together with the encryption key.\n",
+                "offset": 7904
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 178,
+            "col": 29,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Certificate%20Lifecycle%20Management/ssh-and-pkitls-certificates/index.md",
+            "context": {
+                "text": "4. **Key Name:&#x20;**&#x44;efine a **Name** of the encryption key, and specify the **Location** as a path to the virtual folder where you want to create it, using slash `/` separators. If the folder does not exist, it will be created together with the encryption key.\n",
+                "offset": 7904
+            }
+        },
+        {
+            "text": "hoose",
+            "offset": 8257,
+            "line": {
+                "text": "   - **Key Algorithm:&#x20;**&#x43;hoose the Key Algorithm.\n",
+                "offset": 8222
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 182,
+            "col": 36,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Certificate%20Lifecycle%20Management/ssh-and-pkitls-certificates/index.md",
+            "context": {
+                "text": "   - **Key Algorithm:&#x20;**&#x43;hoose the Key Algorithm.\n",
+                "offset": 8222
+            }
+        },
+        {
+            "text": "hoose",
+            "offset": 8319,
+            "line": {
+                "text": "   - **Hash Algorithm:&#x20;**&#x43;hoose the Hash Algorithm.\n",
+                "offset": 8283
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 184,
+            "col": 37,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Certificate%20Lifecycle%20Management/ssh-and-pkitls-certificates/index.md",
+            "context": {
+                "text": "   - **Hash Algorithm:&#x20;**&#x43;hoose the Hash Algorithm.\n",
+                "offset": 8283
+            }
+        },
+        {
+            "text": "seperated",
+            "offset": 8693,
+            "line": {
+                "text": "   - **Subject Alternative Name:&#x20;**&#x41; comma-seperated list of DNS alternative names.\n",
+                "offset": 8640
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "suggestions": [
+                "separated"
+            ],
+            "suggestionsEx": [
+                {
+                    "word": "separated",
+                    "isPreferred": true
+                }
+            ],
+            "row": 194,
+            "col": 54,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Certificate%20Lifecycle%20Management/ssh-and-pkitls-certificates/index.md",
+            "hasPreferredSuggestions": true,
+            "hasSimpleSuggestions": true,
+            "context": {
+                "text": "   - **Subject Alternative Name:&#x20;**&#x41; comma-seperated list of DNS alternative names.\n",
+                "offset": 8640
+            }
+        },
+        {
+            "text": "seperated",
+            "offset": 8779,
+            "line": {
+                "text": "   - **Email Addresses:&#x20;**&#x41; comma-seperated list of Email Address alternative names.\n",
+                "offset": 8735
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "suggestions": [
+                "separated"
+            ],
+            "suggestionsEx": [
+                {
+                    "word": "separated",
+                    "isPreferred": true
+                }
+            ],
+            "row": 196,
+            "col": 45,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Certificate%20Lifecycle%20Management/ssh-and-pkitls-certificates/index.md",
+            "hasPreferredSuggestions": true,
+            "hasSimpleSuggestions": true,
+            "context": {
+                "text": "   - **Email Addresses:&#x20;**&#x41; comma-seperated list of Email Address alternative names.\n",
+                "offset": 8735
+            }
+        },
+        {
+            "text": "seperated",
+            "offset": 8874,
+            "line": {
+                "text": "   - **IP Address SAN:&#x20;**&#x41; comma-seperated list of IP Address alternative names.\n",
+                "offset": 8831
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "suggestions": [
+                "separated"
+            ],
+            "suggestionsEx": [
+                {
+                    "word": "separated",
+                    "isPreferred": true
+                }
+            ],
+            "row": 198,
+            "col": 44,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Certificate%20Lifecycle%20Management/ssh-and-pkitls-certificates/index.md",
+            "hasPreferredSuggestions": true,
+            "hasSimpleSuggestions": true,
+            "context": {
+                "text": "   - **IP Address SAN:&#x20;**&#x41; comma-seperated list of IP Address alternative names.\n",
+                "offset": 8831
+            }
+        },
+        {
+            "text": "seperated",
+            "offset": 8960,
+            "line": {
+                "text": "   - **URI SANs:&#x20;**&#x41; comma-seperated list of URI alternative names.\n",
+                "offset": 8923
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "suggestions": [
+                "separated"
+            ],
+            "suggestionsEx": [
+                {
+                    "word": "separated",
+                    "isPreferred": true
+                }
+            ],
+            "row": 200,
+            "col": 38,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Certificate%20Lifecycle%20Management/ssh-and-pkitls-certificates/index.md",
+            "hasPreferredSuggestions": true,
+            "hasSimpleSuggestions": true,
+            "context": {
+                "text": "   - **URI SANs:&#x20;**&#x41; comma-seperated list of URI alternative names.\n",
+                "offset": 8923
+            }
+        },
+        {
+            "text": "ithout",
+            "offset": 6742,
+            "line": {
+                "text": "Follow this step-by-step procedure to rotate the KMIP **Root CA&#x20;**&#x77;ithout causing downtime on client targets.\n",
+                "offset": 6665
+            },
+            "length": 6,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 188,
+            "col": 78,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Encryption%20&%20KMS/kmip-server/kmip-multi-ca.md",
+            "context": {
+                "text": "Follow this step-by-step procedure to rotate the KMIP **Root CA&#x20;**&#x77;ithout causing downtime on client targets.\n",
+                "offset": 6665
+            }
+        },
+        {
+            "text": "aerospike",
+            "offset": 4512,
+            "line": {
+                "text": "Creates a new aerospike target in the current account\n",
+                "offset": 4498
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 186,
+            "col": 15,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "Creates a new aerospike target in the current account\n",
+                "offset": 4498
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 5727,
+            "line": {
+                "text": "`--aerospike-cloud`: Set to `true` for Aerospike Cloud deployments\n",
+                "offset": 5688
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 218,
+            "col": 40,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--aerospike-cloud`: Set to `true` for Aerospike Cloud deployments\n",
+                "offset": 5688
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 5770,
+            "line": {
+                "text": "`--hostname`: Aerospike host address and port (for example: `url.to.aerospike.db`)\n",
+                "offset": 5756
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 220,
+            "col": 15,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--hostname`: Aerospike host address and port (for example: `url.to.aerospike.db`)\n",
+                "offset": 5756
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 5925,
+            "line": {
+                "text": "`--namespace`: Namespace name (relevant only for Aerospike databases)\n",
+                "offset": 5876
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 224,
+            "col": 50,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--namespace`: Namespace name (relevant only for Aerospike databases)\n",
+                "offset": 5876
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 6151,
+            "line": {
+                "text": "`--aerospike-cluster-id`: Cloud cluster ID (relevant only for Aerospike Cloud)\n",
+                "offset": 6089
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 230,
+            "col": 63,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--aerospike-cluster-id`: Cloud cluster ID (relevant only for Aerospike Cloud)\n",
+                "offset": 6089
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 6208,
+            "line": {
+                "text": "`--aerospike-client-id`: Client ID for Aerospike Cloud authentication (relevant only for Aerospike Cloud)\n",
+                "offset": 6169
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 232,
+            "col": 40,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--aerospike-client-id`: Client ID for Aerospike Cloud authentication (relevant only for Aerospike Cloud)\n",
+                "offset": 6169
+            }
+        },
+        {
+            "text": "modechatgpt",
+            "offset": 38481,
+            "line": {
+                "text": "`--codex-oauth-access-token` : Codex OAuth access token from a codex login session `auth.json tokens.access_token`), optional, auto-populated during refresh when `codex-oauth-modechatgpt_oauth`&#x20;\n",
+                "offset": 38306
+            },
+            "length": 11,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 1275,
+            "col": 176,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--codex-oauth-access-token` : Codex OAuth access token from a codex login session `auth.json tokens.access_token`), optional, auto-populated during refresh when `codex-oauth-modechatgpt_oauth`&#x20;\n",
+                "offset": 38306
+            }
+        },
+        {
+            "text": "modechatgpt",
+            "offset": 38654,
+            "line": {
+                "text": "`--codex-oauth-refresh-token` : Codex OAuth refresh token from a codex login session `auth.json tokens.refresh_token`), required when `codex-oauth-modechatgpt_oauth` .\n",
+                "offset": 38507
+            },
+            "length": 11,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 1277,
+            "col": 148,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--codex-oauth-refresh-token` : Codex OAuth refresh token from a codex login session `auth.json tokens.refresh_token`), required when `codex-oauth-modechatgpt_oauth` .\n",
+                "offset": 38507
+            }
+        },
+        {
+            "text": "modechatgpt",
+            "offset": 38814,
+            "line": {
+                "text": "`--codex-oauth-account-id` : Codex OAuth account id from a codex login session `auth.json tokens.account_id`), required when `codex-oauth-modechatgpt_oauth`\n",
+                "offset": 38676
+            },
+            "length": 11,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 1279,
+            "col": 139,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--codex-oauth-account-id` : Codex OAuth account id from a codex login session `auth.json tokens.account_id`), required when `codex-oauth-modechatgpt_oauth`\n",
+                "offset": 38676
+            }
+        },
+        {
+            "text": "zerossl",
+            "offset": 48023,
+            "line": {
+                "text": "### `zerossl`\n",
+                "offset": 48018
+            },
+            "length": 7,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 1593,
+            "col": 6,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "### `zerossl`\n",
+                "offset": 48018
+            }
+        },
+        {
+            "text": "hanadb",
+            "offset": 51326,
+            "line": {
+                "text": "`-t, --type`: The target types list of the requested targets. If it is empty, all target types are returned. Options: `[hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres]`\n",
+                "offset": 51206
+            },
+            "length": 6,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 1733,
+            "col": 121,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`-t, --type`: The target types list of the requested targets. If it is empty, all target types are returned. Options: `[hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres]`\n",
+                "offset": 51206
+            }
+        },
+        {
+            "text": "aerospike",
+            "offset": 53352,
+            "line": {
+                "text": "### `aerospike`\n",
+                "offset": 53347
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 1815,
+            "col": 6,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "### `aerospike`\n",
+                "offset": 53347
+            }
+        },
+        {
+            "text": "aerospike",
+            "offset": 54626,
+            "line": {
+                "text": "`--aerospike-cloud`: Set to `true` for Aerospike Cloud deployments\n",
+                "offset": 54623
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 1852,
+            "col": 4,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--aerospike-cloud`: Set to `true` for Aerospike Cloud deployments\n",
+                "offset": 54623
+            }
+        },
+        {
+            "text": "aerospike",
+            "offset": 54759,
+            "line": {
+                "text": "`--hostname`: Aerospike host address and port (for example: `url.to.aerospike.db`)\n",
+                "offset": 54691
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 1854,
+            "col": 69,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--hostname`: Aerospike host address and port (for example: `url.to.aerospike.db`)\n",
+                "offset": 54691
+            }
+        },
+        {
+            "text": "aerospike",
+            "offset": 55027,
+            "line": {
+                "text": "`--aerospike-cluster-id`: Cloud cluster ID (relevant only for Aerospike Cloud)\n",
+                "offset": 55024
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 1864,
+            "col": 4,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--aerospike-cluster-id`: Cloud cluster ID (relevant only for Aerospike Cloud)\n",
+                "offset": 55024
+            }
+        },
+        {
+            "text": "mlts",
+            "offset": 77781,
+            "line": {
+                "text": "`--mlts-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied\n",
+                "offset": 77778
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2614,
+            "col": 4,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--mlts-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied\n",
+                "offset": 77778
+            }
+        },
+        {
+            "text": "mlts",
+            "offset": 77948,
+            "line": {
+                "text": "`--mlts-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied\n",
+                "offset": 77945
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2616,
+            "col": 4,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--mlts-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied\n",
+                "offset": 77945
+            }
+        },
+        {
+            "text": "mlts",
+            "offset": 78132,
+            "line": {
+                "text": "`--mlts-key-file-path`: Path to the Mutual TLS Key of the GlobalSign Atlas account, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied\n",
+                "offset": 78129
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2618,
+            "col": 4,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--mlts-key-file-path`: Path to the Mutual TLS Key of the GlobalSign Atlas account, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied\n",
+                "offset": 78129
+            }
+        },
+        {
+            "text": "mlts",
+            "offset": 78288,
+            "line": {
+                "text": "`--mlts-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied\n",
+                "offset": 78285
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2620,
+            "col": 4,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "`--mlts-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied\n",
+                "offset": 78285
+            }
+        },
+        {
+            "text": "godaddy",
+            "offset": 78843,
+            "line": {
+                "text": "#### `godaddy`\n",
+                "offset": 78837
+            },
+            "length": 7,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2632,
+            "col": 7,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "#### `godaddy`\n",
+                "offset": 78837
+            }
+        },
+        {
+            "text": "hashi",
+            "offset": 80711,
+            "line": {
+                "text": "#### `hashi-vault`\n",
+                "offset": 80705
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "suggestions": [
+                "hash"
+            ],
+            "suggestionsEx": [
+                {
+                    "word": "hash",
+                    "isPreferred": true
+                }
+            ],
+            "row": 2704,
+            "col": 7,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "hasPreferredSuggestions": true,
+            "hasSimpleSuggestions": true,
+            "context": {
+                "text": "#### `hashi-vault`\n",
+                "offset": 80705
+            }
+        },
+        {
+            "text": "hashi",
+            "offset": 81274,
+            "line": {
+                "text": "`--hashi-url`: HashiCorp Vault URL, for example, `https://<vault-mgr01>:8200`.\n",
+                "offset": 81271
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "suggestions": [
+                "hash"
+            ],
+            "suggestionsEx": [
+                {
+                    "word": "hash",
+                    "isPreferred": true
+                }
+            ],
+            "row": 2725,
+            "col": 4,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "hasPreferredSuggestions": true,
+            "hasSimpleSuggestions": true,
+            "context": {
+                "text": "`--hashi-url`: HashiCorp Vault URL, for example, `https://<vault-mgr01>:8200`.\n",
+                "offset": 81271
+            }
+        },
+        {
+            "text": "zerossl",
+            "offset": 99821,
+            "line": {
+                "text": "#### `zerossl`\n",
+                "offset": 99815
+            },
+            "length": 7,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 3314,
+            "col": 7,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-ref-targets.md",
+            "context": {
+                "text": "#### `zerossl`\n",
+                "offset": 99815
+            }
+        },
+        {
+            "text": "aerosipke",
+            "offset": 1400,
+            "line": {
+                "text": "`aerospike`: Creates aerosipke dynamic secret\n",
+                "offset": 1379
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 41,
+            "col": 22,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-reference-dynamic-secrets.md",
+            "context": {
+                "text": "`aerospike`: Creates aerosipke dynamic secret\n",
+                "offset": 1379
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 4689,
+            "line": {
+                "text": "Creates Aerospike Dynamic Secret\n",
+                "offset": 4681
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 148,
+            "col": 9,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-reference-dynamic-secrets.md",
+            "context": {
+                "text": "Creates Aerospike Dynamic Secret\n",
+                "offset": 4681
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 6074,
+            "line": {
+                "text": "`--target-name`: **Required**, Name of an existing Aerospike target to use for dynamic secret creation\n",
+                "offset": 6023
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 186,
+            "col": 52,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-reference-dynamic-secrets.md",
+            "context": {
+                "text": "`--target-name`: **Required**, Name of an existing Aerospike target to use for dynamic secret creation\n",
+                "offset": 6023
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 6148,
+            "line": {
+                "text": "`--aerospike-roles`: Aerospike roles to assign to generated users. To specify multiple roles, repeat the flag or provide a JSON array\n",
+                "offset": 6127
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 188,
+            "col": 22,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-reference-dynamic-secrets.md",
+            "context": {
+                "text": "`--aerospike-roles`: Aerospike roles to assign to generated users. To specify multiple roles, repeat the flag or provide a JSON array\n",
+                "offset": 6127
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 77945,
+            "line": {
+                "text": "`--target-name`: **Required**, Name of an existing Aerospike target to use for dynamic secret creation\n",
+                "offset": 77894
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2263,
+            "col": 52,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-reference-dynamic-secrets.md",
+            "context": {
+                "text": "`--target-name`: **Required**, Name of an existing Aerospike target to use for dynamic secret creation\n",
+                "offset": 77894
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 78019,
+            "line": {
+                "text": "`--aerospike-roles`: Aerospike roles to assign to generated users. To specify multiple roles, repeat the flag or provide a JSON array\n",
+                "offset": 77998
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2265,
+            "col": 22,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-reference-dynamic-secrets.md",
+            "context": {
+                "text": "`--aerospike-roles`: Aerospike roles to assign to generated users. To specify multiple roles, repeat the flag or provide a JSON array\n",
+                "offset": 77998
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 2655,
+            "line": {
+                "text": "Creates a new Aerospike rotated secret item\n",
+                "offset": 2641
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 84,
+            "col": 15,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/cli-reference/cli-reference-rotated-secrets.md",
+            "context": {
+                "text": "Creates a new Aerospike rotated secret item\n",
+                "offset": 2641
+            }
+        },
+        {
+            "text": "MWAA",
+            "offset": 10077,
+            "line": {
+                "text": "**AWS IAM** (for [Amazon MWAA](https://aws.amazon.com/managed-workflows-for-apache-airflow/) and EC2/ECS/EKS workloads):\n",
+                "offset": 10052
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 199,
+            "col": 26,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/plugins-overview/apache-airflow-provider.md",
+            "context": {
+                "text": "**AWS IAM** (for [Amazon MWAA](https://aws.amazon.com/managed-workflows-for-apache-airflow/) and EC2/ECS/EKS workloads):\n",
+                "offset": 10052
+            }
+        },
+        {
+            "text": "MWAA",
+            "offset": 11682,
+            "line": {
+                "text": "##### Using with Amazon MWAA\n",
+                "offset": 11658
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 252,
+            "col": 25,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/plugins-overview/apache-airflow-provider.md",
+            "context": {
+                "text": "##### Using with Amazon MWAA\n",
+                "offset": 11658
+            }
+        },
+        {
+            "text": "MWAA",
+            "offset": 11727,
+            "line": {
+                "text": "1. Upload a `requirements.txt` to your MWAA S3 bucket containing:\n",
+                "offset": 11688
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 254,
+            "col": 40,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/plugins-overview/apache-airflow-provider.md",
+            "context": {
+                "text": "1. Upload a `requirements.txt` to your MWAA S3 bucket containing:\n",
+                "offset": 11688
+            }
+        },
+        {
+            "text": "MWAA",
+            "offset": 11831,
+            "line": {
+                "text": "2. In the MWAA console under **Airflow configuration options**, add:\n",
+                "offset": 11821
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 260,
+            "col": 11,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/plugins-overview/apache-airflow-provider.md",
+            "context": {
+                "text": "2. In the MWAA console under **Airflow configuration options**, add:\n",
+                "offset": 11821
+            }
+        },
+        {
+            "text": "MWAA",
+            "offset": 12422,
+            "line": {
+                "text": "3. Ensure the MWAA VPC has outbound HTTPS access to your Akeyless API endpoint (`api.akeyless.io` or your Akeyless Gateway).\n",
+                "offset": 12408
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 267,
+            "col": 15,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/plugins-overview/apache-airflow-provider.md",
+            "context": {
+                "text": "3. Ensure the MWAA VPC has outbound HTTPS access to your Akeyless API endpoint (`api.akeyless.io` or your Akeyless Gateway).\n",
+                "offset": 12408
+            }
+        },
+        {
+            "text": "ustom",
+            "offset": 537,
+            "line": {
+                "text": "**Note:&#x20;**&#x43;ustom Gateways require port `:8200` for Vault Proxy traffic.\n",
+                "offset": 516
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 29,
+            "col": 22,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/plugins-overview/hashicorp-vault-proxy/hvp-proxy-conf.md",
+            "context": {
+                "text": "**Note:&#x20;**&#x43;ustom Gateways require port `:8200` for Vault Proxy traffic.\n",
+                "offset": 516
+            }
+        },
+        {
+            "text": "jenkinsci",
+            "offset": 604,
+            "line": {
+                "text": "Repository: [jenkinsci/akeyless-plugin](https://github.com/jenkinsci/akeyless-plugin)\n",
+                "offset": 591
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 17,
+            "col": 14,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Integrations%20&%20Plugins/plugins-overview/jenkins.md",
+            "context": {
+                "text": "Repository: [jenkinsci/akeyless-plugin](https://github.com/jenkinsci/akeyless-plugin)\n",
+                "offset": 591
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 11,
+            "line": {
+                "text": "title: Aerospike Dynamic Secrets\n",
+                "offset": 4
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2,
+            "col": 8,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/how-to-create-dynamic-secret/aerospike-dynamic-secrets.md",
+            "context": {
+                "text": "title: Aerospike Dynamic Secrets\n",
+                "offset": 4
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 117,
+            "line": {
+                "text": "You can define an Aerospike dynamic secret to generate user credentials dynamically based on configured roles.\n",
+                "offset": 99
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 8,
+            "col": 19,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/how-to-create-dynamic-secret/aerospike-dynamic-secrets.md",
+            "context": {
+                "text": "You can define an Aerospike dynamic secret to generate user credentials dynamically based on configured roles.\n",
+                "offset": 99
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 308,
+            "line": {
+                "text": "- An [Aerospike Target]()\n",
+                "offset": 302
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 14,
+            "col": 7,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/how-to-create-dynamic-secret/aerospike-dynamic-secrets.md",
+            "context": {
+                "text": "- An [Aerospike Target]()\n",
+                "offset": 302
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 349,
+            "line": {
+                "text": "## Create a Dynamic Aerospike Secret with the CLI\n",
+                "offset": 329
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 16,
+            "col": 21,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/how-to-create-dynamic-secret/aerospike-dynamic-secrets.md",
+            "context": {
+                "text": "## Create a Dynamic Aerospike Secret with the CLI\n",
+                "offset": 329
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 393,
+            "line": {
+                "text": "To create an Aerospike dynamic secret with the CLI using an existing [Aerospike Target](https://docs.akeyless.io/docs/aerospike-target), run the following command:\n",
+                "offset": 380
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 18,
+            "col": 14,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/how-to-create-dynamic-secret/aerospike-dynamic-secrets.md",
+            "context": {
+                "text": "To create an Aerospike dynamic secret with the CLI using an existing [Aerospike Target](https://docs.akeyless.io/docs/aerospike-target), run the following command:\n",
+                "offset": 380
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 11,
+            "line": {
+                "text": "title: Aerospike Rotated Secret\n",
+                "offset": 4
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2,
+            "col": 8,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/rotated-secrets/aerospike-rotated-secret.md",
+            "context": {
+                "text": "title: Aerospike Rotated Secret\n",
+                "offset": 4
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 137,
+            "line": {
+                "text": "You can create a Rotated Secret for an Aerospike user. Before you get started, ensure creating an [Aerospike Target](https://docs.akeyless.io/docs/aerospike-target) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.\n",
+                "offset": 98
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 8,
+            "col": 40,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/rotated-secrets/aerospike-rotated-secret.md",
+            "context": {
+                "text": "You can create a Rotated Secret for an Aerospike user. Before you get started, ensure creating an [Aerospike Target](https://docs.akeyless.io/docs/aerospike-target) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.\n",
+                "offset": 98
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 197,
+            "line": {
+                "text": "You can create a Rotated Secret for an Aerospike user. Before you get started, ensure creating an [Aerospike Target](https://docs.akeyless.io/docs/aerospike-target) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.\n",
+                "offset": 98
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 8,
+            "col": 100,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/rotated-secrets/aerospike-rotated-secret.md",
+            "context": {
+                "text": "You can create a Rotated Secret for an Aerospike user. Before you get started, ensure creating an [Aerospike Target](https://docs.akeyless.io/docs/aerospike-target) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.\n",
+                "offset": 98
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 470,
+            "line": {
+                "text": "When a client requests a Rotated Secret value, the Akeyless Platform connects to the Aerospike cluster through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) to rotate the user password on your target Aerospike cluster.\n",
+                "offset": 385
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 10,
+            "col": 86,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/rotated-secrets/aerospike-rotated-secret.md",
+            "context": {
+                "text": "When a client requests a Rotated Secret value, the Akeyless Platform connects to the Aerospike cluster through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) to rotate the user password on your target Aerospike cluster.\n",
+                "offset": 385
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 602,
+            "line": {
+                "text": "When a client requests a Rotated Secret value, the Akeyless Platform connects to the Aerospike cluster through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) to rotate the user password on your target Aerospike cluster.\n",
+                "offset": 385
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 10,
+            "col": 218,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/rotated-secrets/aerospike-rotated-secret.md",
+            "context": {
+                "text": "When a client requests a Rotated Secret value, the Akeyless Platform connects to the Aerospike cluster through your [Gateway](https://docs.akeyless.io/docs/gateway-overview) to rotate the user password on your target Aerospike cluster.\n",
+                "offset": 385
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 11,
+            "line": {
+                "text": "title: Aerospike Target\n",
+                "offset": 4
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 2,
+            "col": 8,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/targets/aerospike-target.md",
+            "context": {
+                "text": "title: Aerospike Target\n",
+                "offset": 4
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 109,
+            "line": {
+                "text": "You can define an [Aerospike](https://aerospike.com/) target to be used with Database [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) Secrets.\n",
+                "offset": 90
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 8,
+            "col": 20,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/targets/aerospike-target.md",
+            "context": {
+                "text": "You can define an [Aerospike](https://aerospike.com/) target to be used with Database [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) Secrets.\n",
+                "offset": 90
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 329,
+            "line": {
+                "text": "# Create an Aerospike Target with the CLI&#x20;\n",
+                "offset": 317
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 10,
+            "col": 13,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/targets/aerospike-target.md",
+            "context": {
+                "text": "# Create an Aerospike Target with the CLI&#x20;\n",
+                "offset": 317
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 379,
+            "line": {
+                "text": "To create an Aerospike target with the CLI, run the following command:\n",
+                "offset": 366
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 12,
+            "col": 14,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/targets/aerospike-target.md",
+            "context": {
+                "text": "To create an Aerospike target with the CLI, run the following command:\n",
+                "offset": 366
+            }
+        },
+        {
+            "text": "aerospike",
+            "offset": 948,
+            "line": {
+                "text": "- `db-type`: Required, set to aerospike.\n",
+                "offset": 918
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 28,
+            "col": 31,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/targets/aerospike-target.md",
+            "context": {
+                "text": "- `db-type`: Required, set to aerospike.\n",
+                "offset": 918
+            }
+        },
+        {
+            "text": "Aerospike",
+            "offset": 1008,
+            "line": {
+                "text": "- `hostname`: The hostname or IP address of the Aerospike seed node.\n",
+                "offset": 960
+            },
+            "length": 9,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 30,
+            "col": 49,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/targets/aerospike-target.md",
+            "context": {
+                "text": "- `hostname`: The hostname or IP address of the Aerospike seed node.\n",
+                "offset": 960
+            }
+        },
+        {
+            "text": "hoose",
+            "offset": 1695,
+            "line": {
+                "text": "   - **Authentication Type:&#x20;**&#x43;hoose **API Key** or **Codex Auth**\n",
+                "offset": 1654
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 46,
+            "col": 42,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/targets/openai-target.md",
+            "context": {
+                "text": "   - **Authentication Type:&#x20;**&#x43;hoose **API Key** or **Codex Auth**\n",
+                "offset": 1654
+            }
+        },
+        {
+            "text": "odex",
+            "offset": 2132,
+            "line": {
+                "text": "       - **ChatGPT OAuth Refresh Token :&#x20;**&#x43;odex OAuth refresh token from a codex login session.\n",
+                "offset": 2078
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 53,
+            "col": 55,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/targets/openai-target.md",
+            "context": {
+                "text": "       - **ChatGPT OAuth Refresh Token :&#x20;**&#x43;odex OAuth refresh token from a codex login session.\n",
+                "offset": 2078
+            }
+        },
+        {
+            "text": "odex",
+            "offset": 2236,
+            "line": {
+                "text": "       - **ChatGPT OAuth Account ID :&#x20;**&#x43;odex OAuth account id from a codex login session\n",
+                "offset": 2185
+            },
+            "length": 4,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 54,
+            "col": 52,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secrets%20Management/targets/openai-target.md",
+            "context": {
+                "text": "       - **ChatGPT OAuth Account ID :&#x20;**&#x43;odex OAuth account id from a codex login session\n",
+                "offset": 2185
+            }
+        },
+        {
+            "text": "gatekeeping",
+            "offset": 3160,
+            "line": {
+                "text": "\"Who can approve a request\" and \"who can use/connect to the target\" are two separate authorizations. An approver does not need- and, by default should not automatically have the same standing access to the target they are approving. Approval Authority is a review/gatekeeping capability; Request Access (and Allow Access, and Justify Access Only) are connect capabilities.\n",
+                "offset": 2896
+            },
+            "length": 11,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 39,
+            "col": 265,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secure%20Remote%20Access/sra-admin-guides/sra-access-configuration-policies/sra-rbac-model.md",
+            "context": {
+                "text": "\"Who can approve a request\" and \"who can use/connect to the target\" are two separate authorizations. An approver does not need- and, by default should not automatically have the same standing access to the target they are approving. Approval Authority is a review/gatekeeping capability; Request Access (and Allow Access, and Justify Access Only) are connect capabilities.\n",
+                "offset": 2896
+            }
+        },
+        {
+            "text": "Backgrounding",
+            "offset": 6708,
+            "line": {
+                "text": "## Runbook 7: Inactive Session Terminates After Tab Backgrounding\n",
+                "offset": 6656
+            },
+            "length": 13,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 152,
+            "col": 53,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secure%20Remote%20Access/sra-admin-guides/sra-troubleshooting-and-migration/sra-session-drops-and-timeout-runbooks.md",
+            "context": {
+                "text": "## Runbook 7: Inactive Session Terminates After Tab Backgrounding\n",
+                "offset": 6656
+            }
+        },
+        {
+            "text": "backgrounded",
+            "offset": 7186,
+            "line": {
+                "text": "3. Ask the affected user whether the tab was backgrounded (minimized, switched away from, or left inactive) for an extended period before the disconnect was noticed.\n",
+                "offset": 7141
+            },
+            "length": 12,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 160,
+            "col": 46,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Secure%20Remote%20Access/sra-admin-guides/sra-troubleshooting-and-migration/sra-session-drops-and-timeout-runbooks.md",
+            "context": {
+                "text": "3. Ask the affected user whether the tab was backgrounded (minimized, switched away from, or left inactive) for an extended period before the disconnect was noticed.\n",
+                "offset": 7141
+            }
+        },
+        {
+            "text": "ither",
+            "offset": 6827,
+            "line": {
+                "text": "   - **USC Scope:&#x20;**&#x45;ither **Project (default)**, **Folder** or **Organization**.\n",
+                "offset": 6796
+            },
+            "length": 5,
+            "isFlagged": false,
+            "isFound": false,
+            "row": 172,
+            "col": 32,
+            "uri": "file:///home/runner/work/technical-documentation/technical-documentation/docs/Universal%20Secret%20Connector/universal-secrets-connector/gcp-universal-secrets-connector.md",
+            "context": {
+                "text": "   - **USC Scope:&#x20;**&#x45;ither **Project (default)**, **Folder** or **Organization**.\n",
+                "offset": 6796
+            }
+        }
+    ],
     "info": [],
     "debug": [],
     "error": [],
     "progress": [],
     "result": {
-        "files": 478,
-        "filesWithIssues": [],
-        "issues": 0,
+        "files": 529,
+        "filesWithIssues": [
+            "docs/Advanced Functionality/automatic-migration/resource-discovery.md",
+            "docs/BREAKING CHANGES/gateway-v500.md",
+            "docs/Certificate Lifecycle Management/ssh-and-pkitls-certificates/index.md",
+            "docs/Encryption & KMS/kmip-server/kmip-multi-ca.md",
+            "docs/Integrations & Plugins/cli-reference/cli-ref-targets.md",
+            "docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md",
+            "docs/Integrations & Plugins/cli-reference/cli-reference-rotated-secrets.md",
+            "docs/Integrations & Plugins/plugins-overview/apache-airflow-provider.md",
+            "docs/Integrations & Plugins/plugins-overview/hashicorp-vault-proxy/hvp-proxy-conf.md",
+            "docs/Integrations & Plugins/plugins-overview/jenkins.md",
+            "docs/Secrets Management/how-to-create-dynamic-secret/aerospike-dynamic-secrets.md",
+            "docs/Secrets Management/rotated-secrets/aerospike-rotated-secret.md",
+            "docs/Secrets Management/targets/aerospike-target.md",
+            "docs/Secrets Management/targets/openai-target.md",
+            "docs/Secure Remote Access/sra-admin-guides/sra-access-configuration-policies/sra-rbac-model.md",
+            "docs/Secure Remote Access/sra-admin-guides/sra-troubleshooting-and-migration/sra-session-drops-and-timeout-runbooks.md",
+            "docs/Universal Secret Connector/universal-secrets-connector/gcp-universal-secrets-connector.md"
+        ],
+        "issues": 72,
         "errors": 0,
         "cachedFiles": 0,
         "skippedFiles": 0
