@@ -1,23 +1,11 @@
 {
   "source_mode": "lychee-discovery",
-  "total_urls_scanned": 37,
-  "redirect_mappings_found": 14,
-  "files_updated": 1,
-  "links_updated": 14,
+  "total_urls_scanned": 10,
+  "redirect_mappings_found": 2,
+  "files_updated": 4,
+  "links_updated": 5,
   "redirect_mappings": {
-    "https://docs.akeyless.io/docs/auth-with-api-key/": "https://docs.akeyless.io/docs/auth-with-api-key",
-    "https://docs.akeyless.io/docs/auth-with-aws/": "https://docs.akeyless.io/docs/auth-with-aws",
-    "https://docs.akeyless.io/docs/auth-with-azure/": "https://docs.akeyless.io/docs/auth-with-azure",
-    "https://docs.akeyless.io/docs/auth-with-certificate/": "https://docs.akeyless.io/docs/auth-with-certificate",
-    "https://docs.akeyless.io/docs/auth-with-email/": "https://docs.akeyless.io/docs/auth-with-email",
-    "https://docs.akeyless.io/docs/auth-with-gcp/": "https://docs.akeyless.io/docs/auth-with-gcp",
-    "https://docs.akeyless.io/docs/auth-with-kerberos/": "https://docs.akeyless.io/docs/auth-with-kerberos",
-    "https://docs.akeyless.io/docs/auth-with-kubernetes/": "https://docs.akeyless.io/docs/auth-with-kubernetes",
-    "https://docs.akeyless.io/docs/auth-with-ldap/": "https://docs.akeyless.io/docs/auth-with-ldap",
-    "https://docs.akeyless.io/docs/auth-with-oauth-jwt/": "https://docs.akeyless.io/docs/auth-with-oauth-jwt",
-    "https://docs.akeyless.io/docs/auth-with-oci/": "https://docs.akeyless.io/docs/auth-with-oci",
-    "https://docs.akeyless.io/docs/auth-with-oidc/": "https://docs.akeyless.io/docs/auth-with-oidc",
-    "https://docs.akeyless.io/docs/auth-with-saml/": "https://docs.akeyless.io/docs/auth-with-saml",
-    "https://docs.akeyless.io/docs/auth-with-universal-identity/": "https://docs.akeyless.io/docs/auth-with-universal-identity"
+    "https://docs.akeyless.io/docs/akeyless-mcp-model-context-protocol-command": "https://docs.akeyless.io/docs/mcp",
+    "https://docs.akeyless.io/docs/dynamic-secrets": "https://docs.akeyless.io/docs/how-to-create-dynamic-secret"
   }
 }

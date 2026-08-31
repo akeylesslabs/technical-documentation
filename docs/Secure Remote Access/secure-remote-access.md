@@ -16,14 +16,14 @@ next:
 ---
 ## What Is Secure Remote Access?
 
-Secure Remote Access (SRA) is Akeyless's modern Privileged Access Management (PAM) solution. <br />It provides just-in-time, zero-trust access to your infrastructure, without ever exposing credentials to the user. Every connection is brokered by the Akeyless [Gateway](doc:gateway-overview) , so access stays temporary, tightly scoped, and fully auditable.
+Secure Remote Access (SRA) is Akeyless's modern Privileged Access Management (PAM) solution. <br />It provides just-in-time, zero-trust access to your infrastructure, without ever exposing credentials to the user. Every connection is brokered by the Akeyless [Gateway](https://docs.akeyless.io/docs/gateway-overview) , so access stays temporary, tightly scoped, and fully auditable.
 
 ## How It Works
 
-1. **Authenticate**: Users sign in once through their existing identity provider ( for example using [SAML](doc:auth-with-saml), [OIDC](doc:auth-with-oidc),  [LDAP](doc:auth-with-ldap), or [Certificates](doc:auth-with-certificate)), from whichever access point fits their workflow.
-2. **Authorize**: Akeyless checks the user's role-based access control ([RBAC](doc:rbac)) policies to determine exactly which resources they are authorized to access..
-3. **Connect**: The user picks a target from the supported [Resource Types](doc:sra-structure-resource-types)
-4. **Access, Just-in-Time**: SRA generates short-lived credentials on the fly, via [Dynamic Secrets](doc:how-to-create-dynamic-secret) (temporary accounts) or [Rotated Secrets](doc:rotated-secrets)  (existing credentials that cycle automatically after disconnect), and the Gateway proxies the session directly to the target, injecting the credential automatically. The user never sees, copies, or handles the real credential.<br />
+1. **Authenticate**: Users sign in once through their existing identity provider ( for example using [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc),  [LDAP](https://docs.akeyless.io/docs/auth-with-ldap), or [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)), from whichever access point fits their workflow.
+2. **Authorize**: Akeyless checks the user's role-based access control ([RBAC](https://docs.akeyless.io/docs/rbac)) policies to determine exactly which resources they are authorized to access..
+3. **Connect**: The user picks a target from the supported [Resource Types](https://docs.akeyless.io/docs/sra-structure-resource-types)
+4. **Access, Just-in-Time**: SRA generates short-lived credentials on the fly, via [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) (temporary accounts) or [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets)  (existing credentials that cycle automatically after disconnect), and the Gateway proxies the session directly to the target, injecting the credential automatically. The user never sees, copies, or handles the real credential.<br />
 
 ![Akeyless Gateway and Secure Remote Access architecture](https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png)
 
@@ -52,8 +52,8 @@ SRA supports secure access to: **Databases**, **Windows Remote Desktop**, **Clou
 
 ## Next Steps
 
-- New to SRA? Start with the [Quick Start](doc:sra-quick-start-guide) guide, the fastest path to a working deployment.
-- Choosing the right setup for your environment? See [SRA Setup](doc:sra-setup-overview) for deployment guides tailored to each supported environment (Kubernetes, Docker Compose).
-- Need to configure access to a specific resource? Jump to [Supported Resource Types](doc:sra-resource-types).
+- New to SRA? Start with the [Quick Start](https://docs.akeyless.io/docs/sra-quick-start-guide) guide, the fastest path to a working deployment.
+- Choosing the right setup for your environment? See [SRA Setup](https://docs.akeyless.io/docs/sra-setup-overview) for deployment guides tailored to each supported environment (Kubernetes, Docker Compose).
+- Need to configure access to a specific resource? Jump to [Supported Resource Types](https://docs.akeyless.io/docs/sra-resource-types).
 
 <br />

@@ -2,240 +2,316 @@
 
 | Status         | Count |
 |----------------|-------|
-| 🔍 Total       | 2769  |
-| ✅ Successful  | 2659  |
+| 🔍 Total       | 3933  |
+| 🔗 Unique      | 1541  |
+| ✅ Successful  | 3872  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 62    |
-| 👻 Excluded    | 22    |
+| 🔀 Redirected  | 61    |
+| 👻 Excluded    | 23    |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 20    |
-| ⛔ Unsupported | 6     |
+| 🚫 Errors      | 34    |
+| ⛔ Unsupported | 4     |
 
 ## Errors per input
 
-### Errors in docs/Accessing Akeyless/access-and-authentication-methods/auth-with-universal-identity/setting-up-universal-identity-for-windows-machines.md
+### Errors in docs/AI Security/akeyless-ai-insight.md
 
-* [404] <https://download.akeyless.io/Akeyless_Artifacts/Windows/Universal_Identity/> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [403] <https://claude.ai/login> (at 26:3) | Rejected status code: 403 Forbidden
+* [ERROR] <https://gemini.google.com/app> (at 25:3) | HTTP/2 protocol error. Server may not support HTTP/2 properly
 
-### Errors in docs/AI/prompt-injection-protection-for-ai-agents.md
+### Errors in docs/Akeyless Gateway/gateway-legacy/legacy-telemetry-and-metrics.md
 
-* [404] <https://docs.akeyless.io/docs/mcp-server> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [404] <https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/> (at 207:135) | Rejected status code: 404 Not Found
 
-### Errors in docs/Contributing Guides/technical-documentation-style-guide/index.md
+### Errors in docs/Integrations & Plugins/cli-reference/cli-ref-targets.md
 
-* [ERROR] <file:///home/runner/work/technical-documentation/technical-documentation/docs/Contributing%20Guides/technical-documentation-style-guide/link> | Cannot find file: File not found. Check if file exists and path is correct
-* [404] <https://docs.akeyless.io/docs/contributing> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [404] <https://api.anthropic.com/> (at 2012:49) | Rejected status code: 404 Not Found
+* [421] <https://api.x.ai/> (at 2700:45) | Rejected status code: 421 Misdirected Request
+* [421] <https://api.x.ai/> (at 996:45) | Rejected status code: 421 Misdirected Request
 
-### Errors in docs/Integrations & Plugins/MCPs.md
+### Errors in docs/Integrations & Plugins/plugins-overview/ansible-awx-plugin/ansible-plugin.md
 
-* [404] <https://docs.akeyless.io/docs/mcp-server> | Error (cached)
+* [429] <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html> (at 74:76) | Rejected status code: 429 Too Many Requests
+* [429] <https://docs.ansible.com/ansible/latest/plugins/lookup.html> (at 15:127) | Rejected status code: 429 Too Many Requests
+* [429] <https://docs.ansible.com/ansible/latest/plugins/lookup.html> (at 15:272) | Rejected status code: 429 Too Many Requests
+* [429] <https://docs.ansible.com/ansible/latest/plugins/module.html> (at 15:53) | Rejected status code: 429 Too Many Requests
+
+### Errors in docs/Integrations & Plugins/plugins-overview/apache-airflow-provider.md
+
+* [404] <https://docs.akeyless.io/docs/aws-iam-auth-method> (at 269:37) | Rejected status code: 404 Not Found
 
 ### Errors in docs/Integrations & Plugins/plugins-overview/keycloak-plugin.md
 
-* [ERROR] <https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/> | Network error: Connection failed. Check network connectivity and firewall settings (error sending request for url (https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/)): Connection failed. Check network connectivity and firewall settings
+* [ERROR] <https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/> (at 48:21) | Connection failed. Check network connectivity and firewall settings
 
-### Errors in docs/Secure Remote Access/index.md
+### Errors in docs/Integrations & Plugins/plugins-overview/kubernetes-plugins/akeyless-kubernetes-secrets-injector.md
 
-* [404] <https://docs.akeyless.io/docs/web-access-on-k8s> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [ERROR] <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/> (at 23:185) | Connection failed. Check network connectivity and firewall settings
+* [ERROR] <https://kubernetes.io/docs/tasks/configure-pod-container/security-context/> (at 123:46) | Connection failed. Check network connectivity and firewall settings
 
-### Errors in docs/Secure Remote Access/sra-admin-guides/sra-akeyless-connect.md
+### Errors in docs/Integrations & Plugins/plugins-overview/kubernetes-plugins/kubernetes-external-kms.md
 
-* [404] <https://docs.akeyless.io/docs/remote-access-setup-k8s> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [ERROR] <https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider> (at 129:56) | Connection failed. Check network connectivity and firewall settings
+* [ERROR] <https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/> (at 31:56) | Connection failed. Check network connectivity and firewall settings
 
-### Errors in docs/Secure Remote Access/sra-admin-guides/sra-akeyless-scp.md
+### Errors in docs/Secrets Management/how-to-create-dynamic-secret/aerospike-dynamic-secrets.md
 
-* [404] <https://docs.akeyless.io/docs/remote-access-setup-k8s> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [ERROR] <error:> (at 14:6) | Empty URL found but a URL must not be empty
 
-### Errors in docs/Secure Remote Access/sra-admin-guides/sra-resource-types/sra-k8s-cluster.md
+### Errors in docs/Secrets Management/how-to-create-dynamic-secret/eks-dynamic-secret-producer.md
 
-* [404] <https://docs.akeyless.io/docs/web-access-on-k8s> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [ERROR] <https://kubernetes.io/docs/tasks/tools/install-kubectl/> (at 118:77) | Connection failed. Check network connectivity and firewall settings
 
-### Errors in docs/Secure Remote Access/sra-admin-guides/sra-resource-types/sra-ssh.md
+### Errors in docs/Secrets Management/how-to-create-dynamic-secret/k8s-generic-dynamic-secrets.md
 
-* [404] <https://docs.akeyless.io/docs/web-access-on-k8s> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [ERROR] <https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/> (at 15:133) | Connection failed. Check network connectivity and firewall settings
+* [ERROR] <https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/> (at 494:101) | Connection failed. Check network connectivity and firewall settings
+
+### Errors in docs/Secrets Management/targets/claude-target.md
+
+* [ERROR] <error:> (at 29:70) | Empty URL found but a URL must not be empty
+
+### Errors in docs/Secrets Management/targets/grok-target.md
+
+* [ERROR] <error:> (at 31:70) | Empty URL found but a URL must not be empty
+
+### Errors in docs/Secrets Management/targets/keycloak-target.md
+
+* [ERROR] <error:> (at 33:70) | Empty URL found but a URL must not be empty
+
+### Errors in docs/Secure Remote Access/secure-remote-access.md
+
+* [404] <https://docs.akeyless.io/docs/sra-structure-resource-types> (at 25:60) | Rejected status code: 404 Not Found
+
+### Errors in docs/Secure Remote Access/sra-admin-guides/index.md
+
+* [404] <https://docs.akeyless.io/docs/sra-access-configuration-and-policies> (at 22:55) | Rejected status code: 404 Not Found
+
+### Errors in docs/Secure Remote Access/sra-admin-guides/sra-access-configuration-policies/sra-desktop-app-default-connection-settings.md
+
+* [404] <https://docs.akeyless.io/docs/sra-desktop-application> (at 114:49) | Rejected status code: 404 Not Found
+
+### Errors in docs/Secure Remote Access/sra-admin-guides/sra-infrastructure-and-capacity-planning/sra-scaling-and-hpa-patterns.md
+
+* [ERROR] <https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/> (at 22:92) | Connection failed. Check network connectivity and firewall settings
+
+### Errors in docs/Secure Remote Access/sra-getting-started/connecting-your-first-sra-resource.md
+
+* [404] <https://docs.akeyless.io/docs/new-structure-akeyless-console> (at 8:188) | Rejected status code: 404 Not Found
+* [404] <https://docs.akeyless.io/docs/sra-structure-quick-start> (at 29:33) | Rejected status code: 404 Not Found
 
 ### Errors in docs/Secure Remote Access/sra-getting-started/sra-quick-start-guide.md
 
-* [404] <https://docs.akeyless.io/docs/sra-overview> | Rejected status code: 404 Not Found (configurable with "accept" option)
-* [404] <https://docs.akeyless.io/docs/supported-resource-types> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [ERROR] <https://kubernetes.io/docs/tasks/tools/> (at 21:3) | Connection failed. Check network connectivity and firewall settings
 
-### Errors in docs/Secure Remote Access/sra-setup/sra-setup-overview.md
+### Errors in docs/Secure Remote Access/sra-setup/sra-setup-overview/sra-docker/sra-advanced-configuration-docker.md
 
-* [404] <https://docs.akeyless.io/docs/remote-access-docker> | Rejected status code: 404 Not Found (configurable with "accept" option)
-* [404] <https://docs.akeyless.io/docs/remote-access-session-management> | Rejected status code: 404 Not Found (configurable with "accept" option)
-* [404] <https://docs.akeyless.io/docs/remote-access-setup-k8s> | Rejected status code: 404 Not Found (configurable with "accept" option)
-* [404] <https://docs.akeyless.io/docs/web-access-on-k8s> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [404] <https://docs.akeyless.io/docs/sra-access-configuration-and-policies> (at 13:120) | Error (cached)
+
+### Errors in docs/Secure Remote Access/sra-setup/sra-setup-overview/sra-setup-k8s/sra-advanced-configuration-k8s.md
+
+* [404] <https://docs.akeyless.io/docs/sra-access-configuration-and-policies> (at 13:120) | Error (cached)
+
+### Errors in docs/Secure Remote Access/sra-user-guides/index.md
+
+* [404] <https://docs.akeyless.io/docs/sra-desktop-application> (at 22:36) | Error (cached)
 
 ### Errors in docs/Secure Remote Access/sra-user-guides/sra-portal.md
 
-* [404] <https://docs.akeyless.io/docs/supported-resource-types> | Rejected status code: 404 Not Found (configurable with "accept" option)
-* [404] <https://docs.akeyless.io/docs/web-access-on-k8s> | Rejected status code: 404 Not Found (configurable with "accept" option)
-* [404] <https://docs.akeyless.io/docs/web-access-on-k8s#get-the-dispatcher-service-url> | Rejected status code: 404 Not Found (configurable with "accept" option)
+* [404] <https://docs.akeyless.io/docs/sra-desktop-application> (at 17:182) | Error (cached)
 
 ## Redirects per input
 
 ### Redirects in docs/Accessing Akeyless/access-and-authentication-methods/auth-with-azure.md
 
-* [200] <https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview --[301]--> https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
-* [200] <https://learn.microsoft.com/en-us/entra/fundamentals/whatis> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://learn.microsoft.com/en-us/entra/fundamentals/whatis --[301]--> https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra
+* https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview --[301]--> https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
+* https://learn.microsoft.com/en-us/entra/fundamentals/whatis --[301]--> https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra
 
 ### Redirects in docs/Accessing Akeyless/access-and-authentication-methods/auth-with-gcp.md
 
-* [200] <https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity --[301]--> https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
+* https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity --[301]--> https://docs.cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
 
 ### Redirects in docs/Accessing Akeyless/access-and-authentication-methods/auth-with-oidc/google-oidc.md
 
-* [200] <https://accounts.google.com/signin/v2/identifier?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin> | Redirect: Followed 3 redirects resolving to the final status of: OK. Redirects: https://accounts.google.com/signin/v2/identifier?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin --[302]--> https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin --[302]--> https://accounts.google.com/InteractiveLogin?continue=https://console.developers.google.com/&flowEntry=ServiceLogin&flowName=GlifWebSignIn&followup=https://console.developers.google.com/&osid=1&passive=1209600&service=cloudconsole&dsh=S-736024871:1778531578986842 --[302]--> https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fconsole.developers.google.com%2F&dsh=S-736024871%3A1778531578986842&flowEntry=ServiceLogin&flowName=WebLiteSignIn&followup=https%3A%2F%2Fconsole.developers.google.com%2F&osid=1&passive=1209600&service=cloudconsole&ifkv=AWa2PatJvNPZWpUT4j0UU8Nzkvav4GmfVcevNAqQiH3UOo7AfWXxttOyoEoiHY256TfRumZZSN_p
+* https://accounts.google.com/signin/v2/identifier?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin --[302]--> https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https%3A%2F%2Fconsole.developers.google.com%2F&followup=https%3A%2F%2Fconsole.developers.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin --[302]--> https://accounts.google.com/v3/signin/identifier?continue=https://console.developers.google.com/&flowEntry=ServiceLogin&flowName=WebLiteSignIn&followup=https://console.developers.google.com/&osid=1&passive=1209600&service=cloudconsole&dsh=S20236744:1788142402858348
 
 ### Redirects in docs/Accessing Akeyless/access-and-authentication-methods/auth-with-oidc/index.md
 
-* [200] <https://openid.net/connect/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://openid.net/connect/ --[301]--> https://openid.net/developers/how-connect-works/
+* https://openid.net/connect/ --[301]--> https://openid.net/developers/how-connect-works/
+
+### Redirects in docs/Advanced Functionality/akeyless-agent.md
+
+* https://docs.akeyless.io/docs/dynamic-secrets --[301]--> https://docs.akeyless.io/docs/how-to-create-dynamic-secret
 
 ### Redirects in docs/Advanced Functionality/automatic-migration/index.md
 
-* [200] <https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal --[301]--> https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal --[301]--> https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal
+* https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal --[301]--> https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal --[301]--> https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal
 
-### Redirects in docs/AI/MCP/index.md
+### Redirects in docs/AI Security/agentic-runtime-authority.md
 
-* [200] <https://docs.akeyless.io/docs/auth-with-api-key/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-api-key/ --[301]--> https://docs.akeyless.io/docs/auth-with-api-key
-* [200] <https://docs.akeyless.io/docs/auth-with-aws/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-aws/ --[301]--> https://docs.akeyless.io/docs/auth-with-aws
-* [200] <https://docs.akeyless.io/docs/auth-with-azure/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-azure/ --[301]--> https://docs.akeyless.io/docs/auth-with-azure
-* [200] <https://docs.akeyless.io/docs/auth-with-certificate/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-certificate/ --[301]--> https://docs.akeyless.io/docs/auth-with-certificate
-* [200] <https://docs.akeyless.io/docs/auth-with-email/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-email/ --[301]--> https://docs.akeyless.io/docs/auth-with-email
-* [200] <https://docs.akeyless.io/docs/auth-with-gcp/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-gcp/ --[301]--> https://docs.akeyless.io/docs/auth-with-gcp
-* [200] <https://docs.akeyless.io/docs/auth-with-kerberos/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-kerberos/ --[301]--> https://docs.akeyless.io/docs/auth-with-kerberos
-* [200] <https://docs.akeyless.io/docs/auth-with-kubernetes/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-kubernetes/ --[301]--> https://docs.akeyless.io/docs/auth-with-kubernetes
-* [200] <https://docs.akeyless.io/docs/auth-with-ldap/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-ldap/ --[301]--> https://docs.akeyless.io/docs/auth-with-ldap
-* [200] <https://docs.akeyless.io/docs/auth-with-oauth-jwt/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-oauth-jwt/ --[301]--> https://docs.akeyless.io/docs/auth-with-oauth-jwt
-* [200] <https://docs.akeyless.io/docs/auth-with-oci/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-oci/ --[301]--> https://docs.akeyless.io/docs/auth-with-oci
-* [200] <https://docs.akeyless.io/docs/auth-with-oidc/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-oidc/ --[301]--> https://docs.akeyless.io/docs/auth-with-oidc
-* [200] <https://docs.akeyless.io/docs/auth-with-saml/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-saml/ --[301]--> https://docs.akeyless.io/docs/auth-with-saml
-* [200] <https://docs.akeyless.io/docs/auth-with-universal-identity/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.akeyless.io/docs/auth-with-universal-identity/ --[301]--> https://docs.akeyless.io/docs/auth-with-universal-identity
-* [200] <https://modelcontextprotocol.io/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://modelcontextprotocol.io/ --[308]--> https://modelcontextprotocol.io/docs/getting-started/intro
+* https://docs.akeyless.io/docs/akeyless-mcp-model-context-protocol-command --[301]--> https://docs.akeyless.io/docs/mcp
+
+### Redirects in docs/AI Security/mcp/index.md
+
+* https://modelcontextprotocol.io/ --[308]--> https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro
 
 ### Redirects in docs/Akeyless Gateway/configure-gateway/gateway-log-forwarding.md
 
-* [200] <https://docs.logz.io/user-guide/tokens/log-shipping-tokens/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.logz.io/user-guide/tokens/log-shipping-tokens/ --[301]--> https://docs.logz.io/docs/user-guide/admin/authentication-tokens/log-shipping-tokens/
-* [200] <https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/ --[301]--> https://www.sumologic.com/help/docs/send-data/hosted-collectors/http-source/logs-metrics/
+* https://docs.logz.io/user-guide/tokens/log-shipping-tokens/ --[301]--> https://docs.logz.io/docs/user-guide/admin/authentication-tokens/log-shipping-tokens/
+* https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/ --[301]--> https://www.sumologic.com/help/docs/send-data/hosted-collectors/http-source/logs-metrics/
 
 ### Redirects in docs/Akeyless Gateway/deploy-gateway/gateway-cloud-serverless-deployments/gateway-deploy-serverless-azure.md
 
-* [200] <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli --[301]--> https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
+* https://learn.microsoft.com/en-us/cli/azure/install-azure-cli --[301]--> https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
 
 ### Redirects in docs/Akeyless Gateway/deploy-gateway/gateway-deploy-docker-compose.md
 
-* [200] <https://docs.docker.com/get-docker/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.docker.com/get-docker/ --[301]--> https://docs.docker.com/get-started/get-docker/
+* https://docs.docker.com/get-docker/ --[301]--> https://docs.docker.com/get-started/get-docker/
 
 ### Redirects in docs/Akeyless Gateway/deploy-gateway/gateway-deploy-standalone-docker/gateway-docker-advanced-configuration.md
 
-* [200] <https://catalog.redhat.com/software/container-stacks/detail/66016090ff08e22201487dd3> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://catalog.redhat.com/software/container-stacks/detail/66016090ff08e22201487dd3 --[307]--> https://catalog.redhat.com/en/software/container-stacks/detail/66016090ff08e22201487dd3
+* https://catalog.redhat.com/software/container-stacks/detail/66016090ff08e22201487dd3 --[307]--> https://catalog.redhat.com/en/software/container-stacks/detail/66016090ff08e22201487dd3
+
+### Redirects in docs/Akeyless Gateway/gateway-best-practices.md
+
+* https://cloud.google.com/kubernetes-engine/docs/concepts/regional-clusters --[301]--> https://docs.cloud.google.com/kubernetes-engine/docs/concepts/regional-clusters
+
+### Redirects in docs/Akeyless Gateway/gateway-legacy/gateway-kubernetes-legacy-deployment.md
+
+* https://docs.akeyless.io/reference --[301]--> https://docs.akeyless.io/reference/v2 --[302]--> https://docs.akeyless.io/reference/aliasdetails
+
+### Redirects in docs/Akeyless Gateway/gateway-legacy/legacy-telemetry-and-metrics.md
+
+* https://grafana.com/grafana/dashboards/16927 --[308]--> https://grafana.com/grafana/dashboards/16927/ --[301]--> https://grafana.com/grafana/dashboards/16927-akeyless-gateway/
 
 ### Redirects in docs/Akeyless Gateway/operate-gateway/gateway-telemetry-and-metrics.md
 
-* [200] <https://grafana.com/grafana/dashboards/16927> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://grafana.com/grafana/dashboards/16927 --[308]--> https://grafana.com/grafana/dashboards/16927/ --[301]--> https://grafana.com/grafana/dashboards/16927-akeyless-gateway/
+* https://grafana.com/grafana/dashboards/16927 --[308]--> https://grafana.com/grafana/dashboards/16927/ --[301]--> https://grafana.com/grafana/dashboards/16927-akeyless-gateway/
 
 ### Redirects in docs/Certificate Lifecycle Management/public-ca.md
 
-* [200] <https://www.globalsign.com/> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://www.globalsign.com/ --[302]--> https://www.globalsign.com/en/ --[301]--> https://www.globalsign.com/en
+* https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/ --[301]--> https://www.paloaltonetworks.com/idira
+* https://www.globalsign.com/ --[302]--> https://www.globalsign.com/en/ --[301]--> https://www.globalsign.com/en
 
 ### Redirects in docs/Certificate Lifecycle Management/signing-tools/signing-image/signing-images-sigstore.md
 
-* [200] <https://docs.docker.com/engine/reference/commandline/image_pull/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.docker.com/engine/reference/commandline/image_pull/ --[301]--> https://docs.docker.com/reference/cli/docker/image/pull/
+* https://docs.docker.com/engine/reference/commandline/image_pull/ --[301]--> https://docs.docker.com/reference/cli/docker/image/pull/
 
 ### Redirects in docs/Encryption & KMS/kmip-server/index.md
 
-* [200] <https://docs.mongodb.com/manual/tutorial/configure-encryption/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.mongodb.com/manual/tutorial/configure-encryption/ --[301]--> https://www.mongodb.com/docs/manual/tutorial/configure-encryption/
+* https://docs.mongodb.com/manual/tutorial/configure-encryption/ --[301]--> https://www.mongodb.com/docs/manual/tutorial/configure-encryption/
 
 ### Redirects in docs/Encryption & KMS/tde/transparent-data-encryption-tde-for-oracle.md
 
-* [200] <https://support.oracle.com/rs?type=doc&id=2641533.1> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://support.oracle.com/rs?type=doc&id=2641533.1 --[301]--> https://support.oracle.com/support/?kmContentId=2641533
+* https://support.oracle.com/rs?type=doc&id=2641533.1 --[301]--> https://support.oracle.com/support/?kmContentId=2641533
 
 ### Redirects in docs/Getting Started/release-notes.md
 
-* [200] <https://updates.akeyless.io/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://updates.akeyless.io/ --[302]--> https://updates.akeyless.io/en
+* https://updates.akeyless.io/ --[302]--> https://updates.akeyless.io/en
 
 ### Redirects in docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md
 
-* [200] <https://redis.io/commands/acl-cat> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://redis.io/commands/acl-cat --[301]--> https://redis.io/docs/latest/commands/acl-cat/
-* [200] <https://venafi.cloud/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://venafi.cloud/ --[301]--> https://ui.venafi.cloud/
+* https://redis.io/commands/acl-cat --[301]--> https://redis.io/docs/latest/commands/acl-cat/
+* https://venafi.cloud/ --[301]--> https://ui.venafi.cloud/
 
-### Redirects in docs/Integrations & Plugins/plugins-overview/ansible-awx-plugin/ansible-plugin.md
+### Redirects in docs/Integrations & Plugins/plugins-overview/apache-airflow-provider.md
 
-* [200] <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html --[301]--> https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html
-* [200] <https://docs.ansible.com/ansible/latest/plugins/lookup.html> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.ansible.com/ansible/latest/plugins/lookup.html --[301]--> https://docs.ansible.com/projects/ansible/latest/plugins/lookup.html
-* [200] <https://docs.ansible.com/ansible/latest/plugins/module.html> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.ansible.com/ansible/latest/plugins/module.html --[301]--> https://docs.ansible.com/projects/ansible/latest/plugins/module.html
+* https://cloud.google.com/composer/docs --[301]--> https://docs.cloud.google.com/composer/docs
 
 ### Redirects in docs/Integrations & Plugins/plugins-overview/circleci-plugin.md
 
-* [200] <https://circleci.com/docs/contexts/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://circleci.com/docs/contexts/ --[301]--> https://circleci.com/docs/guides/security/contexts/
-* [200] <https://circleci.com/docs/pipelines/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://circleci.com/docs/pipelines/ --[301]--> https://circleci.com/docs/guides/orchestrate/pipelines/
+* https://circleci.com/docs/contexts/ --[301]--> https://circleci.com/docs/guides/security/contexts/
+* https://circleci.com/docs/pipelines/ --[301]--> https://circleci.com/docs/guides/orchestrate/pipelines/
 
 ### Redirects in docs/Integrations & Plugins/plugins-overview/gitlab-component-plugin.md
 
-* [200] <https://docs.gitlab.com/ee/ci/components/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/ci/components/ --[301]--> https://docs.gitlab.com/ci/components/
-* [200] <https://www.gitlab.com/> | Redirect: Followed 4 redirects resolving to the final status of: OK. Redirects: https://www.gitlab.com/ --[308]--> https://gitlab.com/ --[308]--> https://gitlab.com/ --[301]--> https://about.gitlab.com/ --[301]--> https://about.gitlab.com/
+* https://docs.gitlab.com/ee/ci/components/ --[301]--> https://docs.gitlab.com/ci/components/
+* https://www.gitlab.com/ --[308]--> https://gitlab.com/ --[301]--> https://about.gitlab.com/
 
 ### Redirects in docs/Integrations & Plugins/plugins-overview/gitlab-plugin.md
 
-* [200] <https://www.gitlab.com/> | Redirect: Followed 4 redirects resolving to the final status of: OK. Redirects: https://www.gitlab.com/ --[308]--> https://gitlab.com/ --[308]--> https://gitlab.com/ --[301]--> https://about.gitlab.com/ --[301]--> https://about.gitlab.com/
+* https://www.gitlab.com/ --[308]--> https://gitlab.com/ --[301]--> https://about.gitlab.com/
+
+### Redirects in docs/Integrations & Plugins/plugins-overview/hashicorp-vault-proxy/teamcity-hcv-plugin.md
+
+* https://blog.jetbrains.com/teamcity/2017/09/vault/ --[301]--> https://www.jetbrains.com/help/teamcity/hashicorp-vault.html
 
 ### Redirects in docs/Integrations & Plugins/plugins-overview/kubernetes-plugins/external-secret-operator.md
 
-* [200] <http://external-secrets.io/v0.5.5/api-clustersecretstore/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: http://external-secrets.io/v0.5.5/api-clustersecretstore/ --[301]--> https://external-secrets.io/v0.5.5/api-clustersecretstore/
+* http://external-secrets.io/v0.5.5/api-clustersecretstore/ --[301]--> https://external-secrets.io/v0.5.5/api-clustersecretstore/
 
 ### Redirects in docs/Integrations & Plugins/plugins-overview/slack-plugin.md
 
-* [200] <https://api.slack.com/interactivity/slash-commands> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://api.slack.com/interactivity/slash-commands --[302]--> https://docs.slack.dev/interactivity/implementing-slash-commands --[301]--> https://docs.slack.dev/interactivity/implementing-slash-commands/
-
-### Redirects in docs/Integrations & Plugins/plugins-overview/teamcity-plugins/teamcity-hcv-plugin.md
-
-* [200] <https://blog.jetbrains.com/teamcity/2017/09/vault/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://blog.jetbrains.com/teamcity/2017/09/vault/ --[301]--> https://www.jetbrains.com/help/teamcity/hashicorp-vault.html
+* https://api.slack.com/interactivity/slash-commands --[302]--> https://docs.slack.dev/interactivity/implementing-slash-commands --[301]--> https://docs.slack.dev/interactivity/implementing-slash-commands/
 
 ### Redirects in docs/Integrations & Plugins/plugins-overview/venafi-integration/cert-manager.md
 
-* [200] <https://cert-manager.io/docs/concepts/certificate/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://cert-manager.io/docs/concepts/certificate/ --[301]--> https://cert-manager.io/docs/usage/certificate/
+* https://cert-manager.io/docs/concepts/certificate/ --[301]--> https://cert-manager.io/docs/usage/certificate/
 
 ### Redirects in docs/Integrations & Plugins/sdks/go.md
 
-* [200] <https://akeyless.readme.io/reference> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://akeyless.readme.io/reference --[301]--> https://docs.akeyless.io/reference
+* https://akeyless.readme.io/reference --[301]--> https://docs.akeyless.io/reference --[301]--> https://docs.akeyless.io/reference/v2 --[302]--> https://docs.akeyless.io/reference/aliasdetails
 
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/artifactory-dynamic-secret-producer.md
 
-* [200] <https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens --[301]--> https://docs-redirect.jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens --[301]--> https://docs.jfrog.com/administration/docs/access-tokens
-* [200] <https://jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis --[301]--> https://docs-redirect.jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis --[301]--> https://docs.jfrog.com/integrations/docs/jfrog-api
+* https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens --[301]--> https://docs-redirect.jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens --[301]--> https://docs.jfrog.com/administration/docs/access-tokens
+* https://jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis --[301]--> https://docs-redirect.jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis --[301]--> https://docs.jfrog.com/integrations/docs/jfrog-api
 
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/aws-producer.md
 
-* [200] <https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/ --[301]--> https://repost.aws/knowledge-center/iam-assume-role-cli
+* https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/ --[301]--> https://repost.aws/knowledge-center/iam-assume-role-cli
 
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/azure-ad-dynamic-secrets.md
 
-* [200] <http://google.com/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: http://google.com/ --[301]--> http://www.google.com/
+* http://google.com/ --[301]--> http://www.google.com/
 
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/eks-dynamic-secret-producer.md
 
-* [200] <https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html --[302]--> https://docs.aws.amazon.com/eks/latest/userguide/
-* [200] <https://kubernetes.io/docs/tasks/tools/install-kubectl/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://kubernetes.io/docs/tasks/tools/install-kubectl/ --[301]--> https://kubernetes.io/docs/tasks/tools/
+* https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html --[302]--> https://docs.aws.amazon.com/eks/latest/userguide/
 
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/gcp-dynamic-secrets.md
 
-* [200] <https://cloud.google.com/iam/docs/creating-managing-service-account-keys> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://cloud.google.com/iam/docs/creating-managing-service-account-keys --[301]--> https://docs.cloud.google.com/iam/docs/creating-managing-service-account-keys --[301]--> https://docs.cloud.google.com/iam/docs/keys-create-delete
-* [200] <https://cloud.google.com/iam/docs/creating-managing-service-accounts> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://cloud.google.com/iam/docs/creating-managing-service-accounts --[301]--> https://docs.cloud.google.com/iam/docs/creating-managing-service-accounts --[301]--> https://docs.cloud.google.com/iam/docs/service-accounts-create
+* https://cloud.google.com/iam/docs/creating-managing-service-account-keys --[301]--> https://docs.cloud.google.com/iam/docs/creating-managing-service-account-keys --[301]--> https://docs.cloud.google.com/iam/docs/keys-create-delete
+* https://cloud.google.com/iam/docs/creating-managing-service-accounts --[301]--> https://docs.cloud.google.com/iam/docs/creating-managing-service-accounts --[301]--> https://docs.cloud.google.com/iam/docs/service-accounts-create
 
 ### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/gitlab-dynamic-secret.md
 
-* [200] <https://docs.gitlab.com/ee/user/get_started/get_started_projects.html> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/user/get_started/get_started_projects.html --[301]--> https://docs.gitlab.com/ee/user/get_started/get_started_projects/ --[301]--> https://docs.gitlab.com/user/get_started/get_started_projects/
-* [200] <https://docs.gitlab.com/ee/user/group/> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/user/group/ --[301]--> https://docs.gitlab.com/user/group/
-* [200] <https://docs.gitlab.com/ee/user/group/settings/group_access_tokens.html> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/user/group/settings/group_access_tokens.html --[301]--> https://docs.gitlab.com/ee/user/group/settings/group_access_tokens/ --[301]--> https://docs.gitlab.com/user/group/settings/group_access_tokens/
-* [200] <https://docs.gitlab.com/ee/user/permissions.html> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/user/permissions.html --[301]--> https://docs.gitlab.com/ee/user/permissions/ --[301]--> https://docs.gitlab.com/user/permissions/
-* [200] <https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html> | Redirect: Followed 2 redirects resolving to the final status of: OK. Redirects: https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html --[301]--> https://docs.gitlab.com/ee/user/project/settings/project_access_tokens/ --[301]--> https://docs.gitlab.com/user/project/settings/project_access_tokens/
+* https://docs.gitlab.com/ee/user/get_started/get_started_projects.html --[301]--> https://docs.gitlab.com/ee/user/get_started/get_started_projects/ --[301]--> https://docs.gitlab.com/user/get_started/get_started_projects/
+* https://docs.gitlab.com/ee/user/group/ --[301]--> https://docs.gitlab.com/user/group/
+* https://docs.gitlab.com/ee/user/group/settings/group_access_tokens.html --[301]--> https://docs.gitlab.com/ee/user/group/settings/group_access_tokens/ --[301]--> https://docs.gitlab.com/user/group/settings/group_access_tokens/
+* https://docs.gitlab.com/ee/user/permissions.html --[301]--> https://docs.gitlab.com/ee/user/permissions/ --[301]--> https://docs.gitlab.com/user/permissions/
+* https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html --[301]--> https://docs.gitlab.com/ee/user/project/settings/project_access_tokens/ --[301]--> https://docs.gitlab.com/user/project/settings/project_access_tokens/
+
+### Redirects in docs/Secrets Management/how-to-create-dynamic-secret/gke-dynamic-secret-producer.md
+
+* https://kubernetes.io/docs/tasks/tools/install-kubectl/ --[301]--> https://kubernetes.io/docs/tasks/tools/
 
 ### Redirects in docs/Secrets Management/rotated-secrets/gcp-rotated-secret.md
 
-* [200] <https://cloud.google.com/iam/docs/service-account-overview> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://cloud.google.com/iam/docs/service-account-overview --[301]--> https://docs.cloud.google.com/iam/docs/service-account-overview
+* https://cloud.google.com/iam/docs/service-account-overview --[301]--> https://docs.cloud.google.com/iam/docs/service-account-overview
+
+### Redirects in docs/Secrets Management/targets/claude-target.md
+
+* https://www.anthropic.com/api --[301]--> https://claude.com/platform/api
+
+### Redirects in docs/Secrets Management/targets/digicert-target.md
+
+* https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html --[302]--> https://docs.aws.amazon.com/service-authorization/latest/reference/
+
+### Redirects in docs/Secure Remote Access/sra-admin-guides/sra-infrastructure-and-capacity-planning/sra-scaling-and-hpa-patterns.md
+
+* https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/ --[301]--> https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/
+
+### Redirects in docs/Secure Remote Access/sra-setup/sra-web-access-topology/index.md
+
+* https://www.rfc-editor.org/rfc/rfc1928 --[302]--> https://www.rfc-editor.org/info/rfc1928/
+
+### Redirects in docs/Secure Remote Access/sra-user-guides/sra-akeyless-scp.md
+
+* https://learn.microsoft.com/windows/wsl/ --[302]--> https://learn.microsoft.com/en-us/windows/wsl/
 
 ### Redirects in docs/Universal Secret Connector/universal-secrets-connector/gcp-universal-secrets-connector.md
 
-* [200] <https://cloud.google.com/secret-manager/docs/access-control> | Redirect: Followed 1 redirect resolving to the final status of: OK. Redirects: https://cloud.google.com/secret-manager/docs/access-control --[301]--> https://docs.cloud.google.com/secret-manager/docs/access-control
+* https://cloud.google.com/secret-manager/docs/access-control --[301]--> https://docs.cloud.google.com/secret-manager/docs/access-control
 
-[Full Github Actions output](https://github.com/akeylesslabs/technical-documentation/actions/runs/25695622847?check_suite_focus=true)
+[Full Github Actions output](https://github.com/akeylesslabs/technical-documentation/actions/runs/33349986205?check_suite_focus=true)
