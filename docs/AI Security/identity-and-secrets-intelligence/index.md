@@ -1,6 +1,5 @@
 ---
 title: Identity & Secrets Intelligence
-excerpt: Review the current Identity & Secrets Intelligence surfaces, access controls, and how the feature fits with other Akeyless AI capabilities.
 deprecated: false
 hidden: false
 metadata:
@@ -8,21 +7,24 @@ metadata:
   description: ''
   robots: index
 ---
+Review the current **Identity & Secrets Intelligence&#x20;**&#x73;urfaces, access controls, and how the feature fits with other Akeyless AI capabilities.
 
-> ⚠️ **Warning:**
->
-> Identity and Secrets Intelligence is currently in early access. Features, behavior, and availability can change between releases.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  Identity and Secrets Intelligence is currently in early access. Features, behavior, and availability can change between releases.
+</Callout>
 
 Identity and Secrets Intelligence is a console surface for reviewing AI-related visibility and governance data in Akeyless.
 
 In the current Akeyless Console, Identity and Secrets Intelligence includes these sections:
 
-* Dashboard
-* Inventory
-* Scanners
-* Policies
+- **Dashboard**
+- [Inventory](doc:identity-and-secrets-intelligence-inventory)
+- [Scanners](doc:identity-and-secrets-intelligence-scanners)
+- [Policies](doc:identity-and-secrets-intelligence-policies)
 
-Identity and Secrets Intelligence complements the broader Akeyless AI security model. Secretless runtime retrieval reduces exposure to static credentials, Identity and Secrets Intelligence adds visibility and governance, and [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority) adds runtime control for supported dynamic secrets.
+Identity and Secrets Intelligence complements the broader Akeyless AI security model. Secretless runtime retrieval reduces exposure to static credentials, Identity and Secrets Intelligence adds visibility and governance, and [Agentic Runtime Authority](doc:agentic-runtime-authority) adds runtime control for supported dynamic secrets.
 
 ## Access And Availability
 
@@ -37,55 +39,42 @@ In the current Console implementation, the menu is shown only when the account h
 5. Use **Scanners** to create scanners, start scans, stop running scans, and review scan history.
 6. Use **Policies** to review available policies and change policy status.
 
-The current Inventory implementation exposes finding details for secret, identity, and certificate findings, and supports updating finding status.
+## Dashboard
 
-The current Scanner implementation supports creating scanners, starting scans, stopping active scans, reviewing scan history, and navigating from a running scan directly to **Inventory**.
-
-Current early-access scanner coverage includes:
-
-* **GCP Scanner** support, including enrichment of secret findings with last-access timestamps from Cloud Audit Logs (when those logs are available in the scanned environment) and identity resolution for group-member identities.
-* **AWS Scanner** support for cloud identities, including scanner operation by way of AWS targets that use **Gateway Cloud Identity**.
+Dashboard can be used to review high-level counts, trends, and status indicators that show where investigation is needed. It's the entry point for a monitoring session — start here to identify the highest-priority signals, then move into [Inventory](doc:identity-and-secrets-intelligence-inventory), [Scanners](doc:identity-and-secrets-intelligence-scanners), and [Policies](doc:identity-and-secrets-intelligence-policies) to investigate and remediate.
 
 ## Operational Views
 
 Use these views to move from high-level posture checks to specific remediation tasks:
 
-* **Dashboard**: Review high-level counts, trends, and status indicators that show where investigation is needed.
-* **Inventory**: Drill into findings by type, status, and severity, then open finding details for follow-up actions.
-* **Scanners**: Track scanner status, launch or stop scans, and review scan history before validating outcomes in **Inventory**.
-* **Policies**: Review policy scope and status, then enable or adjust policies based on findings from Dashboard and Inventory.
+| View                                                             | Purpose                                                                                                        |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Dashboard**                                                    | Review high-level counts, trends, and status indicators that show where investigation is needed.               |
+| **[Inventory](doc:identity-and-secrets-intelligence-inventory)** | Drill into findings by type, status, and severity, then open finding details for follow-up actions.            |
+| **[Scanners](doc:identity-and-secrets-intelligence-scanners)**   | Track scanner status, launch or stop scans, and review scan history before validating outcomes in Inventory.   |
+| **[Policies](doc:identity-and-secrets-intelligence-policies)**   | Review policy scope and status, then enable or adjust policies based on findings from Dashboard and Inventory. |
 
 ## Example Monitoring Workflow
 
 Use this workflow when you need a repeatable operating pattern for Identity and Secrets Intelligence:
 
 1. Open **Dashboard** to identify the highest-priority signals.
-2. Open **Inventory** to filter and triage findings by type and status.
-3. Open **Scanners** to run targeted scans for affected environments.
-4. Open **Policies** to validate that controls match your risk posture.
+2. Open **[Inventory](doc:identity-and-secrets-intelligence-inventory)** to filter and triage findings by type and status.
+3. Open **[Scanners](doc:identity-and-secrets-intelligence-scanners)** to run targeted scans for affected environments.
+4. Open **[Policies](doc:identity-and-secrets-intelligence-policies)** to validate that controls match your risk posture.
 5. Return to **Dashboard** and **Inventory** to verify that remediation changes are reflected.
 
-### Policy Types And Examples
-
-Identity and Secrets Intelligence policies are organized by finding type. In the current implementation, common policy categories include:
-
-* **Secrets policies**: Focus on secret exposure risks and secret hygiene.
-* **Identity policies**: Focus on identity posture, privilege scope, and risky identity configurations.
-* **Certificate policies**: Focus on certificate posture, lifecycle state, and certificate-related findings.
-
-Examples of policy-driven findings can include exposed secrets in connected sources, over-permissive identities, and certificates that require lifecycle attention.
-
-### Control Access With Role-Based Access Control (RBAC)
+## Control Access With Role-Based Access Control (RBAC)
 
 Use the `isi-access` administrative rule on a role to control access to Identity and Secrets Intelligence.
 
-For command syntax, see [CLI Reference - Access Roles](https://docs.akeyless.io/docs/cli-reference-access-roles).
+For command syntax, see [CLI Reference - Access Roles](doc:cli-reference-access-roles).
 
 Supported values are:
 
-* `none`
-* `scoped`
-* `all`
+- `none`
+- `scoped`
+- `all`
 
 Use `create-role` when creating a new role:
 
@@ -109,9 +98,11 @@ Use `get-role` to verify the role after the update:
 akeyless get-role --name <role-name>
 ```
 
-The current CLI validation accepts `none`, `scoped`, and `all`. It does not accept the legacy `own` value for `isi-access`.
+<Callout icon="📘" theme="info">
+  The current CLI validation accepts `none`, `scoped`, and `all`. It does not accept the legacy `own` value for `isi-access`.
+</Callout>
 
-## Example Workflow
+## Example Workflow: Granting Access And Reviewing Results
 
 The following example shows one minimal workflow for granting access and reviewing results:
 
@@ -141,6 +132,6 @@ akeyless create-role \
 
 Use Identity and Secrets Intelligence together with the other Akeyless AI surfaces:
 
-* [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) for natural-language interaction with the Akeyless identity security platform
-* [Agentic Runtime Authority](https://docs.akeyless.io/docs/agentic-runtime-authority) for controlled runtime access to supported dynamic secrets
-* [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents) for guidance on reducing credential misuse risk in AI workflows
+- [Akeyless AI Insights](doc:akeyless-ai-insight) for natural-language interaction with the Akeyless identity security platform
+- [Agentic Runtime Authority](doc:agentic-runtime-authority) for controlled runtime access to supported dynamic secrets
+- [Prompt Injection Protection for AI Agents](doc:prompt-injection-protection-for-ai-agents) for guidance on reducing credential misuse risk in AI workflows
