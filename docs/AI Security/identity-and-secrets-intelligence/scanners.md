@@ -7,7 +7,7 @@ metadata:
 ---
 Create and run scanners, stop active scans, review scan history, and navigate directly to Inventory to validate scan outcomes.
 
-## Access
+## Prerequisites
 
 Scanners is shown only when:
 
