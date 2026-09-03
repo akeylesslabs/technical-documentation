@@ -1,3 +1,4 @@
 - aws-scanner
 - azure-scanner
 - gcp-scanner
+- kubernetes-scanner
