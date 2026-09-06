@@ -5,19 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
+The Akeyless Scanner is a native scanner type that inspects your Akeyless account, discovering the full inventory of identities, roles, and secrets it contains, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+
 ## prerequisite <br />
 
-## Create a Dynamic AWS Secret in the Akeyless Console<br /><br /><br /><br />
-
-Akeyless ISI Scanner — Guide
-
-Source basis: docs.akeyless.io "Identity & Secrets Intelligence" (early access, last updated \~Jun 2026). Sections marked 🟡 NEEDS INPUT aren't covered in public docs — see questions at the bottom.
-
-1.
-
-2) What Does It Scan?
-
-Current early-access coverage is two providers:
+## Create a Dynamic AWS Secret in the Akeyless Console<br />
 
 Provider	What it covers
 GCP Scanner	Secret findings, enriched with last-access timestamps pulled from Cloud Audit Logs (when available in the environment), plus identity resolution for group-member identities
