@@ -7,7 +7,13 @@ metadata:
 ---
 The Akeyless Scanner is a native scanner type that inspects your Akeyless account, discovering the full inventory of identities, roles, and secrets it contains, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
-## prerequisite <br />
+## prerequisite
+
+1. An Akeyless account with the Identity & Secrets Intelligence license
+2. A deployed and connected Akeyless Gateway version 4.52.0+
+3. A Gateway with AI Insights enabled and properly configured.
+4. A user with "Manage ISI Scanners"  or "Admin" Gateway Permission.
+5. A user with  "Identity & Secrets Intelligence" administrative rule set to Scoped or All.<br />
 
 ## Create a Dynamic AWS Secret in the Akeyless Console<br />
 
