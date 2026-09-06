@@ -1,6 +1,6 @@
 ---
-title: Secure Remote Access
-excerpt: ''
+title: Overview
+excerpt: Secure Remote Access
 deprecated: false
 hidden: false
 metadata:
@@ -42,7 +42,7 @@ Secure Remote Access (SRA) is Akeyless's modern Privileged Access Management (PA
 
 All access methods below connect through your deployed Akeyless Gateway. They differ only in where the user-facing client lives.
 
-- **&#x20;[SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal)**: Akeyless hosts the portal UI for you, but access still routes through your deployed Gateway.
+- **&#x20;**[SRA Portal](https://docs.akeyless.io/docs/sra-portal#connect-from-the-secure-remote-access-portal): Akeyless hosts the portal UI for you, but access still routes through your deployed Gateway.
 - **Akeyless CLI**: scriptable, terminal-based access, also routed through your deployed Gateway.
 - **Desktop Application**: a native app installed on the user's machine. The Desktop app creates the connection locally and routes it through your deployed Gateway.
 
@@ -55,5 +55,3 @@ SRA supports secure access to: **Databases**, **Windows Remote Desktop**, **Clou
 - New to SRA? Start with the [Quick Start](doc:sra-quick-start-guide) guide, the fastest path to a working deployment.
 - Choosing the right setup for your environment? See [SRA Setup](doc:sra-setup-overview) for deployment guides tailored to each supported environment (Kubernetes, Docker Compose).
 - Need to configure access to a specific resource? Jump to [Supported Resource Types](doc:sra-resource-types).
-
-<br />
