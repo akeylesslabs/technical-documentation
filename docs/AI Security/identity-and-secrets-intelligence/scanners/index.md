@@ -5,7 +5,13 @@ hidden: false
 metadata:
   robots: index
 ---
-Create and run scanners, stop active scans, review scan history, and navigate directly to Inventory to validate scan outcomes.
+## What Is a Scanner?
+
+Identity & Secrets Intelligence (ISI) is a console area that gives visibility and governance over security posture, secrets, identities, and certificates, across connected cloud environments. It has four sections: Dashboard, Inventory, Scanners, Policies.
+
+A Scanner is the component that actually inventories a cloud environment. You create a scanner against a specific cloud provider, run it, and it populates Inventory with Findings (secret findings, identity findings, certificate findings) that you then triage and act on. Scanners also keep a run history (start/stop, status, past scans).
+
+<br />Create and run scanners, stop active scans, review scan history, and navigate directly to Inventory to validate scan outcomes.
 
 ## Prerequisites
 
