@@ -71,7 +71,7 @@ akeyless assoc-role-am --role-name role1 --am-name client1
 
 ## Permission Types
 
-Akeyless has six main permission types for Items, Access Roles, Auth Methods, and Targets that can be assigned to specific items, folders, or entire accounts. For Secure Remote Access only, there are six permission types.
+Akeyless has six main permission types for Items, Access Roles, Auth Methods, and Targets that can be assigned to specific items, folders, or entire accounts. For Secure Remote Access, there are different six permission types. For Agentic Runtime Authority, there is one permission type.
 
 The built-in admin role has full access to all parts of the accounts.
 
