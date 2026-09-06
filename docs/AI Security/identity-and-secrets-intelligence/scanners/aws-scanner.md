@@ -1,8 +1,10 @@
 ---
-title: AWS scanner
+title: AWS Scanner
 excerpt: AWS Scanner — Setup & Required Permissions
 deprecated: false
 hidden: false
+link:
+  new_tab: false
 metadata:
   robots: index
 ---
