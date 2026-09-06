@@ -151,11 +151,13 @@ The following **Administrative Rules** can be set:
 
 - `Agentic Runtime Authority`
 
+- `Identity & Secrets Intelligence`
+
 - `Reverse RBAC`
 
-- `Manage Event Forwarders`
+- `Usage Reports`&#x20;
 
-- `Usage Reports`
+- `Manage Event Forwarders`
 
 ## Reverse RBAC Review
 
