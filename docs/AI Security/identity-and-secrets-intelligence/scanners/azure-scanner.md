@@ -65,17 +65,17 @@ the scan currently completes successfully but with **no secrets or certificates.
 
 Without these, the scan still **completes**, but with reduced visibility. Missing permissions are reported in the scan's _Access Status_ (visible in scan details).
 
-| Permission                                              | What it adds                                                                                                              |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `Microsoft.KeyVault/vaults/secrets/readMetadata/action` | Listing secrets inside each vault (data plane — see warning above)                                                        |
-| `Microsoft.KeyVault/vaults/certificates/read`           | Listing certificates inside each vault (data plane — see warning above)                                                   |
-| `Microsoft.Authorization/roleDefinitions/read`          | Resolving role names and permissions — without it, access edges in the Security Graph cannot be computed                  |
-| `Microsoft.Authorization/denyAssignments/read`          | Deny assignments — without it the graph may look more permissive than reality                                             |
-| `Microsoft.Web/certificates/read`                       | App Service certificates                                                                                                  |
-| `Microsoft.Network/applicationGateways/read`            | Application Gateway certificates (SSL, trusted root, trusted client, authentication)                                      |
-| Graph `Directory.Read.All`                              | Identity display names, types, and enabled/disabled status (otherwise identities appear as bare GUIDs)                    |
-| Graph `GroupMember.Read.All`                            | Group membership expansion — required for group-based access paths in the Security Graph (admin consent required)         |
-| Graph `AuditLog.Read.All`                               | Last sign-in dates for users and service principals — powers stale/never-used identity detection (admin consent required) |
+| Permission                                              | What it adds                                                                                                             |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `Microsoft.KeyVault/vaults/secrets/readMetadata/action` | Listing secrets inside each vault                                                                                        |
+| `Microsoft.KeyVault/vaults/certificates/read`           | Listing certificates inside each vault                                                                                   |
+| `Microsoft.Authorization/roleDefinitions/read`          | Resolving role names and permissions, without it, access edges in the Security Graph cannot be computed                  |
+| `Microsoft.Authorization/denyAssignments/read`          | Deny assignments, without it the graph may look more permissive than reality                                             |
+| `Microsoft.Web/certificates/read`                       | App Service certificates                                                                                                 |
+| `Microsoft.Network/applicationGateways/read`            | Application Gateway certificates (SSL, trusted root, trusted client, authentication)                                     |
+| Graph `Directory.Read.All`                              | Identity display names, types, and enabled/disabled status (otherwise identities appear as bare GUIDs)                   |
+| Graph `GroupMember.Read.All`                            | Group membership expansion, required for group-based access paths in the Security Graph (admin consent required)         |
+| Graph `AuditLog.Read.All`                               | Last sign-in dates for users and service principals, powers stale/never-used identity detection (admin consent required) |
 
 ## Create an Azure Scanner
 
