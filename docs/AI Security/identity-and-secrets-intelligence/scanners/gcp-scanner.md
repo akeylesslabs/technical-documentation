@@ -5,8 +5,6 @@ hidden: false
 metadata:
   robots: index
 ---
-# GCP Scanner
-
 The GCP Scanner is a native scanner type that inspects a connected Google Cloud project, folder, or organization, discovering the full inventory of identities (Google Cloud users, groups, and service accounts), secrets (Secret Manager), and certificates (Private CA, Certificate Manager, and Compute Engine SSL certificates) it contains, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## Prerequisites
