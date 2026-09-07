@@ -156,4 +156,29 @@ Where:
 
 Save the output in a new file called `customer_fragments.json` in a directory of your choice. Once you have your `customer_fragments.json` file saved, you'll need to provide a path to the file containing your fragment as part of the Gateway deployment command, as described in [this](https://docs.akeyless.io/docs/zero-knowledge) guide.
 
-# HSM Key Rotation
+# Customer Fragment HSM Key Rotation
+
+When using a **Customer Fragment** protected by an **HSM Key Encryption Key (KEK)** using the encrypt wrap mode `--hsm-wrap-mode encrypt`), you can rotate the HSM KEK without re-encrypting protected secrets or modifying the CF itself.
+
+To rotate the HSM key, run the `rewrap-customer-fragment` command. This decrypts the wrapped CF in-memory using the existing KEK and re-encrypts it under the new KEK. The plaintext CF is never written to disk or persisted.
+
+For example, to rotate a fragment stored in `/etc/akeyless/cf.json` to a new HSM key label `hsm-kek-v2`:
+
+```shell
+akeyless rewrap-customer-fragment \
+--input-file /etc/akeyless/cf.json \
+--new-kek-ref hsm-kek-v2 \
+--cf-id cf-123456789
+```
+
+Where:
+
+`--input-file`: **Required**, source Customer Fragment file.
+
+`--new-kek-ref`: **Required**, new HSM key label for re-encryption.
+
+`--cf-id`: **Required**, target fragment ID.
+
+You can find the complete list of additional parameters for this command in the CLI Reference - Encryption Keys section.
+
+<br />
