@@ -13,6 +13,8 @@ You can choose whether the lock applies to **reading** the item or **updating** 
 
 If an item is locked for **reading**, users with read permission will still be able to see the item, but they will not be able to view the secret value.
 
+Items can be configured to automatically lock for a customizable timeframe after being `read`, restricting either `read` or `update` actions.
+
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.48.0` or later.
