@@ -86,6 +86,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
    - **Display message to the user before TTL expires:** Select this checkbox to allow displaying messages to the user before TTL expires.
    - **Allow user to extend session periodically:** Select this checkbox to allow the user to extend session periodically.
    - **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IdP.
+   - **Block parent target access:&#x20;**&#x53;elect this checkbox to block the parent target from being selected (relevant only when using a Linked Target).
    - **Sub Claim Name:** From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_username`
    - **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
    - **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
@@ -103,5 +104,3 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 2. Browse to the folder where you created a dynamic secret.
 
 3. Select the secret and click the **Get Dynamic Secret** button.
-
-<br />
