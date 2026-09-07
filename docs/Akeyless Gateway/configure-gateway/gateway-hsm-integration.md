@@ -158,7 +158,7 @@ Save the output in a new file called `customer_fragments.json` in a directory of
 
 # Customer Fragment HSM Key Rotation
 
-When using a **Customer Fragment** protected by an **HSM Key Encryption Key (KEK)** using the encrypt wrap mode `--hsm-wrap-mode encrypt`), you can rotate the HSM KEK without re-encrypting protected secrets or modifying the CF itself.
+When using a **Customer Fragment** protected by an **HSM Key Encryption Key (KEK)** using the encrypt wrap mode (`--hsm-wrap-mode encrypt`), you can rotate the HSM KEK without re-encrypting protected secrets or modifying the CF itself.
 
 To rotate the HSM key, run the `rewrap-customer-fragment` command. This decrypts the wrapped CF in-memory using the existing KEK and re-encrypts it under the new KEK. The plaintext CF is never written to disk or persisted.
 
