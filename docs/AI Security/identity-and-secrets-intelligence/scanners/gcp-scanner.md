@@ -90,7 +90,7 @@ Without these, the scan still **completes**, but with reduced visibility. Missin
 
 ### Prerequisites Beyond IAM
 
-Granting the permissions above is not sufficient on its own — the following must also be in place:
+Granting the permissions above is not sufficient on its own, the following must also be in place:
 
 - **APIs enabled per scanned project**: Cloud Resource Manager, IAM, Secret Manager, and (per capability) Cloud Logging, Private CA, Certificate Manager, Compute Engine, Policy Analyzer. A disabled API is reported as a warning, granting a role does not fix it.
 - **Data Access audit logs**: secret last-accessed dates require a `DATA_READ` audit-log configuration for Secret Manager (or all services) in the project.
