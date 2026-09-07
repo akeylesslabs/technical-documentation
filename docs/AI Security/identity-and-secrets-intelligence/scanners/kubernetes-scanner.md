@@ -38,7 +38,7 @@ Bind this ClusterRole to the scanner's service account. All access is **list-onl
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: akeyless-sdr-scanner
+  name: akeyless-isi-scanner
 rules:
   - apiGroups: [""]
     resources: ["namespaces", "serviceaccounts", "secrets"]
@@ -77,8 +77,8 @@ Without these, the scan still **completes**, but with reduced visibility. Missin
 
 For clusters running on a managed Kubernetes service, the scanner's credentials also need cloud-level access to reach the cluster:
 
-- **EKS**: the AWS credential needs `sts:GetCallerIdentity`, plus `eks:DescribeCluster` unless the cluster endpoint and CA certificate are supplied explicitly in the scanner settings.
-- **GKE**: the GCP credential needs a cloud-platform-scoped OAuth token; the cluster endpoint and CA certificate must be supplied in the scanner settings.
+- **EKS**: The AWS IAM Role used by the Target needs `sts:GetCallerIdentity`, plus `eks:DescribeCluster`.
+- **GKE**: The service account used by the Target needs a cloud-platform-scoped OAuth token.
 
 ## Create a Kubernetes Scanner
 
