@@ -81,7 +81,7 @@ akeyless assoc-target-item \
 
 `--multi-region[=false]`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1
 
-`--protection-level[=software]`: Protection level of the key [software/hardware]. (Relevant only for Classic Key and target association, for GCP targets)
+`--protection-level[=software]`: Protection level of the key \[software/hardware]. (Relevant only for Classic Key and target association, for GCP targets)
 
 ## `create-classic-key`
 
@@ -116,7 +116,7 @@ akeyless create-classic-key \
 
 `--cert-file-data`: PEM Certificate in a Base64 format.
 
-`--gpg-alg`: gpg alg: Relevant only if GPG key type selected; options: [RSA1024, RSA2048, RSA3072, RSA4096, Ed25519]
+`--gpg-alg`: gpg alg: Relevant only if GPG key type selected; options: \[RSA1024, RSA2048, RSA3072, RSA4096, Ed25519]
 
 `-k, --protection-key-name`: The name of the key that protects the classic key value (if empty, the account default key will be used)
 
@@ -136,7 +136,7 @@ akeyless create-classic-key \
 
 `--certificate-province`: Province name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
-`--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] (only for RSA and EC keys)
+`--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: \[`SHA256`, `SHA384`, `SHA512`] (only for RSA and EC keys)
 
 `--conf-file-path`: Path to the configuration file that contains CSR config data
 
@@ -146,7 +146,7 @@ akeyless create-classic-key \
 
 `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1 --expiration-event-in 5`
 
-`--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
+`--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation \[true/false]
 
 `--rotation-interval`: The number of days to wait between every automatic rotation (1-365)
 
@@ -154,7 +154,7 @@ akeyless create-classic-key \
 
 `-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
 
-`--delete-protection`: Protection from accidental deletion of this item, [true/false]
+`--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
 ## `create-dfc-key`
 
@@ -176,7 +176,7 @@ akeyless create-dfc-key \
 
 `-n, --name`: **Required**, DFCKey name
 
-`-a, --alg`: **Required**, DFCKey type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]
+`-a, --alg`: **Required**, DFCKey type; options: \[AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]
 
 `-t, --tag`: List of the tags attached to this DFC key. To specify multiple tags use the argument multiple times: -t Tag1 -t Tag2
 
@@ -200,7 +200,7 @@ akeyless create-dfc-key \
 
 `--certificate-province`: Province name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
-`--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] (only for **RSA** keys)
+`--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: \[`SHA256`, `SHA384`, `SHA512`] (only for **RSA** keys)
 
 `--conf-file-path`: Path to the configuration file that contains CSR config data
 
@@ -210,13 +210,13 @@ akeyless create-dfc-key \
 
 `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1 --expiration-event-in 5`
 
-`--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
+`--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation \[true/false]
 
 `--rotation-interval`: The number of days to wait between every automatic rotation (1-365)
 
 `--rotation-event-in`: How many days before the rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--delete-protection`: Protection from accidental deletion of this item, [true/false]
+`--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
 ## `create-key`
 
@@ -236,7 +236,7 @@ akeyless create-key \
 
 `-n, --name`: **Required**, Key name
 
-`-a, --alg`: **Required**, Key type; options: [`AES128GCM`, `AES256GCM`, `AES128SIV`, `AES256SIV`, `AES128CBC`, `AES256CBC`, `RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`]
+`-a, --alg`: **Required**, Key type; options: \[`AES128GCM`, `AES256GCM`, `AES128SIV`, `AES256SIV`, `AES128CBC`, `AES256CBC`, `RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`]
 
 `-t, --tag`: List of tags attached to this key. Repeat the flag to add multiple tags
 
@@ -258,7 +258,7 @@ akeyless create-key \
 
 `--certificate-province`: Province name for the generated certificate
 
-`--hash-algorithm[=SHA256]`: Hash algorithm used for key operations. Available options: [`SHA256`, `SHA384`, `SHA512`]
+`--hash-algorithm[=SHA256]`: Hash algorithm used for key operations. Available options: \[`SHA256`, `SHA384`, `SHA512`]
 
 `--conf-file-path`: Path to the configuration file that contains Certificate Signing Request (CSR) config data
 
@@ -266,7 +266,7 @@ akeyless create-key \
 
 `--description`: Description of the object
 
-`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
 
 ## `decrypt`
 
@@ -359,7 +359,7 @@ akeyless decrypt-gpg \
 
 `-c, --ciphertext`: Ciphertext to be decrypted in Base64-encoded format, if a file was not provided
 
-`-N, --input-format[=base64]`: Select default assumed format for the ciphertext. Currently supported options: [base64,raw]
+`-N, --input-format[=base64]`: Select default assumed format for the ciphertext. Currently supported options: \[base64,raw]
 
 `-p, --passphrase`: Passphrase to decrypt the message
 
@@ -411,7 +411,7 @@ akeyless derive-key \
 
 `-n, --name`: **Required**, Static Secret full name
 
-`-a, --alg[=pbkdf2]`: **Required**, KDF algorithm [`pbkdf2`/`argon2id`]
+`-a, --alg[=pbkdf2]`: **Required**, KDF algorithm \[`pbkdf2`/`argon2id`]
 
 `-s, --salt`: Base64-encoded salt value
 
@@ -419,13 +419,13 @@ akeyless derive-key \
 
 `-i, --iter`: **Required**, Number of iterations
 
-`--hash-function[=sha256]`: Hash function for `pbkdf2` [`sha256`/`sha512`]
+`--hash-function[=sha256]`: Hash function for `pbkdf2` \[`sha256`/`sha512`]
 
 `--parallelism[=1]`: Number of threads to use for `argon2id`
 
 `--mem[=16384]`: Memory parameter in KB for `argon2id`
 
-`--accessibility[=regular]`: Accessibility for an item in a user's personal folder [`regular`/`personal`]
+`--accessibility[=regular]`: Accessibility for an item in a user's personal folder \[`regular`/`personal`]
 
 ## `encrypt`
 
@@ -600,9 +600,40 @@ akeyless gen-customer-fragment \
 
 `-n, --name`: Customer Fragment name
 
-`-t, --type[=standard]`: Customer fragment type [`standard`/`hsm_wrapped`/`hsm_secured`]
+`-t, --type[=standard]`: Customer fragment type \[`standard`/`hsm_wrapped`/`hsm_secured`]
 
 `-k, --hsm-key-label`: The label of the hsm key to use for customer fragment operations (relevant for `hsm_wrapped`/`hsm_secured` customer fragments)
+
+## `rewrap-customer-fragment`
+
+Re-wraps customer fragment under new KEK
+
+### Usage
+
+```shell
+akeyless rewrap-customer-fragment \
+--input-file <path/to/cf.json> \
+--new-kek-ref <New-HSM-Key-Label> \
+--cf-id <CF-ID>
+```
+
+### Flags
+
+`--input-file`: **Required,** source customer fragments file
+
+`--output-file`: Destination file (defaults to in-place overwrite of `--input-file`)
+
+`--new-kek-ref`: **Required,&#x20;**&#x6E;ew HSM key label for re-encryption
+
+`--old-kek-ref`:_&#x20;_&#x4F;ld HSM key label (if omitted, resolved from fragment metadata)
+
+`--cf-id` :_&#x20;_&#x54;arget fragment ID
+
+`--hsm-provider`:_&#x20;_&#x4F;nly `pkcs11` is accepted
+
+`--hsm-wrap-mode`: Only `encrypt` is accepted
+
+`--dry-run`: Validates decrypt+encrypt path without writing output
 
 ## `get-rsa-public`
 
@@ -702,7 +733,7 @@ akeyless set-item-state \
 
 `-n, --name`: **Required**, Current item name
 
-`-s, --desired-state`: **Required**, Desired item state [Enabled, Disabled]
+`-s, --desired-state`: **Required**, Desired item state \[Enabled, Disabled]
 
 `--version[=0]`: The specific version you want to update: 0=item level state (default)
 
@@ -784,7 +815,7 @@ akeyless sign-pkcs1 \
 
 `--version`: The version of the key to use for signing
 
-`-f, --hash-function[=sha-256]`: Hash function [sha-256,sha-384,sha-512]
+`-f, --hash-function[=sha-256]`: Hash function \[sha-256,sha-384,sha-512]
 
 `--prehashed`: Marks that the message is already hashed
 
@@ -846,7 +877,7 @@ akeyless update-classic-key-certificate \
 
 `--cert-file-data`: PEM Certificate in a Base64 format
 
-`--certificate-format`: The format of the returned certificate [`pem`/`der`]
+`--certificate-format`: The format of the returned certificate \[`pem`/`der`]
 
 ## `update-rotation-settings`
 
@@ -864,7 +895,7 @@ akeyless update-rotation-settings \
 
 `-n, --name`: **Required**, Key name
 
-`-r, --auto-rotate[=false]`: **Required**, [true/false] Sets automatic rotation to be enabled or disabled, if enabled rotation will be triggered periodically based on --rotation-interval
+`-r, --auto-rotate[=false]`: **Required**, \[true/false] Sets automatic rotation to be enabled or disabled, if enabled rotation will be triggered periodically based on --rotation-interval
 
 `--rotation-interval`: The number of days to wait between every automatic key rotation (7-365)
 
@@ -902,7 +933,7 @@ akeyless upload-pkcs12 \
 
 `-c, --cert`: Path to a file that contain the certificate in a PEM format. If this is not empty, the certificate will be taken from here and not from the PKCS#12 input file
 
-`--delete-protection[=false]`: Protection from accidental deletion of this item, [true/false]
+`--delete-protection[=false]`: Protection from accidental deletion of this item, \[true/false]
 
 ## `upload-rsa`
 
@@ -924,7 +955,7 @@ akeyless upload-rsa \
 
 `-n, --name`: **Required**, Name of key to be created
 
-`-a, --alg`: **Required**, Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096]
+`-a, --alg`: **Required**, Key type. options: \[RSA1024, RSA2048, RSA3072, RSA4096]
 
 `-p, --rsa-key-file-path`: RSA private key file path.
 
@@ -942,9 +973,9 @@ akeyless upload-rsa \
 
 `-f, --customer-frg-id`: The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment)
 
-`--overwrite[=false]`: When the overwrite flag is set, this command will only update an existing key. [true, false]
+`--overwrite[=false]`: When the overwrite flag is set, this command will only update an existing key. \[true, false]
 
-`--delete-protection`: Protection from accidental deletion of this item, [true/false]
+`--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
 ## `verify-ecdsa`
 
@@ -1052,7 +1083,7 @@ akeyless verify-rsassa-pss \
 
 `-I, --item-id`: The item ID of the RSA key to use for the verification process
 
-`-f, --hash-function[=sha-256]`: Hash function [sha-256,sha-384,sha-512]
+`-f, --hash-function[=sha-256]`: Hash function \[sha-256,sha-384,sha-512]
 
 `-m, --message`:(**Mandatory**) The input message to sign in a Base64 format
 
@@ -1091,11 +1122,11 @@ akeyless create-tokenizer \
 
 `-y, --tokenizer-type[=vaultless]`: **Required**, Tokenizer type (`vaultless`)
 
-`-T, --template-type`: **Required**, Which template type this tokenizer is used for [SSN,CreditCard,USPhoneNumber,Custom]
+`-T, --template-type`: **Required**, Which template type this tokenizer is used for \[SSN,CreditCard,USPhoneNumber,Custom]
 
 `--encryption-key-name`: AES key name to use in zero-knowledge tokenization
 
-`--tweak-type`: The tweak type to use in zero-knowledge tokenization [Supplied, Generated, Internal, Masking]
+`--tweak-type`: The tweak type to use in zero-knowledge tokenization \[Supplied, Generated, Internal, Masking]
 
 `--alphabet`: Alphabet to use in custom zero-knowledge tokenization, such as '0123456789' for credit cards.
 
@@ -1109,7 +1140,7 @@ akeyless create-tokenizer \
 
 `--tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: --tag Tag1 --tag Tag2
 
-`--delete-protection`: Protection from accidental deletion of this item, [true/false]
+`--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
 ### `detokenize`
 
