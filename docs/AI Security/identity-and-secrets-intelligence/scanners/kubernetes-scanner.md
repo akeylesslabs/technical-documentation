@@ -77,7 +77,7 @@ Without these, the scan still **completes**, but with reduced visibility. Missin
 
 For clusters running on a managed Kubernetes service, the scanner's credentials also need cloud-level access to reach the cluster:
 
-- **EKS**: The AWS IAM Role used by the Target needs `sts:GetCallerIdentity`, plus `eks:DescribeCluster`.
+- **EKS**: The AWS IAM Role used by the Target needs `sts:GetCallerIdentity` and`eks:DescribeCluster`.
 - **GKE**: The service account used by the Target needs a cloud-platform-scoped OAuth token.
 
 ## Create a Kubernetes Scanner
