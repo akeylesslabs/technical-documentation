@@ -44,15 +44,15 @@ akeyless assoc-target-item \
 
 Where:
 
-- `name`: The **Certificate** item name.
+* `name`: The **Certificate** item name.
 
-- `target-name` The **Target** item name, to provision the certificate.
+* `target-name` The **Target** item name, to provision the certificate.
 
-- `gateway-url`: Akeyless Gateway URL (port `8000`).
+* `gateway-url`: Akeyless Gateway URL (port `8000`).
 
-- `certificate-path`: A path on the **Target** to save the certificate PEM file can be used as well with `chain-path` and `private-key-path` flags to save those on different locations.
+* `certificate-path`: A path on the **Target** to save the certificate PEM file can be used as well with `chain-path` and `private-key-path` flags to save those on different locations.
 
-- `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning, for example, restarting a service.
+* `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning, for example, restarting a service.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#assoc-target-item) section.
 
@@ -62,16 +62,16 @@ You can find the complete list of additional parameters for this command in the 
 2. Click on the **Certificate** item, click on the **Provisioning** tab, and then **Attach**.
 3. Enter the following parameters:
 
-- **Target Name** - **Choose an existing Target** from the drop-down list to select the existing [SSH](https://docs.akeyless.io/docs/ssh-target)/ [Windows](https://docs.akeyless.io/docs/windows-target) Target.
+* **Target Name** - **Choose an existing Target** from the drop-down list to select the existing [SSH](https://docs.akeyless.io/docs/ssh-target)/ [Windows](https://docs.akeyless.io/docs/windows-target) Target.
 
-- **Gateway** - **Choose an existing Gateway** from the drop-down list to select the relevant Gateway.
+* **Gateway** - **Choose an existing Gateway** from the drop-down list to select the relevant Gateway.
 
-- **Certificate Remote Path** - The path where the certificate will be provisioned to in the remote machine.
+* **Certificate Remote Path** - The path where the certificate will be provisioned to in the remote machine.
 
-- **Private Key Remote Path** - A path on the target to store the private key.
+* **Private Key Remote Path** - A path on the target to store the private key.
 
-- **Certificate Chain Path** - A path on the target to store the full chain.
+* **Certificate Chain Path** - A path on the target to store the full chain.
 
-- **Post Provision Command** - A custom command of your choice that will be executed on the remote machine as part of the provisioning process.
+* **Post Provision Command** - A custom command of your choice that will be executed on the remote machine as part of the provisioning process.
 
--
+*
