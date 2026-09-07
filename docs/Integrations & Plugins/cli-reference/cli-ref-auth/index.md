@@ -35,7 +35,7 @@ with the relevant flags according to the `access-type` being used.
 
 `--cloud-id`: The cloud identity (relevant only for `access-type=azure_ad`, `aws_iam`, `gcp`)
 
-`--uid_token`: The universal\_identity token (relevant only for `access-type=universal_identity`)
+`--uid_token`: The universal_identity token (relevant only for `access-type=universal_identity`)
 
 `--jwt`: The JSON Web Token (relevant only for `access-type=jwt` and `access-type=oidc`)
 
@@ -97,6 +97,8 @@ with the relevant flags according to the `access-type` being used.
 
 ### Flags
 
+`ali-cloud`  Creates a new API Key Auth Method
+
 `api-key` Creates a new API Key Auth Method
 
 `aws-iam` Creates a new AWS IAM Auth Method
@@ -122,6 +124,60 @@ with the relevant flags according to the `access-type` being used.
 `saml` Creates a new SAML Auth Method
 
 `universal-identity` Creates a new Universal Identity Auth Method
+
+### AliCloud
+
+Create a new AliCloud Auth Method
+
+#### Usage
+
+```shell
+akeyless auth-method create alicloud --name <Auth method name> 
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Auth Method name
+
+`--description`: Auth Method description
+
+`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
+
+`--bound-ips`: A comma-separated CIDR block list to allow client access
+
+`--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
+
+`--force-sub-claims`: enforce role-association must include sub-claims
+
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+
+`--product-type`: Choose the relevant product type for the Auth Method \[`sm`, `sra`, `pm`, `dp`, `ca`]
+
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
+
+`--allowed-client-type`: limit the Auth Method usage for specific client types \[`cli`, `ui`, `gateway-admin`, `sdk`, `mobile`, `extension`]
+
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`bound-account-id`: **Required**, A list of account-IDs that the acc`ss is restricted to`
+
+`--sts-url[=`[`https://sts.aliyuncs.com]`](https://sts.aliyuncs.com): STS URL.&#x20;
+
+`--bound-arn`: A list of full arns that the access is restricted to. Use the ARN partition prefix that matches your environment.
+
+`--bound-role-name`: A list of full role-name that the access is restricted to
+
+`--bound-role-id`: A list of full role ids that the access is restricted to
+
+`--bound-resource-id`: A list of full resource ids that the access is restricted to
+
+`--bound-user-name`: A list of full user-name that the access is restricted to
+
+`--bound-user-id`: A list of full user ids that the access is restricted to
+
+`--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
 ### API Key
 
