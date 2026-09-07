@@ -12,7 +12,7 @@ The AWS Scanner is a native scanner type that inspects a connected AWS account, 
 ## Prerequisite
 
 - An Akeyless account with the Identity & Secrets Intelligence license.
-- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version 4.53.0+.
+- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `4.53.0` and later .
 - A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
 - An [AWS Target](https://docs.akeyless.io/docs/aws-targets) representing the AWS service account that will scan the account.
 - The AWS principal used by the Target (IAM user or Gateway Cloud Identity role) granted the permissions listed under [AWS Service Account Permissions](#aws-service-account-permissions) below.
