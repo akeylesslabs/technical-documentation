@@ -9,7 +9,7 @@ metadata:
 ---
 The AWS Scanner is a native scanner type that inspects a connected AWS account, discovering the full inventory of identities (IAM users, roles, and groups), secrets (AWS Secrets Manager), and certificates (AWS Certificate Manager) it contains, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
-## Prerequisite
+## Prerequisites
 
 - An Akeyless account with the Identity & Secrets Intelligence license.
 - A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `4.53.0` and later.
@@ -21,12 +21,14 @@ The AWS Scanner is a native scanner type that inspects a connected AWS account, 
   2. &#x20;"Identity & Secrets Intelligence" [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to Scoped or All.
   3. "List" permission on the AWS Target.<br />
 
-## AWS Service Account Permissions
+## Required AWS Permissions
 
-The AWS target bounded to a service account that scans your cloud environment. There are two permission levels:&#x20;
+The AWS IAM Role used by the Target needs read access to your AWS environment. There are two ways to grant it:
 
-- Minimal set to get started, some features will be limited and results won't reflect the full security posture of your environment.
-- Full set for a complete scan. Quick Setup perform a full scan but it relies on broad AWS-managed policies that grant more than the scanner actually uses.
+- **Quick Setup** - attach broad AWS-managed policies. Fastest to configure, but grants more access than the scanner actually uses.
+- **Granular Permissions** - attach only the exact actions the scanner needs, following the principle of least privilege.
+
+Both produce a complete scan, the difference is privilege scope, not scan coverage.
 
 ### Quick Setup
 
@@ -58,11 +60,11 @@ Attach the AWS-managed policies `IAMReadOnlyAccess` and `AWSCertificateManagerRe
   Do not use `SecretsManagerReadWrite` it grants read and write access on secrets and is not a safe substitute.
 </Callout>
 
-### Full scan setup
+### Granular Permissions
 
 All permissions below are **read-only**. The scanner never requires write access to your AWS environment, and never reads secret _values_, only metadata.
 
-#### Must-Have Permissions
+#### Required Permissions
 
 Without these, the scan **fails** and no results are produced.
 
@@ -73,7 +75,7 @@ Without these, the scan **fails** and no results are produced.
 | Certificate details                 | `acm:DescribeCertificate`                          | Certificates scan fails if denied everywhere; otherwise reported as a gap                |
 | Identity discovery                  | `iam:ListUsers`, `iam:ListRoles`, `iam:ListGroups` | Identities scan fails if all three are denied; a single missing one is reported as a gap |
 
-#### Additional Permissions for a Full Scan
+#### Extended Visibility Permissions
 
 Without these, the scan still **completes**, but with reduced visibility. Missing permissions are reported in the scan's _Access Status_ (visible in scan details).
 
@@ -94,9 +96,12 @@ Without these, the scan still **completes**, but with reduced visibility. Missin
 4. Select the **Target** representing the AWS account to scan, and the **Gateway** that will execute the scans, then click **Next**.
 5. Use the **Object Type** drop-down list to select the scanner's scope, and click **Finish**.
 
-## Scan AWS
+## Run a Scan
 
 1. Log in to the Akeyless Console, and go to **Products > Identity & Secrets Intelligence > Scanners**.
 2. Click the AWS scanner.
 3. Click **Start Scan**.
 
+Once the scan completes, discovered identities, secrets, certificates, and their associated findings are surfaced in [Inventory](doc:identity-and-secrets-intelligence#inventory), where you can review risk posture per object and drill into individual findings.
+
+<br />
