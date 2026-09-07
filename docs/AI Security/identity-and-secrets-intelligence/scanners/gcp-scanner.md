@@ -1,6 +1,5 @@
 ---
 title: GCP Scanner
-excerpt: ' Setup & Required Permissions'
 deprecated: false
 hidden: false
 metadata:
