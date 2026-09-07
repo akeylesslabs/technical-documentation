@@ -45,8 +45,8 @@ Runtime authority is exposed through these code-backed entry points:
 ### Required
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with runtime authority support enabled. See [Configure Agentic Runtime Authority In The Console](https://docs.akeyless.io/docs/agentic-runtime-authority#configure-agentic-runtime-authority-in-the-console).
-* [**Akeyless AI Insights**](https://docs.akeyless.io/docs/akeyless-ai-insight) Enabled at the account level.
-* [**Akeyless AI Insights**](https://docs.akeyless.io/docs/akeyless-ai-insight) Enabled at the GW level with one or more Models.
+* [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) Enabled at the account level.
+* [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) Enabled at the GW level with one or more Models.
 * A Dynamic Secret, Rotated Secret, or Static Secret configured for your runtime workflow.
 * A role with ARA execution permissions to the relevant secret path and, when required, reporting visibility.
 * An authentication method associated with that role.
