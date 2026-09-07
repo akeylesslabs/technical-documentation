@@ -102,6 +102,6 @@ Without these, the scan still **completes**, but with reduced visibility. Missin
 2. Click the AWS scanner.
 3. Click **Start Scan**.
 
-Once the scan completes, discovered identities, secrets, certificates, and their associated findings are surfaced in [Inventory](doc:identity-and-secrets-intelligence#inventory), where you can review risk posture per object and drill into individual findings.
+Once the scan completes, results appear in [Inventory](doc:identity-and-secrets-intelligence#inventory) for review.
 
 <br />
