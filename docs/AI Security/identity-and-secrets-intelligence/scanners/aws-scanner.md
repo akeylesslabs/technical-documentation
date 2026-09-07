@@ -50,16 +50,12 @@ Attach the AWS-managed policies `IAMReadOnlyAccess` and `AWSCertificateManagerRe
 }
 ```
 
+`"Resource": "*"` above gives full coverage but can be scoped down, anything out of scope is simply reported as a gap in the Access Status.
+
 <Callout icon="⚠️" theme="warning">
   ### Warning
 
-  Do not use `SecretsManagerReadWrite` — it grants read and write access on secrets and is not a safe substitute.
-</Callout>
-
-<Callout icon="ℹ️" theme="info">
-  ### Note
-
-  `"Resource": "*"` above gives full coverage but can be scoped down — anything out of scope is simply reported as a gap in the Access Status.
+  Do not use `SecretsManagerReadWrite` it grants read and write access on secrets and is not a safe substitute.
 </Callout>
 
 ### Full scan setup
