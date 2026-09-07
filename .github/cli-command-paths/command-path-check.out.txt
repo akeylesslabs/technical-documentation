@@ -1,3 +1,1 @@
-Scanned 0 markdown files, checked 0 unique command paths, across 0 kubectl versions, found 1 failures
-Top findings:
-runtime_error: validator did not produce json output for any CLI path check target
+Scanned 532 markdown files, checked 539 unique command paths, across 4 kubectl versions, found 0 failures

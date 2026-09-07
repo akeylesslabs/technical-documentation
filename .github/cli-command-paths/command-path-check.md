@@ -1,14 +1,8 @@
 # CLI command-path check
 
-- Files scanned: 0
-- Command paths checked: 0
-- Kubectl versions checked: none
-- Failures: 1
-
-## Runtime error
-
-```
-validator did not produce json output for any CLI path check target
-```
+- Files scanned: 532
+- Command paths checked: 539
+- Kubectl versions checked: non-kubectl, v1.35, v1.36, v1.37
+- Failures: 0
 
 No invalid command paths found.
