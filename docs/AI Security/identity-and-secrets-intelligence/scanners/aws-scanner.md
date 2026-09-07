@@ -16,7 +16,7 @@ The AWS Scanner is a native scanner type that inspects a connected AWS account, 
 - A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
 - An [AWS Target](https://docs.akeyless.io/docs/aws-targets) representing the AWS IAM Role that will scan the account.
 - The AWS IAM Role used by the Target granted the permissions listed under [AWS Service Account Permissions](#aws-service-account-permissions) below.
-- A user with:&#x20;
+- Access to configure and run the scanner, granted via:
   1. &#x20;"Manage ISI Scanners" or "Admin" [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
   2. &#x20;"Identity & Secrets Intelligence" [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to Scoped or All.
   3. "list" permission on the AWS Target.<br />
