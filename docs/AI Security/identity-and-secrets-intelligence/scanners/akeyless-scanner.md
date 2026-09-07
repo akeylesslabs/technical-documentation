@@ -7,13 +7,13 @@ metadata:
 ---
 The Akeyless Scanner is a native scanner type that inspects your Akeyless account, discovering the full inventory of identities, roles, and secrets it contains, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
-## prerequisite
+## Prerequisite
 
-1. An Akeyless account with the Identity & Secrets Intelligence license
-2. A deployed and connected [Akeyless Gateway](doc:gateway-overview) version 4.52.0+
-3. A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
-4. A user with "Manage ISI Scanners"  or "Admin" [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-5. A user with  "Identity & Secrets Intelligence" [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to Scoped or All.<br />
+- An Akeyless account with the Identity & Secrets Intelligence license
+- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version 4.52.0+
+- A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
+- A user with "Manage ISI Scanners"  or "Admin" [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
+- A user with  "Identity & Secrets Intelligence" [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to Scoped or All.<br />
 
 ## Create an Akeyless Scanner in the Akeyless Console
 
@@ -23,4 +23,8 @@ The Akeyless Scanner is a native scanner type that inspects your Akeyless accoun
 4. Define a **Gateway&#x20;**&#x74;hat will execute the scans and click **Next**.
 5. Use the **Object Type** drop-down list to select the scanner's scope, and click **Finish**.<br />&#x20;
 
-run the scanner <br />make sure you have network connection to the GW<br />timeout may be AI insight on GW disabeld or not configured<br /><br />
+## Scan Akeyless&#x20;
+
+1. Log in to the Akeyless Console, and go to **Products** > **Identity & Secrets Intelligence** > **Scanners**.
+2. Click the Akeyless scanner&#x20;
+3. Click **start scan&#x20;**<br /><br />
