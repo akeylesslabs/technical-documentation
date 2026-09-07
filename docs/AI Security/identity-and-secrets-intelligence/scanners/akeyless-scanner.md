@@ -9,8 +9,8 @@ The Akeyless Scanner is a native scanner type that inspects your Akeyless accoun
 
 ## Prerequisite
 
-- An Akeyless account with the Identity & Secrets Intelligence license
-- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version 4.52.0+
+- An Akeyless account with the Identity & Secrets Intelligence license.
+- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `4.52.0` and later.
 - A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
 - A user with "Manage ISI Scanners"  or "Admin" [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
 - A user with  "Identity & Secrets Intelligence" [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to Scoped or All.<br />
