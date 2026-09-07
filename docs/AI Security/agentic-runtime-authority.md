@@ -45,7 +45,7 @@ Runtime authority is exposed through these code-backed entry points:
 ### Required
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with runtime authority support enabled. See [Configure Agentic Runtime Authority In The Console](https://docs.akeyless.io/docs/agentic-runtime-authority#configure-agentic-runtime-authority-in-the-console).
-* [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured for the account and Gateway. Runtime query validation depends on AI validation. See [High-Level Setup Steps](https://docs.akeyless.io/docs/akeyless-ai-insight#high-level-setup-steps).
+* [**Akeyless AI Insights**](https://docs.akeyless.io/docs/akeyless-ai-insight)**:** Configured at the account level with one or more AI Models (LLM targets). Agentic Runtime Authority can evaluate policy rules using single-model validation or multi-model consensus. See [High-Level Setup Steps](https://docs.akeyless.io/docs/akeyless-ai-insight#high-level-setup-steps).
 * A Dynamic Secret, Rotated Secret, or Static Secret configured for your runtime workflow.
 * A role with ARA execution permissions to the relevant secret path and, when required, reporting visibility.
 * An authentication method associated with that role.
