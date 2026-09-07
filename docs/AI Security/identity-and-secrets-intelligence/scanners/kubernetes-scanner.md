@@ -7,7 +7,7 @@ metadata:
 ---
 # Kubernetes Scanner
 
-The Kubernetes Scanner is a native scanner type that inspects a connected Kubernetes cluster, discovering the full inventory of identities (service accounts and their RBAC bindings) and secrets, including certificates, which Kubernetes stores as `kubernetes.io/tls`-typed Secrets rather than as a separate object type , along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The Kubernetes Scanner is a native scanner type that inspects a connected Kubernetes cluster, discovering the full inventory of identities (service accounts and their RBAC bindings) and secrets, including certificates, which Kubernetes stores as `kubernetes.io/tls`- typed Secrets rather than as a separate object type , along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## Prerequisites
 
@@ -71,13 +71,13 @@ Without these, the scan still **completes**, but with reduced visibility. Missin
 | `list secrets`                                  | core                        | Secrets and TLS certificates in each namespace                                                                  |
 | `list serviceaccounts`                          | core                        | Identity discovery                                                                                              |
 | `list roles`, `list rolebindings`               | `rbac.authorization.k8s.io` | Namespace-scoped access mapping                                                                                 |
-| `list clusterroles`, `list clusterrolebindings` | `rbac.authorization.k8s.io` | Cluster-scoped access mapping (no namespace fallback — denying these blinds the whole RBAC graph for that kind) |
+| `list clusterroles`, `list clusterrolebindings` | `rbac.authorization.k8s.io` | Cluster-scoped access mapping (no namespace fallback - denying these blinds the whole RBAC graph for that kind) |
 
 ### Managed-Cluster Authentication
 
 For clusters running on a managed Kubernetes service, the scanner's credentials also need cloud-level access to reach the cluster:
 
-- EKS: The AWS IAM Role used by the Target needs sts:GetCallerIdentity andeks:DescribeCluster.
+- EKS: The AWS IAM Role used by the Target needs `sts:GetCallerIdentity` and `eks:DescribeCluster`.
 - GKE: The service account used by the Target needs a cloud-platform-scoped OAuth token.
 
 **(need to validate this part)**
