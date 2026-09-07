@@ -146,7 +146,7 @@ To import secrets from GCP Secrets Manager, you need to provide a GCP Service Ac
 
 ## HashiCorp Vault
 
-To import secrets from HashiCorp Vault into Akeyless, you need to provide the full URL of the HashiCorp Vault API server and authentication credentials with sufficient permissions. You can provide a HashiCorp Vault token explicitly or use an existing [HashiCorp Vault Target](doc:hashicorp-vault-target) to support automatic token rotation without changing the migration setup.
+To import secrets from HashiCorp Vault into Akeyless, you need to provide the full URL of the HashiCorp Vault API server and authentication credentials with sufficient permissions. You can provide a HashiCorp Vault token explicitly or use an existing [HashiCorp Vault Target](https://docs.akeyless.io/docs/hashicorp-vault-target) to support automatic token rotation without changing the migration setup.
 
 For migration from HashiCorp Vault Enterprise, the configuration of namespaces is available. A comma-separated list of namespaces must be imported into Akeyless. For every provided Namespace, all its child namespaces are imported as well.
 
