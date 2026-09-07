@@ -27,4 +27,8 @@ The Akeyless Scanner is a native scanner type that inspects your Akeyless accoun
 
 1. Log in to the Akeyless Console, and go to **Products** > **Identity & Secrets Intelligence** > **Scanners**.
 2. Click the Akeyless scanner&#x20;
-3. Click **start scan&#x20;**<br /><br />
+3. Click **start scan&#x20;**
+
+Once the scan completes, results appear in [Inventory](doc:identity-and-secrets-intelligence#inventory) for review.
+
+<br />
