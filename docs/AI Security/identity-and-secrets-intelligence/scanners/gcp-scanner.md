@@ -10,7 +10,7 @@ The GCP Scanner is a native scanner type that inspects a connected Google Cloud 
 ## Prerequisites
 
 - An Akeyless account with the Identity & Secrets Intelligence license.
-- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `5.1.0` and later.
+- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `4.52.0` and later.
 - A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
 - A [GCP Target](https://docs.akeyless.io/docs/gcp-targets) representing the service account that will scan the project, folder, or organization.
 - The service account used by the Target granted the permissions listed under [Required GCP Permissions](#required-gcp-permissions) below.
@@ -33,6 +33,7 @@ Both produce a complete scan, the difference is privilege scope, not scan covera
 Grant the scanner's service account these predefined roles:
 
 - `roles/browser`
+- `roles/resourcemanager.folderViewer`
 - `roles/iam.securityReviewer`
 - `roles/secretmanager.viewer`
 - `roles/logging.viewer`
