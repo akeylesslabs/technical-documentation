@@ -20,7 +20,7 @@ The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` proto
   For setting the **HSM** to generate random numbers for the cryptographic operations, the **HSM** must support the `C_GenerateRandom` operation.
 </Callout>
 
-## Prerequisites
+# Prerequisites
 
 * **HSM** configured to work with `PKCS#11`.
 
@@ -28,7 +28,7 @@ The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` proto
 
 * [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (for Kubernetes deployments)
 
-## HSM Configuration
+# HSM Configuration
 
 To configure the Gateway for your **HSM**, specify the **HSM token** using one of the following parameters during deployment: `HSM_SLOT`, `HSM_TOKEN_LABEL`, or `HSM_TOKEN_SERIAL`. Only one parameter is required.
 
