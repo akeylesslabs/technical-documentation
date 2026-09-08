@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-The GitHub Scanner is a native scanner type that inspects a connected GitHub organization or enterprise, discovering the full inventory of identities such as organization members, teams, and GitHub Apps, along with the secrets it contains across the organization's repositories, including support for GitHub secret scanning across source code and Git history, as well as the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The GitHub Scanner is a native scanner type that inspects a connected GitHub organization or enterprise, discovering the full inventory of identities such as organization members, teams, and GitHub Apps, along with the secrets it contains across the organizations repositories, including support for GitHub secret scanning across source code and Git history, as well as the relationships between them. Each discovered object is evaluated against Identity and Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## Prerequisites
 
@@ -35,9 +35,7 @@ All permissions below are **read-only**. The scanner never requires write access
 | GitHub App                                      | `organization_personal_access_tokens` permission                | PAT-grant scanning                                                            |
 | Classic PAT with `admin:enterprise`             | Enterprise scope (GitHub Apps cannot call enterprise endpoints) | Enterprise-level scanning; audit-log-based features require GitHub Enterprise |
 
-## Note
-
-- Audit-log-based features are only available with GitHub Enterprise.
+Audit-log-based features are only available with GitHub Enterprise.
 
 ## Create a GitHub Scanner
 
