@@ -5,86 +5,23 @@ hidden: false
 metadata:
   robots: index
 ---
-## What Is a Scanner?
+# Scanners
 
-Identity & Secrets Intelligence (ISI) is a console area that gives visibility and governance over security posture, secrets, identities, and certificates, across connected cloud environments. It has four sections: Dashboard, Inventory, Scanners, Policies.
+A scanner is a native Identity & Secrets Intelligence component that connects to an external environment through an Akeyless Target and Gateway, and inspects it for identities, secrets, and certificates. Each discovered object and the relationships between objects, such as which identity can access which secret. Objects evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings in [Inventory](doc:identity-and-secrets-intelligence#inventory).
 
-A Scanner is the component that actually inventories a cloud environment. You create a scanner against a specific cloud provider, run it, and it populates Inventory with Findings (secret findings, identity findings, certificate findings) that you then triage and act on. Scanners also keep a run history (start/stop, status, past scans).
+From the Akeyless Console, under **Products > Identity & Secrets Intelligence > Scanners**, you can:
 
-<br />Create and run scanners, stop active scans, review scan history, and navigate directly to Inventory to validate scan outcomes.
-
-## Prerequisites
-
-Scanners is shown only when:
-
-- The account has the Identity and Secrets Intelligence feature enabled.
-- The user has admin-level Console access, or a role with the `isi-access` rule set to `scoped` or `all`.
-
-For full RBAC setup instructions, see [Control Access With RBAC](doc:identity-and-secrets-intelligence#control-access-with-role-based-access-control-rbac).
+- **Create** a scanner
+- **Update** a scanner
+- **Delete** a scanner
+- **Run a Scan**
+- **View Scan History**
+- **View Scan Details**
 
 ## Scanner Types
 
-When you create a scanner, choose a **Source Type** for the environment you want to scan. The following source types are supported:
-
-### AWS
-
-Scans an AWS environment for secret, identity, and certificate findings.
-
-<Callout icon="✏️" theme="default">
-  ### **Required permissions:** _\[add AWS scanner permissions here]_
-</Callout>
-
-### Akeyless
-
-Scans your Akeyless account itself for secret, identity, and certificate findings.
-
-<Callout icon="✏️" theme="default">
-  ### **Required permissions:** _\[add Akeyless scanner permissions here]_
-</Callout>
-
-### Azure
-
-Scans an Azure environment for secret, identity, and certificate findings.
-
-<Callout icon="✏️" theme="default">
-  ### **Required permissions:** _\[add Azure scanner permissions here]_
-</Callout>
-
-### GCP
-
-Scans a GCP environment for secret, identity, and certificate findings.
-
-<Callout icon="✏️" theme="default">
-  ### **Required permissions:** _\[add GCP scanner permissions here]_
-</Callout>
-
-### GitHub
-
-Scans a GitHub organization or repository set for secret, identity, and certificate findings.
-
-<Callout icon="✏️" theme="default">
-  ### **Required permissions:** _\[add GitHub scanner permissions here]_
-</Callout>
-
-### Kubernetes
-
-Scans a Kubernetes cluster for secret, identity, and certificate findings.
-
-<Callout icon="✏️" theme="default">
-  ### **Required permissions:** _\[add Kubernetes scanner permissions here]_
-</Callout>
-
-## Using Scanners
-
-1. Sign in to the Akeyless Console.
-2. In the left navigation, open **Identity & Secrets Intelligence**.
-3. Select **Scanners**.
-4. Create a scanner and choose a source type (see [Scanner Types](#scanner-types) above).
-5. Start a scan.
-6. Stop the scan if needed, or let it complete.
-7. Review scan history for past runs.
-8. Navigate directly to **Inventory** from a running scan to review generated findings.
-
-<br />
-
-##
+- [AWS Scanner](doc:aws-scanner)
+- [Azure Scanner](doc:azure-scanner)
+- [GCP Scanner](doc:gcp-scanner)
+- [Kubernetes Scanner](doc:kubernetes-scanner)
+- [GitHub Scanner](doc:github-scanner)
