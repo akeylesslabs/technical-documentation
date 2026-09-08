@@ -7,7 +7,7 @@ link:
 metadata:
   robots: index
 ---
-The AWS Scanner is a native scanner type that inspects a connected AWS account, discovering the full inventory of identities (IAM users, roles, and groups), secrets (AWS Secrets Manager), and certificates (AWS Certificate Manager) it contains, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The AWS Scanner is a native scanner type that inspects a connected AWS account, discovering the full inventory of identities such as IAM users, roles, and groups, secrets stored in AWS Secrets Manager, and certificates managed through AWS Certificate Manager, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## Prerequisites
 
@@ -68,12 +68,12 @@ All permissions below are **read-only**. The scanner never requires write access
 
 The permissions listed below are required for the scan to complete successfully. If any one of them is missing, the corresponding scan will fail.
 
-| Used for                            | Permission                                         | If missing                                                                               |
-| ----------------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Secrets discovery (Secrets Manager) | `secretsmanager:ListSecrets`                       | Secrets scan fails                                                                       |
-| Certificate discovery (ACM)         | `acm:ListCertificates`                             | Certificates scan fails                                                                  |
-| Certificate details                 | `acm:DescribeCertificate`                          | Certificates scan fails if denied everywhere; otherwise reported as a gap                |
-| Identity discovery                  | `iam:ListUsers`, `iam:ListRoles`, `iam:ListGroups` | Identities scan fails if all three are denied; a single missing one is reported as a gap |
+| Used for              | Permission                                         | If missing                                                                               |
+| --------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Secrets discovery     | `secretsmanager:ListSecrets`                       | Secrets scan fails                                                                       |
+| Certificate discovery | `acm:ListCertificates`                             | Certificates scan fails                                                                  |
+| Certificate details   | `acm:DescribeCertificate`                          | Certificates scan fails if denied everywhere; otherwise reported as a gap                |
+| Identity discovery    | `iam:ListUsers`, `iam:ListRoles`, `iam:ListGroups` | Identities scan fails if all three are denied; a single missing one is reported as a gap |
 
 #### Additional Permissions for Complete Coverage
 
