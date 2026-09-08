@@ -2,5 +2,5 @@
 - aws-scanner
 - azure-scanner
 - gcp-scanner
-- kubernetes-scanner
 - github-scanner
+- kubernetes-scanner
