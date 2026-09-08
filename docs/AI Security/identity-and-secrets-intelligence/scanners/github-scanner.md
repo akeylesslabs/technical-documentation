@@ -37,7 +37,7 @@ All permissions below are **read-only**. The scanner never requires write access
 
 ## Notes
 
-- GitHub Apps **cannot** call enterprise-level endpoints — enterprise scanning requires a classic PAT with `admin:enterprise`.
+- GitHub Apps **cannot** call enterprise-level endpoints, enterprise scanning requires a classic PAT with `admin:enterprise`.
 - Audit-log-based features are only available with GitHub Enterprise.
 
 ## Create a GitHub Scanner
