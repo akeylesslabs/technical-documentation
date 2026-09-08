@@ -469,7 +469,7 @@ Follow-up MCP tool call (after consent redirect):
 
 By default, Agentic Runtime Authority validates each agent action against a single LLM.
 
-AI Quorum validate the action against multiple LLM configured for the Gateway, instead of just one. If any model determines the action violates policy, the action is blocked, the system defaults to the most restrictive verdict.
+AI Quorum validate the action against multiple LLM configured for the Gateway under AI Insights, instead of just one. If any model determines the action violates policy, the action is blocked, the system defaults to the most restrictive verdict.
 
 To implement AI Quorum, run the following commands:
 
