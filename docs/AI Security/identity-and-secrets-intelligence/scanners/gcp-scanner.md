@@ -54,7 +54,7 @@ All permissions below are **read-only**. The scanner never requires write access
 
 #### Required Permissions
 
-Without these, the scan **fails** and no results are produced.
+The permissions listed below are required for the scan to complete successfully. If any one of them is missing, the corresponding scan will fail.
 
 | Permission                                                                                                                                                                                                             | Used for                                                                 | If missing                                                   |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -70,9 +70,9 @@ Without these, the scan **fails** and no results are produced.
   When scanning a folder or organization, a permission problem in one project degrades to a per-project warning instead of failing the whole scan.
 </Callout>
 
-#### Extended Visibility Permissions
+#### Additional Permissions for Complete Coverage
 
-Without these, the scan still **completes**, but with reduced visibility. Missing permissions are reported in the scan's _Access Status_ (visible in scan details).
+These permissions are optional. If missing, the scan still completes, but with reduced visibility, and any gaps are reported in the Access Status field within the scan details.
 
 | Permission                                                                                                                              | What it adds                                                                                   |
 | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
