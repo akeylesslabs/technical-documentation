@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-The Azure Scanner is a native scanner type that inspects a connected Azure subscription, discovering the full inventory of identities (Microsoft Entra ID users, groups, and service principals), secrets (Azure Key Vault), and certificates (Azure Key Vault, App Service, and Application Gateway) it contains, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The Azure Scanner is a native scanner type that inspects a connected Azure subscription, discovering the full inventory of identities such as Microsoft Entra ID users, groups, and service principals, secrets stored in Azure Key Vault, and certificates managed through Azure Key Vault, App Service, and Application Gateway, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## Prerequisites
 
