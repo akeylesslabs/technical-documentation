@@ -81,6 +81,24 @@ akeyless assoc-target-item \
 
 `--multi-region[=false]`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1
 
+`--regions`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: `--regions us-east-1` `--regions us-west-1`&#x20;
+
+`--private-key-path`: A path on the target to store the private key (relevant only for certificate provisioning)
+
+`--certificate-path`: A path on the target to store the certificate pem file (relevant only for certificate provisioning)
+
+`--chain-path`: A path on the target to store the full chain pem file (relevant only for certificate provisioning)
+
+`--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for SSH and Windows certificate provisioning, not supported for F5 BIG-IP)
+
+`--bind-ssl-profiles`: Bind the provisioned certificate to an existing `client-ssl` / `server-ssl` profile, in the format `type:partition:name` (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate's partition. To specify multiple profiles use argument multiple times: `--bind-ssl-profiles` `client-ssl:Common:my-profile` `--bind-ssl-profiles` `client-ssl:Common:my-other-profile`
+
+`--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
+
+`--sra-association[=false]`: Specify if the target to associate is for sra, relevant only for sra linked target association to ldap rotated secret
+
+`--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
+
 `--protection-level[=software]`: Protection level of the key \[software/hardware]. (Relevant only for Classic Key and target association, for GCP targets)
 
 ## `create-classic-key`
