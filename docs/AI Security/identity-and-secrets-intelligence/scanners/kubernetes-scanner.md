@@ -7,7 +7,7 @@ metadata:
 ---
 # Kubernetes Scanner
 
-The Kubernetes Scanner is a native scanner type that inspects a connected Kubernetes cluster. It discovers the full inventory of identities, such as service accounts and their RBAC bindings, and secrets, including certificates, which Kubernetes stores as kubernetes.io/tls typed Secrets rather than as a separate object type. It also maps the relationships between these objects. <br />Each discovered object is evaluated against Identity and Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The Kubernetes Scanner is a native scanner type that inspects a connected Kubernetes cluster.It discovers the full inventory of identities, such as service accounts and their RBAC bindings, and secrets, including certificates, which Kubernetes stores as `kubernetes.io/tls` typed Secrets rather than as a separate object type. It also maps the relationships between these objects. <br />Each discovered object is evaluated against Identity and Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## Prerequisites
 
