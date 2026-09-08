@@ -66,7 +66,7 @@ All permissions below are **read-only**. The scanner never requires write access
 
 #### Required Permissions
 
-Without these, the scan **fails** and no results are produced.
+The permissions listed below are required for the scan to complete successfully. If any one of them is missing, the corresponding scan will fail.
 
 | Used for                            | Permission                                         | If missing                                                                               |
 | ----------------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------- |
@@ -75,9 +75,9 @@ Without these, the scan **fails** and no results are produced.
 | Certificate details                 | `acm:DescribeCertificate`                          | Certificates scan fails if denied everywhere; otherwise reported as a gap                |
 | Identity discovery                  | `iam:ListUsers`, `iam:ListRoles`, `iam:ListGroups` | Identities scan fails if all three are denied; a single missing one is reported as a gap |
 
-#### Extended Visibility Permissions
+#### Additional Permissions for Complete Coverage
 
-Without these, the scan still **completes**, but with reduced visibility. Missing permissions are reported in the scan's _Access Status_ (visible in scan details).
+These permissions are optional. If missing, the scan still completes, but with reduced visibility, and any gaps are reported in the Access Status field within the scan details.
 
 | Permission                                                                                                                                                               | What it adds                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
