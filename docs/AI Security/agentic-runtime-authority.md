@@ -465,6 +465,23 @@ Follow-up MCP tool call (after consent redirect):
 }
 ```
 
+## AI Quorum
+
+By default, Agentic Runtime Authority validates each agent action against a single LLM.
+
+AI Quorum validate the action against multible LLM configured for the Gateway, instead of just one. If any model determines the action violates policy, the action is blocked, the system defaults to the most restrictive verdict.
+
+To implement AI Quorum, run the following commands:
+
+1. Enable at the account level
+   ```shell
+   akeyless update-account-settings --enable-ai-quorum true
+   ```
+2. Enable at the item level
+   ```shell
+   akeyless update-item --name <item-name> --enable-ai-quorum true
+   ```
+
 ## Related AI Guides
 
 * Identity and Secrets Intelligence
