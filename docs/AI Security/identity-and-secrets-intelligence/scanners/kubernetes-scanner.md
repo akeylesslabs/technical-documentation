@@ -56,10 +56,10 @@ All permissions below are **list-only**. The scanner never requires read, write,
 
 The permissions listed below are required for the scan to complete successfully. If any one of them is missing, the corresponding scan will fail.
 
-| Requirement                                                                                                                  | Used for                           | If missing                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------- |
-| Valid cluster credentials and a reachable API server (EKS, GKE, or native token)                                             | All scan types                     | Scan fails                                                          |
-| `list` on `secrets` (cluster-wide), or `list` on `namespaces`, or an explicit namespace allow-list configured on the scanner | Secrets and certificates discovery | Secrets/certificates scan fails when none of the three is available |
+| Requirement                                                                                                                | Used for                           | If missing                                                          |
+| -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------- |
+| Valid cluster credentials and a reachable API server (EKS, GKE)                                                            | All scan types                     | Scan fails                                                          |
+| `list` on `secrets` cluster-wide, or `list` on `namespaces`, or an explicit namespace allow-list configured on the scanner | Secrets and certificates discovery | Secrets/certificates scan fails when none of the three is available |
 
 #### Additional Permissions for Complete Coverage
 
