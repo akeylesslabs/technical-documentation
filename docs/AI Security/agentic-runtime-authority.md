@@ -474,10 +474,12 @@ AI Quorum validate the action against multiple LLM configured for the Gateway un
 To implement AI Quorum, run the following commands:
 
 1. Enable at the account level
+
    ```shell
    akeyless update-account-settings --enable-ai-quorum true
    ```
 2. Enable at the item level
+
    ```shell
    akeyless update-item --name <item-name> --enable-ai-quorum true
    ```
