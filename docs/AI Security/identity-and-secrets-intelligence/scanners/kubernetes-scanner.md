@@ -54,16 +54,16 @@ All permissions below are **list-only**. The scanner never requires read, write,
 
 #### Required Permissions
 
-Without these, the scan **fails** and no results are produced.
+The permissions listed below are required for the scan to complete successfully. If any one of them is missing, the corresponding scan will fail.
 
 | Requirement                                                                                                                  | Used for                           | If missing                                                          |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------- |
 | Valid cluster credentials and a reachable API server (EKS, GKE, or native token)                                             | All scan types                     | Scan fails                                                          |
 | `list` on `secrets` (cluster-wide), or `list` on `namespaces`, or an explicit namespace allow-list configured on the scanner | Secrets and certificates discovery | Secrets/certificates scan fails when none of the three is available |
 
-#### Extended Visibility Permissions
+#### Additional Permissions for Complete Coverage
 
-Without these, the scan still **completes**, but with reduced visibility. Missing permissions are reported in the scan's _Access Status_ (visible in scan details).
+These permissions are optional. If missing, the scan still completes, but with reduced visibility, and any gaps are reported in the Access Status field within the scan details.
 
 | Permission (verb / resource)                    | API group                   | What it adds                                                                                                    |
 | ----------------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------- |
