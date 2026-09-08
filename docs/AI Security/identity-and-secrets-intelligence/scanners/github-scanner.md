@@ -35,9 +35,8 @@ All permissions below are **read-only**. The scanner never requires write access
 | GitHub App                                      | `organization_personal_access_tokens` permission                | PAT-grant scanning                                                            |
 | Classic PAT with `admin:enterprise`             | Enterprise scope (GitHub Apps cannot call enterprise endpoints) | Enterprise-level scanning; audit-log-based features require GitHub Enterprise |
 
-## Notes
+## Note
 
-- GitHub Apps **cannot** call enterprise-level endpoints, enterprise scanning requires a classic PAT with `admin:enterprise`.
 - Audit-log-based features are only available with GitHub Enterprise.
 
 ## Create a GitHub Scanner
