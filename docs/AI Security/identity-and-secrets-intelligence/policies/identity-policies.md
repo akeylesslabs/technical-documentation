@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Identity Policies evaluate every identity in your Inventory for privilege scope, credential hygiene, and risky configurations. When an identity matches a policy's condition, it's surfaced as a finding in **Dashboard** and **Inventory**, with a severity that reflects how urgently it needs attention. For an overview of how policies fit into Identity & Secrets Intelligence as a whole, see [Policies](doc:policies).
+Over-privileged and poorly governed identities are the connective tissue behind most lateral-movement attacks. Identity Policies encode least-privilege and credential-hygiene best practices across human, agents, machine, and cloud identities, so identity risk surfaces in Inventory the same consistent way secret risk does.
 
 ## Available Identity Policies
 
