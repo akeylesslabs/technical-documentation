@@ -15,7 +15,7 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 **TDE** protects data at rest, including data and log files. It helps organizations comply with many industry laws, regulations, and guidelines. It also allows software developers to encrypt data by using **AES** and **3DES** encryption algorithms without changing existing applications.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Platform prerequisites):**
+  ### **Platform prerequisites:**
 
   The TDE for MSSQL workflow documented above has been tested **only** with full SQL Server installations on Windows (on-premises or in an Azure SQL Virtual Machine).
 
@@ -52,7 +52,7 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
    ```
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Classic Keys):**
+  ### **Classic Keys:**
 
   It is optional to configure TDE to create and leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) by setting `use_classic_keys=true`. Otherwise, the default is to use a DFC key. To work with Classic Keys, make sure you use your own Gateway on the `/api/v2` endpoint.
 </Callout>
@@ -112,7 +112,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
    The `object_id` configuration should only be set in cases when the Azure AD authentication method used has multiple managed identities associated to it. [See Azure documentation](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) for more information.
 
    <Callout icon="ℹ️" theme="info">
-     ### **Note (Access-Role Reminder):**
+     ### **Note Access-Role Reminder:**
 
      The API Key (or other Auth Method) used in `akeyless_tde` **must** be linked to an Akeyless **Access Role** that grants **Create**, **Read**, and **List** permissions on the TDE key path you chose earlier.
      When working with **Classic Keys**, make sure you also grant the Auth Method the appropriate Gateway access permissions to manage **Classic Keys**.
