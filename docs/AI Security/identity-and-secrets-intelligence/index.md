@@ -24,7 +24,10 @@ Identity and Secrets Intelligence complements the broader Akeyless AI security m
 
 ## Access And Availability
 
-In the current Console implementation, the menu is shown only when the account has the feature enabled and the user has admin-level Console access. The backend and CLI also expose a dedicated `isi-access` role rule.
+- The account has the Identity and Secrets Intelligence feature enabled.
+- The user has admin-level Console access, or a role with the `isi-access` rule set to `scoped` or `all`.
+
+For full RBAC setup instructions, see [Control Access With RBAC](doc:identity-and-secrets-intelligence#control-access-with-role-based-access-control-rbac).
 
 ### Use Identity & Secrets Intelligence In The Console
 
@@ -33,7 +36,7 @@ In the current Console implementation, the menu is shown only when the account h
 3. Use **Dashboard** for the high-level overview.
 4. Use **Inventory** to review findings and drill into finding details.
 5. Use **Scanners** to create scanners, start scans, stop running scans, and review scan history.
-6. Use **Policies** to review available policies and change policy status.
+6. Use **Policies** to review available policies.
 
 ## Dashboard
 
