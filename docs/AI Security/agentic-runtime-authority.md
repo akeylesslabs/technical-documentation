@@ -45,7 +45,8 @@ Runtime authority is exposed through these code-backed entry points:
 ### Required
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with runtime authority support enabled. See [Configure Agentic Runtime Authority In The Console](https://docs.akeyless.io/docs/agentic-runtime-authority#configure-agentic-runtime-authority-in-the-console).
-* [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured for the account and Gateway. Runtime query validation depends on AI validation. See [High-Level Setup Steps](https://docs.akeyless.io/docs/akeyless-ai-insight#high-level-setup-steps).
+* [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) Enabled at the account level.
+* [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) Enabled at the GW level with one or more Models.
 * A Dynamic Secret, Rotated Secret, or Static Secret configured for your runtime workflow.
 * A role with ARA execution permissions to the relevant secret path and, when required, reporting visibility.
 * An authentication method associated with that role.
@@ -463,6 +464,25 @@ Follow-up MCP tool call (after consent redirect):
   }
 }
 ```
+
+## AI Quorum
+
+By default, Agentic Runtime Authority validates each agent action against a single LLM.
+
+AI Quorum validates each action against multiple LLMs configured on the Gateway under [AI Insights](doc:akeyless-ai-insight), <br />rather than relying on a single model. If any one of the models determines that the action violates policy, the gateway blocks it, the system always defaults to the most restrictive verdict.
+
+To implement AI Quorum, run the following commands:
+
+1. Enable at the account level
+
+   ```shell
+   akeyless update-account-settings --enable-ai-quorum true
+   ```
+2. Enable at the item level
+
+   ```shell
+   akeyless update-item --name <item-name> --enable-ai-quorum true
+   ```
 
 ## Related AI Guides
 

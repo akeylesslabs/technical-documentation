@@ -74,4 +74,7 @@ You can find the complete list of additional parameters for this command in the 
 
 - **Post Provision Command** - A custom command of your choice that will be executed on the remote machine as part of the provisioning process.
 
--
+- **Bind to SSL Profile(s)&#x20;**- If set, the certificate will be bound to an existing SSL profile (relevant only for **F5**).
+  - **Profile Type&#x20;**- Select **Client SSL** or **Server SSL**.
+  - **Partition** - The partition where the profile exists. By default, the partition is taken from the **Certificate Remote Path**.
+  - **Profile Name&#x20;**- The name of the **SSL profile**.

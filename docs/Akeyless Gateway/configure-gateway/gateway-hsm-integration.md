@@ -10,17 +10,17 @@ metadata:
 next:
   description: ''
 ---
-
-<GatewayConfigManagementNote />
 In any encryption system, the ability to generate pseudo-random numbers is crucial, particularly for tasks like creating encryption keys. Akeyless addresses this need by offering a solution that not only generates pseudo-random numbers, but also enhances overall data security by leveraging **Hardware Security Modules (HSMs)** to generate and securely store these pseudo-random numbers for encryption keys, ensuring maximum data security.
 
 The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` protocol to provide a seamless solution. This integration can also be leveraged for the derivation of **Customer Fragments** from the **HSM** to the **Gateway**, using the [HKDF](https://en.wikipedia.org/wiki/HKDF) function. For related guidance, see [Zero Knowledge](https://docs.akeyless.io/docs/zero-knowledge) and [Gateway Zero-Knowledge](https://docs.akeyless.io/docs/gateway-zero-knowledge).
 
-> ℹ️ **Note (HSM Entropy):**
->
-> For setting the **HSM** to generate random numbers for the cryptographic operations, the **HSM** must support the `C_GenerateRandom` operation.
+<Callout icon="ℹ️" theme="info">
+  ### **Note (HSM Entropy):**
 
-## Prerequisites
+  For setting the **HSM** to generate random numbers for the cryptographic operations, the **HSM** must support the `C_GenerateRandom` operation.
+</Callout>
+
+# Prerequisites
 
 * **HSM** configured to work with `PKCS#11`.
 
@@ -28,9 +28,9 @@ The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` proto
 
 * [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (for Kubernetes deployments)
 
-## HSM Configuration
+# HSM Configuration
 
-To configure the Gateway for your **HSM**, specify the **HSM token** using one of the following parameters during deployment: `HSM_SLOT`, `HSM_TOKEN_LABEL`, or `HSM_TOKEN_SERIAL`. Only one parameter is required.  
+To configure the Gateway for your **HSM**, specify the **HSM token** using one of the following parameters during deployment: `HSM_SLOT`, `HSM_TOKEN_LABEL`, or `HSM_TOKEN_SERIAL`. Only one parameter is required.
 
 The following example uses the `HSM_SLOT`:
 
@@ -148,10 +148,37 @@ Where:
 
 * `type`: The **HSM** mode for the **Customer Fragment** either:
 
-    * `hsm_wrapped`: Will derive the fragment once, when the gateway starts up, and keep the result in memory
+  * `hsm_wrapped`: Will derive the fragment once, when the gateway starts up, and keep the result in memory
 
-    * `hsm_secured`: Will derive the value on each use of the key, and will not save the value.
+  * `hsm_secured`: Will derive the value on each use of the key, and will not save the value.
 
 * `hsm-key-label`: The label of the key inside the **HSM**.
 
 Save the output in a new file called `customer_fragments.json` in a directory of your choice. Once you have your `customer_fragments.json` file saved, you'll need to provide a path to the file containing your fragment as part of the Gateway deployment command, as described in [this](https://docs.akeyless.io/docs/zero-knowledge) guide.
+
+# Customer Fragment HSM Key Rotation
+
+When using a **Customer Fragment** protected by an **HSM Key Encryption Key (KEK)** using the encrypt wrap mode (`--hsm-wrap-mode encrypt`), you can rotate the HSM KEK without re-encrypting protected secrets or modifying the CF itself.
+
+To rotate the HSM key, run the `rewrap-customer-fragment` command. This decrypts the wrapped CF in-memory using the existing KEK and re-encrypts it under the new KEK. The plaintext CF is never written to disk or persisted.
+
+For example, to rotate a fragment stored in `/etc/akeyless/cf.json` to a new HSM key label `hsm-kek-v2`:
+
+```shell
+akeyless rewrap-customer-fragment \
+--input-file /etc/akeyless/cf.json \
+--new-kek-ref hsm-kek-v2 \
+--cf-id cf-123456789
+```
+
+Where:
+
+`--input-file`: **Required**, source Customer Fragment file.
+
+`--new-kek-ref`: **Required**, new HSM key label for re-encryption.
+
+`--cf-id`: **Required**, target fragment ID.
+
+You can find the complete list of additional parameters for this command in the CLI Reference - Encryption Keys section.
+
+<br />

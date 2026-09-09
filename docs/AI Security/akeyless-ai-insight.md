@@ -159,7 +159,7 @@ To disable AI Insights on the gateway, set the enable field to `false`:
 
 The Gateway can also be configured with the Akeyless Console.
 
-![Illustration for: Disable AI Insights on the Gateway To disable AI Insights on the gateway, set the enable field to false: The Gateway can also be configured with the Web UI.](https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png)
+![](https://files.readme.io/254393c18274405286c57a6aac2cea47db98432488754ad6a0001dff1e1db48b-Gateways-AI_Insights_2.jpg)
 
 ## Verification
 
@@ -233,5 +233,3 @@ AI Insights stores chat sessions per gateway selection so you can return to prio
 - [MCP Server](https://docs.akeyless.io/docs/mcp)
 - [Prompt Injection Protection for AI Agents](https://docs.akeyless.io/docs/prompt-injection-protection-for-ai-agents)
 - [Beyond .env: Building a "Dynamic-Only" Secretless AI Agent with Google ADK](https://docs.akeyless.io/docs/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk)
-
-<br />

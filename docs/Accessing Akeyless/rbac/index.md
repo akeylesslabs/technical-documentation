@@ -155,6 +155,10 @@ The following **Administrative Rules** can be set:
 
 - `Reverse RBAC`
 
+- `Unlock Secrets`
+
+- `Approve Access Requests`
+
 - `Usage Reports`&#x20;
 
 - `Manage Event Forwarders`

@@ -28,6 +28,8 @@ Currently, you can import Static Secrets from the following platforms:
 - [HashiCorp Vault](https://docs.akeyless.io/docs/automatic-migration#hashicorp-vault)
 - [Kubernetes](https://docs.akeyless.io/docs/automatic-migration#kubernetes)
 
+Once the migration is finished, you can download it for a detailed log of the migration results.
+
 ## General Configuration
 
 The following options are available when importing secrets from other identity security platforms:
@@ -60,7 +62,7 @@ After the migration, new secrets will be available under the specified path. If 
   Due to internal security restrictions this migration is deprecated starting from Gateway version `4.35.1`.
 </Callout>
 
-To import secrets as `LOGIN`, `PASSWORD`, and `SECURE_NOTE` from 1Password into Akeyless Provide the relevant `sign-in address` which is your 1Password account URL for example “company\_name.1Password.com” with a privileged email and password with your 1Password Secret Key\`.
+To import secrets as `LOGIN`, `PASSWORD`, and `SECURE_NOTE` from 1Password into Akeyless Provide the relevant `sign-in address` which is your 1Password account URL for example “company_name.1Password.com” with a privileged email and password with your 1Password Secret Key\`.
 
 You can choose the relevant `Vaults` you would like to migrate items from. Enter them as a comma-separated list. If left empty, all non-private Vaults are migrated.
 

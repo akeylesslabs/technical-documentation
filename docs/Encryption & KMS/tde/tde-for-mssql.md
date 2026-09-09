@@ -28,7 +28,6 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 
   * Traditional Windows Server + SQL Server
   * Azure SQL VM (a standard VM running SQL Server)
-  * High-Volume Workloads: For TDE with EKM, enable SQL Server **Startup Trace Flag 15025** to prevent database freezes caused by frequent key requests. See [Microsoft Docs](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/database-accessibility-issues-high-volume-customer-workloads) for details.
 </Callout>
 
 ## Install the Akeyless EKM Provider
