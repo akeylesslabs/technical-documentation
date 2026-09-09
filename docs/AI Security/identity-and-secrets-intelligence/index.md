@@ -63,7 +63,7 @@ To set up an Access Role for ISI, run the following commands:
 
 ## Operational Views
 
-Use these views to move from high-level posture checks to specific remediation tasks:
+Use these views to explore the product from high-level posture down to specific remediation actions:
 
 | View                                                       | Purpose                                                                                                                                                                                                                          |
 | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
