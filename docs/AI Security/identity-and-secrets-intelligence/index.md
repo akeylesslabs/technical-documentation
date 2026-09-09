@@ -140,18 +140,17 @@ To set up an Access Role for ISI, run the following commands:
 
 Use these views to move from high-level posture checks to specific remediation tasks:
 
-| View                                                         | Purpose                                                                                                                                                                                              |
-| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Dashboard**                                                | Review high-level counts, trends, and status indicators that show where investigation is needed.                                                                                                     |
-| [Inventory](doc:identity-and-secrets-intelligence-inventory) | Drill into findings by type, status, and severity. Opening a finding surfaces why it matters, a graph of what it's connected to, and remediation steps, including AI-powered remediation assistance. |
-| [Scanners](doc:identity-and-secrets-intelligence-scanners)   | Track scanner status, launch or stop scans, and review scan history before validating outcomes in Inventory.                                                                                         |
-| [Policies](doc:identity-and-secrets-intelligence-policies)   | Review policy scope and status, then enable or adjust policies based on findings from Dashboard and Inventory.                                                                                       |
+| View                                                       | Purpose                                                                                                                                                                                                                          |
+| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Dashboard**                                              | trends, top 5 issues to address first, and Scanners Overview.                                                                                                                                                                    |
+| Inventory                                                  | Drill into findings by type, status, and severity. Opening a finding surfaces why it matters, a graph of related objects and blast radius, and remediation steps, including AI-powered investigation and remediation assistance. |
+| [Scanners](doc:identity-and-secrets-intelligence-scanners) | Manage scanners and review scan history and details.                                                                                                                                                                             |
+| [Policies](doc:identity-and-secrets-intelligence-policies) | Review policy scope and status.                                                                                                                                                                                                  |
 
 ## Next Steps
 
-* [Inventory](doc:identity-and-secrets-intelligence-inventory) for finding details and remediation
-* [Scanners](doc:identity-and-secrets-intelligence-scanners) for scan setup and history
-* [Policies](doc:identity-and-secrets-intelligence-policies) for policy configuration
+* [Scanners](doc:identity-and-secrets-intelligence-scanners) for scanner setup
+* [Policies](doc:identity-and-secrets-intelligence-policies) for view policies
 * [Akeyless AI Insights](doc:akeyless-ai-insight) for natural-language interaction with the Akeyless identity security platform
 * [Agentic Runtime Authority](doc:agentic-runtime-authority) for controlled runtime access to supported dynamic secrets
 * [Prompt Injection Protection for AI Agents](doc:prompt-injection-protection-for-ai-agents) for guidance on reducing credential misuse risk in AI workflows
