@@ -15,7 +15,7 @@ A policy translates raw inventory data into a "who can do what" risk signal: ins
 
 Policies are organized into three categories, matching the object types Identity & Secrets Intelligence inventories.
 
-- Secret Policies — Flag secret exposure risk and secret hygiene issues, such as unused, stale, or unrotated secrets. [Learn more about Secret Policies](doc:secret-policies).
+- Secret Policies — Flag secret exposure risk and secret hygiene issues, such as unused, stale, or unrotated secrets. [Learn more about Secret Policies](doc:secret-policies).&#x20;
 - **Identity Policies** — Flag identity posture, privilege scope, and risky identity configurations. [Learn more about Identity Policies](doc:identity-policies).
 - **Certificate Policies** — Flag certificate posture, lifecycle state, and certificate-related findings. [Learn more about Certificate Policies](doc:certificate-policies).
 
@@ -34,13 +34,3 @@ To review policies:
 2. Select **Policies**.
 3. Review the available policies and their current status.
 4. Enable or adjust policies based on findings surfaced in **Dashboard** and **Inventory**.
-
-<Callout icon="ℹ️" theme="info">
-  ### **Note:**
-
-  Policies is currently available only in the Console — there is no CLI or API equivalent for reviewing or managing policies today.
-</Callout>
-
-<br />
-
-<br />
