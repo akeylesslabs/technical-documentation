@@ -130,8 +130,6 @@ Drill into findings by type, status, and severity. Opening a finding surfaces wh
 
 <br />
 
-Identity and Secrets Intelligence complements the broader Akeyless AI security model. Secretless runtime retrieval reduces exposure to static credentials, Identity and Secrets Intelligence adds visibility and governance, and Agentic Runtime Authority adds runtime control for supported dynamic secrets.
-
 ## How It Fits With Other AI Features
 
 Use Identity and Secrets Intelligence together with the other Akeyless AI surfaces:
