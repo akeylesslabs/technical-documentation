@@ -7,7 +7,13 @@ metadata:
   description: ''
   robots: index
 ---
-Review the current **Identity & Secrets Intelligence&#x20;**&#x73;urfaces, access controls, and how the feature fits with other Akeyless AI capabilities.
+Identity & Secrets Intelligence (ISI) is Akeyless's visibility and governance layer for secrets, identities, and certificates across connected environments such as AWS, Azure, GCP, GitHub, Kubernetes, and Akeyless itself. It works through three components that form a continuous cycle:&#x20;
+
+1. Scanners discover every secret, identity, and certificate in a connected environment.
+2. Policies evaluate that inventory against built-in rules for secret hygiene, identity privilege, and certificate lifecycle risk.
+3. any violation becomes a finding in Inventory, where it can be investigated using a graph of related objects, and remediated, with step by step remediation plan. AI-assisted investigation and remediation available;
+
+<br />Review the current **Identity & Secrets Intelligence&#x20;**&#x73;urfaces, access controls, and how the feature fits with other Akeyless AI capabilities.
 
 <Callout icon="⚠️" theme="warn">
   ### **Warning:**
