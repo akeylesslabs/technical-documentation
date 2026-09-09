@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Secret Policies evaluate every secret in your Inventory for exposure risk and secret-hygiene issues. When a secret matches a policy's condition, it's surfaced as a finding in **Dashboard** and **Inventory**, with a severity that reflects how urgently it needs attention. For an overview of how policies fit into Identity & Secrets Intelligence as a whole, see [Policies](doc:policies).
+Secret hygiene is one of the most common paths to a breach, a stale, over-permissioned, or unrotated secret is exactly the kind of exposure attackers look for. Secret Policies encode what good secret hygiene looks like, so every secret in your environment is judged against the same bar instead of relying on manual review.
 
 ## Available Secret Policies
 
