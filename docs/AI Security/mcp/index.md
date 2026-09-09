@@ -54,7 +54,7 @@ Use this server when the client needs to work with Akeyless itself - browsing th
 
 Reach for this one for assistants built for admins and developers: "what's in my vault," "rotate this secret's metadata," "who can access this role."
 
-### When to use `akeyless mcp-runtime-authority` (ARA)
+### When to use `akeyless mcp-runtime-authority`
 
 Use this server when an agent needs to _use_ a secret to do something - run a database query, call a cloud API, hit Kubernetes, or act against GitHub - **without the model ever seeing the underlying credential**. The Gateway fetches just-in-time credentials behind the scenes and returns only the query/action result to the model.
 
