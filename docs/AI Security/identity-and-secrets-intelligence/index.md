@@ -11,19 +11,9 @@ Identity & Secrets Intelligence (ISI) is Akeyless's visibility and governance la
 
 1. Scanners discover every secret, identity, and certificate in a connected environment.
 2. Policies evaluate that inventory against built-in rules for secret hygiene, identity privilege, and certificate lifecycle risk.
-3. any violation becomes a finding in Inventory, where it can be investigated using a graph of related objects, and remediated, with step by step remediation plan. AI-assisted investigation and remediation available;
+3. any object flagged with a violation becomes a finding in Inventory, where you can view its details, investigate its related objects and potential impact through a graph, and remediate it.
 
-<br />Review the current **Identity & Secrets Intelligence&#x20;**&#x73;urfaces, access controls, and how the feature fits with other Akeyless AI capabilities.
-
-<Callout icon="⚠️" theme="warn">
-  ### **Warning:**
-
-  Identity and Secrets Intelligence is currently in early access. Features, behavior, and availability can change between releases.
-</Callout>
-
-Identity and Secrets Intelligence is a console surface for reviewing AI-related visibility and governance data in Akeyless.
-
-In the current Akeyless Console, Identity and Secrets Intelligence includes these sections:
+Akeyless Console, Identity and Secrets Intelligence includes these sections:
 
 - **Dashboard**
 - [Inventory](doc:identity-and-secrets-intelligence-inventory)
@@ -137,6 +127,10 @@ akeyless create-role \
 ## Inventory
 
 Drill into findings by type, status, and severity. Opening a finding surfaces why it matters, a graph of what it's connected to, and remediation steps — including AI-powered remediation assistance — so you can act without leaving the flow.
+
+<br />
+
+Identity and Secrets Intelligence complements the broader Akeyless AI security model. Secretless runtime retrieval reduces exposure to static credentials, Identity and Secrets Intelligence adds visibility and governance, and Agentic Runtime Authority adds runtime control for supported dynamic secrets.
 
 ## How It Fits With Other AI Features
 
