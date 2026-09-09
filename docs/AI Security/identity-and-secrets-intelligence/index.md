@@ -47,21 +47,21 @@ Dashboard can be used to review high-level counts, trends, and status indicators
 
 Use these views to move from high-level posture checks to specific remediation tasks:
 
-| View                                                             | Purpose                                                                                                        |
-| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **Dashboard**                                                    | Review high-level counts, trends, and status indicators that show where investigation is needed.               |
-| **[Inventory](doc:identity-and-secrets-intelligence-inventory)** | Drill into findings by type, status, and severity, then open finding details for follow-up actions.            |
-| **[Scanners](doc:identity-and-secrets-intelligence-scanners)**   | Track scanner status, launch or stop scans, and review scan history before validating outcomes in Inventory.   |
-| **[Policies](doc:identity-and-secrets-intelligence-policies)**   | Review policy scope and status, then enable or adjust policies based on findings from Dashboard and Inventory. |
+| View                                                         | Purpose                                                                                                        |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| **Dashboard**                                                | Review high-level counts, trends, and status indicators that show where investigation is needed.               |
+| [Inventory](doc:identity-and-secrets-intelligence-inventory) | Drill into findings by type, status, and severity, then open finding details for follow-up actions.            |
+| [Scanners](doc:identity-and-secrets-intelligence-scanners)   | Track scanner status, launch or stop scans, and review scan history before validating outcomes in Inventory.   |
+| [Policies](doc:identity-and-secrets-intelligence-policies)   | Review policy scope and status, then enable or adjust policies based on findings from Dashboard and Inventory. |
 
 ## Example Monitoring Workflow
 
 Use this workflow when you need a repeatable operating pattern for Identity and Secrets Intelligence:
 
 1. Open **Dashboard** to identify the highest-priority signals.
-2. Open **[Inventory](doc:identity-and-secrets-intelligence-inventory)** to filter and triage findings by type and status.
-3. Open **[Scanners](doc:identity-and-secrets-intelligence-scanners)** to run targeted scans for affected environments.
-4. Open **[Policies](doc:identity-and-secrets-intelligence-policies)** to validate that controls match your risk posture.
+2. Open [Inventory](doc:identity-and-secrets-intelligence-inventory) to filter and triage findings by type and status.
+3. Open [Scanners](doc:identity-and-secrets-intelligence-scanners) to run targeted scans for affected environments.
+4. Open [Policies](doc:identity-and-secrets-intelligence-policies) to validate that controls match your risk posture.
 5. Return to **Dashboard** and **Inventory** to verify that remediation changes are reflected.
 
 ## Control Access With Role-Based Access Control (RBAC)
@@ -127,6 +127,10 @@ akeyless create-role \
 2. Open **Identity & Secrets Intelligence**.
 3. Open **Scanners**, and start a scan.
 4. Open **Inventory**, and review the generated findings.
+
+## Inventory
+
+Drill into findings by type, status, and severity. Opening a finding surfaces why it matters, a graph of what it's connected to, and remediation steps — including AI-powered remediation assistance — so you can act without leaving the flow.
 
 ## How It Fits With Other AI Features
 
