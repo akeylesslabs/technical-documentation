@@ -25,11 +25,11 @@ Identity and Secrets Intelligence complements the broader Akeyless AI security m
 ## Access And Availability
 
 - The account has the Identity and Secrets Intelligence feature enabled.
-- The user has admin-level Console access, or a role with the `isi-access` rule set to `scoped` or `all`.
+- The user is account admin, or has an [Access Role](doc:rbac) with Identity & Secrets Intelligence administrative rule set to `scoped` or `all`.
 
 For full RBAC setup instructions, see [Control Access With RBAC](doc:identity-and-secrets-intelligence#control-access-with-role-based-access-control-rbac).
 
-### Use Identity & Secrets Intelligence In The Console
+## Use Identity & Secrets Intelligence In The Console
 
 1. Sign in to the Akeyless Console.
 2. In the left navigation, open **Identity & Secrets Intelligence**.
@@ -63,63 +63,6 @@ Use this workflow when you need a repeatable operating pattern for Identity and 
 4. Open [Policies](doc:identity-and-secrets-intelligence-policies) to validate that controls match your risk posture.
 5. Return to **Dashboard** and **Inventory** to verify that remediation changes are reflected.
 
-## Control Access With Role-Based Access Control (RBAC)
-
-Use the `isi-access` administrative rule on a role to control access to Identity and Secrets Intelligence.
-
-For command syntax, see [CLI Reference - Access Roles](doc:cli-reference-access-roles).
-
-Supported values are:
-
-- `none`
-- `scoped`
-- `all`
-
-Use `create-role` when creating a new role:
-
-```shell
-akeyless create-role \
-  --name <role-name> \
-  --isi-access <none|scoped|all>
-```
-
-Use `update-role` when modifying an existing role:
-
-```shell
-akeyless update-role \
-  --name <role-name> \
-  --isi-access <none|scoped|all>
-```
-
-Use `get-role` to verify the role after the update:
-
-```shell
-akeyless get-role --name <role-name>
-```
-
-<Callout icon="📘" theme="info">
-  The current CLI validation accepts `none`, `scoped`, and `all`. It does not accept the legacy `own` value for `isi-access`.
-</Callout>
-
-## Example Workflow: Granting Access And Reviewing Results
-
-The following example shows one minimal workflow for granting access and reviewing results:
-
-1. Create or update a role with `--isi-access scoped` or `--isi-access all`.
-2. Associate the role with the authentication method that your operators use.
-3. Sign in to the Akeyless Console.
-4. Open **Identity & Secrets Intelligence**.
-5. Review the **Dashboard**.
-6. Open **Scanners**, start a scan, and then use **Inventory** to review the findings.
-
-### CLI Example
-
-```shell
-akeyless create-role \
-  --name <role-name> \
-  --isi-access scoped
-```
-
 ### Console Example
 
 1. Sign in to the Akeyless Console.
@@ -140,3 +83,23 @@ Use Identity and Secrets Intelligence together with the other Akeyless AI surfac
 - [Akeyless AI Insights](doc:akeyless-ai-insight) for natural-language interaction with the Akeyless identity security platform
 - [Agentic Runtime Authority](doc:agentic-runtime-authority) for controlled runtime access to supported dynamic secrets
 - [Prompt Injection Protection for AI Agents](doc:prompt-injection-protection-for-ai-agents) for guidance on reducing credential misuse risk in AI workflows
+
+## Control Access With Role-Based Access Control (RBAC)
+
+Use the `isi-access` administrative rule on a role to control access to Identity and Secrets Intelligence.
+
+For command syntax, see [CLI Reference - Access Roles](doc:cli-reference-access-roles).
+
+Supported values are:
+
+- `none`
+- `scoped`
+- `all`
+
+Use `create-role` when creating a new role:
+
+```shell
+akeyless create-role \
+  --name <role-name> \
+  --isi-access <none|scoped|all>
+```
