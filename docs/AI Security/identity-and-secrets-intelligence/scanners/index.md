@@ -20,6 +20,7 @@ From the Akeyless Console, under **Products > Identity & Secrets Intelligence > 
 
 ## Scanner Types
 
+- [Akeyless Scanner​](doc:akeyless-scanner)
 - [AWS Scanner](doc:aws-scanner)
 - [Azure Scanner](doc:azure-scanner)
 - [GCP Scanner](doc:gcp-scanner)
