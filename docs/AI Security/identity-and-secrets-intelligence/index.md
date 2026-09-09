@@ -127,17 +127,14 @@ To set up an Access Role for ISI, run the following commands:
    * `--name`: the name of the Access Role to create.
    * `--isi-access`: the level of ISI administrative access to grant the role, `scoped` or `all`.
 2. Associate the Role with an [Authentication Methods](doc:access-and-authentication-methods) Auth Method:
-
-   <br />
-
-   Where:
-   * `-n`: the Auth Method to associate with the role.
-   * `--new-access-rules`: the path of the Access Role to associate.
    ```shell
    akeyless update-auth-method-access \
      -n <auth-method-name> \
      --new-access-rules </path/to/role>
    ```
+   Where:
+   * `-n`: the Auth Method to associate with the role.
+   * `--new-access-rules`: the path of the Access Role to associate.
 
 ## Operational Views
 
