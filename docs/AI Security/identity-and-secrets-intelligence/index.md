@@ -27,7 +27,25 @@ Identity and Secrets Intelligence complements the broader Akeyless AI security m
 - The account has the Identity and Secrets Intelligence feature enabled.
 - The user is account admin, or has an [Access Role](doc:rbac) with Identity & Secrets Intelligence administrative rule set to `scoped` or `all`.
 
-For full RBAC setup instructions, see [Control Access With RBAC](doc:identity-and-secrets-intelligence#control-access-with-role-based-access-control-rbac).
+For full RBAC setup instructions, see [Control Access With RBAC](doc:identity-and-secrets-intelligence#control-access-with-role-based-access-control-rbac).<br />
+
+Use the `isi-access` administrative rule on a role to control access to Identity and Secrets Intelligence.
+
+For command syntax, see [CLI Reference - Access Roles](doc:cli-reference-access-roles).
+
+Supported values are:
+
+- `none`
+- `scoped`
+- `all`
+
+Use `create-role` when creating a new role:
+
+```shell
+akeyless create-role \
+  --name <role-name> \
+  --isi-access <none|scoped|all>
+```
 
 ## Use Identity & Secrets Intelligence In The Console
 
