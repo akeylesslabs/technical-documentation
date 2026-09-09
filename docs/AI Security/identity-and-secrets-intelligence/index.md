@@ -81,3 +81,80 @@ Use Identity and Secrets Intelligence together with the other Akeyless AI surfac
 - [Akeyless AI Insights](doc:akeyless-ai-insight) for natural-language interaction with the Akeyless identity security platform
 - [Agentic Runtime Authority](doc:agentic-runtime-authority) for controlled runtime access to supported dynamic secrets
 - [Prompt Injection Protection for AI Agents](doc:prompt-injection-protection-for-ai-agents) for guidance on reducing credential misuse risk in AI workflows
+
+<br /><br />
+
+# Identity & Secrets Intelligence
+
+## What Is Identity & Secrets Intelligence?
+
+Identity & Secrets Intelligence (ISI) is Akeyless continuous discovery and governance of secrets, identities, and certificates that exist across connected environments, and of what each one is authorized to reach. It extends the "who can do what" model Akeyless already applies to human and machine identities to non-human identities across AWS, Azure, GCP, GitHub, Kubernetes, and Akeyless itself, closing the gap between issuing a credential and knowing how it's actually being used. ISI operates as a continuous cycle of three components: scanning, policy evaluation, and inventory-driven remediation.
+
+## How It Works
+
+1. **Discover**: Scanners enumerate every secret, identity, and certificate across a connected environment.
+2. **Evaluate**: Policies assess that inventory against built-in rules for secret hygiene, identity privilege, and certificate lifecycle risk.
+3. **Remediate**: Any object in violation surfaces as a finding in Inventory. Its **Security Graph** tab maps the roles, identities, and resources connected to that finding, and its **Remediate** tab, including **AI-Powered Remediation**, provides the fix.
+
+## Key Features
+
+* Continuous discovery of secrets, identities, and certificates across connected environments
+* Built-in policies covering secret hygiene, identity privilege, and certificate lifecycle risk
+* Graph-based investigation of a finding's related objects and blast radius
+* AI-powered remediation assistance on individual findings
+* Dashboard with high-level counts, trends, and status indicators to prioritize investigation
+
+## Supported Environments
+
+AWS, Azure, GCP, GitHub, Kubernetes, and Akeyless itself.
+
+## Access And Availability
+
+Before you can use Identity & Secrets Intelligence, confirm the following:
+
+* The account has the Identity and Secrets Intelligence feature enabled.
+* The user is account admin, or has an [Access Role](doc:rbac) with Identity & Secrets Intelligence administrative rule set to `scoped` or `all`.
+
+To set up an Access Role for ISI, run the following commands:
+
+1. Create a new Access Role:
+   ```shell
+   akeyless create-role \
+     --name <role-name> \
+     --isi-access <scoped|all>
+   ```
+   Where:
+   * `--name`: the name of the Access Role to create.
+   * `--isi-access`: the level of ISI administrative access to grant the role, `scoped` or `all`.
+2. Associate the Role with an [Authentication Methods](doc:access-and-authentication-methods) Auth Method:
+
+   <br />
+
+   Where:
+   * `-n`: the Auth Method to associate with the role.
+   * `--new-access-rules`: the path of the Access Role to associate.
+   ```shell
+   akeyless update-auth-method-access \
+     -n <auth-method-name> \
+     --new-access-rules </path/to/role>
+   ```
+
+## Operational Views
+
+Use these views to move from high-level posture checks to specific remediation tasks:
+
+| View                                                         | Purpose                                                                                                                                                                                              |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Dashboard**                                                | Review high-level counts, trends, and status indicators that show where investigation is needed.                                                                                                     |
+| [Inventory](doc:identity-and-secrets-intelligence-inventory) | Drill into findings by type, status, and severity. Opening a finding surfaces why it matters, a graph of what it's connected to, and remediation steps, including AI-powered remediation assistance. |
+| [Scanners](doc:identity-and-secrets-intelligence-scanners)   | Track scanner status, launch or stop scans, and review scan history before validating outcomes in Inventory.                                                                                         |
+| [Policies](doc:identity-and-secrets-intelligence-policies)   | Review policy scope and status, then enable or adjust policies based on findings from Dashboard and Inventory.                                                                                       |
+
+## Next Steps
+
+* [Inventory](doc:identity-and-secrets-intelligence-inventory) for finding details and remediation
+* [Scanners](doc:identity-and-secrets-intelligence-scanners) for scan setup and history
+* [Policies](doc:identity-and-secrets-intelligence-policies) for policy configuration
+* [Akeyless AI Insights](doc:akeyless-ai-insight) for natural-language interaction with the Akeyless identity security platform
+* [Agentic Runtime Authority](doc:agentic-runtime-authority) for controlled runtime access to supported dynamic secrets
+* [Prompt Injection Protection for AI Agents](doc:prompt-injection-protection-for-ai-agents) for guidance on reducing credential misuse risk in AI workflows
