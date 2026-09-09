@@ -29,14 +29,6 @@ Identity & Secrets Intelligence currently ships the following built-in Secret Po
 | **Revoked Secret Found in Git History**      | Medium   | A revoked or rotated credential that still exists in git history                        |
 | **Unvalidated Secret Pattern in Code**       | Low      | A secret-like pattern found in code that hasn't been validated as a real credential     |
 
-Coverage for these policies isn't uniform across every connected source:
-
-<Callout icon="ℹ️" theme="info">
-  ### **Note:**
-
-  Applies To reflects which connected sources currently support each policy. Coverage can vary by source when the signal a policy needs — for example version history or resource-policy contents — isn't available from that source.
-</Callout>
-
 ### What's Next
 
 - [Policies](doc:policies)
