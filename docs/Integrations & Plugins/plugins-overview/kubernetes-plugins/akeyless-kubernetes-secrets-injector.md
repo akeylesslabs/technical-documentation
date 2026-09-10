@@ -625,7 +625,7 @@ Once this secret is provided the manual command is not required, and the Injecto
 In AWS and GCP environments the node IAM role on EKS and GKE respectively can be used automatically to fetch private images from AWS ECR and GCP GAR respectively, hence no secret reference is required.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Public Container Registry):**
+  ### **Public Container Registry:**
 
   For public container registry no secret is required, the Injector will try to override the entrypoint automatically.
 </Callout>
