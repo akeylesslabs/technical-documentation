@@ -22,17 +22,21 @@ For AWS partition guidance and deployment pattern coverage, see [AWS Partition a
 
 * Network port `8000` on the cluster must be open _only for internal network access_. This allows access to the following service endpoints:
 
-| Service | Endpoint |
-| --- | --- |
-| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway) | `/console` |
-| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
-| Akeyless V1 REST API | `/api/v1` |
-| Akeyless V2 REST API | `/api/v2` |
-| [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
+| Service                                                                      | Endpoint   |
+| ---------------------------------------------------------------------------- | ---------- |
+| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway)           | `/console` |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp`     |
+| Akeyless V1 REST API                                                         | `/api/v1`  |
+| Akeyless V2 REST API                                                         | `/api/v2`  |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                     | `5696`     |
 
 For example, to get to the `/api/v2` service, use this endpoint: `https://<your_serverless_gateway_url>.com/api/v2`
 
-> ⚠️ **Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**&#x20;
+
+  Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services.
+</Callout>
 
 ## Pre-Installation Configuration
 
@@ -162,11 +166,13 @@ To configure your Akeyless Serverless Gateway:
 1. On your browser, navigate to the URL in the first output above labeled: `akeyless_serverless_gateway_url`.
 2. Enter your credentials to log in.
 
-> ℹ️ **Note (Akeyless Gateway URL):**
->
-> The default value of the `akeyless_serverless_gateway_url` ends with `/default/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
->
-> To connect to **Akeyless Gateway Configuration Manager** (Port `8000`) use: `/default/config`
+<Callout icon="ℹ️" theme="info">
+  ### **Akeyless Gateway URL:**
+
+  The default value of the `akeyless_serverless_gateway_url` ends with `/default/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
+
+  To connect to **Akeyless Gateway Configuration Manager** (Port `8000`) use: `/default/config`
+</Callout>
 
 For more information in regards to the **Serverless Gateway**, refer to the [Serverless Gateway repository](https://github.com/akeyless-community/akeyless-serverless-gateway)
 
