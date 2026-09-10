@@ -338,8 +338,6 @@ Once running, Copilot gets access to three ARA tools:
 
 Start it up the same way as any other Copilot MCP server: reload/restart Copilot, or run `/mcp show akeyless-connector` (interactive mode) to confirm it's live.
 
-One difference from the general Akeyless MCP setup you did earlier: this uses the mcp-runtime-authority subcommand specifically (ARA-scoped tools), not the plain mcp subcommand (which exposes the broader secrets/targets tool set). Pick whichever matches what you actually want Copilot to be able to do — general secrets management vs. governed runtime query execution.
-
 ## Query Protected Resources With The CLI
 
 Use the [runtime-authority command](https://docs.akeyless.io/docs/cli-reference#runtime-authority) for direct runtime queries through the Gateway:
