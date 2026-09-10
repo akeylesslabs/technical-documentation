@@ -81,11 +81,13 @@ For Secure Remote Access session events, user identity is recorded in `sra_uniqu
 * **Extended Visibility for SRA Application Servers**: If a user has permissions to access one or more SRA application servers, they can view all sessions managed by those servers.
 * **Admin Access**: Administrators have full visibility of all sessions within the selected timeframe.
 
-> ℹ️ **Note (Permission Configuration):**
->
-> To configure access to SRA Application servers, go to **Access Roles** -> **Administrative Rules** -> **Secure Remote Access.**
->
-> Choose **Own** for allowing access to specific SRA servers (also known as Extended Visibility) or **All** for all SRA servers (also known as Admin Access)
+<Callout icon="ℹ️" theme="info">
+  ### **Permission Configuration:**
+
+  To configure access to SRA Application servers, go to **Access Roles** -> **Administrative Rules** -> **Secure Remote Access.**
+
+  Choose **Own** for allowing access to specific SRA servers (also known as Extended Visibility) or **All** for all SRA servers (also known as Admin Access)
+</Callout>
 
 ## Accessing Session Monitoring
 
