@@ -2,7 +2,6 @@
 api:
   file: akeyless-api.json
   operationId: createLinkedTarget
-deprecated: false
 hidden: false
 metadata:
   title: ''

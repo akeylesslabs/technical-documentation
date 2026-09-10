@@ -2,7 +2,6 @@
 api:
   file: akeyless-api.json
   operationId: targetCreateK8s
-deprecated: false
 hidden: false
 metadata:
   title: ''

@@ -2,7 +2,6 @@
 api:
   file: akeyless-api.json
   operationId: eventForwarderCreateSlack
-deprecated: false
 hidden: false
 metadata:
   title: ''

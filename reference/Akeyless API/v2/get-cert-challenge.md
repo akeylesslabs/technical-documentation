@@ -2,7 +2,6 @@
 api:
   file: akeyless-api.json
   operationId: get-cert-challenge
-deprecated: false
 hidden: false
 metadata:
   title: ''

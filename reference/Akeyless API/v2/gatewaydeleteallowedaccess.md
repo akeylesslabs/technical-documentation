@@ -2,7 +2,6 @@
 api:
   file: akeyless-api.json
   operationId: gatewayDeleteAllowedAccess
-deprecated: false
 hidden: false
 metadata:
   title: ''

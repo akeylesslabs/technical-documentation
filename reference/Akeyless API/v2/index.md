@@ -1,7 +1,5 @@
 ---
 title: v2
-slug: v2
-excerpt: ''
 deprecated: false
 hidden: false
 metadata:
@@ -10,4 +8,5 @@ metadata:
   robots: index
 next:
   description: ''
+slug: v2
 ---

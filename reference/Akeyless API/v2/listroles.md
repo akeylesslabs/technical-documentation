@@ -2,7 +2,6 @@
 api:
   file: akeyless-api.json
   operationId: listRoles
-deprecated: false
 hidden: false
 metadata:
   title: ''

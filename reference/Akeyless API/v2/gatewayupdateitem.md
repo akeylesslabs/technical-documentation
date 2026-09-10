@@ -2,7 +2,6 @@
 api:
   file: akeyless-api.json
   operationId: gatewayUpdateItem
-deprecated: false
 hidden: false
 metadata:
   title: ''
