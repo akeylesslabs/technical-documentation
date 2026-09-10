@@ -256,6 +256,14 @@ Create the following file: `~/Library/Application Support/Claude/claude_desktop_
 
 ### For Cursor
 
+#### Prerequisites
+
+- Akeyless Gateway with ARA enabled (configured on the Dynamic Secret in the Console)
+- Akeyless AI Insights enabled at the account level and on the Gateway
+- A Dynamic, Rotated, or Static Secret set up for the workflow, with an access role granted the ARA
+- Allow Access role-rule on that path
+- Akeyless CLI installed
+
 Create the following file: `~/.cursor/mcp.json`.
 
 Use the following configuration template for both **Claude** and **Cursor**. Replace the placeholder values with your environment details:
