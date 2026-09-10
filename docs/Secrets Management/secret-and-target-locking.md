@@ -15,6 +15,12 @@ If an item is locked for **reading**, users with read permission will still be a
 
 Items can be configured to automatically lock for a customizable timeframe after being `read`, restricting either `read` or `update` actions.
 
+<Callout icon="📘" theme="warn">
+  ### Note
+
+  In offline mode, secrets configured to auto-lock after read become inaccessible from the Gateway. Unlocking requires a live check against Akeyless, which isn't possible without connectivity. If a secret must remain readable while the Gateway is offline, consider disabling the auto-lock for it.
+</Callout>
+
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.48.0` or later.
