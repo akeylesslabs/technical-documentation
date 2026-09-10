@@ -18,9 +18,11 @@ Using GitLab [ID tokens](https://docs.gitlab.com/ci/yaml/#id_tokens) when a pipe
 
 * GitLab Version **17.4** or higher.
 
-> ℹ️ **Note (Enable Akeyless CI Secret Plugin):**
->
-> This plugin availability is currently controlled by GitLab Feature Flag, to enable this on your GitLab environment you might need to contact your GitLab Account Manager
+<Callout icon="ℹ️" theme="info">
+  ### **Enable Akeyless CI Secret Plugin:**
+
+  This plugin availability is currently controlled by GitLab Feature Flag, to enable this on your GitLab environment you might need to contact your GitLab Account Manager
+</Callout>
 
 ## Authentication
 
@@ -114,19 +116,23 @@ secrets:
 
 Make sure to set the relevant `access_type` according to the Auth Method type you are using. For example, the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) example demonstrates using a **CI/CD** variable to store the Access Key: `access_key: $AKEYLESS_ACCESS_KEY`.
 
-> ⚠️ **Warning:**
->
-> For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.gitlab.com/ci/secrets/id_token_authentication/#token-payload) to prevent access by unauthorized users.
->
-> Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that GitLab provides in the JWT.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.gitlab.com/ci/secrets/id_token_authentication/#token-payload) to prevent access by unauthorized users.
+
+  Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that GitLab provides in the JWT.
+</Callout>
 
 ## Usage
 
 Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml` and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) Auth Method.
 
-> ✅ **Tip:**
->
-> Working with GitLab Token payload can be used with Access Roles [path templates](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#token-payload) for easier management of your CI/CD project access using the `sub (subject)` field from your token.
+<Callout icon="✅" theme="okay">
+  ### **Tip:**
+
+  Working with GitLab Token payload can be used with Access Roles [path templates](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#token-payload) for easier management of your CI/CD project access using the `sub (subject)` field from your token.
+</Callout>
 
 ### Secret Example
 
@@ -157,9 +163,11 @@ Where:
 
 * `gateway_ca_certificate`: **Optional**, Gateway CA Certificate when your Gateway TLS is set with **Private CA** .
 
-> ℹ️ **Note (Working with Gateway):**
->
-> To fetch **Dynamic** and **Rotated** Secrets make sure your **GitLab Runner** has network access to the relevant Akeyless Gateway.
+<Callout icon="ℹ️" theme="info">
+  ### **Working with Gateway:**
+
+  To fetch **Dynamic** and **Rotated** Secrets make sure your **GitLab Runner** has network access to the relevant Akeyless Gateway.
+</Callout>
 
 ### JSON Example
 
