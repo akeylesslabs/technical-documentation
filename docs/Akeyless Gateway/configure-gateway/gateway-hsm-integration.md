@@ -138,7 +138,7 @@ To derive the **Customer Fragment** into the Gateway from the **HSM**, generate 
 ```shell
 akeyless gen-customer-fragment \
 --name HSM_CF \
---type <hsm_wrapped|hsm_secured> \
+--type[=standard] <[standard/hsm_wrap_hmac/hsm_wrap_encrypt/hsm_secured]> \
 --hsm-key-label <"akeyless_hsm">
 ```
 
@@ -148,8 +148,9 @@ Where:
 
 * `type`: The **HSM** mode for the **Customer Fragment** either:
 
-  * `hsm_wrapped`: Will derive the fragment once, when the gateway starts up, and keep the result in memory
-
+  * `standard`: Unwrapped Customer Fragment (default)
+  * `hsm_wrap_hmac`: Will derive the fragment once, when the gateway starts up, and keep the result in memory.
+  * `hsm_wrap_encrypt`: Will encrypt the fragment using an HSM Key Encryption Key (KEK), and will allow the KEK to be rotated later via `rewrap-customer-fragment` without re-encrypting protected secrets or modifying the fragment itself.
   * `hsm_secured`: Will derive the value on each use of the key, and will not save the value.
 
 * `hsm-key-label`: The label of the key inside the **HSM**.
