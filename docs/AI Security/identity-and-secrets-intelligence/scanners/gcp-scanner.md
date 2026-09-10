@@ -110,4 +110,4 @@ Granting the permissions above is not sufficient on its own, the following must 
 2. Click the GCP scanner.
 3. Click **Start Scan**.
 
-Once the scan completes, results appear in [Inventory](doc:identity-and-secrets-intelligence#inventory) for review.
+Once the scan completes, results appear in **Inventory** for review.
