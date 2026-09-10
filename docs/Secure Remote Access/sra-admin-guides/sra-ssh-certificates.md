@@ -21,7 +21,7 @@ You can define several SSH Certificate Authorities (CAs). Each CA can sign your 
 You can sign the certificate with your own private key or generate a new one in the Akeyless Platform.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Usage):**
+  ### **Usage:**
 
   We put the SSH Certificates section in the Secure Remote Access section of the docs because it is an integral part of setting up remote access SSH sessions. However, this feature can still be used for basic SSH logins without the need for a public SSH key on the target server even outside of the remote access use case.
 </Callout>
@@ -166,12 +166,12 @@ akeyless create-ssh-cert-issuer --name /prod/ssh-cert-issuer --signer-key-name /
 ```
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Akeyless Secure Remote Access):**
+  ### **Akeyless Secure Remote Access:**
 
   Starting with Gateway **v4.45.0**, Secure Remote Access (SRA) works out of the box with any **SSH Cert Issuer** where Secure Remote Access is enabled.
 
   If you’re using an older Gateway version, make sure the SSH Cert Issuer `allowed_users` includes `session_*`, so JIT (session) users are authorized. Also ensure **Secure Remote Access is enabled** on the SSH Cert Issuer.
-  ℹ️ **Note (Connection Allowlist):**
+  ℹ️ **Connection Allowlist:**
 
   When SRA is enabled on an SSH Cert Issuer, you can restrict which hosts users may connect to by using the `--secure-access-host` and `--secure-access-enforce-hosts-restriction` flags. Starting with SRA v2.9.0, `--secure-access-host` accepts CIDR notation in addition to individual hostnames and IP addresses, for example:
 
