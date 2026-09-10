@@ -203,7 +203,7 @@ For example: `repository=octo-org/octo-repo` where `octo-org = {GitHub Account}`
 
 The workflow examples use placeholder values. Replace them with your own Akeyless paths, authentication values, and cloud settings before running in production.
 
-> ℹ️ **Note (Zero-Knowledge Encryption):**
+> ℹ️ **Zero-Knowledge Encryption:**
 >
 > If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint, for example, `https://Your_GW_URL:8000/api/v2` (or using your gateway URL at port `8081`).
 
