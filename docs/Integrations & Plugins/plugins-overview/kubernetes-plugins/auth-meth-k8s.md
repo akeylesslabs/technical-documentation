@@ -12,19 +12,21 @@ next:
 ---
 Akeyless supports multiple options to authenticate your Kubernetes cluster with Akeyless Platform:
 
-* **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/auth-with-kubernetes)**
-* **[Universal Identity (UID)](https://docs.akeyless.io/docs/auth-with-universal-identity)** Not supported by the External Secret Operator (ESO).
-* **[API Key](https://docs.akeyless.io/docs/auth-with-api-key)**
+* [Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [Universal Identity (UID)](https://docs.akeyless.io/docs/auth-with-universal-identity) Not supported by the External Secret Operator (ESO).
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 * Cloud Authentication:
-    * **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/auth-with-azure)**
-    * **[AWS-IAM](https://docs.akeyless.io/docs/auth-with-aws)**
-    * **[GCP Auth](https://docs.akeyless.io/docs/auth-with-gcp)**
+  * [Azure Active Directory (AD)](https://docs.akeyless.io/docs/auth-with-azure)
+  * [AWS-IAM](https://docs.akeyless.io/docs/auth-with-aws)
+  * [GCP Auth](https://docs.akeyless.io/docs/auth-with-gcp)
 
 ## Kubernetes Auth
 
-> ℹ️ **Note:**
->
-> Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/auth-with-kubernetes).
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/auth-with-kubernetes).
+</Callout>
 
 To use the Kubernetes Auth Method for authentication:
 
@@ -38,9 +40,11 @@ or
 AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1" # or using port 8080
 ```
 
-> ℹ️ **Note (Zero-Knowledge):**
->
-> While working with Customer Fragment for Zero-Knowledge set: `AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1"`
+<Callout icon="ℹ️" theme="info">
+  ### **Zero-Knowledge:**
+
+  While working with Customer Fragment for Zero-Knowledge set: `AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1"`
+</Callout>
 
 ## Universal Identity (UID)
 
