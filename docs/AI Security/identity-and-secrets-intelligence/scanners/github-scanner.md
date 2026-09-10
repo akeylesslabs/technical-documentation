@@ -21,8 +21,6 @@ The GitHub Scanner is a native scanner type that inspects a connected GitHub org
 
 ## Required GitHub Permissions
 
-### Quick Setup
-
 The GitHub scanner authenticates with one of the credential types below. in GitHub missing access surfaces as warnings on the scan.
 
 All permissions below are **read-only**. The scanner never requires write access to your GitHub organization, and never reads secret _values_, only metadata.
