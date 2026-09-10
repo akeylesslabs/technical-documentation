@@ -17,7 +17,7 @@ next:
       slug: configuring-tls
       title: Configuring TLS
 ---
-> ℹ️ **Note (Gateway New Chart):**
+> ℹ️ **Gateway New Chart:**
 >
 > The Gateway new chart docs is now available [here](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm).
 

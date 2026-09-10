@@ -52,7 +52,7 @@ Or directly from the Akeyless Console using the [Access Roles](https://docs.akey
 
 While by default between different sub-claims values the logic of the comma symbol is `OR`, it is possible to use the syntax of `OR`. In addition, to force logical `AND` between different values of a specific sub-claim, you can use the `AND` syntax.
 
-> ℹ️ **Note (Required Version):**
+> ℹ️ **Required Version:**
 >
 > The Logical Operators Syntax support requires Gateway `4.19` version or higher.
 

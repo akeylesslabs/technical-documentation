@@ -43,7 +43,7 @@ Install the latest version of [Akeyless Command Line Interface (CLI)](https://do
 
 **Optional**: Download the [akeyless-connect.rc file](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs.
 
-> ℹ️ **Note (RC File Notes):**
+> ℹ️ **RC File Notes:**
 >
 > The `~/.akeyless-connect.rc` file must be placed in your local `$HOME` directory to work.
 > The RC file still uses `BASTION_*` variable names for historical reasons, but the CLI flags are now `--sra-ctrl-*`.
@@ -139,7 +139,7 @@ Where the URL will be set as follows:
 
 `USE_SSH_LEGACY_ALG`- Specifies whether to use ssh-legacy-signing-algorithm. The default is No
 
-> **Note (Compatibility Issue with Legacy SSH Versions (7.4 and 7.6)):**
+> **Compatibility Issue with Legacy SSH Versions (7.4 and 7.6):**
 >
 > Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using Akeyless Connect to access remote machines running OpenSSH version 7.4 or 7.6. This occurs both in CLI and the Web portal.
 >
@@ -163,7 +163,7 @@ akeyless connect -t <[user@]target/hostname/ip[:port]> -g <your-gateway-ip[:port
 
 For unified Gateway deployments, configure **Allowed SSH URL** in **Manage Gateway**, then **Remote Access**, then **Configuration**. After it is set, the recommended command is to pass `-g` for the Gateway service URL and let the Gateway apply the SSH address automatically.
 
-> ℹ️ **Note (Legacy SRA Deployments):**
+> ℹ️ **Legacy SRA Deployments:**
 >
 > For legacy deployments, users still run:
 >
@@ -187,7 +187,7 @@ akeyless connect -t user@ssh-server[:port] -g <gateway-url> -c "<Path to SSH Cer
 >
 > For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert-issuer-name` for the **other** cert-issuer. This will enable access through SRA based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
 >
-> ℹ️ **Info (Extract From Mode):**
+> ℹ️ **Extract From Mode:**
 >
 > If the SSH certificate issuer is configured with externally provided usernames and a claim key name, Akeyless Connect supports **Extract From** mode. In this mode, the username is extracted from JWT sub-claims by the bastion.
 
@@ -215,7 +215,7 @@ akeyless connect -t <mongo server IP>:27017 -g <gateway-url> -n "<Path to MongoD
 akeyless connect -t <mysql-server>:3306 -g <gateway-url> -n "<Path to MySQL Dynamic Secret>"
 ```
 
-> ℹ️ **Note (CLI v1.146.0+):**
+> ℹ️ **CLI v1.146.0+:**
 >
 > The `connect` command supports MySQL interactive flags. For the current supported options, run `akeyless connect -h`.
 

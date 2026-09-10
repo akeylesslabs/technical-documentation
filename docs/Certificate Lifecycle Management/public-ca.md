@@ -60,8 +60,8 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
-* **Note (Allowed Domains)**: Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix; it is recommended to check this in advance for future automated renewal.
-* **Note (Auto-Renew and Public CA Certificate Validity)**: `scheduled-renew` schedules renewal relative to the **certificate's actual expiration date**, not the issuer `ttl`. Public CAs may issue certificates with a shorter validity period than the `ttl` requested. For example, GlobalSign might cap validity at 200 days even if the issuer `ttl` is set to 365 days. In that case, Akeyless bases the renewal schedule on the real certificate expiry. With `--scheduled-renew 14` and a 200-day certificate, renewal is triggered on day 186.
+* **Allowed Domains**: Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix; it is recommended to check this in advance for future automated renewal.
+* **Auto-Renew and Public CA Certificate Validity**: `scheduled-renew` schedules renewal relative to the **certificate's actual expiration date**, not the issuer `ttl`. Public CAs may issue certificates with a shorter validity period than the `ttl` requested. For example, GlobalSign might cap validity at 200 days even if the issuer `ttl` is set to 365 days. In that case, Akeyless bases the renewal schedule on the real certificate expiry. With `--scheduled-renew 14` and a 200-day certificate, renewal is triggered on day 186.
 
 ### Issuing a Certificate
 
@@ -106,7 +106,7 @@ The output of this command contains the following value:
 
 * `display ID` - Certificate display ID.
 
-> ℹ️ **Note (GlobalSign targets):**
+> ℹ️ **GlobalSign targets:**
 >
 > For GlobalSign-based issuance, a single `get-pki-certificate` request is handled as a single issuance flow to avoid duplicate certificate issuance during transient retries.
 
@@ -124,7 +124,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 Once the certificate issue request is processed, the selected public CA target validation flow is triggered and handled through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview).
 
-> ℹ️ **Note (Validation Method):**
+> ℹ️ **Validation Method:**
 >
 > Validation depends on the selected public CA target. Some targets use email-based validation, while the [Let's Encrypt Target](https://docs.akeyless.io/docs/lets-encrypt) uses ACME challenge validation (`http` or `dns`).
 >

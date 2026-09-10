@@ -14,7 +14,7 @@ next:
 
 To work with **gRPC** clients make sure your [Gateway](https://docs.akeyless.io/docs/gateway-overview) runs on version `4.14` or higher. The **gRPC** runs on Gateway port `8085`.
 
-> ℹ️ **Note (Enabling gRPC):**
+> ℹ️ **Enabling gRPC:**
 >
 > gRPC is not enabled by default on Gateway, make sure to [enable](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#grpc) this as part of your Gateway deployment.
 

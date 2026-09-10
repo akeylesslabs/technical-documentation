@@ -234,7 +234,7 @@ To have a centralized Gateway that will be able to manage resources in multiple 
 
 A new **External ID** will be generated.
 
-> ℹ️ **Note (Role ARN):**
+> ℹ️ **Role ARN:**
 >
 > Once the role will be created, we will add it to the target.
 
@@ -471,7 +471,7 @@ At this point, we have created the following resources:
 
 Now, we will use the roles that were created to manage the destination AWS account.
 
-> ℹ️ **Note (Akeyless Gateway):**
+> ℹ️ **Akeyless Gateway:**
 >
 > The following Actions will take place from the Gateway that has the IAM-User from the source account assigned.
 >

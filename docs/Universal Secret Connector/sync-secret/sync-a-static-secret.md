@@ -29,7 +29,7 @@ Where:
 * `usc-name`: The name of the Universal Secret Connector.
 * `remote-secret-name`: Remote Secret Name that will be created on the remote endpoint. If the secret already exists, sync updates the secret value.
 
-> ℹ️ **Note (AWS metadata):**
+> ℹ️ **AWS metadata:**
 >
 > For AWS Universal Secrets Connector, Akeyless-initiated sync keeps existing AWS-side custom tags and description unless those fields are explicitly updated.
 
@@ -47,7 +47,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Filter secret value (jq)**: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` and so on.
 
-> ℹ️ **Note (Format restrictions):**
+> ℹ️ **Format restrictions:**
 >
 > Kubernetes and HashiCorp targets enforce that secrets are in JSON format, which means a valid jq filter could be, for example: `{"password": .password}`
 
