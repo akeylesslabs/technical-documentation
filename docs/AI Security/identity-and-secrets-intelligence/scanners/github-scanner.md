@@ -49,4 +49,4 @@ Audit-log-based features are only available with GitHub Enterprise.
 2. Click the GitHub scanner.
 3. Click **Start Scan**.
 
-Once the scan completes, results appear in [Inventory](doc:identity-and-secrets-intelligence#inventory) for review.
+Once the scan completes, results appear in **Inventory** for review.
