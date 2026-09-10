@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Certificate Policies evaluate every certificate in your Inventory for lifecycle risk and cryptographic strength. When a certificate matches a policy's condition, it's surfaced as a finding in **Dashboard** and **Inventory**, with a severity that reflects how urgently it needs attention. For an overview of how policies fit into Identity & Secrets Intelligence as a whole, see [Policies](doc:policies).
+Certificate Policies evaluate every certificate in your Inventory for lifecycle risk and cryptographic strength. When a certificate matches a policy's condition, it's surfaced as a finding in **Dashboard** and **Inventory**, with a severity that reflects how urgently it needs attention.
 
 ## Available Certificate Policies
 
