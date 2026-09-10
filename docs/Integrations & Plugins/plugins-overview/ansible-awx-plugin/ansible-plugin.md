@@ -19,7 +19,9 @@ You can manage secrets and certificates with either [modules](https://docs.ansib
 Before using the Akeyless Ansible plugin, ensure the following prerequisites are met:
 
 * Python 3 installed on the Ansible control node.
+
 * Ansible installed.
+
 * The Akeyless Python package installed:
 
   ```shell
@@ -35,6 +37,7 @@ Before using the Akeyless Ansible plugin, ensure the following prerequisites are
   ```
 
 * Access to an Akeyless Authentication Method (for example, API Key, AWS IAM, Azure AD, OIDC, or Certificate) with a valid `access_id` and required credentials.
+
 * Network access from the Ansible control node to `https://api.akeyless.io` (or to your Akeyless Gateway endpoint if applicable).
 
 ## Installation
@@ -49,9 +52,11 @@ ansible-galaxy collection install akeyless.secrets_management
 
 For more information, refer to the [Ansible Galaxy documentation](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
 
-> ℹ️ **Note (Version Scope):**
->
-> The certificate authentication examples on this page are based on `akeyless.secrets_management` collection version `1.0.0`, where `access_type: cert`, `cert_data`, and `key_data` are available in the code.
+<Callout icon="ℹ️" theme="info">
+  ### **Version Scope:**
+
+  The certificate authentication examples on this page are based on `akeyless.secrets_management` collection version `1.0.0`, where `access_type: cert`, `cert_data`, and `key_data` are available in the code.
+</Callout>
 
 ## Authentication
 
@@ -201,9 +206,11 @@ Generate the value with the Akeyless CLI, then pass it to the `login` task:
   register: auth_res
 ```
 
-> ℹ️ **Note:**
->
-> `cloud_id` is the full output from `akeyless get-cloud-identity --cloud-provider aws_iam`.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  `cloud_id` is the full output from `akeyless get-cloud-identity --cloud-provider aws_iam`.
+</Callout>
 
 Where:
 
