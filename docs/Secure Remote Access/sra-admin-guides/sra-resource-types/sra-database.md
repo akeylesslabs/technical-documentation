@@ -14,9 +14,11 @@ next:
 ---
 You can enable Secure Remote Access to a database using a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) item that generates temporary credentials for that database or using a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets). Users can then access the database from the Secure Remote Access Portal either over the web (using Adminer) or using the native database CLI.
 
-> ℹ️ **Note:**
->
-> Use the `akeyless connect` command from Akeyless CLI to access databases from any Unix terminal to work with your database native CLI.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Use the `akeyless connect` command from Akeyless CLI to access databases from any Unix terminal to work with your database native CLI.
+</Callout>
 
 ## Prerequisites
 
@@ -79,23 +81,26 @@ Let's set up remote access to a database from the Akeyless Console. If you'd pre
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
-    * `Host(s)`: The hostname (or IP address) and port for accessing the database as defined in the dynamic secret.
-    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate immediately or set a delayed rotation schedule after the session ends.
+   * `Host(s)`: The hostname (or IP address) and port for accessing the database as defined in the dynamic secret.
 
-    * For **Web Access**, define the following fields:
+   * `Rotate after disconnection`: Optional for Rotated Secret. Rotate immediately or set a delayed rotation schedule after the session ends.
 
-        * `DB Name`: The name of the database as defined in the dynamic secret.
-        * `Schema`: Optional, only supported for MSSQL and PostgreSQL database Dynamic Secrets.
+   * For **Web Access**, define the following fields:
 
-    * For **CLI Access**, define the following field:
+     * `DB Name`: The name of the database as defined in the dynamic secret.
+     * `Schema`: Optional, only supported for MSSQL and PostgreSQL database Dynamic Secrets.
 
-        * `SSH Cert Issuer`: The path to the SSH Certificate Issuer that should be used for certificate authentication.
+   * For **CLI Access**, define the following field:
+
+     * `SSH Cert Issuer`: The path to the SSH Certificate Issuer that should be used for certificate authentication.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
-> ℹ️ **Note (Custom Delay):**
->
-> You can specify a custom delay, measured in seconds \[0 - 120], before a newly generated dynamic secret becomes usable. This additional wait time helps target systems complete their sync process with the updated credentials
+<Callout icon="ℹ️" theme="info">
+  ### **Custom Delay:**
+
+  You can specify a custom delay, measured in seconds \[0 - 120], before a newly generated dynamic secret becomes usable. This additional wait time helps target systems complete their sync process with the updated credentials
+</Callout>
 
 ## Access a Database Over the Web from the Secure Remote Access Portal
 
@@ -117,6 +122,8 @@ Let's set up remote access to a database from the Akeyless Console. If you'd pre
 akeyless connect -t <mysql-server>:3306 -g <your-gateway-ip[:port]> -n "Path/to/Secret"
 ```
 
-> ℹ️ **Note:**
->
-> Make sure your **Access ID** is specified in the `Allowed Access IDs` field of your SRA settings, to get access. **Access IDs** that are not listed, will not be authorized to get access.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Make sure your **Access ID** is specified in the `Allowed Access IDs` field of your SRA settings, to get access. **Access IDs** that are not listed, will not be authorized to get access.
+</Callout>
