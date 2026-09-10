@@ -37,6 +37,7 @@ Before you can use Identity & Secrets Intelligence, confirm the following:
 To set up an Access Role for ISI, run the following commands:
 
 1. Create a new Access Role:
+
    ```shell
    akeyless create-role \
      --name <role-name> \
