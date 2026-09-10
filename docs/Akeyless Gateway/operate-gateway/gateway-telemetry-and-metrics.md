@@ -222,7 +222,7 @@ annotations:
 
 Metrics then appear in Datadog under `<namespace>.akeyless_gw_*` (for example `akeyless.akeyless_gw_system_healthcheck_status`). Use **Metrics Explorer** to confirm data is flowing, filtering by your namespace.
 
-For the full setup, including Docker/VM Agent configuration and HTTPS endpoints, see the [Datadog Akeyless Gateway integration](https://github.com/DataDog/integrations-extras/tree/master/akeyless_gateway).
+For the full setup, including Docker/VM Agent configuration and HTTPS endpoints, see the [Datadog Akeyless Gateway integration](https://github.com/DataDog/integrations-extras/tree/master/akeyless_gateway). You can view a working example dashboard, built on these metrics, here: [Akeyless GW V5+ dashboard](https://p.datadoghq.com/sb/c4ff97e2-215a-11ee-bcad-da7ad0900002-aae0c413fb7deec2b81ff1fb422b4935).
 
 ## Grafana Dashboard with Prometheus
 
