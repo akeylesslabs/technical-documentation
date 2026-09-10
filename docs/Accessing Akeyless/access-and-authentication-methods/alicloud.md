@@ -75,7 +75,7 @@ akeyless auth \
 ```
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Least Privilege):**
+  ### **Least Privilege:**
 
   AliCloud authentication does not require privileged RAM permissions. Attach a minimally privileged RAM role to the resource that authenticates to Akeyless (for example, an ECS instance or a container).
 </Callout>
