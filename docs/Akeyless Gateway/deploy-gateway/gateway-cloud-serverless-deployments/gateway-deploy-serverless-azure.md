@@ -22,19 +22,21 @@ This guide describes how to run a Serverless Gateway on **Azure** based on [Func
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service | Endpoint |
-| --- | --- |
-| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway) | `/console` |
-| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
-| Akeyless V1 REST API | `/api/v1` |
-| Akeyless V2 REST API | `/api/v2` |
-| [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
+| Service                                                                      | Endpoint   |
+| ---------------------------------------------------------------------------- | ---------- |
+| [Gateway Console](https://docs.akeyless.io/docs/configure-gateway)           | `/console` |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp`     |
+| Akeyless V1 REST API                                                         | `/api/v1`  |
+| Akeyless V2 REST API                                                         | `/api/v2`  |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                     | `5696`     |
 
 For example, to get to `/api/v2` endpoint, run: `https://<your_func_url>/api/gw/api/v2/`
 
-> ⚠️ **Warning:**
->
-> Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
+</Callout>
 
 ## Gateway Configuration
 
@@ -55,11 +57,13 @@ The following Authentication Methods are supported for Azure Serverless:
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 * [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
 
-> ✅ **Tip:**
->
-> When working with **Azure AD** authentication method, you can set a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) containing the **Azure Object ID** on the Access-Role associated to the authentication method.
->
-> When using the **Azure AD** authentication method, you can configure a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) on the associated [Access Role](https://docs.akeyless.io/docs/rbac) to match the user's **Azure Object ID** which can be found under **Identity** tab, in the **Function App** running the gateway.
+<Callout icon="✅" theme="okay">
+  ### **Tip:**
+
+  When working with **Azure AD** authentication method, you can set a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) containing the **Azure Object ID** on the Access-Role associated to the authentication method.
+
+  When using the **Azure AD** authentication method, you can configure a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) on the associated [Access Role](https://docs.akeyless.io/docs/rbac) to match the user's **Azure Object ID** which can be found under **Identity** tab, in the **Function App** running the gateway.
+</Callout>
 
 When using [Azure AD](https://docs.akeyless.io/docs/auth-with-azure) as the `admin_access_id` of the Gateway, make sure to additionally set a list of users who can manage your Gateway configuration using the `allowed_access_permissions` parameter, for example:
 
@@ -258,11 +262,13 @@ BICEP_PARAMS = params.bicepparam
 
 Upon successful deployment of the **Serverless Gateway**, the Gateway console URL will be printed.
 
-> ℹ️ **Note (Gateway URL):**
->
-> The default value of the Gateway URL ends with `/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
->
-> To connect to **Akeyless Gateway Configuration Manager** (Port `8000`) use: `/config` instead
+<Callout icon="ℹ️" theme="info">
+  ### **Gateway URL:**
+
+  The default value of the Gateway URL ends with `/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
+
+  To connect to **Akeyless Gateway Configuration Manager** (Port `8000`) use: `/config` instead
+</Callout>
 
 ## Initial Gateway Configuration
 
