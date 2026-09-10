@@ -57,7 +57,7 @@ After the migration, new secrets will be available under the specified path. If 
 ## 1Password
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Deprecation):**
+  ### **Deprecation:**
 
   Due to internal security restrictions this migration is deprecated starting from Gateway version `4.35.1`.
 </Callout>
