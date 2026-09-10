@@ -18,9 +18,11 @@ The lookup plugin uses these by way of the environment variables `VAULT_ADDR` an
 
 In this workflow, token-based authentication is the primary method for AWX.
 
-> ℹ️ **Note:**
->
-> Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
+</Callout>
 
 ## Prepare AWX Environment
 
@@ -57,9 +59,11 @@ If your environment uses certificate authentication, you can generate `VAULT_TOK
 VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type cert --cert-file-name ./server-cert.pem --key-file-name ./server-key.pem --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}')
 ```
 
-> ℹ️ **Note (Certificate Authentication):**
->
-> The AWX Vault Secret Lookup integration still consumes `VAULT_TOKEN`. Certificate support is available for the preflight token generation step.
+<Callout icon="ℹ️" theme="info">
+  ### **Certificate Authentication:**
+
+  The AWX Vault Secret Lookup integration still consumes `VAULT_TOKEN`. Certificate support is available for the preflight token generation step.
+</Callout>
 
 ![Illustration for: Alternatively, extract your authorization tokens directly using the Akeyless CLI auth command as part of your workflow variables.](https://files.readme.io/9e55048-ansible1.png)
 
@@ -85,11 +89,11 @@ akeyless create-secret -n /DevOps/Ansible -v 'AkeylessIsGr8'
 
 The **Key name** should be set to `data` and the **Path** should be set to `secret/data/DevOps/Ansible`.
 
-![Illustration for: The Key name**should be set to data and the Path should be set to secret/data/DevOps/Ansible.](https://files.readme.io/2958df1-ansible5.png)
+![Illustration for: The Key name\*\*should be set to data and the Path should be set to secret/data/DevOps/Ansible.](https://files.readme.io/2958df1-ansible5.png)
 
 If the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 
- `secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key Names** for example, let's create a secret that contains a JSON-structured value:
+`secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key Names** for example, let's create a secret that contains a JSON-structured value:
 
 ```shell
 akeyless create-secret -n /DevOps/AnsibleJson -v '{"username":"john","password":"secret"}'
@@ -103,7 +107,7 @@ To work with **KV 2** use the following format:
 
 To fetch the secret **/DevOps/Ansible**:
 
- The **Path** is `secret/DevOps/Ansible`, where the Key in the returned JSON name is `DevOps/Ansible` without the `/` prefix.
+The **Path** is `secret/DevOps/Ansible`, where the Key in the returned JSON name is `DevOps/Ansible` without the `/` prefix.
 
 ![Illustration for: To fetch the secret /DevOps/Ansible: The Path is secret/DevOps/Ansible, where the Key in the returned JSON name is DevOps/Ansible without the / prefix.](https://files.readme.io/486bb56-Ansible7.png)
 
