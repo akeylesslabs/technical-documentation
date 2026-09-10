@@ -14,10 +14,12 @@ next:
 
 The Akeyless browser extension seamlessly integrates with your favorite web browsers, including Firefox, Google Chrome, and Microsoft Edge. The installation process is straightforward and consistent across all supported browsers, ensuring a smooth and hassle-free experience.
 
-> ℹ️ **Note (Installing Akeyless Extensions with SRA Support):**
->
-> * To install the web extension for Akeyless Password Manager, please search for "**Akeyless Password Manager**" in your browser's extension store.
-> * If you require the web extension that supports SRA, search for "**Akeyless Password Manager**" instead.
+<Callout icon="ℹ️" theme="info">
+  ### **Installing Akeyless Extensions with SRA Support:**
+
+  * To install the web extension for Akeyless Password Manager, please search for "**Akeyless Password Manager**" in your browser's extension store.
+  * If you require the web extension that supports SRA, search for "**Akeyless Password Manager**" instead.
+</Callout>
 
 ## Akeyless Password Manager Firefox Installation
 
@@ -31,14 +33,16 @@ To embark on a journey of effortless password management on Firefox, follow thes
 4. Grant Permissions: Review the permissions requested by the extension and click on the "Add" button to proceed.
 5. Pin Extension for Quick Access: For convenient access, right-click on the Akeyless icon in the toolbar and select "Pin" to keep it permanently visible.
 
-> ℹ️ **Note:**
->
-> **After installing or updating the Akeyless Password Manager extension on the Firefox browser**, please follow these steps to ensure all functionalities work as expected:
->
-> 1. Open the Extensions Manager: Go to the Firefox menu, select Add-ons and Themes > Extensions.
-> 2. Locate the Akeyless Password Manager Extension: Under the Enabled section, click the three dots (...) next to the extension.
-> 3. Verify Permissions: Select Manage and ensure the "Access your data for all websites" permission is enabled.
-> 4. Confirm Settings: The toggle switch should be turned on for this permission.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  **After installing or updating the Akeyless Password Manager extension on the Firefox browser**, please follow these steps to ensure all functionalities work as expected:
+
+  1. Open the Extensions Manager: Go to the Firefox menu, select Add-ons and Themes > Extensions.
+  2. Locate the Akeyless Password Manager Extension: Under the Enabled section, click the three dots (...) next to the extension.
+  3. Verify Permissions: Select Manage and ensure the "Access your data for all websites" permission is enabled.
+  4. Confirm Settings: The toggle switch should be turned on for this permission.
+</Callout>
 
 ## Akeyless Password Manager Google Chrome Installation
 
@@ -78,7 +82,7 @@ Once you've installed the Akeyless browser extension. Simply locate the distinct
 * Google: Use your Google account for effortless login.
 * Code-ID: Enter the unique code ID provided by your IT administrator. This code serves as your primary identifier and ensures that only authorized individuals can initiate the login process.
 * LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
-    * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url-1) by way of advanced settings then login with Email option as a login type.
+  * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url-1) by way of advanced settings then login with Email option as a login type.
 * Account Alias: Support for using an account alias to simplify identification and enhance user experience.
 
 For more details about Akeyless Authentication Methods please visit this [link](https://docs.akeyless.io/docs/access-and-authentication-methods).
