@@ -403,7 +403,7 @@ akeyless get-pki-certificate \
 
 `-o, --outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location as the provided public key with the -cert extension
 
-> ℹ️ **Note (GlobalSign targets):**
+> ℹ️ **GlobalSign targets:**
 >
 > For GlobalSign-based public CA issuance, a single `get-pki-certificate` request is handled as a single issuance flow to avoid duplicate certificate issuance during transient retries.
 
@@ -798,7 +798,7 @@ akeyless generate-ca \
 
 `--delete-protection`: Protection from accidental deletion of this object, [`true`/`false`].
 
-> ℹ️ **Note (Leaf certificate constraints):**
+> ℹ️ **Leaf certificate constraints:**
 >
 > `generate-ca` sets leaf certificate basic constraints to `CA:FALSE` so issued leaf certificates are not marked as certificate authorities.
 
