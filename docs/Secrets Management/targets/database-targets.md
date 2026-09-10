@@ -38,11 +38,13 @@ Available database targets:
 
 ## Create a Database Target with the CLI
 
-> ℹ️ **Note:**
->
-> To create a database target from Akeyless CLI, choose the database type within the `create-db-target` command
->
-> `create-db-target` command includes all available databases targets, please follow the relevant database section for the relevant fields.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  To create a database target from Akeyless CLI, choose the database type within the `create-db-target` command
+
+  `create-db-target` command includes all available databases targets, please follow the relevant database section for the relevant fields.
+</Callout>
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Database Targets](https://docs.akeyless.io/docs/cli-ref-targets#db) section.
 
@@ -346,9 +348,11 @@ To connect using **Wallet** provide the following:
 
 Click **Finish**.
 
-> ℹ️ **Note (Wallet with Password):**
->
-> To use your Wallet with login type of Password ensure to add the relevant username to your wallet using the following format: `mkstore -wrl ~/mywallet2 -createCredential "(HOST=<host>)(PORT=1521)(SERVICE_NAME=<SN Name>)" <Username> <Password>`
+<Callout icon="ℹ️" theme="info">
+  ### **Wallet with Password:**
+
+  To use your Wallet with login type of Password ensure to add the relevant username to your wallet using the following format: `mkstore -wrl ~/mywallet2 -createCredential "(HOST=<host>)(PORT=1521)(SERVICE_NAME=<SN Name>)" <Username> <Password>`
+</Callout>
 
 ### PostgreSQL
 
