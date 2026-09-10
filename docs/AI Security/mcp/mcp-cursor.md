@@ -1,6 +1,5 @@
 ---
 title: Cursor
-slug: mcp-cursor
 excerpt: Connect Cursor to the Akeyless MCP Server.
 deprecated: false
 hidden: false
@@ -8,6 +7,7 @@ metadata:
   title: ''
   description: ''
   robots: index
+slug: mcp-cursor
 ---
 Connect Cursor to the Akeyless MCP Server when you want MCP access inside the Cursor editor.
 
@@ -72,6 +72,11 @@ The following examples show common authentication configurations:
   }
 }
 ```
+
+Akeyless exposes two separate MCP entry points:
+
+- `mcp` - Managing Akeyless itself - browsing, reading, and writing vault objects
+- `mcp-runtime-authority` - execute actions on resources, without exposing secrets to the model
 
 ## Verify The Integration
 
