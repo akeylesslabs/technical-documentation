@@ -16,9 +16,11 @@ next:
 
 * Kubernetes v1.21 or later.
 
-> ℹ️ **Info (Required Gateway Access Permissions):**
->
-> To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) on your Gateway to manage the Kubernetes Auth.
+<Callout icon="ℹ️" theme="info">
+  ### **Required Gateway Access Permissions:**
+
+  To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-authentication-and-access) on your Gateway to manage the Kubernetes Auth.
+</Callout>
 
 ## Dedicated ServiceAccount
 
@@ -26,13 +28,15 @@ This flow describes the creation of a dedicated Kubernetes ServiceAccount which 
 
 For a Rancher cluster, please create your [Rancher API Key](https://ranchermanager.docs.rancher.com/reference-guides/user-settings/api-keys) and refer to [Extract Kubernetes Cluster CA Certificate](https://docs.akeyless.io/docs/auth-with-kubernetes) to extract your Rancher server CA certificate.
 
-> ℹ️ **Note:**
->
-> To enable and use token request projection on a self-managed cluster, you must specify each of the following command line arguments to `kube-apiserver`:
-> `--service-account-issuer`
-> `--service-account-key-file`
-> `--service-account-signing-key-file`
-> `--api-audiences`
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  To enable and use token request projection on a self-managed cluster, you must specify each of the following command line arguments to `kube-apiserver`:
+  `--service-account-issuer`
+  `--service-account-key-file`
+  `--service-account-signing-key-file`
+  `--api-audiences`
+</Callout>
 
 Create a ServiceAccount named `gateway-token-reviewer` with permission to access token review API. This ServiceAccount will be used to validate a Kubernetes JWT coming from a pod that will try to authenticate to Akeyless.
 
@@ -68,17 +72,17 @@ kubectl apply -f akl_gw_token_reviewer.yaml
 
 1. Extract the `gateway-token-reviewer` ServiceAccount secret name:
 
-    ```shell
-    GW_SA_NAME=$(kubectl get sa gateway-token-reviewer \
-        --output jsonpath="{.secrets[*]['name']}")
-    ```
+   ```shell
+   GW_SA_NAME=$(kubectl get sa gateway-token-reviewer \
+       --output jsonpath="{.secrets[*]['name']}")
+   ```
 
 2. Extract the ServiceAccount `JWT` Bearer Token (Kubernetes Server \<= v1.23):
 
-    ```shell
-    SA_JWT_TOKEN=$(kubectl get secret $GW_SA_NAME \
-        --output 'go-template={{ .data.token | base64decode }}')
-    ```
+   ```shell
+   SA_JWT_TOKEN=$(kubectl get secret $GW_SA_NAME \
+       --output 'go-template={{ .data.token | base64decode }}')
+   ```
 
 #### Bearer Token Extraction for Kubernetes Server V1.24 or Higher
 
@@ -86,27 +90,27 @@ Kubernetes won’t generate Secrets automatically for ServiceAccounts, to get yo
 
 1. Create the long-lived ServiceAccount secret called `gateway-token-reviewer-token` (Kubernetes Server >= v1.24):
 
-    ```yaml akl_gw_token_reviewer_token.yaml
-    apiVersion: v1
-    kind: Secret
-    metadata:
-      name: gateway-token-reviewer-token
-      namespace: default
-      annotations:
-        kubernetes.io/service-account.name: gateway-token-reviewer
-    type: kubernetes.io/service-account-token
-    ```
+   ```yaml akl_gw_token_reviewer_token.yaml
+   apiVersion: v1
+   kind: Secret
+   metadata:
+     name: gateway-token-reviewer-token
+     namespace: default
+     annotations:
+       kubernetes.io/service-account.name: gateway-token-reviewer
+   type: kubernetes.io/service-account-token
+   ```
 
-    ```shell
-    kubectl apply -f akl_gw_token_reviewer_token.yaml
-    ```
+   ```shell
+   kubectl apply -f akl_gw_token_reviewer_token.yaml
+   ```
 
 2. Extract the ServiceAccount JWT Bearer Token (Kubernetes Server >= v1.24):
 
-    ```shell
-    SA_JWT_TOKEN=$(kubectl get secret gateway-token-reviewer-token \
-    --output 'go-template={{.data.token | base64decode}}')
-    ```
+   ```shell
+   SA_JWT_TOKEN=$(kubectl get secret gateway-token-reviewer-token \
+   --output 'go-template={{.data.token | base64decode}}')
+   ```
 
 #### Extract Kubernetes Cluster CA Certificate
 
@@ -137,25 +141,29 @@ Upon successful creation, the response:
 }
 ```
 
-> ℹ️ **Note:**
->
-> Save the returned private key and `AccessID` for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`.
->
-> If the private key is lost, generate a new key pair on the same Kubernetes Auth Method:
->
-> ```shell
-> akeyless auth-method update k8s --name my-k8s-auth-method --gen-key true --json
-> ```
->
-> Update each Kubernetes Auth config that uses this Auth Method with the new private key before authenticating.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Save the returned private key and `AccessID` for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`.
+
+  If the private key is lost, generate a new key pair on the same Kubernetes Auth Method:
+
+  ```shell
+  akeyless auth-method update k8s --name my-k8s-auth-method --gen-key true --json
+  ```
+
+  Update each Kubernetes Auth config that uses this Auth Method with the new private key before authenticating.
+</Callout>
 
 #### Create Kubernetes Gateway Auth Config Using Bearer Tokens
 
 To [discover your Kubernetes ServiceAccount issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
 
-> ℹ️ **Note:**
->
-> The Kubernetes Issuer parameter is no longer used by default, as the issuer validation is done by the API server, if you still wish to work with local issuer validation open a new tab to run this command as it starts a server. Then, go back to your original tab to extract the issuer.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  The Kubernetes Issuer parameter is no longer used by default, as the issuer validation is done by the API server, if you still wish to work with local issuer validation open a new tab to run this command as it starts a server. Then, go back to your original tab to extract the issuer.
+</Callout>
 
 Forwarding the Kubernetes API:
 
@@ -216,16 +224,18 @@ Where:
 * `token-reviewer-jwt`: The ServiceAccount `JWT` used to access the `TokenReview` API
   (relevant only to `native_k8s` access type).
 
-> ℹ️ **Note (Gateway 4.53.0+):**
->
-> You can configure TokenReview rate limiting for Gateway Kubernetes authentication by setting Gateway runtime environment variables:
->
-> * `K8S_TOKEN_REVIEW_QPS`
-> * `K8S_TOKEN_REVIEW_BURST`
->
-> If these variables are not set, Gateway uses the Kubernetes client-go defaults: `QPS=5` and `Burst=10`.
->
-> Scope: This setting applies only to `native_k8s` TokenReview flows. Rancher TokenReview flows are not controlled by these variables.
+<Callout icon="ℹ️" theme="info">
+  ### **Gateway 4.53.0+:**
+
+  You can configure TokenReview rate limiting for Gateway Kubernetes authentication by setting Gateway runtime environment variables:
+
+  * `K8S_TOKEN_REVIEW_QPS`
+  * `K8S_TOKEN_REVIEW_BURST`
+
+  If these variables are not set, Gateway uses the Kubernetes client-go defaults: `QPS=5` and `Burst=10`.
+
+  Scope: This setting applies only to `native_k8s` TokenReview flows. Rancher TokenReview flows are not controlled by these variables.
+</Callout>
 
 * `k8s-ca-cert`: The certificate to use to validate the Kubernetes cluster.
 
@@ -242,38 +252,38 @@ When the cluster access type is **Rancher**, add the following parameters:
 
 1. Create a Namespace in your Kubernetes cluster:
 
-    ```shell
-    kubectl create namespace my-namespace-a
-    ```
+   ```shell
+   kubectl create namespace my-namespace-a
+   ```
 
 2. In this Namespace create a pod:
 
-    ```shell
-    kubectl run mypod1 --image=nginx -n my-namespace-a
-    ```
+   ```shell
+   kubectl run mypod1 --image=nginx -n my-namespace-a
+   ```
 
 3. Start an interactive shell session on the pod and perform the following commands in the pod:
 
-    ```shell
-    kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
-    ```
+   ```shell
+   kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
+   ```
 
 4. Install Akeyless CLI inside your pod:
 
-    ```shell
-    curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-    chmod +x akeyless
-    ./akeyless configure
-    ```
+   ```shell
+   curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
+   chmod +x akeyless
+   ./akeyless configure
+   ```
 
 5. Authenticate by way of your Kubernetes Auth Method with the following parameters:
 
-    ```shell
-    ./akeyless auth --access-id $ACCESS_ID \
-        --access-type k8s \
-        --gateway-url https://<Your_Akeyless_GW_URL>:8000 \
-        --k8s-auth-config-name k8s-conf
-    ```
+   ```shell
+   ./akeyless auth --access-id $ACCESS_ID \
+       --access-type k8s \
+       --gateway-url https://<Your_Akeyless_GW_URL>:8000 \
+       --k8s-auth-config-name k8s-conf
+   ```
 
 Where:
 
@@ -292,9 +302,11 @@ Authentication succeeded.
 Token: t-bb7b...3564a7c9
 ```
 
-> ℹ️ **Note:**
->
-> Delete the private key and Access ID that you stored in environment variables `$PRV_KEY` and `$ACCESS_ID`.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Delete the private key and Access ID that you stored in environment variables `$PRV_KEY` and `$ACCESS_ID`.
+</Callout>
 
 ## Available Claims for Kubernetes Auth
 
@@ -329,9 +341,11 @@ minikube start \
     --extra-config=kubelet.authentication-token-webhook=true
 ```
 
-> ℹ️ **Note:**
->
-> This example uses `api` as the service account issuer name, for your service accounts API audience.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  This example uses `api` as the service account issuer name, for your service accounts API audience.
+</Callout>
 
 ## Tutorial
 
