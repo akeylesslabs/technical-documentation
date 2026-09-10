@@ -131,7 +131,7 @@ Where:
 
 ## Customer Fragments
 
-Akeyless offers two modes for integrating the customer fragment with the **HSM**: `hsm_wrapped` and `hsm_secured`. Both modes use the same mechanism: the fragment value itself is used as a seed for a [key derivation function](https://en.wikipedia.org/wiki/Key_derivation_function), which is executed with the **HSM key** performing `HMAC` signing operations. The derived value is then used as the actual customer fragment value, meaning the fragment itself is not stored in the HSM.
+Akeyless offers four modes for integrating the customer fragment with the HSM: `standard`, `hsm_wrap_hmac`, `hsm_wrap_encrypt`, and `hsm_secured`. The `hsm_wrap_hmac` and `hsm_secured` modes use the same mechanism: the fragment value itself is used as a seed for a key derivation function, which is executed with the HSM key performing HMAC signing operations. The derived value is then used as the actual customer fragment value, meaning the fragment itself is not stored in the HSM. The `hsm_wrap_encrypt` mode instead encrypts the fragment under an HSM Key Encryption Key (KEK), allowing the KEK to be rotated independently of the fragment.
 
 To derive the **Customer Fragment** into the Gateway from the **HSM**, generate the **Customer Fragment** using the following command:
 
