@@ -38,7 +38,7 @@ If you are deciding between Jenkins integration paths:
 - Network connectivity from the Jenkins controller to your Akeyless API endpoint (`https://api.akeyless.io` or your Gateway `https://<gateway-host>:8000/api/v2`).
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Zero-Knowledge Encryption):**
+  ### **Zero-Knowledge Encryption:**
 
   If you use a customer [key fragment](https://docs.akeyless.io/docs/dfc-overview), set **Akeyless URL** to your Gateway REST API endpoint, for example `https://Your_GW_URL:8000/api/v2`.
 </Callout>
