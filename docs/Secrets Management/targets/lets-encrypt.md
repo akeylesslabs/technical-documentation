@@ -38,8 +38,8 @@ To prove domain ownership, the Akeyless integration supports the following valid
 
 Choose one of the supported challenge types based on the DNS and web access model in your environment:
 
-* **DNS challenge (`dns`)**: Recommended when DNS automation is available. This method requires a DNS provider target and provider-specific DNS parameters.
-* **HTTP challenge (`http`)**: Recommended when a challenge file can be served from `/.well-known/acme-challenge/` on the requested domain.
+* **DNS challenge (**`dns`**)**: Recommended when DNS automation is available. This method requires a DNS provider target and provider-specific DNS parameters.
+* **HTTP challenge (**`http`**)**: Recommended when a challenge file can be served from `/.well-known/acme-challenge/` on the requested domain.
 
 Use the sections below to configure the target and complete certificate issuance for your selected method.
 
@@ -186,19 +186,19 @@ When using `dns` challenge validation, the cloud target referenced by `dns-targe
 Required permissions by provider:
 
 * **AWS Route 53**
-    * **Required for DNS-01 record changes**: `route53:ChangeResourceRecordSets` on the target hosted zone.
-    * **Common read permissions** (if zone lookup or record inspection is needed): `route53:GetHostedZone`, `route53:ListHostedZonesByName`, and `route53:ListResourceRecordSets`.
-    * Reference: [Actions, resources, and condition keys for Amazon Route 53](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html) and [Permissions required to use the Route 53 API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/r53-api-permissions-ref.html)
+  * **Required for DNS-01 record changes**: `route53:ChangeResourceRecordSets` on the target hosted zone.
+  * **Common read permissions** (if zone lookup or record inspection is needed): `route53:GetHostedZone`, `route53:ListHostedZonesByName`, and `route53:ListResourceRecordSets`.
+  * Reference: [Actions, resources, and condition keys for Amazon Route 53](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html) and [Permissions required to use the Route 53 API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/r53-api-permissions-ref.html)
 
 * **GCP Cloud DNS**
-    * **Required for DNS-01 record changes**: `dns.changes.create` and the relevant record set permission (`dns.resourceRecordSets.create`, `dns.resourceRecordSets.update`, and/or `dns.resourceRecordSets.delete`).
-    * **Common read permissions**: `dns.managedZones.get`, `dns.managedZones.list`, `dns.resourceRecordSets.get`, and `dns.resourceRecordSets.list`.
-    * Reference: [Access control with IAM](https://docs.cloud.google.com/dns/docs/access-control)
+  * **Required for DNS-01 record changes**: `dns.changes.create` and the relevant record set permission (`dns.resourceRecordSets.create`, `dns.resourceRecordSets.update`, and/or `dns.resourceRecordSets.delete`).
+  * **Common read permissions**: `dns.managedZones.get`, `dns.managedZones.list`, `dns.resourceRecordSets.get`, and `dns.resourceRecordSets.list`.
+  * Reference: [Access control with IAM](https://docs.cloud.google.com/dns/docs/access-control)
 
 * **Azure DNS**
-    * **Recommended built-in role**: **DNS Zone Contributor** at the DNS zone scope.
-    * This role includes `Microsoft.Network/dnsZones/*` (manage DNS zones and record sets).
-    * Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
+  * **Recommended built-in role**: **DNS Zone Contributor** at the DNS zone scope.
+  * This role includes `Microsoft.Network/dnsZones/*` (manage DNS zones and record sets).
+  * Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
 
 ### Troubleshoot DNS challenge flows
 
@@ -206,16 +206,18 @@ If certificate issuance fails during DNS challenge validation, validate the foll
 
 * The `dns-target-creds` target exists and is configured for the expected provider.
 * The DNS challenge field for the selected provider is set correctly:
-    * AWS: `hosted-zone`
-    * Azure: `resource-group`
-    * GCP: `gcp-project` (when project ID cannot be derived automatically)
+  * AWS: `hosted-zone`
+  * Azure: `resource-group`
+  * GCP: `gcp-project` (when project ID cannot be derived automatically)
 * The domain requested in the certificate is hosted in the DNS zone managed by the provider target.
 * The Gateway has network access to the provider DNS APIs.
 * The identity used by the provider target has permissions to create and update TXT records for ACME validation.
 
-> ℹ️ **Note (Least Privilege):**
->
-> Scope permissions to only the DNS zones and record operations required for certificate validation.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Scope permissions to only the DNS zones and record operations required for certificate validation.
+</Callout>
 
 ## Issue Certificates With HTTP Challenge
 
@@ -231,7 +233,7 @@ akeyless get-pki-certificate \
 
 1. Deploy the challenge file to the URL path returned in `http_challenge_info.file_path` using the value in `http_challenge_info.file_content`.
 
-1. Finalize validation and issuance:
+2. Finalize validation and issuance:
 
 ```shell
 akeyless validate-certificate-challenge \
@@ -247,7 +249,9 @@ akeyless get-certificate-value \
 --display-id <Certificate Display ID>
 ```
 
-> ℹ️ **Note:**
->
-> `validate-certificate-challenge` is required for HTTP challenge flows. DNS challenge flows do not require this additional validation command.
-> For a PKI issuer that uses a Let's Encrypt target, requested TTL values in certificate requests can be between 30 and 90 days. The issued Let's Encrypt certificate validity is fixed at 90 days.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  `validate-certificate-challenge` is required for HTTP challenge flows. DNS challenge flows do not require this additional validation command.
+  For a PKI issuer that uses a Let's Encrypt target, requested TTL values in certificate requests can be between 30 and 90 days. The issued Let's Encrypt certificate validity is fixed at 90 days.
+</Callout>
