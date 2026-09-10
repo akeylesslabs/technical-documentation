@@ -93,7 +93,7 @@ akeyless auth \
 ```
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Least Privilege):**
+  ### **Least Privilege:**
 
   AWS IAM authentication does not require privileged AWS permissions. Attach a minimally privileged IAM role to the resource that authenticates to Akeyless (for example, an EC2 instance, ECS task, or EKS pod).
 </Callout>
