@@ -189,9 +189,7 @@ If certificate issuance fails during DNS challenge validation, validate the foll
 - The Gateway has network access to provider DNS APIs.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Least Privilege):**
+  ### Note:
 
   Scope permissions to only the DNS zones and record operations required for certificate validation.
 </Callout>
-
-<br />
