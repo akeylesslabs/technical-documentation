@@ -93,4 +93,4 @@ For clusters running on a managed Kubernetes service, the scanner's credentials 
 2. Click the Kubernetes scanner.
 3. Click **Start Scan**.
 
-Once the scan completes, results appear in [Inventory](doc:identity-and-secrets-intelligence#inventory) for review.
+Once the scan completes, results appear in **Inventory** for review.
