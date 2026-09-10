@@ -2805,7 +2805,7 @@ akeyless rotated-secret sync \
 `--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (AWS Targets):**
+  ### **AWS Targets:**
 
   For AWS Universal Secret Connector targets, Akeyless-initiated sync updates secret values while preserving existing AWS-side custom tags and description unless those fields are explicitly updated.
 </Callout>
