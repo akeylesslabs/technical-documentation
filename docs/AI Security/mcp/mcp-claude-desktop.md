@@ -76,7 +76,7 @@ The following examples show common authentication configurations:
 Akeyless exposes two separate MCP entry points:
 
 - `mcp` - Managing Akeyless itself - browsing, reading, and writing vault objects
-- `mcp-runtime-authority` - Using secrets Akeyless already manages to connect to the resources, without exposing them to the model
+- `mcp-runtime-authority` - execute actions on resources, without exposing secrets to the model
 
 ## Verify The Integration
 
