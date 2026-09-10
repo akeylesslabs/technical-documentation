@@ -86,7 +86,7 @@ For large payload transfers, use file transfer workflows instead of clipboard co
 In addition to existing hosts that are part of the allowed hosts on the [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh), you can add new hostnames or IP addresses on the fly by using a matching SSH Cert Issuer that can provide access.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Key Features):**
+  ### **Key Features:**
 
   - **On-the-Fly Connections**: Users can provide a hostname or IP address for **RDP** or **SSH** sessions as needed.
   - **Temporary Host Addition**: Hostnames added through this feature are temporary and stored in the browser’s cache.
