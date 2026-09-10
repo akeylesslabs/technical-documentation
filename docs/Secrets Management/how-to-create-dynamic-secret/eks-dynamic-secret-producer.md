@@ -139,9 +139,7 @@ akeyless dynamic-secret get-value --name <Path to the dynamic secret>
 Then on the `kubeconfig` you need to replace the `<Dynamic Secret Value goes here >` with the response token exactly as you received it.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Single&#x20;**`kubeconfig`**&#x20;Generation):**
+  ### **Single&#x20;**`kubeconfig`**&#x20;Generation:**
 
   Akeyless supports generation of a single `kubeconfig` file. For more information see [here](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#single-kubeconfig-generation)
 </Callout>
-
-<br />
