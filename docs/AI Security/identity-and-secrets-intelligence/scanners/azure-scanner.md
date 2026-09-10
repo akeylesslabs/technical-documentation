@@ -91,6 +91,6 @@ These permissions are optional. If missing, the scan still completes, but with r
 2. Click the Azure scanner.
 3. Click **Start Scan**.
 
-Once the scan completes, results appear in [Inventory](doc:identity-and-secrets-intelligence#inventory) for review.
+Once the scan completes, results appear in **Inventory** for review.
 
 <br />
