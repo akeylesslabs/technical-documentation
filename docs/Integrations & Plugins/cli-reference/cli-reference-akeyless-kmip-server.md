@@ -22,9 +22,11 @@ KMIP commands are grouped by lifecycle:
 * **Client lifecycle**: Create, inspect, update, renew, and delete KMIP clients.
 * **Authorization lifecycle**: Add and remove KMIP client RBAC rules.
 
-> ℹ️ **Note (CLI and API operation names):**
->
-> `kmip-server-update` and `kmip-client-update` are valid CLI commands and also appear in REST API schemas. Use update commands to manage certificate expiration-event settings. Use renew commands to issue new certificates.
+<Callout icon="ℹ️" theme="info">
+  ### **CLI and API operation names:**
+
+  `kmip-server-update` and `kmip-client-update` are valid CLI commands and also appear in REST API schemas. Use update commands to manage certificate expiration-event settings. Use renew commands to issue new certificates.
+</Callout>
 
 ## Environment Lifecycle Commands
 
@@ -360,8 +362,10 @@ Use `--client-id <KMIP_CLIENT_ID>` instead of `--name` when needed.
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-> ℹ️ **Info (Writing commands - generating secrets):**
->
-> The default Akeyless Vault behavior is that the write commands (generate secrets) are performed in the main region of Akeyless Vault, while the read commands (fetch secrets) are performed in the nearest region to you to minimize latency.
-> If you wish to change that and work only with the main region, please add
-> `optimize_dns_disable=true` in the settings file.
+<Callout icon="ℹ️" theme="info">
+  ### **Info (Writing commands - generating secrets):**
+
+  The default Akeyless Vault behavior is that the write commands (generate secrets) are performed in the main region of Akeyless Vault, while the read commands (fetch secrets) are performed in the nearest region to you to minimize latency.
+  If you wish to change that and work only with the main region, please add
+  `optimize_dns_disable=true` in the settings file.
+</Callout>
