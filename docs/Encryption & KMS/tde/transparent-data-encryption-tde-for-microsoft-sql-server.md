@@ -111,7 +111,7 @@ PROVIDER_KEY_NAME = 'SQL_Server_Key';
 GO
 ```
 
-> ℹ️ **Note (Clusters):**
+> ℹ️ **Clusters:**
 >
 > When working with a cluster, execute the above command only on the primary server. On all other servers, use:
 
