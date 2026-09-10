@@ -1,6 +1,5 @@
 ---
 title: GitHub Copilot
-slug: mcp-github-copilot
 excerpt: Connect GitHub Copilot to the Akeyless MCP Server.
 deprecated: false
 hidden: false
@@ -8,6 +7,7 @@ metadata:
   title: ''
   description: ''
   robots: index
+slug: mcp-github-copilot
 ---
 Connect GitHub Copilot to the Akeyless MCP Server when you want Copilot to access Akeyless tools through MCP.
 
@@ -79,6 +79,11 @@ The following examples show common authentication configurations:
   }
 }
 ```
+
+Akeyless exposes two separate MCP entry points:
+
+- `mcp` - Managing Akeyless itself - browsing, reading, and writing vault objects
+- `mcp-runtime-authority` - execute actions on resources, without exposing secrets to the model
 
 Start Copilot with MCP:
 

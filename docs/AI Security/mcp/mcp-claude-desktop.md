@@ -1,6 +1,5 @@
 ---
 title: Claude Desktop
-slug: mcp-claude-desktop
 excerpt: Connect Claude Desktop to the Akeyless MCP Server.
 deprecated: false
 hidden: false
@@ -8,6 +7,7 @@ metadata:
   title: ''
   description: ''
   robots: index
+slug: mcp-claude-desktop
 ---
 Connect Claude Desktop to the Akeyless Model Context Protocol (MCP) Server when you want Claude Desktop to access Akeyless tools through MCP.
 
@@ -72,6 +72,11 @@ The following examples show common authentication configurations:
   }
 }
 ```
+
+Akeyless exposes two separate MCP entry points:
+
+- `mcp` - Managing Akeyless itself - browsing, reading, and writing vault objects
+- `mcp-runtime-authority` - execute actions on resources, without exposing secrets to the model
 
 ## Verify The Integration
 
