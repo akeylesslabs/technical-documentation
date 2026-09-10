@@ -44,6 +44,7 @@ To set up an Access Role for ISI, run the following commands:
      --isi-access <scoped|all>
    ```
    Where:
+
    * `--name`: the name of the Access Role to create.
    * `--isi-access`: the level of ISI administrative access to grant the role, `scoped` or `all`.
 2. Associate the Role with an [Authentication Methods](doc:access-and-authentication-methods) Auth Method:
