@@ -1,6 +1,5 @@
 ---
 title: KMIP Server
-slug: kmip-server
 excerpt: Key Management Interoperability Protocol (KMIP) Server
 deprecated: false
 hidden: false
@@ -14,6 +13,7 @@ next:
     - type: basic
       slug: kmip-for-vsphere
       title: KMIP for Vsphere
+slug: kmip-server
 ---
 The [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) built-in Key Management Interoperability Protocol (KMIP) server handles the lifecycle of KMIP-managed objects.
 
@@ -34,9 +34,11 @@ To route these events to operational channels, configure an [Event Forwarder](ht
 
 For audit action taxonomy, see [Log Actions](https://docs.akeyless.io/docs/log-actions).
 
-> ℹ️ **Note:**
->
-> Only users from your Gateway admins list can configure the KMIP server.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Only users from your Gateway admins list can configure the KMIP server.
+</Callout>
 
 ## Recommended Workflow
 
@@ -73,9 +75,11 @@ Flags:
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-server-setup) section.
 
-> ℹ️ **Note:**
->
-> Make sure to replace the `hostname` field with your **Akeyless Gateway** hostname.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Make sure to replace the `hostname` field with your **Akeyless Gateway** hostname.
+</Callout>
 
 This returns the CA certificate:
 
@@ -96,11 +100,13 @@ This command automatically creates two items under the KMIP root path:
 
 This guide uses MongoDB Enterprise as an example KMIP client.
 
-> ℹ️ **Note:**
->
-> This guide was created using MongoDB version 4.2 or earlier.
->
-> **Activate Keys** - Akeyless supports an optional setting to enable keys upon creation automatically. To set this function by default for your client, provide the `--activate-keys-on-creation=true` setting as part of your client creation command.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  This guide was created using MongoDB version 4.2 or earlier.
+
+  **Activate Keys** - Akeyless supports an optional setting to enable keys upon creation automatically. To set this function by default for your client, provide the `--activate-keys-on-creation=true` setting as part of your client creation command.
+</Callout>
 
 ```shell
 akeyless kmip-create-client \
@@ -136,9 +142,11 @@ MIIDSz...0otOEQQ==
 -----END CERTIFICATE-----
 ```
 
-> ℹ️ **Note:**
->
-> Save the received certificate and key in a safe place. They will be used to set up the connection.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Save the received certificate and key in a safe place. They will be used to set up the connection.
+</Callout>
 
 After creation, the key and certificate are not shown again. To retrieve KMIP client IDs:
 
@@ -171,9 +179,11 @@ This command grants our MongoDB KMIP client the ability to create and retrieve o
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-client-set-rule) section.
 
-> ℹ️ **Note:**
->
-> These roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  These roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
+</Callout>
 
 ### Step 4 (Optional): Update expiration-event settings
 
@@ -246,15 +256,15 @@ The command output shows the created KMIP key ID:
 
 2. Define KMIP server settings as follows:
 
-    * **Gateway:** Select the Gateway where you will set up your KMIP server.
+   * **Gateway:** Select the Gateway where you will set up your KMIP server.
 
-    * **Custom hostname:** Select this checkbox if you want to provide an alternative hostname for the KMIP server.
+   * **Custom hostname:** Select this checkbox if you want to provide an alternative hostname for the KMIP server.
 
-    * **Hostname:** Provide the hostname for the KMIP server. By default, use the hostname of the selected Gateway.
+   * **Hostname:** Provide the hostname for the KMIP server. By default, use the hostname of the selected Gateway.
 
-    * **Location:** Specify the path to the Akeyless folder where you want to create the new KMIP server objects, using the slash `/` separators. If the folder does not exist, it will be created together with the server.
+   * **Location:** Specify the path to the Akeyless folder where you want to create the new KMIP server objects, using the slash `/` separators. If the folder does not exist, it will be created together with the server.
 
-    * **Certificate TTL:** Specify the TTL of the KMIP Server certificate (in days).
+   * **Certificate TTL:** Specify the TTL of the KMIP Server certificate (in days).
 
 3. Click **Setup** to save the changes.
 
@@ -264,13 +274,13 @@ The command output shows the created KMIP key ID:
 
 2. Define the KMIP client settings as follows:
 
-    * **Name:** Define the name of the KMIP client.
+   * **Name:** Define the name of the KMIP client.
 
-    * **Certificate TTL:** Specify the TTL of the Client certificate (in days).
+   * **Certificate TTL:** Specify the TTL of the Client certificate (in days).
 
-    * **Restrict to the following path:** Provide a path where this client will store all its objects. Default value is /KMIP/data.
+   * **Restrict to the following path:** Provide a path where this client will store all its objects. Default value is /KMIP/data.
 
-    * **Allow the following actions:** Select all the actions that are allowed to this client on the relevant path.
+   * **Allow the following actions:** Select all the actions that are allowed to this client on the relevant path.
 
 3. Click **Setup** to save the changes.
 
@@ -278,13 +288,15 @@ The command output shows the created KMIP key ID:
 
 ## Troubleshooting
 
-> ℹ️ **Note (Handling the "Cannot Parse Attribute: Unique Identifier" Error):**
->
-> If you see the following error when starting MongoDB:
->
-> `errmsg: Cannot parse attribute: Unique Identifier. Not implemented.`
->
-> This means the KMIP server is returning the key ID in a format MongoDB doesn’t support (for example, as a `ByteString` instead of `TextString`).
+<Callout icon="ℹ️" theme="info">
+  ### **Handling the "Cannot Parse Attribute: Unique Identifier" Error:**
+
+  If you see the following error when starting MongoDB:
+
+  `errmsg: Cannot parse attribute: Unique Identifier. Not implemented.`
+
+  This means the KMIP server is returning the key ID in a format MongoDB doesn’t support (for example, as a `ByteString` instead of `TextString`).
+</Callout>
 
 Resolution Steps
 
