@@ -17,9 +17,11 @@ next:
       slug: configuring-tls
       title: Configuring TLS
 ---
-> ℹ️ **Note (Gateway New Chart):**
->
-> The Gateway new chart docs is now available [here](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm).
+<Callout icon="ℹ️" theme="info">
+  ### **Gateway New Chart:**
+
+  The Gateway new chart docs is now available [here](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm).
+</Callout>
 
 This page includes only Google Kubernetes Engine (GKE)-specific delta steps.
 
@@ -69,9 +71,11 @@ nodeSelector:
   iam.gke.io/gke-metadata-server-enabled: "true"
 ```
 
-> ℹ️ **Info:**
->
-> For Autopilot clusters, omit `nodeSelector`. Autopilot rejects this selector because all nodes already use workload identity.
+<Callout icon="ℹ️" theme="info">
+  ### **Info:**
+
+  For Autopilot clusters, omit `nodeSelector`. Autopilot rejects this selector because all nodes already use workload identity.
+</Callout>
 
 ## Validation Delta
 
@@ -79,15 +83,15 @@ After deployment, validate GKE workload identity integration:
 
 1. Confirm pod health:
 
-    ```shell
-    kubectl get pods -n <namespace>
-    ```
+   ```shell
+   kubectl get pods -n <namespace>
+   ```
 
 2. Confirm ServiceAccount annotations:
 
-    ```shell
-    kubectl get sa <GKE ServiceAccount Name> -n <namespace> -o yaml
-    ```
+   ```shell
+   kubectl get sa <GKE ServiceAccount Name> -n <namespace> -o yaml
+   ```
 
 3. Validate Gateway login and management endpoint connectivity.
 
