@@ -43,6 +43,7 @@ To set up an Access Role for ISI, run the following commands:
      --name <role-name> \
      --isi-access <scoped|all>
    ```
+
    Where:
 
    * `--name`: the name of the Access Role to create.
@@ -61,12 +62,12 @@ To set up an Access Role for ISI, run the following commands:
 
 Use these views to explore the product from high-level posture down to specific remediation actions:
 
-| View                                                       | Purpose                                                                                                                                                                                                                          |
-| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Dashboard**                                              | trends, top 5 issues to address first, and Scanners Overview.                                                                                                                                                                    |
-| Inventory                                                  | Drill into findings by type, status, and severity. Opening a finding surfaces why it matters, a graph of related objects and blast radius, and remediation steps, including AI-powered investigation and remediation assistance. |
-| [Scanners](doc:identity-and-secrets-intelligence-scanners) | Manage scanners and review scan history and details.                                                                                                                                                                             |
-| [Policies](doc:identity-and-secrets-intelligence-policies) | Review policy scope and status.                                                                                                                                                                                                  |
+| View                                                       | Purpose                                                                                                                                                                                                                                       |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Dashboard**                                              | trends, top 5 issues to address first, and Scanners Overview.                                                                                                                                                                                 |
+| Inventory                                                  | Drill into findings by type, status, and severity. Export findings, open finding surfacing why it matters, a graph of related objects and blast radius, and remediation steps, including AI-powered investigation and remediation assistance. |
+| [Scanners](doc:identity-and-secrets-intelligence-scanners) | Manage scanners and review scan history and details.                                                                                                                                                                                          |
+| [Policies](doc:identity-and-secrets-intelligence-policies) | Review policy scope and status.                                                                                                                                                                                                               |
 
 ## Next Steps
 
