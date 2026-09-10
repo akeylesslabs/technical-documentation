@@ -40,7 +40,7 @@ You can use these metrics to track:
 
 Akeyless Gateway exposes metrics through a pull-based `/metrics` endpoint.
 
-Monitoring systems such as Prometheus can scrape this endpoint directly. If you use Datadog or another observability backend, you can collect these metrics through the backend's Prometheus scraping support or by using an OpenTelemetry Collector pipeline.
+Monitoring systems such as Prometheus can scrape this endpoint directly. If you use Datadog, see [Datadog Integration](#datadog-integration) below for the supported Agent configuration. For other observability backends, an OpenTelemetry Collector can also scrape this endpoint and export the metrics, see [Optional: Use OpenTelemetry Collector](#optional-use-opentelemetry-collector).
 
 The Gateway does not store long-term metric history. Use an external metrics backend for historical analysis, dashboards, and alerting.
 
@@ -60,25 +60,23 @@ The following metric families are currently available:
 
 | Metric                                           | Description                                                       |
 | ------------------------------------------------ | ----------------------------------------------------------------- |
-| `akeyless_gw_system_cpu_*`                       | CPU utilization metrics                                           |
+| `akeyless_gw_system_cpu_*`                       | CPU utilization and load average metrics (`cpu_usage_percent`, `cpu_load_average_1m` / `_5m` / `_15m`) |
+| `akeyless_gw_system_cpu_throttled_periods_total` / `akeyless_gw_system_cpu_throttled_seconds_total` | CPU throttling metrics. Despite the `_total` suffix, both are emitted as gauges, not counters, do not use `rate()` or `increase()` on them |
 | `akeyless_gw_system_disk_*`                      | Disk I/O metrics                                                  |
-| `akeyless_gw_system_load_*`                      | CPU load metrics                                                  |
 | `akeyless_gw_system_memory_*`                    | Memory utilization metrics                                        |
-| `akeyless_gw_system_network_*`                   | Network interface I/O metrics and TCP connection metrics          |
+| `akeyless_gw_system_network_*`                   | Network interface I/O metrics (`network_io_receive_bytes`, `network_io_transmit_bytes`) |
 | `akeyless_gw_system_saas_connection_status`      | Gateway connectivity status to Akeyless SaaS services             |
 | `akeyless_gw_quota_current_transactions_number`  | Current total transaction count in the account                    |
 | `akeyless_gw_quota_gw_admin_client_transactions` | Total transactions made by the Gateway default identity           |
 | `akeyless_gw_quota_total_transactions_limit`     | Total hourly transaction limit for the account                    |
-| `akeyless_gw_system_http_response_status_code`   | HTTP response status codes for requests served by the Gateway API |
-| `akeyless_gw_system_request_count`               | Total requests issued directly against the Gateway API            |
+| `akeyless_gw_system_http_response_status_code_total` | HTTP response status codes for requests served by the Gateway API (canonical counter). Also emitted without the `_total` suffix as a legacy, transitional name |
+| `akeyless_gw_system_request_count_total`         | Total requests issued directly against the Gateway API (canonical counter). Also emitted without the `_total` suffix as a legacy, transitional name |
 | `akeyless_gw_system_healthcheck_status`          | Gateway container health check status                             |
 
 To monitor Gateway API traffic, use the following metrics together:
 
-- `akeyless_gw_system_request_count`
-- `akeyless_gw_system_http_response_status_code`
-
-The `akeyless_gw_system_network_*` metric family includes network interface and TCP connection behavior.
+- `akeyless_gw_system_request_count_total`
+- `akeyless_gw_system_http_response_status_code_total`
 
 ## Metric Types and Usage Notes
 
@@ -91,10 +89,16 @@ Status metrics represent the current state of a Gateway pod. For example:
 
 Counter metrics increase over time. For example:
 
-- `akeyless_gw_system_http_response_status_code`
-- `akeyless_gw_system_request_count`
+- `akeyless_gw_system_http_response_status_code_total`
+- `akeyless_gw_system_request_count_total`
 
 When using Prometheus, use functions such as `rate()` or `increase()` for counter-based dashboards and alerts instead of using raw counter values.
+
+<Callout icon="⚠️" theme="warning">
+  ### Some `_total`-suffixed metrics are gauges
+
+  `akeyless_gw_system_cpu_throttled_periods_total` and `akeyless_gw_system_cpu_throttled_seconds_total` follow the `_total` naming convention but are emitted as gauges, not counters. Applying `rate()` or `increase()` to them produces incorrect results.
+</Callout>
 
 ## Status Metrics
 
@@ -139,7 +143,7 @@ kube_deployment_status_replicas_available
 
 ## HTTP Response Metric Behavior
 
-`akeyless_gw_system_http_response_status_code` is a counter with status-code labels.
+`akeyless_gw_system_http_response_status_code_total` is a counter with status-code labels. It is also emitted without the `_total` suffix as a legacy, transitional name.
 
 When using Prometheus, use `rate()` or `increase()` for alerts and dashboard calculations instead of using the raw counter value.
 
@@ -147,7 +151,7 @@ Example:
 
 ```shell PromQL
 sum by (status_code) (
-  rate(akeyless_gw_system_http_response_status_code[5m])
+  rate(akeyless_gw_system_http_response_status_code_total[5m])
 )
 ```
 
@@ -196,18 +200,29 @@ globalConfig:
 
 Use `prometheus.io/scheme: "https"` if your Gateway metrics endpoint is exposed over HTTPS.
 
-## Datadog Dashboard
+## Datadog Integration
 
-Akeyless is an official Datadog Partner, and the Akeyless Gateway dashboard is available through Datadog Integrations.
+Datadog is a push-based backend, so `/metrics` must be scraped and forwarded to it, Datadog does not pull the endpoint on its own. Install the [Datadog Agent](https://docs.datadoghq.com/containers/kubernetes/installation/) somewhere that can reach the Gateway on port `8000`, and configure its [OpenMetrics check](https://docs.datadoghq.com/integrations/openmetrics/) via Autodiscovery to scrape `/metrics`:
 
-To use the dashboard:
+```yaml
+annotations:
+  ad.datadoghq.com/akeyless-gateway.checks: |
+    {
+      "openmetrics": {
+        "instances": [
+          {
+            "openmetrics_endpoint": "http://%%host%%:8000/metrics",
+            "namespace": "akeyless",
+            "metrics": ["akeyless_gw_.*"]
+          }
+        ]
+      }
+    }
+```
 
-1. In Datadog, go to **Integrations**.
-2. Install the **Akeyless Gateway** integration.
-3. Go to **Dashboards**.
-4. Open the **Akeyless GW** dashboard.
+Metrics then appear in Datadog under `<namespace>.akeyless_gw_*` (for example `akeyless.akeyless_gw_system_healthcheck_status`). Use **Metrics Explorer** to confirm data is flowing, filtering by your namespace.
 
-You can also use **Metrics Explorer** and filter by: `akeyless_gw`
+For the full setup, including Docker/VM Agent configuration and HTTPS endpoints, see the [Datadog Akeyless Gateway integration](https://github.com/DataDog/integrations-extras/tree/master/akeyless_gateway).
 
 ## Grafana Dashboard with Prometheus
 
@@ -253,8 +268,8 @@ Consider configuring alerts for the following conditions:
 | ----------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
 | Gateway health    | `akeyless_gw_system_healthcheck_status`                                                          | Alert when the value is `0` for one or more pods   |
 | SaaS connectivity | `akeyless_gw_system_saas_connection_status`                                                      | Alert when the value is `0` for one or more pods   |
-| API errors        | `akeyless_gw_system_http_response_status_code`                                                   | Alert on an increase in 5xx responses              |
-| API traffic       | `akeyless_gw_system_request_count`                                                               | Alert on unusual traffic drops or spikes           |
+| API errors        | `akeyless_gw_system_http_response_status_code_total`                                             | Alert on an increase in 5xx responses              |
+| API traffic       | `akeyless_gw_system_request_count_total`                                                         | Alert on unusual traffic drops or spikes           |
 | Account quota     | `akeyless_gw_quota_current_transactions_number` and `akeyless_gw_quota_total_transactions_limit` | Alert when usage approaches the hourly quota limit |
 | System resources  | `akeyless_gw_system_cpu_*`, `akeyless_gw_system_memory_*`, `akeyless_gw_system_disk_*`           | Alert on sustained high resource usage             |
 
@@ -297,7 +312,7 @@ This is expected behavior and does not mean the pod is still running.
 
 ### HTTP status code values keep increasing
 
-`akeyless_gw_system_http_response_status_code` is a counter. Counter values are expected to increase over time.
+`akeyless_gw_system_http_response_status_code_total` is a counter. Counter values are expected to increase over time.
 
 Use `rate()` or `increase()` to calculate changes over a time window.
 
@@ -305,7 +320,7 @@ Example:
 
 ```shell PromQL
 sum by (status_code) (
-  increase(akeyless_gw_system_http_response_status_code[5m])
+  increase(akeyless_gw_system_http_response_status_code_total[5m])
 )
 ```
 
@@ -314,5 +329,3 @@ sum by (status_code) (
 - [Gateway Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding)
 - [Troubleshooting the Gateway](https://docs.akeyless.io/docs/gateway-troubleshooting-the-gateway)
 - [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity)
-
-<br />
