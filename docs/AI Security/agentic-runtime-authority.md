@@ -291,7 +291,54 @@ When the MCP server is running, it exposes these workflows:
 * `query-db`: Runs database queries. `payload` and `agent-id` are required. `secret-name` is required per request only when no default `--secret-name` was provided at server startup.
 * `service-execute`: Runs service actions against supported service targets. `secret-name`, `payload`, and `agent-id` are required.
 
-For OAuth-backed service flows, `service-execute` can also require `auth-code` and `state` on the follow-up call after the server returns an authorization URL.
+For OAuth-backed service flows, `service-execute` can also require `auth-code` and `state` on the follow-up call after the server returns an authorization URL.<br />
+
+### For GitHub Copilot
+
+#### Prerequisites
+
+- Akeyless Gateway with ARA enabled (configured on the Dynamic Secret in the Console)
+- Akeyless AI Insights enabled at the account level and on the Gateway
+- A Dynamic, Rotated, or Static Secret set up for the workflow, with an access role granted the ARA
+- Allow Access role-rule on that path
+- Akeyless CLI installed
+
+Create the following file`~/.copilot/mcp-config.json`
+
+Configuration:
+
+```json
+{
+  "mcpServers": {
+    "akeyless-connector": {
+      "command": "akeyless",
+      "args": [
+        "mcp-runtime-authority",
+        "--gateway-url", "https://<your-akeyless-gw-url>:8000",
+        "--profile", "<profile-name>"
+      ],
+      "env": {},
+      "tools": ["*"]
+    }
+  }
+}
+```
+
+Where:
+
+- `--gateway-url`: the Gateway where your ARA-enabled Dynamic Secret lives
+- `--profile`: the Akeyless CLI profile carrying the RBAC permissions for ARA
+- `--secret-name`: sets a default path for the query-db tool; RBAC still governs actual access
+
+Once running, Copilot gets access to three ARA tools:
+
+- `list-secrets`: lists ARA-supported secrets the profile can reach
+- `query-db`: runs database queries (payload + agent-id required)
+- `service-execute`: runs actions against supported service targets, including OAuth-backed flows (GitHub, etc.)
+
+Start it up the same way as any other Copilot MCP server: reload/restart Copilot, or run `/mcp show akeyless-connector` (interactive mode) to confirm it's live.
+
+One difference from the general Akeyless MCP setup you did earlier: this uses the mcp-runtime-authority subcommand specifically (ARA-scoped tools), not the plain mcp subcommand (which exposes the broader secrets/targets tool set). Pick whichever matches what you actually want Copilot to be able to do — general secrets management vs. governed runtime query execution.
 
 ## Query Protected Resources With The CLI
 
