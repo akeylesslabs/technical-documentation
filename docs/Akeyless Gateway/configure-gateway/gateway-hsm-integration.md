@@ -138,7 +138,7 @@ To derive the **Customer Fragment** into the Gateway from the **HSM**, generate 
 ```shell
 akeyless gen-customer-fragment \
 --name HSM_CF \
---type[=standard] <[standard/hsm_wrap_hmac/hsm_wrap_encrypt/hsm_secured]> \
+--type <[standard/hsm_wrap_hmac/hsm_wrap_encrypt/hsm_secured]> \
 --hsm-key-label <"akeyless_hsm">
 ```
 
