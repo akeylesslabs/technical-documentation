@@ -29,7 +29,7 @@ The Desktop Application supports desktop-native access flows for environments th
 
 The Desktop Application creates a tunnel to the designated resource and securely injects the password. To support this process, any user working with the Desktop Application must have [read permission](https://docs.akeyless.io/docs/rbac#permissions-for-items-access-roles-auth-methods-and-targets) on the Secret Item.
 
-> ℹ️ **Note (Tunnel-Based Connections):**
+> ℹ️ **Tunnel-Based Connections:**
 >
 > The Desktop Application establishes connections by way of an encrypted tunnel. Because the bastion cannot inspect tunnel traffic, **session recordings are not captured** for Desktop Application sessions. Additionally, **secretless access does not apply**—users must have explicit `Read` permission on the secret item. See [Tunnels](https://docs.akeyless.io/docs/sra-tunnels) for details.
 
@@ -61,7 +61,7 @@ Download the relevant Desktop Application installer from ([https://download.akey
 
 4. Open the app and sign in with your Akeyless credentials.
 
-> ℹ️ **Note (Installation Folder):**
+> ℹ️ **Installation Folder:**
 >
 > The installation folder contains the following:
 >
@@ -75,7 +75,7 @@ Download the relevant Desktop Application installer from ([https://download.akey
 
 2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window.
 
-    > ⚠️ **Warning (Important):**
+    > ⚠️ **Warning:**
     >
     > 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
     > 2. You also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable true` flag to your CLI command.
@@ -111,7 +111,7 @@ Download the relevant Desktop Application installer from ([https://download.akey
     |  | Direct Connection and Secure Remote Access | Default Browser |  |
     |  | SSH File Transfer (SFTP) | Terminal |  |
 
-    > ⚠️ **Warning (Multiple hosts and linked targets):**
+    > ⚠️ **Warning Multiple hosts and linked targets:**
     >
     > The Desktop Application supports multiple hosts and linked targets. You can add or remove hosts you want to connect to, and then select **Confirm**.
     >
@@ -125,7 +125,7 @@ Download the relevant Desktop Application installer from ([https://download.akey
     * **Control API Port** - The control API port (specify `8000` for a unified Gateway, or `9900` otherwise).
     * **Control API Path** - The SRA control API path (for example, `/sra/ssh-config`).
 
-> ℹ️ **Note (Connection Failures):**
+> ℹ️ **Connection Failures:**
 >
 > If the desktop application fails to connect to the resource, it will display a message prompting you to verify your configuration.
 >
