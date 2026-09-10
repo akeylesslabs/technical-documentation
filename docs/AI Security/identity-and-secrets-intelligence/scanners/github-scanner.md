@@ -30,7 +30,7 @@ All permissions below are **read-only**. The scanner never requires write access
 | Credential                                      | Scope / Permission                                              | Enables                                                                       |
 | ----------------------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | Personal Access Token (classic or fine-grained) | Read access to the organizations/repositories in scope          | Standard organization and repository scanning                                 |
-| GitHub App                                      | `organization_personal_access_tokens` permission                | PAT-grant scanning                                                            |
+| GitHub App                                      | `organization_personal_access_tokens` permission                | PAT - grant scanning                                                          |
 | Classic PAT with `admin:enterprise`             | Enterprise scope (GitHub Apps cannot call enterprise endpoints) | Enterprise-level scanning; audit-log-based features require GitHub Enterprise |
 
 Audit-log-based features are only available with GitHub Enterprise.
