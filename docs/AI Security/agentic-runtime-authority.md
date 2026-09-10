@@ -299,7 +299,7 @@ When the MCP server is running, it exposes these workflows:
 * `query-db`: Runs database queries. `payload` and `agent-id` are required. `secret-name` is required per request only when no default `--secret-name` was provided at server startup.
 * `service-execute`: Runs service actions against supported service targets. `secret-name`, `payload`, and `agent-id` are required.
 
-For OAuth-backed service flows, `service-execute` can also require `auth-code` and `state` on the follow-up call after the server returns an authorization URL.<br />
+For OAuth-backed service flows, `service-execute` can also require `auth-code` and `state` on the follow-up call after the server returns an authorization URL.
 
 ### For GitHub Copilot
 
