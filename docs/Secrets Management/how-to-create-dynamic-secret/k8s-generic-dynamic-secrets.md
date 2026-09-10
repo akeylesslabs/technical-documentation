@@ -126,7 +126,7 @@ subjects:
 If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using either the GW Service Account or the dedicated Service Account (if it's a dedicated Service Account, be sure to extract its Bearer Token).
 
 <Callout icon="ℹ️" theme="info">
-  ### **Info (Kubernetes v1.24 and above):**
+  ### **Kubernetes v1.24 and above:**
 
   Starting from Kubernetes v1.24 and above, note that Service Accounts are created without tokens by default. To provide the privileged Service Account a Bearer Token for creating the [Kubernetes Generic Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic), create the token manually.
 </Callout>
@@ -607,11 +607,9 @@ When duplicate context names are detected during merge:
 - **Auditable:** the same message is written to the log for later review.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Example terminal notice):**
+  ### **Example terminal notice:**
 
   `WARNING: Context "prod-us1" already exists. Keeping the first occurrence; skipped merging duplicate from secret "ds-kube-prod-us1".`
 
   Ensure the user or automation has permission to retrieve the selected Dynamic Secrets.
 </Callout>
-
-<br />
