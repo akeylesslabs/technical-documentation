@@ -19,7 +19,7 @@ To enable Secure Remote Access to a Windows machine you need:
 - [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Custom CA certificates):**
+  ### **Custom CA certificates:**
 
   If your Windows machine uses a certificate signed by a custom or private certificate authority, add the CA certificate to the [Akeyless Gateway trust store](https://docs.akeyless.io/docs/gateway-certificate-store). The gateway validates the RDP connection certificate chain against the configured store, including any custom CA certificates.
 </Callout>
@@ -97,7 +97,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 4. If you are locked out of a session, click on the "Unlock" button at the top of your screen and you will be given the option to reconnect to your session. **IMPORTANT** This option is only supported with the installation of our [Remote Access (SRA) Web Extension](https://chromewebstore.google.com/search/Akeyless%20SRA) on your browser.
 
 <Callout icon="ℹ️" theme="info">
-  ### **Note (Session In Use Indicator):**
+  ### **Session In Use Indicator:**
 
   For RDP sessions using a **Rotated Secret** or **Static Secret**, the **In use** indicator is tracked **per host**. A session marked **In use** on one host does not mark the same secret as **In use** on other hosts.
 
@@ -106,7 +106,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 ## Inject a Fixed User Password Automatically
 
-While working with fixed users, Secure Remote Access can automatically inject your **own** password if stored under your **[personal folder](https://docs.akeyless.io/docs/password-manager-overview)**.
+While working with fixed users, Secure Remote Access can automatically inject your **own** password if stored under your [personal folder](https://docs.akeyless.io/docs/password-manager-overview).
 
 Create a new [Static Secret](https://docs.akeyless.io/docs/static-secrets) under your **personal** folder with the exact full name of the relevant [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
