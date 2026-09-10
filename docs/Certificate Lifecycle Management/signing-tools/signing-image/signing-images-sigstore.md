@@ -21,9 +21,11 @@ The following registries are compatible with the Sigstore signature specificatio
 * **GitLab**
 * **Docker Hub**
 
-> ℹ️ **Note (Gateway Version):**
->
-> This procedure is supported starting from Gateway version **3.59.0**
+<Callout icon="ℹ️" theme="info">
+  ### **Gateway Version:**
+
+  This procedure is supported starting from Gateway version **3.59.0**
+</Callout>
 
 ## Install Cosign CLI
 
