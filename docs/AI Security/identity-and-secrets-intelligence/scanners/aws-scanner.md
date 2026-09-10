@@ -82,9 +82,9 @@ These permissions are optional. If missing, the scan still completes, but with r
 | Permission                                                                                                                                                               | What it adds                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | `secretsmanager:DescribeSecret`, `secretsmanager:ListSecretVersionIds`                                                                                                   | Secret metadata: rotation status, last access/change dates, version history                 |
-| `secretsmanager:GetResourcePolicy`                                                                                                                                       | Secret resource policies — who is granted access to each secret in the Security Graph       |
+| `secretsmanager:GetResourcePolicy`                                                                                                                                       | Secret resource policies - who is granted access to each secret in the Security Graph       |
 | `iam:ListAccessKeys`, `iam:GetAccessKeyLastUsed`, `iam:ListMFADevices`, `iam:GetLoginProfile`                                                                            | User credential hygiene: stale keys, missing MFA, console access                            |
-| `iam:GetUserPolicy`, `iam:GetRolePolicy`, `iam:GetGroupPolicy`, `iam:GetPolicy`, `iam:GetPolicyVersion`                                                                  | Policy analysis — which identities can access which secrets                                 |
+| `iam:GetUserPolicy`, `iam:GetRolePolicy`, `iam:GetGroupPolicy`, `iam:GetPolicy`, `iam:GetPolicyVersion`                                                                  | Policy analysis - which identities can access which secrets                                 |
 | `iam:ListUserPolicies`, `iam:ListAttachedUserPolicies`, `iam:ListRolePolicies`, `iam:ListAttachedRolePolicies`, `iam:ListGroupPolicies`, `iam:ListAttachedGroupPolicies` | Enumerating the policies attached to each identity (required for the policy analysis above) |
 | `iam:GetGroup`                                                                                                                                                           | Group membership in the Security Graph                                                      |
 
@@ -102,6 +102,6 @@ These permissions are optional. If missing, the scan still completes, but with r
 2. Click the AWS scanner.
 3. Click **Start Scan**.
 
-Once the scan completes, results appear in [Inventory](doc:identity-and-secrets-intelligence#inventory) for review.
+Once the scan completes, results appear in **Inventory** for review.
 
 <br />
