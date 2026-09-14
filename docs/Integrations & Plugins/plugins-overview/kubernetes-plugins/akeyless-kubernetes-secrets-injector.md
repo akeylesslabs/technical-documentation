@@ -777,7 +777,7 @@ kubectl apply -f Akeyless_sidecar.yaml
 Restart rollout tracks secret updates and triggers workload rollout restarts so pods reload updated secret values. This feature runs in the injector webhook server pod, not in application pods.
 
 <Callout icon="❗" theme="error">
-  ### **Important (Auth Method Requirements):**
+  ### **Auth Method Requirements:**
 
   The injector authenticates to Akeyless using credentials configured in its own deployment, such as `AKEYLESS_ACCESS_ID` and `AKEYLESS_ACCESS_TYPE`, and polls for changes through the `list-items` API.
 
