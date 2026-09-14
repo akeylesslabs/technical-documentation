@@ -12,8 +12,8 @@ The Kubernetes Scanner is a native scanner type that inspects a connected Kubern
 ## Prerequisites
 
 - An Akeyless account with the Identity & Secrets Intelligence license.
-- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `5.1.0` and later.
-- A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
+- A deployed and connected [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `5.1.0` and later.
+- A Gateway with [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured.
 - A [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets) representing the service account that will scan the cluster.
 - The credentials used by the Target granted the permissions listed under [Required Kubernetes Permissions](#required-kubernetes-permissions) below.
 - Access to configure and run the scanner, granted via:

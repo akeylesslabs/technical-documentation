@@ -12,7 +12,7 @@ next:
   pages:
     - type: link
       title: Vault Proxy Dynamic Secrets
-      url: https://docs.akeyless.io/docs/dynamic-secrets
+      url: https://docs.akeyless.io/docs/how-to-create-dynamic-secret
 slug: hashicorp-vault-proxy
 ---
 Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static, Rotated and Dynamic Secrets.
@@ -34,7 +34,7 @@ Use the following pages for HashiCorp Vault Proxy integrations and configuration
 
 - [GitHub Actions by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/github-actions-hvp)
 - [HashiCorp Vault Proxy Authentication Methods](https://docs.akeyless.io/docs/vault-proxy-authentication-methods)
-- [Vault Proxy Dynamic Secrets](https://docs.akeyless.io/docs/dynamic-secrets)
+- [Vault Proxy Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
 - [Jenkins Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/jenkins-plugin-via-hvp)
 - [TeamCity Plugin by way of HashiCorp Vault Proxy](https://docs.akeyless.io/docs/teamcity-hcv-plugin)
 

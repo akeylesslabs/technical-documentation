@@ -12,7 +12,7 @@ next:
   pages:
     - type: link
       title: HashiCorp Vault Proxy Dynamic Secrets
-      url: https://docs.akeyless.io/docs/dynamic-secrets
+      url: https://docs.akeyless.io/docs/how-to-create-dynamic-secret
 ---
 ## Vault Token
 

@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-This quick start guide deploys an [Akeyless Gateway](doc:gateway-overview) with [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) on Kubernetes cluster using the [Akeyless CLI](https://docs.akeyless.io/docs/cli), this can also be achieved via Akeyless console.
+This quick start guide deploys an [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) on Kubernetes cluster using the [Akeyless CLI](https://docs.akeyless.io/docs/cli), this can also be achieved via Akeyless console.
 
 For more deployment model check our [Choose a deployment model](https://docs.akeyless.io/docs/sra-setup-overview) guide.
 
 ## &#x20;Prerequisites
 
-- Akeyless [CLI installed](doc:cli).
+- Akeyless [CLI installed](https://docs.akeyless.io/docs/cli).
 - A Kubernetes Cluster&#x20;
 - [kubectl](https://kubernetes.io/docs/tasks/tools/) installed context pointing to the Kubernetes Cluster
 - [Helm](https://helm.sh/) Installed
@@ -30,9 +30,9 @@ For more deployment model check our [Choose a deployment model](https://docs.ake
 
 ## Create an Authentication Method
 
-In this section, we will create an [Authentication Method](doc:access-and-authentication-methods) which will be used to authenticate your [Akeyless Gateway ](doc:gateway-overview)to your Akeyless account.&#x20;
+In this section, we will create an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) which will be used to authenticate your [Akeyless Gateway ](https://docs.akeyless.io/docs/gateway-overview)to your Akeyless account.&#x20;
 
-For this guide, [API Key](doc:auth-with-api-key) authentication is used for simplicity.
+For this guide, [API Key](https://docs.akeyless.io/docs/auth-with-api-key) authentication is used for simplicity.
 
 <ApiKeyWarning />
 
@@ -44,7 +44,7 @@ akeyless auth-method create api-key --name MyFirstAPIKey
 
 ## Create an Access Role
 
-In this section, we will create an [Access Role](doc:rbac) that will be used to authorized your Gateway to execute actions in the Akeyless account.
+In this section, we will create an [Access Role](https://docs.akeyless.io/docs/rbac) that will be used to authorized your Gateway to execute actions in the Akeyless account.
 
 1. Run the following command to create a new access role:
 
@@ -64,7 +64,7 @@ In this section, we will create an [Access Role](doc:rbac) that will be used to 
    akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --rule-type target-rule --capability read --capability list
    ```
 
-4. Associate the [Authentication Method](doc:access-and-authentication-methods) with the Role:
+4. Associate the [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with the Role:
 
    ```shell
    akeyless assoc-role-am --role-name MyFirstRole --am-name MyFirstAPIKey
@@ -74,9 +74,9 @@ In this section, we will create an [Access Role](doc:rbac) that will be used to 
 
 ## Create Your SSH Certificate Issuer
 
-In order to create an [SSH Certificates issuer](doc:sra-ssh-certificates), run the following commands:
+In order to create an [SSH Certificates issuer](https://docs.akeyless.io/docs/sra-ssh-certificates), run the following commands:
 
-1. Create a new RSA [DFC](doc:dfc-deep-dive) Key in your Akeyless account:
+1. Create a new RSA [DFC](https://docs.akeyless.io/docs/dfc-deep-dive) Key in your Akeyless account:
 
    ```shell
    akeyless create-dfc-key -n MyRSAKey -a RSA2048
@@ -211,5 +211,5 @@ For Remote Access, you can access the following:
 
   This guide deployment is **not secured with TLS**.  <br />If you are using `https://console.akeyless.io`, you will not be able to interact with this Gateway as it is not secured with TLS.<br />We strongly recommend not using this setup in production or with real credentials.
 
-  To configure Gateway with TLS check our [TLS Settings](doc:gateway-tls-settings) doc.
+  To configure Gateway with TLS check our [TLS Settings](https://docs.akeyless.io/docs/gateway-tls-settings) doc.
 </Callout>
