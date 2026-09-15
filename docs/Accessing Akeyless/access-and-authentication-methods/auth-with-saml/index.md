@@ -58,20 +58,9 @@ To create a new SAML-based authentication method with the Console:
 2. Select **New**. This opens the authentication method creation wizard.
 3. In **Select Type**, select **SAML**, then select **Next →**.
 4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
-5. Configure the SAML fields. Choose one of three tabs to provide the IdP metadata — **URL**, **XML**, or **Gateway** - then fill in **Allowed Redirect URIs** and **Unique Identifier**. Selecting **Gateway** authenticates this method through a Gateway instead of the SaaS Console — select the target **Gateway** in the field that appears.
+5. Configure general and SAML-specific fields, including **Allowed Redirect URIs**, **Metadata URL** or **Metadata XML**, **Unique Identifier**, and, if this method needs isolated endpoint values, the **Dedicated SAML Endpoint** toggle. To configure metadata, choose one of three tabs: **URL**, **XML**, or **Gateway**. Selecting **Gateway** authenticates this method through a Gateway instead of the SaaS Console — select the target **Gateway** in the field that appears.
 6. Select **Finish**.
 
-> ⚠️### **Note:**
-> When Authentication via Gateway is enabled, this Authentication Method cannot be used from the Akeyless SaaS Console — it can only be used through the selected Gateway.
-
-> ⚠️### **Note:**
-> When Authentication via Gateway is enabled, this Authentication Method cannot be used from the Akeyless SaaS Console — it can only be used through the selected Gateway.
-
-> ⚠️### **Note:**
-> When Authentication via Gateway is enabled, this Authentication Method cannot be used from the Akeyless SaaS Console — it can only be used through the selected Gateway.
-
-<Callout icon="⚠️" theme="warn">
-  ### **Warning:**
 
   The **Unique Identifier** must be a sub-claim key name, not a user value. For example, use `email`, not an actual email address.
 </Callout>
