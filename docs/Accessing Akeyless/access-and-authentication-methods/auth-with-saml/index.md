@@ -58,7 +58,7 @@ To create a new SAML-based authentication method with the Console:
 2. Select **New**. This opens the authentication method creation wizard.
 3. In **Select Type**, select **SAML**, then select **Next →**.
 4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
-5. Configure general and SAML-specific fields, including **Allowed Redirect URIs**, **Metadata URL** or **Metadata XML**, **Unique Identifier**, and, if this method needs isolated endpoint values, the **Dedicated SAML Endpoint** toggle.
+5. Configure general and SAML-specific fields, including **Allowed Redirect URIs**, **Metadata URL** or **Metadata XML**, **Unique Identifier**, and, if this method needs isolated endpoint values, the **Dedicated SAML Endpoint** toggle. To authenticate this method through a Gateway instead of the SaaS Console (for environments without connectivity to Akeyless SaaS), select the **Gateway** tab and choose the target **Gateway**.
 6. Select **Finish**.
 
 <Callout icon="⚠️" theme="warn">
