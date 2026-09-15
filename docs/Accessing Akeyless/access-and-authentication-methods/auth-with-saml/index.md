@@ -26,29 +26,30 @@ This action is distinct from creating a new Akeyless account: it creates an addi
 By default, every SAML Authentication Method uses the same shared Akeyless endpoints. Use these values when configuring your IdP application:
 
 | Endpoint               | Format                                   |
-| ----------------------- | ----------------------------------------- |
+| ---------------------- | ---------------------------------------- |
 | Entity ID / Identifier | `https://auth.akeyless.io/saml/metadata` |
 | Reply URL / ACS URL    | `https://auth.akeyless.io/saml/acs`      |
 
-**Optional — Dedicated SAML Endpoints:** Some IdPs (for example, Microsoft Entra ID) require each SAML application to use unique Entity ID and ACS URL values, which the shared endpoints above can't satisfy if you plan to configure more than one application against the same Akeyless account. When the **Dedicated SAML Endpoint** flag is enabled on a given Authentication Method, that method exposes its own unique set of endpoints, scoped to its Access ID.
+**Optional - Dedicated SAML Endpoints:** Some IdPs (for example, Microsoft Entra ID) require each SAML application to use unique Entity ID and ACS URL values, which the shared endpoints above can't satisfy if you plan to configure more than one application against the same Akeyless account. When the **Dedicated SAML Endpoint** flag is enabled on a given Authentication Method, that method exposes its own unique set of endpoints, scoped to its Access ID.
 
 Replace `<SAML_AUTH_METHOD_ACCESS_ID>` with the Access ID of the matching SAML Authentication Method.
 
 | Endpoint                 | Format                                                                |
-| ------------------------- | ----------------------------------------------------------------------- |
+| ------------------------ | --------------------------------------------------------------------- |
 | Entity ID / Identifier   | `https://auth.akeyless.io/saml/sp/<SAML_AUTH_METHOD_ACCESS_ID>`       |
 | Reply URL / ACS URL      | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>`      |
 | Akeyless SP Metadata URL | `https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>` |
 
-**Optional — Gateway Endpoint:** For environments without connectivity to the Akeyless SaaS backend, a SAML Authentication Method can be configured to authenticate directly through an Akeyless Gateway. When **Gateway** mode is enabled, the Reply URL / ACS points to the Gateway's own endpoint instead of `auth.akeyless.io`, so the IdP redirect lands on the Gateway and the login completes without any request reaching Akeyless SaaS.
+**Optional - Gateway Endpoint:** For environments without connectivity to the Akeyless SaaS backend, a SAML Authentication Method can be configured to authenticate directly through an Akeyless Gateway. When **Gateway** mode is enabled, the Reply URL / ACS points to the Gateway's own endpoint instead of `auth.akeyless.io`, so the IdP redirect lands on the Gateway and the login completes without any request reaching Akeyless SaaS.
 
-| Endpoint            | Format                          |
-| -------------------- | ---------------------------------- |
+| Endpoint            | Format                            |
+| ------------------- | --------------------------------- |
 | Reply URL / ACS URL | `https://<gateway-host>/saml/acs` |
 
-Once Gateway mode is enabled, this Authentication Method can only be used through that Gateway — it's no longer available from the Akeyless SaaS Console. Secret requests from the resulting session are also served by the same Gateway, from its local cache (see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching)), so both login and secret retrieval can run without SaaS connectivity, as long as secrets were cached beforehand.
+Once Gateway mode is enabled, this Authentication Method can only be used through that Gateway - it's no longer available from the Akeyless SaaS Console. Secret requests from the resulting session are also served by the same Gateway, from its local cache (see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching)), so both login and secret retrieval can run without SaaS connectivity, as long as secrets were cached beforehand.
 
-See the IdP-specific guides ([Okta](https://docs.akeyless.io/docs/saml-auth-okta ""), [Ping Identity](https://docs.akeyless.io/docs/saml-auth-ping-identity ""), [Azure AD](https://docs.akeyless.io/docs/saml-auth-azure-ad "")) for setup order and IdP-specific screens when using dedicated endpoints.
+See the IdP-specific guides ([Okta](https://docs.akeyless.io/docs/saml-auth-okta), [Ping Identity](https://docs.akeyless.io/docs/saml-auth-ping-identity), [Azure AD](https://docs.akeyless.io/docs/saml-auth-azure-ad)) for setup order and IdP-specific screens when using dedicated endpoints.
+
 ### Creating a SAML Authentication Method with the Console
 
 To create a new SAML-based authentication method with the Console:
@@ -165,7 +166,7 @@ For all available update flags, see [CLI Reference - Authentication](https://doc
 If SAML sign-in fails, check the following:
 
 - The SAML Authentication Method **Access ID** is correct.
-- The IdP configuration uses the correct endpoint values for this specific Authentication Method — the shared endpoints by default, or the dedicated endpoints if **Dedicated SAML Endpoint** is enabled on that method.
+- The IdP configuration uses the correct endpoint values for this specific Authentication Method - the shared endpoints by default, or the dedicated endpoints if **Dedicated SAML Endpoint** is enabled on that method.
 - **Metadata URL** or **Metadata XML** is current.
 - **Unique Identifier** matches a key that exists in IdP assertions.
 - **Allowed Redirect URIs** includes the redirect URI used by the client.
