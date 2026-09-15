@@ -58,7 +58,7 @@ To create a new SAML-based authentication method with the Console:
 2. Select **New**. This opens the authentication method creation wizard.
 3. In **Select Type**, select **SAML**, then select **Next →**.
 4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
-5. Configure the SAML fields. Choose one of three tabs to provide the IdP metadata — **URL**, **XML**, or **Gateway** — then fill in **Allowed Redirect URIs** and **Unique Identifier**. Selecting **Gateway** authenticates this method through a Gateway instead of the SaaS Console — select the target **Gateway** in the field that appears.
+5. Configure the SAML fields. Choose one of three tabs to provide the IdP metadata - **URL**, **XML**, or **Gateway** — then fill in **Allowed Redirect URIs** and **Unique Identifier**. Selecting **Gateway** authenticates this method through a Gateway instead of the SaaS Console.
 6. Select **Finish**.
 
 The **Unique Identifier** must be a sub-claim key name, not a user value. For example, use `email`, not an actual email address. </Callout>
