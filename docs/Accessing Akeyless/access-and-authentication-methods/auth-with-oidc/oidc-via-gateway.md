@@ -98,6 +98,3 @@ with the profile:
 | IdP error on redirect URI mismatch           | The IdP is still configured with `https://auth.akeyless.io/oidc/callback`. Repoint it to `https://<Your-Akeyless-GW-URL>:8000/api/oidc-callback`.                                         |
 | Permission denied when saving the binding    | The user lacks **Admin** permission on the target Gateway. See [Gateway Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference).                |
 | Browser TLS error during login               | The Gateway is not served over HTTPS at `https://<Your-Akeyless-GW-URL>:8000`. See [TLS Settings](https://docs.akeyless.io/docs/gateway-tls-settings).                                    |
-
-```
-```
