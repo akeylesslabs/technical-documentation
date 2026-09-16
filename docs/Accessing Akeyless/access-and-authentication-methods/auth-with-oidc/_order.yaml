@@ -4,3 +4,4 @@
 - gitlab-oidc
 - google-oidc
 - okta-oidc
+- oidc-via-gateway
