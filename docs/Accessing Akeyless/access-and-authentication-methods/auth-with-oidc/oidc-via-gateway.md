@@ -85,8 +85,6 @@ akeyless auth \
   --gateway-url https://<Your-Akeyless-GW-URL>:8000
 ```
 
-Alternatively, set `gateway-url` once on the CLI profile.
-
 ### Troubleshooting
 
 | Symptom                                      | Cause and resolution                                                                                                                                                                      |
