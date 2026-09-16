@@ -1,7 +1,7 @@
 ---
 title: OIDC via Gateway
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -85,9 +85,7 @@ akeyless auth \
   --gateway-url https://<Your-Akeyless-GW-URL>:8000
 ```
 
-Alternatively, set `gateway-url` once on the CLI profile with
-[akeyless configure](https://docs.akeyless.io/docs/cli-reference#configure) and then authenticate
-with the profile:
+Alternatively, set `gateway-url` once on the CLI profile.
 
 ### Troubleshooting
 
