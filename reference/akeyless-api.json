@@ -19420,6 +19420,11 @@
         "email_pass_access_rules": {
           "$ref": "#/definitions/EmailPassAccessRules"
         },
+        "enforce_client_type": {
+          "description": "EnforceClientType mirrors the SaaS Auth client-type enforcement decision\n(GwAuthEligibilityReply.EnforceClientType) captured online, so Gateway-owned\noffline auth and cached-creds usage honor the same enforce flag SaaS uses\n(see base_access.AuthenticateClientType). When false, client-type mismatches\nare not rejected.",
+          "type": "boolean",
+          "x-go-name": "EnforceClientType"
+        },
         "force_sub_claims": {
           "description": "if true the role associated with this auth method must include sub claims",
           "type": "boolean",
@@ -32504,6 +32509,17 @@
         "required_mfa": {
           "$ref": "#/definitions/MFAType"
         },
+        "sub_claims": {
+          "description": "SubClaims carries the IdP-verified RBAC claims for offline placeholder creds\n(empty UAM JWT); parsed from the ID token at callback time.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "x-go-name": "SubClaims"
+        },
         "token": {
           "description": "Credentials tmp token",
           "type": "string",
@@ -32513,6 +32529,11 @@
           "description": "Temporary credentials for accessing the UAM service",
           "type": "string",
           "x-go-name": "UAMAccessCredentials"
+        },
+        "unique_id": {
+          "description": "UniqueId is set only on Gateway-minted offline placeholder creds (empty UAM JWT),\ncarrying the IdP unique identifier so usage-time RBAC can resolve identity.",
+          "type": "string",
+          "x-go-name": "UniqueId"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/auth"
@@ -36466,6 +36487,11 @@
           "type": "boolean",
           "x-go-name": "ForceSubClaims"
         },
+        "gateway-url": {
+          "description": "Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode",
+          "type": "string",
+          "x-go-name": "GatewayUrl"
+        },
         "gw-bound-ips": {
           "description": "A CIDR whitelist with the GW IPs that the access is restricted to",
           "type": "array",
@@ -36800,6 +36826,11 @@
           "description": "if true: enforce role-association must include sub claims",
           "type": "boolean",
           "x-go-name": "ForceSubClaims"
+        },
+        "gateway-url": {
+          "description": "Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode",
+          "type": "string",
+          "x-go-name": "GatewayUrl"
         },
         "gw-bound-ips": {
           "description": "A CIDR whitelist with the GW IPs that the access is restricted to",
@@ -38981,6 +39012,11 @@
           "type": "boolean",
           "x-go-name": "ForceSubClaims"
         },
+        "gateway-url": {
+          "description": "Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode",
+          "type": "string",
+          "x-go-name": "GatewayUrl"
+        },
         "gw-bound-ips": {
           "description": "A CIDR whitelist with the GW IPs that the access is restricted to",
           "type": "array",
@@ -39317,6 +39353,11 @@
           "description": "if true: enforce role-association must include sub claims",
           "type": "boolean",
           "x-go-name": "ForceSubClaims"
+        },
+        "gateway-url": {
+          "description": "Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode",
+          "type": "string",
+          "x-go-name": "GatewayUrl"
         },
         "gw-bound-ips": {
           "description": "A CIDR whitelist with the GW IPs that the access is restricted to",
@@ -41887,6 +41928,11 @@
           "type": "boolean",
           "x-go-name": "ForceSubClaims"
         },
+        "gateway-url": {
+          "description": "Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode",
+          "type": "string",
+          "x-go-name": "GatewayUrl"
+        },
         "gw-bound-ips": {
           "description": "A CIDR whitelist with the GW IPs that the access is restricted to",
           "type": "array",
@@ -42062,6 +42108,11 @@
           "description": "if true: enforce role-association must include sub claims",
           "type": "boolean",
           "x-go-name": "ForceSubClaims"
+        },
+        "gateway-url": {
+          "description": "Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode",
+          "type": "string",
+          "x-go-name": "GatewayUrl"
         },
         "gw-bound-ips": {
           "description": "A CIDR whitelist with the GW IPs that the access is restricted to",
@@ -48451,9 +48502,9 @@
           "type": "string",
           "x-go-name": "PasswordLengthInput"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "target-name": {
@@ -48601,9 +48652,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -48838,9 +48889,9 @@
           "type": "string",
           "x-go-name": "SessionTags"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -49047,9 +49098,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -49239,9 +49290,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -49409,16 +49460,16 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
+          "x-go-name": "SkipDryRun"
+        },
         "skip-ssl": {
           "description": "Skip SSL",
           "type": "boolean",
           "default": true,
           "x-go-name": "SkipSSL"
-        },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
-          "x-go-name": "SkipDryRun"
         },
         "tags": {
           "description": "Add tags attached to this object",
@@ -49578,9 +49629,9 @@
           "type": "string",
           "x-go-name": "RotateSyncURL"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -49704,9 +49755,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -49886,9 +49937,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -50081,9 +50132,9 @@
           "default": "fixed",
           "x-go-name": "ServiceAccountType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -50218,9 +50269,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -50381,9 +50432,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -50551,9 +50602,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -50731,9 +50782,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -50926,9 +50977,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -51174,9 +51225,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -51387,9 +51438,9 @@
           "type": "string",
           "x-go-name": "SecureAccessDomain"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -51655,9 +51706,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -51881,9 +51932,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -52107,9 +52158,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -52257,9 +52308,9 @@
           "type": "string",
           "x-go-name": "OpenAIProjectID"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -52453,9 +52504,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -52684,9 +52735,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -52885,9 +52936,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -53093,9 +53144,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -53344,9 +53395,9 @@
           "type": "string",
           "x-go-name": "SecureAccessOverrideUser"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -53519,9 +53570,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -53719,9 +53770,9 @@
           },
           "x-go-name": "SecureAccessHost"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -53903,9 +53954,9 @@
           "type": "string",
           "x-go-name": "Role"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -54083,9 +54134,9 @@
           "type": "string",
           "x-go-name": "SignerKeyName"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "store-private-key": {
@@ -54376,9 +54427,9 @@
           "type": "boolean",
           "x-go-name": "RevokeAll"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "soft-delete": {
@@ -54453,9 +54504,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -54534,9 +54585,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tmp-creds-id": {
@@ -54646,9 +54697,9 @@
           "type": "string",
           "x-go-name": "PasswordLengthInput"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "target-name": {
@@ -54801,9 +54852,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -55043,9 +55094,9 @@
           "type": "string",
           "x-go-name": "SessionTags"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -55257,9 +55308,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -55454,9 +55505,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -55629,16 +55680,16 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
+          "x-go-name": "SkipDryRun"
+        },
         "skip-ssl": {
           "description": "Skip SSL",
           "type": "boolean",
           "default": true,
           "x-go-name": "SkipSSL"
-        },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
-          "x-go-name": "SkipDryRun"
         },
         "tags": {
           "description": "Add tags attached to this object",
@@ -55803,9 +55854,9 @@
           "type": "string",
           "x-go-name": "RotateSyncURL"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -55934,9 +55985,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -56121,9 +56172,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -56321,9 +56372,9 @@
           "default": "fixed",
           "x-go-name": "ServiceAccountType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -56463,9 +56514,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -56631,9 +56682,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -56806,9 +56857,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -56991,9 +57042,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -57191,9 +57242,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -57444,9 +57495,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -57662,9 +57713,9 @@
           "type": "string",
           "x-go-name": "SecureAccessDomain"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -57935,9 +57986,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -58166,9 +58217,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -58397,9 +58448,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -58552,9 +58603,9 @@
           "type": "string",
           "x-go-name": "OpenAIProjectID"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -58753,9 +58804,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -58989,9 +59040,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -59195,9 +59246,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -59408,9 +59459,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -59664,9 +59715,9 @@
           "type": "string",
           "x-go-name": "SecureAccessOverrideUser"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -59844,9 +59895,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -60049,9 +60100,9 @@
           },
           "x-go-name": "SecureAccessHost"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -60238,9 +60289,9 @@
           "type": "string",
           "x-go-name": "Role"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -60423,9 +60474,9 @@
           "type": "string",
           "x-go-name": "SignerKeyName"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "store-private-key": {
@@ -63485,9 +63536,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -63726,9 +63777,9 @@
           "type": "string",
           "x-go-name": "SessionTags"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -63939,9 +63990,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -64135,9 +64186,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -64309,16 +64360,16 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
+          "x-go-name": "SkipDryRun"
+        },
         "skip-ssl": {
           "description": "Skip SSL",
           "type": "boolean",
           "default": true,
           "x-go-name": "SkipSSL"
-        },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
-          "x-go-name": "SkipDryRun"
         },
         "tags": {
           "description": "Add tags attached to this object",
@@ -64482,9 +64533,9 @@
           "type": "string",
           "x-go-name": "RotateSyncURL"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -64612,9 +64663,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -64798,9 +64849,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -64997,9 +65048,9 @@
           "default": "fixed",
           "x-go-name": "ServiceAccountType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -65138,9 +65189,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -65329,9 +65380,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -65537,9 +65588,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -65769,9 +65820,9 @@
           "type": "string",
           "x-go-name": "SecureAccessDomain"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -66022,9 +66073,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -66271,9 +66322,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -66501,9 +66552,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -66764,9 +66815,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -66969,9 +67020,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -67195,9 +67246,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -67400,9 +67451,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -67612,9 +67663,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -67867,9 +67918,9 @@
           "type": "string",
           "x-go-name": "SecureAccessOverrideUser"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -68046,9 +68097,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -68250,9 +68301,9 @@
           },
           "x-go-name": "SecureAccessHost"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -68438,9 +68489,9 @@
           "type": "string",
           "x-go-name": "Role"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -68622,9 +68673,9 @@
           "type": "string",
           "x-go-name": "SignerKeyName"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "store-private-key": {
@@ -68878,9 +68929,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -69256,9 +69307,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -69346,9 +69397,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -69733,9 +69784,9 @@
           "type": "boolean",
           "x-go-name": "RevokeAll"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "soft-delete": {
@@ -69810,9 +69861,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -69920,9 +69971,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -71795,9 +71846,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -72041,9 +72092,9 @@
           "type": "string",
           "x-go-name": "SessionTags"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -72259,9 +72310,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -72460,9 +72511,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -72639,16 +72690,16 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
+          "x-go-name": "SkipDryRun"
+        },
         "skip-ssl": {
           "description": "Skip SSL",
           "type": "boolean",
           "default": true,
           "x-go-name": "SkipSSL"
-        },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
-          "x-go-name": "SkipDryRun"
         },
         "tags": {
           "description": "Add tags attached to this object",
@@ -72817,9 +72868,9 @@
           "type": "string",
           "x-go-name": "RotateSyncURL"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -72952,9 +73003,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -73143,9 +73194,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -73347,9 +73398,9 @@
           "default": "fixed",
           "x-go-name": "ServiceAccountType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -73493,9 +73544,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -73689,9 +73740,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -73893,9 +73944,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -74130,9 +74181,9 @@
           "type": "string",
           "x-go-name": "SecureAccessDomain"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -74388,9 +74439,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -74642,9 +74693,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -74877,9 +74928,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -75145,9 +75196,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -75355,9 +75406,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -75586,9 +75637,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -75796,9 +75847,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -76013,9 +76064,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -76273,9 +76324,9 @@
           "type": "string",
           "x-go-name": "SecureAccessOverrideUser"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -76457,9 +76508,9 @@
           "type": "string",
           "x-go-name": "ProducerEncryptionKey"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -76666,9 +76717,9 @@
           },
           "x-go-name": "SecureAccessHost"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "ssl": {
@@ -76859,9 +76910,9 @@
           "type": "string",
           "x-go-name": "Role"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -77048,9 +77099,9 @@
           "type": "string",
           "x-go-name": "SignerKeyName"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "store-private-key": {
@@ -77423,9 +77474,9 @@
           },
           "x-go-name": "OutputRules"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tmp-creds-id": {
@@ -81585,9 +81636,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -81836,9 +81887,9 @@
           "type": "string",
           "x-go-name": "SecureAccessEnabled"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -82115,9 +82166,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "storage-account-key-name": {
@@ -82316,9 +82367,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -82589,9 +82640,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -82779,9 +82830,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -82970,9 +83021,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -83187,9 +83238,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -83378,9 +83429,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -83547,9 +83598,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -83810,9 +83861,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -84062,9 +84113,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -84300,9 +84351,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -84533,9 +84584,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -84725,9 +84776,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -84948,9 +84999,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -85196,9 +85247,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -85387,9 +85438,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -85604,9 +85655,9 @@
           },
           "x-go-name": "SecureAccessHost"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -85810,9 +85861,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -86022,9 +86073,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "splunk-token": {
@@ -86347,9 +86398,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -86611,9 +86662,9 @@
           "type": "string",
           "x-go-name": "SecureAccessOverrideUser"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "tags": {
@@ -87078,9 +87129,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -87336,9 +87387,9 @@
           "type": "string",
           "x-go-name": "SecureAccessEnabled"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -87622,9 +87673,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "storage-account-key-name": {
@@ -87830,9 +87881,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -88116,9 +88167,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "target": {
@@ -88318,9 +88369,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -88548,9 +88599,9 @@
           "type": "string",
           "x-go-name": "RotatorType"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -88746,9 +88797,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -88928,9 +88979,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -89198,9 +89249,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "target": {
@@ -89457,9 +89508,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -89702,9 +89753,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -89942,9 +89993,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -90141,9 +90192,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -90371,9 +90422,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -90626,9 +90677,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebCategory"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -90824,9 +90875,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -91048,9 +91099,9 @@
           },
           "x-go-name": "SecureAccessHost"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -91261,9 +91312,9 @@
           "type": "string",
           "x-go-name": "RotationStatement"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "token": {
@@ -91465,9 +91516,9 @@
           "type": "string",
           "x-go-name": "RotationInterval"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "splunk-token": {
@@ -91803,9 +91854,9 @@
           "default": false,
           "x-go-name": "SecureAccessWebProxy"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "target": {
@@ -92080,9 +92131,9 @@
           "type": "string",
           "x-go-name": "SecureAccessOverrideUser"
         },
-        "skip_dry_run": {
-          "description": "If set, dry-run will be skipped",
-          "type": "string",
+        "skip-dry-run": {
+          "description": "If set, dry-run will be skipped [true/false]",
+          "type": "boolean",
           "x-go-name": "SkipDryRun"
         },
         "target": {
@@ -104271,6 +104322,11 @@
           "type": "boolean",
           "x-go-name": "ForceSubClaims"
         },
+        "gateway-url": {
+          "description": "Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode",
+          "type": "string",
+          "x-go-name": "GatewayUrl"
+        },
         "gw-bound-ips": {
           "description": "A CIDR whitelist with the GW IPs that the access is restricted to",
           "type": "array",
@@ -104437,6 +104493,11 @@
           "description": "if true: enforce role-association must include sub claims",
           "type": "boolean",
           "x-go-name": "ForceSubClaims"
+        },
+        "gateway-url": {
+          "description": "Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode",
+          "type": "string",
+          "x-go-name": "GatewayUrl"
         },
         "gw-bound-ips": {
           "description": "A CIDR whitelist with the GW IPs that the access is restricted to",
