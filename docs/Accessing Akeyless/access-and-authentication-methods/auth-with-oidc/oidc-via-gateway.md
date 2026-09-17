@@ -35,11 +35,8 @@ service is not reachable from the client.
   Configuration Manager address (default port `8000`), referred to below as `https://<Your-Akeyless-GW-URL>:8000`.
   See [TLS Settings](https://docs.akeyless.io/docs/gateway-tls-settings) for enabling HTTPS on the
   Gateway.
-- **Admin** permission on the target Gateway. Enabling or changing the Gateway binding on an
-  Authentication Method modifies the Gateway configuration, so it requires the Admin capability in
-  the Gateway's access permissions. See
-  [Gateway Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference)
-  and [Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+- **Admin** permission on the target Gateway. Enabling or changing the Gateway binding on an<br />Authentication Method modifies the Gateway configuration, so it requires the Admin capability in<br />the Gateway's access permissions. See<br />[Gateway Access Permissions Reference](https://docs.akeyless.io/docs/gateway-access-permissions-reference)<br />and [Authentication and Access](https://docs.akeyless.io/docs/gateway-authentication-and-access).
+- The Gateway's own Authentication Method has **read** permission on the OIDC<br />Authentication Method being configured, so the Gateway can retrieve its configuration to<br />validate sign-ins on its behalf. See [Access Roles](https://docs.akeyless.io/docs/rbac) for<br />permission setup.
 - Administrative access to the IdP application, so its redirect URI can be repointed to the
   Gateway.
 
