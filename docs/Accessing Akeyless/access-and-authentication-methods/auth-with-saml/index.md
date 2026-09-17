@@ -40,17 +40,23 @@ Replace `<SAML_AUTH_METHOD_ACCESS_ID>` with the Access ID of the matching SAML A
 | Reply URL / ACS URL      | `https://auth.akeyless.io/saml/acs/<SAML_AUTH_METHOD_ACCESS_ID>`      |
 | Akeyless SP Metadata URL | `https://auth.akeyless.io/saml/metadata/<SAML_AUTH_METHOD_ACCESS_ID>` |
 
-**Optional - Gateway Endpoint:** For environments without connectivity to the Akeyless SaaS backend, a SAML Authentication Method can be configured to authenticate directly through an Akeyless Gateway. When **Gateway** mode is enabled, the Reply URL / ACS points to the Gateway's own endpoint instead of `auth.akeyless.io`, so the IdP redirect lands on the Gateway and the login completes without any request reaching Akeyless SaaS.
+**Optional - Gateway Endpoint:** For environments without connectivity to Akeyless SaaS, a SAML Authentication Method can authenticate through a Gateway instead. When enabled, the IdP sends its reply directly to the Gateway, so login doesn't depend on reaching Akeyless SaaS at all.
 
 | Endpoint            | Format                            |
 | ------------------- | --------------------------------- |
 | Reply URL / ACS URL | `https://<gateway-host>/saml/acs` |
 
-Once Gateway mode is enabled, this Authentication Method can only be used through that Gateway - it's no longer available from the Akeyless SaaS Console. Secret requests from the resulting session are also served by the same Gateway, from its local cache (see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching)), so both login and secret retrieval can run without SaaS connectivity, as long as secrets were cached beforehand.
+<Callout icon="🚧" theme="warn">
+  ### Note:
+
+  The Gateway's own Authentication Method must have **read** permission on this SAML Authentication Method, or it won't be able to validate sign-ins on its behalf.
+</Callout>
+
+Once enabled, this method only works through that Gateway - not the SaaS Console. Secrets are then served from the Gateway's own cache, so both login and secret access can work without SaaS connectivity.
 
 See the IdP-specific guides ([Okta](https://docs.akeyless.io/docs/saml-auth-okta), [Ping Identity](https://docs.akeyless.io/docs/saml-auth-ping-identity), [Azure AD](https://docs.akeyless.io/docs/saml-auth-azure-ad)) for setup order and IdP-specific screens when using dedicated endpoints.
 
-### Creating a SAML Authentication Method with the Console
+## Creating a SAML Authentication Method with the Console
 
 To create a new SAML-based authentication method with the Console:
 
@@ -58,7 +64,7 @@ To create a new SAML-based authentication method with the Console:
 2. Select **New**. This opens the authentication method creation wizard.
 3. In **Select Type**, select **SAML**, then select **Next →**.
 4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
-5. Configure the SAML fields. Choose one of three tabs to provide the IdP metadata - **URL**, **XML**, or **Gateway** — then fill in **Allowed Redirect URIs** and **Unique Identifier**. Selecting **Gateway** authenticates this method through a Gateway instead of the SaaS Console.
+5. Provide the IdP metadata via the **URL** or **XML** tab, then fill in **Allowed Redirect URIs** and **Unique Identifier**. If this method needs isolated endpoint values, enable **Dedicated SAML Endpoint**. To authenticate this method through a Gateway instead of the SaaS Console, turn on **Enable Gateway Authentication** and select the target **Gateway**.
 6. Select **Finish**.
 
 The **Unique Identifier** must be a sub-claim key name, not a user value. For example, use `email`, not an actual email address. </Callout>
@@ -166,6 +172,7 @@ If SAML sign-in fails, check the following:
 - **Metadata URL** or **Metadata XML** is current.
 - **Unique Identifier** matches a key that exists in IdP assertions.
 - **Allowed Redirect URIs** includes the redirect URI used by the client.
+- If using **Gateway Authentication**, confirm the Gateway's own Authentication Method has **read** permission on this SAML Authentication Method.
 
 ## Optional Features
 
