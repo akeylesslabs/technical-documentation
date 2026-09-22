@@ -16,6 +16,25 @@ This page discusses the creation of GCP [Universal Secrets Connectors](https://d
 
 - An [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) with **Read** permission on the target associated with the **USC**.
 - [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Secret Manager Admin](https://cloud.google.com/secret-manager/docs/access-control) role assigned, to allow selecting a KMS encryption key for the secret, add the following roles: [Cloud KMS Viewer](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.viewer) and [Cloud KMS CryptoKey Encrypter and Decrypter](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.cryptoKeyEncrypterDecrypter).
+  - **Custom Role Alternative**: If you do not want to grant the **Secret Manager Admin** role, you can create a custom role in GCP with the following permissions:
+    ```shell
+    secretmanager.secrets.create
+    secretmanager.secrets.delete
+    secretmanager.secrets.get
+    secretmanager.secrets.list
+    secretmanager.secrets.update
+    secretmanager.versions.access
+    secretmanager.versions.add
+    secretmanager.versions.destroy
+    secretmanager.versions.disable
+    secretmanager.versions.enable
+    secretmanager.versions.get
+    secretmanager.versions.list
+    ```
+    **Notes on Scope:**
+    * This custom role is sufficient for **Project** scope.
+      * For **Folder** scope, also assign the `roles/resourcemanager.folderViewer` role on the target folder.
+      * For **Organization** scope, also assign the `roles/resourcemanager.organizationViewer` role at the organization root.
 
 ## Working with Universal Secrets Connector with the CLI
 
