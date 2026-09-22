@@ -33,12 +33,14 @@ This page discusses the creation of GCP [Universal Secrets Connectors](https://d
     secretmanager.versions.get
     secretmanager.versions.list
     ```
+
     **Notes on Scope:**
+
     * This custom role is sufficient for **Project** scope.
 
-      * For **Folder** scope, also assign the `roles/resourcemanager.folderViewer` role on the target folder.
+      * For **Folder** scope, also assign the `roles/resourcemanager.folderViewer` role.
 
-      * For **Organization** scope, also assign the `roles/resourcemanager.organizationViewer` role at the organization root.
+      * For **Organization** scope, also assign the `roles/resourcemanager.organizationViewer` role.
 
 ## Working with Universal Secrets Connector with the CLI
 
