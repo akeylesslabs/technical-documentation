@@ -10,7 +10,7 @@ Secure Remote Access (SRA) has its own authorization model. It is evaluated inde
 <Callout icon="⚠️" theme="warn">
   ### **Breaking change in SRA v3.5.0:**
 
-  Starting with SRA `v3.5.0`, `read` and `list` permissions on a secret no longer grant access to SRA targets. To connect to a target, a user must hold **Allow Access**, **Justify Access Only**, or an approved **Request Access** capability on its path.
+  `read` and `list` permissions on a secret no longer grant access to SRA targets. To connect to a target, a user must hold **Allow Access**, **Justify Access Only**, or an approved **Request Access** capability on its path.
 
   SSH Certificate Issuers are unaffected and continue to accept the item `read` permission. When a target secret is used, no permission on the certificate issuer is required.
 </Callout>
