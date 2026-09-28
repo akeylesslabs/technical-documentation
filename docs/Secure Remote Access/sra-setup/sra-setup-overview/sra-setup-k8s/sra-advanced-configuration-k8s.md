@@ -151,32 +151,3 @@ sshConfig:
     serverAliveInterval: 120
     serverAliveCountMax: 2
 ```
-
-## SSH Agent Forwarding
-
-Starting with SRA `v3.5.0`, multi-hop SSH sessions support SSH agent forwarding. To enable it, set the `SSH_ALLOW_AGENT_FORWARDING` variable as part of your deployment under the `sra.env` section:
-
-```yaml
-sra:
-  env:
-    - name: SSH_ALLOW_AGENT_FORWARDING
-      value: "true"
-```
-
-Users then pass `-A` through to the SSH client when connecting:
-
-```shell
-akeyless connect \
---ssh-extra-args -A \
--t <[user@]target/hostname/ip[:port]>
-```
-
-The SSH key remains on the bastion and is not forwarded to the remote host. The destination server must also permit agent forwarding - set `AllowAgentForwarding yes` in its `sshd_config`.
-
-<Callout icon="⚠️" theme="warn">
-  ### **Security considerations:**
-
-  Agent forwarding exposes the bastion's agent socket to every host in the session chain. A user with root on any of those hosts can use that socket to authenticate as the bastion identity to further systems, for as long as the session is open.
-
-  This variable applies to the whole deployment, not to individual sessions. Enabling it affects every session on that bastion, not only the multi-hop ones that need it.
-</Callout>
