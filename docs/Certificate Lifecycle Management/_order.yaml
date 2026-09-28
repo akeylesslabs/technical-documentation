@@ -1,5 +1,6 @@
 - certificate-lifecycle-management
 - acme-server
+- scep-server
 - certificate-storage
 - certificate-provisioning
 - certificate-discovery
@@ -9,4 +10,3 @@
 - ssh-and-pkitls-certificates
 - public-ca
 - signing-tools
-- scep-server
