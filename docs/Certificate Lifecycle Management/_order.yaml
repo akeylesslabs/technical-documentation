@@ -9,3 +9,4 @@
 - ssh-and-pkitls-certificates
 - public-ca
 - signing-tools
+- scep-server
