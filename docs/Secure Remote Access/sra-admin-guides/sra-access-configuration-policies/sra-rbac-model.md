@@ -31,8 +31,8 @@ SRA capabilities are set with `rule-type sra-rule`:
 | Request Access      | `request_access`      | The user must submit a reason and wait for an approver to grant a time-bounded access window before connecting.                    |
 | Justify Access Only | `justify_access_only` | The user can connect immediately, but must first enter a reason for access (no approval step).                                     |
 | Approval Authority  | `approval_authority`  | The user is an eligible approver for SRA access requests on the specified path.                                                    |
-| Upload Files        | `upload_files`        | Allows uploading local files into a remote target over SFTP. Granted on [SSH Cert Issuer](doc:sra-ssh-certificates)                |
-| Download Files      | `download_files`      | Allows downloading files from a remote target to a local machine over SFTP. Granted on [SSH Cert Issuer](doc:sra-ssh-certificates) |
+| Upload Files        | `upload_files`        | Allows uploading local files into a remote target over SFTP. Granted on [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates)                |
+| Download Files      | `download_files`      | Allows downloading files from a remote target to a local machine over SFTP. Granted on [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) |
 
 ## Approval Authority vs. Request Access
 

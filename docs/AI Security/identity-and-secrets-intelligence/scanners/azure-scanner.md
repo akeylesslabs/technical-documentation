@@ -10,8 +10,8 @@ The Azure Scanner is a native scanner type that inspects a connected Azure subsc
 ## Prerequisites
 
 - An Akeyless account with the Identity & Secrets Intelligence license.
-- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `5.0.1` and later.
-- A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
+- A deployed and connected [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `5.0.1` and later.
+- A Gateway with [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured.
 - An [Azure Target](https://docs.akeyless.io/docs/azure-targets) representing the Azure AD application that will scan the subscription.
 - The Azure AD application used by the Target granted the permissions listed under [Required Azure Permissions](#required-azure-permissions) below.
 - Access to configure and run the scanner, granted via:
