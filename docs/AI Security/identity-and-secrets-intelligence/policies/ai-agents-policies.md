@@ -1,7 +1,9 @@
 ---
-title: 'AI Agents policies '
+title: 'AI Agents Policies '
 deprecated: false
 hidden: false
+link:
+  new_tab: false
 metadata:
   robots: index
 ---
