@@ -48,6 +48,10 @@ For `items-event-source-locations`:
 
 - `certificate-provisioning-failure`: Upon **certificate provisioning** failure
 
+- `certificate-scanning-success`: When a Certificate Discovery scan completes, reporting how many certificates were added and updated across the scanned hosts and ports.
+
+- `certificate-scanning-failure`: When a Certificate Discovery scan fails, or completes with at least one failed target.
+
 - `next-automatic-rotation`: When a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) or an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) is about to rotate automatically, the user sets and controls this event directly from the items.
 
 - `rotated-secret-success`: Upon successful **automatic** rotation.
@@ -70,9 +74,17 @@ For `items-event-source-locations`:
 
 - `apply-justification`: When the user provides a connection justification as part of the Secure Remote Access session.
 
+- `resource-accessed`: When an item with the **Automatically lock this secret after read&#x20;**&#x6F;ption set is accessed.&#x20;
+
+- `secret-unlocked`: When a locked secret or target is unlocked.
+
+- `access-request-expired`: When a pending access request reaches the end of its validity window without being **approved** or **denied.**
+
 For `auth-methods-event-source-locations`:
 
 - `uid-rotation-failure`: On [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) rotation failure, to track the automatic rotation.
+
+- `uid-token-about-to-expire`: When a Universal Identity token passes a configured percentage of its lifetime. Up to two thresholds (1–99%) can be set per auth method.
 
 - `auth-method-pending-expiration`: by default **30 days** in advance before an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is about to expire can be customized.
 
@@ -96,7 +108,7 @@ For `gateways-event-source-locations`:
 
 - `locked-user`: When a user is locked.
 
-- `unlock-user` : When a user is unlocked.
+- `unlocked-user` : When a user is unlocked.
 
 - `password-reset` : When a user reset's the password.
 
