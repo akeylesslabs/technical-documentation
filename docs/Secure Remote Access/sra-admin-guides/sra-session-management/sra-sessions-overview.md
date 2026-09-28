@@ -40,7 +40,7 @@ Starting with SRA `v3.5.0`, a user holding the **Approval Authority** capability
 
 This gives approvers a way to withdraw access they granted, without waiting for the session TTL to expire.
 
-Session revocation is not supported for sessions opened through a [Linked Target](https://docs.akeyless.io/docs/linked-target).
+Currently, Session revocation is not supported for sessions opened through a [Linked Target](https://docs.akeyless.io/docs/linked-target).
 
 ## Filtering Options
 
