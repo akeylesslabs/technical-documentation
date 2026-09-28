@@ -7,6 +7,14 @@ metadata:
 ---
 Secure Remote Access (SRA) has its own authorization model. It is evaluated independently from the **SM** RBAC model that governs `list`, `read`, `create`, `update`, and `delete` on items, targets, auth methods, and access roles. This page defines that boundary and the rules for combining SRA capabilities on the same path.
 
+<Callout icon="⚠️" theme="warn">
+  ### **Breaking change in SRA v3.5.0:**
+
+  Starting with SRA `v3.5.0`, `read` and `list` permissions on a secret no longer grant access to SRA targets. To connect to a target, a user must hold **Allow Access**, **Justify Access Only**, or an approved **Request Access** capability on its path.
+
+  SSH Certificate Issuers are unaffected and continue to accept the item `read` permission. When a target secret is used, no permission on the certificate issuer is required.
+</Callout>
+
 ## SRA RBAC Is Independent of SM RBAC
 
 An Access Role rule written against a secret or target path can grant SM capabilities (for example `list` or `read`) without granting any SRA capability, and it can grant an SRA capability without granting any SM capability. The two rule types are set independently:
@@ -58,5 +66,3 @@ This is the rule set:
 - [RBAC](https://docs.akeyless.io/docs/rbac)
 - [Sub-Claims](https://docs.akeyless.io/docs/sub-claims)
 - [Request Access and Approval Flow](https://docs.akeyless.io/docs/sra-request-access-and-approval-flow)
-
-<br />
