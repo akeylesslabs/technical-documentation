@@ -140,7 +140,7 @@ akeyless connect \
 -t <[user@]target/hostname/ip[:port]>
 ```
 
-The SSH key remains on the bastion and is not forwarded to the remote host. The destination server must also permit agent forwarding — set `AllowAgentForwarding yes` in its `sshd_config`.
+The SSH key remains on the bastion and is not forwarded to the remote host. The destination server must also permit agent forwarding - set `AllowAgentForwarding yes` in its `sshd_config`.
 
 <Callout icon="⚠️" theme="warn">
   ### **Security considerations:**
