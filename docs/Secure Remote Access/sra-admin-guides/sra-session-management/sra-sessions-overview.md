@@ -34,6 +34,12 @@ For Secure Remote Access sessions, the same session ID is used in Session Overvi
 * **Auto-Refresh**: The sessions list automatically updates every 20 seconds to ensure the displayed information is current.
 * **Manual Refresh**: Users have the option to manually refresh the list by clicking the Refresh button.
 
+## Session Revocation
+
+Starting with SRA `v3.5.0`, a user holding the **Approval Authority** capability on a resource can revoke an active session to that resource. The session is terminated immediately and its status changes to `terminated`.
+
+This gives approvers a way to withdraw access they granted, without waiting for the session TTL to expire.
+
 ## Filtering Options
 
 Users can filter the session list based on the following criteria to quickly locate specific sessions:
