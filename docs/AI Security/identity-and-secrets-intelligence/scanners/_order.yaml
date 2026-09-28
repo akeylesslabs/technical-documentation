@@ -4,3 +4,4 @@
 - gcp-scanner
 - github-scanner
 - kubernetes-scanner
+- gitlab-scanner
