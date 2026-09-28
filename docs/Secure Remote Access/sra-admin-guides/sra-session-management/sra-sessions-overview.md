@@ -75,6 +75,8 @@ Every session update is captured in the Audit Log, including the Secure Remote A
 
 For Secure Remote Access session events, user identity is recorded in `sra_unique_identifier`.
 
+Starting with SRA `v3.5.0`, rejected session-start attempts are also recorded in the Sessions Audit, along with the reason for the rejection. This makes failed access attempts visible alongside successful ones, rather than leaving a silent gap.
+
 ## Permissions
 
 * **Self-Session Visibility**: Any user who initiates a session is permitted to view their own session details (there is no need to specify any permission for that).
