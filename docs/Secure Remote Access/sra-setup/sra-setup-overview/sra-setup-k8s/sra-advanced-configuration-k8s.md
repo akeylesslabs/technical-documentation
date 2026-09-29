@@ -167,7 +167,7 @@ Users then pass `-A` through to the SSH client when connecting:
 
 ```shell
 akeyless connect \
---ssh-extra-args -A \
+--ssh-extra-args=-A \
 -t <[user@]target/hostname/ip[:port]>
 ```
 
