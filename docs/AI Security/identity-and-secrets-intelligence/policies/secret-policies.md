@@ -30,8 +30,6 @@ Identity & Secrets Intelligence currently ships the following built-in Secret Po
 | **Excessive Versions**                       | Low      | A secret with more than 10 retained versions                                            | AWS, Akeyless, GCP                            |
 | **Unvalidated Secret Pattern in Code**       | Low      | A secret-like pattern found in code that hasn't been validated as a real credential     | GitHub and GitLab code secrets                |
 
-<br />
-
 ### What's Next
 
 - [Policies](doc:policies)
