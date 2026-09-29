@@ -35,8 +35,6 @@ Identity & Secrets Intelligence currently ships the following built-in AI Agent 
 | **Cross-Account/Cross-Tenant Reach**    | Medium   | An agent's execution role or tool resources reachable from outside the account or organization    |
 | **Decommission Overdue**                | Medium   | An agent flagged stale that is still active more than 180 days after its last change              |
 
-Findings from these policies roll up to **Dashboard** for overall agent posture, and to **Inventory** for the individual agent that triggered them.
-
 ### What's Next
 
 * [Policies](https://docs.akeyless.io/docs/policies)
