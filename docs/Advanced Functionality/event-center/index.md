@@ -36,7 +36,7 @@ For each object type, a **Forwarder** can be set to forward all events for a fol
 
 The following Events are currently supported:
 
-For `items-event-source-locations`:
+For `event-source-type = items | target`:
 
 - `certificate-pending-expiration`: When a certificate is about to expire, the user sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
 
@@ -80,7 +80,7 @@ For `items-event-source-locations`:
 
 - `access-request-expired`: When a pending access request reaches the end of its validity window without being **approved** or **denied.**
 
-For `auth-methods-event-source-locations`:
+For `event-source-type = auth_method ` :
 
 - `uid-rotation-failure`: On [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) rotation failure, to track the automatic rotation.
 
@@ -104,7 +104,7 @@ For `auth-methods-event-source-locations`:
 
 - `password-reset` : When an [email](doc:auth-with-email) user resets their password.
 
-For `gateways-event-source-locations`:
+For `event-source-type = gateways`:
 
 - `gateway-inactive`: When a Gateway changes its state to inactive, it must be set on the Gateway.
 
