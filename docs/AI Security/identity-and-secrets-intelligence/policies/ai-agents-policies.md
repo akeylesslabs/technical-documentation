@@ -9,9 +9,7 @@ metadata:
 ---
 # AI Agent Policies
 
-AI agents act on their own, hold their own credentials, and frequently outlive the person who deployed them, so an unowned or over-privileged agent becomes a standing risk that nobody is actively watching. AI Agent Policies encode ownership, least-privilege, and auditability expectations for every agent in your environment, so agent risk surfaces in **Inventory** the same consistent way secret and identity risk does.
-
-Identity & Secrets Intelligence discovers AI agents as a first-class inventory type alongside secrets, identities, and certificates. Coverage currently spans Amazon Bedrock agents in both the Classic and AgentCore runtimes. Because an agent is also an identity, every applicable Identity Policy is evaluated against it as well, so an agent that is inactive or over-privileged is flagged by those rules in addition to the agent-specific ones below.
+An AI agent that is unowned, over-privileged, or running on a shared or static credential is one of the fastest routes to your data, because it acts on its own, at machine speed, with valid credentials that nobody is watching. AI Agent Policies encode what good agent posture looks like, so every agent in your environment is judged against the same bar instead of relying on manual review.
 
 ## Available AI Agent Policies
 
