@@ -5,3 +5,4 @@
 - github-scanner
 - kubernetes-scanner
 - gitlab-scanner
+- aws-bedrock-scanner
