@@ -10,23 +10,24 @@ metadata:
 ---
 
 Akeyless Usage Reports help administrators monitor secrets, keys, and password manager activity across their organization.
-These reports track requests, actions, and usage trends for secrets and keys, password manager interactions, and billing across users, applications, and service accounts.
-To enable organization-wide views, contact your Account Manager.
 
-## Data scope and retention
+### CLI
 
-### What is included
+Retrieve analytics and usage data:
 
-* All actions and requests involving secrets, keys, and password manager items
-* Usage by users, applications, and service accounts
-* Data from all accounts linked to your organization (if enabled)
+```shell
+akeyless get-analytics-data
+```
 
-### Timeframes
+Sample output:
 
-* Reports can be generated for custom date ranges
-* Default views show the last 30 days
-
-### Retention
-
-* Usage data is retained for 12 months (Enterprise tier; may vary by plan)
-* Exported reports are not deleted automatically
+```json
+{
+  "usage_reports": {
+    "sm": {
+      "total_clients": 17,
+      "ai_clients": 4
+    }
+  }
+}
+```
