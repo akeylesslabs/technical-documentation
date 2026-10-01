@@ -110,3 +110,32 @@ akeyless get-analytics-data --json > usage-reports.json
     * **Top Secrets/Keys**: Most frequently accessed items
     * **Authentication Methods**: SAML, OIDC, LDAP, and more
     * **AI Clients**: Monthly count of clients identified as AI clients, shown as a dedicated category under the Secrets Management section
+
+### CLI filtering examples
+
+Get the monthly AI Clients count for Secret Management:
+
+```shell
+akeyless get-analytics-data --json | jq '.usage_reports.sm.ai_clients'
+```
+
+## Configuration and notifications
+
+### Permissions and RBAC
+
+Access to Usage Reports is controlled by role-based access control (RBAC). To grant a role access, use the following CLI flag:
+
+```shell
+akeyless create-role --name <Role Name> --usage-reports-access all
+```
+
+Supported values: `none`, `all`.
+For more on RBAC, see [Access Roles](https://docs.akeyless.io/docs/rbac).
+
+### Event Center integration
+
+Usage Reports can trigger events and notifications when thresholds are reached. Configure these in the [Event Center](https://docs.akeyless.io/docs/event-center):
+
+* `usage-report`: Notifies when client usage exceeds defined limits.
+
+Event Forwarders can be set up to deliver notifications via email, Slack, ServiceNow, and webhooks.
