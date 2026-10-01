@@ -20,22 +20,22 @@ The GitLab Scanner is a code scanner. It finds credentials committed to your Git
 
 Each finding records the file, line, and commit where the credential was found, a direct link to that line in GitLab, whether the credential is still present in the latest commit, and who introduced it and when. The credential value itself is never stored.
 
-The GitLab Scanner does not discover GitLab CI/CD variables, GitLab users, access tokens, or project permissions. Because it does not enumerate who can access a project, the Security Graph for a GitLab finding shows its group, project, author, and correlated cloud identity, but not a list of identities that can read it.
-
 ## Prerequisites
 
 * An Akeyless account with the Identity & Secrets Intelligence license.
-* A deployed and connected [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `[TBD]` and later.
+* A deployed and connected [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `5.5.0` and later.
 * A Gateway with [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured.
 * Outbound HTTPS access from the Gateway to your GitLab instance.
-* A [GitLab Target](https://docs.akeyless.io/docs/gitlab-target) holding the access token that will scan the group. For a self-managed instance, the Target's **URL** must point to that instance, and its **TLS Certificate** field must be empty. For more information, see [Self-Managed GitLab Instances](#self-managed-gitlab-instances) below.
+* A [GitLab Target](https://docs.akeyless.io/docs/gitlab-target) representing the GitLab user that will scan the group.&#x20;
 * The access token used by the Target granted the scopes listed under [Required GitLab Permissions](#required-gitlab-permissions) below.
 * Access to configure and run the scanner, granted via:
-  * "Manage ISI Scanners" or "Admin" [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-  * "Identity & Secrets Intelligence" [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to Scoped or All.
-  * "List" permission on the GitLab Target.
+  * `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
+  * `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
+  * `List` permission on the GitLab Target.
 
 ## Required GitLab Permissions
+
+- The Target's access token must have the `read_api` and `read_repository` scopes, and its user must be a member of the group with at least the **Reporter** role. For a self-managed instance, the Target's **URL** must point to that instance, and its **TLS Certificate** field must be empty. For more information, see [Self-Managed GitLab Instances](#self-managed-gitlab-instances) below.
 
 The GitLab Scanner authenticates with the access token stored in the GitLab Target. Both a [personal access token](https://docs.gitlab.com/user/profile/personal_access_tokens/) and a [group access token](https://docs.gitlab.com/user/group/settings/group_access_tokens/) are supported.
 
