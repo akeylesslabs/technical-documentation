@@ -46,3 +46,67 @@ To enable organization-wide views, contact your Account Manager.
 3. Select the desired date range and filters (for example, by user, secret, or action).
 4. Review the dashboard for key metrics (total requests, top users, and most-accessed secrets).
 5. To export, open the report action menu and select **Export as JSON**.
+
+### CLI
+
+Retrieve analytics and usage data:
+
+```shell
+akeyless get-analytics-data
+```
+
+Sample output:
+
+```json
+{
+  "date_updated": 1716172800,
+  "usage_reports": {
+    "sm": {
+      "product": "sm",
+      "total_clients": 17,
+      "clients_by_auth_method_types": {
+        "saml2": 10,
+        "oidc": 5,
+        "ldap": 2
+      },
+      "ai_clients": 4,
+      "total_secrets": 530,
+      "secrets_by_types": {
+        "static_secret": 320,
+        "classic_key": 210
+      }
+    }
+  }
+}
+```
+
+For command flags and usage details, see [CLI reference: get-analytics-data](https://docs.akeyless.io/docs/cli#get-analytics-data). For operation-level schema details, see [Get analytics data](https://docs.akeyless.io/reference/getanalyticsdata). For usage report access configuration, see [CLI reference for access roles](https://docs.akeyless.io/docs/cli-reference-access-roles).
+
+### Downloading and exporting reports
+
+#### Web console
+
+1. In the Usage Reports dashboard, apply any filters needed.
+2. Open the report action menu.
+3. Select **Export as JSON**.
+
+#### CLI
+
+1. Run the command and redirect the output to a file:
+
+```shell
+akeyless get-analytics-data --json > usage-reports.json
+```
+
+1. Open `usage-reports.json` for reporting, sharing, or automation.
+
+## Key metrics and filtering
+
+* Use filters to narrow results by user, secret, action type, or time period.
+* Hover over chart elements for detailed tooltips.
+* Common metrics:
+    * **Total Requests**: Number of API/console actions
+    * **Unique Users**: Distinct users who accessed secrets/keys
+    * **Top Secrets/Keys**: Most frequently accessed items
+    * **Authentication Methods**: SAML, OIDC, LDAP, and more
+    * **AI Clients**: Monthly count of clients identified as AI clients, shown as a dedicated category under the Secrets Management section
