@@ -15,7 +15,7 @@ To enable organization-wide views, contact your Account Manager.
 
 ## Data scope and retention
 
-### What is included
+## What is included
 
 * All actions and requests involving secrets, keys, and password manager items (creation, access, update, deletion, authentication events)
 * Usage by users, applications, and service accounts
@@ -39,7 +39,7 @@ To enable organization-wide views, contact your Account Manager.
 
 ## How to access usage reports
 
-### Web console
+## Web console
 
 1. Log in to the Akeyless Web Console.
 2. Go to **Usage Report** from the main navigation menu.
@@ -155,6 +155,13 @@ Admins can access a dedicated report for password management activity, including
 * Usage by authentication type (SAML, OIDC, LDAP, Email)
 
 See [Password Manager Usage Report for Admins](https://docs.akeyless.io/docs/password-manager-usage-report-for-admins) for details.
+
+## Troubleshooting
+
+* If filters or RBAC permissions are set incorrectly, some data may not appear.
+* Make sure the selected date range covers the period you want to review.
+* Recent actions can take a short while to show up in the report.
+* If an export does not complete, try again from the report action menu or use a different browser.
 
 ## Related features
 
