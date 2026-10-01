@@ -15,9 +15,9 @@ The Azure Scanner is a native scanner type that inspects a connected Azure subsc
 - An [Azure Target](https://docs.akeyless.io/docs/azure-targets) representing the Azure AD application that will scan the subscription.
 - The Azure AD application used by the Target granted the permissions listed under [Required Azure Permissions](#required-azure-permissions) below.
 - Access to configure and run the scanner, granted via:
-  1. "Manage ISI Scanners" or "Admin" [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-  2. "Identity & Secrets Intelligence" [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to Scoped or All.
-  3. "List" permission on the Azure Target.
+  - `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
+  - `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
+  - `List` permission on the GitLab Target.
 
 ## Required Azure Permissions
 
