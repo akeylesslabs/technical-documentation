@@ -12,6 +12,12 @@ next:
 ---
 You can define an LDAP target to be used with [LDAP Dynamic Secrets](https://docs.akeyless.io/docs/ldap-dynamic-secret) or [LDAP Rotated Secrets](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret).
 
+<Callout icon="📘" theme="info">
+  ### Custom Usernames
+
+  The **Bind DN** field accepts a full Distinguished Name (DN), such as `cn=admin,dc=example,dc=com`, or a down-level logon name in the `DOMAIN\username` format (for example, `CORP\svc-akeyless`), commonly used with Active Directory.
+</Callout>
+
 ## Create an LDAP Target with the CLI
 
 To create an LDAP target with the CLI, run the following command:
@@ -30,7 +36,7 @@ Where:
 
 * `ldap-url`: The URL of your LDAP server (For example, `ldap[s]://<hostname>:<port>`)
 
-* `bind-dn`: The Bind DN of your LDAP user, will be used for connection setup.
+* `bind-dn`: The Bind DN of your LDAP user, will be used for connection setup. Accepts a full DN (for example, `cn=admin,dc=example,dc=com`) or a `DOMAIN\username` value (for example, `CORP\svc-akeyless`).
 
 * `bind-dn-password`: The password of the LDAP user.
 
@@ -50,7 +56,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **CA Certificate File Content:** Provide the Base64-encoded CA Certificate to enable the secure connection.
 
-    * **LDAP Bind DN:** Provide Bind DN for authentication of a privileged user.
+    * **LDAP Bind DN:** Provide Bind DN for authentication of a privileged user. Accepts a full DN (for example, `cn=admin,dc=example,dc=com`) or a `DOMAIN\username` value (for example, `CORP\svc-akeyless`).
 
     * **Password for LDAP Bind DN:** Provide the password of the privileged user for authentication.
 
