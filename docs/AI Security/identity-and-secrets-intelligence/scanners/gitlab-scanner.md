@@ -48,7 +48,13 @@ The token needs both scopes, as neither one alone is enough:
 
 When you use a group access token, give it a role that can read the repository of every project in the group, such as **Reporter** or higher.
 
-For a self-managed instance, the Target's **URL** must point to that instance, and its **TLS Certificate** field must be empty. For more information, see [Self-Managed GitLab Instances](#self-managed-gitlab-instances) below.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  For a self-managed instance, the Target's **URL** must point to that instance, and its **TLS Certificate** field must be empty.&#x20;
+
+  For more information, see [Self-Managed GitLab Instances](#self-managed-gitlab-instances) below.
+</Callout>
 
 ### Scan Warnings
 
@@ -74,7 +80,11 @@ The **GitLab Group** field on the scanner controls which projects are scanned:
 * **Blank**: Scans every group the token is a member of, including subgroups.
 * **A group path**, for example `acme` or `acme/platform`: Scans only that group and its subgroups.
 
-A token that belongs to a GitLab administrator is still limited to the groups that user is a member of. The scanner does not scan every group on the instance.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Scan coverage follows the token user's group memberships. To scan every group you want covered, make sure the token's user is a member of each of them. The scanner only discovers groups the user belongs to, so a group the user is not a member of is outside the scan scope and is not listed in the scan results.
+</Callout>
 
 Archived projects are scanned, because a live credential in an archived project can still be used.
 
