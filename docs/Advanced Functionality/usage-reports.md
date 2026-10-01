@@ -155,3 +155,16 @@ Admins can access a dedicated report for password management activity, including
 * Usage by authentication type (SAML, OIDC, LDAP, Email)
 
 See [Password Manager Usage Report for Admins](https://docs.akeyless.io/docs/password-manager-usage-report-for-admins) for details.
+
+## Related features
+
+* [Audit Logs](https://docs.akeyless.io/docs/audit-logs): For detailed event-level tracking and compliance
+* [Analytics](https://docs.akeyless.io/docs/analytics): For advanced dashboards and trend analysis
+* [Billing](https://docs.akeyless.io/docs/billing): For usage-based billing and cost management
+
+## Tutorials and further reading
+
+* [Audit Logs, Analytics, and Usage Reports Tutorial](https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports)
+* [Event Center](https://docs.akeyless.io/docs/event-center)
+
+> ℹ️ **Note:** Data in usage reports includes items stored in [Personal Folders](https://docs.akeyless.io/docs/personal-corporate-areas-navigation).
