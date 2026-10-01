@@ -139,3 +139,19 @@ Usage Reports can trigger events and notifications when thresholds are reached. 
 * `usage-report`: Notifies when client usage exceeds defined limits.
 
 Event Forwarders can be set up to deliver notifications via email, Slack, ServiceNow, and webhooks.
+
+## Specialized usage reports
+
+### Organizational usage and billing
+
+Selected users can be added to an organization view for usage and billing. To aggregate usage across multiple accounts, contact your Account Manager.
+
+### Password manager usage report
+
+Admins can access a dedicated report for password management activity, including:
+
+* Total users and authentication methods
+* Number of stored passwords
+* Usage by authentication type (SAML, OIDC, LDAP, Email)
+
+See [Password Manager Usage Report for Admins](https://docs.akeyless.io/docs/password-manager-usage-report-for-admins) for details.
