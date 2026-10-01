@@ -101,7 +101,7 @@ The following restrictions apply to self-managed instances:
 
 ## Create a GitLab Scanner in the Akeyless Console
 
-GitLab scanners are created and run from the Akeyless Console. There is no CLI or API command for scanners. The GitLab Target can be created from the Console or the CLI, as described in [GitLab Target](https://docs.akeyless.io/docs/gitlab-target).
+GitLab scanners are created and run from the Akeyless Console. The GitLab Target can be created from the Console or the CLI, as described in [GitLab Target](https://docs.akeyless.io/docs/gitlab-target).
 
 1. Log in to the Akeyless Console, and go to **Products > Identity & Secrets Intelligence > Scanners**.
 2. Click **New**, and select the scanner type **GitLab**, then click **Next**.
