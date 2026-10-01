@@ -13,21 +13,6 @@ Akeyless Usage Reports help administrators monitor secrets, keys, and password m
 
 ### CLI
 
-Retrieve analytics and usage data:
-
 ```shell
-akeyless get-analytics-data
-```
-
-Sample output:
-
-```json
-{
-  "usage_reports": {
-    "sm": {
-      "total_clients": 17,
-      "ai_clients": 4
-    }
-  }
-}
+akeyless get-analytics-data --json | jq '.usage_reports.sm.ai_clients'
 ```
