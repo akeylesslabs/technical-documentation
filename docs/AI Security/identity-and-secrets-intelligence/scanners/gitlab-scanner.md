@@ -122,27 +122,18 @@ Once the scan completes, results appear in **Findings** for review. Scan warning
 
 GitLab findings are evaluated against the following Identity & Secrets Intelligence policies for credentials committed to code:
 
-| Policy                              | Severity | Applies when                                                                                                                                |
-| ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Live Secret Committed to Code       | Critical | The credential still works and its reach is unknown or wide, or it is a production credential the scanner treats as live without testing it |
-| Critical Blast-Radius Code Secret   | Critical | The credential can reach a credential store, create new credentials, or call control-plane APIs                                             |
-| Live Secret with Contained Reach    | High     | The credential still works, but its reach is limited, for example to a sandbox account or a principal with minimal permissions              |
-| Revoked Secret Found in Git History | Medium   | The credential no longer works, but it remains in the project's history                                                                     |
-| Unvalidated Secret Pattern in Code  | Low      | A likely credential was found, but whether it works could not be confirmed                                                                  |
+- Live Secret Committed to Code
+- Critical Blast-Radius Code Secret
+- Live Secret with Contained Reach
+- Revoked Secret Found in Git History
+- Unvalidated Secret Pattern in Code
 
-A credential that still works is rated Critical unless its reach was confirmed to be limited, so a credential with unknown reach is always treated as the worst case.
+For more information, see [Secret Policies](doc:secret-policies)​.
+
+Secret lifecycle policies such as Unused Secret, Stale Secret, and Rotation Overdue do not apply to GitLab findings, because they describe secrets held in a managed secret store rather than values committed to code.
 
 <Callout icon="✅" theme="success">
   ### **Tip:**
 
   Deleting a branch or force-pushing does not remove a credential from GitLab, because keep-around and merge-request refs keep the commit reachable. After you rotate a leaked credential, purge it from the project's history and run GitLab housekeeping so those refs are expired.
 </Callout>
-
-Secret lifecycle policies such as Unused Secret, Stale Secret, and Rotation Overdue do not apply to GitLab findings, because they describe secrets held in a managed secret store rather than values committed to code.
-
-### What's Next
-
-* [Secret Policies](doc:secret-policies)​
-* [Scanners](https://docs.akeyless.io/docs/scanners)
-* [GitHub Scanner](https://docs.akeyless.io/docs/github-scanner)
-* [GitLab Target](https://docs.akeyless.io/docs/gitlab-target)
