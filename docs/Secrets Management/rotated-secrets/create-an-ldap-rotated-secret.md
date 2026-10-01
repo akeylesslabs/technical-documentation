@@ -14,6 +14,12 @@ You can create a Rotated Secret for an LDAP user. Before you get started, ensure
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the LDAP server through your [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) to rotate the user password on your target server.
 
+<Callout icon="📘" theme="info">
+  ### Custom Usernames
+
+  The **Username** field accepts a full Distinguished Name (DN), a plain username, or a down-level logon name in the `DOMAIN\username` format (for example, `CORP\svc-akeyless`), commonly used with Active Directory.
+</Callout>
+
 ## Create a Rotated LDAP Secret with the CLI
 
 To create a Rotated LDAP Secret using the Akeyless CLI, run the following command:
@@ -50,7 +56,7 @@ Where:
 * `rotator-type`: The type of credentials to be rotated. For [LDAP Target](https://docs.akeyless.io/docs/ldap-target), choose:
     * `ldap` - to rotate the password for the user specified in the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
-* `rotated-username`: The LDAP username whose password should be rotated. Note: Some LDAP servers (for example, OpenLDAP) require the user's full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`.
+* `rotated-username`: The LDAP username whose password should be rotated. Note: Some LDAP servers (for example, OpenLDAP) require the user's full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`. You can also provide a down-level logon name in the `DOMAIN\username` format (for example, `CORP\svc-akeyless`), commonly used with Active Directory.
 
 * `rotated-password`: The password to rotate.
 
@@ -82,7 +88,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
     * **Rotator type:** Determines the rotator type:
         * **LDAP**: Rotates the password defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
-    * **Username:** The LDAP username whose password should be rotated. Note: Some LDAP servers (for example, OpenLDAP) require the user's full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`.
+    * **Username:** The LDAP username whose password should be rotated. Accepts a full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`, or a down-level logon name in the `DOMAIN\username` format (for example, `CORP\svc-akeyless`), commonly used with Active Directory.
 
     * **Password:** Defines the password to rotate.
 
