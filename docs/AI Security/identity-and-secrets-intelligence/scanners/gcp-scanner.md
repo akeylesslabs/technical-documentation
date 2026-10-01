@@ -15,9 +15,9 @@ The GCP Scanner is a native scanner type that inspects a connected Google Cloud 
 - A [GCP Target](https://docs.akeyless.io/docs/gcp-targets) representing the service account that will scan the project, folder, or organization.
 - The service account used by the Target granted the permissions listed under [Required GCP Permissions](#required-gcp-permissions) below.
 - Access to configure and run the scanner, granted via:
-  1. "Manage ISI Scanners" or "Admin" [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-  2. "Identity & Secrets Intelligence" [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to Scoped or All.
-  3. "List" permission on the GCP Target.
+  - `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
+  - `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
+  - `List` permission on the GitLab Target.
 
 ## Required GCP Permissions
 
