@@ -29,9 +29,9 @@ Each finding records the file, line, and commit where the credential was found, 
 * A [GitLab Target](https://docs.akeyless.io/docs/gitlab-target) representing the GitLab user that will scan the group.&#x20;
 * The access token used by the Target granted the scopes listed under [Required GitLab Permissions](#required-gitlab-permissions) below.
 * Access to configure and run the scanner, granted via:
-  * `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-  * `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
-  * `List` permission on the GitLab Target.
+  1. `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
+  2. `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
+  3. `List` permission on the GitLab Target.
 
 ## Required GitLab Permissions
 
