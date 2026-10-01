@@ -35,8 +35,6 @@ Each finding records the file, line, and commit where the credential was found, 
 
 ## Required GitLab Permissions
 
-- The Target's access token must have the `read_api` and `read_repository` scopes, and its user must be a member of the group with at least the **Reporter** role. For a self-managed instance, the Target's **URL** must point to that instance, and its **TLS Certificate** field must be empty. For more information, see [Self-Managed GitLab Instances](#self-managed-gitlab-instances) below.
-
 The GitLab Scanner authenticates with the access token stored in the GitLab Target. Both a [personal access token](https://docs.gitlab.com/user/profile/personal_access_tokens/) and a [group access token](https://docs.gitlab.com/user/group/settings/group_access_tokens/) are supported.
 
 Both scopes below are **read-only**. The scanner never requires write access to your GitLab instance. It reads repository content in order to find credentials, but never stores a discovered credential's value.
@@ -48,15 +46,9 @@ The token needs both scopes, as neither one alone is enough:
 | `read_api`        | Listing groups, projects, and group members                         | The scan fails before any project is scanned                                                                    |
 | `read_repository` | Cloning each project over HTTPS to scan its source code and history | The scan completes, but every project is reported as a warning in the scan details and no findings are produced |
 
-A missing `read_repository` scope is harder to spot than a missing `read_api` scope, because the scan still completes.
-
-<Callout icon="ℹ️" theme="info">
-  ### **Note:**
-
-  **Findings** shows the results of each scanner's latest completed scan. If a token loses the `read_repository` scope, the next scan completes with no findings, and findings from earlier scans are no longer shown. If a GitLab scan completes with zero findings and a warning for each project, check the token's scopes first.
-</Callout>
-
 When you use a group access token, give it a role that can read the repository of every project in the group, such as **Reporter** or higher.
+
+For a self-managed instance, the Target's **URL** must point to that instance, and its **TLS Certificate** field must be empty. For more information, see [Self-Managed GitLab Instances](#self-managed-gitlab-instances) below.
 
 ### Scan Warnings
 
@@ -130,7 +122,7 @@ GitLab findings are evaluated against the following Identity & Secrets Intellige
 
 A credential that still works is rated Critical unless its reach was confirmed to be limited, so a credential with unknown reach is always treated as the worst case.
 
-<Callout icon="✅" theme="okay">
+<Callout icon="✅" theme="success">
   ### **Tip:**
 
   Deleting a branch or force-pushing does not remove a credential from GitLab, because keep-around and merge-request refs keep the commit reachable. After you rotate a leaked credential, purge it from the project's history and run GitLab housekeeping so those refs are expired.
