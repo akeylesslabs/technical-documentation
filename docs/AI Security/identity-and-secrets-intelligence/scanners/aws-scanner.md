@@ -16,7 +16,7 @@ Each scanner covers one or more object types, selected when the scanner is creat
 | Object Type      | What is discovered                                                                                                                                    |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Secrets**      | Secrets stored in AWS Secrets Manager, with their rotation status, access history, resource policies, and the identities that read them               |
-| **Certificates** | Certificates managed through AWS Certificate Manager                                                                                                  |
+| **Certificates** | Certificates managed through AWS Certificate Manager, and the identities that read them                                                               |
 | **Identities**   | IAM users, roles, and groups, with their credentials, MFA status, attached policies, and group memberships                                            |
 | **AI Agents**    | Amazon Bedrock Agents and Amazon Bedrock AgentCore agent runtimes, with the roles they run as, the tools they call, and the controls that govern them |
 
