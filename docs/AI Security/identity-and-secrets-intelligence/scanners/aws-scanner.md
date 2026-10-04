@@ -40,8 +40,6 @@ AI agent discovery is a distinct capability with its own policies. For more info
 
 The AWS IAM Role used by the Target needs read access to the AWS services behind each object type selected on the scanner. Every table in this section has an **Object Type** column, so you can grant only what the selected object types need.
 
-At the start of every scan, the scanner confirms which AWS account it is scanning by calling `sts:GetCallerIdentity`. This call needs no IAM permission, but the scan fails if the Target's credentials are invalid or the Gateway can't reach AWS STS.
-
 There are two ways to grant the permissions:
 
 * **Quick Setup** - attach broad AWS managed policies. Fastest to configure, but grants more access than the scanner actually uses.
