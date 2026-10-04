@@ -17,7 +17,7 @@ The Azure Scanner is a native scanner type that inspects a connected Azure subsc
 - Access to configure and run the scanner, granted via:
   - `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
   - `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
-  - `List` permission on the GitLab Target.
+  - `List` permission on the Azure Target.
 
 ## Required Azure Permissions
 
