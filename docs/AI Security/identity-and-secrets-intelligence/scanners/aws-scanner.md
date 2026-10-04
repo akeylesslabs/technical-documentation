@@ -100,8 +100,6 @@ The custom policy below covers the services that have no read-only AWS managed p
   Do not use `SecretsManagerReadWrite`. It grants read and write access on secrets and is not a safe substitute.
 </Callout>
 
-To grant only the actions the scanner uses, follow the Granular Permissions below instead.
-
 ### Granular Permissions
 
 All permissions below are **read-only**. The scanner never requires write access to your AWS environment, and never reads the _values_ of secrets stored in AWS Secrets Manager, only their metadata.
@@ -121,21 +119,11 @@ The permissions listed below are required for the scan to complete successfully.
 | **AI Agents**    | AgentCore runtimes discovery | `bedrock-agentcore:ListAgentRuntimes`              | AgentCore agents are skipped and reported as a gap. The scan fails if no Bedrock Agents were found either  |
 | **AI Agents**    | AgentCore runtimes details   | `bedrock-agentcore:GetAgentRuntime`                | Runtimes that can't be read are skipped and reported as a gap. The scan fails if no agent was found at all |
 
-A failure in any selected object type marks the whole scan as failed, even though the other object types still run. The error in the scan details names the missing permission, and **Findings** keeps showing the results of the last completed scan until a scan completes again.
-
-For **AI Agents**, grant `bedrock:ListAgents` even if the account only uses AgentCore, because every AI agent scan starts by listing Bedrock Agents.
-
-<Callout icon="⚠️" theme="warning">
-  ### Warning
-
-  Grant the AI Agents permissions before adding **AI Agents** to an existing AWS scanner. If `bedrock:ListAgents` is missing, every scan of that scanner fails, and its secrets, certificates, and identities in **Findings** stop updating until the permission is granted.
-</Callout>
-
-Missing any of the permissions in the next table never fails the scan.
+A failure in any selected object type marks the whole scan as failed.
 
 #### Additional Permissions for Complete Coverage
 
-These permissions are optional. If missing, the scan still completes, but with reduced visibility, and the policies that depend on them are not evaluated. Unless noted otherwise, each gap is listed under **Required Permissions For Full Scan** in the scan details.
+These permissions are optional. If missing, the scan still completes, but with reduced visibility, and the policies that depend on them are not evaluated. Each gap is listed under **Required Permissions For Full Scan** in the scan details.
 
 | Object Type    | Permission                                                                                                                                                               | What it adds                                                                                                                                                                                |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
