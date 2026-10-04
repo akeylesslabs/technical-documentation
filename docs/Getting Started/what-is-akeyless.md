@@ -84,7 +84,9 @@ Provide zero-trust privileged access to internal systems without distributing lo
 
 ### AI Agents Security
 
-Provide short-lived credentials and secure retrieval patterns for AI pipelines, automated agents, and model-serving systems.
+Provide short-lived credentials and secure retrieval patterns for AI pipelines, automated agents, and model-serving systems. This capability has grown into a dedicated AI Security product line, including **Akeyless AI Insights** for natural-language interaction with Akeyless resources, **Agentic Runtime Authority** for real-time, intent-based control over what AI agents are allowed to do, **Identity and Secrets Intelligence** for discovering and governing AI-related identity risk, prompt injection protection guidance for secretless AI agent architectures, and a native **Akeyless MCP Server** for connecting AI clients and tools — including Claude Desktop, Cursor, GitHub Copilot, and JetBrains IDEs — directly to Akeyless.
+
+[Read more about Akeyless' AI Security offerings.](https://docs.akeyless.io/docs/ai-security)
 
 ### Leaked Secret Detection & Response
 
