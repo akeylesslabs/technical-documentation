@@ -7,7 +7,7 @@ link:
 metadata:
   robots: index
 ---
-The AWS Scanner is a native scanner type that inspects a connected AWS account, discovering the full inventory of identities such as IAM users, roles, and groups, secrets stored in AWS Secrets Manager, and certificates managed through AWS Certificate Manager, along with the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The AWS Scanner is a native scanner type that inspects a connected AWS account, discovering the full inventory of identities, including human and non-human identities such as IAM users, roles, and groups, and AI agents built on Amazon Bedrock Agents and Amazon Bedrock AgentCore, along with secrets stored in AWS Secrets Manager and certificates managed through AWS Certificate Manager, as well as the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## What the AWS Scanner Discovers
 
