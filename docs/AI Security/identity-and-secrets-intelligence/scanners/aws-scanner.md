@@ -149,7 +149,7 @@ These permissions are optional. If missing, the scan still completes, but with r
 | **AI Agents**  | `kms:DescribeKey`, `kms:GetKeyRotationStatus`                                                                                                                            | Whether automatic rotation is enabled on the customer managed KMS key that encrypts an agent                                                                                                |
 | **AI Agents**  | `bedrock-agentcore:ListGateways`, `bedrock-agentcore:ListGatewayTargets`                                                                                                 | The number of MCP gateways in the account and the targets they route to                                                                                                                     |
 
-Each gap entry names the skipped resource, the missing permissions, and the AWS managed policy or custom policy that grants them. When no IAM Access Analyzer is enabled in the Target's region, cross-account reach for AI agents is reported as a gap rather than as "no external access". Enable an analyzer in that region to get this check.
+Each gap entry names the skipped resource, the missing permissions, and the AWS managed policy or custom policy that grants them.
 
 ## Create an AWS Scanner in the Akeyless Console
 
