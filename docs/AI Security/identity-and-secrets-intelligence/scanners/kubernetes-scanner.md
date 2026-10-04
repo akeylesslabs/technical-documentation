@@ -19,7 +19,7 @@ The Kubernetes Scanner is a native scanner type that inspects a connected Kubern
 - Access to configure and run the scanner, granted via:
   1. `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
   2. `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
-  3. `List` permission on the GitLab Target.
+  3. `List` permission on the Kubernetes Target.
 
 ## Required Kubernetes Permissions
 
