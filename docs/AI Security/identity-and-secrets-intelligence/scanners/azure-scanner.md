@@ -17,7 +17,7 @@ The Azure Scanner is a native scanner type that inspects a connected Azure subsc
 - Access to configure and run the scanner, granted via:
   - `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
   - `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
-  - `List` permission on the Azure Target.
+  - `List` permission on the AzureTarget.
 
 ## Required Azure Permissions
 
@@ -55,8 +55,8 @@ The permissions listed below are required for the scan to complete successfully.
 
 | Permission                                     | Used for                                                              | If missing                                                                    |
 | ---------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `Microsoft.KeyVault/vaults/read`               | Discovering Key Vaults (the source for both secrets and certificates) | Secrets/certificates scan fails                                               |
-| `Microsoft.Authorization/roleAssignments/read` | Identity discovery and access mapping                                 | Identities scan fails                                                         |
+| `Microsoft.KeyVault/vaults/read`               | Discovering Key Vaults (the source for both secrets and certificates) | The scan fails                                                                |
+| `Microsoft.Authorization/roleAssignments/read` | Identity discovery and access mapping                                 | The scan fails                                                                |
 | Graph `Application.Read.All`                   | Entra ID application client secrets and certificates                  | Scan fails when the subscription has service principals with role assignments |
 
 the scan currently completes successfully but with **no secrets or certificates.**
@@ -90,7 +90,3 @@ These permissions are optional. If missing, the scan still completes, but with r
 1. Log in to the Akeyless Console, and go to **Products > Identity & Secrets Intelligence > Scanners**.
 2. Click the Azure scanner.
 3. Click **Start Scan**.
-
-Once the scan completes, results appear in **Inventory** for review.
-
-<br />
