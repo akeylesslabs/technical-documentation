@@ -84,7 +84,7 @@ For clusters running on a managed Kubernetes service, the scanner's credentials 
 1. Log in to the Akeyless Console, and go to **Products > Identity & Secrets Intelligence > Scanners**.
 2. Click **New**, and select the scanner type **Kubernetes**, then click **Next**.
 3. Define a **Name** for the scanner.
-4. Select the **Target** representing the cluster to scan, and the **Gateway** that will execute the scans, then click **Next**.
+4. Select the **Gateway** that will execute the scans, and the **Target** representing the cluster to scan, then click **Next**.
 5. Use the **Object Type** drop-down list to select the scanner's scope, and click **Finish**.
 
 ## Run a Scan
