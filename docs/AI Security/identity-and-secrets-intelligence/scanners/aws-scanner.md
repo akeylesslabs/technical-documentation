@@ -117,16 +117,16 @@ The permissions listed below are required for the scan to complete successfully.
 | **AI Agents**    | AgentCore runtimes discovery | `bedrock-agentcore:ListAgentRuntimes`              | AgentCore agents are skipped and reported as a gap. The scan fails if no Bedrock Agents were found either  |
 | **AI Agents**    | AgentCore runtimes details   | `bedrock-agentcore:GetAgentRuntime`                | Runtimes that can't be read are skipped and reported as a gap. The scan fails if no agent was found at all |
 
-| Object Type      | Used for                     | Permission                                         | If missing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
-| ---------------- | ---------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **Secrets**      | Secrets discovery            | `secretsmanager:ListSecrets`                       | The scan fails                                                                                             |
-| **Certificates** | Certificate discovery        | `acm:ListCertificates`                             | The scan fails                                                                                             |
-| **Certificates** | Certificate details          | `acm:DescribeCertificate`                          | The scan fails if denied for every certificate; otherwise reported as a gap                                |
-| **Identities**   | Identity discovery           | `iam:ListUsers`, `iam:ListRoles`, `iam:ListGroups` | The scan fails if all three are denied; a single missing one is reported as a gap                          |
-| **AI Agents**    | Bedrock Agents discovery     | `bedrock:ListAgents`                               | The scan fails, even when the account only uses AgentCore                                                  |
-| **AI Agents**    | Bedrock Agents details       | `bedrock:GetAgent`                                 | Agents that can't be read are skipped and reported as a gap. The scan fails if no agent can be read        |
-| **AI Agents**    | AgentCore runtimes discovery | `bedrock-agentcore:ListAgentRuntimes`              | AgentCore agents are skipped and reported as a gap. The scan fails if no Bedrock Agents were found either  |
-| **AI Agents**    | AgentCore runtimes details   | `bedrock-agentcore:GetAgentRuntime`                | Runtimes that can't be read are skipped and reported as a gap. The scan fails if no agent was found at all |
+| Object Type      | Permission                                         | If missing                                                                                                 |
+| ---------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Secrets**      | `secretsmanager:ListSecrets`                       | The scan fails                                                                                             |
+| **Certificates** | `acm:ListCertificates`                             | The scan fails                                                                                             |
+| **Certificates** | `acm:DescribeCertificate`                          | The scan fails if denied for every certificate; otherwise reported as a gap                                |
+| **Identities**   | `iam:ListUsers`, `iam:ListRoles`, `iam:ListGroups` | The scan fails if all three are denied; a single missing one is reported as a gap                          |
+| **AI Agents**    | `bedrock:ListAgents`                               | The scan fails, even when the account only uses AgentCore                                                  |
+| **AI Agents**    | `bedrock:GetAgent`                                 | Agents that can't be read are skipped and reported as a gap. The scan fails if no agent can be read        |
+| **AI Agents**    | `bedrock-agentcore:ListAgentRuntimes`              | AgentCore agents are skipped and reported as a gap. The scan fails if no Bedrock Agents were found either  |
+| **AI Agents**    | `bedrock-agentcore:GetAgentRuntime`                | Runtimes that can't be read are skipped and reported as a gap. The scan fails if no agent was found at all |
 
 A failure in any selected object type marks the whole scan as failed.
 
