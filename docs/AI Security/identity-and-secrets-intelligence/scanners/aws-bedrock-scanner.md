@@ -7,7 +7,7 @@ metadata:
 ---
 # AWS Bedrock Scanner
 
-The AWS Bedrock Scanner discovers the AI agents running in a connected AWS account. It covers both Amazon Bedrock Agents and Amazon Bedrock AgentCore agent runtimes. Each agent is discovered together with the execution role it runs as, the tools it can call, and the account configuration that governs it. Every agent is then evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The AWS Bedrock Scanner discovers the AI agents running in a connected AWS account. It covers both Amazon Bedrock Agents and Amazon Bedrock AgentCore agent runtimes. Each agent is discovered together with the execution role it runs as, the tools it can call, and the account configuration that governs it. Every agent is then evaluated against [ Identity & Secrets Intelligence security policies](doc:policies) , which assess its risk posture and surface the resulting findings for review.
 
 Bedrock scanning is part of the [AWS Scanner](https://docs.akeyless.io/docs/aws-scanner). To scan Bedrock agents, create an AWS scanner and select the **AI Agents** object type, alone or together with the other AWS object types.
 
