@@ -22,8 +22,6 @@ Each scanner covers one or more object types, selected when the scanner is creat
 
 Secrets, certificates, secret usage, and AI agents are discovered in the region configured on the AWS Target. IAM identities are global, so they are discovered for the whole account. To cover several regions, create an AWS Target and a scanner for each region.
 
-AI agent discovery is a distinct capability with its own policies. For more information, see [AI Agent Discovery and Posture (Amazon Bedrock)](#ai-agent-discovery-and-posture-amazon-bedrock) below.
-
 ## Prerequisites
 
 * An Akeyless account with the Identity & Secrets Intelligence license.
