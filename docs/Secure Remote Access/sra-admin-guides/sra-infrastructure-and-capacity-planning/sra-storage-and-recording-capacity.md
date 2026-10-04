@@ -31,6 +31,18 @@ Use these planning ranges as initial estimates:
 
 Treat these ranges as sizing inputs, not hard limits. Validate with representative workloads before final capacity commitments.
 
+### Quick Reference: Baseline Sizing by Screen Activity
+
+Session recording size is driven mainly by screen activity, not by a flat per-hour data rate. The following baseline estimates assume 1080p resolution, standard compression, and no audio:
+
+| Activity profile | Example sessions | Estimated size per hour |
+| --- | --- | --- |
+| Low Profile | SSH/CLI sessions, static logs | Approximately `18` to `40 MB` per hour |
+| Medium Profile | UI navigation, web browsing | Approximately `500 MB` per hour |
+| High Profile | Video, CAD, constant on-screen movement | Approximately `2.0` to `2.5 GB` per hour |
+
+**Key factor — Screen Activity:** Static screens consume almost no storage; constant UI movement is what drives storage usage up. Use this profile view alongside the session-type table above as a quick sanity check when a session's recorded size looks higher or lower than expected for its protocol.
+
 ### How to Estimate Where You Fall in the Range
 
 Use this quick method to choose a realistic planning band:
