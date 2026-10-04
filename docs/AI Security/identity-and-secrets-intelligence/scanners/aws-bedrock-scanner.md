@@ -71,3 +71,105 @@ Attach the AWS managed policies `AmazonBedrockReadOnly`, `IAMReadOnlyAccess`, `A
   ]
 }
 ```
+
+If the same Target is also used to scan secrets, certificates, or identities, also grant the permissions listed in [AWS Scanner](https://docs.akeyless.io/docs/aws-scanner).
+
+### Granular Permissions
+
+The tables below list every action the scanner calls when the **AI Agents** object type is selected, and what happens when each one is missing.
+
+#### Required Permissions
+
+The permissions listed below are required for agent discovery. If one is missing, agents are skipped, and in the cases described below, the scan fails:
+
+| Used for                     | Permission                            | If missing                                                                                                 |
+| ---------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Bedrock Agents discovery     | `bedrock:ListAgents`                  | The scan fails, even when the account only uses AgentCore                                                  |
+| Bedrock Agents details       | `bedrock:GetAgent`                    | Agents that can't be read are skipped and reported as a gap. The scan fails if no agent can be read        |
+| AgentCore runtimes discovery | `bedrock-agentcore:ListAgentRuntimes` | AgentCore agents are skipped and reported as a gap. The scan fails if no Bedrock Agents were found either  |
+| AgentCore runtimes details   | `bedrock-agentcore:GetAgentRuntime`   | Runtimes that can't be read are skipped and reported as a gap. The scan fails if no agent was found at all |
+
+Grant `bedrock:ListAgents` even if the account only uses AgentCore, because every Bedrock scan starts by listing Bedrock Agents.
+
+#### Additional Permissions for Complete Coverage
+
+These permissions are optional. If missing, the scan still completes, but with reduced visibility, and the policies that depend on them are not evaluated. Unless noted otherwise, each gap is listed under **Required Permissions For Full Scan** in the scan details.
+
+| Permission                                                                                                                         | What it adds                                                                                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `bedrock:ListAgentActionGroups`, `bedrock:GetAgentActionGroup`                                                                     | The agent's action groups and the Lambda functions they call                                                                                                                                |
+| `lambda:GetFunctionConfiguration`                                                                                                  | Each action-group function's execution role, and the static credentials in its environment variables                                                                                        |
+| `lambda:GetPolicy`                                                                                                                 | Each action-group function's resource policy, used to check whether only this agent can invoke it                                                                                           |
+| `bedrock:ListAgentCollaborators`                                                                                                   | Multi-agent collaboration: a supervisor agent's collaborators and their execution roles                                                                                                     |
+| `bedrock:ListTagsForResource`                                                                                                      | The agent's `Owner` or `Team` tag                                                                                                                                                           |
+| `cloudtrail:LookupEvents`                                                                                                          | The identity that created each agent, from `CreateAgent` events in the last 90 days. If missing, no gap is reported, and each agent without an `Owner` or `Team` tag is reported as unowned |
+| `iam:ListAttachedRolePolicies`, `iam:ListAttachedUserPolicies`                                                                     | Comparing the agent's execution role with the privileges of the identity that created it                                                                                                    |
+| `iam:GetUser`, `iam:GetRole`                                                                                                       | Whether the identity that created the agent still exists                                                                                                                                    |
+| `iam:ListRolePolicies`, `iam:GetRolePolicy`, `iam:GetPolicy`, `iam:GetPolicyVersion`, together with `iam:ListAttachedRolePolicies` | Policy analysis of each execution role, including whether an AgentCore execution role can obtain access tokens on behalf of users                                                           |
+| `bedrock:GetModelInvocationLoggingConfiguration`                                                                                   | Whether Bedrock model invocation logging is enabled                                                                                                                                         |
+| `logs:DescribeLogGroups`                                                                                                           | The retention period of the CloudWatch log group that receives model invocation logs. If missing, no gap is reported                                                                        |
+| `access-analyzer:ListAnalyzers`, `access-analyzer:ListFindingsV2`                                                                  | Agent execution roles and Lambda functions that IAM Access Analyzer reports as reachable from outside the account. Requires an IAM Access Analyzer in the Target's region                   |
+| `kms:DescribeKey`, `kms:GetKeyRotationStatus`                                                                                      | Whether automatic rotation is enabled on the customer managed KMS key that encrypts an agent                                                                                                |
+| `bedrock-agentcore:ListGateways`, `bedrock-agentcore:ListGatewayTargets`                                                           | The number of MCP gateways in the account and the targets they route to                                                                                                                     |
+
+When no IAM Access Analyzer is enabled in the Target's region, cross-account reach is reported as a gap rather than as "no external access". Enable an analyzer in that region to get this check.
+
+## Scan Scope
+
+The scope of a Bedrock scan is set by the AWS Target and the object types selected on the scanner:
+
+* **Region**: Agents are discovered only in the region configured on the AWS Target. To cover agents in several regions, create an AWS Target and a scanner for each region.
+* **Agent types**: Bedrock Agents and AgentCore agent runtimes are both scanned under the **AI Agents** object type. They can't be selected separately.
+* **Object types**: **AI Agents** is not selected by default. Select it explicitly when you create the scanner.
+
+An agent's execution roles appear in the Security Graph whatever object types are selected. To also see what those roles are allowed to access, select **Identities**. To see which secrets they actually read in AWS Secrets Manager over the last 90 days, select **Secrets**. Both use the permissions listed in [AWS Scanner](https://docs.akeyless.io/docs/aws-scanner), and reading secret usage also requires `cloudtrail:LookupEvents`.
+
+## Create an AWS Bedrock Scanner in the Akeyless Console
+
+AWS Bedrock scanning is configured on an AWS scanner, which is created and run from the Akeyless Console. The AWS Target can be created from the Console or the CLI, as described in [AWS Targets](https://docs.akeyless.io/docs/aws-targets).
+
+1. Log in to the Akeyless Console, and go to **Products > Identity & Secrets Intelligence > Scanners**.
+2. Click **New**, and select the scanner type **AWS**, then click **Next**.
+3. Define a **Name** for the scanner.
+4. Select the **Gateway** that will execute the scans, and the **Target** representing the AWS account and region to scan, then click **Next**.
+5. Use the **Object Type** drop-down list to select **AI Agents**. Optionally, also select **Identities** and **Secrets** for a complete Security Graph. Click **Finish**.
+
+## Run a Scan
+
+1. Log in to the Akeyless Console, and go to **Products > Identity & Secrets Intelligence > Scanners**.
+2. Click the AWS scanner.
+3. Click **Start Scan**.
+
+Once the scan completes, discovered agents appear in **Findings** with the type **AI Agent**. Permission gaps appear in the scan details.
+
+## AWS Bedrock Findings and Policies
+
+AI agents are evaluated against the following Identity & Secrets Intelligence AI Agent Policies:
+
+- Agentic Privilege Escalation
+- Orphaned Owner
+- Insecure Inter-Agent Trust
+- Supervisor Aggregation Excess
+- Missing Guardrail
+- Session/Credential Inheritance
+- Static/Long-Lived Credential in Use
+- Shared Credential Across Agents
+- Credential Age Violation
+- Unowned Agent
+- Missing Agent Decision Record
+- Retention Non-Compliance
+- Wildcard Resource Binding
+- Cross-Account/Cross-Tenant Reach
+- Decommission Overdue
+
+For more information, see [AI Agent Policies](doc:ai-agent-policies).
+
+Because an AI agent is also an identity, applicable [Identity Policies](doc:identity-policies) are evaluated against it as well, so an agent that is inactive or over-privileged is also flagged by those policies.
+
+Most AI Agent Policies depend on details that only Bedrock Agents expose, such as action groups, collaborators, guardrails, and the identity that created the agent. AgentCore agent runtimes are mainly evaluated by Session/Credential Inheritance, Cross-Account/Cross-Tenant Reach, and the Identity Policies.
+
+<Callout icon="✅" theme="success">
+  ### **Tip:**
+
+  Tag every Bedrock Agent with an `Owner` or `Team` tag. The tag identifies a responsible owner even when the agent was created more than 90 days ago, beyond the CloudTrail history the scanner reads.
+</Callout>
