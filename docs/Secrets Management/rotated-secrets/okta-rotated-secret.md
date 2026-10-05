@@ -46,7 +46,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway URL (port `8000`).
 
-* `rotator-type`: The type of credentials to be rotated. For Okta, `password` is the only available option — it rotates the password of the user defined in the Rotated Secret.
+* `rotator-type`: The type of credentials to be rotated. For Okta, `password` is the only available option - it rotates the password of the user defined in the Rotated Secret.
 
 * `rotated-username`: The Okta username whose password should be rotated.
 
