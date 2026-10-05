@@ -63,17 +63,17 @@ To use [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-id
 * To rotate the token once immediately, without waiting for the next scheduled run:
 
   ```shell
-  akeyless uid-auto-rotate rotate [--token-file <path>]
+  akeyless uid-auto-rotate rotate -i <Token_Path>
   ```
 
 * To remove the scheduled rotation job while keeping the existing token file:
 
   ```shell
-  akeyless uid-auto-rotate uninstall [--token-file <path>]
+  akeyless uid-auto-rotate uninstall -i <Token_Path>
   ```
 
 * To check token and scheduling status at any time:
 
   ```shell
-  akeyless uid-auto-rotate status [--token-file <path>]
+  akeyless uid-auto-rotate status -i <Token_Path>
   ```
