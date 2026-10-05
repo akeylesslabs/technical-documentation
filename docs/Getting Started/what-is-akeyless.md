@@ -47,10 +47,10 @@ Distributed Fragments Cryptography (DFC) is the cryptographic framework that ena
 
 Akeyless consists of several cooperating components:
 
-- **Akeyless Platform** — The SaaS control plane that manages authentication, authorization, policy evaluation, and orchestration of identity operations.
-- **Akeyless Gateway** — A lightweight component deployed in customer environments to access private networks, integrate with on-premises systems, and optionally handle customer-controlled key fragments.
-- **Connectors** — Integrations that support dynamic credentials, rotation workflows, and communication with cloud providers, databases, and other external targets.
-- **Client Tools** — The CLI, SDKs, and REST API used by applications and administrators to request identity operations.
+* **Akeyless Platform** — The SaaS control plane that manages authentication, authorization, policy evaluation, and orchestration of identity operations.
+* **Akeyless Gateway** — A lightweight component deployed in customer environments to access private networks, integrate with on-premises systems, and optionally handle customer-controlled key fragments.
+* **Connectors** — Integrations that support dynamic credentials, rotation workflows, and communication with cloud providers, databases, and other external targets.
+* **Client Tools** — The CLI, SDKs, and REST API used by applications and administrators to request identity operations.
 
 These components work together to enforce identity security with no requirement to store or reconstruct complete secrets or private keys.
 
@@ -96,11 +96,11 @@ Detect potential exposures through audit visibility and respond with automated o
 
 Akeyless operates consistently across:
 
-- Public cloud environments
-- Hybrid and multi-cloud deployments
-- On-premises infrastructure
-- Kubernetes and other container platforms
-- Serverless environments
+* Public cloud environments
+* Hybrid and multi-cloud deployments
+* On-premises infrastructure
+* Kubernetes and other container platforms
+* Serverless environments
 
 ***
 
