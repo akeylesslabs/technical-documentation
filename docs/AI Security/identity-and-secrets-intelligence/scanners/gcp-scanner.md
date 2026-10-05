@@ -33,7 +33,9 @@ The scanner's scope can be set to a single Project, a Folder, or an entire Organ
 
 ## Required GCP Permissions
 
-The service account used by the Target needs read access to your Google Cloud resource hierarchy. There are two ways to grant it:
+The service account used by the Target needs read access to the Google Cloud services behind each object type selected on the scanner. Every table in this section has an **Object Type** column, so you can grant only what the selected object types need.
+
+There are two ways to grant it:
 
 - **Quick Setup** - assign a small set of predefined viewer roles. Fastest to configure, but grants more access than the scanner actually uses.
 - **Granular Permissions** - assign only the exact permissions the scanner needs, following the principle of least privilege.
