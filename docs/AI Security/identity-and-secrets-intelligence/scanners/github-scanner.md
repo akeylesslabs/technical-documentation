@@ -125,13 +125,7 @@ Each gap is reported as a warning in the scan details.
 3. Define a **Name** for the scanner.
 4. Select the **Gateway** that will execute the scans, and the **Target** representing the GitHub App installed on the organization to scan, then click **Next**.
 5. Use the **Object Type** drop-down list to select the object types to scan.
-6. Optionally, to filter the repositories to scan, set the **Scanner Scope** to **Repository**, and select a filter in **Select Repositories By**: **Name**, **Topic**, **Custom Properties**, **Regex**, or **None** to select them in **Selected Repositories**. Leave **Selected Repositories** empty to also scan repositories created later that match the filter. Click **Finish**.
-
-<Callout icon="ℹ️" theme="info">
-  ### **Note:**
-
-  The repository filter cannot be changed after the scanner is created, and a filter that matches no repositories fails the scan. On Gateway version `[TBD]` and later, forks are not scanned.
-</Callout>
+6. Optionally, to filter the repositories to scan, set the **Scanner Scope** to **Repository**, and select a filter in **Select Repositories By**: **Name**, **Topic**, **Custom Properties**, **Regex**, or **None** . Click **Finish**.
 
 ## Run a Scan
 
