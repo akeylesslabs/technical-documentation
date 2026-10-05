@@ -76,11 +76,19 @@ The permissions listed below are required for the scan to complete successfully.
 | `secretmanager.secrets.list`                                                                                                                                                                                           | Secrets discovery (Secret Manager)                                       | Secrets scan fails                                           |
 | At least one certificate source: `privateca.certificateAuthorities.list` + `privateca.certificates.list`, or `certificatemanager.certs.list`, or `compute.sslCertificates.list` + `compute.regionSslCertificates.list` | Certificate discovery (Private CA / Certificate Manager / Compute SSL)   | Certificates scan fails only if all three sources are denied |
 
-<Callout icon="ℹ️" theme="info">
-  ### Note
+The permissions listed below are required for the scan to complete successfully. If one is missing for an object type selected on the scanner, the scan fails, in the cases described below:
 
-  When scanning a folder or organization, a permission problem in one project degrades to a per-project warning instead of failing the whole scan.
-</Callout>
+| Object Type          | Used for                                                                                   | Permission                                                                                                                   | If missing                                                                                                            |
+| -------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **All object types** | Listing the projects and folders under the scope root (Folder and Organization scope only) | `resourcemanager.projects.list`, `resourcemanager.folders.list`                                                              | The scan fails                                                                                                        |
+| **Secrets**          | Discovering Secret Manager secrets                                                         | `secretmanager.secrets.list`                                                                                                 | The scan fails if the scope is a project; otherwise reported as a gap for that project                                |
+| **Certificates**     | Discovering Private CA certificate authorities and certificates                            | `privateca.locations.list`, `privateca.caPools.list`, `privateca.certificateAuthorities.list`, `privateca.certificates.list` | Skipped and reported as a gap. The scan fails if the scope is a project and all three certificate sources are skipped |
+| **Certificates**     | Discovering Certificate Manager certificates                                               | `certificatemanager.locations.list`, `certificatemanager.certs.list`                                                         | Skipped and reported as a gap. The scan fails if the scope is a project and all three certificate sources are skipped |
+| **Certificates**     | Discovering Compute Engine SSL certificates                                                | `compute.sslCertificates.list`, `compute.regionSslCertificates.list`                                                         | Skipped and reported as a gap. The scan fails if the scope is a project and all three certificate sources are skipped |
+| **Identities**       | Resolving the project's folder and organization hierarchy (Project scope only)             | `resourcemanager.projects.get`                                                                                               | The scan fails                                                                                                        |
+| **Identities**       | Reading the project IAM policy, the foundation of identity discovery                       | `resourcemanager.projects.getIamPolicy`                                                                                      | The scan fails if the scope is a project; otherwise reported as a gap for that project                                |
+
+Under **Folder** or **Organization** scope, a failure in one project is reported as a gap for that project, and the scan continues with the remaining projects.&#x20;
 
 #### Additional Permissions for Complete Coverage
 
