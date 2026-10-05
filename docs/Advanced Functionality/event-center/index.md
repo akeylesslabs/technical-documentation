@@ -30,7 +30,7 @@ Akeyless events are defined by object types, supporting:
 - **Items** events, for all items types, for example, [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
 - [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
 - [Targets](https://docs.akeyless.io/docs/targets)
-- [Gateway](doc:gateway-overview)
+- [Gateway](https://docs.akeyless.io/docs/gateway-overview)
 
 For each object type, a **Forwarder** can be set to forward all events for a folder, path, and even a specific item inside Akeyless.
 
@@ -98,11 +98,11 @@ For `event-source-type = auth_method ` :
 
 - `usage-report`: When the number of clients reaches the threshold (can be set by way of **Usage Report** screen)
 
-- `locked-user`: When an [email](doc:auth-with-email) user is locked after multiple failed authentication attempts.
+- `locked-user`: When an [email](https://docs.akeyless.io/docs/auth-with-email) user is locked after multiple failed authentication attempts.
 
-- `unlocked-user` : When a locked [email](doc:auth-with-email) user is unlocked.
+- `unlocked-user` : When a locked [email](https://docs.akeyless.io/docs/auth-with-email) user is unlocked.
 
-- `password-reset` : When an [email](doc:auth-with-email) user resets their password.
+- `password-reset` : When an [email](https://docs.akeyless.io/docs/auth-with-email) user resets their password.
 
 For `event-source-type = gateways`:
 

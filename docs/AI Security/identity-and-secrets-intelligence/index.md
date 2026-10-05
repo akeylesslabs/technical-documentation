@@ -32,7 +32,7 @@ AWS, Azure, GCP, GitHub, Kubernetes, and Akeyless itself.
 Before you can use Identity & Secrets Intelligence, confirm the following:
 
 * The account has the Identity and Secrets Intelligence feature enabled.
-* The user is account admin, or has an [Access Role](doc:rbac) with Identity & Secrets Intelligence administrative rule set to `scoped` or `all`.
+* The user is account admin, or has an [Access Role](https://docs.akeyless.io/docs/rbac) with Identity & Secrets Intelligence administrative rule set to `scoped` or `all`.
 
 To set up an Access Role for ISI, run the following commands:
 
@@ -48,7 +48,7 @@ To set up an Access Role for ISI, run the following commands:
 
    * `--name`: the name of the Access Role to create.
    * `--isi-access`: the level of ISI administrative access to grant the role, `scoped` or `all`.
-2. Associate the Role with an [Authentication Methods](doc:access-and-authentication-methods) Auth Method:
+2. Associate the Role with an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) Auth Method:
    ```shell
    akeyless update-auth-method-access \
      -n <auth-method-name> \
@@ -66,10 +66,10 @@ Use these views to explore the product from high-level posture down to specific 
 | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Dashboard**                                              | trends, top 5 issues to address first, and Scanners Overview.                                                                                                                                                                                 |
 | Inventory                                                  | Drill into findings by type, status, and severity. Export findings, open finding surfacing why it matters, a graph of related objects and blast radius, and remediation steps, including AI-powered investigation and remediation assistance. |
-| [Scanners](doc:identity-and-secrets-intelligence-scanners) | Manage scanners and review scan history and details.                                                                                                                                                                                          |
-| [Policies](doc:identity-and-secrets-intelligence-policies) | Review policy scope and status.                                                                                                                                                                                                               |
+| [Scanners](https://docs.akeyless.io/docs/identity-and-secrets-intelligence-scanners) | Manage scanners and review scan history and details.                                                                                                                                                                                          |
+| [Policies](https://docs.akeyless.io/docs/identity-and-secrets-intelligence-policies) | Review policy scope and status.                                                                                                                                                                                                               |
 
 ## Next Steps
 
-* [Scanners](doc:identity-and-secrets-intelligence-scanners) for scanner setup
-* [Policies](doc:identity-and-secrets-intelligence-policies) for view policies
+* [Scanners](https://docs.akeyless.io/docs/identity-and-secrets-intelligence-scanners) for scanner setup
+* [Policies](https://docs.akeyless.io/docs/identity-and-secrets-intelligence-policies) for view policies

@@ -248,7 +248,7 @@ Treat `state` as a required anti-forgery value and preserve it exactly between t
 
 ## Set Up The AI Agent
 
-To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [Akeyless MCP Model Context Protocol Command](https://docs.akeyless.io/docs/akeyless-mcp-model-context-protocol-command). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
+To integrate Akeyless with your AI agent, add the **Akeyless MCP server** configuration to the agent’s config file. For general MCP concepts, command syntax, and client setup patterns, see [Akeyless MCP Model Context Protocol Command](https://docs.akeyless.io/docs/mcp). The configuration below is specific to the [mcp-runtime-authority subcommand](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority).
 
 ### For Claude
 
@@ -522,7 +522,7 @@ Follow-up MCP tool call (after consent redirect):
 
 By default, Agentic Runtime Authority validates each agent action against a single LLM.
 
-AI Quorum validates each action against multiple LLMs configured on the Gateway under [AI Insights](doc:akeyless-ai-insight), <br />rather than relying on a single model. If any one of the models determines that the action violates policy, the Gateway blocks the action, the system always defaults to the most restrictive verdict.<br />The Gateway also cancels all pending model requests and records them with a `skipped` vote. This saves tokens and returns the result faster.
+AI Quorum validates each action against multiple LLMs configured on the Gateway under [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight), <br />rather than relying on a single model. If any one of the models determines that the action violates policy, the Gateway blocks the action, the system always defaults to the most restrictive verdict.<br />The Gateway also cancels all pending model requests and records them with a `skipped` vote. This saves tokens and returns the result faster.
 
 To implement AI Quorum, run the following commands:
 
