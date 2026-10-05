@@ -96,6 +96,22 @@ These permissions are optional. If missing, the scan still completes, but with r
 | Graph `GroupMember.Read.All`                            | Group membership expansion, required for group-based access paths in the Security Graph (admin consent required)         |
 | Graph `AuditLog.Read.All`                               | Last sign-in dates for users and service principals, powers stale/never-used identity detection (admin consent required) |
 
+| Object Type      | Permission                                              | What it adds                                                                                                                                                                                                |
+| ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Secrets**      | `Microsoft.KeyVault/vaults/secrets/readMetadata/action` | Listing the secrets inside each vault. If missing, no gap is reported, and the scan completes with no Key Vault secrets                                                                                     |
+| **Secrets**      | Graph `AuditLog.Read.All`                               | The last sign-in date of each service principal that holds an Entra ID client secret. If missing, no gap is reported                                                                                        |
+| **Certificates** | `Microsoft.KeyVault/vaults/certificates/read`           | Listing the certificates inside each vault, and their details. If missing, no gap is reported, and the scan completes with no Key Vault certificates                                                        |
+| **Certificates** | `Microsoft.Web/certificates/read`                       | App Service certificates                                                                                                                                                                                    |
+| **Certificates** | `Microsoft.Network/applicationGateways/read`            | Application Gateway certificates (SSL, trusted root, trusted client, authentication)                                                                                                                        |
+| **Identities**   | `Microsoft.Authorization/roleDefinitions/read`          | Resolving role names and permissions, without it, access edges in the Security Graph cannot be computed                                                                                                     |
+| **Identities**   | `Microsoft.Authorization/denyAssignments/read`          | Deny assignments, without it the graph may look more permissive than reality                                                                                                                                |
+| **Identities**   | Graph `Application.Read.All`                            | The client secrets and certificates held by each service principal                                                                                                                                          |
+| **Identities**   | Graph `Directory.Read.All`                              | Identity display names, types, and enabled/disabled status (otherwise identities appear as bare GUIDs)                                                                                                      |
+| **Identities**   | Graph `GroupMember.Read.All`                            | Group membership expansion, required for group-based access paths in the Security Graph. If missing and an IdP Target is set on the scanner, group members are read from it instead, and no gap is reported |
+| **Identities**   | Graph `AuditLog.Read.All`                               | Last sign-in dates for users and service principals, powers stale/never-used identity detection                                                                                                             |
+
+Each gap entry names the skipped resource, the missing permission, and the built-in Azure role or Microsoft Graph permission that grants it.
+
 ## Create an Azure Scanner
 
 1. Log in to the Akeyless Console, and go to **Products > Identity & Secrets Intelligence > Scanners**.
