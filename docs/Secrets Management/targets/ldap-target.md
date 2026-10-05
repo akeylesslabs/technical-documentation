@@ -17,7 +17,7 @@ You can define an LDAP target to be used with [LDAP Dynamic Secrets](https://doc
 
   The **Bind DN** field accepts a full Distinguished Name (DN), such as `cn=admin,dc=example,dc=com`, or a down-level logon name in the `DOMAIN\username` format (for example, `CORP\svc-akeyless`), commonly used with Active Directory.
 
-  This field is optional and has no effect on the rotation flow. When set, the Rotated Secret's response returns this username instead of the full Bind DN (for a target rotator) or the username without the domain (for a self-rotator).
+  Setting the username as a down-level logon name is optional and has no effect on the rotation flow. When set, the Rotated Secret's response returns this username instead of the full Bind DN (for a target rotator) or the username without the domain (for a self-rotator).
 </Callout>
 
 ## Create an LDAP Target with the CLI
