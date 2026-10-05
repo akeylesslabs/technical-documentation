@@ -88,15 +88,12 @@ rules:
     verbs: ["list"]
 ```
 
-Then bind the ClusterRole, with a ClusterRoleBinding, to the identity the Target authenticates as:
+Set the subject to the identity the Target authenticates as:
 
-| Target                                     | Bind the ClusterRole to                                                                                                                 |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Generic Kubernetes, **Bearer Token**       | The service account the token belongs to                                                                                                |
-| Generic Kubernetes, **Client Certificate** | The user named in the certificate's Common Name (CN)                                                                                    |
-| Generic Kubernetes, **GW Service Account** | The Gateway's service account                                                                                                           |
-| EKS                                        | The Kubernetes user or group mapped to the Target's IAM identity, see [Managed-Cluster Authentication](#managed-cluster-authentication) |
-| GKE                                        | The Target's Google service account, see [Managed-Cluster Authentication](#managed-cluster-authentication)                              |
+- **Bearer Token**: the ServiceAccount the token belongs to.
+- **Client Certificate**: a `User` subject named after the certificate's Common Name (CN), with `apiGroup: rbac.authorization.k8s.io`.
+- **GW Service Account**: the Gateway's ServiceAccount.
+- **EKS** and **GKE**: see [Managed-Cluster Authentication](#managed-cluster-authentication).&#x20;
 
 For example, to bind it to a service account:
 
@@ -119,16 +116,23 @@ To bind it to a user or a group, replace the subject with `kind: User` or `kind:
 
 ### Granular Permissions
 
-All permissions below are **list-only**. The scanner never requires read, write, or exec access to your cluster, and never reads secret _values_, only metadata.
+All permissions below are **list-only**. The scanner never requires read or write access to your cluster, and never reads secret _values_, only metadata.
 
 #### Required Permissions
 
-The permissions listed below are required for the scan to complete successfully. If any one of them is missing, the corresponding scan will fail.
+The permissions listed below are required for the scan to complete successfully. If one is missing for an object type selected on the scanner, the scan fails, in the cases described below:
 
 | Requirement                                                                                                                | Used for                           | If missing                                                          |
 | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------- |
 | Valid cluster credentials and a reachable API server (EKS, GKE)                                                            | All scan types                     | Scan fails                                                          |
 | `list` on `secrets` cluster-wide, or `list` on `namespaces`, or an explicit namespace allow-list configured on the scanner | Secrets and certificates discovery | Secrets/certificates scan fails when none of the three is available |
+
+| Object Type                                           | Used for                                                                        | Permission                                          | If missing                                                                       |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Secrets**<br />**Certificates**<br />**Identities** | Connecting to the cluster                                                       | Valid Target credentials and a reachable API server | The scan fails                                                                   |
+| **Secrets**<br />**Certificates**                     | Discovering Secrets, and the certificates stored in `kubernetes.io/tls` Secrets | `list secrets`, cluster-wide                        | The scan fails if `list namespaces` is also missing; otherwise reported as a gap |
+
+If `list secrets` is granted only in some namespaces, the scanner reads Secrets namespace by namespace, and each namespace it can't read is reported as a gap.&#x20;
 
 #### Additional Permissions for Complete Coverage
 
