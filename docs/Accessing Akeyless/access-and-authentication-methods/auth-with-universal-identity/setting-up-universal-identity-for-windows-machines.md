@@ -77,3 +77,7 @@ To use [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-id
   ```shell
   akeyless uid-auto-rotate status -i <Token_Path>
   ```
+
+## Legacy Configuration
+
+For the previous PowerShell script and manual Task Scheduler setup, refer to the [legacy Universal Identity setup guide for Windows machines](https://docs.akeyless.io/update/docs/setting-up-universal-identity-for-windows-machines-legacy).
