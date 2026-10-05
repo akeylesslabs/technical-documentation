@@ -82,7 +82,7 @@ For **Identities**, if the vaults can be listed but some of them can't be read, 
 
 #### Additional Permissions for Complete Coverage
 
-These permissions are optional. If missing, the scan still completes, but with reduced visibility, and any gaps are reported in the Access Status field within the scan details.
+These permissions are optional. If missing, the scan still completes, but with reduced visibility.
 
 | Object Type      | Permission                                              | What it adds                                                                                                                                                                                                |
 | ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
