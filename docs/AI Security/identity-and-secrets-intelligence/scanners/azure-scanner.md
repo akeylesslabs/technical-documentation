@@ -29,11 +29,13 @@ Each scanner covers one Azure subscription, the one set on the Azure Target. Key
 - Access to configure and run the scanner, granted via:
   - `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
   - `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
-  - `List` permission on the AzureTarget.
+  - `List` permission on the Azure Target.
 
 ## Required Azure Permissions
 
-The Azure AD application used by the Target needs read access to your Azure subscription and tenant. There are two ways to grant it:
+The Azure AD application used by the Target needs read access to the Azure subscription and the Microsoft Entra ID tenant.
+
+There are two ways to grant it:
 
 - **Quick Setup** - assign built-in Azure roles plus a small set of Microsoft Graph application permissions. Fastest to configure, but grants more access than the scanner actually uses.
 - **Granular Permissions** - assign only the exact actions the scanner needs, following the principle of least privilege.
@@ -42,14 +44,15 @@ Both produce a complete scan, the difference is privilege scope, not scan covera
 
 ### Quick Setup
 
-Assign the built-in **Reader** and **Key Vault Reader** roles at the subscription scope, and grant the application these Microsoft Graph application permissions:
+For each object type selected on the scanner, assign the built-in Azure roles at the subscription scope, and grant the application the Microsoft Graph application permissions listed below:
 
-- `Application.Read.All`
-- `Directory.Read.All`
-- `GroupMember.Read.All`
-- `AuditLog.Read.All`<br />
+| Object Type      | Built-in Azure roles         | Microsoft Graph application permissions                                                   |
+| ---------------- | ---------------------------- | ----------------------------------------------------------------------------------------- |
+| **Secrets**      | `Reader`, `Key Vault Reader` | `Application.Read.All`, `AuditLog.Read.All`                                               |
+| **Certificates** | `Reader`, `Key Vault Reader` | `Application.Read.All`                                                                    |
+| **Identities**   | `Reader`                     | `Application.Read.All`, `Directory.Read.All`, `GroupMember.Read.All`, `AuditLog.Read.All` |
 
-`GroupMember.Read.All` and `AuditLog.Read.All` require tenant admin consent.
+All Microsoft Graph application permissions require tenant admin consent.
 
 <Callout icon="ℹ️" theme="info">
   ### Note
@@ -59,11 +62,13 @@ Assign the built-in **Reader** and **Key Vault Reader** roles at the subscriptio
 
 ### Granular Permissions
 
+Every table in this section has an **Object Type** column, so you can grant only what the selected object types need.
+
 All permissions below are **read-only**. The scanner never requires write access to your Azure environment, and never reads secret _values_, only metadata.
 
 #### Required Permissions
 
-The permissions listed below are required for the scan to complete successfully. If any one of them is missing, the corresponding scan will fail.
+The permissions listed below are required for the scan to complete successfully. If one is missing for an object type selected on the scanner, the scan fails, in the cases described below:
 
 | Permission                                     | Used for                                                              | If missing                                                                    |
 | ---------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -72,6 +77,17 @@ The permissions listed below are required for the scan to complete successfully.
 | Graph `Application.Read.All`                   | Entra ID application client secrets and certificates                  | Scan fails when the subscription has service principals with role assignments |
 
 the scan currently completes successfully but with **no secrets or certificates.**
+
+| Object Type      | Used for                                                                      | Permission                                     | If missing                                                                                                     |
+| ---------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Secrets**      | Key Vault discovery                                                           | `Microsoft.KeyVault/vaults/read`               | The scan fails                                                                                                 |
+| **Secrets**      | Finding the service principals whose Entra ID client secrets are scanned      | `Microsoft.Authorization/roleAssignments/read` | The scan fails                                                                                                 |
+| **Secrets**      | Entra ID application client secrets                                           | Graph `Application.Read.All`                   | The scan fails                                                                                                 |
+| **Certificates** | Key Vault discovery                                                           | `Microsoft.KeyVault/vaults/read`               | The scan fails                                                                                                 |
+| **Certificates** | Finding the service principals whose Entra ID client certificates are scanned | `Microsoft.Authorization/roleAssignments/read` | The scan fails                                                                                                 |
+| **Certificates** | Entra ID application client certificates                                      | Graph `Application.Read.All`                   | The scan fails                                                                                                 |
+| **Identities**   | Identity discovery and access mapping                                         | `Microsoft.Authorization/roleAssignments/read` | The scan fails                                                                                                 |
+| **Identities**   | Key Vault access policies                                                     | `Microsoft.KeyVault/vaults/read`               | The scan fails if the vaults can't be listed; vaults whose access policies can't be read are reported as a gap |
 
 #### Additional Permissions for Complete Coverage
 
