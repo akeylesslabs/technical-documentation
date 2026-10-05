@@ -136,21 +136,29 @@ If `list secrets` is granted only in some namespaces, the scanner reads Secrets 
 
 #### Additional Permissions for Complete Coverage
 
-These permissions are optional. If missing, the scan still completes, but with reduced visibility, and any gaps are reported in the Access Status field within the scan details.
+These permissions are optional. If missing, the scan still completes, but with reduced visibility, and the policies that depend on them are not evaluated.
 
-| Permission (verb / resource)                    | API group                   | What it adds                                                                                                    |
-| ----------------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `list namespaces`\*                             | core                        | Namespace discovery (enables per-namespace fallback when cluster-wide secret listing is restricted)             |
-| `list secrets`                                  | core                        | Secrets and TLS certificates in each namespace                                                                  |
-| `list serviceaccounts`                          | core                        | Identity discovery                                                                                              |
-| `list roles`, `list rolebindings`               | `rbac.authorization.k8s.io` | Namespace-scoped access mapping                                                                                 |
-| `list clusterroles`, `list clusterrolebindings` | `rbac.authorization.k8s.io` | Cluster-scoped access mapping (no namespace fallback - denying these blinds the whole RBAC graph for that kind) |
+| Object Type                                           | Permission                                      | What it adds                                                                                              |
+| ----------------------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **Secrets**<br />**Certificates**<br />**Identities** | `list namespaces`                               | Namespace discovery, so the scanner can read each namespace separately when a cluster-wide list is denied |
+| **Identities**                                        | `list serviceaccounts`                          | Service accounts                                                                                          |
+| **Identities**                                        | `list roles`, `list rolebindings`               | Access granted within a namespace                                                                         |
+| **Identities**                                        | `list clusterroles`, `list clusterrolebindings` | Access granted across the cluster. These have no per-namespace fallback                                   |
+
+Each gap entry names the skipped resource, the namespaces it affects, and the missing RBAC permission.
 
 ### Managed-Cluster Authentication
 
 For clusters running on a managed Kubernetes service, the scanner's credentials also need cloud-level access to reach the cluster:
 
 - EKS: The AWS IAM Role used by the Target needs `sts:GetCallerIdentity` and `eks:DescribeCluster`.
+
+For EKS and GKE clusters, the Target's cloud identity must also be allowed into the cluster:
+
+- **EKS**: no AWS IAM permissions are required. Map the IAM identity the Target uses to a Kubernetes user or group with an [EKS access entry](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html), or with the `aws-auth` ConfigMap, and bind the ClusterRole to that user or group.
+- **GKE**: grant the Target's Google service account the `container.clusters.get` IAM permission on the cluster's project, for example through the `roles/container.clusterViewer` role. Then bind the ClusterRole to the service account as a `User` subject, using the service account's unique ID as the `name`, not its email address.
+
+When **Use Gateway's Cloud Identity** is selected on the Target, these apply to the Gateway's IAM identity or Google service account instead.
 
 ## Create a Kubernetes Scanner
 
