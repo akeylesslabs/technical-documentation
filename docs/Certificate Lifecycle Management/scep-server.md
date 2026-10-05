@@ -36,8 +36,9 @@ akeyless create-pki-cert-issuer \
 --destination-path /SCEP/Server/Certificates \
 --ttl 90d \
 --allowed-domains scep.com \
-<TBC: enable-scep flag> \
-<TBC: static challenge flag>
+--enable-scep \
+--scep-challenge-type static
+--scep-password VerySecurePass
 ```
 
 Where:
@@ -54,6 +55,8 @@ Where:
 
 * `allowed-domains`: Allowed domains that clients can request to be included in the certificate.
 
-* `<TBC: enable flag>`: Enable **SCEP Server**.
+* `enable-scep`: Enable **SCEP Server**.
 
-* `<TBC: challenge flag>`: The static challenge password that clients must present when enrolling.
+* `scep-challenge-type`: The challenge type, only `static` is currently supported.&#x20;
+
+* `scep-password`: The static challenge password that clients must present when enrolling.
