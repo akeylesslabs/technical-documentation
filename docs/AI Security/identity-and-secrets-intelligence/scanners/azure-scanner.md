@@ -70,14 +70,6 @@ All permissions below are **read-only**. The scanner never requires write access
 
 The permissions listed below are required for the scan to complete successfully. If one is missing for an object type selected on the scanner, the scan fails, in the cases described below:
 
-| Permission                                     | Used for                                                              | If missing                                                                    |
-| ---------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `Microsoft.KeyVault/vaults/read`               | Discovering Key Vaults (the source for both secrets and certificates) | The scan fails                                                                |
-| `Microsoft.Authorization/roleAssignments/read` | Identity discovery and access mapping                                 | The scan fails                                                                |
-| Graph `Application.Read.All`                   | Entra ID application client secrets and certificates                  | Scan fails when the subscription has service principals with role assignments |
-
-the scan currently completes successfully but with **no secrets or certificates.**
-
 | Object Type                                           | Used for                                                                                                                             | Permission                                     | If missing     |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | -------------- |
 | **Secrets**<br />**Certificates**<br />**Identities** | Key Vault discovery, and reading the access policies of each vault                                                                   | `Microsoft.KeyVault/vaults/read`               | The scan fails |
@@ -85,6 +77,10 @@ the scan currently completes successfully but with **no secrets or certificates.
 | **Secrets**<br />**Certificates**                     | Entra ID application client secrets and certificates                                                                                 | Graph `Application.Read.All`                   | The scan fails |
 
 For **Identities**, if the vaults can be listed but some of them can't be read, the access policies of those vaults are skipped and reported as a gap.
+
+A failure in any selected object type marks the whole scan as failed, even though the other object types still run. The missing permission is listed under **Required Permissions For Full Scan** in the scan details, and **Findings** keeps showing the results of the last completed scan until a scan completes again.
+
+Missing any of the permissions in the next table never fails the scan.
 
 #### Additional Permissions for Complete Coverage
 
