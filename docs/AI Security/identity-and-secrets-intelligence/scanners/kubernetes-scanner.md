@@ -156,7 +156,7 @@ For clusters running on a managed Kubernetes service, the scanner's credentials 
 For EKS and GKE clusters, the Target's cloud identity must also be allowed into the cluster:
 
 - **EKS**: no AWS IAM permissions are required. Map the IAM identity the Target uses to a Kubernetes user or group with an [EKS access entry](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html), or with the `aws-auth` ConfigMap, and bind the ClusterRole to that user or group.
-- **GKE**: grant the Target's Google service account the `container.clusters.get` IAM permission on the cluster's project, for example through the `roles/container.clusterViewer` role. Then bind the ClusterRole to the service account as a `User` subject, using the service account's unique ID as the `name`, not its email address.
+- **GKE**: grant the Target's Google service account the `container.clusters.get` IAM permission on the cluster's project, for example through the `roles/container.clusterViewer` role. Bind the ClusterRole to the service account's unique ID, not its email.
 
 When **Use Gateway's Cloud Identity** is selected on the Target, these apply to the Gateway's IAM identity or Google service account instead.
 
