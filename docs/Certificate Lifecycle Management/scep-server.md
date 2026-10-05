@@ -57,36 +57,3 @@ Where:
 * `<TBC: enable flag>`: Enable **SCEP Server**.
 
 * `<TBC: challenge flag>`: The static challenge password that clients must present when enrolling.
-
-Upon successful creation, the generated **SCEP Server** URL will use the following format:
-
-`<TBC: URL format>`
-
-To extract the `issuer-display-id` with the CLI, run the following command:
-
-```shell
-akeyless describe-item \
---name /SCEP/Server/SCEPIssuer | jq -r '.display_id'
-```
-
-Alternatively, you can extract the full **SCEP Server** URL from the console.
-
-## Static Challenge Authentication
-
-SCEP clients authenticate to the server by presenting a **challenge password** with the enrollment request. Akeyless supports a **static challenge**: a single value configured on the issuer and shared by every client enrolling against it.
-
-<Callout icon="⚠️" theme="warn">
-  ### **Scope the issuer accordingly:**
-
-  A static challenge does not expire on use and is shared across all clients of the issuer. Restrict the issuer's **Allowed Domains**, keep the `ttl` short, and treat the challenge value as a secret.
-</Callout>
-
-### Enroll a Client
-
-\<TBC: client enrollment example>
-
-## Related Pages
-
-\- [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)
-\- [ACME Server](https://docs.akeyless.io/docs/acme-server)
-\- [Certificate Renewal](https://docs.akeyless.io/docs/certificate-renewal)
