@@ -18,6 +18,8 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
   ### Custom Usernames
 
   The **Username** field accepts a full Distinguished Name (DN), a plain username, or a down-level logon name in the `DOMAIN\username` format (for example, `CORP\svc-akeyless`), commonly used with Active Directory.
+
+  This field is optional and has no effect on the rotation flow. When set, the response returns this username instead of the full Bind DN (for a target rotator) or the username without the domain (for a self-rotator).
 </Callout>
 
 ## Create a Rotated LDAP Secret with the CLI
