@@ -76,11 +76,9 @@ The permissions listed below are required for the scan to complete successfully.
 | **Secrets**<br />**Certificates**<br />**Identities** | Identity discovery and access mapping, and finding the service principals whose Entra ID client secrets and certificates are scanned | `Microsoft.Authorization/roleAssignments/read` | The scan fails |
 | **Secrets**<br />**Certificates**                     | Entra ID application client secrets and certificates                                                                                 | Graph `Application.Read.All`                   | The scan fails |
 
+A failure in any selected object type marks the whole scan as failed.
+
 For **Identities**, if the vaults can be listed but some of them can't be read, the access policies of those vaults are skipped and reported as a gap.
-
-A failure in any selected object type marks the whole scan as failed, even though the other object types still run. The missing permission is listed under **Required Permissions For Full Scan** in the scan details, and **Findings** keeps showing the results of the last completed scan until a scan completes again.
-
-Missing any of the permissions in the next table never fails the scan.
 
 #### Additional Permissions for Complete Coverage
 
