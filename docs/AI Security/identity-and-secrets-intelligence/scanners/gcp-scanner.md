@@ -66,16 +66,6 @@ All permissions below are **read-only**. The scanner never requires write access
 
 #### Required Permissions
 
-The permissions listed below are required for the scan to complete successfully. If any one of them is missing, the corresponding scan will fail.
-
-| Permission                                                                                                                                                                                                             | Used for                                                                 | If missing                                                   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| `resourcemanager.projects.get`                                                                                                                                                                                         | Resolving the scanned project and its folder/organization hierarchy      | Scan fails                                                   |
-| `resourcemanager.projects.list`, `resourcemanager.folders.list`                                                                                                                                                        | Enumerating projects under a folder/organization (folder/org scope only) | Scan fails                                                   |
-| `resourcemanager.projects.getIamPolicy`                                                                                                                                                                                | Reading the project IAM policy - the foundation of identity discovery    | Identities scan fails                                        |
-| `secretmanager.secrets.list`                                                                                                                                                                                           | Secrets discovery (Secret Manager)                                       | Secrets scan fails                                           |
-| At least one certificate source: `privateca.certificateAuthorities.list` + `privateca.certificates.list`, or `certificatemanager.certs.list`, or `compute.sslCertificates.list` + `compute.regionSslCertificates.list` | Certificate discovery (Private CA / Certificate Manager / Compute SSL)   | Certificates scan fails only if all three sources are denied |
-
 The permissions listed below are required for the scan to complete successfully. If one is missing for an object type selected on the scanner, the scan fails, in the cases described below:
 
 | Object Type          | Used for                                                                                   | Permission                                                                                                                   | If missing                                                                                                    |
