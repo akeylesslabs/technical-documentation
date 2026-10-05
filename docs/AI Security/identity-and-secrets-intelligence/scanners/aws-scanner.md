@@ -121,7 +121,7 @@ A failure in any selected object type marks the whole scan as failed.
 
 #### Additional Permissions for Complete Coverage
 
-These permissions are optional. If missing, the scan still completes, but with reduced visibility, and the policies that depend on them are not evaluated. Each gap is listed under **Required Permissions For Full Scan** in the scan details.
+These permissions are optional. If missing, the scan still completes, but with reduced visibility, and the policies that depend on them are not evaluated.&#x20;
 
 | Object Type    | Permission                                                                                                                                                                                   | What it adds                                                                                                                                                                                |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
