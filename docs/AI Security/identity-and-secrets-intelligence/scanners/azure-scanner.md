@@ -7,6 +7,18 @@ metadata:
 ---
 The Azure Scanner is a native scanner type that inspects a connected Azure subscription, discovering the full inventory of identities such as Microsoft Entra ID users, groups, and service principals, secrets stored in Azure Key Vault, and certificates managed through Azure Key Vault, App Service, and Application Gateway, along with the relationships between them. <br />Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
+## What the Azure Scanner Discovers
+
+Each scanner covers one or more object types, selected when the scanner is created:
+
+| Object Type      | What is discovered                                                                                                                                                                                                                 |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Secrets**      | Secrets stored in Azure Key Vault, with their creation, update, and expiration dates and enabled status, and Microsoft Entra ID app registration client secrets, with their expiration date, owner, and last sign-in               |
+| **Certificates** | Certificates managed through Azure Key Vault, App Service, and Application Gateway (SSL, trusted root, trusted client, and authentication certificates), and Microsoft Entra ID app registration client certificates               |
+| **Identities**   | Microsoft Entra ID users, groups, service principals, and managed identities, with their role assignments and the scope of each, deny assignments, group memberships, credentials, sign-in activity, and Key Vault access policies |
+
+Each scanner covers one Azure subscription, the one set on the Azure Target. Key Vaults, App Service certificates, and Application Gateways are discovered across the whole subscription, in every region. Identities are discovered from the subscription's role assignments, so the scanner finds identities that hold a role assignment in the subscription, and the members of groups that do. Likewise, Microsoft Entra ID client secrets and certificates are discovered only for service principals that hold a role assignment in the subscription. To cover several subscriptions, create an Azure Target and a scanner for each subscription.
+
 ## Prerequisites
 
 - An Akeyless account with the Identity & Secrets Intelligence license.
