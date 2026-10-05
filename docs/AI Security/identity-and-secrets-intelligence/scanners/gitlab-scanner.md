@@ -5,8 +5,6 @@ hidden: false
 metadata:
   robots: index
 ---
-# GitLab Scanner
-
 The GitLab Scanner is a native scanner type that inspects a connected GitLab group on GitLab.com or a self-managed GitLab instance. It clones each project in the group and its subgroups, then scans the source code and the full Git history for hardcoded credentials. Each discovered credential is validated with a read-only check to determine whether it still works, then evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## What the GitLab Scanner Discovers
