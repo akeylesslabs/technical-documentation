@@ -7,7 +7,17 @@ metadata:
 ---
 # Kubernetes Scanner
 
-The Kubernetes Scanner is a native scanner type that inspects a connected Kubernetes cluster.It discovers the full inventory of identities, such as service accounts and their RBAC bindings, and secrets, including certificates, which Kubernetes stores as `kubernetes.io/tls` typed Secrets rather than as a separate object type. It also maps the relationships between these objects. <br />Each discovered object is evaluated against Identity and Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The Kubernetes Scanner is a native scanner type that inspects a connected Kubernetes cluster and discovers its identities, Secrets, and certificates, along with the relationships between them. It discovers ServiceAccounts and the `User` and `Group` subjects of RoleBindings and ClusterRoleBindings, together with the Roles and ClusterRoles bound to them, as well as Secrets and the certificates stored in Secrets of type `kubernetes.io/tls`. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+
+## What the Kubernetes Scanner Discovers
+
+Each scanner covers one or more object types, selected when the scanner is created:
+
+| Object Type      | What is discovered                                                                                                                             |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Secrets**      | Kubernetes Secrets in every namespace the scanner can read, with their namespace, type, labels, annotations, and key names                     |
+| **Certificates** | Certificates stored in `kubernetes.io/tls` Secrets, with their subject, issuer, serial number, and expiration date                             |
+| **Identities**   | Service accounts, and the users and groups named in role bindings, with the Roles and ClusterRoles bound to them and the Secrets they can read |
 
 ## Prerequisites
 
