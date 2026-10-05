@@ -44,22 +44,20 @@ Both produce a complete scan, the difference is privilege scope, not scan covera
 
 ### Quick Setup
 
-Grant the scanner's service account these predefined roles:
+For each object type selected on the scanner, grant the service account the predefined roles listed below:
 
-- `roles/browser`
-- `roles/resourcemanager.folderViewer`
-- `roles/iam.securityReviewer`
-- `roles/secretmanager.viewer`
-- `roles/logging.viewer`
-- `roles/policyanalyzer.activityAnalysisViewer`
-- `roles/privateca.auditor`
-- `roles/certificatemanager.viewer`
-- `roles/compute.viewer`
+| Object Type      | Predefined roles                                                                             |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| **Secrets**      | `roles/secretmanager.viewer`, `roles/logging.privateLogViewer`                               |
+| **Certificates** | `roles/privateca.auditor`, `roles/certificatemanager.viewer`, `roles/compute.viewer`         |
+| **Identities**   | `roles/browser`, `roles/iam.securityReviewer`, `roles/policyanalyzer.activityAnalysisViewer` |
+
+For **Folder** or **Organization** scope, also grant `roles/browser` on the folder or organization, whatever object types are selected, so the scanner can list the projects and folders underneath it.
 
 <Callout icon="ℹ️" theme="info">
   ### Note
 
-  For folder or organization scope, grant these roles at the folder or organization level so they inherit to all projects underneath.
+  For folder or organization scope, grant these roles at the folder or organization level so they inherit to all projects underneath. A project that does not inherit a role is reported as a gap in the scan details.
 </Callout>
 
 ### Granular Permissions
