@@ -3,5 +3,5 @@
 - azure-scanner
 - gcp-scanner
 - github-scanner
-- kubernetes-scanner
 - gitlab-scanner
+- kubernetes-scanner
