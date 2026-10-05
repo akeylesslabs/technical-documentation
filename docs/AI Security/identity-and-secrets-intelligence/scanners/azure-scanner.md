@@ -78,16 +78,13 @@ The permissions listed below are required for the scan to complete successfully.
 
 the scan currently completes successfully but with **no secrets or certificates.**
 
-| Object Type      | Used for                                                                      | Permission                                     | If missing                                                                                                     |
-| ---------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **Secrets**      | Key Vault discovery                                                           | `Microsoft.KeyVault/vaults/read`               | The scan fails                                                                                                 |
-| **Secrets**      | Finding the service principals whose Entra ID client secrets are scanned      | `Microsoft.Authorization/roleAssignments/read` | The scan fails                                                                                                 |
-| **Secrets**      | Entra ID application client secrets                                           | Graph `Application.Read.All`                   | The scan fails                                                                                                 |
-| **Certificates** | Key Vault discovery                                                           | `Microsoft.KeyVault/vaults/read`               | The scan fails                                                                                                 |
-| **Certificates** | Finding the service principals whose Entra ID client certificates are scanned | `Microsoft.Authorization/roleAssignments/read` | The scan fails                                                                                                 |
-| **Certificates** | Entra ID application client certificates                                      | Graph `Application.Read.All`                   | The scan fails                                                                                                 |
-| **Identities**   | Identity discovery and access mapping                                         | `Microsoft.Authorization/roleAssignments/read` | The scan fails                                                                                                 |
-| **Identities**   | Key Vault access policies                                                     | `Microsoft.KeyVault/vaults/read`               | The scan fails if the vaults can't be listed; vaults whose access policies can't be read are reported as a gap |
+| Object Type                                           | Used for                                                                                                                             | Permission                                     | If missing     |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | -------------- |
+| **Secrets**<br />**Certificates**<br />**Identities** | Key Vault discovery, and reading the access policies of each vault                                                                   | `Microsoft.KeyVault/vaults/read`               | The scan fails |
+| **Secrets**<br />**Certificates**<br />**Identities** | Identity discovery and access mapping, and finding the service principals whose Entra ID client secrets and certificates are scanned | `Microsoft.Authorization/roleAssignments/read` | The scan fails |
+| **Secrets**<br />**Certificates**                     | Entra ID application client secrets and certificates                                                                                 | Graph `Application.Read.All`                   | The scan fails |
+
+For **Identities**, if the vaults can be listed but some of them can't be read, the access policies of those vaults are skipped and reported as a gap.
 
 #### Additional Permissions for Complete Coverage
 
