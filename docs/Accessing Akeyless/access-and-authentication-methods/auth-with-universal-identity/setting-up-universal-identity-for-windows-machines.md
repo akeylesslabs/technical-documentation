@@ -28,33 +28,33 @@ To use [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-id
 
 2. Open a terminal (PowerShell or Command Prompt) and initialize auto-rotation:
 
-    ```shell
-    akeyless uid-auto-rotate init --uid-token <initial UID token> --rotation-interval 10
-    ```
+   ```shell
+   akeyless uid-auto-rotate init --uid-token <initial UID token> --rotation-interval 15
+   ```
 
-    This saves the token to the default token file and installs a native Windows Task Scheduler job that rotates it automatically at the interval you specify.
+   This saves the token to the default token file and installs a native Windows Task Scheduler job that rotates it automatically at the interval you specify.
 
-    Where:
+   Where:
 
-    * `--uid-token`: The initial Universal Identity token value, generated from your UID Auth Method.
+   * `--uid-token`: The initial Universal Identity token value, generated from your UID Auth Method.
 
-    * `--token-file`: Path to a file that already contains the initial token, to use instead of `--uid-token`. **Note:** `--uid-token` and `--token-file` are mutually exclusive.
+   * `--token-file`: Path to a file that already contains the initial token, to use instead of `--uid-token`. **Note:** `--uid-token` and `--token-file` are mutually exclusive.
 
-    * `--rotation-interval`: **Required.** How often, in minutes, the token should be rotated.
+   * `--rotation-interval`: **Required.** How often, in minutes, the token should be rotated.
 
-    * `--skip-token-validation`: **Optional.** Skip validating the initial token before saving it.
+   * `--skip-token-validation`: **Optional.** Skip validating the initial token before saving it.
 
-    * `--force`: **Optional.** Overwrite an existing `uid-auto-rotate` configuration.
+   * `--force`: **Optional.** Overwrite an existing `uid-auto-rotate` configuration.
 
-    * `--gateway-url`: **Optional.** The Gateway URL to use for token rotation (Configuration Management port, for example `http://localhost:8000`). If not set, defaults to the Akeyless SaaS endpoint.
+   * `--gateway-url`: **Optional.** The Gateway URL to use for token rotation (Configuration Management port, for example `http://localhost:8000`). If not set, defaults to the Akeyless SaaS endpoint.
 
 3. Confirm the scheduled task was created, either by opening **Task Scheduler** and locating the new auto-rotation job, or by running:
 
-    ```shell
-    akeyless uid-auto-rotate status
-    ```
+   ```shell
+   akeyless uid-auto-rotate status
+   ```
 
-    This reports the current token file location and scheduling status.
+   This reports the current token file location and scheduling status.
 
 4. Confirm the token file (`~/.uid-token` by default, in the current user's home directory, unless a different path was set with `--token-file`) starts refreshing with a new token at the configured interval.
 
@@ -62,18 +62,18 @@ To use [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-id
 
 * To rotate the token once immediately, without waiting for the next scheduled run:
 
-    ```shell
-    akeyless uid-auto-rotate rotate [--token-file <path>]
-    ```
+  ```shell
+  akeyless uid-auto-rotate rotate [--token-file <path>]
+  ```
 
 * To remove the scheduled rotation job while keeping the existing token file:
 
-    ```shell
-    akeyless uid-auto-rotate uninstall [--token-file <path>]
-    ```
+  ```shell
+  akeyless uid-auto-rotate uninstall [--token-file <path>]
+  ```
 
 * To check token and scheduling status at any time:
 
-    ```shell
-    akeyless uid-auto-rotate status [--token-file <path>]
-    ```
+  ```shell
+  akeyless uid-auto-rotate status [--token-file <path>]
+  ```
