@@ -24,5 +24,6 @@ From the Akeyless Console, under **Products > Identity & Secrets Intelligence > 
 - [AWS Scanner](doc:aws-scanner)
 - [Azure Scanner](doc:azure-scanner)
 - [GCP Scanner](doc:gcp-scanner)
-- [Kubernetes Scanner](doc:kubernetes-scanner)
 - [GitHub Scanner](doc:github-scanner)
+- [GitLab Scanner](doc:gitlab-scanner)​
+- [Kubernetes Scanner](doc:kubernetes-scanner)
