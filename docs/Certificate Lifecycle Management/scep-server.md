@@ -1,11 +1,15 @@
 ---
 title: SCEP Server
-excerpt: 'Deploy a SCEP Server on your Gateway to let devices enroll for certificates automatically.'
+excerpt: >-
+  Deploy a SCEP Server on your Gateway to let devices enroll for certificates
+  automatically.
 deprecated: false
 hidden: false
 metadata:
-  title: 'SCEP Server'
-  description: 'Configure a PKI Cert Issuer with a SCEP Server and static challenge authentication for automated device certificate enrollment.'
+  title: SCEP Server
+  description: >-
+    Configure a PKI Cert Issuer with a SCEP Server and static challenge
+    authentication for automated device certificate enrollment.
   robots: index
 ---
 [SCEP](https://datatracker.ietf.org/doc/html/rfc8894), or **Simple Certificate Enrollment Protocol**, allows network devices and endpoint management systems to request certificates automatically, without a person generating a CSR for each device. It is widely supported by MDM platforms, network equipment, and operating system certificate clients.
@@ -17,8 +21,6 @@ Akeyless supports creating a [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh
 Before proceeding, ensure you have permission to manage certificate issuers on your Gateway.
 
 ## Enable SCEP Server
-
-### Create a Signer Key
 
 The SCEP Server signs certificates using a **Signer Key** on the PKI Cert Issuer. If you do not already have one, follow [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) to upload an existing CA key or generate a new RSA key with a self-signed certificate.
 
@@ -81,10 +83,10 @@ SCEP clients authenticate to the server by presenting a **challenge password** w
 
 ### Enroll a Client
 
-<TBC: client enrollment example>
+\<TBC: client enrollment example>
 
 ## Related Pages
 
-- [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)
-- [ACME Server](https://docs.akeyless.io/docs/acme-server)
-- [Certificate Renewal](https://docs.akeyless.io/docs/certificate-renewal)
+\- [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)
+\- [ACME Server](https://docs.akeyless.io/docs/acme-server)
+\- [Certificate Renewal](https://docs.akeyless.io/docs/certificate-renewal)
