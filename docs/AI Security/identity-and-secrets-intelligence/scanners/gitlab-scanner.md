@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-The GitLab Scanner is a native scanner type that inspects a connected GitLab group on GitLab.com or a self-managed GitLab instance. It clones each project in the group and its subgroups, then scans the source code and the full Git history for hardcoded credentials. Each discovered credential is validated with a read-only check to determine whether it still works, then evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The GitLab Scanner is a native scanner type that inspects a connected GitLab group on GitLab.com or a self-managed GitLab instance, discovering credentials hardcoded in the source code and Git history of its projects, along with the users who committed them and the cloud identities they belong to. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## What the GitLab Scanner Discovers
 
@@ -16,7 +16,13 @@ The GitLab Scanner is a code scanner. It finds credentials committed to your Git
 * **Authorship**: The GitLab user who committed each credential, matched against the members of the scanned group.
 * **Cloud identity correlation**: A validated AWS, GCP, or Azure credential is linked in the Security Graph to the same identity discovered by the matching [AWS](https://docs.akeyless.io/docs/aws-scanner), [GCP](https://docs.akeyless.io/docs/gcp-scanner), or [Azure](https://docs.akeyless.io/docs/azure-scanner) Scanner.
 
-Each finding records the file, line, and commit where the credential was found, a direct link to that line in GitLab, whether the credential is still present in the latest commit, and who introduced it and when. The credential value itself is never stored.
+A scanner with a **GitLab Group** set covers that group and, by default, its subgroups. A scanner with no group set covers every group the token's user is a member of. Archived projects are scanned in both cases. To scan only some of the projects, filter them when you create the scanner, as described in [Create a GitLab Scanner in the Akeyless Console](#create-a-gitlab-scanner-in-the-akeyless-console). To cover more groups, add the token's user to each of them and leave the group blank, or create a scanner for each group.
+
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  If you also scan that cloud account with the [AWS](https://docs.akeyless.io/docs/aws-scanner), [GCP](https://docs.akeyless.io/docs/gcp-scanner), or [Azure](https://docs.akeyless.io/docs/azure-scanner) Scanner, both scanners link to the same identity. The GitLab finding then shows what the leaked credential grants: the identity's permissions and the resources it can access, as discovered by that scanner. Without the cloud scanner, the identity is shown by name only.
+</Callout>
 
 ## Prerequisites
 
