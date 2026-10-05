@@ -33,7 +33,9 @@ Each scanner covers one or more object types, selected when the scanner is creat
 
 ## Required Kubernetes Permissions
 
-The credentials used by the Target need list-only access to your cluster's API resources. There are two ways to grant it:
+The credentials used by the Target need `list` access to the Kubernetes resources behind each object type selected on the scanner. Every table in this section has an **Object Type** column, so you can grant only what the selected object types need.
+
+There are two ways to grant it:
 
 - **Quick Setup** - bind a single predefined ClusterRole covering everything the scanner can use. Fastest to configure, but grants more access than a narrowly-scoped scan configuration strictly needs.
 - **Granular Permissions** - bind only the specific list verbs your scan configuration needs, following the principle of least privilege.
@@ -57,6 +59,63 @@ rules:
     resources: ["roles", "rolebindings", "clusterroles", "clusterrolebindings"]
     verbs: ["list"]
 ```
+
+For each object type selected on the scanner, the ClusterRole grants `list` on the resources listed below:
+
+| Object Type                       | Resources                                                                                       |
+| --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Secrets**<br />**Certificates** | `namespaces`, `secrets`                                                                         |
+| **Identities**                    | `namespaces`, `serviceaccounts`, `roles`, `rolebindings`, `clusterroles`, `clusterrolebindings` |
+
+Create the ClusterRole below. Keep the rules for each object type you selected, and remove the others:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: akeyless-isi-scanner
+rules:
+  # Secrets and Certificates
+  - apiGroups: [""]
+    resources: ["namespaces", "secrets"]
+    verbs: ["list"]
+  # Identities
+  - apiGroups: [""]
+    resources: ["namespaces", "serviceaccounts"]
+    verbs: ["list"]
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources: ["roles", "rolebindings", "clusterroles", "clusterrolebindings"]
+    verbs: ["list"]
+```
+
+Then bind the ClusterRole, with a ClusterRoleBinding, to the identity the Target authenticates as:
+
+| Target                                     | Bind the ClusterRole to                                                                                                                 |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Generic Kubernetes, **Bearer Token**       | The service account the token belongs to                                                                                                |
+| Generic Kubernetes, **Client Certificate** | The user named in the certificate's Common Name (CN)                                                                                    |
+| Generic Kubernetes, **GW Service Account** | The Gateway's service account                                                                                                           |
+| EKS                                        | The Kubernetes user or group mapped to the Target's IAM identity, see [Managed-Cluster Authentication](#managed-cluster-authentication) |
+| GKE                                        | The Target's Google service account, see [Managed-Cluster Authentication](#managed-cluster-authentication)                              |
+
+For example, to bind it to a service account:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: akeyless-isi-scanner
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: akeyless-isi-scanner
+subjects:
+  - kind: ServiceAccount
+    name: <service account name>
+    namespace: <service account namespace>
+```
+
+To bind it to a user or a group, replace the subject with `kind: User` or `kind: Group`, its `name`, and `apiGroup: rbac.authorization.k8s.io`.
 
 ### Granular Permissions
 
