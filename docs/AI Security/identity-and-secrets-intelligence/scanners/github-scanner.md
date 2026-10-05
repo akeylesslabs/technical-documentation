@@ -12,7 +12,7 @@ The GitHub Scanner is a native scanner type that inspects a connected GitHub org
 - An Akeyless account with the Identity & Secrets Intelligence license.
 - A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `5.1.0` and later.
 - A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
-- A [GitHub Target](https://docs.akeyless.io/docs/github-targets) representing the GitHub App that will scan the organization or enterprise.
+- A [GitHub Target](https://docs.akeyless.io/docs/github-targets) representing the GitHub App that will scan the organization.
 - The GitHub App used by the Target granted the scope listed under [Required GitHub Permissions](#required-github-permissions) below.
 - Access to configure and run the scanner, granted via:
   - `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
