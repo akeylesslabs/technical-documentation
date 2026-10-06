@@ -39,26 +39,16 @@ A scanner with a **GitLab Group** set covers that group and, by default, its sub
 
 ## Required GitLab Permissions
 
-The GitLab Scanner authenticates with the access token stored in the GitLab Target. Both a [personal access token](https://docs.gitlab.com/user/profile/personal_access_tokens/) and a [group access token](https://docs.gitlab.com/user/group/settings/group_access_tokens/) are supported.
+The access token used by the Target needs read access to the GitLab resources behind each object type selected on the scanner. Every table in this section has an **Object Type** column, so you can grant only what the selected object types need. Both a [personal access token](https://docs.gitlab.com/user/profile/personal_access_tokens/) and a [group access token](https://docs.gitlab.com/user/group/settings/group_access_tokens/) are supported.
 
-Both scopes below are **read-only**. The scanner never requires write access to your GitLab instance. It reads repository content in order to find credentials, but never stores a discovered credential's value.
+The permissions listed below are required for the scan to complete successfully. If one is missing on the scanner, the scan fails, in the cases described below:
 
-The token needs both scopes, as neither one alone is enough:
+| Object Type | Used for                                                 | Permission        | If missing                                              |
+| ----------- | -------------------------------------------------------- | ----------------- | ------------------------------------------------------- |
+| **Code**    | Listing groups, projects, and group members              | `read_api`        | The scan fails                                          |
+| **Code**    | Cloning each project to scan its source code and history | `read_repository` | Every project is skipped and reported as a scan warning |
 
-| Scope             | Used for                                                            | If missing                                                                                                      |
-| ----------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `read_api`        | Listing groups, projects, and group members                         | The scan fails before any project is scanned                                                                    |
-| `read_repository` | Cloning each project over HTTPS to scan its source code and history | The scan completes, but every project is reported as a warning in the scan details and no findings are produced |
-
-When you use a group access token, give it a role that can read the repository of every project in the group, such as **Reporter** or higher.
-
-<Callout icon="ℹ️" theme="info">
-  ### **Note:**
-
-  For a self-managed instance, the Target's **URL** must point to that instance, and its **TLS Certificate** field must be empty.&#x20;
-
-  For more information, see [Self-Managed GitLab Instances](#self-managed-gitlab-instances) below.
-</Callout>
+Use a personal access token, or a group access token with the **Reporter** role or higher.
 
 ### Scan Warnings
 
@@ -69,30 +59,6 @@ Some access gaps do not fail the scan. The scan completes and reports each gap a
 | The token cannot list the members of a group           | All credentials are still found, but some or all are not attributed to the user who committed them |
 | A project cannot be cloned                             | The project is skipped, and a warning names it                                                     |
 | A project is larger than 250 MB, as reported by GitLab | The project is skipped, and a warning names it                                                     |
-
-A few conditions fail the scan instead of producing a partial result, so that findings from earlier scans are kept:
-
-* The token is invalid, expired, or missing the `read_api` scope.
-* The **GitLab Group** is left blank, and the token is not a member of any group.
-* The **GitLab Group** is a user namespace, not a group.
-* The projects of one of the groups in scope cannot be listed. The remaining groups are still scanned, and a warning names the group that was skipped.
-
-## Scan Scope
-
-The **GitLab Group** field on the scanner controls which projects are scanned:
-
-* **Blank**: Scans every group the token is a member of, including subgroups.
-* **A group path**, for example `acme` or `acme/platform`: Scans only that group and its subgroups.
-
-<Callout icon="ℹ️" theme="info">
-  ### **Note:**
-
-  Scan coverage follows the token user's group memberships. To scan every group you want covered, make sure the token's user is a member of each of them. The scanner only discovers groups the user belongs to, so a group the user is not a member of is outside the scan scope and is not listed in the scan results.
-</Callout>
-
-Archived projects are scanned, because a live credential in an archived project can still be used.
-
-Scanners with overlapping scopes do not create duplicate findings. For example, one scanner for `acme` and another for `acme/platform` both scan `acme/platform/api`, and a credential in that project appears as a single finding.
 
 ## Self-Managed GitLab Instances
 
