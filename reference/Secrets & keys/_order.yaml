@@ -1,0 +1,6 @@
+- static-secrets
+- dynamic-secrets
+- rotated-secrets
+- certificates
+- encryption-keys
+- kmip

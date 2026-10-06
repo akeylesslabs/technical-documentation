@@ -1,0 +1,8 @@
+- createpasskey
+- createsecret
+- getsecretvalue
+- importpasswords
+- rollbacksecret
+- staticsecretdeletesync
+- staticsecretsync
+- updatesecretval
