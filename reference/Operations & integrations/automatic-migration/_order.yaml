@@ -1,0 +1,8 @@
+- gatewaycreatemigration
+- gatewaydeletemigration
+- gatewaygetmigration
+- gatewaylistmigration
+- gatewaymigratepersonalitems
+- gatewaystatusmigration
+- gatewaysyncmigration
+- gatewayupdatemigration

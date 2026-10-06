@@ -1,0 +1,12 @@
+- gatewaygetlogforwarding
+- gatewayupdatelogforwardingawss3
+- gatewayupdatelogforwardingazureanalytics
+- gatewayupdatelogforwardingdatadog
+- gatewayupdatelogforwardingelasticsearch
+- gatewayupdatelogforwardinggooglechronicle
+- gatewayupdatelogforwardinglogstash
+- gatewayupdatelogforwardinglogzio
+- gatewayupdatelogforwardingsplunk
+- gatewayupdatelogforwardingstdout
+- gatewayupdatelogforwardingsumologic
+- gatewayupdatelogforwardingsyslog
