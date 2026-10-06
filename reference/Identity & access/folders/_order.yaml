@@ -1,0 +1,8 @@
+- foldercreate
+- folderdelete
+- folderdeletesync
+- folderget
+- foldersync
+- foldersyncall
+- folderupdate
+- moveobjects

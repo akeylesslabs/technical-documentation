@@ -1,0 +1,5 @@
+- creategroup
+- deletegroup
+- getgroup
+- listgroups
+- updategroup

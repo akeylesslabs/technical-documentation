@@ -1,0 +1,13 @@
+- assocroleauthmethod
+- createrole
+- deleteroleassociation
+- deleterole
+- deleterolerule
+- deleteroles
+- describepermissions
+- describeassoc
+- getrole
+- listroles
+- setrolerule
+- updateassoc
+- updaterole
