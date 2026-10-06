@@ -57,7 +57,9 @@ Where:
 
 - `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning, for example, restarting a service.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#assoc-target-item) section.
+For F5 BIG-IP, SSL profiles can be bound using the `--bind-ssl-profiles` flag. The partition segment of this flag can now include a subfolder path within the administrative partition (for example, `client-ssl:Common/my-subfolder:my-profile`), in addition to a top-level partition such as `Common`.
+
+You can find the complete list of additional parameters for this command, including `--bind-ssl-profiles`, in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#assoc-target-item) section.
 
 ## Provisioning a Certificate Using the Akeyless Console
 
