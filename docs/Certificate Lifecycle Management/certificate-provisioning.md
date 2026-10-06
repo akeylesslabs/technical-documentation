@@ -39,7 +39,8 @@ akeyless assoc-target-item \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --certificate-path <Where to save the certificate> \
 --post-provision-command <"echo Akeyless"> \
---f5-certificate-type[=traffic] <Certificate Type>
+--f5-certificate-type[=traffic] <Certificate Type> \
+--certificate-format[=pem] <Certificate Format>
 ```
 
 Where:
@@ -51,6 +52,8 @@ Where:
 - `gateway-url`: Akeyless Gateway URL (port `8000`).
 
 - `certificate-path`: A path on the **Target** to save the certificate PEM file can be used as well with `chain-path` and `private-key-path` flags to save those on different locations.
+
+- `certificate-format`: Optional, the file format to provision the certificate in. Supported values are `pem` (default) and `pfx`.
 
 - `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning, for example, restarting a service.
 
@@ -70,13 +73,15 @@ You can find the complete list of additional parameters for this command, includ
 
 - **Certificate Remote Path** - The path where the certificate will be provisioned to in the remote machine.
 
+- **Certificate Format** - Choose the file format the certificate will be provisioned in: **PEM** (default) or **PFX**.
+
 - **Private Key Remote Path** - A path on the target to store the private key.
 
 - **Certificate Chain Path** - A path on the target to store the full chain.
 
 - **Post Provision Command** - A custom command of your choice that will be executed on the remote machine as part of the provisioning process.
 
-- **Bind to SSL Profile(s)&#x20;**- If set, the certificate will be bound to an existing SSL profile (relevant only for **F5**).
-  - **Profile Type&#x20;**- Select **Client SSL** or **Server SSL**.
-  - **Partition** - The partition where the profile exists, optionally including a subfolder path within the partition (for example, `Common/my-subfolder`). By default, the partition is taken from the **Certificate Remote Path**.
-  - **Profile Name&#x20;**- The name of the **SSL profile**.
+- **Bind to SSL Profile(s) **- If set, the certificate will be bound to an existing SSL profile (relevant only for **F5**).
+  - **Profile Type **- Select **Client SSL** or **Server SSL**.
+  - **Partition** - The partition where the profile exists. By default, the partition is taken from the **Certificate Remote Path**.
+  - **Profile Name **- The name of the **SSL profile**.
