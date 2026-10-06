@@ -12,12 +12,18 @@ next:
 ---
 Akeyless Platform provides rich analytics functionality, allowing the user to analyze the status of his secret posture in various environments with a high-level view.
 
-The main screen tab provides information about items, such as Secrets and Keys where the screen is divided into the following parts:
+The main screen tab provides information about items, such as Secrets, Keys, and Password Management, where the screen is divided into the following parts:
 
 * A geographic map presenting the IP addresses that consume secrets
 * Pie chart that represents the division of the requests by the action type, and below the exact number of operations
 * Request volume in the allocated timeframe
 * Request time by action type (latency)
+
+<Callout icon="📘" theme="info">
+  ### Password Management Line
+
+  Password Management activity is shown as its own line on the Analytics page, separate from Secrets and Keys, so you can track password manager usage independently.
+</Callout>
 
 The user can change the timeframe for which the data is presented.
 

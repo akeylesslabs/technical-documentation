@@ -109,6 +109,8 @@ akeyless target create google-trust \
 
 - `timeout`: Challenge validation timeout. Default is `5m`. Supported range is `1m` to `1h`.
 
+- `dns-propagation-timeout`: Use this when `--acme-challenge=dns` and you need a custom wait time for the DNS TXT record to propagate before validation is requested from the CA. Default is `2m`. This is independent of the overall `timeout` flag.
+
 - `key`: Use this when you want to encrypt target secret values with a specific protection key instead of the account default key.
 
 [View the complete list of target command parameters.](https://docs.akeyless.io/docs/cli-ref-targets)
@@ -144,6 +146,8 @@ akeyless target create google-trust \
   - **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
   - **DNS Zone**: Cloudflare DNS zone name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Cloudflare**).
+
+  - **DNS Propagation Timeout**: How long to wait for the DNS TXT record to propagate before requesting validation from the CA. (Relevant only if **Challenge Type** is **DNS**).
 
 1. Click Finish.
 
@@ -190,6 +194,10 @@ When using `dns` challenge validation, the target referenced by `dns-target-cred
   - **Recommended built-in role**: **DNS Zone Contributor** at the DNS zone scope.
   - Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
 
+## DNS Propagation Checking
+
+For `dns` challenge validation, Akeyless waits for the ACME TXT record to propagate before asking the Certificate Authority to validate the challenge. This reduces validation failures caused by DNS propagation delay across resolvers. The wait time can be customized with the `dns-propagation-timeout` flag (default `2m`), independent of the overall `timeout` flag used for challenge validation.
+
 ## Troubleshoot DNS Challenge Flows
 
 If certificate issuance fails during DNS challenge validation, validate the following:
@@ -202,6 +210,7 @@ If certificate issuance fails during DNS challenge validation, validate the foll
   - Cloudflare: `dns-zone`
 - The requested domain is hosted in the DNS zone managed by the provider target.
 - The Gateway has network access to provider DNS APIs.
+- If validation still fails intermittently, consider raising `dns-propagation-timeout` to allow more time for the TXT record to propagate.
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**

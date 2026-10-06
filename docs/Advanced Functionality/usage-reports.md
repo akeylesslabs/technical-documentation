@@ -15,7 +15,7 @@ To enable organization-wide views, contact your Account Manager.
 
 ## Data scope and retention
 
-### What is included
+## What is included
 
 * All actions and requests involving secrets, keys, and password manager items (creation, access, update, deletion, authentication events)
 * Usage by users, applications, and service accounts
@@ -39,7 +39,7 @@ To enable organization-wide views, contact your Account Manager.
 
 ## How to access usage reports
 
-### Web console
+## Web console
 
 1. Log in to the Akeyless Web Console.
 2. Go to **Usage Report** from the main navigation menu.
@@ -69,6 +69,7 @@ Sample output:
         "oidc": 5,
         "ldap": 2
       },
+      "ai_clients": 4,
       "total_secrets": 530,
       "secrets_by_types": {
         "static_secret": 320,
@@ -77,12 +78,6 @@ Sample output:
     }
   }
 }
-```
-
-To automate or parse results:
-
-```shell
-akeyless get-analytics-data --json | jq '.usage_reports.sm.secrets_by_types | to_entries[] | select(.value > 100)'
 ```
 
 For command flags and usage details, see [CLI reference: get-analytics-data](https://docs.akeyless.io/docs/cli#get-analytics-data). For operation-level schema details, see [Get analytics data](https://docs.akeyless.io/reference/getanalyticsdata). For usage report access configuration, see [CLI reference for access roles](https://docs.akeyless.io/docs/cli-reference-access-roles).
@@ -114,33 +109,14 @@ akeyless get-analytics-data --json > usage-reports.json
     * **Unique Users**: Distinct users who accessed secrets/keys
     * **Top Secrets/Keys**: Most frequently accessed items
     * **Authentication Methods**: SAML, OIDC, LDAP, and more
+    * **AI Clients**: Monthly count of clients identified as AI clients, shown as a dedicated category under the Secrets Management section
 
 ### CLI filtering examples
 
-The `get-analytics-data` output includes aggregated usage metrics under `usage_reports` and detailed client usage under `clients_usage_reports`.
-
-Get total clients and total secrets for Secret Management:
+Get the monthly AI Clients count for Secret Management:
 
 ```shell
-akeyless get-analytics-data --json | jq '.usage_reports.sm | {total_clients, total_secrets}'
-```
-
-List authentication method usage counts for Secret Management:
-
-```shell
-akeyless get-analytics-data --json | jq '.usage_reports.sm.clients_by_auth_method_types'
-```
-
-Show the top secret types by count:
-
-```shell
-akeyless get-analytics-data --json | jq '.usage_reports.sm.secrets_by_types | to_entries | sort_by(-.value) | .[:5]'
-```
-
-Find clients that exceeded limits:
-
-```shell
-akeyless get-analytics-data --json | jq '.clients_usage_reports.sm.clients[] | select(.exceeded_clients > 0)'
+akeyless get-analytics-data --json | jq '.usage_reports.sm.ai_clients'
 ```
 
 ## Configuration and notifications
@@ -182,21 +158,10 @@ See [Password Manager Usage Report for Admins](https://docs.akeyless.io/docs/pas
 
 ## Troubleshooting
 
-### Missing data
-
-* Ensure you have the correct RBAC permissions (`--usage-reports-access all`)
-* Check that the selected date range includes the period of interest
-* Data may be delayed by a few minutes for recent actions
-
-### Permission errors
-
-* Contact your administrator to verify your role includes usage reports access
-* If using the CLI/API, ensure your API key or token is valid and has the required scope
-
-### Export issues
-
-* Try a different browser or clear cache if export/download fails
-* If export fails, retry the JSON export action from the report action menu
+* If filters or RBAC permissions are set incorrectly, some data may not appear.
+* Make sure the selected date range covers the period you want to review.
+* Recent actions can take a short while to show up in the report.
+* If an export does not complete, try again from the report action menu or use a different browser.
 
 ## Related features
 
@@ -207,8 +172,6 @@ See [Password Manager Usage Report for Admins](https://docs.akeyless.io/docs/pas
 ## Tutorials and further reading
 
 * [Audit Logs, Analytics, and Usage Reports Tutorial](https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports)
-* [Analytics](https://docs.akeyless.io/docs/analytics)
-* [Audit Logs](https://docs.akeyless.io/docs/audit-logs)
 * [Event Center](https://docs.akeyless.io/docs/event-center)
 
 > ℹ️ **Note:** Data in usage reports includes items stored in [Personal Folders](https://docs.akeyless.io/docs/personal-corporate-areas-navigation).
