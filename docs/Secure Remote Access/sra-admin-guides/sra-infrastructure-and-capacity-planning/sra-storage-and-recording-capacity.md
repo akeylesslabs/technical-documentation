@@ -1,6 +1,5 @@
 ---
 title: Storage and Recording Capacity
-slug: sra-storage-and-recording-capacity
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: sra-storage-and-recording-capacity
 ---
 Use this page to plan recording storage growth, retention policy, and backend-specific lifecycle controls.
 
@@ -23,13 +23,25 @@ Recorded size depends on codec settings, session duration, and user interaction 
 
 Use these planning ranges as initial estimates:
 
-| Session type | Typical artifact | Planning range | Lower-band scenario | Upper-band scenario |
-| --- | --- | --- | --- | --- |
-| RDP video recording | Encoded video (`.enc` or `.enc.gzip`) | Approximately `150 MB` to `1.5 GB` per hour | Mostly static admin tasks, low screen-change rate, shorter sessions | High-motion UI activity, frequent full-screen refreshes, longer continuous sessions |
-| Web access recording | Browser session video artifact | Approximately `100 MB` to `1.2 GB` per hour | Form-based workflows and low navigation churn | Media-heavy pages, frequent page reloads, high interaction density |
-| SSH and terminal sessions | Text command transcript and metadata | Usually much smaller than video artifacts; plan by retention count and audit needs | Short command-only sessions with minimal output | Long sessions with verbose command output and frequent file/content dumps |
+| Session type              | Typical artifact                      | Planning range                                                                     | Lower-band scenario                                                 | Upper-band scenario                                                                 |
+| ------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| RDP video recording       | Encoded video (`.enc` or `.enc.gzip`) | Approximately `150 MB` to `1.5 GB` per hour                                        | Mostly static admin tasks, low screen-change rate, shorter sessions | High-motion UI activity, frequent full-screen refreshes, longer continuous sessions |
+| Web access recording      | Browser session video artifact        | Approximately `100 MB` to `1.2 GB` per hour                                        | Form-based workflows and low navigation churn                       | Media-heavy pages, frequent page reloads, high interaction density                  |
+| SSH and terminal sessions | Text command transcript and metadata  | Usually much smaller than video artifacts; plan by retention count and audit needs | Short command-only sessions with minimal output                     | Long sessions with verbose command output and frequent file/content dumps           |
 
 Treat these ranges as sizing inputs, not hard limits. Validate with representative workloads before final capacity commitments.
+
+### Quick Reference: Baseline Sizing by Screen Activity
+
+Session recording size is driven mainly by screen activity, not by a flat per-hour data rate. The following baseline estimates assume `1080p` resolution, standard compression, and no audio:
+
+| Activity profile | Example sessions                        | Estimated size per hour                  |
+| ---------------- | --------------------------------------- | ---------------------------------------- |
+| Low Profile      | SSH/CLI sessions, static logs           | Approximately `18` to `40 MB` per hour   |
+| Medium Profile   | UI navigation, web browsing             | Approximately `500 MB` per hour          |
+| High Profile     | Video, CAD, constant on-screen movement | Approximately `2.0` to `2.5 GB` per hour |
+
+**Screen Activity:** Static screens consume almost no storage; constant UI movement is what drives storage usage up. Use this profile view alongside the session-type table above as a quick sanity check when a session's recorded size looks higher or lower than expected for its protocol.
 
 ### How to Estimate Where You Fall in the Range
 
