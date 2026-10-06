@@ -8,6 +8,7 @@
 - create-a-hashicorp-vault-rotated-secret
 - create-an-ldap-rotated-secret
 - linked-target-rotated-secret
+- okta-rotated-secret
 - openai-rotated-secret
 - splunk-rotated-secret
 - create-an-ssh-rotated-secret

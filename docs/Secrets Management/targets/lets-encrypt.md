@@ -115,6 +115,8 @@ akeyless target create lets-encrypt \
 
 * `timeout`: Use this when challenge validation needs a custom wait time. Default is `5m`. Supported range is `1m` to `1h`.
 
+* `dns-propagation-timeout`: Use this when `--acme-challenge=dns` and you need a custom wait time for the DNS TXT record to propagate before validation is requested from the CA. Default is `2m`. This is independent of the overall `timeout` flag.
+
 * `key`: Use this when you want to encrypt target secret values with a specific protection key instead of the account default key.
 
 [View the complete list of parameters for this command.](https://docs.akeyless.io/docs/cli-ref-targets#lets-encrypt)
@@ -146,6 +148,8 @@ akeyless target create lets-encrypt \
 * **GCP Project**: GCP Cloud DNS project ID. Optional when **DNS Provider** is **GCP**.
 
 * **DNS Zone**: Cloudflare DNS zone name. Relevant only when **DNS Provider** is **Cloudflare**.
+
+* **DNS Propagation Timeout**: How long to wait for the DNS TXT record to propagate before requesting validation from the CA (relevant only if **Challenge Type** is **DNS**).
 
 1. Click Finish.
 
@@ -200,6 +204,10 @@ Required permissions by provider:
   * This role includes `Microsoft.Network/dnsZones/*` (manage DNS zones and record sets).
   * Reference: [Azure built-in roles for Networking - DNS Zone Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#dns-zone-contributor)
 
+## DNS Propagation Checking
+
+For `dns` challenge validation, Akeyless waits for the ACME TXT record to propagate before asking the Certificate Authority to validate the challenge. This reduces validation failures caused by DNS propagation delay across resolvers. The wait time can be customized with the `dns-propagation-timeout` flag (default `2m`), independent of the overall `timeout` flag used for challenge validation.
+
 ### Troubleshoot DNS challenge flows
 
 If certificate issuance fails during DNS challenge validation, validate the following:
@@ -211,7 +219,8 @@ If certificate issuance fails during DNS challenge validation, validate the foll
   * GCP: `gcp-project` (when project ID cannot be derived automatically)
 * The domain requested in the certificate is hosted in the DNS zone managed by the provider target.
 * The Gateway has network access to the provider DNS APIs.
-* The identity used by the provider target has permissions to create and update TXT records for ACME validation.
+* The DNS provider target has permissions to create and update TXT records for ACME validation.
+* If validation still fails intermittently, consider raising `dns-propagation-timeout` to allow more time for the TXT record to propagate.
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
