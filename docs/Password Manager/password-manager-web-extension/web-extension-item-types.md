@@ -4,8 +4,8 @@ title: Item Types Reference
 | Type | Icon | What it holds |
 |---|---|---|
 | **Folder** | Folder outline | A container for other items |
-| **Password item** | Padlock | Username, password, website URLs, OTP, custom fields |
-| **Secret item (static)** | Key | A free-form secret value, plain text or key/value |
+| **Password item** | Padlock | Username, password, Website URLs, OTP, Custom Fields |
+| **Secret item (static)** | Key | A free-form secret value, plain text or Key/value |
 | **File item** | Document | A file stored in the vault; counts against your file quota |
 | **Rotated secret** | Rotating arrows | A secret rotated by Akeyless; the value is read-only |
 | **Dynamic secret** | Dynamic icon | Credentials generated on demand, with producer status and TTL |
