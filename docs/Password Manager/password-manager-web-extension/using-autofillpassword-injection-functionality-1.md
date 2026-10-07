@@ -1,11 +1,11 @@
 ---
 title: Using Autofill / Password Injection
 ---
-With **Autofill** enabled in Settings, the extension offers your vault credentials directly on the pages where you need them.
+With `Autofill` enabled in Settings, the extension offers your vault credentials directly on the pages where you need them.
 
 ## The suggestion popup
 
-Select a username, email, password or OTP field and a small Akeyless icon appears inside it. Select the icon to open a popup listing the vault credentials whose **Website URLs** match the current domain.
+Select a username, email, password or OTP field and a small Akeyless icon appears inside it. Select the icon to open a popup listing the vault credentials whose `Website URLs` match the current domain.
 
 Choose one and the extension fills the form.
 
@@ -20,7 +20,7 @@ Choose one and the extension fills the form.
 
 ## Matching
 
-Credentials are matched to the page by domain, using the **Website URLs** on the item. If a credential does not appear, confirm the item has a URL for that site.
+Credentials are matched to the page by domain, using the `Website URLs` on the item. If a credential does not appear, confirm the item has a URL for that site.
 
 ## Decoy fields
 
