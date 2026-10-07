@@ -1,20 +1,16 @@
 ---
 title: Installation & Supported Browsers
 ---
-Akeyless Password Manager 2.0 puts your Akeyless vault inside the browser — browse, search,
-create and fill credentials without leaving the page you are on.
-
-![The extension as a standalone popup window](https://files.readme.io/d0fa7939ef7be595616b44d6b963592018884d0d9b376723d98a150c8ad36142-extension-popup-window.png)
-*The extension as a standalone popup window*
+Akeyless Password Manager 2.0 puts your Akeyless vault inside the browser — browse, search,<br />create and fill credentials without leaving the page you are on.
 
 ## Supported browsers
 
-| Browser | Minimum version | Notes |
-|---|---|---|
-| **Google Chrome** | 88+ | Full feature set |
-| **Microsoft Edge** | 88+ | Full feature set |
-| **Mozilla Firefox** | 91.1+ | Sidebar instead of side panel |
-| **Safari** | macOS 13.0+ | Distributed through the Mac App Store. Google and GitHub sign-in are not offered |
+| Browser             | Minimum version | Notes                                                                            |
+| ------------------- | --------------- | -------------------------------------------------------------------------------- |
+| **Google Chrome**   | 88+             | Full feature set                                                                 |
+| **Microsoft Edge**  | 88+             | Full feature set                                                                 |
+| **Mozilla Firefox** | 91.1+           | Sidebar instead of side panel                                                    |
+| **Safari**          | macOS 13.0+     | Distributed through the Mac App Store. Google and GitHub sign-in are not offered |
 
 <Callout icon="ℹ️" theme="info">
   Akeyless Password Manager 2.0 is a **separate listing** from the original Akeyless Password
@@ -22,16 +18,15 @@ create and fill credentials without leaving the page you are on.
   store, so you land on the right extension.
 </Callout>
 
----
+***
 
 ## Three ways to install
 
-| Method | Who uses it | What the user gets |
-|---|---|---|
-| **A — Browser store** | Individual users | The full sign-in screen, every authentication method |
-| **B — Preconfigured link** | Admins rolling out to a team | A sign-in screen already set to the organization's method and Access ID |
-| **C — Preconfigured package (MDM)** | Admins with managed devices | The same, with no link to click and no user action |
-
+| Method                              | Who uses it                  | What the user gets                                                      |
+| ----------------------------------- | ---------------------------- | ----------------------------------------------------------------------- |
+| **A — Browser store**               | Individual users             | The full sign-in screen, every authentication method                    |
+| **B — Preconfigured link**          | Admins rolling out to a team | A sign-in screen already set to the organization's method and Access ID |
+| **C — Preconfigured package (MDM)** | Admins with managed devices  | The same, with no link to click and no user action                      |
 
 <Callout icon="⚠️" theme="warn">
   **Methods B and C are set up by Akeyless.** Preconfigured links and preconfigured package
@@ -44,7 +39,7 @@ create and fill credentials without leaving the page you are on.
   method, your Access ID, your region, and any branding you want applied.
 </Callout>
 
----
+***
 
 ## Method A — install from the browser store
 
@@ -91,7 +86,7 @@ create and fill credentials without leaving the page you are on.
   Alias. Safari also has no side panel or sidebar — the extension opens as a popup only.
 </Callout>
 
----
+***
 
 ## Method B — preconfigured link
 
@@ -113,7 +108,7 @@ organization's sign-in configuration.
 
 Administrators: see [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link).
 
----
+***
 
 ## Method C — preconfigured package for MDM
 
@@ -142,11 +137,11 @@ file has `"enabled": true`, its contents seed the extension's sign-in configurat
 
 ### Deploying it
 
-| Platform | How |
-|---|---|
+| Platform                           | How                                                                                                               |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | **Chrome / Edge (Windows, macOS)** | Publish the packaged extension privately and deploy with `ExtensionInstallForcelist` via group policy or your MDM |
-| **Firefox** | Deploy the signed XPI through `policies.json` or enterprise policy |
-| **Safari (macOS)** | Distribute the container app through Apple Business Manager / your MDM |
+| **Firefox**                        | Deploy the signed XPI through `policies.json` or enterprise policy                                                |
+| **Safari (macOS)**                 | Distribute the container app through Apple Business Manager / your MDM                                            |
 
 <Callout icon="⚠️" theme="warn">
   **First install only.** Updating an extension that is already installed will not apply new
@@ -159,23 +154,23 @@ packaged extension are produced for your tenant and supplied to you for distribu
 
 Administrators: see [Preconfigured Package](https://docs.akeyless.io/docs/web-extension-preconfigured-package).
 
----
+***
 
 ## Akeyless SA (Secrets Automation)
 
 If your organization uses Akeyless Secrets Automation with Secure Remote Access, install
 **Akeyless SA 2.0** instead — a separate extension with proxy and Zero Trust Portal support.
 
-| Browser | Install |
-|---|---|
-| **Chrome** | [Akeyless SA 2.0](https://chromewebstore.google.com/detail/akeyless-sa-20/cdghndnnjccefelakphihcjngdokccpm) |
-| **Edge** | [Akeyless SA 2.0](https://microsoftedge.microsoft.com/addons/detail/akeyless-sa-20/eplnolemlmkfhbmmafdnncdnapoijkgo) |
-| **Firefox** | [Akeyless SA 2.0](https://addons.mozilla.org/en-US/firefox/addon/akeyless-sa-2-0/) |
+| Browser     | Install                                                                                                              |
+| ----------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Chrome**  | [Akeyless SA 2.0](https://chromewebstore.google.com/detail/akeyless-sa-20/cdghndnnjccefelakphihcjngdokccpm)          |
+| **Edge**    | [Akeyless SA 2.0](https://microsoftedge.microsoft.com/addons/detail/akeyless-sa-20/eplnolemlmkfhbmmafdnncdnapoijkgo) |
+| **Firefox** | [Akeyless SA 2.0](https://addons.mozilla.org/en-US/firefox/addon/akeyless-sa-2-0/)                                   |
 
 Install one or the other, not both. See
 [SA Web Extension (Secrets Automation)](https://docs.akeyless.io/docs/sra-web-extension-sa).
 
----
+***
 
 ## After installing
 
