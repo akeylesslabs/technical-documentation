@@ -9,10 +9,10 @@ or leave in a shared drive.
 
 1. Select the blue **+** in the header.
 2. Choose **New File Item**.
-3. Give the item a **Name**.
+3. Give the item a `Name`.
 4. Select the file to upload.
-5. Choose the **Location** folder — Personal or Corporate, using the folder browser.
-6. Optionally set a **Description**, `Protection Key`, **Tags** and `Delete protection`.
+5. Choose the `Location` folder — Personal or Corporate, using the folder browser.
+6. Optionally set a `Description`, `Protection Key`, `Tags` and `Delete protection`.
 7. Select **Save**.
 
 ## Storage quota
@@ -20,7 +20,7 @@ or leave in a shared drive.
 File items consume your account's file storage quota, shared across the account rather than
 allocated per user.
 
-Check it in **Settings → File storage**, which shows:
+Check it under **Settings** → **File storage**, which shows:
 
 | Reading | Meaning |
 |---|---|
@@ -46,7 +46,7 @@ File items support the same protections as other item types:
 | Control | Effect |
 |---|---|
 | `Protection Key` | The DFC key that encrypts the file |
-| **Zero Knowledge Encryption** | Shown on items wrapped with a customer fragment |
+| Zero Knowledge Encryption | Shown on items wrapped with a customer fragment |
 | `Delete protection` | Prevents deletion until cleared |
 
 ## Sharing a file
