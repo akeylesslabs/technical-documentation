@@ -17,14 +17,14 @@ Select a source to see its step-by-step export guide, then upload the CSV it pro
 
 | Source | How to export |
 |---|---|
-| **1Password** | Desktop app export; instructions at [1Password Support](https://support.1password.com) |
-| **LastPass** | [the LastPass vault](https://lastpass.com/vault) → advanced options → **Export** → confirm by email → re-enter your password |
-| **Bitwarden** | Vault → Tools → Export vault; instructions at [Bitwarden Help](https://bitwarden.com/help) |
-| **Dashlane** | Desktop app → My Account → Export data; instructions at [Dashlane Support](https://support.dashlane.com) |
-| **Keeper** | Vault → Export; instructions at [Keeper Documentation](https://docs.keeper.io) |
-| **Google** | [Google Password Manager](https://passwords.google.com) → gear icon → **Export** |
+| **1Password** | Desktop app export; instructions at support.1password.com |
+| **LastPass** | lastpass.com/vault → advanced options → **Export** → confirm by email → re-enter your password |
+| **Bitwarden** | Vault → Tools → Export vault; instructions at bitwarden.com/help |
+| **Dashlane** | Desktop app → My Account → Export data; instructions at support.dashlane.com |
+| **Keeper** | Vault → Export; instructions at docs.keeper.io |
+| **Google** | passwords.google.com → gear icon → **Export** |
 | **Microsoft Edge** | `edge://settings/passwords` → Saved passwords → **⋯** → Export passwords |
-| **Apple** | iPhone and Mac instructions at [Apple Support](https://support.apple.com) |
+| **Apple** | iPhone and Mac instructions at support.apple.com |
 | **KeePass** | File → Export → CSV File… (UTF-8 recommended) |
 | **Generic CSV** | Any CSV with the columns below |
 
@@ -34,7 +34,7 @@ Select a source to see its step-by-step export guide, then upload the CSV it pro
 
 Columns: `name`, `url`, `username`, `password`, `description` (also accepted as `note` or `notes`).
 
-| Behavior | Detail |
+| Behaviour | Detail |
 |---|---|
 | **Column order** | Any — headers are detected automatically |
 | **Delimiter** | Detected automatically (comma, semicolon, tab) |
@@ -44,7 +44,7 @@ Columns: `name`, `url`, `username`, `password`, `description` (also accepted as 
 ### KeePass default columns
 
 A default KeePass export produces `Account`, `Login Name`, `Password`, `Web Site`, `Comments`.
-These are recognized without renaming anything.
+These are recognised without renaming anything.
 
 ---
 
@@ -65,7 +65,7 @@ Imported items land in the area and folder you choose during the import.
 ## The import summary
 
 When the upload finishes, a summary reports how many rows were imported and how many were
-skipped, so no row is dropped without a record.
+skipped, so nothing is dropped silently.
 
 Rows are usually skipped because they are missing a required field, or because the file could
 not be decoded — see below.
@@ -76,14 +76,14 @@ not be decoded — see below.
 
 <Callout icon="⚠️" theme="warn">
   **Delete the exported CSV.** It contains every password you just imported, in plain text,
-  sitting in your `Downloads` folder. Empty your trash too.
+  sitting in your Downloads folder. Empty your trash too.
 </Callout>
 
 Then:
 
 1. Open [Security Health](https://docs.akeyless.io/docs/web-extension-security-health) and run a scan — an import is the
    most likely moment to discover reused and breached passwords.
-2. Check the imported items have `Website URLs`, since autofill matches on them.
+2. Check the imported items have **website URLs**, since autofill matches on them.
 3. Delete the credentials from the old manager once you have confirmed the import.
 
 ---
@@ -92,10 +92,10 @@ Then:
 
 | Problem | Cause |
 |---|---|
-| Rows skipped | Missing name or password, or an unreadable encoding — re-export as UTF-8 |
+| Rows skipped | Missing name or password, or an undecodable encoding — re-export as UTF-8 |
 | Accented characters mangled | The export used a non-UTF-8 encoding; re-export choosing UTF-8 |
-| Nothing imported | The file is not a CSV, or has no recognizable header row |
-| Autofill does not offer imported items | The rows had no `url` column — edit the items to add Website URLs |
+| Nothing imported | The file is not a CSV, or has no recognisable header row |
+| Autofill does not offer imported items | The rows had no `url` column — edit the items to add website URLs |
 
 ## Related
 
