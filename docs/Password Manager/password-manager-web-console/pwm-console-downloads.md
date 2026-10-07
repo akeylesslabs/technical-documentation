@@ -6,7 +6,7 @@ application, with the full release history for each.
 
 ## Where it is
 
-| Item | Address |
+| | |
 |---|---|
 | **Downloads page** | [https://console-pwm.akeyless.io/artifacts](https://console-pwm.akeyless.io/artifacts) |
 | **The console itself** | [https://console-pwm.akeyless.io](https://console-pwm.akeyless.io) — sign in here |
@@ -19,13 +19,13 @@ application, with the full release history for each.
   the link to someone who is setting up for the first time, or to IT for a managed rollout.
 </Callout>
 
-Two tabs: **Web Extension** and **Desktop app**.
+Two tabs: **Web extension** and **Desktop app**.
 
 ---
 
-## Web Extension
+## Web extension
 
-![The Web Extension downloads tab](https://files.readme.io/e85e0ca49fe376395dc99bdf80c7c6dc4e4674518933a46867fa9ff465658a33-downloads-web-extension.webp)
+![The web extension downloads tab](https://files.readme.io/e85e0ca49fe376395dc99bdf80c7c6dc4e4674518933a46867fa9ff465658a33-downloads-web-extension.webp)
 *Release history on the left, downloads for the selected release on the right*
 
 Expand a version on the left to preview it; its downloads appear on the right.
@@ -89,7 +89,7 @@ The newest release carries a **LATEST** badge.
 
 ## Which version am I running?
 
-[Settings](https://docs.akeyless.io/docs/pwm-console-settings) shows the extension's `Installed version` when the
+[Settings](https://docs.akeyless.io/docs/pwm-console-settings) shows the extension's **Installed version** when the
 console can detect it, alongside the console's own version in the footer.
 
 ## Related
