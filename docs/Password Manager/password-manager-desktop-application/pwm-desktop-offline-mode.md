@@ -111,7 +111,7 @@ current values from the vault to cache them.
 
 ## Turning it off
 
-Switch **Offline Mode** off. This:
+Switch `Offline Mode` off. This:
 
 - **removes the encrypted cache** from the device
 - **keeps your item selection**, so re-enabling only asks for the password again
