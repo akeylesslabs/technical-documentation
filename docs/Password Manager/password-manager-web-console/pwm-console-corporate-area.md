@@ -7,7 +7,7 @@ vault permissions, not by console settings.
 ![The Corporate area in card view](https://files.readme.io/e92f3c12d82de3e574bfd7b4c627e792deebe89ea74e792a409de62d4d8475e7-corporate-cards-view.webp)
 *The Corporate area — 675 items*
 
-## What lives here
+## What this area contains
 
 | Type | Notes |
 |---|---|
@@ -34,17 +34,17 @@ Open a folder to descend into it; the breadcrumb at the top returns you.
 
 ## Permissions
 
-Each item carries the operations you are permitted on it. The console hides what you cannot do
+Each item lists the operations permitted for the current user. The console hides what you cannot do
 rather than failing afterwards:
 
 | Permission | Effect |
 |---|---|
-| **read** | You can open the item and copy its value |
-| **list** | The item appears in lists and search |
-| **update** | **Edit** appears in the ⋯ menu |
-| **delete** | **Delete** appears in the ⋯ menu |
+| `read` | You can open the item and copy its value |
+| `list` | The item appears in lists and search |
+| `update` | **Edit** appears in the ⋯ menu |
+| `delete` | **Delete** appears in the ⋯ menu |
 
-## Shared items change under you
+## Shared items can change between refreshes
 
 <Callout icon="ℹ️" theme="info">
   Lists are cached so the console loads quickly. A colleague's edit will not appear until you
