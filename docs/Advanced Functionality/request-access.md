@@ -67,9 +67,7 @@ Where:
 
 ## Approving or Declining a Request
 
-Approvers can act on a request from the [Event Center](https://docs.akeyless.io/docs/event-center) by selecting **View Request** from the event's action menu.
-
-Once requested, a new event will be triggered inside your [Event Center](https://docs.akeyless.io/docs/event-center), to view the request, on the event from the action menu click on **View Request** and choose either to approve or decline this request.
+Once access was requested, a new event will be triggered inside the [Event Center](https://docs.akeyless.io/docs/event-center), to view the request, on the event from the action menu click on **View Request** and choose either to approve or decline this request.
 
 ## Requesting Access from the Console
 
