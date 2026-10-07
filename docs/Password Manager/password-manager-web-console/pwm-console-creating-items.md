@@ -28,9 +28,9 @@ Three steps.
 
 | Field | Notes |
 |---|---|
-| **Item name** | Required |
-| **Username** | Required |
-| **Password** | Required. **Random** or **Passphrase** generator, a refresh control, and a reveal eye |
+| `Item name` | Required |
+| `Username` | Required |
+| `Password` | Required. **Random** or **Passphrase** generator, a refresh control, and a reveal eye |
 
 **Password strength (guidance)** rates what is in the field:
 
@@ -79,12 +79,12 @@ Two steps.
 
 | Field | Notes |
 |---|---|
-| **Secret name** | Required |
-| **Type** | **Generic** by default; **Select** to choose a specific type |
+| `Secret name` | Required |
+| `Type` | **Generic** by default; **Select** to choose a specific type |
 | `Maximum Versions` | Shows your account default and the allowed range, e.g. *Account default: 100 (allowed 1–300)* |
-| **Format** | **Text**, **Key/value** or **JSON** |
-| **Value** | Required, with a reveal eye |
-| **Location** | **Personal** or **Corporate**, then the folder path |
+| `Format` | **Text**, **Key/value** or **JSON** |
+| `Value` | Required, with a reveal eye |
+| `Location` | **Personal** or **Corporate**, then the folder path |
 
 ### The three formats
 
@@ -110,11 +110,11 @@ A single step.
 
 | Field | Notes |
 |---|---|
-| **Name** | e.g. *Certificates* |
-| **File** | Drag and drop, or click to browse. **Maximum 10 MB** |
-| **Description** | Optional |
-| **Personal vault location** | Folder path. Marked **Personal only** |
-| `Metadata` | Delete protection, tags |
+| `Name` | e.g. *Certificates* |
+| `File` | Drag and drop, or click to browse. **Maximum 10 MB** |
+| `Description` | Optional |
+| `Personal vault location` | Folder path. Marked **Personal only** |
+| `Metadata` | `Delete protection`, `Tags` |
 
 <Callout icon="⚠️" theme="warn">
   Files are capped at **10 MB each** and count against your account's file storage quota, which
@@ -133,11 +133,11 @@ A single step.
 
 | Field | Notes |
 |---|---|
-| **Folder name** | Required |
-| **Description** | Optional |
-| **Parent folder** | **Personal** or **Corporate**, then the path |
+| `Folder name` | Required |
+| `Description` | Optional |
+| `Parent folder` | **Personal** or **Corporate**, then the path |
 | `Delete protection` | Prevents the folder and its contents being deleted |
-| **Tags** | Applied to the folder |
+| `Tags` | Applied to the folder |
 
 ---
 
