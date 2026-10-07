@@ -1,7 +1,7 @@
 ---
 title: Passkey
 ---
-With `Passkey Management` enabled, the extension acts as your WebAuthn authenticator and stores passkeys in your Akeyless vault — so they follow you between machines instead of being locked to one device.
+With **Passkey Management** enabled, the extension acts as your WebAuthn authenticator and stores passkeys in your Akeyless vault — so they follow you between machines instead of being locked to one device.
 
 Turn it on in **Settings → Passkey Management**. It is off by default.
 
@@ -13,7 +13,7 @@ When a site offers to create a passkey, the extension intercepts the WebAuthn ca
 
 On a return visit, the extension supplies the passkey. Passkeys are matched to the site by its relying-party domain.
 
-## Where passkeys are stored
+## Where passkeys live
 
 <Callout icon="⚠️" theme="warn">
   **Passkeys are stored in the personal folder only** — never in team or corporate vaults.
@@ -25,7 +25,7 @@ This means passkeys are invisible if the personal vault is hidden for your sessi
 
 Passkeys appear in your item lists with their own icon, and under the ***Passkey*** type in the filter panel.
 
-Opening one shows the relying party, the user handle, the creation date and the Protection Key.
+Opening one shows the relying party, the user handle, the creation date and the protection key.
 
 ## Security Health
 
@@ -37,7 +37,7 @@ Two policies can remove passkey support:
 
 | Policy | Effect |
 |---|---|
-| Account **allow passkeys** disabled | Passkey Management is unavailable |
+| Account **allow passkeys** disabled | Passkey management is unavailable |
 | Organization suppresses passkeys (DBK tenants) | Passkeys are hidden from lists, filters and Settings entirely |
 
 ## Related
