@@ -51,9 +51,9 @@ See [Auto-Type and Quick Access](https://docs.akeyless.io/docs/pwm-desktop-auto-
 
 ## Dark Mode
 
-> *Switch between light mode and a premium obsidian dark theme.*
+Switches the interface between the light and dark themes.
 
-Off by default, stored on this device, and it survives signing out.
+Off by default, stored on this device, and it is retained after signing out.
 
 ---
 
