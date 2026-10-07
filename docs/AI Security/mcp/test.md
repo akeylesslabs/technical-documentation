@@ -156,7 +156,7 @@ The `akeyless-ara` Claude plugin runs on your computer, so it works in Claude Co
 To install the plugin from Claude Desktop or claude.ai:
 
 1. Go to **Customize** > **Plugins**.
-2. Select **Add** > **Add marketplace**, and enter `akeyless-community/claude-akeyless-connector`.
+2. Select **Add** > **Add marketplace**, enter `akeyless-community/claude-akeyless-connector` > **Sync**
 3. Find **akeyless-ara** in the list of plugins, and add it.
 
 The plugin is saved to your claude.ai account, so it also appears in Claude Code the next time that you start a session.
@@ -168,7 +168,7 @@ To install the plugin in Claude Code instead, run the following commands in a Cl
 /plugin install akeyless-ara@akeyless-claude
 ```
 
-After you install the plugin, set the environment variables for your Authentication Method, as described in [Plugin Environment Variables](#plugin-environment-variables), and then restart Claude Code or Claude Desktop. The following example uses an API Key Authentication Method:
+After you install the plugin, set the environment variables for your Authentication Method, as described in [Plugin Environment Variables](#plugin-environment-variables), and then restart Claude Code or Claude Desktop. <br />The following example uses an API Key Authentication Method:
 
 ```shell
 export AKEYLESS_GATEWAY_URL="https://<your-gateway-url>:8000/api/v2"
