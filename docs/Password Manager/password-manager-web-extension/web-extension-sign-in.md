@@ -12,11 +12,11 @@ organization allows.
 | Method | What you enter | Where it takes you |
 |---|---|---|
 | **Login with Alias** | Your alias, typically containing a `/` such as `team/you` | Signs in directly. Default on Chrome, Edge and Firefox |
-| **Login with SAML** | Your **Access ID** | Your identity provider opens in a new tab |
-| **Login with OIDC** | Your **Access ID** | Your OIDC provider opens in a new tab |
+| **Login with SAML** | Your `Access ID` | Your identity provider opens in a new tab |
+| **Login with OIDC** | Your `Access ID` | Your OIDC provider opens in a new tab |
 | **Login with Gmail** | Nothing | Google OAuth starts immediately. *Not offered on Safari* |
 | **Login with GitHub** | Nothing | GitHub OAuth starts immediately. *Not offered on Safari* |
-| **Login with Access ID** | **Access ID** and **Access Key** | Signs in directly |
+| **Login with Access ID** | `Access ID` and `Access Key` | Signs in directly |
 | **Login with Email** | Email and password, with optional account selection and 2FA | Default on Safari |
 
 ![SAML sign-in with the Access ID filled](https://files.readme.io/a5a0ad4cc187d6bb4cebdb093caaf6323abd903675e567fccba11b6d58ae0f56-login-saml-access-id.png)
