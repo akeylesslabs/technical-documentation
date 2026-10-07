@@ -5,7 +5,7 @@ Multi-select lets you clear out or restore many items in one pass, instead of op
 one's menu.
 
 ![Multi-select with the bulk action bar](https://files.readme.io/05d09eebebe8c337f5867cb5e16938bb250e14ae1e0532eebd6f61559cae016a-multi-select-bulk-actions.png)
-*Ticked items, with **Add** and **Delete** in the floating bar*
+*Selected items, with **Add** and **Delete** in the floating bar*
 
 ## Entering and leaving
 
@@ -36,7 +36,7 @@ Destructive actions always confirm first, and the button says exactly what will 
 
 <Callout icon="⚠️" theme="warn">
   **Delete-protected items are skipped.** If your selection includes one, the rest proceed and
-  the protected item stays where it is. Clear delete protection on that item first — see
+  the protected item stays where it is. Clear Delete protection on that item first — see
   [Deleting Password / Secret](https://docs.akeyless.io/docs/deleting-password-1).
 </Callout>
 
