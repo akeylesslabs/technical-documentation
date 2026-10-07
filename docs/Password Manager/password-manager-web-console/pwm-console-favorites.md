@@ -1,8 +1,8 @@
 ---
 title: Favorites
 ---
-One short list of the items you reach for daily, instead of navigating to them in Personal or
-Corporate every time.
+A single list of frequently used items, so they do not have to be located in Personal or
+Corporate each time.
 
 ![The Favorites area](https://files.readme.io/e07d7464c6d4cd4489319dc99ca56ef7ca51d14ae9167673b8f7b0ae36a0708b-favorites.webp)
 *Favorites, mixing Personal and Corporate items*
@@ -47,7 +47,7 @@ sort and multi-select. See [Viewing Options](https://docs.akeyless.io/docs/pwm-c
 ## Favorites and permissions
 
 <Callout icon="ℹ️" theme="info">
-  A favorite is a pointer, not a copy. If your access to a Corporate item is revoked, the
+  A favorite is a reference, not a copy. If your access to a Corporate item is revoked, the
   favorite stops resolving — the item was never duplicated into your personal vault.
 </Callout>
 
