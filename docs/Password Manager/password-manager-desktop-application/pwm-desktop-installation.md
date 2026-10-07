@@ -65,7 +65,7 @@ console and the browser extension:
 | **SAML** | Your Access ID — your identity provider opens |
 | **OIDC** | Your Access ID — your OIDC provider opens |
 | **Gmail** / **GitHub** | Nothing — OAuth starts immediately |
-| `Access ID` | Access ID and Access Key |
+| **Access ID** | Access ID and Access Key |
 | **Email** | Email, password, and 2FA if your account requires it |
 
 The app remembers the method and identifier you last used successfully, so you rarely retype
@@ -73,7 +73,7 @@ them.
 
 ## After signing in
 
-Two settings are worth configuring immediately:
+Two things are worth setting up straight away:
 
 1. **[Offline Mode](https://docs.akeyless.io/docs/pwm-desktop-offline-mode)** — so your personal passwords survive a lost
    connection.
