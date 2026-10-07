@@ -48,7 +48,11 @@ The Akeyless MCP Server provides both MCP servers. Claude starts them on your co
 * The [Akeyless CLI](https://docs.akeyless.io/docs/cli) version `1.144.0` or later, with a profile configured on the computer that runs Claude.
 * Your Gateway URL.
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) associated with an [Access Role](https://docs.akeyless.io/docs/rbac) that grants access to the items Claude should use.
-* For Agentic Runtime Authority: your own Gateway with Agentic Runtime Authority and Akeyless AI Insights enabled, secrets configured for Agentic Runtime Authority, and an Access Role with the Agentic Runtime Authority **Allow Access** rule on their paths. See [Agentic Runtime Authority Prerequisites](https://docs.akeyless.io/docs/agentic-runtime-authority#prerequisites).
+* For Agentic Runtime Authority:&#x20;
+  - your own Gateway with Agentic Runtime Authority and Akeyless AI Insights enabled
+  - Secrets configured for Agentic Runtime Authority&#x20;
+  - An Access Role with the Agentic Runtime Authority **Allow Access** rule on their paths.&#x20;
+  See [Agentic Runtime Authority Prerequisites](https://docs.akeyless.io/docs/agentic-runtime-authority#prerequisites).
 
 ### Connect Claude Desktop
 
