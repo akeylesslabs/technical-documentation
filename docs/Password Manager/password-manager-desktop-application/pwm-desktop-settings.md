@@ -18,8 +18,8 @@ found:
 
 | Browser | Shown |
 |---|---|
-| **Google Chrome** | Extension id and version |
-| **Firefox** | Extension id and version |
+| **Google Chrome** | Extension ID and version |
+| **Firefox** | Extension ID and version |
 | **Safari** | Bundle id and version |
 
 This is what makes **launch** work from the desktop app: opening an item's website hands the
@@ -40,7 +40,7 @@ schedule.
 
 | Setting | Does |
 |---|---|
-| **Auto-Type** | Types credentials into other applications via **Ctrl+Shift+Space** |
+| **Auto-Type** | Types credentials into other applications via `Ctrl+Shift+Space` |
 | **Submit automatically with Auto-Type** | Presses Enter after the password |
 | **Open Quick Access** | Opens the picker without the shortcut |
 | **Grant Accessibility…** | macOS — opens the Accessibility pane the feature requires |
@@ -51,7 +51,7 @@ See [Auto-Type and Quick Access](https://docs.akeyless.io/docs/pwm-desktop-auto-
 
 ## Dark Mode
 
-> *Switch between light mode and a premium obsidian dark theme.*
+Switches the interface between the light and dark themes.
 
 Off by default, stored on this device, and it survives signing out.
 
