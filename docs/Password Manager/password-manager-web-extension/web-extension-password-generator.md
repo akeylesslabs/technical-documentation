@@ -15,7 +15,7 @@ field to open it.
 <Callout icon="ℹ️" theme="info">
   **The strength meter and the Generation Settings are separate.**
 
-  The **Generation Settings** control what the generator produces. The **Password Strength**
+  The `Generation Settings` control what the generator produces. The `Password Strength`
   meter above them judges whatever is currently in the field, whether you generated it or
   typed it. Ticking every box does not make a weak password strong.
 </Callout>
