@@ -4,7 +4,7 @@ title: Recycle Bin
 Deleting an item does not destroy it. The item is tagged and moved out of the normal lists
 into the Recycle Bin, where it can be restored or purged.
 
-![Deleted items awaiting restore or purge](https://files.readme.io/67546f1d54cd8a6f02738809f08089d30adc279d6dd80a57732f94ca70c381a9-recycle-bin.png)
+![Deleted items awaiting restore or purge](https://files.readme.io/778ac9eee52a6886ab28bfff771341bd584061a47d312a55ce22de2ad26c9575-recycle-bin.png)
 *Deleted items awaiting restore or purge*
 
 ---
