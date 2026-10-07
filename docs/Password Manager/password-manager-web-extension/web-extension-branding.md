@@ -38,7 +38,7 @@ Use `config_id` when you expect branding to change. Changing the bundle updates 
   **When branding is active, dark mode is locked to light and the toggle is hidden**, so your palette renders as intended.
 </Callout>
 
-If you want users to keep dark mode, do not set branding colours.
+If you want users to keep dark mode, do not set branding colors.
 
 ## Logo requirements
 
