@@ -20,13 +20,13 @@ Password policy is configured once at the account level, in the Akeyless console
 
 ## Related account settings
 
-Two other account settings shape the create and edit overlays:
+Three other account settings shape the create and edit overlays:
 
 | Setting | Effect |
 |---|---|
-| **Default maximum versions** | Pre-fills `Maximum Versions`, and sets the allowed range |
-| **Default protection key** | Preselects the protection key; when configured as exclusive, the picker is locked |
-| **Protect items by default** | New items are created with delete protection on |
+| `Default maximum versions` | Pre-fills `Maximum Versions`, and sets the allowed range |
+| `Default protection key` | Preselects the `Protection Key`; when configured as exclusive, the picker is locked |
+| `Protect items by default` | New items are created with `Delete protection` on |
 
 See [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies) for the full list.
 
