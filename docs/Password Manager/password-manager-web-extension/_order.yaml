@@ -29,7 +29,6 @@
 - adding-and-using-otp-1
 - passkey
 - csv-password-importer
-- web-extension-settings
 - web-extension-preconfigured-install
 - web-extension-accessibility
 - web-extension-security-health
@@ -38,3 +37,4 @@
 - web-extension-account-policies
 - web-extension-preconfigured-package
 - web-extension-troubleshooting
+- web-extension-settings
