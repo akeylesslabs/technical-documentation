@@ -7,17 +7,21 @@ link:
 metadata:
   robots: index
 ---
-The Akeyless Password Manager browser extension provides access to the vault in the browser. It supports storing, finding, filling, and sharing credentials without leaving the current page.
+The Akeyless Password Manager browser extension puts your vault inside the browser. Store,
+find, fill and share credentials without leaving the page you are on.
+
+![The extension docked beside a page](https://files.readme.io/f7d5476a0e15e0c232370da7052366697ae284905a938f15f38d570aec42390b-side-panel-in-browser.png)
+*The extension docked beside a page*
 
 ## Get started
 
-| Page                                                                                                      | What it covers                              |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| Page | What it covers |
+|---|---|
 | [Installation & Supported Browsers](https://docs.akeyless.io/docs/installation-of-akeyless-web-extension) | Download links for Chrome, Edge and Firefox |
-| [Signing In to the Web Extension](https://docs.akeyless.io/docs/web-extension-sign-in)                    | All seven authentication methods            |
-| [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel)                            | Docking the extension beside the page       |
+| [Signing In to the Web Extension](https://docs.akeyless.io/docs/web-extension-sign-in) | All seven authentication methods |
+| [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel) | Docking the extension beside the page |
 
-## Vault areas
+## The areas
 
 - [Personal, Corporate & Favorites Navigation](https://docs.akeyless.io/docs/personal-corporate-favorites-areas-navigation)
 - [Personal Secrets](https://docs.akeyless.io/docs/web-extension-personal-area)
@@ -51,7 +55,7 @@ The Akeyless Password Manager browser extension provides access to the vault in 
 - [Using Autofill / Password Injection](https://docs.akeyless.io/docs/using-autofillpassword-injection-functionality-1)
 - [Launch: Open a Site Already Signed In](https://docs.akeyless.io/docs/web-extension-launch)
 - [Prompt to Save Password](https://docs.akeyless.io/docs/web-extension-save-prompt)
-- [AI Agent Autofill](https://docs.akeyless.io/docs/web-extension-ai-agent-autofill)
+- [AI Agent Auto-fill](https://docs.akeyless.io/docs/web-extension-ai-agent-autofill)
 - [Copy/Paste & Secure Paste Mode](https://docs.akeyless.io/docs/copypaste-functionality-for-passwords-1)
 - [Adding and Using One-Time Passwords](https://docs.akeyless.io/docs/adding-and-using-otp-1)
 - [Passkey](https://docs.akeyless.io/docs/passkey)
