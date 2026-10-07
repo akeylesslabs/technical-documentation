@@ -1,6 +1,6 @@
 ---
-title: Claude Desktop
-excerpt: Connect Claude Desktop to the Akeyless MCP Server.
+title: Claude
+excerpt: Connect Claude to the Akeyless MCP Server.
 deprecated: false
 hidden: false
 metadata:
