@@ -10,7 +10,7 @@ metadata:
 The Akeyless Password Manager browser extension puts your vault inside the browser. Store,
 find, fill and share credentials without leaving the page you are on.
 
-![The extension docked beside a page](https://files.readme.io/b2ed9ae3958eaa6358280e9ac0ecf76aaee85a77a8145ee64040e49478f712b2-extension-side-panel.webp)
+![The extension docked beside a page](https://files.readme.io/f7d5476a0e15e0c232370da7052366697ae284905a938f15f38d570aec42390b-side-panel-in-browser.png)
 *The extension docked beside a page*
 
 ## Get started
@@ -19,10 +19,16 @@ find, fill and share credentials without leaving the page you are on.
 |---|---|
 | [Installation & Supported Browsers](https://docs.akeyless.io/docs/installation-of-akeyless-web-extension) | Download links for Chrome, Edge and Firefox |
 | [Signing In to the Web Extension](https://docs.akeyless.io/docs/web-extension-sign-in) | All seven authentication methods |
+| [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel) | Docking the extension beside the page |
+
+## The areas
+
+- [Personal, Corporate & Favorites Navigation](https://docs.akeyless.io/docs/personal-corporate-favorites-areas-navigation)
+- [Personal Secrets](https://docs.akeyless.io/docs/web-extension-personal-area)
+- [Corporate Secrets](https://docs.akeyless.io/docs/web-extension-corporate-area)
 
 ## Finding your way around
 
-- [Personal, Corporate & Favorites Navigation](https://docs.akeyless.io/docs/personal-corporate-favorites-areas-navigation)
 - [Folder Navigation within Personal & Corporate Areas](https://docs.akeyless.io/docs/folder-navigation-within-personal-corporate-areas-1)
 - [Switching Between Folders & Flat View](https://docs.akeyless.io/docs/password-list-switching-between-folders-flat-view-1)
 - [Using Filters & Tags](https://docs.akeyless.io/docs/using-filters-tags)
@@ -56,9 +62,10 @@ find, fill and share credentials without leaving the page you are on.
 
 ## Data & health
 
-- [CSV Password Importer](https://docs.akeyless.io/docs/csv-password-importer)
+- [Importing from Another Password Manager](https://docs.akeyless.io/docs/csv-password-importer)
 - [Security Health in the Extension](https://docs.akeyless.io/docs/web-extension-security-health)
 - [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings)
+- [Accessibility](https://docs.akeyless.io/docs/web-extension-accessibility)
 
 ## For administrators
 
@@ -68,6 +75,10 @@ find, fill and share credentials without leaving the page you are on.
 - [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding)
 - [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies)
 - [Troubleshooting](https://docs.akeyless.io/docs/web-extension-troubleshooting)
+
+## Secrets Automation
+
+- [SA Web Extension (Secrets Automation)](https://docs.akeyless.io/docs/sra-web-extension-sa)
 
 ## Related products
 
