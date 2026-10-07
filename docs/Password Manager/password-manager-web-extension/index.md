@@ -7,19 +7,15 @@ link:
 metadata:
   robots: index
 ---
-The Akeyless Password Manager browser extension puts your vault inside the browser. Store,
-find, fill and share credentials without leaving the page you are on.
-
-![The extension docked beside a page](https://files.readme.io/f7d5476a0e15e0c232370da7052366697ae284905a938f15f38d570aec42390b-side-panel-in-browser.png)
-*The extension docked beside a page*
+The Akeyless Password Manager browser extension puts your vault inside the browser. Store,<br />find, fill and share credentials without leaving the page you are on.
 
 ## Get started
 
-| Page | What it covers |
-|---|---|
+| Page                                                                                                      | What it covers                                      |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | [Installation & Supported Browsers](https://docs.akeyless.io/docs/installation-of-akeyless-web-extension) | Download links for Chrome, Edge, Firefox and Safari |
-| [Signing In to the Web Extension](https://docs.akeyless.io/docs/web-extension-sign-in) | All seven authentication methods |
-| [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel) | Docking the extension beside the page |
+| [Signing In to the Web Extension](https://docs.akeyless.io/docs/web-extension-sign-in)                    | All seven authentication methods                    |
+| [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel)                            | Docking the extension beside the page               |
 
 ## The areas
 
