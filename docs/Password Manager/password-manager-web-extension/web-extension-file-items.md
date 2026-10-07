@@ -20,7 +20,7 @@ or leave in a shared drive.
 File items consume your account's file storage quota, shared across the account rather than
 allocated per user.
 
-Check it under **Settings** → **File storage**, which shows:
+Check it under **Settings** → `File storage`, which shows:
 
 | Reading | Meaning |
 |---|---|
@@ -46,7 +46,7 @@ File items support the same protections as other item types:
 | Control | Effect |
 |---|---|
 | `Protection Key` | The DFC key that encrypts the file |
-| Zero Knowledge Encryption | Shown on items wrapped with a customer fragment |
+| `Zero Knowledge Encryption` | Shown on items wrapped with a customer fragment |
 | `Delete protection` | Prevents deletion until cleared |
 
 ## Sharing a file
