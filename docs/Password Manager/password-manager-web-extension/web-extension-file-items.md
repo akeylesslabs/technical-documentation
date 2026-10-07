@@ -12,7 +12,7 @@ or leave in a shared drive.
 3. Give the item a **Name**.
 4. Select the file to upload.
 5. Choose the **Location** folder — Personal or Corporate, using the folder browser.
-6. Optionally set a **Description**, **Protection Key**, **Tags** and **Delete protection**.
+6. Optionally set a **Description**, `Protection Key`, **Tags** and `Delete protection`.
 7. Select **Save**.
 
 ## Storage quota
@@ -45,9 +45,9 @@ File items support the same protections as other item types:
 
 | Control | Effect |
 |---|---|
-| **Protection Key** | The DFC key that encrypts the file |
+| `Protection Key` | The DFC key that encrypts the file |
 | **Zero Knowledge Encryption** | Shown on items wrapped with a customer fragment |
-| **Delete protection** | Prevents deletion until cleared |
+| `Delete protection` | Prevents deletion until cleared |
 
 ## Sharing a file
 
