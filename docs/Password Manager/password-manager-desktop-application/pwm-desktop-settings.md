@@ -40,7 +40,7 @@ schedule.
 
 | Setting | Does |
 |---|---|
-| **Auto-Type** | Types credentials into other applications via **Ctrl+Shift+Space** |
+| **Auto-Type** | Types credentials into other applications via `Ctrl+Shift+Space` |
 | **Submit automatically with Auto-Type** | Presses Enter after the password |
 | **Open Quick Access** | Opens the picker without the shortcut |
 | **Grant Accessibility…** | macOS — opens the Accessibility pane the feature requires |
