@@ -61,7 +61,7 @@ the offline cache stays as it is until you update or disable it.
 | No Touch ID button | Biometrics were not enrolled at setup, or the build is not signed for it. Use the offline password, then re-run setup |
 | Password rejected | Offline password is separate from your Akeyless sign-in, and is case-sensitive |
 | Password forgotten | It cannot be recovered. Sign in online, turn Offline Mode off, and set it up again |
-| An item is missing | It was not ticked at setup, or it is a Corporate item — those are never cached |
+| An item is missing | It was not selected at setup, or it is a Corporate item — those are never cached |
 | A password is out of date | The cache is a snapshot. Sign in online and update Offline Mode |
 
 ## Related
