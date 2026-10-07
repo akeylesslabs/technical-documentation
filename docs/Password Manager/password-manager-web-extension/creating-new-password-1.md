@@ -14,19 +14,19 @@ Select the blue **+** in the header and choose what to create.
 *General, Location and the Personal / Corporate switch*
 
 
-**General** — item name, username, and one or more **Website URLs** (`https://www.example.com`).
+**General** — item name, username, and one or more `Website URLs` (`https://www.example.com`).
 Select **Add URL** for additional addresses. These URLs drive autofill matching and the
 [Launch](https://docs.akeyless.io/docs/web-extension-launch) button.
 
 **Location** — switch between **Personal** and **Corporate**, then pick the destination folder
-with **Select**. Optionally set a **Description** and **Maximum Versions** (default **100**).
+with **Select**. Optionally set a **Description** and `Maximum Versions` (default **100**).
 
 **Password** — type one or generate it. See [Password Generator & Strength](https://docs.akeyless.io/docs/web-extension-password-generator).
 
-**Metadata** — **Protection Key** (fixed if your account enforces an exclusive default key),
-**Tags**, and **Delete protection**.
+**Metadata** — `Protection Key` (fixed if your account enforces an exclusive default key),
+**Tags**, and `Delete protection`.
 
-**Custom Fields** — select **Add Field** for each Key/value pair.
+`Custom Fields` — select **Add Field** for each Key/value pair.
 
 **Authenticator (OTP)** — paste a Base32 secret, or use **Scan otpauth QR from the current
 website tab** to read a QR code from the page you have open. Give it a label such as *GitHub*.
@@ -44,7 +44,7 @@ Maximum Versions controls. Values may be plain text or structured Key/value.
 
 ## New File Item
 
-Uploads a file into the vault. Files count against your account's **File storage** quota,
+Uploads a file into the vault. Files count against your account's `File storage` quota,
 shown in [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings).
 
 ## New Folder
