@@ -57,7 +57,7 @@ between the two methods swaps the field to the right value each time, rather tha
 Every successful sign-in is also appended to a history list, holding the Access ID, the
 method, and when it happened. Select the Access ID field to open it.
 
-| Behaviour | Detail |
+| Behavior | Detail |
 |---|---|
 | **Filtered by method** | You only see Access IDs previously used with the method now selected |
 | **Ten most recent** | Limited to the ten most recently used unique Access IDs |
