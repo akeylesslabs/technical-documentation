@@ -6,8 +6,8 @@ Share an item with someone by generating a time-limited link.
 ## Creating a share link
 
 1. Open the item's **More Options** (⋯) menu and choose **Share**.
-2. Set `Share link validity`: **1 Hour**, **1 Day**, **7 Days**, **14 Days** or **30 Days**.
-3. Optionally tick `One time view` so the link stops working after a single view.
+2. Set **Share link validity**: **1 Hour**, **1 Day**, **7 Days**, **14 Days** or **30 Days**.
+3. Optionally tick **One time view** so the link stops working after a single view.
 4. Enter one or more email addresses under **Share with**. Separate multiple addresses with semicolons.
 5. Generate the link.
 6. Copy the **Sharing URL** using the **Copy** control.
