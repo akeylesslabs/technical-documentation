@@ -24,7 +24,7 @@ Dynamic secrets additionally show producer status and TTL.
 editable: name, username, password, URLs, location, description, maximum versions, protection
 key, tags, delete protection, custom fields and the OTP authenticator.
 
-Changing the **Location** between Personal and Corporate moves the item between vaults.
+Changing the `Location` between Personal and Corporate moves the item between vaults.
 
 <Callout icon="⚠️" theme="warn">
   Moving an item from Personal to Corporate changes who can see it — everyone with vault access
