@@ -17,7 +17,7 @@ The console detects whether the Akeyless browser extension is installed and can 
 
 | Reading | Meaning |
 |---|---|
-| **Extension id** | The id the console is talking to |
+| **Extension ID** | The id the console is talking to |
 | **Installed version** | The extension's version, shown only when detected |
 
 This pairing is what makes **Launch** and
@@ -49,7 +49,7 @@ capped at **10 MB** each.
 
 ## Dark Mode
 
-> *Switch between light mode and a premium obsidian dark theme.*
+Switches the interface between the light and dark themes.
 
 | | |
 |---|---|
