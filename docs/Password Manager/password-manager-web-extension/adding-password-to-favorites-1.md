@@ -37,7 +37,7 @@ Folders are grouped ahead of individual items.
 
 The Favorites area has the same header controls as the other areas:
 
-- **Search in favorites secrets**
+- *`Search in favorites secrets`*
 - **Filter** by type and tag — see [Using Filters & Tags](https://docs.akeyless.io/docs/using-filters-tags)
 - **Sort By A–Z**, with the arrow to reverse
 - **Click to refresh**
