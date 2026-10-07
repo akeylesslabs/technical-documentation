@@ -61,7 +61,7 @@ through.
 
 <Callout icon="⚠️" theme="warn">
   Items with Delete protection never reach the Recycle Bin — they cannot be deleted at all.
-  Edit the item, turn **Delete protection** off, save, then delete.
+  Edit the item, turn `Delete protection` off, save, then delete.
 </Callout>
 
 ## Related
