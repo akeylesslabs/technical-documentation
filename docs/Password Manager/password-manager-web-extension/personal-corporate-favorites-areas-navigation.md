@@ -21,7 +21,7 @@ At the bottom of the rail:
 | Icon | Does |
 |---|---|
 | Pin | [Dock the extension](https://docs.akeyless.io/docs/web-extension-side-panel) beside the page |
-| External link | Opens the Akeyless web console for your tenant |
+| External link | Opens the Akeyless Web Console for your tenant |
 | Gear | [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings) |
 
 ## Tabs that are not there
