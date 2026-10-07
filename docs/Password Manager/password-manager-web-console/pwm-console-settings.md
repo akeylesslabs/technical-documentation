@@ -15,12 +15,10 @@ identity appears at the bottom of the sidebar on every screen.
 
 The console detects whether the Akeyless browser extension is installed and can talk to it.
 
-In the readings below, `N` is a size in bytes, formatted by the app (for example `10 MB`).
-
 | Reading | Meaning |
 |---|---|
-| `Extension ID` | The extension identifier the console communicates with |
-| `Installed version` | The extension's version, shown only when detected |
+| **Extension id** | The id the console is talking to |
+| **Installed version** | The extension's version, shown only when detected |
 
 This pairing is what makes **Launch** and
 [extension sign-in](https://docs.akeyless.io/docs/pwm-console-extension-sign-in) work: selecting the launch button on an
@@ -39,10 +37,10 @@ How much of your account's file quota is used by file items.
 
 | Reading | Meaning |
 |---|---|
-| `N used` | Consumed by file items |
-| `N remaining` | What is left |
+| *N used* | Consumed by file items |
+| *N remaining* | What is left |
 | Progress bar | The same figure visually |
-| `N of N account quota (N%)` | Used against the total |
+| *N of N account quota (N%)* | Used against the total |
 
 The quota is **shared across the account**, not allocated per user. Individual files are
 capped at **10 MB** each.
@@ -51,9 +49,9 @@ capped at **10 MB** each.
 
 ## Dark Mode
 
-Switches the interface between the light and dark themes.
+> *Switch between light mode and a premium obsidian dark theme.*
 
-| Property | Value |
+| | |
 |---|---|
 | **Default** | Off |
 | **Scope** | This browser |
@@ -73,10 +71,10 @@ Switches the interface between the light and dark themes.
 
 ## Version and Sign out
 
-The footer shows the console version with its build hash — for example *`0.3.117 (58c9a0b)`*.
+The footer shows the console version with its build hash — for example *0.3.117 (58c9a0b)*.
 Quote it when contacting support; it identifies the exact build.
 
-**Sign out** ends the session. The theme choice and favorites are retained.
+**Sign out** ends the session. Your theme choice and favorites survive it.
 
 ## Related
 
