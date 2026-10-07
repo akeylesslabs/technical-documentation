@@ -61,9 +61,9 @@ page behind it, and focus returns to the control that opened it on close.
 
 | Feature | Detail |
 |---|---|
-| **Dark mode** | A full dark theme rather than an inverted filter — see [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings) |
-| **Side panel** | Docking gives a resizable, persistent panel rather than a fixed 416px popup — see [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel) |
-| **Status color** | Never the only signal — the Security Health gauge pairs color with a numeric score, and password strength pairs color with a worded rating |
+| **Dark Mode** | A full dark theme rather than an inverted filter — see [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings) |
+| **Side Panel** | Docking gives a resizable, persistent panel rather than a fixed 416px popup — see [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel) |
+| **Status color** | Never the only signal — the Security Health gauge pairs color with a numeric score, and Password Strength pairs color with a worded rating |
 | **Browser zoom** | Supported; layouts reflow rather than clipping |
 
 ## Secure paste and assistive technology
