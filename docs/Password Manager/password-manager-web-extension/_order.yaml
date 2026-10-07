@@ -24,7 +24,6 @@
 - using-autofillpassword-injection-functionality-1
 - web-extension-launch
 - web-extension-save-prompt
-- passkey
 - web-extension-ai-agent-autofill
 - csv-password-importer
 - copypaste-functionality-for-passwords-1
@@ -32,6 +31,7 @@
 - adding-and-using-otp-1
 - web-extension-security-health
 - web-extension-bridge-link
+- passkey
 - web-extension-preconfigured-package
 - web-extension-settings
 - web-extension-accessibility
