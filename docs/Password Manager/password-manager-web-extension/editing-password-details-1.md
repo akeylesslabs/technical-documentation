@@ -5,17 +5,17 @@ title: Editing, Copying & Moving Items
 
 Open the **More Options** (⋯) menu on any item row, or on the item preview, and choose **Edit**. The same overlay used to create the item opens, pre-filled.
 
-Everything is editable: name, username, password, website URLs, location, description, maximum versions, protection key, tags, delete protection, custom fields and the OTP authenticator.
+Every field is editable: `Name`, `Username`, `Password`, `Website URLs`, `Location`, `Description`, `Maximum Versions`, `Protection Key`, `Tags`, `Delete protection`, `Custom Fields` and `Authenticator (OTP)`.
 
 ## Copying
 
-Choose **Copy** to duplicate an item. The overlay opens in copy mode — its Location section is headed **Copy to** — so you pick a destination for the duplicate.
+Choose **Copy** to duplicate an item. The overlay opens in copy mode — its `Location` section is headed `Copy to` — so you pick a destination for the duplicate.
 
 Use this to base a new credential on an existing one, or to place a copy in a different folder.
 
 ## Moving
 
-Items can be moved between folders, and between the Personal and Corporate areas, by editing the item and changing its **Location**.
+Items can be moved between folders, and between the Personal and Corporate areas, by editing the item and changing its `Location`.
 
 <Callout icon="ℹ️" theme="info">
   Moving an item between Personal and Corporate changes who can see it. A Corporate item is visible to everyone with vault access to that folder.
@@ -23,7 +23,7 @@ Items can be moved between folders, and between the Personal and Corporate areas
 
 ## Versions
 
-The vault keeps historical versions of a secret up to the item's `Maximum Versions` setting. Lowering the value discards the oldest versions beyond the new limit.
+The vault keeps historical versions of a secret up to the item's `Maximum Versions` value. Lowering the value discards the oldest versions beyond the new limit.
 
 ## What you cannot edit
 
