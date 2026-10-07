@@ -9,9 +9,9 @@ Preconfigured package settings apply on **first install only** and never overwri
 
 ## Autofill offers nothing on a site
 
-- Confirm **Autofill** is on in Settings.
+- Confirm `Autofill` is on in **Settings**.
 - Confirm you are signed in.
-- Confirm the item has a **Website URL** matching the site — matching is by domain.
+- Confirm the item has a `Website URL` matching the site — matching is by domain.
 
 ## Launch opens the site but does not sign in
 
@@ -22,7 +22,7 @@ Preconfigured package settings apply on **first install only** and never overwri
 
 ## Passkeys do not appear
 
-- `Passkey Management` must be on in Settings.
+- `Passkey Management` must be on in **Settings**.
 - Your account must allow passkeys.
 - Passkeys are stored in the **personal folder only** — they are invisible if the personal vault is hidden for your session.
 
@@ -48,7 +48,7 @@ Check the **import summary** shown after upload — it reports what was skipped.
 
 ## Still stuck
 
-Use **Settings → Contact Support**, which points at your organization's support channel when configured.
+Use **Settings** → **Contact Support**, which points at your organization's support channel when configured.
 
 ## Related
 
