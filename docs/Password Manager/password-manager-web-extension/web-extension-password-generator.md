@@ -6,14 +6,14 @@ popup on signup and password-change forms. Select the **refresh** icon beside th
 field to open it.
 
 ![The password generator and strength meter](https://files.readme.io/08ab321eb8211ef1f1b617f5181a7f0ca4433da1f7a9b046a71cef102ac97cad-password-generator-settings.png)
-*The strength meter, the generation settings, and the requirements checklist*
+*The strength meter, the Generation Settings, and the requirements checklist*
 
 ---
 
 ## Two independent things
 
 <Callout icon="ℹ️" theme="info">
-  **The strength meter and the generation settings are separate.**
+  **The strength meter and the Generation Settings are separate.**
 
   The **Generation Settings** control what the generator produces. The **Password Strength**
   meter above them judges whatever is currently in the field, whether you generated it or
