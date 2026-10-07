@@ -17,7 +17,7 @@ The top of the screen shows the account you are signed in as: display name and e
 
 > *The app will automatically insert login information and offer credential suggestions.*
 
-Controls whether the extension acts on web pages at all. With it on, an Akeyless icon appears
+Controls whether the extension acts on web pages. With it on, an Akeyless icon appears
 in username, email, password and OTP fields, and selecting it offers the vault credentials
 matching that site.
 
@@ -51,7 +51,7 @@ See [Prompt to Save Password](https://docs.akeyless.io/docs/web-extension-save-p
 
 > *When Claude opens a sign-in page, fill the matching vault credential automatically.*
 
-Lets an AI browser agent get past a sign-in page without you pasting a password into a chat
+Lets an AI browser agent complete a sign-in page without you pasting a password into a chat
 window.
 
 | Property | Value |
@@ -66,7 +66,7 @@ See [AI Agent Autofill](https://docs.akeyless.io/docs/web-extension-ai-agent-aut
 > *When enabled, the extension will manage passkeys.*
 
 Makes the extension your WebAuthn authenticator, storing passkeys in your Akeyless vault so
-they follow you between machines rather than being tied to one device.
+they are available on every machine where you sign in, not stored on one device only.
 
 | Property | Value |
 |---|---|
