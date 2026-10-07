@@ -4,7 +4,7 @@ title: Using Filters & Tags
 Select the funnel icon in the header to narrow the current list. The panel has two tabs:
 **Types** and **Tags**.
 
-![Filtering by item type](https://files.readme.io/2685619bf4685a4e1f00b84a7bab0d351a796a469a3a540f73608eafd32b8333-filter-by-type.png)
+![Filtering by item type](https://files.readme.io/f6a021021f48c23a0dbe6b82e58654c1a58dbab0071cee79719cb0fa48fbcdb7-filter-by-type.png)
 *Filtering by item type*
 
 ## Types
