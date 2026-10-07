@@ -21,7 +21,7 @@ the Favorites list itself. Multi-select's **Add** action favorites many items at
 
 ## What the list shows
 
-Favorites draws from **both vaults at once**, which is what makes it useful — your corporate
+Favorites includes items from both vaults, which is what makes it useful — your corporate
 AWS credential and your personal test login sit side by side.
 
 | Column | Shows |
