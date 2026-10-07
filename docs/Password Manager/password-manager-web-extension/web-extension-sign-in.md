@@ -12,11 +12,11 @@ organization allows.
 | Method | What you enter | Where it takes you |
 |---|---|---|
 | **Login with Alias** | Your alias, typically containing a `/` such as `team/you` | Signs in directly. Default on Chrome, Edge and Firefox |
-| **Login with SAML** | Your **Access ID** | Your identity provider opens in a new tab |
-| **Login with OIDC** | Your **Access ID** | Your OIDC provider opens in a new tab |
+| **Login with SAML** | Your `Access ID` | Your identity provider opens in a new tab |
+| **Login with OIDC** | Your `Access ID` | Your OIDC provider opens in a new tab |
 | **Login with Gmail** | Nothing | Google OAuth starts immediately. *Not offered on Safari* |
 | **Login with GitHub** | Nothing | GitHub OAuth starts immediately. *Not offered on Safari* |
-| **Login with Access ID** | **Access ID** and **Access Key** | Signs in directly |
+| **Login with Access ID** | `Access ID` and `Access Key` | Signs in directly |
 | **Login with Email** | Email and password, with optional account selection and 2FA | Default on Safari |
 
 ![SAML sign-in with the Access ID filled](https://files.readme.io/a5a0ad4cc187d6bb4cebdb093caaf6323abd903675e567fccba11b6d58ae0f56-login-saml-access-id.png)
@@ -83,11 +83,11 @@ stored in your browser only, and never leave the device.
 
 ## Email sign-in
 
-1. **Email** — enter your address, select **Continue**.
-2. **Account** — if your address belongs to more than one Akeyless account, choose the account
+1. `Email` — enter your address, select **Continue**.
+2. `Account` — if your address belongs to more than one Akeyless account, choose the account
    ID, select **Continue**. This step is skipped when there is only one.
-3. **Password** — enter it, select **Sign In**.
-4. **Two-factor** — if your account requires MFA, a code is emailed to you. Enter it; a
+3. `Password` — enter it, select **Sign In**.
+4. `Two-factor` — if your account requires MFA, a code is emailed to you. Enter it; a
    **resend** option appears after a short cooldown.
 
 ### Regions
@@ -96,10 +96,10 @@ Email sign-in needs the right region, chosen beside the email field:
 
 | Region | Covers |
 |---|---|
-| **global** | Default Akeyless SaaS |
-| **us** | United States |
-| **eu** | European Union |
-| **wmt**, **cvs**, **dbk** | Dedicated tenants |
+| `global` | Default Akeyless SaaS |
+| `us` | United States |
+| `eu` | European Union |
+| `wmt`, `cvs`, `dbk` | Dedicated tenants |
 
 If your install was preconfigured with a region, the picker is hidden and that region is used.
 
