@@ -6,7 +6,7 @@ turned up in a public breach.
 
 <Callout icon="ℹ️" theme="info">
   **Personal items only.** Corporate and team items are deliberately out of scope: your
-  personal hygiene score should not move because a colleague reused a password in a shared
+  personal security score should not move because a colleague reused a password in a shared
   folder. The Web Console has its own, differently scoped Security Health page.
 </Callout>
 
