@@ -1,5 +1,5 @@
 ---
-title: Prompt to Save Password
+title: Prompt to save password
 ---
 ## Saving a new credential
 
