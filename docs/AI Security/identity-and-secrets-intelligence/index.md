@@ -25,7 +25,7 @@ Akeyless Identity & Secrets Intelligence provides centralized discovery, risk as
 
 ## Supported Environments
 
-AWS, Azure, GCP, GitHub, Kubernetes, and Akeyless itself.
+AWS, Azure, GCP, GitHub, GitLab, Kubernetes, and Akeyless itself.
 
 ## Access And Availability
 
