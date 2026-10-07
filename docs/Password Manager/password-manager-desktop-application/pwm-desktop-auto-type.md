@@ -12,7 +12,7 @@ Turn it on in **Settings → Auto-Type**.
 ## How it works
 
 1. Focus the application you want to sign in to.
-2. Press **Ctrl+Shift+Space**.
+2. Press `Ctrl+Shift+Space`.
 3. **Quick Access** opens. Search and pick the login.
 4. The credentials are typed into the window that had focus.
 
@@ -55,7 +55,7 @@ something you did not intend.
 ## Windows
 
 No extra permission. Some applications running as administrator will not accept synthetic
-keystrokes from a non-elevated app — if typing silently does nothing in one of those, that is
+keystrokes from a non-elevated app — if typing produces no result in one of those, that is
 why.
 
 ---
@@ -64,10 +64,10 @@ why.
 
 | Symptom | Cause |
 |---|---|
-| Shortcut does nothing | Another app has claimed **Ctrl+Shift+Space** — a common clash with input-method switchers |
+| Shortcut does nothing | Another app has claimed `Ctrl+Shift+Space` — a common clash with input-method switchers |
 | Picker opens, nothing is typed | macOS: Accessibility not granted, or granted before the last update. Re-grant and restart |
 | Typed into the wrong window | Focus moved between the shortcut and your pick. Focus the target first, then press the shortcut |
-| Characters dropped or reordered | Some remote-desktop and virtualisation clients drop fast synthetic input. Try again, or copy from the item instead |
+| Characters dropped or reordered | Some remote-desktop and virtualization clients drop fast synthetic input. Try again, or copy from the item instead |
 | Form submitted too early | Turn **Submit automatically with Auto-Type** off |
 
 ## Related
