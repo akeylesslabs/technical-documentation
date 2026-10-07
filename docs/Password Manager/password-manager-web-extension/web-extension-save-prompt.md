@@ -3,7 +3,7 @@ title: Prompt to Save Password
 ---
 ## Saving a new credential
 
-With **Prompt to save password** enabled in Settings, signing in to a site with credentials that are not in your vault opens the extension and offers to save them.
+With `Prompt to save password` enabled in Settings, signing in to a site with credentials that are not in your vault opens the extension and offers to save them.
 
 Accept, and you choose the name, folder and any other details before saving — the same overlay used to create a password item, pre-filled from the form you just submitted.
 
