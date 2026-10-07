@@ -16,7 +16,7 @@ into the Recycle Bin, where it can be restored or purged.
 | **Restore** | Returns the item to its original folder |
 | **Delete Forever** | Permanently removes one item |
 | **Empty Recycle Bin** | Permanently removes everything |
-| **Search in recycle bin secrets** | Filters the list |
+| *`Search in recycle bin secrets`* | Filters the list |
 | **Sort By A–Z** | Reorders; select the arrow to reverse |
 | **Click to refresh** | Reloads from the vault |
 
