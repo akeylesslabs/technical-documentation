@@ -1,6 +1,6 @@
 ---
 title: Claude
-excerpt: Connect Claude to Akeyless
+excerpt: Connect Claude to Akeyless MCP Server.
 deprecated: false
 hidden: false
 metadata:
