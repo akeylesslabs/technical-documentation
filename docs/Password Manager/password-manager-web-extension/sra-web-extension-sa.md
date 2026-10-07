@@ -42,7 +42,7 @@ Because routing is scoped to the launched window, your normal browsing is unaffe
 
 ### Credential mapping
 
-The producer payload rarely matches the target's login form exactly, so the extension
+The producer payload rarely matches the target's login form field for field, so the extension
 maps it:
 
 | Producer type | Mapped to |
@@ -56,7 +56,8 @@ maps it:
 ### SRA clipboard
 
 Clipboard support for remote-access sessions, driven by a server-sent-event channel from the
-SRA worker, so copy and paste work inside a proxied session without weakening its isolation.
+SRA worker, so copy and paste work inside a proxied session without punching a hole in its
+isolation.
 
 ### Flow audit log
 
