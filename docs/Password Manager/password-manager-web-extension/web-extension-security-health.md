@@ -6,7 +6,7 @@ turned up in a public breach.
 
 <Callout icon="ℹ️" theme="info">
   **Personal items only.** Corporate and team items are deliberately out of scope: your
-  personal hygiene score should not move because a colleague reused a password in a shared
+  personal security score should not move because a colleague reused a password in a shared
   folder. The web console has its own, differently scoped Security Health page.
 </Callout>
 
@@ -25,7 +25,7 @@ each personal item's value, up to ten at a time.
 | Settling | *Refining scores…* under the gauge |
 | Done | A green bar and *All personal items were scanned* |
 
-The gauge starts red and blends toward its true colour as the scan completes, so an early
+The gauge starts red and blends toward its true color as the scan completes, so an early
 glance never reads as a real score. A single slow item cannot block the whole screen — each
 fetch times out independently.
 
@@ -72,7 +72,7 @@ With 10 passwords, 3 of them reused and 1 breached, and 5 items fresh within 90 
 
 ### Bands
 
-| Score | Colour |
+| Score | Color |
 |---|---|
 | 0–35 | Red |
 | 36–66 | Orange |
@@ -81,7 +81,7 @@ With 10 passwords, 3 of them reused and 1 breached, and 5 items fresh within 90 
 ![Protection score, gauge view](https://files.readme.io/505ce144727e0eee014485c4d4b6b911cf3f0a5f541cfd1ae7251d28af6790b2-security-health-gauge.png)
 *Gauge view*
 
-Switch to **Graph** to see each metric as a node, sized and coloured by its contribution.
+Switch to **Graph** to see each metric as a node, sized and colored by its contribution.
 
 ![Protection score, graph view](https://files.readme.io/7acf9e90d510121c69a7077964bfaa21584bec991d617df4a68f59d50403d96e-security-health-graph.png)
 *Graph view — drag, zoom and pan; select a node to expand it*
@@ -97,7 +97,7 @@ Switch to **Graph** to see each metric as a node, sized and coloured by its cont
 | **OTP** | Items carrying an `otpauth` URI or an OTP field | No |
 
 Passkeys and OTP are reported because they are good signals to act on, but they do not move
-the number — adding a passkey should not paper over a reused password.
+the number — adding a passkey should not compensate for a reused password.
 
 Select any tile to open the list of items behind it.
 
