@@ -26,7 +26,6 @@
 - web-extension-save-prompt
 - web-extension-ai-agent-autofill
 - copypaste-functionality-for-passwords-1
-- web-extension-security-health
 - adding-and-using-otp-1
 - web-extension-settings
 - passkey
@@ -35,5 +34,6 @@
 - web-extension-preconfigured-package
 - web-extension-preconfigured-install
 - web-extension-branding
+- web-extension-security-health
 - web-extension-account-policies
 - web-extension-troubleshooting
