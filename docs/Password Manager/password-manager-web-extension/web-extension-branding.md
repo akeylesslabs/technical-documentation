@@ -32,13 +32,13 @@ Either inline through the bridge link or URL parameters, or by `config_id` — a
 
 Use `config_id` when you expect branding to change. Changing the bundle updates every installed extension without re-issuing links.
 
-## Dark Mode
+## Dark mode
 
 <Callout icon="ℹ️" theme="info">
-  **When branding is active, Dark Mode is locked to light and the toggle is hidden**, so your palette renders as intended.
+  **When branding is active, dark mode is locked to light and the toggle is hidden**, so your palette renders as intended.
 </Callout>
 
-If you want users to keep Dark Mode, do not set branding colors.
+If you want users to keep dark mode, do not set branding colours.
 
 ## Logo requirements
 
