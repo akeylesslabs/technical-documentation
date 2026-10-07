@@ -2,10 +2,10 @@
 title: Offline Mode
 ---
 Offline Mode keeps a chosen set of your **personal passwords** encrypted on this device, so
-you can still read them on a plane, on a bad connection, or when the Akeyless service is
+you can still read them while traveling, on an unreliable network connection, or when the Akeyless service is
 unreachable.
 
-**It is off by default.** Turn it on in **Settings → Offline Mode → Set up Offline Mode…**
+**It is off by default.** Turn it on in **Settings** → `Offline Mode` → **Set up Offline Mode…**
 
 <Callout icon="ℹ️" theme="info">
   **Offline access is read-only.** You can look at and copy the cached passwords. You cannot
@@ -16,7 +16,7 @@ unreachable.
 
 ## What gets cached
 
-| | |
+| Cached | Detail |
 |---|---|
 | **Personal password items only** | Chosen by you, item by item |
 | **Never Corporate items** | Shared vault items are never written to disk |
@@ -35,12 +35,12 @@ You pick exactly which items. Nothing is cached that you did not tick.
 
 | Field | Notes |
 |---|---|
-| **Offline password** | Unlocks the cache on this device |
-| **Confirm password** | Must match |
+| `Offline password` | Unlocks the cache on this device |
+| `Confirm password` | Must match |
 
 <Callout icon="⚠️" theme="warn">
   **This is a separate password from your Akeyless sign-in, and it cannot be recovered.**
-  It never leaves the device and Akeyless has no copy. If you forget it, turn Offline Mode off
+  It never leaves the device and Akeyless has no copy. If you forget it, turn `Offline Mode` off
   and set it up again — the cache is discarded, not recovered.
 </Callout>
 
@@ -61,14 +61,14 @@ The list shows your personal password items. Use:
 A counter at the bottom reads *N selected*.
 
 <Callout icon="ℹ️" theme="info">
-  **Pick the handful you would actually need without a network** — your laptop login, your
+  **Pick only the items you need without a network** — your laptop login, your
   VPN, your password manager for another system. Caching everything puts more on disk for no
   real benefit.
 </Callout>
 
 ### 3. Save
 
-**Save offline vault** writes the encrypted cache and, where biometrics are available, enrols
+**Save offline vault** writes the encrypted cache and, where biometrics are available, enrolls
 them. The dialog tells you before setup begins — *Touch ID is ready on this Mac. Save will turn it on for
 Offline Mode.*
 
@@ -95,7 +95,7 @@ On success you are told how many items are ready and how you will unlock them ne
 
 ## Updating what is cached
 
-Return to **Settings → Offline Mode**. The button reads **Update password & items…** once
+Return to **Settings** → `Offline Mode`. The button reads **Update password & items…** once
 Offline Mode is configured.
 
 You must be **signed in online** to enable or update Offline Mode — the app has to read the
@@ -111,7 +111,7 @@ current values from the vault to cache them.
 
 ## Turning it off
 
-Switch **Offline Mode** off. This:
+Switch `Offline Mode` off. This:
 
 - **removes the encrypted cache** from the device
 - **keeps your item selection**, so re-enabling only asks for the password again
