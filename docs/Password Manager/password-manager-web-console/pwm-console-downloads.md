@@ -89,7 +89,7 @@ The newest release carries a **LATEST** badge.
 
 ## Which version am I running?
 
-[Settings](https://docs.akeyless.io/docs/pwm-console-settings) shows the extension's **Installed version** when the
+[Settings](https://docs.akeyless.io/docs/pwm-console-settings) shows the extension's `Installed version` when the
 console can detect it, alongside the console's own version in the footer.
 
 ## Related
