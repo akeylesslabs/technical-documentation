@@ -19,8 +19,8 @@ In the readings below, `N` is a size in bytes, formatted by the app (for example
 
 | Reading | Meaning |
 |---|---|
-| **Extension id** | The id the console is talking to |
-| **Installed version** | The extension's version, shown only when detected |
+| `Extension ID` | The extension identifier the console communicates with |
+| `Installed version` | The extension's version, shown only when detected |
 
 This pairing is what makes **Launch** and
 [extension sign-in](https://docs.akeyless.io/docs/pwm-console-extension-sign-in) work: selecting the launch button on an
@@ -73,7 +73,7 @@ Switches the interface between the light and dark themes.
 
 ## Version and Sign out
 
-The footer shows the console version with its build hash — for example *0.3.117 (58c9a0b)*.
+The footer shows the console version with its build hash — for example *`0.3.117 (58c9a0b)`*.
 Quote it when contacting support; it identifies the exact build.
 
 **Sign out** ends the session. The theme choice and favorites are retained.
