@@ -13,7 +13,7 @@ Items are organized into folders inside both the Personal and Corporate areas.
 
 Each folder row shows its name, its path (`root` for top level) and a **Personal** or **Corporate** badge.
 
-Folders can be favorited like any other item — select the star to add the whole folder to **Favorite Secrets**.
+Folders can be favorited like any other item — select the star to add the whole folder to **Favorites**.
 
 ## Choosing a folder when creating or moving
 
