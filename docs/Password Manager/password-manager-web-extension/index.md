@@ -54,7 +54,7 @@ find, fill and share credentials without leaving the page you are on.
 
 - [Using Autofill / Password Injection](https://docs.akeyless.io/docs/using-autofillpassword-injection-functionality-1)
 - [Launch: Open a Site Already Signed In](https://docs.akeyless.io/docs/web-extension-launch)
-- [Prompt to Save Password](https://docs.akeyless.io/docs/web-extension-save-prompt)
+- [Prompt to save password](https://docs.akeyless.io/docs/web-extension-save-prompt)
 - [AI Agent Auto-fill](https://docs.akeyless.io/docs/web-extension-ai-agent-autofill)
 - [Copy/Paste & Secure Paste Mode](https://docs.akeyless.io/docs/copypaste-functionality-for-passwords-1)
 - [Adding and Using One-Time Passwords](https://docs.akeyless.io/docs/adding-and-using-otp-1)
