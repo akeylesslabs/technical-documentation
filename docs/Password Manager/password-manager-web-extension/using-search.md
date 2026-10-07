@@ -5,10 +5,10 @@ Every area has its own search box at the top of the list:
 
 | Area | Placeholder |
 |---|---|
-| Personal Secrets | *Search in Personal Secrets* |
-| Corporate Secrets | *Search in Corporate Secrets* |
-| Favorite Secrets | *Search in favorites secrets* |
-| Recycle Bin | *Search in Recycle Bin secrets* |
+| Personal Secrets | `Search in personal secrets` |
+| Corporate Secrets | `Search in corporate secrets` |
+| Favorites | `Search in favorites secrets` |
+| Recycle Bin | `Search in recycle bin secrets` |
 
 ## How search works
 
