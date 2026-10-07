@@ -17,7 +17,7 @@ The Akeyless Password Manager browser extension provides access to the vault in 
 | [Signing In to the Web Extension](https://docs.akeyless.io/docs/web-extension-sign-in)                    | All seven authentication methods            |
 | [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel)                            | Docking the extension beside the page       |
 
-## The areas
+## Vault areas
 
 - [Personal, Corporate & Favorites Navigation](https://docs.akeyless.io/docs/personal-corporate-favorites-areas-navigation)
 - [Personal Secrets](https://docs.akeyless.io/docs/web-extension-personal-area)
@@ -51,7 +51,7 @@ The Akeyless Password Manager browser extension provides access to the vault in 
 - [Using Autofill / Password Injection](https://docs.akeyless.io/docs/using-autofillpassword-injection-functionality-1)
 - [Launch: Open a Site Already Signed In](https://docs.akeyless.io/docs/web-extension-launch)
 - [Prompt to Save Password](https://docs.akeyless.io/docs/web-extension-save-prompt)
-- [AI Agent Auto-fill](https://docs.akeyless.io/docs/web-extension-ai-agent-autofill)
+- [AI Agent Autofill](https://docs.akeyless.io/docs/web-extension-ai-agent-autofill)
 - [Copy/Paste & Secure Paste Mode](https://docs.akeyless.io/docs/copypaste-functionality-for-passwords-1)
 - [Adding and Using One-Time Passwords](https://docs.akeyless.io/docs/adding-and-using-otp-1)
 - [Passkey](https://docs.akeyless.io/docs/passkey)
