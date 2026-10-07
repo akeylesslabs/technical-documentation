@@ -40,7 +40,7 @@ graphics.
 ## Tooltips
 
 Icon-only controls show a tooltip on hover and on keyboard focus, so the left rail is
-readable without memorising the icons.
+readable without memorizing the icons.
 
 ![Tooltip on a sidebar icon](https://files.readme.io/0fb2aa173deb536d0f3cbc01314eef65cabedc66c4ed1f716c31b0a55d47e9eb-sidebar-tooltip.png)
 *Hovering a sidebar icon names the area it opens*
@@ -63,7 +63,7 @@ page behind it, and focus returns to the control that opened it on close.
 |---|---|
 | **Dark mode** | A full dark theme rather than an inverted filter — see [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings) |
 | **Side panel** | Docking gives a resizable, persistent panel rather than a fixed 416px popup — see [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel) |
-| **Status colour** | Never the only signal — the Security Health gauge pairs colour with a numeric score, and password strength pairs colour with a worded rating |
+| **Status color** | Never the only signal — the Security Health gauge pairs color with a numeric score, and password strength pairs color with a worded rating |
 | **Browser zoom** | Supported; layouts reflow rather than clipping |
 
 ## Secure paste and assistive technology
