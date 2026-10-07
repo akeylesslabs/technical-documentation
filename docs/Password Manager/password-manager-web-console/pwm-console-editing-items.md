@@ -16,7 +16,7 @@ Dynamic secrets additionally show producer status and TTL.
 |---|---|
 | **Zero Knowledge Encryption** | The item is wrapped with a customer fragment |
 | **Lock** | Delete protection is on |
-| **Personal** / **Corporate** | Which vault it lives in |
+| **Personal** / **Corporate** | The vault that stores the item |
 
 ## Editing
 
@@ -37,7 +37,7 @@ Changing the **Location** between Personal and Corporate moves the item between 
 |---|---|
 | **Rotated secrets** | Managed by Akeyless; the value is read-only |
 | **Dynamic secrets** | Generated on demand |
-| Items without **update** permission | **Edit** does not appear |
+| Items without `update` permission | **Edit** does not appear |
 
 ## Copying an item
 
