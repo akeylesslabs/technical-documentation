@@ -2,13 +2,13 @@
 title: Offline Mode
 ---
 Offline Mode keeps a chosen set of your **personal passwords** encrypted on this device, so
-you can still read them on a plane, on a bad connection, or when the Akeyless service is
+you can still read them without a network connection, on an unreliable connection, or when the Akeyless service is
 unreachable.
 
 **It is off by default.** Turn it on in **Settings → Offline Mode → Set up Offline Mode…**
 
 <Callout icon="ℹ️" theme="info">
-  **Offline access is read-only.** You can look at and copy the cached passwords. You cannot
+  **Offline access is read-only.** Cached passwords can be viewed and copied. You cannot
   create, edit, delete, share or import while offline — those need the live vault.
 </Callout>
 
@@ -16,13 +16,13 @@ unreachable.
 
 ## What gets cached
 
-| | |
+| Scope | Detail |
 |---|---|
 | **Personal password items only** | Chosen by you, item by item |
 | **Never Corporate items** | Shared vault items are never written to disk |
 | **Never passkeys or files** | Only password items |
 
-You pick exactly which items. Nothing is cached that you did not tick.
+You pick exactly which items. Nothing is cached that was not selected.
 
 ---
 
