@@ -34,7 +34,6 @@ akeyless_bridge_loading_animation_color
 akeyless_bridge_logo_url
 akeyless_bridge_brand_folder
 ```
-
 ### Rules
 
 - **Access ID, auth method and timestamp are all required.** If any is missing, nothing is stored.
@@ -66,7 +65,6 @@ The same parameters can ride on the store page URL. The extension reads them on 
 ?loading_animation_color=…   ?logo_url=…   ?brand_folder=…
 ?preconfigured_sign_in_title=…   ?preconfigured_sign_in_message=…
 ```
-
 ### Combined encoding
 
 The Access ID may carry the method in front of it:
@@ -74,7 +72,6 @@ The Access ID may carry the method in front of it:
 ```
 ?access_id=saml:p-xxxxxxxx
 ```
-
 ### When settings are stored
 
 Either **auth method + Access ID**, or **auth = email + a valid environment**. Anything less is ignored.
