@@ -20,7 +20,7 @@ Select any row, or **View Details** on the row, to open the Item Preview.
 |---|---|
 | **Zero Knowledge Encryption** | The item is wrapped with a customer fragment |
 | **Lock** | Delete protection is on |
-| **Personal** / **Corporate** | Which vault the item lives in |
+| **Personal** / **Corporate** | The vault that stores the item |
 
 ## Actions
 
