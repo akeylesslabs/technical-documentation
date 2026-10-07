@@ -1,7 +1,7 @@
 ---
 title: Auto-Type and Quick Access
 ---
-Browser extensions can only fill web pages. **Auto-Type** fills credentials into *any*
+Browser extensions can only fill web pages. `Auto-Type` fills credentials into *any*
 application — a VPN client, a database tool, an RDP window, a terminal — by typing them into
 whatever has focus.
 
@@ -13,7 +13,7 @@ Turn it on in **Settings → Auto-Type**.
 
 1. Focus the application you want to sign in to.
 2. Press `Ctrl+Shift+Space`.
-3. **Quick Access** opens. Search and pick the login.
+3. `Quick Access` opens. Search and pick the login.
 4. The credentials are typed into the window that had focus.
 
 The shortcut is global — it works no matter which application is in front, including when the
@@ -34,7 +34,7 @@ for checking it works.
 
 ## Submit automatically
 
-**Submit automatically with Auto-Type** presses **Enter** after typing the password, so a
+`Submit automatically with Auto-Type` presses **Enter** after typing the password, so a
 sign-in completes without you touching the keyboard again.
 
 Leave it off where a form has more fields after the password, or where a stray Enter would do
@@ -67,7 +67,7 @@ keystrokes from a non-elevated app — if typing produces no result in one of th
 | Picker opens, nothing is typed | macOS: Accessibility not granted, or granted before the last update. Re-grant and restart |
 | Typed into the wrong window | Focus moved between the shortcut and your pick. Focus the target first, then press the shortcut |
 | Characters dropped or reordered | Some remote-desktop and virtualization clients drop fast synthetic input. Try again, or copy from the item instead |
-| Form submitted too early | Turn **Submit automatically with Auto-Type** off |
+| Form submitted too early | Turn `Submit automatically with Auto-Type` off |
 
 ## Related
 
