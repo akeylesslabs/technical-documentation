@@ -16,7 +16,7 @@ A single free-form value, stored exactly as typed.
 Use it for anything consumed as one opaque blob: an API key, a connection string, a license
 key, a certificate body, a block of notes.
 
-The whole value copies as one unit from the item preview.
+The whole value copies as one unit from the Item Preview.
 
 ## Key/value
 
