@@ -21,8 +21,8 @@ the Favorites list itself. Multi-select's **Add** action favorites many items at
 
 ## What the list shows
 
-Favorites includes items from both vaults, which is useful — your corporate
-AWS credential and your personal test login sit side by side.
+Favorites includes items from both vaults in one list — for example, a corporate AWS
+credential and a personal test login.
 
 | Column | Shows |
 |---|---|
@@ -34,7 +34,7 @@ AWS credential and your personal test login sit side by side.
 
 ## Folders can be favorited
 
-Starring a folder adds the folder, not its contents. Opening it from Favorites drops you into
+Starring a folder adds the folder, not its contents. Opening it from Favorites opens
 that folder in its original vault.
 
 Star the folder rather than every item inside it when you work in one place repeatedly.
