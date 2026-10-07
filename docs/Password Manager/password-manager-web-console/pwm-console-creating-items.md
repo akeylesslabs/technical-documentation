@@ -143,7 +143,7 @@ A single step.
 
 ## Common to every flow
 
-| Element | Behaviour |
+| Element | Behavior |
 |---|---|
 | **Step rail** | Shows where you are; completed steps carry a tick |
 | **Cancel** | Abandons the flow and returns you to the area you came from |
