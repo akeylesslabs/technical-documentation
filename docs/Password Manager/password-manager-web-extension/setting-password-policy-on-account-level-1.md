@@ -24,7 +24,7 @@ Two other account settings shape the create and edit overlays:
 
 | Setting | Effect |
 |---|---|
-| **Default Maximum Versions** | Pre-fills **Maximum Versions**, and sets the allowed range |
+| **Default Maximum Versions** | Pre-fills `Maximum Versions`, and sets the allowed range |
 | **Default Protection Key** | Preselects the Protection Key; when configured as exclusive, the picker is locked |
 | **Protect items by default** | New items are created with Delete protection on |
 
