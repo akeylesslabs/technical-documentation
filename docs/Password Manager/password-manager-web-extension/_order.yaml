@@ -27,7 +27,6 @@
 - web-extension-ai-agent-autofill
 - copypaste-functionality-for-passwords-1
 - adding-and-using-otp-1
-- web-extension-settings
 - passkey
 - csv-password-importer
 - web-extension-preconfigured-install
@@ -37,3 +36,4 @@
 - web-extension-bridge-link
 - web-extension-troubleshooting
 - web-extension-preconfigured-package
+- web-extension-settings
