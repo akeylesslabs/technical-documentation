@@ -7,7 +7,7 @@ turned up in a public breach.
 <Callout icon="ℹ️" theme="info">
   **Personal items only.** Corporate and team items are deliberately out of scope: your
   personal hygiene score should not move because a colleague reused a password in a shared
-  folder. The web console has its own, differently scoped Security Health page.
+  folder. The Web Console has its own, differently scoped Security Health page.
 </Callout>
 
 ## How the scan runs
@@ -21,7 +21,7 @@ each personal item's value, up to ten at a time.
 | Stage | What you see |
 |---|---|
 | Listing | The gauge is indeterminate |
-| Fetching | *Scanning passwords… 65/66* and a progress bar |
+| Fetching | `Scanning passwords… 65/66` and a progress bar |
 | Settling | *Refining scores…* under the gauge |
 | Done | A green bar and *All personal items were scanned* |
 
