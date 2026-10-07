@@ -3,19 +3,23 @@ title: Creating New Password
 ---
 Select the blue **+** in the header and choose what to create.
 
-![The create menu](https://files.readme.io/242d134a5a7a258504621882f82a5748e5deda13d3e74ee23eb7f408fd3e2dd9-create-item-menu.png)
-*New Folder, New Secret Item, New Password Item, New File Item*
+![The create menu](https://files.readme.io/71524d6baca1ca29089f21534f798294c773d64b6f1d3b81bd151f2268989dc6-create-menu-corporate.png)
+*The create menu. Corporate offers three types; Personal adds **New File Item***
 
 ---
 
 ## New Password Item
 
+![The New Password overlay](https://files.readme.io/657113041fe938f989c79f20af69484e95deda9fd211b06c287e03d0bf54f039-new-password-overlay.png)
+*General, Location and the Personal / Corporate switch*
+
+
 **General** — item name, username, and one or more **Website URLs** (`https://www.example.com`).
 Select **Add URL** for additional addresses. These URLs drive autofill matching and the
 [Launch](https://docs.akeyless.io/docs/web-extension-launch) button.
 
-**Location** — choose the destination folder using the searchable folder browser. Optionally
-set a **Description** and **Maximum Versions**.
+**Location** — switch between **Personal** and **Corporate**, then pick the destination folder
+with **Select**. Optionally set a **Description** and **Maximum Versions** (default **100**).
 
 **Password** — type one or generate it. See [Password Generator & Strength](https://docs.akeyless.io/docs/web-extension-password-generator).
 
@@ -31,6 +35,10 @@ website tab** to read a QR code from the page you have open. Give it a label suc
 
 ## New Secret Item
 
+![The New Secret overlay](https://files.readme.io/cfbbfbe5bfcb6053707eba0ee75ae77e41909e70a22e0d64036a43a4c6f4b123-new-secret-overlay.png)
+*Text, Key/value and JSON formats, with a secret Type and Maximum Versions*
+
+
 A static secret with a free-form value, plus the same Location, MetaData, description and
 Maximum Versions controls. Values may be plain text or structured key/value.
 
@@ -40,6 +48,10 @@ Uploads a file into the vault. Files count against your account's **File storage
 shown in [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings).
 
 ## New Folder
+
+![The New Folder overlay](https://files.readme.io/14a60ae4d1032eaf4029b9d9287303c52fe334be0d3483268682c8a2a02a9088-new-folder-overlay.png)
+*Location, description, delete protection and tags*
+
 
 Creates a folder at the location you choose, in Personal or Corporate.
 
