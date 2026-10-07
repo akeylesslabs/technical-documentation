@@ -1,9 +1,9 @@
 ---
-title: AI Agent Auto-fill
+title: AI Agent Autofill
 ---
 When an AI browser agent navigates to a sign-in page, the extension can fill the matching vault credential automatically, so the agent is not blocked and you are not asked to paste a password into a chat.
 
-**This setting is off by default.** Turn it on in **Settings → AI agent auto-fill**.
+**This setting is off by default.** Turn it on in **Settings** → `AI agent auto-fill`.
 
 ## Supported agents
 
@@ -16,7 +16,7 @@ When an AI browser agent navigates to a sign-in page, the extension can fill the
 
 Nothing is filled unless **all six** of these hold:
 
-1. You enabled the setting.
+1. You enabled `AI agent auto-fill`.
 2. You are signed in to the extension.
 3. The tab carries a fresh agent signal.
 4. The page actually looks like a sign-in page.
@@ -33,7 +33,7 @@ The credential is written into the page's form fields. The value is not returned
 
 ## Turning it off
 
-**Settings → AI agent auto-fill**. Turning it off takes effect immediately on all tabs.
+**Settings** → `AI agent auto-fill`. Turning it off takes effect immediately on all tabs.
 
 ## Related
 
