@@ -12,6 +12,30 @@ multi-step creation flows, and a downloads page for the extension and desktop ap
 ![The Personal area in card view](https://files.readme.io/e03d69bfd64fad3ab66fd1aaea37bbda38e3971585408d961c903b3793a49d36-personal-cards-view.webp)
 *The Personal area — 356 items in card view*
 
+## Opening the console
+
+| Tenant | Address |
+|---|---|
+| **Akeyless SaaS (default)** | [https://console-pwm.akeyless.io](https://console-pwm.akeyless.io) |
+| **Dedicated tenants** | Your own `console-pwm.*` address — your administrator will give it to you |
+
+<Callout icon="ℹ️" theme="info">
+  **Not sure which one is yours?** Open the browser extension and select **Open Web Console**
+  — the icon below the vault tabs in the left rail. It works out the right console for your
+  tenant from the account you are signed in to, so you never have to guess the hostname.
+</Callout>
+
+Sign in with the same credentials you use for the extension. If the extension is installed and
+your organization uses a preconfigured install, you can sign in with one click — see below.
+
+### The downloads page
+
+[https://console-pwm.akeyless.io/artifacts](https://console-pwm.akeyless.io/artifacts) lists
+every build of the browser extension and the desktop app, with their release notes. It is
+reachable without signing in, and there is a link to it on the sign-in screen.
+
+See [Downloads: Extension and Desktop App](https://docs.akeyless.io/docs/pwm-console-downloads).
+
 ## Getting in
 
 - [Signing In Through the Browser Extension](https://docs.akeyless.io/docs/pwm-console-extension-sign-in)
