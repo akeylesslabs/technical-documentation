@@ -7,7 +7,7 @@ including administrators.
 ![The Personal area](https://files.readme.io/e03d69bfd64fad3ab66fd1aaea37bbda38e3971585408d961c903b3793a49d36-personal-cards-view.webp)
 *The Personal area in card view*
 
-## What lives here
+## What this area contains
 
 | Type | Notes |
 |---|---|
