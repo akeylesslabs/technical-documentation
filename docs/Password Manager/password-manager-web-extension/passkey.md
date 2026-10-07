@@ -25,7 +25,7 @@ This means passkeys are invisible if the personal vault is hidden for your sessi
 
 Passkeys appear in your item lists with their own icon, and under the ***Passkey*** type in the filter panel.
 
-Opening one shows the relying party, the user handle, the creation date and the protection key.
+Opening one shows the relying party, the user handle, the creation date and the Protection Key.
 
 ## Security Health
 
@@ -37,7 +37,7 @@ Two policies can remove passkey support:
 
 | Policy | Effect |
 |---|---|
-| Account **allow passkeys** disabled | Passkey management is unavailable |
+| Account **allow passkeys** disabled | Passkey Management is unavailable |
 | Organization suppresses passkeys (DBK tenants) | Passkeys are hidden from lists, filters and Settings entirely |
 
 ## Related
