@@ -114,7 +114,7 @@ The Akeyless plugin for Claude provides the Agentic Runtime Authority MCP server
 
 ### Prerequisites
 
-* For Agentic Runtime Authority:&#x20;
+* Agentic Runtime Authority enabeld:&#x20;
   - your own Gateway with Agentic Runtime Authority and Akeyless AI Insights enabled
   - Secrets configured for Agentic Runtime Authority&#x20;
   - An Access Role with the Agentic Runtime Authority **Allow Access** rule on their paths.&#x20;
