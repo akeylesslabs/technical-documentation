@@ -1,69 +1,50 @@
 ---
 title: Personal, Corporate & Favorites Navigation
 ---
-The left rail switches between areas. Tabs that do not apply to your account are hidden —
-see [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies).
+The left rail switches between areas. Hovering an icon names it.
 
-| Icon | Area |
+![Tooltip on a sidebar icon](https://files.readme.io/0fb2aa173deb536d0f3cbc01314eef65cabedc66c4ed1f716c31b0a55d47e9eb-sidebar-tooltip.png)
+*Each rail icon names its area on hover and on keyboard focus*
+
+## The areas
+
+| Icon | Area | What it holds |
+|---|---|---|
+| Person | **[Personal Secrets](https://docs.akeyless.io/docs/web-extension-personal-area)** | Items only you can see, including passkeys and files |
+| Building | **[Corporate Secrets](https://docs.akeyless.io/docs/web-extension-corporate-area)** | Items shared across your organization |
+| Star | **[Favorite Secrets](https://docs.akeyless.io/docs/adding-password-to-favorites-1)** | Shortcuts to items and folders from either vault |
+| Trash | **[Recycle Bin](https://docs.akeyless.io/docs/web-extension-recycle-bin)** | Deleted items, restorable |
+| Heart | **[Security Health](https://docs.akeyless.io/docs/web-extension-security-health)** | A score for your personal credentials |
+
+At the bottom of the rail:
+
+| Icon | Does |
 |---|---|
-| Person | **Personal Secrets** — your personal vault |
-| Building | **Corporate Secrets** — your organization's shared vault |
-| Star | **Favorite Secrets** |
-| Trash | [Recycle Bin](https://docs.akeyless.io/docs/web-extension-recycle-bin) |
-| Heart / shield | [Security Health](https://docs.akeyless.io/docs/web-extension-security-health) |
-| Pin *(bottom)* | Pin to Side Panel / Open Sidebar |
-| External link *(bottom)* | Open Web Console |
-| Gear *(bottom)* | Settings |
+| Pin | [Dock the extension](https://docs.akeyless.io/docs/web-extension-side-panel) beside the page |
+| External link | Opens the Akeyless web console for your tenant |
+| Gear | [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings) |
 
----
+## Tabs that are not there
 
-## Personal Secrets
+Areas are hidden when they do not apply to your account rather than shown and failing:
 
-Your own vault. Folders appear first, then individual items.
-
-![The Personal Secrets area](https://files.readme.io/e127c160cff1e2e0b58ea94c9d7eb7d9cd0cd00e35242fea69d2e91e624b8642-personal-secrets-list.png)
-*The Personal Secrets area*
-
-Hidden when your account disables password management or hides the personal folder, and when
-you sign in with an API-key style credential.
-
----
-
-## Corporate Secrets
-
-Items shared across your organization. Each row shows its folder and scope; a lock badge marks
-delete-protected items.
-
-![The Corporate Secrets area](https://files.readme.io/d75819059f5f093e06ddd975e3a64b9ff76efd5b8d509f4b25fe1a75455fc26d-corporate-secrets-list.png)
-*The Corporate Secrets area*
-
-Hidden when your vault permissions do not allow listing secrets.
-
----
-
-## Header controls
-
-| Control | What it does |
+| Missing | Why |
 |---|---|
-| **Search** | Filters the current area |
-| **Filter** (funnel) | Opens the filter panel — see [Using Filters & Tags](https://docs.akeyless.io/docs/using-filters-tags) |
-| **View toggle** (grid) | Switches between list and grid layout |
-| **Create** (blue `+`) | New Folder, Secret, Password or File item |
-| **Sort By** | A–Z; select the arrow to reverse |
-| **Select** | Enters multi-select mode |
-| **Click to refresh** | Reloads from the vault |
+| **Personal** | Password management disabled, personal folder hidden, or an API-key sign-in |
+| **Security Health** | Follows Personal — it scores personal items only |
+| **Corporate** | Your vault permissions do not allow listing secrets |
 
-A **Last refreshed** indicator shows how current the list is.
+See [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies).
 
----
+## Shared controls
 
-## Folders
+Every area has the same header: search, filter, view toggle, sort, **Select** for multi-select,
+and **Click to refresh** with a **Last refreshed** indicator.
 
-Open a folder to descend into it; the breadcrumb trail at the top takes you back up. Folders
-can themselves be favorited.
+The create **+** appears in Personal and Corporate only.
 
 ## Related
 
+- [Personal Secrets](https://docs.akeyless.io/docs/web-extension-personal-area)
+- [Corporate Secrets](https://docs.akeyless.io/docs/web-extension-corporate-area)
 - [Searching for Passwords and Secrets](https://docs.akeyless.io/docs/using-search)
-- [Using Filters & Tags](https://docs.akeyless.io/docs/using-filters-tags)
-- [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies)
