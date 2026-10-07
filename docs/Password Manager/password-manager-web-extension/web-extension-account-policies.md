@@ -21,13 +21,13 @@ Account settings and vault permissions change what users see without notificatio
 
 | Policy | Effect |
 |---|---|
-| `allowAutoFill` | Server default for the **Autofill** toggle. A user's manual change overrides it from then on |
+| `allowAutoFill` | Server default for the `Autofill` toggle. A user's manual change overrides it from then on |
 | `hide_secret_reveal_copy` | Secure paste mode — no reveal, no copy of secret values anywhere |
 | `allow_passkeys` disabled | Passkey Management unavailable |
 | Organization passkey suppression *(DBK)* | Passkeys hidden from lists, filters and Settings entirely |
 | `protect_items_by_default` | New items created with Delete protection on |
 | `account_default_key_name` | Preselects the Protection Key; when exclusive, the picker is locked |
-| Static secret max-versions settings | Default value and allowed range for **Maximum Versions** |
+| Static secret max-versions settings | Default value and allowed range for `Maximum Versions` |
 
 ## Diagnosing a missing feature
 
