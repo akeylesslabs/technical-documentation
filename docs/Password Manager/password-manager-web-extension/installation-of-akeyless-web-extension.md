@@ -82,7 +82,7 @@ create and fill credentials without leaving the page you are on.
 1. Open [Akeyless Password Manager 2.0 on the Mac App Store](https://apps.apple.com/us/app/akeyless-password-manager-2-0/id6760562772).
 2. Select **Get**, then install. The app is free, published by Akeyless Security Ltd.
 3. Launch the app once — it installs the Safari extension.
-4. In Safari: **Settings → Extensions**, tick **Akeyless Password Manager 2.0**.
+4. In Safari: **Settings** → **Extensions**, tick **Akeyless Password Manager 2.0**.
 5. Set its site access to **Allow on Every Website** so autofill and Launch can work.
 
 <Callout icon="ℹ️" theme="info">
