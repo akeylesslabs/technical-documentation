@@ -13,7 +13,7 @@ create and fill credentials without leaving the page you are on.
 |---|---|---|
 | **Google Chrome** | 88+ | Full feature set |
 | **Microsoft Edge** | 88+ | Full feature set |
-| **Mozilla Firefox** | 91.1+ | Sidebar instead of side panel |
+| **Mozilla Firefox** | 91.1+ | Sidebar instead of Side Panel |
 | **Safari** | macOS 13.0+ | Distributed through the Mac App Store. Google and GitHub sign-in are not offered |
 
 <Callout icon="ℹ️" theme="info">
@@ -88,7 +88,7 @@ create and fill credentials without leaving the page you are on.
 <Callout icon="ℹ️" theme="info">
   **Safari differences.** Google and GitHub sign-in are not offered in the Safari build
   (macOS App Store guideline 4.8), and the sign-in screen defaults to **Email** rather than
-  Alias. Safari also has no side panel or sidebar — the extension opens as a popup only.
+  Alias. Safari also has no Side Panel or sidebar — the extension opens as a popup only.
 </Callout>
 
 ---
@@ -139,7 +139,6 @@ file has `"enabled": true`, its contents seed the extension's sign-in configurat
   "installationSource": "bundled_prefill"
 }
 ```
-
 ### Deploying it
 
 | Platform | How |
