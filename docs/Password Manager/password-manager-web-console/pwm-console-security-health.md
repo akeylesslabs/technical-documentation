@@ -73,7 +73,7 @@ With 10 passwords, 3 reused and 1 breached, and 5 items fresh within 90 days:
 | **OTP** | Passwords with a saved authenticator code | No |
 
 Passkeys and OTP are reported because they are useful signals, but they do not move the
-number — adding a passkey should not paper over a reused password.
+number — adding a passkey should not compensate for a reused password.
 
 ## The item table
 
