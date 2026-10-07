@@ -22,7 +22,7 @@ Preconfigured package settings apply on **first install only** and never overwri
 
 ## Passkeys do not appear
 
-- **Passkey Management** must be on in Settings.
+- `Passkey Management` must be on in Settings.
 - Your account must allow passkeys.
 - Passkeys are stored in the **personal folder only** — they are invisible if the personal vault is hidden for your session.
 
