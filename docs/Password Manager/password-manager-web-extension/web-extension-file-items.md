@@ -12,22 +12,22 @@ or leave in a shared drive.
 3. Give the item a **Name**.
 4. Select the file to upload.
 5. Choose the **Location** folder — Personal or Corporate, using the folder browser.
-6. Optionally set a **Description**, `Protection Key`, **Tags** and `Delete protection`.
+6. Optionally set a **Description**, **Protection Key**, **Tags** and **Delete protection**.
 7. Select **Save**.
 
 ## Storage quota
 
-File items consume your account's File storage quota, shared across the account rather than
+File items consume your account's file storage quota, shared across the account rather than
 allocated per user.
 
 Check it in **Settings → File storage**, which shows:
 
 | Reading | Meaning |
 |---|---|
-| `N used` | How much of the quota is consumed |
-| `N remaining` | What is left |
+| *N used* | How much of the quota is consumed |
+| *N remaining* | What is left |
 | Progress bar | The same figure visually |
-| `N / N account quota` | Used against total |
+| *N / N account quota* | Used against total |
 
 <Callout icon="⚠️" theme="warn">
   If an upload fails, check the quota before retrying. A full account quota is the most common
@@ -36,7 +36,7 @@ Check it in **Settings → File storage**, which shows:
 
 ## Downloading
 
-Open the item and use the download control in the Item Preview. The file is fetched from the
+Open the item and use the download control in the item preview. The file is fetched from the
 vault at that moment rather than being cached in the browser.
 
 ## Protection and encryption
@@ -45,9 +45,9 @@ File items support the same protections as other item types:
 
 | Control | Effect |
 |---|---|
-| `Protection Key` | The DFC key that encrypts the file |
+| **Protection Key** | The DFC key that encrypts the file |
 | **Zero Knowledge Encryption** | Shown on items wrapped with a customer fragment |
-| `Delete protection` | Prevents deletion until cleared |
+| **Delete protection** | Prevents deletion until cleared |
 
 ## Sharing a file
 
