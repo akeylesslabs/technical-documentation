@@ -15,6 +15,8 @@ identity appears at the bottom of the sidebar on every screen.
 
 The console detects whether the Akeyless browser extension is installed and can talk to it.
 
+In the readings below, `N` is a size in bytes, formatted by the app (for example `10 MB`).
+
 | Reading | Meaning |
 |---|---|
 | **Extension id** | The id the console is talking to |
@@ -37,10 +39,10 @@ How much of your account's file quota is used by file items.
 
 | Reading | Meaning |
 |---|---|
-| *N used* | Consumed by file items |
-| *N remaining* | What is left |
+| `N used` | Consumed by file items |
+| `N remaining` | What is left |
 | Progress bar | The same figure visually |
-| *N of N account quota (N%)* | Used against the total |
+| `N of N account quota (N%)` | Used against the total |
 
 The quota is **shared across the account**, not allocated per user. Individual files are
 capped at **10 MB** each.
@@ -51,7 +53,7 @@ capped at **10 MB** each.
 
 > *Switch between light mode and a premium obsidian dark theme.*
 
-| | |
+| Property | Value |
 |---|---|
 | **Default** | Off |
 | **Scope** | This browser |
