@@ -30,7 +30,7 @@ Areas are hidden when they do not apply to your account rather than shown and fa
 
 | Missing | Why |
 |---|---|
-| **Personal** | Password management disabled, personal folder hidden, or an API-key sign-in |
+| **Personal** | Password management disabled, personal folder hidden, or an API key sign-in (access type `api_key`) |
 | **Security Health** | Follows Personal — it scores personal items only |
 | **Corporate** | Your vault permissions do not allow listing secrets |
 
