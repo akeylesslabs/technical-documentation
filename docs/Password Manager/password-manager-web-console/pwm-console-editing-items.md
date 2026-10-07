@@ -74,7 +74,7 @@ save, then delete.
 
 ## Versions
 
-The vault keeps historical versions up to the item's **Maximum Versions** limit. Lowering the
+The vault keeps historical versions up to the item's `Maximum Versions` limit. Lowering the
 limit discards the oldest versions beyond the new value.
 
 ## Related
