@@ -104,7 +104,7 @@ Connect Claude to Akeyless so Claude can work with your Akeyless items, or run d
 
 ## Akeyless MCP Servers
 
-Akeyless offers two MCP servers. Each one gives Claude a different set of tools, and most people need only one of them:
+Akeyless offers two MCP servers. Each one gives Claude a different set of tools:
 
 |                          | Vault management                                     | Agentic Runtime Authority                                                                                                            |
 | ------------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
