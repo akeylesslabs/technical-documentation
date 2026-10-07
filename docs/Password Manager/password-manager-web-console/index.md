@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-The web console is the full-screen home for your Akeyless vault. Everything the browser
+The Web Console is the full-screen home for your Akeyless vault. Everything the browser
 extension does, with more room: larger lists, table and card views, paginated browsing,
 multi-step creation flows, and a downloads page for the extension and desktop app.
 
