@@ -83,7 +83,7 @@ Then:
 
 1. Open [Security Health](https://docs.akeyless.io/docs/web-extension-security-health) and run a scan — an import is the
    most likely moment to discover reused and breached passwords.
-2. Check the imported items have **Website URLs**, since autofill matches on them.
+2. Check the imported items have `Website URLs`, since autofill matches on them.
 3. Delete the credentials from the old manager once you have confirmed the import.
 
 ---
