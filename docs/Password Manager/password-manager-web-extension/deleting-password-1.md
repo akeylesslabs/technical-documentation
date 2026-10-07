@@ -6,7 +6,7 @@ there until you purge them.
 
 ## Deleting one item
 
-1. Open the item's **More Options** (⋯) menu, from its row or from the item preview.
+1. Open the item's **More Options** (⋯) menu, from its row or from the Item Preview.
 2. Choose **Delete**.
 3. Confirm with **Move to Recycle Bin**.
 
@@ -21,7 +21,7 @@ Select **Select** in the header, tick the items, then choose **Delete** — see
 ## Delete protection
 
 <Callout icon="⚠️" theme="warn">
-  Items with delete protection **cannot be deleted at all**. They show a lock badge and never
+  Items with Delete protection **cannot be deleted at all**. They show a lock badge and never
   reach the Recycle Bin.
 </Callout>
 
@@ -32,7 +32,7 @@ To delete one:
 3. Save.
 4. Delete.
 
-Your account may create every new item with delete protection on. See
+Your account may create every new item with Delete protection on. See
 [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies).
 
 ## Folders
