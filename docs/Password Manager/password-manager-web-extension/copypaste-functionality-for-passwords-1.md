@@ -3,7 +3,7 @@ title: Copy/Paste & Secure Paste Mode
 ---
 ## Copying values
 
-Open an item and use the copy control beside any field. **Copy All** copies a whole Key/value set at once.
+Open an item and use the copy control beside any field. **Copy All** copies a whole key/value set at once.
 
 Values can also be revealed on screen using the eye control, so you can read a value you need to type elsewhere.
 
@@ -11,7 +11,7 @@ Values can also be revealed on screen using the eye control, so you can read a v
 
 If your account enables secure paste, **reveal and copy of secret values are suppressed throughout the extension**:
 
-- the Item Preview shows no reveal or copy controls
+- the item preview shows no reveal or copy controls
 - the sign-in screen hides the show-password control
 - the in-page suggestion popup fills without revealing
 
