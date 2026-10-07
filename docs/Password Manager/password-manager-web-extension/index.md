@@ -7,8 +7,7 @@ link:
 metadata:
   robots: index
 ---
-The Akeyless Password Manager browser extension puts your vault inside the browser. Store,
-find, fill and share credentials without leaving the page you are on.
+The Akeyless Password Manager browser extension provides access to the vault in the browser. It supports storing, finding, filling, and sharing credentials without leaving the current page.
 
 ## Get started
 
