@@ -81,7 +81,7 @@ Two steps.
 |---|---|
 | **Secret name** | Required |
 | **Type** | **Generic** by default; **Select** to choose a specific type |
-| **Maximum Versions** | Shows your account default and the allowed range, e.g. *Account default: 100 (allowed 1–300)* |
+| `Maximum Versions` | Shows your account default and the allowed range, e.g. *Account default: 100 (allowed 1–300)* |
 | **Format** | **Text**, **Key/value** or **JSON** |
 | **Value** | Required, with a reveal eye |
 | **Location** | **Personal** or **Corporate**, then the folder path |
@@ -114,7 +114,7 @@ A single step.
 | **File** | Drag and drop, or click to browse. **Maximum 10 MB** |
 | **Description** | Optional |
 | **Personal vault location** | Folder path. Marked **Personal only** |
-| **MetaData** | Delete protection, tags |
+| `Metadata` | Delete protection, tags |
 
 <Callout icon="⚠️" theme="warn">
   Files are capped at **10 MB each** and count against your account's file storage quota, which
@@ -136,14 +136,14 @@ A single step.
 | **Folder name** | Required |
 | **Description** | Optional |
 | **Parent folder** | **Personal** or **Corporate**, then the path |
-| **Delete protection** | Prevents the folder and its contents being deleted |
+| `Delete protection` | Prevents the folder and its contents being deleted |
 | **Tags** | Applied to the folder |
 
 ---
 
 ## Common to every flow
 
-| Element | Behaviour |
+| Element | Behavior |
 |---|---|
 | **Step rail** | Shows where you are; completed steps carry a tick |
 | **Cancel** | Abandons the flow and returns you to the area you came from |
