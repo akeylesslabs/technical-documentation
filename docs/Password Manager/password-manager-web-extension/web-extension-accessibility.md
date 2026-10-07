@@ -77,7 +77,7 @@ See [Copy/Paste & Secure Paste Mode](https://docs.akeyless.io/docs/copypaste-fun
 ## Reporting a problem
 
 If something is unreachable by keyboard or unreadable by a screen reader, report it through
-**Settings → Contact Support** with the extension version from the Settings footer.
+**Settings** → **Contact Support** with the extension version from the Settings footer.
 
 ## Related
 
