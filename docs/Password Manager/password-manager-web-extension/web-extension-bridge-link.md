@@ -15,25 +15,26 @@ Your portal opens a local bridge page, which writes the settings into page stora
 
 ### Keys the bridge page sets
 
-```
-akeyless_bridge_access_id            (or akeyless_bridge_account_id)
-akeyless_bridge_auth_method
-akeyless_bridge_timestamp
-akeyless_bridge_environment
-akeyless_bridge_config_id            (or akeyless_config_id)
-akeyless_bridge_contact_support_url
-akeyless_bridge_privacy_policy_url
-akeyless_bridge_passkey_enabled
-akeyless_bridge_preconfigured_sign_in_title
-akeyless_bridge_preconfigured_sign_in_message
-akeyless_bridge_sidebar_bg_color
-akeyless_bridge_button_color
-akeyless_bridge_main_bg_color
-akeyless_bridge_icon_color
-akeyless_bridge_loading_animation_color
-akeyless_bridge_logo_url
-akeyless_bridge_brand_folder
-```
+| Key | Alternative |
+|---|---|
+| `akeyless_bridge_access_id` | `akeyless_bridge_account_id` |
+| `akeyless_bridge_auth_method` | — |
+| `akeyless_bridge_timestamp` | — |
+| `akeyless_bridge_environment` | — |
+| `akeyless_bridge_config_id` | `akeyless_config_id` |
+| `akeyless_bridge_contact_support_url` | — |
+| `akeyless_bridge_privacy_policy_url` | — |
+| `akeyless_bridge_passkey_enabled` | — |
+| `akeyless_bridge_preconfigured_sign_in_title` | — |
+| `akeyless_bridge_preconfigured_sign_in_message` | — |
+| `akeyless_bridge_sidebar_bg_color` | — |
+| `akeyless_bridge_button_color` | — |
+| `akeyless_bridge_main_bg_color` | — |
+| `akeyless_bridge_icon_color` | — |
+| `akeyless_bridge_loading_animation_color` | — |
+| `akeyless_bridge_logo_url` | — |
+| `akeyless_bridge_brand_folder` | — |
+
 ### Rules
 
 - **Access ID, auth method and timestamp are all required.** If any is missing, nothing is stored.
@@ -56,7 +57,7 @@ The hosted bridge service can carry settings as query parameters. The extension 
 
 The same parameters can ride on the store page URL. The extension reads them on Chrome Web Store, Edge Add-ons and Firefox Add-ons pages.
 
-```
+```text
 ?access_id=<id>           or  ?account_id=<id>
 ?auth_method=<method>     or  ?auth=<method>     (also accepted in the URL #hash)
 ?environment=<region>
@@ -69,7 +70,7 @@ The same parameters can ride on the store page URL. The extension reads them on 
 
 The Access ID may carry the method in front of it:
 
-```
+```text
 ?access_id=saml:p-xxxxxxxx
 ```
 ### When settings are stored
