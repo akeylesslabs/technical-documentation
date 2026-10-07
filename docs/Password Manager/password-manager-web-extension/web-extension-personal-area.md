@@ -7,7 +7,7 @@ administrators.
 ![The Personal area](https://files.readme.io/20c3f27945bc91866feb657404a37d887ba1e2e5358062daf19cf82b39f7d05b-personal-secrets-list.png)
 *The Personal area*
 
-## What lives here
+## What this area contains
 
 | Type | Notes |
 |---|---|
