@@ -27,7 +27,7 @@ The counter at the top right of the panel shows how many types exist in this are
 ## Tags
 
 The **Tags** tab lists the vault tags present on your items. Tags are applied when you create
-or edit an item, under **MetaData** — see
+or edit an item, under `Metadata` — see
 [Creating New Password](https://docs.akeyless.io/docs/creating-new-password-1).
 
 Tags are the way to group items that do not share a type or a folder — for example everything
