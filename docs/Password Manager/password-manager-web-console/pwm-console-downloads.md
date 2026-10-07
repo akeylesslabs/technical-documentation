@@ -4,7 +4,19 @@ title: 'Downloads: Extension and Desktop App'
 The console hosts a downloads page for the Akeyless browser extension and the desktop
 application, with the full release history for each.
 
-Reach it at **/artifacts**, or from the link on the sign-in screen.
+## Where it is
+
+| | |
+|---|---|
+| **Address** | [https://console-pwm.akeyless.io/artifacts](https://console-pwm.akeyless.io/artifacts) |
+| **On a dedicated tenant** | `/artifacts` on your own console address |
+| **From the sign-in screen** | There is a link to it, so you can get builds before you have an account |
+| **Back** | **← Back to sign in** returns you to the console |
+
+<Callout icon="ℹ️" theme="info">
+  **No sign-in required.** The downloads page is reachable without an account, so you can send
+  the link to someone who is setting up for the first time, or to IT for a managed rollout.
+</Callout>
 
 Two tabs: **Web extension** and **Desktop app**.
 
