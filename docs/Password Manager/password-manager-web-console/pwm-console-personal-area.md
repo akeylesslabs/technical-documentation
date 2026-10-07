@@ -11,7 +11,7 @@ including administrators.
 
 | Type | Notes |
 |---|---|
-| **Password items** | Username, password, website URLs, OTP, custom fields |
+| **Password items** | Username, password, Website URLs, OTP, Custom Fields |
 | **Secret items** | Values in Text, Key/value or JSON format |
 | **File items** | Files up to 10 MB each, against your account's file quota |
 | **Passkeys** | **Only** stored here — never in Corporate |
@@ -53,7 +53,7 @@ Selection spans pages — tick items on page 1, move to page 2, and the earlier 
 
 <Callout icon="⚠️" theme="warn">
   Delete-protected items are skipped by a bulk delete. The rest proceed and the protected item
-  stays. Clear its delete protection first.
+  stays. Clear its Delete protection first.
 </Callout>
 
 ## When the Personal area is missing
