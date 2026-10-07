@@ -88,7 +88,7 @@ first — otherwise the console continues to offer the configuration the extensi
 
 ## Launch uses the same bridge
 
-The same connection powers **Launch**. Selecting the launch button on an item in the console
+The same connection is used by **Launch**. Selecting the launch button on an item in the console
 hands the credential to the extension, which opens the site and fills the login form.
 
 [Settings](https://docs.akeyless.io/docs/pwm-console-settings) shows whether the console can see the extension, and which
