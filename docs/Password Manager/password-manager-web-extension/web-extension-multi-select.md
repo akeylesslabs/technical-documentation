@@ -4,12 +4,15 @@ title: Selecting Multiple Items
 Multi-select lets you clear out or restore many items in one pass, instead of opening each
 one's menu.
 
+![Multi-select with the bulk action bar](https://files.readme.io/05d09eebebe8c337f5867cb5e16938bb250e14ae1e0532eebd6f61559cae016a-multi-select-bulk-actions.png)
+*Ticked items, with **Add** and **Delete** in the floating bar*
+
 ## Entering and leaving
 
 | Control | Effect |
 |---|---|
 | **Select** *(header)* | Enters multi-select mode — a checkbox appears on every row |
-| **Done** | Leaves multi-select mode and clears the selection |
+| **Cancel** | Leaves multi-select mode and clears the selection |
 
 While you are in multi-select mode, selecting a row ticks it rather than opening it.
 
@@ -17,6 +20,7 @@ While you are in multi-select mode, selecting a row ticks it rather than opening
 
 | Action | Available in | Effect |
 |---|---|---|
+| **Add** | Personal, Corporate | Adds everything selected to Favorites |
 | **Delete** | Personal, Corporate, Favorites | Moves everything selected to the Recycle Bin |
 | **Restore** | Recycle Bin only | Returns the selected items to their original folders |
 | **Delete** | Recycle Bin only | Removes the selected items permanently |
@@ -41,7 +45,7 @@ Destructive actions always confirm first, and the button says exactly what will 
 A selection can span folders, and can mix folders with individual items. Deleting a folder
 takes its contents with it; restoring the folder brings them back.
 
-Selection does not survive leaving the area. Switching tabs, or selecting **Done**, clears it.
+Selection does not survive leaving the area. Switching tabs, or selecting **Cancel**, clears it.
 
 ## When bulk is the wrong tool
 
