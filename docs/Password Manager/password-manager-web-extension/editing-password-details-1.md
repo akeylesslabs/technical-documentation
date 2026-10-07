@@ -3,9 +3,9 @@ title: Editing, Copying & Moving Items
 ---
 ## Editing
 
-Open the **More Options** (⋯) menu on any item row, or on the Item Preview, and choose **Edit**. The same overlay used to create the item opens, pre-filled.
+Open the **More Options** (⋯) menu on any item row, or on the item preview, and choose **Edit**. The same overlay used to create the item opens, pre-filled.
 
-Everything is editable: name, username, password, Website URLs, location, description, Maximum Versions, Protection Key, tags, Delete protection, Custom Fields and the OTP authenticator.
+Everything is editable: name, username, password, website URLs, location, description, maximum versions, protection key, tags, delete protection, custom fields and the OTP authenticator.
 
 ## Copying
 
@@ -23,7 +23,7 @@ Items can be moved between folders, and between the Personal and Corporate areas
 
 ## Versions
 
-The vault keeps historical versions of a secret up to the item's `Maximum Versions` setting. Lowering the value discards the oldest versions beyond the new limit.
+The vault keeps historical versions of a secret up to the item's **Maximum Versions** setting. Lowering the value discards the oldest versions beyond the new limit.
 
 ## What you cannot edit
 
