@@ -55,7 +55,7 @@ The list shows your personal password items. Use:
 |---|---|
 | **Search personal passwords…** | Filters the list |
 | **Select all** | Ticks everything shown |
-| **Clear** | Unticks everything |
+| **Clear** | Clears every selection |
 | Checkboxes | Pick individual items |
 
 A counter at the bottom reads *N selected*.
@@ -69,7 +69,7 @@ A counter at the bottom reads *N selected*.
 ### 3. Save
 
 **Save offline vault** writes the encrypted cache and, where biometrics are available, enrols
-them. The dialog tells you up front — *Touch ID is ready on this Mac. Save will turn it on for
+them. The dialog states this before setup begins: *Touch ID is ready on this Mac. Save will turn it on for
 Offline Mode.*
 
 On success you are told how many items are ready and how you will unlock them next time.
