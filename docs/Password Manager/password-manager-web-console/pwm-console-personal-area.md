@@ -7,11 +7,11 @@ including administrators.
 ![The Personal area](https://files.readme.io/e03d69bfd64fad3ab66fd1aaea37bbda38e3971585408d961c903b3793a49d36-personal-cards-view.webp)
 *The Personal area in card view*
 
-## What this area contains
+## What lives here
 
 | Type | Notes |
 |---|---|
-| **Password items** | Username, password, Website URLs, OTP, Custom Fields |
+| **Password items** | Username, password, website URLs, OTP, custom fields |
 | **Secret items** | Values in Text, Key/value or JSON format |
 | **File items** | Files up to 10 MB each, against your account's file quota |
 | **Passkeys** | **Only** stored here — never in Corporate |
@@ -53,7 +53,7 @@ Selection spans pages — tick items on page 1, move to page 2, and the earlier 
 
 <Callout icon="⚠️" theme="warn">
   Delete-protected items are skipped by a bulk delete. The rest proceed and the protected item
-  stays. Clear its Delete protection first.
+  stays. Clear its delete protection first.
 </Callout>
 
 ## When the Personal area is missing
