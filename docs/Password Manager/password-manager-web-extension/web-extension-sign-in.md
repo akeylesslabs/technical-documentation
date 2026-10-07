@@ -12,11 +12,11 @@ organization allows.
 | Method | What you enter | Where it takes you |
 |---|---|---|
 | **Login with Alias** | Your alias, typically containing a `/` such as `team/you` | Signs in directly. Default on Chrome, Edge and Firefox |
-| **Login with SAML** | Your `Access ID` | Your identity provider opens in a new tab |
-| **Login with OIDC** | Your `Access ID` | Your OIDC provider opens in a new tab |
+| **Login with SAML** | Your **Access ID** | Your identity provider opens in a new tab |
+| **Login with OIDC** | Your **Access ID** | Your OIDC provider opens in a new tab |
 | **Login with Gmail** | Nothing | Google OAuth starts immediately. *Not offered on Safari* |
 | **Login with GitHub** | Nothing | GitHub OAuth starts immediately. *Not offered on Safari* |
-| **Login with Access ID** | `Access ID` and `Access Key` | Signs in directly |
+| **Login with Access ID** | **Access ID** and **Access Key** | Signs in directly |
 | **Login with Email** | Email and password, with optional account selection and 2FA | Default on Safari |
 
 ![SAML sign-in with the Access ID filled](https://files.readme.io/a5a0ad4cc187d6bb4cebdb093caaf6323abd903675e567fccba11b6d58ae0f56-login-saml-access-id.png)
@@ -57,7 +57,7 @@ between the two methods swaps the field to the right value each time, rather tha
 Every successful sign-in is also appended to a history list, holding the Access ID, the
 method, and when it happened. Select the Access ID field to open it.
 
-| Behavior | Detail |
+| Behaviour | Detail |
 |---|---|
 | **Filtered by method** | You only see Access IDs previously used with the method now selected |
 | **Ten most recent** | Limited to the ten most recently used unique Access IDs |
@@ -116,11 +116,11 @@ is nothing to choose and nothing to get wrong.
 | Control | What it does |
 |---|---|
 | **Show password** (eye icon) | Reveals what you typed. Hidden when your account enforces secure paste |
-| **Open Web Console** | Opens the Akeyless Web Console for your tenant |
+| **Open Web Console** | Opens the Akeyless web console for your tenant |
 | **Pin to Side Panel** / **Open Sidebar** | Docks the extension — see [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel) |
 | **Privacy Policy**, **End User License Agreement** | Your organization's URLs when configured |
 
-Dark Mode is retained after signing out — logging out does not reset your theme.
+Dark mode survives signing out — logging out does not reset your theme.
 
 ## DBK tenants
 
