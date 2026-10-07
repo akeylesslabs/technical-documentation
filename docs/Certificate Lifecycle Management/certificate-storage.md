@@ -79,28 +79,103 @@ All of the parameters from the creation command will also apply here.
 
 2. Basic Configuration (fill in the following parameters):
 
-    * **Name (mandatory):** A unique Certificate name.
+   * **Name (mandatory):** A unique Certificate name.
 
-    * **Location:** Location within your Akeyless account.
+   * **Location:** Location within your Akeyless account.
 
-    * **Description:** General description of the Certificate (optional).
+   * **Description:** General description of the Certificate (optional).
 
-    * **Tags:** Assign tags to the Certificate (optional).
+   * **Tags:** Assign tags to the Certificate (optional).
 
-    * **Delete Protection:** When enabled, protects the Certificate from accidental deletion.
+   * **Delete Protection:** When enabled, protects the Certificate from accidental deletion.
 
-    * **Protection key:** If you wish to protect a certificate with one of your keys other than the default you can select it here.
+   * **Protection key:** If you wish to protect a certificate with one of your keys other than the default you can select it here.
 
-    * Click on **Next**.
+   * Click on **Next**.
 
 3. Certificate Configuration (fill in the following parameters):
 
-    * **Certificate (Mandatory):** Upload the certificate itself from a file.
+   * **Certificate (Mandatory):** Upload the certificate itself from a file.
 
-    * **Private Key:** If exists, you may also upload the certificate's private key from a file.
+   * **Private Key:** If exists, you may also upload the certificate's private key from a file.
 
-    * **Expiration Notification:** If you wish to get notified when the certificate's expiration date comes near, click on **⊕ Add Notification** and adjust the day count from the default 30 to any number you desire. This can be done multiple times to receive more than one notification.
+   * **Expiration Notification:** If you wish to get notified when the certificate's expiration date comes near, click on **⊕ Add Notification** and adjust the day count from the default 30 to any number you desire. This can be done multiple times to receive more than one notification.
 
-> ✅ **Tip:**
->
-> To view the entire certificate hierarchy simply click on the **View Certificate Details** to get a the decoded information of your certificate.
+<Callout icon="✅" theme="okay">
+  ### **Tip:**
+
+  To view the entire certificate hierarchy simply click on the **View Certificate Details** to get a the decoded information of your certificate.
+</Callout>
+
+## Downloading a Certificate
+
+You can download a stored certificate in the format required by your target environment, without converting it manually.
+
+### Supported Formats
+
+| Format        | Extension | Common Use                                |
+| ------------- | --------- | ----------------------------------------- |
+| PEM (default) | `.pem`    | Linux, NGINX, Apache, most cloud services |
+| PFX (PKCS#12) | `.pfx`    | Windows, IIS, Azure                       |
+| JKS           | `.jks`    | Java applications, Tomcat, Kafka          |
+
+PFX and JKS files are always password-protected. The private key is not included by default and must be explicitly requested.
+
+By default, the full certificate chain is downloaded. For certificates issued with a split certificate chain, you can download only the leaf certificate instead.
+
+### Download a Certificate with the CLI
+
+Use the `get-certificate-value` command with the `--format` flag:
+
+```shell PEM
+akeyless get-certificate-value \
+--name <certificate-name> \
+--certificate-file-output cert.pem \
+--private-key-file-output key.pem
+```
+
+```shell PFX
+akeyless get-certificate-value \
+--name <certificate-name> \
+--format pfx \
+--password <file-password> \
+--include-private-key \
+--certificate-file-output cert.pfx
+```
+
+```shell JKS
+akeyless get-certificate-value \
+--name <certificate-name> \
+--format jks \
+--password <file-password> \
+--include-private-key \
+--certificate-file-output cert.jks
+```
+
+Where:
+
+* `name`: The certificate name.
+
+* `format`: The download format: `pem` (default), `pfx`, or `jks`.
+
+* `password`: Password to protect the PFX or JKS file. Required when `format` is `pfx` or `jks`.
+
+* `include-private-key`: Includes the private key in the PFX or JKS file. Relevant only when `format` is `pfx` or `jks`.
+
+* `leaf-only`: Downloads only the leaf certificate instead of the full chain. Available only for certificates issued with split certificate chain enabled.
+
+* `certificate-file-output`: File to write the certificate to.
+
+* `private-key-file-output`: File to write the private key to (PEM format).
+
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-certificate-value) section.
+
+### Download a Certificate in the Console
+
+1. Select **Items** and open the relevant **Certificate** item.
+
+2. Click **Download** and select the desired format: **PEM**, **PFX**, or **JKS**.
+
+3. For **PFX** and **JKS**, set a **Password** to protect the file, and select **Include Private Key** if the private key should be part of the file.
+
+4. Click **Download** to save the file.
