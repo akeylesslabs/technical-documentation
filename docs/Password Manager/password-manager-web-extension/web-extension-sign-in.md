@@ -4,7 +4,7 @@ title: Signing In to the Web Extension
 The extension supports seven authentication methods. Which ones you see depends on what your
 organization allows.
 
-![Choosing an authentication method](images/login-auth-method-picker.png)
+![Choosing an authentication method](https://files.readme.io/225985de0443a520ca5097dcb5013e249e9ee65e00dbc057ae88e5129278707e-login-auth-method-picker.png)
 *Choosing an authentication method*
 
 ---
@@ -21,7 +21,7 @@ organization allows.
 | **Login with Access ID** | **Access ID** and **Access Key**. |
 | **Login with Email** | Email address and password, with optional account selection and 2FA. Default on Safari. |
 
-![SAML sign-in with the Access ID filled](images/login-saml-access-id.png)
+![SAML sign-in with the Access ID filled](https://files.readme.io/abca5170c4002db5b40aec09776c00118bd3227728054b71ec162691604988ea-login-saml-access-id.png)
 *SAML sign-in with the Access ID filled*
 
 <Callout icon="ℹ️" theme="info">
