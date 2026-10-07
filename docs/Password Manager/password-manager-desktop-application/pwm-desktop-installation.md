@@ -73,7 +73,7 @@ them.
 
 ## After signing in
 
-Two things are worth setting up straight away:
+Two things are worth setting up immediately:
 
 1. **[Offline Mode](https://docs.akeyless.io/docs/pwm-desktop-offline-mode)** — so your personal passwords survive a lost
    connection.
