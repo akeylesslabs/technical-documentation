@@ -17,7 +17,7 @@ The console detects whether the Akeyless browser extension is installed and can 
 
 | Reading | Meaning |
 |---|---|
-| **Extension ID** | The id the console is talking to |
+| **Extension ID** | The ID of the extension the console is talking to |
 | **Installed version** | The extension's version, shown only when detected |
 
 This pairing is what makes **Launch** and
@@ -51,7 +51,7 @@ capped at **10 MB** each.
 
 Switches the interface between the light and dark themes.
 
-| | |
+| Property | Value |
 |---|---|
 | **Default** | Off |
 | **Scope** | This browser |
