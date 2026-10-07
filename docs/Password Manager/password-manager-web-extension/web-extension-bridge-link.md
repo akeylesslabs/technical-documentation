@@ -38,7 +38,7 @@ akeyless_bridge_brand_folder
 
 - **Access ID, auth method and timestamp are all required.** If any is missing, nothing is stored.
 - **The data expires after 10 minutes.** Past that, the extension ignores it.
-- New values are **merged** into existing preferences, so an existing `config_id` survives.
+- New values are **merged** into existing preferences, so an existing `config_id` is preserved.
 
 <Callout icon="ℹ️" theme="info">
   The expiry is the single most common cause of "the link did not work". Tell users to install the extension immediately after opening the link, and re-issue rather than debug.
