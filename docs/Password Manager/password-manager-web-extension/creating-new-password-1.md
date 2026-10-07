@@ -23,10 +23,10 @@ with **Select**. Optionally set a **Description** and **Maximum Versions** (defa
 
 **Password** — type one or generate it. See [Password Generator & Strength](https://docs.akeyless.io/docs/web-extension-password-generator).
 
-**MetaData** — **Protection Key** (fixed if your account enforces an exclusive default key),
+**Metadata** — **Protection Key** (fixed if your account enforces an exclusive default key),
 **Tags**, and **Delete protection**.
 
-**Custom Fields** — select **Add Field** for each Key/Value pair.
+**Custom Fields** — select **Add Field** for each Key/value pair.
 
 **Authenticator (OTP)** — paste a Base32 secret, or use **Scan otpauth QR from the current
 website tab** to read a QR code from the page you have open. Give it a label such as *GitHub*.
@@ -39,8 +39,8 @@ website tab** to read a QR code from the page you have open. Give it a label suc
 *Text, Key/value and JSON formats, with a secret Type and Maximum Versions*
 
 
-A static secret with a free-form value, plus the same Location, MetaData, description and
-Maximum Versions controls. Values may be plain text or structured key/value.
+A static secret with a free-form value, plus the same Location, Metadata, description and
+Maximum Versions controls. Values may be plain text or structured Key/value.
 
 ## New File Item
 
@@ -50,7 +50,7 @@ shown in [Extension Settings](https://docs.akeyless.io/docs/web-extension-settin
 ## New Folder
 
 ![The New Folder overlay](https://files.readme.io/14a60ae4d1032eaf4029b9d9287303c52fe334be0d3483268682c8a2a02a9088-new-folder-overlay.png)
-*Location, description, delete protection and tags*
+*Location, description, Delete protection and tags*
 
 
 Creates a folder at the location you choose, in Personal or Corporate.
