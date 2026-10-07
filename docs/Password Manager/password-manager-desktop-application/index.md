@@ -6,8 +6,8 @@ metadata:
   robots: index
 ---
 A native desktop app for macOS and Windows that gives you your Akeyless vault outside the
-browser — with two things the Web Console cannot do: `Offline Mode`, so your personal
-passwords are available with no network, and `Auto-Type`, which types credentials into any
+browser — with two things the web console cannot do: **Offline Mode**, so your personal
+passwords are available with no network, and **Auto-Type**, which types credentials into any
 application, not just web pages.
 
 ![The Personal area](https://files.readme.io/923eed04afdab3d20e0c8475ef27b6c72ebd2c79d3c4f6235551f33172f44248-personal-list.webp)
@@ -27,7 +27,7 @@ See [Installing the Desktop Application](https://docs.akeyless.io/docs/pwm-deskt
 ## Same vault, same screens
 
 Everything you do with your vault works exactly as it does in the
-[Web Console](https://docs.akeyless.io/docs/password-manager-web-console) — the same areas, the same views, the same
+[web console](https://docs.akeyless.io/docs/password-manager-web-console) — the same areas, the same views, the same
 creation flows:
 
 | Area | Covered in |
