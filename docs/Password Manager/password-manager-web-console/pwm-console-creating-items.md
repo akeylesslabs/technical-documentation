@@ -39,7 +39,7 @@ Three steps.
 
 **Details** expands the reasoning behind the rating.
 
-**Generation Settings** control the generator, not the meter:
+`Generation Settings` control the generator, not the meter:
 
 | Setting | Controls |
 |---|---|
@@ -81,7 +81,7 @@ Two steps.
 |---|---|
 | **Secret name** | Required |
 | **Type** | **Generic** by default; **Select** to choose a specific type |
-| **Maximum Versions** | Shows your account default and the allowed range, e.g. *Account default: 100 (allowed 1–300)* |
+| `Maximum Versions` | Shows your account default and the allowed range, e.g. *Account default: 100 (allowed 1–300)* |
 | **Format** | **Text**, **Key/value** or **JSON** |
 | **Value** | Required, with a reveal eye |
 | **Location** | **Personal** or **Corporate**, then the folder path |
@@ -136,7 +136,7 @@ A single step.
 | **Folder name** | Required |
 | **Description** | Optional |
 | **Parent folder** | **Personal** or **Corporate**, then the path |
-| **Delete protection** | Prevents the folder and its contents being deleted |
+| `Delete protection` | Prevents the folder and its contents being deleted |
 | **Tags** | Applied to the folder |
 
 ---
