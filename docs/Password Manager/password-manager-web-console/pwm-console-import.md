@@ -66,7 +66,7 @@ Unlike the extension, the console lets you choose the destination **before** the
 |---|---|
 | **Personal** or **Corporate** | Corporate is offered only where your permissions allow it |
 | **Folder path** | Imported items land here rather than at the root |
-| **Tags** | Applied to everything imported, which makes the batch easy to find or undo later |
+| `Tags` | Applied to everything imported, which makes the batch easy to find or undo later |
 
 <Callout icon="ℹ️" theme="info">
   **Tag the batch.** Applying a tag like `imported-2026-10` means you can filter to exactly
