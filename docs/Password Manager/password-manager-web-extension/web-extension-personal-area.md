@@ -31,7 +31,7 @@ administrators.
 
 | Control | Does |
 |---|---|
-| **Search in Personal Secrets** | Searches the whole area, server-side |
+| *`Search in personal secrets`* | Searches the whole area, server-side |
 | **Filter** (funnel) | Narrows by type and tag |
 | **View toggle** | List or grid |
 | **+** | New Folder, Secret, Password or File item |
