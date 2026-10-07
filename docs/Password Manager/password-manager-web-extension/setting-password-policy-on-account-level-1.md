@@ -24,9 +24,9 @@ Two other account settings shape the create and edit overlays:
 
 | Setting | Effect |
 |---|---|
-| **Default maximum versions** | Pre-fills **Maximum Versions**, and sets the allowed range |
-| **Default protection key** | Preselects the protection key; when configured as exclusive, the picker is locked |
-| **Protect items by default** | New items are created with delete protection on |
+| **Default Maximum Versions** | Pre-fills **Maximum Versions**, and sets the allowed range |
+| **Default Protection Key** | Preselects the Protection Key; when configured as exclusive, the picker is locked |
+| **Protect items by default** | New items are created with Delete protection on |
 
 See [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies) for the full list.
 
