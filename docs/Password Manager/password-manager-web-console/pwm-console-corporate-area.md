@@ -28,7 +28,7 @@ vault permissions, not by console settings.
 *Folders in list view, with pagination*
 
 Folders show **—** for created and updated dates, since those belong to the items inside.
-A **lock** badge on a folder marks delete protection.
+A **lock** badge on a folder marks Delete protection.
 
 Open a folder to descend into it; the breadcrumb at the top returns you.
 
