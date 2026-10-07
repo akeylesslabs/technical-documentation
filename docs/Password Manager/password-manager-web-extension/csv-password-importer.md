@@ -76,14 +76,14 @@ not be decoded — see below.
 
 <Callout icon="⚠️" theme="warn">
   **Delete the exported CSV.** It contains every password you just imported, in plain text,
-  sitting in your Downloads folder. Empty your trash too.
+  sitting in your `Downloads` folder. Empty your trash too.
 </Callout>
 
 Then:
 
 1. Open [Security Health](https://docs.akeyless.io/docs/web-extension-security-health) and run a scan — an import is the
    most likely moment to discover reused and breached passwords.
-2. Check the imported items have **website URLs**, since autofill matches on them.
+2. Check the imported items have **Website URLs**, since autofill matches on them.
 3. Delete the credentials from the old manager once you have confirmed the import.
 
 ---
@@ -95,7 +95,7 @@ Then:
 | Rows skipped | Missing name or password, or an unreadable encoding — re-export as UTF-8 |
 | Accented characters mangled | The export used a non-UTF-8 encoding; re-export choosing UTF-8 |
 | Nothing imported | The file is not a CSV, or has no recognizable header row |
-| Autofill does not offer imported items | The rows had no `url` column — edit the items to add website URLs |
+| Autofill does not offer imported items | The rows had no `url` column — edit the items to add Website URLs |
 
 ## Related
 
