@@ -6,7 +6,7 @@ application, with the full release history for each.
 
 ## Where it is
 
-| | |
+| Location | Address |
 |---|---|
 | **Downloads page** | [https://console-pwm.akeyless.io/artifacts](https://console-pwm.akeyless.io/artifacts) |
 | **The console itself** | [https://console-pwm.akeyless.io](https://console-pwm.akeyless.io) — sign in here |
