@@ -120,7 +120,7 @@ is nothing to choose and nothing to get wrong.
 | **Pin to Side Panel** / **Open Sidebar** | Docks the extension — see [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel) |
 | **Privacy Policy**, **End User License Agreement** | Your organization's URLs when configured |
 
-Dark Mode survives signing out — logging out does not reset your theme.
+Dark Mode is retained after signing out — logging out does not reset your theme.
 
 ## DBK tenants
 
