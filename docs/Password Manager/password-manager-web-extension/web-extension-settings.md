@@ -78,12 +78,12 @@ See [Passkey](https://docs.akeyless.io/docs/passkey).
 
 ### Dark Mode
 
-> *Switch between light mode and a premium obsidian dark theme.*
+Switches the interface between the light and dark themes.
 
 | Property | Value |
 |---|---|
 | **Default** | Off (light) |
-| **Persists** | Yes — stored locally, and **survives signing out** |
+| **Persists** | Yes — stored locally, and **is retained after signing out** |
 | **Scope** | This browser only |
 | **Hidden when** | Your organization has applied custom branding |
 
