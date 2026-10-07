@@ -7,7 +7,7 @@ permissions, not by extension settings.
 ![The Corporate area](https://files.readme.io/5e257857e726fe4673f5059d30608a1506818e249049bbd7c6d36d395e62ffb6-corporate-secrets-list.png)
 *The Corporate area*
 
-## What this area contains
+## What lives here
 
 | Type | Notes |
 |---|---|
@@ -31,20 +31,20 @@ Passkeys and file items are personal-only and do not appear here.
 
 ## Permissions
 
-Each item lists the operations permitted for the current user. The extension hides what you cannot
+Each item carries the operations you are permitted on it. The extension hides what you cannot
 do rather than failing after the fact:
 
 | Permission | Effect |
 |---|---|
-| `read` | You can open the item and copy its value |
-| `list` | The item appears in lists and search |
-| `update` | **Edit** appears in the ⋯ menu |
-| `delete` | **Delete** appears in the ⋯ menu |
+| **read** | You can open the item and copy its value |
+| **list** | The item appears in lists and search |
+| **update** | **Edit** appears in the ⋯ menu |
+| **delete** | **Delete** appears in the ⋯ menu |
 
 A **lock** badge marks delete-protected items, which cannot be deleted by anyone until the
 protection is cleared.
 
-## Shared items can change between refreshes
+## Shared items change under you
 
 <Callout icon="ℹ️" theme="info">
   Lists are cached so the extension opens instantly. A colleague's edit will not appear until
