@@ -23,7 +23,7 @@ Items can be moved between folders, and between the Personal and Corporate areas
 
 ## Versions
 
-The vault keeps historical versions of a secret up to the item's **Maximum Versions** setting. Lowering the value discards the oldest versions beyond the new limit.
+The vault keeps historical versions of a secret up to the item's `Maximum Versions` setting. Lowering the value discards the oldest versions beyond the new limit.
 
 ## What you cannot edit
 
