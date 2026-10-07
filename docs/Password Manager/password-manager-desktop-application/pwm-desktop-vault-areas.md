@@ -3,8 +3,8 @@ title: Working With Your Vault on the Desktop
 ---
 The vault areas behave exactly as they do in the
 [Web Console](https://docs.akeyless.io/docs/password-manager-web-console) — same layout, same toolbar, same creation
-flows. This page is a map; each area's full documentation lives on the console page linked
-beside it.
+flows. This page summarizes each area and links to its full documentation on the corresponding
+Web Console page.
 
 ## The areas
 
