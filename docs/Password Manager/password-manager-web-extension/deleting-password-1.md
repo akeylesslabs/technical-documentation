@@ -28,7 +28,7 @@ Select **Select** in the header, tick the items, then choose **Delete** — see
 To delete one:
 
 1. Edit the item.
-2. Turn **Delete protection** off.
+2. Turn `Delete protection` off.
 3. Save.
 4. Delete.
 
