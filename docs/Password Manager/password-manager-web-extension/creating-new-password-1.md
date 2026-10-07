@@ -19,12 +19,12 @@ Select **Add URL** for additional addresses. These URLs drive autofill matching 
 [Launch](https://docs.akeyless.io/docs/web-extension-launch) button.
 
 **Location** — switch between **Personal** and **Corporate**, then pick the destination folder
-with **Select**. Optionally set a **Description** and **Maximum Versions** (default **100**).
+with **Select**. Optionally set a **Description** and `Maximum Versions` (default **100**).
 
 **Password** — type one or generate it. See [Password Generator & Strength](https://docs.akeyless.io/docs/web-extension-password-generator).
 
-**MetaData** — **Protection Key** (fixed if your account enforces an exclusive default key),
-**Tags**, and **Delete protection**.
+`Metadata` — `Protection Key` (fixed if your account enforces an exclusive default key),
+**Tags**, and `Delete protection`.
 
 **Custom Fields** — select **Add Field** for each Key/Value pair.
 
@@ -39,7 +39,7 @@ website tab** to read a QR code from the page you have open. Give it a label suc
 *Text, Key/value and JSON formats, with a secret Type and Maximum Versions*
 
 
-A static secret with a free-form value, plus the same Location, MetaData, description and
+A static secret with a free-form value, plus the same Location, Metadata, description and
 Maximum Versions controls. Values may be plain text or structured key/value.
 
 ## New File Item
