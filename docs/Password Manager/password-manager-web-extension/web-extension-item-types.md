@@ -15,7 +15,7 @@ title: Item Types Reference
 
 | Badge | Meaning |
 |---|---|
-| **Personal** / **Corporate** | Which vault the item lives in |
+| **Personal** / **Corporate** | The vault that stores the item |
 | **Lock** | Delete protection is on — the item cannot be deleted |
 | **Zero Knowledge Encryption** | The item is wrapped with a customer fragment |
 
