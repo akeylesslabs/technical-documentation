@@ -36,8 +36,9 @@ Check it under **Settings** → `File storage`, which shows:
 
 ## Downloading
 
-Open the item and use the download control in the item preview. The file is fetched from the
-vault at that moment rather than being cached in the browser.
+Open the item and select **Download file** in the item preview. The file is fetched from the
+vault at that moment rather than being cached in the browser. While it runs, the button reads
+**Downloading…**.
 
 ## Protection and encryption
 
