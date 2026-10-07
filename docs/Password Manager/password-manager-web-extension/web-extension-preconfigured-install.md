@@ -35,7 +35,7 @@ Every path writes to the same place: a browser-storage record named `akeyless_in
 | `contactSupportUrl` | Destination of **Contact Support** |
 | `privacyPolicyUrl` | Destination of **Privacy Policy** |
 | `openWebConsoleUrl` | Destination of **Open Web Console** |
-| `passkeyEnabled` | Initial state of **Passkey Management** |
+| `passkeyEnabled` | Initial state of `Passkey Management` |
 | `preconfiguredSignInTitle` | Heading of the login info box. Default *"Ready to Sign In"*. Max 120 characters |
 | `preconfiguredSignInMessage` | Body of that box. Blank lines separate paragraphs. Max 2000 characters |
 | `installationSource` | Records which path delivered the settings |
