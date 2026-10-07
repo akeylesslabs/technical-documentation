@@ -12,7 +12,7 @@ The left rail switches between areas. Hovering an icon names it.
 |---|---|---|
 | Person | **[Personal Secrets](https://docs.akeyless.io/docs/web-extension-personal-area)** | Items only you can see, including passkeys and files |
 | Building | **[Corporate Secrets](https://docs.akeyless.io/docs/web-extension-corporate-area)** | Items shared across your organization |
-| Star | **[Favorite Secrets](https://docs.akeyless.io/docs/adding-password-to-favorites-1)** | Shortcuts to items and folders from either vault |
+| Star | **[Favorites](https://docs.akeyless.io/docs/adding-password-to-favorites-1)** | Shortcuts to items and folders from either vault |
 | Trash | **[Recycle Bin](https://docs.akeyless.io/docs/web-extension-recycle-bin)** | Deleted items, restorable |
 | Heart | **[Security Health](https://docs.akeyless.io/docs/web-extension-security-health)** | A score for your personal credentials |
 
