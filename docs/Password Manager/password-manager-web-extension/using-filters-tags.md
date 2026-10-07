@@ -13,9 +13,9 @@ Six types, matching the item kinds the vault stores:
 
 | Type | Covers |
 |---|---|
-| **PASSWORD** | Password items — username, password, Website URLs, OTP, Custom Fields |
+| **PASSWORD** | Password items — username, password, website URLs, OTP, custom fields |
 | **FILE** | Files stored in the vault |
-| **STATIC SECRET** | Free-form secret values, plain text or Key/value |
+| **STATIC SECRET** | Free-form secret values, plain text or key/value |
 | **ROTATED SECRET** | Secrets rotated on a schedule by Akeyless |
 | **DYNAMIC SECRET** | Credentials generated on demand |
 | **PASSKEY** | WebAuthn credentials |
@@ -27,7 +27,7 @@ The counter at the top right of the panel shows how many types exist in this are
 ## Tags
 
 The **Tags** tab lists the vault tags present on your items. Tags are applied when you create
-or edit an item, under **Metadata** — see
+or edit an item, under **MetaData** — see
 [Creating New Password](https://docs.akeyless.io/docs/creating-new-password-1).
 
 Tags are the way to group items that do not share a type or a folder — for example everything
