@@ -5,7 +5,7 @@ By default the extension opens as a popup that closes when you click elsewhere. 
 keeps it open beside the page, so you can read a credential and work with it at the same time.
 
 ![The extension docked beside a page](https://files.readme.io/f7d5476a0e15e0c232370da7052366697ae284905a938f15f38d570aec42390b-side-panel-in-browser.png)
-*Docked in Chrome's side panel — the page stays usable alongside it*
+*Docked in Chrome's Side Panel — the page stays usable alongside it*
 
 ## How to dock it
 
@@ -14,8 +14,8 @@ and on every screen after you sign in.
 
 | Browser | Control reads | Underlying feature |
 |---|---|---|
-| **Google Chrome** | **Pin to Side Panel** | Chrome side panel |
-| **Microsoft Edge** | **Pin to Side Panel** | Edge side panel |
+| **Google Chrome** | **Pin to Side Panel** | Chrome Side Panel |
+| **Microsoft Edge** | **Pin to Side Panel** | Edge Side Panel |
 | **Mozilla Firefox** | **Open Sidebar** | Firefox sidebar |
 | **Safari** | *not shown* | Neither API exists — popup only |
 
@@ -36,7 +36,7 @@ docked, and the sign-in screen spaces out rather than stretching.
 
 ## Undocking
 
-Close the side panel or sidebar with your browser's own control — the panel's close button in
+Close the Side Panel or sidebar with your browser's own control — the panel's close button in
 Chrome and Edge, or the sidebar toggle in Firefox. The extension reverts to opening as a
 popup from the toolbar icon.
 
