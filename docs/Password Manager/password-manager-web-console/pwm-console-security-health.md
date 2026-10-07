@@ -10,7 +10,7 @@ turned up in a public breach.
 <Callout icon="ℹ️" theme="info">
   **Personal vault only.** Passwords are checked locally against an offline leak list —
   **nothing leaves this browser**. Corporate and team items are deliberately out of scope:
-  your personal hygiene score should not move because a colleague reused a password in a
+  your personal security score should not move because a colleague reused a password in a
   shared folder.
 </Callout>
 
