@@ -4,7 +4,7 @@ title: Adding Items To Favorites
 Favorites give you one short list of the things you reach for daily, instead of navigating to
 them in Personal or Corporate every time.
 
-![Favorite items and folders](https://files.readme.io/69bac615a3f4195c021e84961c2815636bda3cec501233ad8860ad8df51c063e-favorites-screen.png)
+![Favorite items and folders](https://files.readme.io/0d9419e5d0cef73e2849b6366ee297552983cdc29219d4073deca43051da6632-favorites-screen.png)
 *Favorite items and folders*
 
 ## Adding and removing
