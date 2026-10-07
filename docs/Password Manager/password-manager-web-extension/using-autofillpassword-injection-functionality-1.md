@@ -33,5 +33,5 @@ Autofill follows your account's default on first sign-in. Changing the toggle in
 ## Related
 
 - [Launch: Open a Site Already Signed In](https://docs.akeyless.io/docs/web-extension-launch)
-- [Prompt to Save Password](https://docs.akeyless.io/docs/web-extension-save-prompt)
+- [Prompt to save password](https://docs.akeyless.io/docs/web-extension-save-prompt)
 - [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings)
