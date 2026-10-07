@@ -51,7 +51,7 @@ capped at **10 MB** each.
 
 ## Dark Mode
 
-> *Switch between light mode and a premium obsidian dark theme.*
+Switches the interface between the light and dark themes.
 
 | Property | Value |
 |---|---|
@@ -76,7 +76,7 @@ capped at **10 MB** each.
 The footer shows the console version with its build hash — for example *0.3.117 (58c9a0b)*.
 Quote it when contacting support; it identifies the exact build.
 
-**Sign out** ends the session. Your theme choice and favorites survive it.
+**Sign out** ends the session. The theme choice and favorites are retained.
 
 ## Related
 
