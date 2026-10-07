@@ -52,8 +52,8 @@ Use it to base a new credential on an existing one, or to place a copy in anothe
 
 | Control | Options |
 |---|---|
-| **Share link validity** | 1 Hour, 1 Day, 7 Days, 14 Days, 30 Days |
-| **One time view** | The link stops working after a single view |
+| `Share link validity` | 1 Hour, 1 Day, 7 Days, 14 Days, 30 Days |
+| `One time view` | The link stops working after a single view |
 | **Share with** | One or more email addresses |
 
 <Callout icon="⚠️" theme="warn">
@@ -74,7 +74,7 @@ save, then delete.
 
 ## Versions
 
-The vault keeps historical versions up to the item's **Maximum Versions** limit. Lowering the
+The vault keeps historical versions up to the item's `Maximum Versions` limit. Lowering the
 limit discards the oldest versions beyond the new value.
 
 ## Related
