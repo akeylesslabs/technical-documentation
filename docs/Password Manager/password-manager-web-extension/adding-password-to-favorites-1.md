@@ -1,8 +1,8 @@
 ---
 title: Adding Items To Favorites
 ---
-Favorites collects frequently used items in a single list, so they do not have to be located
-in Personal or Corporate each time.
+Favorites give you one short list of the things you reach for daily, instead of navigating to
+them in Personal or Corporate every time.
 
 ![Favorite items and folders](https://files.readme.io/0d9419e5d0cef73e2849b6366ee297552983cdc29219d4073deca43051da6632-favorites-screen.png)
 *Favorite items and folders*
@@ -37,7 +37,7 @@ Folders are grouped ahead of individual items.
 
 The Favorites area has the same header controls as the other areas:
 
-- *`Search in favorites secrets`*
+- **Search in favorites secrets**
 - **Filter** by type and tag — see [Using Filters & Tags](https://docs.akeyless.io/docs/using-filters-tags)
 - **Sort By A–Z**, with the arrow to reverse
 - **Click to refresh**
@@ -45,7 +45,7 @@ The Favorites area has the same header controls as the other areas:
 ## Favorites and permissions
 
 <Callout icon="ℹ️" theme="info">
-  A favorite is a reference, not a copy. If your access to a Corporate item is revoked, the
+  A favorite is a pointer, not a copy. If your access to a Corporate item is revoked, the
   favorite stops resolving — the item was never duplicated into your personal vault.
 </Callout>
 
