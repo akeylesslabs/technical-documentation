@@ -15,15 +15,15 @@ Choose the destination folder using the folder browser, which offers **Search fo
 Optionally set:
 
 - **Description**
-- **Maximum Versions** — how many historical versions the vault keeps. Your account default is pre-filled, and the allowed range is set by your account.
+- `Maximum Versions` — how many historical versions the vault keeps. Your account default is pre-filled, and the allowed range is set by your account.
 
-## MetaData
+## Metadata
 
 | Field | What it does |
 |---|---|
-| **Protection Key** | The DFC key protecting the item, chosen from a searchable list. Fixed if your account enforces an exclusive default key. |
+| `Protection Key` | The DFC key protecting the item, chosen from a searchable list. Fixed if your account enforces an exclusive default key. |
 | **Tags** | Searchable tag picker. Tags drive the Tags filter. |
-| **Delete protection** | When on, the item cannot be deleted. Your account may enable this by default for new items. |
+| `Delete protection` | When on, the item cannot be deleted. Your account may enable this by default for new items. |
 
 ## Custom Fields
 
