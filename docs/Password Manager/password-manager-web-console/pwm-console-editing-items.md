@@ -7,7 +7,7 @@ for that item.
 ## Opening an item
 
 Select a row or card to open the item view. It shows the value with per-field copy controls,
-website URLs, protection key, maximum versions, tags, description, and created and updated
+Website URLs, Protection Key, Maximum Versions, tags, description, and created and updated
 dates.
 
 Dynamic secrets additionally show producer status and TTL.
@@ -21,8 +21,8 @@ Dynamic secrets additionally show producer status and TTL.
 ## Editing
 
 **Edit** reopens the same stepped wizard used to create the item, pre-filled. Everything is
-editable: name, username, password, URLs, location, description, maximum versions, protection
-key, tags, delete protection, custom fields and the OTP authenticator.
+editable: name, username, password, URLs, location, description, Maximum Versions, protection
+key, tags, Delete protection, Custom Fields and the OTP authenticator.
 
 Changing the **Location** between Personal and Corporate moves the item between vaults.
 
@@ -69,7 +69,7 @@ reported as a validation error.
 **Delete** moves the item to the [Recycle Bin](https://docs.akeyless.io/docs/pwm-console-recycle-bin). It is not
 destroyed, and can be restored.
 
-Delete-protected items cannot be deleted at all — edit the item, turn delete protection off,
+Delete-protected items cannot be deleted at all — edit the item, turn Delete protection off,
 save, then delete.
 
 ## Versions
