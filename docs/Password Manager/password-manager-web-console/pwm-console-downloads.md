@@ -8,7 +8,8 @@ application, with the full release history for each.
 
 | | |
 |---|---|
-| **Address** | [https://console-pwm.akeyless.io/artifacts](https://console-pwm.akeyless.io/artifacts) |
+| **Downloads page** | [https://console-pwm.akeyless.io/artifacts](https://console-pwm.akeyless.io/artifacts) |
+| **The console itself** | [https://console-pwm.akeyless.io](https://console-pwm.akeyless.io) — sign in here |
 | **On a dedicated tenant** | `/artifacts` on your own console address |
 | **From the sign-in screen** | There is a link to it, so you can get builds before you have an account |
 | **Back** | **← Back to sign in** returns you to the console |
@@ -59,6 +60,20 @@ Each release shows the date, the version, a one-line summary, and a **What chang
 | **Windows** | x64 |
 
 The release list works the same way: expand a version to see its changes and download links.
+
+### Or install from an app store
+
+| Platform | Store |
+|---|---|
+| **macOS** | [Akeyless PWM Desktop App](https://apps.apple.com/us/app/akeyless-pwm-desktop-app/id6766774323?mt=12) |
+| **Windows** | [Akeyless PWM Desktop App](https://apps.microsoft.com/detail/9pbghb5vx6bm) |
+
+Store installs update themselves. Use this page instead when you need a specific version.
+
+<Callout icon="⚠️" theme="warn">
+  Akeyless also publishes an **SRA Desktop App** for Secure Remote Access — a different
+  product. Check the listing says **PWM**.
+</Callout>
 
 ---
 
