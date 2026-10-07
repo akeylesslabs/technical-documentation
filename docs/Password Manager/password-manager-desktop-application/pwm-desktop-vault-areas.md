@@ -54,7 +54,7 @@ Deleted items from both vaults, restorable until purged.
 
 ---
 
-## Shared behaviour
+## Shared behavior
 
 | Topic | Page |
 |---|---|
