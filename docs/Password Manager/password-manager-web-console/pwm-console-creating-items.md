@@ -32,10 +32,10 @@ Three steps.
 | **Username** | Required |
 | **Password** | Required. **Random** or **Passphrase** generator, a refresh control, and a reveal eye |
 
-**Password strength (guidance)** rates what is in the field:
+**Password Strength (guidance)** rates what is in the field:
 
 > This meter reflects length and real-world guessability. It does not add points for symbols
-> or uppercase. Generation settings below are separate.
+> or uppercase. Generation Settings below are separate.
 
 **Details** expands the reasoning behind the rating.
 
@@ -55,10 +55,10 @@ Each requirement shows a tick or cross against the current value.
   it is among the first an attacker tries.
 </Callout>
 
-### Step 2 — Location, protection key, tags & details
+### Step 2 — Location, Protection Key, tags & details
 
-Destination vault (**Personal** or **Corporate**), folder path, protection key, tags,
-description, delete protection and maximum versions.
+Destination vault (**Personal** or **Corporate**), folder path, Protection Key, tags,
+description, Delete protection and Maximum Versions.
 
 When editing an existing item this step is headed **Copy to**.
 
@@ -97,7 +97,7 @@ Two steps.
 Key/value and JSON reveal the value field by default, since structured content cannot be
 edited blind. JSON is validated before saving.
 
-### Step 2 — Description, protection key, and tags
+### Step 2 — Description, Protection Key, and tags
 
 ---
 
@@ -114,10 +114,10 @@ A single step.
 | **File** | Drag and drop, or click to browse. **Maximum 10 MB** |
 | **Description** | Optional |
 | **Personal vault location** | Folder path. Marked **Personal only** |
-| **MetaData** | Delete protection, tags |
+| **Metadata** | Delete protection, tags |
 
 <Callout icon="⚠️" theme="warn">
-  Files are capped at **10 MB each** and count against your account's file storage quota, which
+  Files are capped at **10 MB each** and count against your account's File storage quota, which
   is shared across the account. Check it in [Settings](https://docs.akeyless.io/docs/pwm-console-settings) before a large
   upload.
 </Callout>
