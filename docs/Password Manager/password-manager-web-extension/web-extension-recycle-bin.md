@@ -16,7 +16,7 @@ into the Recycle Bin, where it can be restored or purged.
 | **Restore** | Returns the item to its original folder |
 | **Delete Forever** | Permanently removes one item |
 | **Empty Recycle Bin** | Permanently removes everything |
-| **Search in recycle bin secrets** | Filters the list |
+| **Search in Recycle Bin secrets** | Filters the list |
 | **Sort By A–Z** | Reorders; select the arrow to reverse |
 | **Click to refresh** | Reloads from the vault |
 
@@ -33,7 +33,7 @@ Restoring a folder returns it together with the items it contained.
 
 <Callout icon="⚠️" theme="warn">
   **Delete-protected items cannot be deleted at all.** They show a lock badge and never reach
-  the Recycle Bin. Clear delete protection on the item first.
+  the Recycle Bin. Clear Delete protection on the item first.
 </Callout>
 
 ## Related
