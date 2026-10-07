@@ -17,7 +17,7 @@ Optionally set:
 - **Description**
 - **Maximum Versions** — how many historical versions the vault keeps. Your account default is pre-filled, and the allowed range is set by your account.
 
-## MetaData
+## Metadata
 
 | Field | What it does |
 |---|---|
@@ -27,7 +27,7 @@ Optionally set:
 
 ## Custom Fields
 
-Select **Add Field** to add a Key/Value pair. Each row has its own remove control.
+Select **Add Field** to add a Key/value pair. Each row has its own remove control.
 
 ## Saving
 
