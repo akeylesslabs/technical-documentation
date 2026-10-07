@@ -95,7 +95,8 @@ akeyless create-pki-cert-issuer \
 --create-public-crl \
 --gw-cluster-url 'https://Gateway URL:8000' \
 --expiration-event-in 30 \
---allowed-extra-extensions '{"OID":["Value"]}'
+--allowed-extra-extensions '{"OID":["Value"]}' \
+--split-certificate-chain[=false]                
 ```
 
 Where:
@@ -121,6 +122,8 @@ Where:
 - `scheduled-renew`: Number of days before the certificate's expiration date to trigger automatic renewal. The countdown is based on the **certificate's actual expiry**, not the issuer `ttl`.
 
 - `allowed-extra-extensions`: A `json` string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"1.2.3":["test"]}'`.
+
+- `split-certificate-chain[=false]`: When enabled, separates the leaf certificate from the certificate chain.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
