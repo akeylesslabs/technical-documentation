@@ -5,10 +5,10 @@ Every area has its own search box at the top of the list:
 
 | Area | Placeholder |
 |---|---|
-| Personal Secrets | *Search in personal secrets* |
-| Corporate Secrets | *Search in corporate secrets* |
-| Favorite Secrets | *Search in favorites secrets* |
-| Recycle Bin | *Search in recycle bin secrets* |
+| Personal Secrets | `Search in personal secrets` |
+| Corporate Secrets | `Search in corporate secrets` |
+| Favorites | `Search in favorites secrets` |
+| Recycle Bin | `Search in recycle bin secrets` |
 
 ## How search works
 
@@ -17,13 +17,13 @@ already loaded on screen. That means it finds items anywhere in the area, includ
 you have never opened.
 
 Your keystrokes are debounced, so the extension waits until you stop typing before querying —
-you will not fire one request per character.
+so one request is not sent per character.
 
 Search in **Favorites** and the **Recycle Bin** filters the list already on screen.
 
 ## Scope
 
-| Behaviour | Detail |
+| Behavior | Detail |
 |---|---|
 | **Area-scoped** | Results come from the area you are in. Switch areas to search the other vault |
 | **Not folder-scoped** | Results span the whole area, not only the folder you have open |
