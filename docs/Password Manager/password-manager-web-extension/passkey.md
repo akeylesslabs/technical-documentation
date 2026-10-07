@@ -1,7 +1,7 @@
 ---
 title: Passkey
 ---
-With `Passkey Management` enabled, the extension acts as your WebAuthn authenticator and stores passkeys in your Akeyless vault — so they follow you between machines instead of being locked to one device.
+With `Passkey Management` enabled, the extension acts as your WebAuthn authenticator and stores passkeys in your Akeyless vault — so they are available on every machine where you sign in, not stored on one device only.
 
 Turn it on in **Settings** → `Passkey Management`. It is off by default.
 
