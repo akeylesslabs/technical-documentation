@@ -114,7 +114,11 @@ The Akeyless plugin for Claude provides the Agentic Runtime Authority MCP server
 
 ### Prerequisites
 
-* Your own Gateway with Agentic Runtime Authority enabled. Agentic Runtime Authority isn't available on the public Gateway. Akeyless AI Insights must also be enabled at the account level and on the Gateway. See [Agentic Runtime Authority Prerequisites](https://docs.akeyless.io/docs/agentic-runtime-authority#prerequisites).
+* For Agentic Runtime Authority:&#x20;
+  - your own Gateway with Agentic Runtime Authority and Akeyless AI Insights enabled
+  - Secrets configured for Agentic Runtime Authority&#x20;
+  - An Access Role with the Agentic Runtime Authority **Allow Access** rule on their paths.&#x20;
+  See [Agentic Runtime Authority Prerequisites](https://docs.akeyless.io/docs/agentic-runtime-authority#prerequisites).
 * A Dynamic Secret, Rotated Secret, or Static Secret configured for Agentic Runtime Authority.
 * An Access Role with the Agentic Runtime Authority **Allow Access** rule on those secret paths, associated with an API Key, SAML, OIDC, Universal Identity, JWT, AWS IAM, Azure AD, or GCP Authentication Method.
 * For the Claude plugin and the npm package, Node.js `18` or later. The Desktop extension doesn't need it.
