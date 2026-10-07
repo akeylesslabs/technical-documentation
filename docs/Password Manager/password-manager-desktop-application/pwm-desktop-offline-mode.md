@@ -102,7 +102,7 @@ You must be **signed in online** to enable or update Offline Mode — the app ha
 current values from the vault to cache them.
 
 <Callout icon="ℹ️" theme="info">
-  The cache is a **snapshot**. Change a password in the vault and the offline copy keeps the
+  The cache is a point-in-time copy. Change a password in the vault and the offline copy keeps the
   old value until you update Offline Mode again. Re-run setup after rotating anything you rely
   on offline.
 </Callout>
