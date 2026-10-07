@@ -32,14 +32,14 @@ Three steps.
 | **Username** | Required |
 | **Password** | Required. **Random** or **Passphrase** generator, a refresh control, and a reveal eye |
 
-**Password Strength (guidance)** rates what is in the field:
+**Password strength (guidance)** rates what is in the field:
 
 > This meter reflects length and real-world guessability. It does not add points for symbols
-> or uppercase. Generation Settings below are separate.
+> or uppercase. Generation settings below are separate.
 
 **Details** expands the reasoning behind the rating.
 
-`Generation Settings` control the generator, not the meter:
+**Generation Settings** control the generator, not the meter:
 
 | Setting | Controls |
 |---|---|
@@ -55,10 +55,10 @@ Each requirement shows a tick or cross against the current value.
   it is among the first an attacker tries.
 </Callout>
 
-### Step 2 — Location, Protection Key, tags & details
+### Step 2 — Location, protection key, tags & details
 
-Destination vault (**Personal** or **Corporate**), folder path, Protection Key, tags,
-description, Delete protection and Maximum Versions.
+Destination vault (**Personal** or **Corporate**), folder path, protection key, tags,
+description, delete protection and maximum versions.
 
 When editing an existing item this step is headed **Copy to**.
 
@@ -81,7 +81,7 @@ Two steps.
 |---|---|
 | **Secret name** | Required |
 | **Type** | **Generic** by default; **Select** to choose a specific type |
-| `Maximum Versions` | Shows your account default and the allowed range, e.g. *Account default: 100 (allowed 1–300)* |
+| **Maximum Versions** | Shows your account default and the allowed range, e.g. *Account default: 100 (allowed 1–300)* |
 | **Format** | **Text**, **Key/value** or **JSON** |
 | **Value** | Required, with a reveal eye |
 | **Location** | **Personal** or **Corporate**, then the folder path |
@@ -97,7 +97,7 @@ Two steps.
 Key/value and JSON reveal the value field by default, since structured content cannot be
 edited blind. JSON is validated before saving.
 
-### Step 2 — Description, Protection Key, and tags
+### Step 2 — Description, protection key, and tags
 
 ---
 
@@ -114,10 +114,10 @@ A single step.
 | **File** | Drag and drop, or click to browse. **Maximum 10 MB** |
 | **Description** | Optional |
 | **Personal vault location** | Folder path. Marked **Personal only** |
-| **Metadata** | Delete protection, tags |
+| **MetaData** | Delete protection, tags |
 
 <Callout icon="⚠️" theme="warn">
-  Files are capped at **10 MB each** and count against your account's File storage quota, which
+  Files are capped at **10 MB each** and count against your account's file storage quota, which
   is shared across the account. Check it in [Settings](https://docs.akeyless.io/docs/pwm-console-settings) before a large
   upload.
 </Callout>
@@ -136,14 +136,14 @@ A single step.
 | **Folder name** | Required |
 | **Description** | Optional |
 | **Parent folder** | **Personal** or **Corporate**, then the path |
-| `Delete protection` | Prevents the folder and its contents being deleted |
+| **Delete protection** | Prevents the folder and its contents being deleted |
 | **Tags** | Applied to the folder |
 
 ---
 
 ## Common to every flow
 
-| Element | Behavior |
+| Element | Behaviour |
 |---|---|
 | **Step rail** | Shows where you are; completed steps carry a tick |
 | **Cancel** | Abandons the flow and returns you to the area you came from |
