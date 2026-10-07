@@ -8,7 +8,7 @@ Select any row, or **View Details** on the row, to open the item preview.
 | Section | Contents |
 |---|---|
 | **Item Preview** | The value, with a copy control on each field and **Copy All** for the whole set |
-| **Website URLs** | The addresses that drive autofill matching and [Launch](https://docs.akeyless.io/docs/web-extension-launch) |
+| `Website URLs` | The addresses that drive autofill matching and [Launch](https://docs.akeyless.io/docs/web-extension-launch) |
 | `Protection Key` | The DFC key protecting the item |
 | `Maximum Versions` | The version limit, or *Not set* |
 | **Database name**, **Producer status** | Dynamic secrets only |
