@@ -56,8 +56,7 @@ maps it:
 ### SRA clipboard
 
 Clipboard support for remote-access sessions, driven by a server-sent-event channel from the
-SRA worker, so copy and paste work inside a proxied session without punching a hole in its
-isolation.
+SRA worker, so copy and paste work inside a proxied session without weakening its isolation.
 
 ### Flow audit log
 
