@@ -41,6 +41,7 @@ Both snake_case and camelCase keys are accepted.
   "installationSource": "bundled_prefill"
 }
 ```
+
 ## Building the package
 
 Generate the file into a built extension directory, then package it:
@@ -51,9 +52,11 @@ node scripts/inject-prefill-install.mjs dist/chrome \
   --auth=saml \
   --environment=global
 ```
+
 ```bash
 npm run package:chrome
 ```
+
 The result is `dist/akeyless-chrome-<version>.zip`.
 
 ### Available flags
@@ -65,7 +68,7 @@ The result is `dist/akeyless-chrome-<version>.zip`.
 | `--environment=` | Region for email sign-in |
 | `--config-id=` | Branding bundle ID |
 | `--contact-support-url=` | Custom support destination |
-| `--open-web-console-url=` | Custom Web Console destination |
+| `--open-web-console-url=` | Custom web console destination |
 | `--passkey-enabled=` | `true` or `false` |
 | `--preconfigured-sign-in-title=` | Login info box heading |
 | `--preconfigured-sign-in-message=` | Login info box body; use `\n\n` for paragraph breaks |
