@@ -27,15 +27,15 @@ entered.
 
 | Source | How to export |
 |---|---|
-| **1Password** | Desktop app export; instructions at [1Password Support](https://support.1password.com) |
-| **LastPass** | [the LastPass vault](https://lastpass.com/vault) → advanced options → **export** → confirm by email → re-enter your password |
-| **Bitwarden** | Vault → Tools → Export vault; instructions at [Bitwarden Help](https://bitwarden.com/help) |
+| **1Password** | Desktop app export; instructions at support.1password.com |
+| **LastPass** | lastpass.com/vault → advanced options → **export** → confirm by email → re-enter your password |
+| **Bitwarden** | Vault → Tools → Export vault; instructions at bitwarden.com/help |
 | **Dashlane** | Desktop app → My Account → Export data |
-| **Keeper** | Vault → Export; instructions at [Keeper Documentation](https://docs.keeper.io) |
+| **Keeper** | Vault → Export; instructions at docs.keeper.io |
 | **KeePass** | File → Export → CSV File… (UTF-8 recommended) |
-| **Google** | [Google Password Manager](https://passwords.google.com) → gear icon → **Export** |
+| **Google** | passwords.google.com → gear icon → **Export** |
 | **Microsoft Edge** | `edge://settings/passwords` → Saved passwords → **⋯** → Export passwords |
-| **Apple** | iPhone and Mac instructions at [Apple Support](https://support.apple.com) |
+| **Apple** | iPhone and Mac instructions at support.apple.com |
 | **Generic CSV** | Any CSV with the columns below |
 
 ---
@@ -44,7 +44,7 @@ entered.
 
 Columns: `name`, `url`, `username`, `password`, `description` (also accepted as `note` or `notes`).
 
-| Behavior | Detail |
+| Behaviour | Detail |
 |---|---|
 | **Column order** | Any — headers are detected automatically |
 | **Delimiter** | Detected automatically |
@@ -54,7 +54,7 @@ Columns: `name`, `url`, `username`, `password`, `description` (also accepted as 
 ### KeePass default columns
 
 A default KeePass export produces `Account`, `Login Name`, `Password`, `Web Site`, `Comments`.
-These are recognized without renaming anything.
+These are recognised without renaming anything.
 
 ---
 
@@ -86,7 +86,7 @@ Each row becomes a **password item**:
 | `description` / `note` | The item description |
 
 The report lists what succeeded and what failed, with the row number and reason for each
-failure, so no row is dropped without a record.
+failure, so nothing is dropped silently.
 
 ---
 
@@ -94,12 +94,12 @@ failure, so no row is dropped without a record.
 
 <Callout icon="⚠️" theme="warn">
   **Delete the exported CSV.** It contains every password you just imported, in plain text, in
-  your `Downloads` folder. Empty your trash too.
+  your Downloads folder. Empty your trash too.
 </Callout>
 
 1. Run [Security Health](https://docs.akeyless.io/docs/pwm-console-security-health) — an import is the most likely moment
    to discover reused and breached passwords.
-2. Check imported items have `Website URLs`, since autofill matches on them.
+2. Check imported items have **website URLs**, since autofill matches on them.
 3. Delete the credentials from the old manager once you have confirmed the import.
 
 ## Troubleshooting
@@ -108,7 +108,7 @@ failure, so no row is dropped without a record.
 |---|---|
 | Rows failed | Missing name or password — the report names the row |
 | Accented characters mangled | A non-UTF-8 export; re-export choosing UTF-8 |
-| Nothing imported | Not a CSV, or no recognizable header row |
+| Nothing imported | Not a CSV, or no recognisable header row |
 | Autofill ignores imported items | The rows had no `url` column |
 
 ## Related
