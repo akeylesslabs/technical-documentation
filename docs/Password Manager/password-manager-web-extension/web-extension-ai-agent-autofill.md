@@ -19,8 +19,8 @@ Nothing is filled unless **all six** of these hold:
 1. You enabled the setting.
 2. You are signed in to the extension.
 3. The tab carries a fresh agent signal.
-4. The page actually looks like a sign-in page.
-5. No Launch flow already owns the tab.
+4. The page is identified as a sign-in page.
+5. No Launch flow is already active in the tab.
 6. **Exactly one** vault credential matches the host.
 
 <Callout icon="⚠️" theme="warn">
