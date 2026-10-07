@@ -1,7 +1,7 @@
 ---
 title: Selecting Multiple Items
 ---
-Multi-select lets you clear out or restore many items in one pass, instead of opening each
+Multi-select applies a delete or restore action to several items at the same time, instead of opening each
 one's menu.
 
 ![Multi-select with the bulk action bar](https://files.readme.io/05d09eebebe8c337f5867cb5e16938bb250e14ae1e0532eebd6f61559cae016a-multi-select-bulk-actions.png)
