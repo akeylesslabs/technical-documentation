@@ -5,7 +5,7 @@ title: Account Policies Affecting the Extension
   **Audience: account administrators and support.**
 </Callout>
 
-Account settings and vault permissions silently reshape what users see. **Most "a tab is missing" reports resolve here**, not in the extension.
+Account settings and vault permissions change what users see without notification. **Most "a tab is missing" reports resolve here**, not in the extension.
 
 ## Visibility
 
@@ -17,7 +17,7 @@ Account settings and vault permissions silently reshape what users see. **Most "
 | Sign-in with an API-key style credential | Personal vault hidden |
 | `product_types` without `apm` *(DBK tenants)* | Password manager features unavailable |
 
-## Behaviour
+## Behavior
 
 | Policy | Effect |
 |---|---|
@@ -26,8 +26,8 @@ Account settings and vault permissions silently reshape what users see. **Most "
 | `allow_passkeys` disabled | Passkey management unavailable |
 | Organization passkey suppression *(DBK)* | Passkeys hidden from lists, filters and Settings entirely |
 | `protect_items_by_default` | New items created with delete protection on |
-| `account_default_key_name` | Pre-selects the protection key; when exclusive, the picker is locked |
-| Static secret max-versions settings | Default value and allowed range for **Maximum Versions** |
+| `account_default_key_name` | Preselects the protection key; when exclusive, the picker is locked |
+| Static secret max-versions settings | Default value and allowed range for `Maximum Versions` |
 
 ## Diagnosing a missing feature
 
