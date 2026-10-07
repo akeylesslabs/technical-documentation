@@ -60,7 +60,7 @@ through.
 ## Delete protection
 
 <Callout icon="⚠️" theme="warn">
-  Items with delete protection never reach the Recycle Bin — they cannot be deleted at all.
+  Items with Delete protection never reach the Recycle Bin — they cannot be deleted at all.
   Edit the item, turn **Delete protection** off, save, then delete.
 </Callout>
 
