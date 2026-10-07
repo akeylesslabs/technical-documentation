@@ -22,7 +22,7 @@ QR scanning reads the page you currently have open. It does not work on browser-
 
 | Where | How |
 |---|---|
-| `Item Preview` | The current code is shown with a copy control |
+| **Item preview** | The current code is shown with a copy control |
 | **In-page popup** | Select the Akeyless icon in the OTP field and choose the credential — the code is filled for you |
 | [Launch](https://docs.akeyless.io/docs/web-extension-launch) | Codes are filled automatically as part of the sign-in flow |
 
