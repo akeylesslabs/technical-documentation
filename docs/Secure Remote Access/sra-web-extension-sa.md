@@ -42,7 +42,7 @@ Because routing is scoped to the launched window, your normal browsing is unaffe
 
 ### Credential mapping
 
-The producer payload rarely matches the target's login form field for field, so the extension
+The producer payload rarely matches the target's login form exactly, so the extension
 maps it:
 
 | Producer type | Mapped to |
