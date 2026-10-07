@@ -12,7 +12,7 @@ administrators.
 | Type | Notes |
 |---|---|
 | **Password items** | Username, password, website URLs, OTP, custom fields |
-| **Secret items** | Free-form values in Text, Key/value or JSON format |
+| **Secret items** | Free-form values in `Text`, `Key/value` or `JSON` format |
 | **File items** | Files, counted against your account's file quota |
 | **Passkeys** | **Only** stored here — never in Corporate |
 | **Folders** | To organize any of the above |
@@ -31,7 +31,7 @@ administrators.
 
 | Control | Does |
 |---|---|
-| *`Search in personal secrets`* | Searches the whole area, server-side |
+| `Search in personal secrets` | Searches the whole area, server-side |
 | **Filter** (funnel) | Narrows by type and tag |
 | **View toggle** | List or grid |
 | **+** | New Folder, Secret, Password or File item |
@@ -51,7 +51,7 @@ administrators.
 
   * Password management is disabled on your account
   * Your account hides the personal folder
-  * You signed in with an API-key style credential
+  * You signed in with an API key (access type `api_key`)
   * On DBK tenants, your session's product types do not include `apm`
 
   These are account policies, not extension settings. See
