@@ -5,7 +5,7 @@ title: 'Launch: Open a Site Already Signed In'
 
 ## Using it
 
-Any item with a **Website URL** shows a **Launch Website** control on its row and in the suggestion popup. Select it.
+Any item with a `Website URL` shows a **Launch Website** control on its row and in the suggestion popup. Select it.
 
 The extension then:
 
