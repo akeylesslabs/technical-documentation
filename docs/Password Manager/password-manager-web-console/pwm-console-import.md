@@ -27,14 +27,14 @@ entered.
 
 | Source | How to export |
 |---|---|
-| **1Password** | Desktop app export; instructions at [1Password Support](https://support.1password.com) |
-| **LastPass** | [the LastPass vault](https://lastpass.com/vault) → advanced options → **export** → confirm by email → re-enter your password |
-| **Bitwarden** | Vault → Tools → Export vault; instructions at [Bitwarden Help](https://bitwarden.com/help) |
-| **Dashlane** | Desktop app → My Account → Export data |
-| **Keeper** | Vault → Export; instructions at [Keeper Documentation](https://docs.keeper.io) |
-| **KeePass** | File → Export → CSV File… (UTF-8 recommended) |
+| **1Password** | Desktop app → **Export**; instructions at [1Password Support](https://support.1password.com) |
+| **LastPass** | [the LastPass vault](https://lastpass.com/vault) → **Advanced Options** → **Export** → confirm by email → re-enter your password |
+| **Bitwarden** | **Vault** → **Tools** → **Export vault**; instructions at [Bitwarden Help](https://bitwarden.com/help) |
+| **Dashlane** | Desktop app → **My Account** → **Export data** |
+| **Keeper** | **Vault** → **Export**; instructions at [Keeper Documentation](https://docs.keeper.io) |
+| **KeePass** | **File** → **Export** → **CSV File…** (UTF-8 recommended) |
 | **Google** | `passwords.google.com` → gear icon → **Export** |
-| **Microsoft Edge** | `edge://settings/passwords` → Saved passwords → **⋯** → Export passwords |
+| **Microsoft Edge** | `edge://settings/passwords` → **Saved passwords** → **⋯** → **Export passwords** |
 | **Apple** | iPhone and Mac instructions at [Apple Support](https://support.apple.com) |
 | **Generic CSV** | Any CSV with the columns below |
 
@@ -65,7 +65,7 @@ Unlike the extension, the console lets you choose the destination **before** the
 | Choice | Notes |
 |---|---|
 | **Personal** or **Corporate** | Corporate is offered only where your permissions allow it |
-| **Folder path** | Imported items land here rather than at the root |
+| `Folder path` | Imported items land here rather than at the root |
 | `Tags` | Applied to everything imported, which makes the batch easy to find or undo later |
 
 <Callout icon="ℹ️" theme="info">
@@ -94,12 +94,12 @@ failure, so no row is dropped without a record.
 
 <Callout icon="⚠️" theme="warn">
   **Delete the exported CSV.** It contains every password you just imported, in plain text, in
-  your `Downloads` folder. Empty your trash too.
+  your `Downloads` folder. Empty your `Trash` folder too.
 </Callout>
 
 1. Run [Security Health](https://docs.akeyless.io/docs/pwm-console-security-health) — an import is the most likely moment
    to discover reused and breached passwords.
-2. Check imported items have **website URLs**, since autofill matches on them.
+2. Check imported items have `Website URLs`, since autofill matches on them.
 3. Delete the credentials from the old manager once you have confirmed the import.
 
 ## Troubleshooting
