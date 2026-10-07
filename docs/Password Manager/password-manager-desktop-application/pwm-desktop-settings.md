@@ -18,8 +18,8 @@ found:
 
 | Browser | Shown |
 |---|---|
-| **Google Chrome** | Extension ID and version |
-| **Firefox** | Extension ID and version |
+| **Google Chrome** | Extension id and version |
+| **Firefox** | Extension id and version |
 | **Safari** | Bundle id and version |
 
 This is what makes **launch** work from the desktop app: opening an item's website hands the
@@ -40,8 +40,8 @@ schedule.
 
 | Setting | Does |
 |---|---|
-| `Auto-Type` | Types credentials into other applications via `Ctrl+Shift+Space` |
-| `Submit automatically with Auto-Type` | Presses Enter after the password |
+| **Auto-Type** | Types credentials into other applications via **Ctrl+Shift+Space** |
+| **Submit automatically with Auto-Type** | Presses Enter after the password |
 | **Open Quick Access** | Opens the picker without the shortcut |
 | **Grant Accessibility…** | macOS — opens the Accessibility pane the feature requires |
 
@@ -51,9 +51,9 @@ See [Auto-Type and Quick Access](https://docs.akeyless.io/docs/pwm-desktop-auto-
 
 ## Dark Mode
 
-Switches the interface between the light and dark themes.
+> *Switch between light mode and a premium obsidian dark theme.*
 
-Off by default, stored on this device, and it is retained after signing out.
+Off by default, stored on this device, and it survives signing out.
 
 ---
 
@@ -82,7 +82,7 @@ See [Offline Mode](https://docs.akeyless.io/docs/pwm-desktop-offline-mode).
 
 ## Version and Sign out
 
-The footer shows the app version with its build hash — for example *`0.1.101 (112f22a)`*. Quote
+The footer shows the app version with its build hash — for example *0.1.101 (112f22a)*. Quote
 it when contacting support; it identifies the exact build.
 
 **Sign out** ends the session. It does **not** remove the offline cache — turn Offline Mode
