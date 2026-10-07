@@ -116,11 +116,11 @@ is nothing to choose and nothing to get wrong.
 | Control | What it does |
 |---|---|
 | **Show password** (eye icon) | Reveals what you typed. Hidden when your account enforces secure paste |
-| **Open Web Console** | Opens the Akeyless web console for your tenant |
+| **Open Web Console** | Opens the Akeyless Web Console for your tenant |
 | **Pin to Side Panel** / **Open Sidebar** | Docks the extension — see [Side Panel & Sidebar](https://docs.akeyless.io/docs/web-extension-side-panel) |
 | **Privacy Policy**, **End User License Agreement** | Your organization's URLs when configured |
 
-Dark mode survives signing out — logging out does not reset your theme.
+Dark Mode survives signing out — logging out does not reset your theme.
 
 ## DBK tenants
 
