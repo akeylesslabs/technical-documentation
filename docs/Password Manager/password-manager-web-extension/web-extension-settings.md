@@ -88,7 +88,7 @@ See [Passkey](https://docs.akeyless.io/docs/passkey).
 | **Hidden when** | Your organization has applied custom branding |
 
 <Callout icon="ℹ️" theme="info">
-  **Why the toggle sometimes disappears.** When an organization configures brand colours, the
+  **Why the toggle sometimes disappears.** When an organization configures brand colors, the
   extension locks to light mode so the palette renders as intended, and the toggle is hidden.
   This is a branding decision, not a fault — see
   [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding).
