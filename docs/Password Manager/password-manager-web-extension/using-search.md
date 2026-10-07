@@ -23,7 +23,7 @@ Search in **Favorites** and the **Recycle Bin** filters the list already on scre
 
 ## Scope
 
-| Behaviour | Detail |
+| Behavior | Detail |
 |---|---|
 | **Area-scoped** | Results come from the area you are in. Switch areas to search the other vault |
 | **Not folder-scoped** | Results span the whole area, not only the folder you have open |
