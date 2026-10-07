@@ -49,7 +49,7 @@ akeyless_bridge_brand_folder
 
 ## Path B — cookiebridge redirect URL
 
-The hosted bridge service can carry settings as query parameters. The extension reads `id` / `config_id`, `contact_support_url`, `privacy_policy_url`, `passkey_enabled`, the branding colours, `brand_folder`, `logo_url`, and the sign-in title and message.
+The hosted bridge service can carry settings as query parameters. The extension reads `id` / `config_id`, `contact_support_url`, `privacy_policy_url`, `passkey_enabled`, the branding colors, `brand_folder`, `logo_url`, and the sign-in title and message.
 
 ---
 
