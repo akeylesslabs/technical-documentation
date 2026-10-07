@@ -99,7 +99,7 @@ failure, so no row is dropped without a record.
 
 1. Run [Security Health](https://docs.akeyless.io/docs/pwm-console-security-health) — an import is the most likely moment
    to discover reused and breached passwords.
-2. Check imported items have **Website URLs**, since autofill matches on them.
+2. Check imported items have `Website URLs`, since autofill matches on them.
 3. Delete the credentials from the old manager once you have confirmed the import.
 
 ## Troubleshooting
