@@ -29,7 +29,7 @@ control is hidden entirely rather than shown and failing.
 | Stays open while you use the page | No | Yes |
 | Width | Fixed, 416px | Resizable |
 | Closes on click-away | Yes | No |
-| Survives tab switches | No | Yes |
+| Remains open across tab switches | No | Yes |
 
 The extension detects which mode it is in and adapts its layout — lists get more room when
 docked, and the sign-in screen spaces out rather than stretching.
