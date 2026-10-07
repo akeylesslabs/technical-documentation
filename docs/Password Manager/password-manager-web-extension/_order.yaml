@@ -30,10 +30,10 @@
 - web-extension-settings
 - passkey
 - csv-password-importer
-- web-extension-preconfigured-package
 - web-extension-preconfigured-install
 - web-extension-branding
 - web-extension-security-health
 - web-extension-account-policies
 - web-extension-bridge-link
 - web-extension-troubleshooting
+- web-extension-preconfigured-package
