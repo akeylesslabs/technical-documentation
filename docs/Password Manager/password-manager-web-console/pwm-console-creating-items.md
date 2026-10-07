@@ -57,10 +57,10 @@ Each requirement shows a tick or cross against the current value.
 
 ### Step 2 — Location, protection key, tags & details
 
-Destination vault (**Personal** or **Corporate**), folder path, protection key, tags,
-description, delete protection and maximum versions.
+Destination vault (**Personal** or **Corporate**), `Folder path`, `Protection Key`, `Tags`,
+`Description`, `Delete protection` and `Maximum Versions`.
 
-When editing an existing item this step is headed **Copy to**.
+When copying an existing item this step is headed `Copy to`.
 
 ### Step 3 — OTP (optional)
 
