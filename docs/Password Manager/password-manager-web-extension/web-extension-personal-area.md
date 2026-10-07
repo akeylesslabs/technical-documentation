@@ -7,11 +7,11 @@ administrators.
 ![The Personal area](https://files.readme.io/20c3f27945bc91866feb657404a37d887ba1e2e5358062daf19cf82b39f7d05b-personal-secrets-list.png)
 *The Personal area*
 
-## What this area contains
+## What lives here
 
 | Type | Notes |
 |---|---|
-| **Password items** | Username, password, Website URLs, OTP, Custom Fields |
+| **Password items** | Username, password, website URLs, OTP, custom fields |
 | **Secret items** | Free-form values in Text, Key/value or JSON format |
 | **File items** | Files, counted against your account's file quota |
 | **Passkeys** | **Only** stored here — never in Corporate |
@@ -31,7 +31,7 @@ administrators.
 
 | Control | Does |
 |---|---|
-| *`Search in personal secrets`* | Searches the whole area, server-side |
+| **Search in personal secrets** | Searches the whole area, server-side |
 | **Filter** (funnel) | Narrows by type and tag |
 | **View toggle** | List or grid |
 | **+** | New Folder, Secret, Password or File item |
@@ -39,10 +39,10 @@ administrators.
 | **Select** | Multi-select mode |
 | **Click to refresh** | Reloads from the vault |
 
-## Dark Mode
+## Dark mode
 
-![The Personal area in Dark Mode](https://files.readme.io/43f9e2d2e96931fb461ec5af87ac84b43ce11fea948236ae108f9b7553337b09-personal-secrets-dark.png)
-*The same area with Dark Mode enabled*
+![The Personal area in dark mode](https://files.readme.io/43f9e2d2e96931fb461ec5af87ac84b43ce11fea948236ae108f9b7553337b09-personal-secrets-dark.png)
+*The same area with dark mode enabled*
 
 ## When the Personal tab is missing
 
