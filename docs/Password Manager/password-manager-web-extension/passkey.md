@@ -13,7 +13,7 @@ When a site offers to create a passkey, the extension intercepts the WebAuthn ca
 
 On a return visit, the extension supplies the passkey. Passkeys are matched to the site by its relying-party domain.
 
-## Where passkeys live
+## Where passkeys are stored
 
 <Callout icon="⚠️" theme="warn">
   **Passkeys are stored in the personal folder only** — never in team or corporate vaults.
