@@ -66,5 +66,5 @@ Permanent removal happens only inside the Recycle Bin:
 
 ## Permissions
 
-**Delete** appears only on items you have delete permission for. On a Corporate item without
+**Delete** appears only on items with the `delete` permission. On a Corporate item without
 that permission the action is absent — this is a vault permission, not an extension setting.
