@@ -21,7 +21,7 @@ Controls whether the extension acts on web pages at all. With it on, an Akeyless
 in username, email, password and OTP fields, and selecting it offers the vault credentials
 matching that site.
 
-| | |
+| Property | Value |
 |---|---|
 | **Default** | Follows your account's `allowAutoFill` setting |
 | **Override** | Changing it here overrides the account default **permanently on this browser** — the server value will no longer reset it |
@@ -37,7 +37,7 @@ After you sign in to a site with credentials the vault does not hold, the extens
 offers to save them. It also detects password-change forms and offers to **update** the
 existing item rather than create a duplicate.
 
-| | |
+| Property | Value |
 |---|---|
 | **Default** | On |
 | **Turn it off if** | You create items manually and find the prompt intrusive |
@@ -54,12 +54,12 @@ See [Prompt to Save Password](https://docs.akeyless.io/docs/web-extension-save-p
 Lets an AI browser agent get past a sign-in page without you pasting a password into a chat
 window.
 
-| | |
+| Property | Value |
 |---|---|
 | **Default** | **Off** |
 | **Fills only when** | All six guard rails hold — including that **exactly one** credential matches the host |
 
-See [AI Agent Auto-fill](https://docs.akeyless.io/docs/web-extension-ai-agent-autofill).
+See [AI Agent Autofill](https://docs.akeyless.io/docs/web-extension-ai-agent-autofill).
 
 ### Passkey Management
 
@@ -68,7 +68,7 @@ See [AI Agent Auto-fill](https://docs.akeyless.io/docs/web-extension-ai-agent-au
 Makes the extension your WebAuthn authenticator, storing passkeys in your Akeyless vault so
 they follow you between machines rather than being tied to one device.
 
-| | |
+| Property | Value |
 |---|---|
 | **Default** | Off, unless your organization preconfigured it on |
 | **Hidden when** | Your account disables passkeys, or your organization suppresses them |
@@ -80,7 +80,7 @@ See [Passkey](https://docs.akeyless.io/docs/passkey).
 
 Switches the interface between the light and dark themes.
 
-| | |
+| Property | Value |
 |---|---|
 | **Default** | Off (light) |
 | **Persists** | Yes — stored locally, and **survives signing out** |
