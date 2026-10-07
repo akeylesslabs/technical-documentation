@@ -1,7 +1,7 @@
 ---
 title: Viewing an Item
 ---
-Select any row, or **View Details** on the row, to open the item preview.
+Select any row, or **View Details** on the row, to open the Item Preview.
 
 ## What the preview shows
 
@@ -28,7 +28,7 @@ The **More Options** (⋯) menu offers **Edit**, **Share** and **Delete**. In th
 
 ## Secure paste mode
 
-If your account enables secure paste, reveal and copy of secret values are suppressed throughout the extension — in the item preview, in the in-page suggestion popup, and on login forms. Values are delivered straight into the target field instead of passing through the clipboard.
+If your account enables secure paste, reveal and copy of secret values are suppressed throughout the extension — in the Item Preview, in the in-page suggestion popup, and on login forms. Values are delivered straight into the target field instead of passing through the clipboard.
 
 See [Copy/Paste & Secure Paste Mode](https://docs.akeyless.io/docs/copypaste-functionality-for-passwords-1).
 
