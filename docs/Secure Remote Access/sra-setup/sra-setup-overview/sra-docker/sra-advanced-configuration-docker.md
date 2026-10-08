@@ -175,7 +175,6 @@ Starting with SRA `v3.5.0`, multi-hop SSH sessions support SSH agent forwarding.
 SSH_ALLOW_AGENT_FORWARDING=true
 ```
 
-#
 Users then pass `-A` through to the SSH client when connecting:
 
 ```shell
