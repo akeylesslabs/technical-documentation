@@ -95,7 +95,7 @@ For provider-specific commands and flags, see [CLI Reference - Gateway Secure Re
 
 ### What a Session Log Contains
 
-* **Input:** The command as the terminal showed it when Enter was pressed, reflecting Tab completion, command history, and line edits — not the raw keystrokes used to produce it.
+* **Input:** The command as the terminal showed it when Enter was pressed, reflecting Tab completion, command history, and line edits - not the raw keystrokes used to produce it.
 
 * **Hidden input:** Never recorded. Typing at a prompt that hides input, such as a password prompt, produces an `[input not displayed]` marker instead.
 
@@ -105,7 +105,7 @@ For provider-specific commands and flags, see [CLI Reference - Gateway Secure Re
 
 * Commands entered in shells running inside **tmux** continue to be recorded.
 
-* **Masking:** Enabled by default. Known secret formats are replaced with `[masked]` in every record — including values following secret-named flags and fields (`--password`, `DB_PASSWORD=`, `"api_key":`), bearer tokens, passwords embedded in URLs, AWS, GitHub, Slack, Google, and Stripe keys, JWTs, and private key blocks. Masking is best effort on visible text, and is separate from the hidden-input rule above (hidden input is never recorded in the first place, so there's nothing for masking to replace there).
+* **Masking:** Enabled by default. Known secret formats are replaced with `[masked]` in every record - including values following secret-named flags and fields (`--password`, `DB_PASSWORD=`, `"api_key":`), bearer tokens, passwords embedded in URLs, AWS, GitHub, Slack, Google, and Stripe keys, JWTs, and private key blocks. Masking is best effort on visible text, and is separate from the hidden-input rule above (hidden input is never recorded in the first place, so there's nothing for masking to replace there).
 
 <Callout icon="📘" theme="info">
   SIEM rules that rely on raw keystrokes may need to be updated: SSH recordings now capture commands as displayed when Enter is pressed, instead of raw keystrokes.
