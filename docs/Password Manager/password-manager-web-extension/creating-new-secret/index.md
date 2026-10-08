@@ -1,39 +1,40 @@
 ---
 title: Creating New Secret
-slug: creating-new-secret
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-## Step 1: Launch the Akeyless Web Extension
+Select the blue **+** in the header and choose **New Secret Item**.
 
-1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar.
-2. Click on the Akeyless Web Extension icon to launch the extension.
+## General
 
-![Illustration for: Step 1: Launch the Akeyless Web Extension 1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar. 2. Click on the Akeyless Web Extension icon…](https://files.readme.io/8a3048e-Screenshot_2024-02-22_at_14.23.10.png)
+- `Name` — the item name.
+- `Value` — the secret itself. See [Creating New Secret Value Type](https://docs.akeyless.io/docs/creating-new-secret-value-type) for the available formats.
 
-## Step 2: Access the Password Creation Form
+## Location
 
-Click on the "New Item" button. This will open the Akeyless Password Creation form.
+Choose the destination folder using the folder browser, which offers **Search folders…** and a **Back to parent folder** control.
 
-Go to the Static Secret tab.
+Optionally set:
 
-Enter a name for the password in the "Secret Name" field
+- `Description`
+- `Maximum Versions` — how many historical versions the vault keeps. Your account default is pre-filled, and the allowed range is set by your account.
 
-Optionally, enter a description for the secret in the "Description" field.
+## Metadata
 
-## Step 3: Define Var and Location
+| Field | What it does |
+|---|---|
+| `Protection Key` | The DFC key protecting the item, chosen from a searchable list. Fixed if your account enforces an exclusive default key. |
+| `Tags` | Searchable tag picker. Tags drive the **Tags** filter. |
+| `Delete protection` | When on, the item cannot be deleted. Your account may enable this by default for new items. |
 
-In the `Var` field, enter a unique combination of letters, symbols, and numbers. The value length should be 16 KB.
+## Custom Fields
 
-![Illustration for: Step 3: Define Var and Location In the Var field, enter a unique combination of letters, symbols, and numbers. The value length should be 16 KB.](https://files.readme.io/774a6f9-Screenshot_2024-02-22_at_14.23.19.png)
+Select **Add Field** to add a key/value pair. Each row has its own remove control.
 
-Optionally, you can specify the "Password Location" using the drop-down menu. to choose between "Corporate" and "Personal" areas to store the password.
+## Saving
 
-If you want to store the password in a folder, you can create a new folder by providing the name in the location field.
+Select **Save**. The new item appears in the folder you chose.
+
+## Related
+
+- [Creating New Secret Value Type](https://docs.akeyless.io/docs/creating-new-secret-value-type)
+- [Item Types Reference](https://docs.akeyless.io/docs/web-extension-item-types)
+- [Editing, Copying & Moving Items](https://docs.akeyless.io/docs/editing-password-details-1)

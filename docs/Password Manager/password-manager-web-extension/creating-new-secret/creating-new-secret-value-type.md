@@ -1,25 +1,86 @@
 ---
 title: Creating New Secret Value Type
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-![An Akeyless Password Manager Screenshot of adding a Static Secret.](https://files.readme.io/0f66be8-Screenshot_2024-03-21_at_13.50.36.png)
+A static secret's value is stored in one of **three** formats, chosen with the tabs at the top
+of the New Secret overlay.
 
-The Akeyless Password Manager Web Extension is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can store information not just in plain text but also in JSON format. This section will guide you on how to use the 'Value' field for both text and JSON data.
+![The three value formats](https://files.readme.io/cfbbfbe5bfcb6053707eba0ee75ae77e41909e70a22e0d64036a43a4c6f4b123-new-secret-overlay.png)
+*Text, Key/value and JSON, with the secret Type and Maximum Versions above*
 
-## Text Data
+---
 
-For straightforward text data, such as passwords, secure notes, or API keys, simply enter the information directly into the 'Value' field. The application will securely encrypt and store this text, making it accessible only to authorized users.
+## Text
 
-## JSON Data
+A single free-form value, stored exactly as typed.
 
-The 'Value' field can also store structured data in JSON format. This is particularly useful for storing configuration settings or multiple pieces of related information in a structured and easily retrievable form.
+Use it for anything consumed as one opaque blob: an API key, a connection string, a license
+key, a certificate body, a block of notes.
 
-![Illustration for: The 'Value' field can also store structured data in JSON format. This is particularly useful for storing configuration settings or multiple pieces of related information in a…](https://files.readme.io/55cdb8e-Screenshot_2024-03-21_at_13.50.43.png)
+The whole value copies as one unit from the item preview.
+
+## Key/value
+
+A set of named fields, entered as pairs.
+
+Use it when the secret is really several related values — a host, a port, a username and a
+password that belong together.
+
+| Benefit | Detail |
+|---|---|
+| **Field-level copy** | Each field has its own copy control, so you can take just the password |
+| **Copy All** | Copies the whole set at once |
+| **Readable preview** | Fields are labelled rather than running together |
+
+Key/value is stored as structured data, so it round-trips cleanly to the API and the console.
+
+## JSON
+
+A raw JSON document you type or paste directly.
+
+Use it when the structure is more than flat pairs — nested objects, arrays, a service-account
+file — or when something downstream expects a specific JSON shape you need to control exactly.
+
+<Callout icon="ℹ️" theme="info">
+  Choosing **JSON** or **Key/value** reveals the value field by default, since structured
+  content cannot be edited blind. **Text** keeps it masked until you choose to reveal it.
+</Callout>
+
+The editor validates the JSON before saving. An invalid document is reported rather than
+stored.
+
+---
+
+## Choosing
+
+| Use | When |
+|---|---|
+| **Text** | One value, consumed whole |
+| **Key/value** | Several named values, consumed separately |
+| **JSON** | Nested structure, or a shape something downstream depends on |
+
+If unsure, ask whether anyone will need one part of this secret without the rest. If yes,
+Key/value. If the structure is deeper than one level, JSON.
+
+## Secret Type
+
+Above the format tabs, **Type** classifies the secret — **Generic** by default. Select it to
+choose a more specific type where one applies. The type affects how the item is presented and
+how other Akeyless components interpret it.
+
+## Maximum Versions
+
+How many historical versions the vault keeps, defaulting to **100**. Each save creates a
+version; lowering the limit discards the oldest beyond the new value.
+
+## Changing format later
+
+<Callout icon="⚠️" theme="warn">
+  Switching an existing secret between formats **rewrites the value**. Copy anything you need
+  before changing it.
+</Callout>
+
+## Related
+
+- [Creating New Secret](https://docs.akeyless.io/docs/creating-new-secret)
+- [Item Types Reference](https://docs.akeyless.io/docs/web-extension-item-types)
+- [Viewing an Item](https://docs.akeyless.io/docs/web-extension-viewing-items)

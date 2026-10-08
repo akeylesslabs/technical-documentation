@@ -1,88 +1,47 @@
 ---
 title: Passkey
-excerpt: Web Extension
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-## Passkey Management Overview
+With `Passkey Management` enabled, the extension acts as your WebAuthn authenticator and stores passkeys in your Akeyless vault — so they are available on every machine where you sign in, not stored on one device only.
 
-This documentation provides an overview of the Passkey management system, including how to view passkey details, use a passkey for login, and create a new passkey. The instructions below describe the key functionalities and flow for managing passkeys.
+Turn it on in **Settings** → `Passkey Management`. It is off by default.
 
-## Viewing Passkey Details
+## Registering a passkey
 
-The Passkey Details section allows users to view information about their saved passkeys.
+When a site offers to create a passkey, the extension intercepts the WebAuthn call and stores the credential in your vault as a **passkey item**.
 
-### Fields Displayed
+## Signing in with a passkey
 
-* Passkey Name: The label or identifier for the passkey.
-* Username/Email: The email or username used when the passkey was created.
-* Creation Date: The date when the passkey was created.
-* Related Website: The website the passkey is linked to for login.
-* Option to Delete Passkey: Allows users to remove the passkey from the system.
+On a return visit, the extension supplies the passkey. Passkeys are matched to the site by its relying-party domain.
 
-## Using a Passkey for Login
+## Where passkeys live
 
-The following steps guide users on how to log in using an existing passkey for a supported website:
+<Callout icon="⚠️" theme="warn">
+  **Passkeys are stored in the personal folder only** — never in team or corporate vaults.
+</Callout>
 
-### Steps
+This means passkeys are invisible if the personal vault is hidden for your session. See [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies).
 
-* Navigate to a Passkey-supported website:
-    * Example: Adobe Account Security
-* Attempt to Sign In:
-    * Try logging in to the website.
-* If a passkey exists for the website:
-    * A list of available passkeys will be shown.
-    * Users can select the relevant passkey to sign in.
+## Finding your passkeys
 
-### Example Flow
+Passkeys appear in your item lists with their own icon, and under the ***Passkey*** type in the filter panel.
 
-* Go to the website → Try to sign in → If passkey exists → Show available passkeys.
+Opening one shows the relying party, the user handle, the creation date and the protection key.
 
-## Creating a New Passkey
+## Security Health
 
-Users can create a new passkey for a supported website. Follow the steps below to generate and save a passkey within the system.
+Passkeys are counted in the **Passkeys** metric. The count is reported but does not change your protection score.
 
-### Steps
+## When the toggle is missing
 
-* Navigate to the Passkey creation page on a supported website:
-    * Example: Adobe Account Security
-* Click on "Add Passkey".
-* Authenticate:
-    * If logged in to the website (For example, Adobe), proceed with passkey creation.
-    * If not logged in, authenticate first.
-* Passkey Status:
-    * If the passkey already exists for the website, the user will be given the option to update or create a new passkey.
-    * If no passkey exists, a new passkey will be created.
-* Save the Passkey:
-    * If saving the passkey is successful, a Success Message will be shown.
-    * If there is an error during the process, an Error Message will be displayed.
+Two policies can remove passkey support:
 
-#### Example Flow
+| Policy | Effect |
+|---|---|
+| Account setting `allow_passkeys` disabled | Passkey management is unavailable |
+| Organization suppresses passkeys (DBK tenants) | Passkeys are hidden from lists, filters and Settings entirely |
 
-* Navigate to the website → Click on "Add Passkey" → Authenticate (if needed) → Check passkey existence → Create or update passkey → Save passkey → Success/Error message.
+## Related
 
-## Error and Success Messages
-
-* Error Message: Shown when the passkey creation or update process fails.
-* Success Message: Displayed when the passkey is successfully created or updated.
-
-## Toggling Passkey Authentication in the Web Extension
-
-Users can enable or disable Passkey Authentication directly through the web extension. This allows them to control when the extension uses passkeys for login.
-
-Steps:
-
-1. Open the web extension.
-2. Click on the three-dot menu in the upper-right corner of the extension.
-3. Locate the Passkey Authentication Toggle option.
-4. Use the toggle button to enable or disable Passkey Authentication:
-5. When enabled, the extension will use passkeys for supported logins.
-6. When disabled, passkey functionality will be turned off.
-
-* Note: Disabling Passkey Authentication does not delete saved passkeys but prevents them from being used until re-enabled.
+- [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings)
+- [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies)
+- [Security Health in the Extension](https://docs.akeyless.io/docs/web-extension-security-health)

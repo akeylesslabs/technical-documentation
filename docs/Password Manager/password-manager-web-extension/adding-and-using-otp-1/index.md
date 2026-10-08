@@ -1,28 +1,37 @@
 ---
 title: Adding and Using One-Time Passwords
-slug: adding-and-using-otp-1
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-Locate the Password: Navigate to the corporate or personal area where the desired password is stored.
+A password item can carry an OTP authenticator, so the extension generates your six-digit codes alongside the password.
 
-Open Options Menu: Click the three dots button next to the password entry to open the options menu.
+## Adding an authenticator
 
-![Illustration for: Locate the Password: Navigate to the corporate or personal area where the desired password is stored. Open Options Menu: Click the three dots button next to the password entry…](https://files.readme.io/ba937b7-Screenshot_2024-06-16_at_11.01.45.png)
+Open the create or edit overlay for a password item and find the **Authenticator (OTP)** section. There are two ways to add one:
 
-Prepare OTP for Scanning: Ensure that the OTP (One-Time Password) code is visible on the screen in a scannable format.
+| Method | How |
+|---|---|
+| **Scan from the page** | Select **Scan otpauth QR from the current website tab**. The extension looks for a visible QR code on the page you have open and reads the `otpauth://` URI from it. |
+| **Paste the secret** | See [Adding Manual OTP](https://docs.akeyless.io/docs/adding-manual-otp). |
 
-Scan OTP: Select the "Scan OTP" option from the menu.
+Give the authenticator a label, such as *GitHub*, so you can tell it apart.
 
-Verify Addition: The OTP code will be added as a custom field to the selected password entry.
+### When scanning is unavailable
 
-Access OTP Code: You can view the OTP code by clicking the eye icon next to the custom field.
+QR scanning reads the page you currently have open. It does not work on browser-internal pages — `chrome://`, `edge://` or extension pages. Open the site's own two-factor setup page first.
 
-![Illustration for: Verify Addition: The OTP code will be added as a custom field to the selected password entry. Access OTP Code: You can view the OTP code by clicking the eye icon next to the…](https://files.readme.io/f962648-Screenshot_2024-06-16_at_11.08.08.png)
+## Using a code
+
+| Where | How |
+|---|---|
+| **Item preview** | The current code is shown with a copy control |
+| **In-page popup** | Select the Akeyless icon in the OTP field and choose the credential — the code is filled for you |
+| [Launch](https://docs.akeyless.io/docs/web-extension-launch) | Codes are filled automatically as part of the sign-in flow |
+
+## Security Health
+
+Items carrying an authenticator are counted in the **OTP** metric on the Security Health screen. The count is reported but does not change your protection score.
+
+## Related
+
+- [Adding Manual OTP](https://docs.akeyless.io/docs/adding-manual-otp)
+- [Creating New Password](https://docs.akeyless.io/docs/creating-new-password-1)
+- [Security Health in the Extension](https://docs.akeyless.io/docs/web-extension-security-health)

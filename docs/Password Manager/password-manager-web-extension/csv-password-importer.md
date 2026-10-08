@@ -1,50 +1,104 @@
 ---
-title: CSV Password Importer
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
+title: Importing from Another Password Manager
 ---
-The "CSV Password Import" feature allows users to seamlessly import passwords from a CSV file directly through the web extension. This feature supports a straightforward import process, enabling users to efficiently upload password data either to personal or corporate areas within the Password Manager.
+Bring your credentials across from another password manager or browser. Ten sources are
+supported, each with its own export instructions built into the extension.
 
-## How to Use the CSV Password Import Feature
+Open **Settings** → **Import Passwords**.
 
-Step 1: Access the Web Extension Settings
+![The import source list](https://files.readme.io/d722ecea95425835e705b6cd8bd779868409dd1fe7028013c8b21d4ae788b481-import-vendor-list.png)
+*Choose the password manager you are moving from*
 
-* Open the web extension from your browser toolbar.
-* Navigate to the 'Settings' option within the extension menu.
+Select a source to see its step-by-step export guide, then upload the CSV it produces.
 
-![Illustration for: Step 1: Access the Web Extension Settings Open the web extension from your browser toolbar. Navigate to the 'Settings' option within the extension menu.](https://files.readme.io/522836b-Screenshot_2024-07-01_at_16.09.35.png)
+---
 
-Step 2: Initiate the Import Process
+## Supported sources
 
-* In the Settings menu, locate and click on the "Import from CSV" button to start the import procedure.
+| Source | How to export |
+|---|---|
+| **1Password** | Desktop app → **Export**; instructions at [1Password Support](https://support.1password.com) |
+| **LastPass** | [the LastPass vault](https://lastpass.com/vault) → **Advanced Options** → **Export** → confirm by email → re-enter your password |
+| **Bitwarden** | **Vault** → **Tools** → **Export vault**; instructions at [Bitwarden Help](https://bitwarden.com/help) |
+| **Dashlane** | Desktop app → **My Account** → **Export data**; instructions at [Dashlane Support](https://support.dashlane.com) |
+| **Keeper** | **Vault** → **Export**; instructions at [Keeper Documentation](https://docs.keeper.io) |
+| **Google** | `passwords.google.com` → gear icon → **Export** |
+| **Microsoft Edge** | `edge://settings/passwords` → **Saved passwords** → **⋯** → **Export passwords** |
+| **Apple** | iPhone and Mac instructions at [Apple Support](https://support.apple.com) |
+| **KeePass** | **File** → **Export** → **CSV File…** (UTF-8 recommended) |
+| **Generic CSV** | Any CSV with the columns below |
 
-Step 3: Define CSV File Format
+---
 
-* Ensure your CSV file is prepared according to the required format. The standard format should include columns such as 'Account Name', 'Username', 'Password', and other necessary details.
+## Generic CSV format
 
-Step 4: Select the CSV File
+Columns: `name`, `url`, `username`, `password`, `description` (also accepted as `note` or `notes`).
 
-* Click on the file selection button to browse and choose the desired CSV file from your local storage.
+| Behavior | Detail |
+|---|---|
+| **Column order** | Any — headers are detected automatically |
+| **Delimiter** | Detected automatically (comma, semicolon, tab) |
+| **Encoding** | UTF-8 preferred; common Western European (Latin) encodings also decode |
+| **Extra columns** | Ignored rather than rejected |
 
-Step 5: Choose Import Location
+### KeePass default columns
 
-* Select where the passwords will be imported: choose either the 'Personal' or 'Corporate' areas within the Password Manager.
+A default KeePass export produces `Account`, `Login Name`, `Password`, `Web Site`, `Comments`.
+These are recognized without renaming anything.
 
-Step 6: Create a Dedicated Folder
+---
 
-* Specify if you wish to create a dedicated folder within the target location by entering a folder name in the 'Target Folder Field'.
+## What happens on import
 
-![Illustration for: Step 6: Create a Dedicated Folder Specify if you wish to create a dedicated folder within the target location by entering a folder name in the 'Target Folder Field'.](https://files.readme.io/8898628-Screenshot_2024-06-04_at_14.52.18.png)
+Each row becomes a **password item**:
 
-Step 7: Submit the Import
+| CSV column | Becomes |
+|---|---|
+| `name` | The item name |
+| `username` | The username |
+| `password` | The password |
+| `url` | A website URL, which drives autofill matching and Launch |
+| `description` / `note` | The item description |
 
-* Once all settings are configured and the file is ready, click the 'Submit' button to finalize the import process.
+Imported items land in the area and folder you choose during the import.
 
-![Illustration for: Specify if you wish to create a dedicated folder within the target location by entering a folder name in the 'Target Folder Field'. Step 7: Submit the Import Once all…](https://files.readme.io/97988b1-Screenshot_2024-06-04_at_14.52.11.png)
+## The import summary
+
+When the upload finishes, a summary reports how many rows were imported and how many were
+skipped, so no row is dropped without a record.
+
+Rows are usually skipped because they are missing a required field, or because the file could
+not be decoded — see below.
+
+---
+
+## Afterwards
+
+<Callout icon="⚠️" theme="warn">
+  **Delete the exported CSV.** It contains every password you just imported, in plain text,
+  sitting in your `Downloads` folder. Empty your `Trash` folder too.
+</Callout>
+
+Then:
+
+1. Open [Security Health](https://docs.akeyless.io/docs/web-extension-security-health) and run a scan — an import is the
+   most likely moment to discover reused and breached passwords.
+2. Check the imported items have **website URLs**, since autofill matches on them.
+3. Delete the credentials from the old manager once you have confirmed the import.
+
+---
+
+## Troubleshooting
+
+| Problem | Cause |
+|---|---|
+| Rows skipped | Missing name or password, or an unreadable encoding — re-export as UTF-8 |
+| Accented characters mangled | The export used a non-UTF-8 encoding; re-export choosing UTF-8 |
+| Nothing imported | The file is not a CSV, or has no recognizable header row |
+| Autofill does not offer imported items | The rows had no `url` column — edit the items to add website URLs |
+
+## Related
+
+- [Creating New Password](https://docs.akeyless.io/docs/creating-new-password-1)
+- [Security Health in the Extension](https://docs.akeyless.io/docs/web-extension-security-health)
+- [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings)

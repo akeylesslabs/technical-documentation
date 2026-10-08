@@ -1,37 +1,36 @@
 ---
 title: Setting Password Policy On Account Level
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-## Accessing Secret Generation Policy
+Password policy is configured once at the account level, in the Akeyless console, and the extension applies it everywhere a password is entered or generated.
 
-![Illustration for: Accessing Secret Generation Policy](https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png)
+## What the policy controls
 
-Open the Akeyless browser extension.
+- Minimum length
+- Required character classes — uppercase, lowercase, digits, symbols
+- Any additional constraints your account defines
 
-Navigate to the "Settings" menu on the bottom represented as 3 dots on the upper top part of the screen.
+## Where the extension applies it
 
-Locate and click on "Password Generation Policy" in the displayed, click on this option.
+| Surface | Behavior |
+|---|---|
+| **Create / edit password overlay** | The strength meter reports against the policy; a password that fails cannot be saved |
+| **Password generator** | Generates only passwords that satisfy the policy |
+| **Passphrase mode** | Generates passphrases that satisfy the policy, rather than re-rolling until one passes |
+| **In-page suggestion popup** | Generated passwords on signup and password-change forms follow the policy |
 
-A Password Generation Policy screen will appear, providing options to configure the secret generation policy.
+## Related account settings
 
-## Define the Following Parameters
+Three other account settings shape the create and edit overlays:
 
-**Character Length**: Set the desired default length for secrets created within your account.
+| Setting | Effect |
+|---|---|
+| `Default maximum versions` | Pre-fills `Maximum Versions`, and sets the allowed range |
+| `Default protection key` | Preselects the `Protection Key`; when configured as exclusive, the picker is locked |
+| `Protect items by default` | New items are created with `Delete protection` on |
 
-**Include Uppercase Letters (A-Z):** Check this box to require at least one uppercase letter in the secret. If solely selected, the secret will consist exclusively of uppercase letters.
+See [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies) for the full list.
 
-**Include Lowercase Letters (a-z):** Check this box to ensure at least one lowercase letter is included in the secret. If solely selected, the secret will consist exclusively of lowercase letters.
+## Related
 
-**Include Numbers (0-9):** Check this box to mandate at least one numeric character in the secret. If solely selected, the secret will consist exclusively of numeric characters.
-
-**Include Special Characters (!@#):** Check this box to ensure at least one special character is included in the secret. If solely selected, the secret will consist exclusively of special characters.
-
-By configuring these settings, you establish a standardized default for secret generation in your organization's account. Users can still modify parameters during secret creation, but the defaults will adhere to the rules you've set.
+- [Password Generator & Strength](https://docs.akeyless.io/docs/web-extension-password-generator)
+- [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies)

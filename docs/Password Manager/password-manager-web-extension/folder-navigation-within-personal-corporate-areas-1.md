@@ -1,27 +1,36 @@
 ---
 title: Folder Navigation within Personal & Corporate Areas
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-## Navigating Within the Folder Hierarchy
+Items are organized into folders inside both the Personal and Corporate areas.
 
-The Akeyless Password Manager web browser extension allows you to organize your passwords and secrets into folders. This can be a helpful way to keep your passwords and secrets organized and easy to find.
+## Moving through the tree
 
-![Illustration for: The Akeyless Password Manager web browser extension allows you to organize your passwords and secrets into folders. This can be a helpful way to keep your passwords and secrets…](https://files.readme.io/b0ea2f8-Screenshot_2024-01-10_at_16.49.31.png)
+- Select a folder row to open it.
+- The **breadcrumb trail** at the top of the list shows where you are. Select any step to jump back to that level.
+- Folders are listed before individual items, both sorted A–Z.
 
-To navigate within the folder hierarchy, you can use the following methods:
+## Folder rows
 
-## Using the Folder Tree
+Each folder row shows its name, its path (`root` for top level) and a **Personal** or **Corporate** badge.
 
-The folder tree is located on the left side of the Personal and Corporate Areas. The folder tree displays a list of all of your folders. To open a folder, simply click on the folder name.
+Folders can be favorited like any other item — select the star to add the whole folder to **Favorites**.
 
-## Using the Back Arrow
+## Choosing a folder when creating or moving
 
-The back arrow is located in the top left corner of the Personal and Corporate Areas. The back arrow allows you to go back to the previous folder in the folder hierarchy.
+When you create an item, or copy or move an existing one, a folder browser opens with:
+
+- **Search folders…** to filter by name
+- a **Back to parent folder** control
+- the full tree, so you can descend to the destination
+
+The same browser is used for the **Copy to** destination.
+
+## Empty folders
+
+An empty folder shows an illustration rather than a blank list, so you can tell it apart from a list that is still loading.
+
+## Related
+
+- [Personal, Corporate & Favorites Navigation](https://docs.akeyless.io/docs/personal-corporate-favorites-areas-navigation)
+- [Password / Secrets List: Switching Between Folders & Flat View](https://docs.akeyless.io/docs/password-list-switching-between-folders-flat-view-1)
+- [Creating New Password](https://docs.akeyless.io/docs/creating-new-password-1)

@@ -1,51 +1,70 @@
 ---
 title: Deleting Password / Secret
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-There are two ways to delete passwords and secrets using the Akeyless Password Manager web browser extension:
+Deleting is reversible. Items go to the Recycle Bin rather than being destroyed, and stay
+there until you purge them.
 
-## Method 1: Using the Quick Action Menu
+## Deleting one item
 
-![Illustration for: Method 1: Using the Quick Action Menu](https://files.readme.io/62cf452-Screenshot_2024-01-10_at_16.46.49.png)
+1. Open the item's **More Options** (⋯) menu, from its row or from the item preview.
+2. Choose **Delete**.
+3. Confirm with **Move to Recycle Bin**.
 
-Hover over the password or secret you want to delete in the password or secrets list.
+The item disappears from the normal lists and appears in the
+[Recycle Bin](https://docs.akeyless.io/docs/web-extension-recycle-bin).
 
-A small menu will appear.
+## Deleting several
 
-Click on the three dots icon to open the quick action menu.
+Select **Select** in the header, tick the items, then choose **Delete** — see
+[Selecting Multiple Items](https://docs.akeyless.io/docs/web-extension-multi-select).
 
-Select the "Delete" option.
+## Delete protection
 
-A pop-up window will appear asking you to confirm that you want to delete the password or secret.
+<Callout icon="⚠️" theme="warn">
+  Items with delete protection **cannot be deleted at all**. They show a lock badge and never
+  reach the Recycle Bin.
+</Callout>
 
-Click on the "Delete" button.
+To delete one:
 
-The password or secret will be deleted.
+1. Edit the item.
+2. Turn `Delete protection` off.
+3. Save.
+4. Delete.
 
-![Illustration for: A pop-up window will appear asking you to confirm that you want to delete the password or secret. Click on the "Delete" button. The password or secret will be deleted.](https://files.readme.io/cc914f5-Screenshot_2024-01-10_at_16.47.07.png)
+Your account may create every new item with delete protection on. See
+[Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies).
 
-## Method 2: Using the Delete Action Button
+## Folders
 
-Open the password or secret item you want to delete.
+Deleting a folder takes everything inside it. Restoring the folder brings its contents back
+together with it, in their original structure.
 
-Scroll down to the bottom of the page.
+## What deletion affects
 
-Click on the "Delete" button.
+| Effect | Detail |
+|---|---|
+| Lists | The item leaves Personal, Corporate and search results |
+| Favorites | The star is removed. Restoring does not re-add it |
+| Autofill | The credential stops being offered on websites |
+| Security Health | The item drops out of the metrics |
+| Shared links | Existing share links stop resolving |
 
-A pop-up window will appear asking you to confirm that you want to delete the password or secret.
+## Permanent deletion
 
-Click on the "Delete" button.
+Permanent removal happens only inside the Recycle Bin:
 
-The password or secret will be deleted.
+| Control | Effect |
+|---|---|
+| **Delete Forever** | Removes one item permanently |
+| **Empty Recycle Bin** | Removes everything permanently |
 
-## Additional Note
+<Callout icon="⚠️" theme="warn">
+  Permanent deletion cannot be undone, and the extension cannot recover a purged item. If you
+  are unsure, leave it in the Recycle Bin — nothing forces you to empty it.
+</Callout>
 
-Once a password or secret is deleted, it cannot be recovered.
+## Permissions
+
+**Delete** appears only on items you have delete permission for. On a Corporate item without
+that permission the action is absent — this is a vault permission, not an extension setting.

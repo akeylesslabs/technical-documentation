@@ -1,92 +1,62 @@
 ---
 title: Creating New Password
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-## Step 1: Launch the Akeyless Web Extension
+Select the blue **+** in the header and choose what to create.
 
-1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar.
-2. Click on the Akeyless Web Extension icon to launch the extension.
+![The create menu](https://files.readme.io/71524d6baca1ca29089f21534f798294c773d64b6f1d3b81bd151f2268989dc6-create-menu-corporate.png)
+*The create menu. Corporate offers three types; Personal adds New File Item*
 
-![Illustration for: Step 1: Launch the Akeyless Web Extension 1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar. 2. Click on the Akeyless Web Extension icon…](https://files.readme.io/33368d1-Screenshot_2023-11-14_at_19.10.15.png)
+---
 
-## Step 2: Access the Password Creation Form
+## New Password Item
 
-![Illustration for: Step 2: Access the Password Creation Form](https://files.readme.io/9d80c86-Screenshot_2024-02-22_at_14.22.38.png)
+![The New Password overlay](https://files.readme.io/657113041fe938f989c79f20af69484e95deda9fd211b06c287e03d0bf54f039-new-password-overlay.png)
+*General, Location and the Personal / Corporate switch*
 
-Click on the "New Item" button. This will open the Akeyless Password Creation form.
 
-Enter a name for the password in the "Password Name" field.
+`General` — `Name`, `Username`, and one or more `Website URLs` (`https://www.example.com`).
+Select **Add URL** for additional addresses. These URLs drive autofill matching and the
+[Launch](https://docs.akeyless.io/docs/web-extension-launch) button.
 
-Optionally, enter a description for the password in the "Description" field.
+`Location` — switch between **Personal** and **Corporate**, then pick the destination folder
+with **Select**. Optionally set a `Description` and `Maximum Versions` (default 100).
 
-Optionally, Click on the "Generate Password" button. This will generate a strong and secure password or you can enter the password manually.
+`Password` — type one or generate it. See [Password Generator & Strength](https://docs.akeyless.io/docs/web-extension-password-generator).
 
-## Step 3: Define Password Name and Location
+`Metadata` — `Protection Key` (fixed if your account enforces an exclusive default key),
+`Tags`, and `Delete protection`.
 
-In the "Password Name" field, enter a unique and easily recognizable name for the password.
+`Custom Fields` — select **Add Field** for each key/value pair.
 
-Optionally, you can specify the "Password Location" using the drop-down menu. to choose between "Corporate" and "Personal" areas to store the password.
+`Authenticator (OTP)` — paste a Base32 secret, or use **Scan otpauth QR from the current
+website tab** to read a QR code from the page you have open. Give it a label such as *GitHub*.
 
-If you want to store the password in a folder, you can create a new folder by providing the name in the location field.
+---
 
-![Illustration for: Optionally, you can specify the "Password Location" using the drop-down menu. to choose between "Corporate" and "Personal" areas to store the password. If you want to store the…](https://files.readme.io/d75a38d-Screenshot_2024-02-22_at_14.22.54.png)
+## New Secret Item
 
-## Step 4: Enhance Security and Add Context
+![The New Secret overlay](https://files.readme.io/cfbbfbe5bfcb6053707eba0ee75ae77e41909e70a22e0d64036a43a4c6f4b123-new-secret-overlay.png)
+*Text, Key/value and JSON formats, with a secret type and maximum versions*
 
-In the "Description" field, you can optionally provide additional details about the password, such as the associated website, service, or application.
 
-To safeguard the password from accidental or unauthorized deletion, select the "Delete Protection" checkbox.
+A static secret with a free-form value, plus the same `Location`, `Metadata`, `Description` and
+`Maximum Versions` fields. Values may be plain text or structured key/value.
 
-## Step 5: Generate and Save the Password
+## New File Item
 
-Click on the "Generate Password" button.
+Uploads a file into the vault. Files count against your account's file storage quota,
+shown in [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings).
 
-The Akeyless Web Extension will generate a strong and secure password according to your predefined preferences.
+## New Folder
 
-Once satisfied, click on the "Save" button.
+![The New Folder overlay](https://files.readme.io/14a60ae4d1032eaf4029b9d9287303c52fe334be0d3483268682c8a2a02a9088-new-folder-overlay.png)
+*Location, description, delete protection and tags*
 
-The Akeyless Web Extension will securely store the password and automatically fill it into the password field.
 
-## Step 6: Access Saved Passwords
+Creates a folder at the location you choose, in Personal or Corporate.
 
-To access saved passwords, click on the Akeyless Web Extension icon in your browser's toolbar.
+## Related
 
-The Akeyless Web Extension Password Manager will open, displaying a list of your saved passwords.
-
-Click on the desired password to view its details or copy it to your clipboard.
-
-## Password Strength Policy
-
-The "Password Strength Policy" feature is like the guardian at the gate, ensuring that users' passwords meet the organization's security standards.
-
-![Illustration for: Password Strength Policy The "Password Strength Policy" feature is like the guardian at the gate, ensuring that users' passwords meet the organization's security standards.](https://files.readme.io/91fa4a2-Screenshot_2024-04-11_at_14.21.32.png)
-
-Users can customize their password strength policies, but, they can't go below the minimum standards set by the organization.
-
-Password Strength Policy indicator will ensure that while allowing users to set their password strength, they will only be able to set a password that is stronger than the policy set by the company.
-
-Password Strength Evaluation Criteria:
-
-### Green: Strong Password
-
-Password length is at the minimum or more of the length defined by the organization
-
-Meets at least 3 of the other 4 criteria (uppercase, lowercase, numbers, special characters)
-
-### Yellow: Medium Password
-
-Password length is lower than the length defined by the organization
-
-Meets at least 2 of the other 4 criteria (uppercase, lowercase, numbers, special characters)
-
-### Red: Weak Password
-
-Fails to meet the criteria for either green or yellow
+- [Password Generator & Strength](https://docs.akeyless.io/docs/web-extension-password-generator)
+- [Creating New Secret](https://docs.akeyless.io/docs/creating-new-secret)
+- [Adding and Using One-Time Passwords](https://docs.akeyless.io/docs/adding-and-using-otp-1)

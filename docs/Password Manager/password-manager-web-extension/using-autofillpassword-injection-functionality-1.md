@@ -1,27 +1,37 @@
 ---
-title: Using Autofill/Password Injection Functionality
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
+title: Using Autofill / Password Injection
 ---
-Password AutoFill is a feature of many web browsers that allows you to automatically fill in your login credentials for websites.
+With `Autofill` enabled in **Settings**, the extension offers your vault credentials directly on the pages where you need them.
 
-![Illustration for: Password AutoFill is a feature of many web browsers that allows you to automatically fill in your login credentials for websites.](https://files.readme.io/e491682-Screenshot_2024-01-10_at_16.55.04.png)
+## The suggestion popup
 
-How to Use Password AutoFill
+Select a username, email, password or OTP field and a small Akeyless icon appears inside it. Select the icon to open a popup listing the vault credentials whose `Website URLs` match the current domain.
 
-Go to the website where you want to log in.
+Choose one and the extension fills the form.
 
-Enter your email address or username into the appropriate field.
+## What the popup can do
 
-Click on the password field.
+| Action | Where it appears |
+|---|---|
+| **Fill a credential** | Any matching login form |
+| **Generate a strong password** | Signup and password-change forms |
+| **Fill a one-time code** | When the item has an OTP authenticator configured |
+| Launch | Opens the site and signs in — see [Launch](https://docs.akeyless.io/docs/web-extension-launch) |
 
-If your browser has saved your credentials for this website, it will automatically fill in your password for you.
+## Matching
 
-If your browser has not saved your credentials for this website, you will be prompted to save it.
+Credentials are matched to the page by domain, using the `Website URLs` on the item. If a credential does not appear, confirm the item has a URL for that site.
+
+## Decoy fields
+
+Some sites plant hidden fields to catch automated form fillers. The extension detects and skips them, so your credentials are not written into a trap field.
+
+## Turning it off
+
+Autofill follows your account's default on first sign-in. Changing the toggle in **Settings** overrides the account default from then on, on that browser.
+
+## Related
+
+- [Launch: Open a Site Already Signed In](https://docs.akeyless.io/docs/web-extension-launch)
+- [Prompt to Save Password](https://docs.akeyless.io/docs/web-extension-save-prompt)
+- [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings)

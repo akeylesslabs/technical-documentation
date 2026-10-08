@@ -1,29 +1,34 @@
 ---
 title: Sharing Password / Secret
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-## Sharing a Password with the Quick Action Menu
+Share an item with someone by generating a time-limited link.
 
-![Illustration for: Sharing a Password with the Quick Action Menu](https://files.readme.io/264d287-Screenshot_2024-01-10_at_16.44.54.png)
+## Creating a share link
 
-1. Hover over the password or secret you want to share in the password or secrets list. A small menu will appear.
+1. Open the item's **More Options** (⋯) menu and choose **Share**.
+2. Set **Share link validity**: **1 Hour**, **1 Day**, **7 Days**, **14 Days** or **30 Days**.
+3. Optionally tick **One time view** so the link stops working after a single view.
+4. Enter one or more email addresses under **Share with**. Separate multiple addresses with semicolons.
+5. Generate the link.
+6. Copy the **Sharing URL** using the **Copy** control.
 
-2. Click on the "Share" option. A share window will appear.
+<Callout icon="⚠️" theme="warn">
+  **The link is shown only once.** Once you close the share screen you cannot view it again. Copy it before closing. If you lose it, generate a new one.
+</Callout>
 
-3. Enter the email address of the person you want to share the password or secret with.
+## Managing recipients
 
-4. Select for how long the sharing link will be valid.
+**Shared With** lists the addresses the item has been shared with, each with the date and a **Remove** control.
 
-5. Click on the "Get Link to Share" button. The link to share will be copied to your clipboard.
+## Restrictions
 
-You can then paste the link into an email or other message to send to the person you want to share the password or secret with.
+Your organization may restrict which email domains can receive shares. A disallowed address is reported as a validation error — this is a policy decision, not a failure, so check with your administrator rather than retrying.
 
-![Illustration for: 5. Click on the "Get Link to Share" button. The link to share will be copied to your clipboard. You can then paste the link into an email or other message to send to the person…](https://files.readme.io/8101e3f-Screenshot_2024-01-10_at_16.46.00.png)
+## What the recipient gets
+
+The recipient opens the link in a browser and sees the shared value. They do not need an Akeyless account, and they do not gain access to anything else in your vault.
+
+## Related
+
+- [Viewing an Item](https://docs.akeyless.io/docs/web-extension-viewing-items)
+- [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies)

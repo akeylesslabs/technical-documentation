@@ -1,40 +1,55 @@
 ---
 title: Searching for Passwords and Secrets
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
 ---
-The Akeyless Password Manager web browser extension enhances its functionality with an advanced multi-field search capability, designed to streamline your search process and ensure you find the passwords and secrets you need with ease. This powerful feature allows you to simultaneously search across multiple criteria, significantly broadening your search scope and improving the chances of locating the exact information you require.
+Every area has its own search box at the top of the list:
 
-![Illustration for: The Akeyless Password Manager web browser extension enhances its functionality with an advanced multi-field search capability, designed to streamline your search process and…](https://files.readme.io/6f615f8-Screenshot_2024-04-11_at_14.12.10.png)
+| Area | Placeholder |
+|---|---|
+| Personal Secrets | `Search in personal secrets` |
+| Corporate Secrets | `Search in corporate secrets` |
+| Favorites | `Search in favorites secrets` |
+| Recycle Bin | `Search in recycle bin secrets` |
 
-Password Name: Directly look up the name you've assigned to your password or secret, ensuring you can quickly find credentials without remembering their associated details.
+## How search works
 
-Location (Paths): Navigate through the hierarchy of your saved passwords and secrets by specifying their storage path, making it easier to manage credentials stored in different folders.
+Search in the **Personal** and **Corporate** areas runs against the vault, not just the items
+already loaded on screen. That means it finds items anywhere in the area, including in folders
+you have never opened.
 
-Username: If you're looking for a password or secret associated with a specific username, this search criterion can narrow down your results to the most relevant entries.
+Your keystrokes are debounced, so the extension waits until you stop typing before querying —
+so one request is not sent per character.
 
-Website URL (Hover Feature): For an enhanced user experience, hovering over a search result will reveal the website URL associated with each password or secret, provided this information exists. This feature is especially useful when you need to differentiate between multiple accounts held on the same platform.
+Search in **Favorites** and the **Recycle Bin** filters the list already on screen.
 
-## Search Results Display
+## Scope
 
-When your search yields results, the Akeyless Password Manager web browser extension ensures that certain key fields are always visible to you:
+| Behavior | Detail |
+|---|---|
+| **Area-scoped** | Results come from the area you are in. Switch areas to search the other vault |
+| **Not folder-scoped** | Results span the whole area, not only the folder you have open |
+| **Combines with filters** | An active type or tag filter narrows the results — see [Using Filters & Tags](https://docs.akeyless.io/docs/using-filters-tags) |
+| **Cached per session** | Repeating a search is instant. The cache holds names and metadata only, never secret values, and is dropped when you sign out |
 
-* Password/Secret Name: This is always displayed, making it straightforward to identify the specific credential you're after.
-* Password/Secret Path: The path is also always shown, helping you understand where in your folder hierarchy the password or secret resides.
+## Working with results
 
-  Additionally, the username associated with each password or secret will be displayed by default. However, for a deeper insight, simply hover over an item to switch this display to the website URL, if such information is available. This dual-display functionality enriches your search experience by providing contextual information that can help you better manage your credentials.
+Result rows behave like any other row — open them, copy from them, launch them, or star them.
 
-## Using the Search Bar
+A result found by search can be added to Favorites directly; it does not need to be located in
+its folder first.
 
-To use this enhanced search functionality, follow these steps:
+## Clearing
 
-1. Click on the search bar located at the top of either the Personal or Corporate Area.
-2. Input the search term or criteria relevant to the passwords and secrets you wish to find. You can include password names, location paths, or usernames in your search.
-3. View the filtered results displayed in your chosen area, making it quicker and more efficient to access your desired passwords and secrets.
+Empty the box to return to the full list. Switching areas keeps your search term where it
+still applies, so you can check both vaults for the same credential without retyping.
+
+## If search finds nothing
+
+<Callout icon="ℹ️" theme="info">
+  Search matches item names. It does not look inside secret values, and it does not search
+  descriptions or custom field contents.
+</Callout>
+
+- Check whether a type or tag filter is still active — clear it with **Clear All Filters**.
+- Check you are in the right area. Personal and Corporate are separate vaults.
+- Items in the Recycle Bin are excluded from the normal areas. Search the Recycle Bin for a
+  deleted item — see [Recycle Bin](https://docs.akeyless.io/docs/web-extension-recycle-bin).

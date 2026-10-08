@@ -1,31 +1,51 @@
 ---
-title: Password / Secrets List Switching Between Folders & Flat View
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
+title: 'Password / Secrets List: Switching Between Folders & Flat View'
 ---
-## Switching Between Views in Personal and Corporate Areas
+## List and grid
 
-The Akeyless Password Manager web browser extension offers two viewing options for your passwords and secrets: the flat view and the folder view.
+The **view toggle** in the header — the grid icon — switches how the current area is drawn.
 
-## Flat View
+| View | Shows | Best for |
+|---|---|---|
+| **List** | One row per item: name, folder, scope badge, and row actions | Scanning names, reaching the ⋯ menu |
+| **Grid** | Compact cards | Seeing more items at once |
 
-The flat view displays all your passwords and secrets without any folder hierarchy. This can be useful if you have a small number of passwords and secrets or if you prefer to have a simple, uncluttered view.
+Your choice persists as you move between areas and folders.
 
-## Folder View
+## Sorting
 
-The folder view displays your passwords and secrets in a hierarchical structure, organized into folders. This can be helpful if you have a large number of passwords and secrets or if you want to keep your passwords and secrets organized according to their purpose or website.
+**Sort By: A–Z** orders the list alphabetically. Select the arrow beside it to reverse to Z–A.
 
-## Switching Between Views
+Folders always group ahead of individual items, in both directions.
 
-To switch between the flat and folder views, follow these steps:
+## Refreshing
 
-1. Navigate to the Flat View / Folder View icon located near the search field.
-2. Click on the Flat view option to reveal all passwords within the folders and show the flat view.
-3. Click on the Folder list to show the folder structure.
+Lists are cached so the extension opens instantly rather than waiting on the vault. Two
+controls keep you current:
+
+| Control | Effect |
+|---|---|
+| **Click to refresh** | Reloads the current area from the vault |
+| **Last refreshed** | Shows how old the list on screen is |
+
+<Callout icon="ℹ️" theme="info">
+  Refresh after someone else changes a shared item. The Corporate area will not show another
+  person's edit until the list is reloaded.
+</Callout>
+
+## Long lists
+
+Lists page in as you scroll rather than loading an entire vault at once, so a large Corporate
+area stays responsive.
+
+If you are looking for one specific item, searching is faster than scrolling — see
+[Searching for Passwords and Secrets](https://docs.akeyless.io/docs/using-search).
+
+## Row contents
+
+Each row carries, left to right: a type icon, the item name, its folder path, a **Personal**
+or **Corporate** badge, and the row actions — **Launch Website** where the item has a URL,
+**View Details**, and **More Options** (⋯).
+
+A **lock** badge marks a delete-protected item. See
+[Item Types Reference](https://docs.akeyless.io/docs/web-extension-item-types) for what each icon means.

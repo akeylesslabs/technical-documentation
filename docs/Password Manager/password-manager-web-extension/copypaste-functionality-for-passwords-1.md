@@ -1,26 +1,33 @@
 ---
-title: Copy/Paste Functionality for Passwords
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
+title: Copy/Paste & Secure Paste Mode
 ---
-Our Password Manager app includes a convenient copy/paste feature, allowing you to securely transfer passwords from the app to web forms.
+## Copying values
 
-## Copying the Password
+Open an item and use the copy control beside any field. **Copy All** copies a whole key/value set at once.
 
-1. Tap on the password field next to the desired password.
-2. Look for a 'Copy' icon or button.
-3. Tap this icon.
-4. The password will be copied to your device's clipboard.
+Values can also be revealed on screen using the eye control, so you can read a value you need to type elsewhere.
 
-## Pasting the Password into a Web Form
+## Secure paste mode
 
-1. Switch to the web browser or app where you need to enter the password.
-2. Tap on the password entry field.
-3. Select 'Paste' to insert the password from the clipboard.
+If your account enables secure paste, **reveal and copy of secret values are suppressed throughout the extension**:
+
+- the item preview shows no reveal or copy controls
+- the sign-in screen hides the show-password control
+- the in-page suggestion popup fills without revealing
+
+Values are delivered straight into the target field instead of passing through the clipboard, so a secret never sits somewhere another application can read it.
+
+## Why it exists
+
+The clipboard is readable by any application on the machine, and by any web page with clipboard permission. Secure paste removes that exposure for organizations that need it.
+
+## Who controls it
+
+This is an **account setting**, not a per-user toggle. There is nothing to turn on or off in extension Settings. If you need it enabled or disabled, contact your account administrator.
+
+See [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies).
+
+## Related
+
+- [Viewing an Item](https://docs.akeyless.io/docs/web-extension-viewing-items)
+- [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies)

@@ -1,42 +1,53 @@
 ---
-title: Adding Password To Favorites
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
+title: Adding Items To Favorites
 ---
-The Akeyless Web Extension offers a convenient feature allowing users to mark their frequently used secrets or passwords as favorites. This functionality enables quick access to your most important items. The following guide will walk you through the process of adding secrets or passwords to your favorites and managing them within the web extension.
+Favorites collects frequently used items in a single list, so they do not have to be located
+in Personal or Corporate each time.
 
-![Illustration for: The Akeyless Web Extension offers a convenient feature allowing users to mark their frequently used secrets or passwords as favorites. This functionality enables quick access…](https://files.readme.io/313aa73-Screenshot_2024-03-21_at_14.07.31.png)
+![Favorite items and folders](https://files.readme.io/0d9419e5d0cef73e2849b6366ee297552983cdc29219d4073deca43051da6632-favorites-screen.png)
+*Favorite items and folders*
 
-## Step 1: Locate the Secret or Password
+## Adding and removing
 
-* Open the Akeyless Web Extension by clicking on its icon in your browser's toolbar. This action will display your stored secrets and passwords.
-* Navigate through your list or use the search function to find the specific secret or password you want to add to your favorites.
+Select the star on any row to add it. Select it again to remove it. You can do this from the
+Personal area, the Corporate area, from search results, or from the Favorites list itself.
 
-## Step 2: Add to Favorites
+Favorites are **stored on the server with your account**, not in the browser. Sign in on
+another machine and your favorites are already there.
 
-* Once you have located the item you wish to favorite, hover over the secret or password entry in the list. A star icon will appear next to the item name.
-* Click on the star icon. This action marks the item as a favorite. You will notice that the star becomes filled, indicating that the item is now in your favorites list.
+## Folders can be favorited too
 
-## Step 3: Access Favorites
+Starring a folder adds the folder, not its contents. Opening it from Favorites drops you
+straight into that folder in its original vault, with its contents and breadcrumb intact.
 
-* To view your favorites, navigate to the Favorites tab within the Akeyless Web Extension. This tab consolidates all your favorite secrets and passwords in one place, allowing for quicker access.
-* In the Favorites tab, you can easily find and manage your most important items without sifting through the entire list of stored secrets and passwords.
+This is the faster option when you work in one folder repeatedly — star the folder rather
+than every item inside it.
 
-## Step 4: Remove from Favorites
+## What the list shows
 
-![Illustration for: Step 4: Remove from Favorites](https://files.readme.io/daa2c75-Screenshot_2024-03-21_at_14.08.18.png)
+| Column | Meaning |
+|---|---|
+| Name | The item or folder name |
+| Path | Where it lives, so two similarly named items stay distinguishable |
+| Badge | **Personal** or **Corporate** — which vault it came from |
 
-* If you decide to remove an item from your favorites, go to the Favorites tab and locate the item you wish to remove.
-* Hover over the item, and you will see the star icon appear again next to the item name. The star will be filled, indicating that it is currently a favorite.
-* Click on the filled star icon. This action removes the item from your favorites list. The star will become unfilled, confirming that the item is no longer marked as a favorite.
+Folders are grouped ahead of individual items.
 
-## Managing Favorites
+## Controls
 
-The favorites feature in the Akeyless Web Extension is designed to make your digital life more manageable and secure. By marking items as favorites, you ensure quick access to your most used secrets and passwords, enhancing your workflow and productivity. Remember, you can add or remove items from your favorites at any time, tailoring the list to meet your current needs and preferences.
+The Favorites area has the same header controls as the other areas:
+
+- *`Search in favorites secrets`*
+- **Filter** by type and tag — see [Using Filters & Tags](https://docs.akeyless.io/docs/using-filters-tags)
+- **Sort By A–Z**, with the arrow to reverse
+- **Click to refresh**
+
+## Favorites and permissions
+
+<Callout icon="ℹ️" theme="info">
+  A favorite is a reference, not a copy. If your access to a Corporate item is revoked, the
+  favorite stops resolving — the item was never duplicated into your personal vault.
+</Callout>
+
+Deleting an item removes it from Favorites as well. Restoring it from the
+[Recycle Bin](https://docs.akeyless.io/docs/web-extension-recycle-bin) does not automatically restore the star.

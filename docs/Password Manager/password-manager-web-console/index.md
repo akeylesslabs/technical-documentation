@@ -1,41 +1,68 @@
 ---
 title: Password Manager Web Console
-slug: password-manager-web-console
-excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
   robots: index
-next:
-  description: ''
 ---
-## As an Admin
+The web console is the full-screen home for your Akeyless vault. Everything the browser
+extension does, with more room: larger lists, table and card views, paginated browsing,
+multi-step creation flows, and a downloads page for the extension and desktop app.
 
-The Akeyless Password Manager Console provides a comprehensive overview of all user accounts, roles, and permissions within the organization. This centralized hub enables you to efficiently manage user access privileges, define granular permissions, and enforce security policies.
+![The Personal area in card view](https://files.readme.io/e03d69bfd64fad3ab66fd1aaea37bbda38e3971585408d961c903b3793a49d36-personal-cards-view.webp)
+*The Personal area — 356 items in card view*
 
-The console also offers powerful tools for auditing and monitoring user activity, ensuring that your organization's password management practices adhere to compliance requirements. Additionally, the console's intuitive interface facilitates seamless integration with third-party systems, such as CI/CD pipelines and IT service management (ITSM) platforms.
+## Opening the console
 
-Here are some of the key features of the Akeyless Password Manager Console for admins:
+| Tenant | Address |
+|---|---|
+| **Akeyless SaaS (default)** | [https://console-pwm.akeyless.io](https://console-pwm.akeyless.io) |
+| **Dedicated tenants** | Your own `console-pwm.*` address — your administrator will give it to you |
 
-* Centralized user management: Create, manage, and delete user accounts, assign roles and permissions, and enforce security policies.
-* Audit and monitoring: Track user activity, identify anomalies, and generate reports for compliance purposes.
-* Third-party integrations: Seamlessly integrate with CI/CD pipelines and ITSM platforms to automate password management workflows.
-* Role-Based Access Control (RBAC): Define granular permissions and assign roles to users based on their specific needs.
-* Security policies: Implement and enforce security policies, such as password rotation and multi-factor authentication (MFA).
+<Callout icon="ℹ️" theme="info">
+  **Not sure which one is yours?** Open the browser extension and select **Open Web Console**
+  — the icon below the vault tabs in the left rail. It works out the right console for your
+  tenant from the account you are signed in to, so you never have to guess the hostname.
+</Callout>
 
-## As a User
+Sign in with the same credentials you use for the extension. If the extension is installed and
+your organization uses a preconfigured install, you can sign in with one click — see below.
 
-The Akeyless Password Manager Console provides a convenient and secure way to store, manage, and access your passwords. The console's intuitive interface makes it easy to create, edit, and delete passwords, as well as organize them into folders and categories.
+### The downloads page
 
-The console also offers a variety of features to help you strengthen your password security, such as password generation, password rotation, and password sharing. Additionally, the console integrates with the Akeyless browser extension, allowing you to automatically inject saved passwords into websites with ease.
+[https://console-pwm.akeyless.io/artifacts](https://console-pwm.akeyless.io/artifacts) lists
+every build of the browser extension and the desktop app, with their release notes. It is
+reachable without signing in, and there is a link to it on the sign-in screen.
 
-Here are some of the key features of the Akeyless Password Manager Console for regular users:
+See [Downloads: Extension and Desktop App](https://docs.akeyless.io/docs/pwm-console-downloads).
 
-* Secure password storage: Encrypt and store your passwords in a secure vault.
-* Easy password management: Create, edit, and delete passwords with ease.
-* Password organization: Organize passwords into folders and categories.
-* Strong password generation: Generate strong, unique passwords for all your accounts.
-* Password sharing: Share passwords securely with authorized team members.
-* Browser extension integration: Automatically inject saved passwords into websites with the Akeyless browser extension.
+## Getting in
+
+- [Signing In Through the Browser Extension](https://docs.akeyless.io/docs/pwm-console-extension-sign-in)
+
+## The areas
+
+| Area | What it holds |
+|---|---|
+| **[Personal](https://docs.akeyless.io/docs/pwm-console-personal-area)** | Items only you can see, including passkeys and files |
+| **[Corporate](https://docs.akeyless.io/docs/pwm-console-corporate-area)** | Items shared across your organization |
+| **[Favorites](https://docs.akeyless.io/docs/pwm-console-favorites)** | Shortcuts to items and folders from either vault |
+| **[Security Health](https://docs.akeyless.io/docs/pwm-console-security-health)** | A score for your personal credentials |
+| **[Recycle Bin](https://docs.akeyless.io/docs/pwm-console-recycle-bin)** | Deleted items, restorable |
+| **[Settings](https://docs.akeyless.io/docs/pwm-console-settings)** | Account details, storage, theme, links |
+
+## Working with items
+
+- [Viewing Options: Cards, List, Sort, Filter and Pagination](https://docs.akeyless.io/docs/pwm-console-view-options)
+- [Creating Items](https://docs.akeyless.io/docs/pwm-console-creating-items)
+- [Editing, Sharing and Deleting Items](https://docs.akeyless.io/docs/pwm-console-editing-items)
+- [Importing from Another Password Manager](https://docs.akeyless.io/docs/pwm-console-import)
+
+## Downloads
+
+- [Downloads: Extension and Desktop App](https://docs.akeyless.io/docs/pwm-console-downloads)
+
+## Related
+
+- [Password Manager Web Extension](https://docs.akeyless.io/docs/password-manager-web-extension)
+- [Password Manager Web Console For Admins](https://docs.akeyless.io/docs/password-manager-web-console-for-admin)

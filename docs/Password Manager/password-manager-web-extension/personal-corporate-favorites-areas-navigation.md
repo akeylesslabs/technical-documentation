@@ -1,29 +1,50 @@
 ---
-title: Personal, Corporate & Favorites Areas Navigation
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
+title: Personal, Corporate & Favorites Navigation
 ---
-## Personal Area
+The left rail switches between areas. Hovering an icon names it.
 
-The Personal Area is designed for storing and managing passwords and secrets that are for your personal use. This could include passwords for your email, social media accounts, bank accounts, and other online services that you use personally.
+![Tooltip on a sidebar icon](https://files.readme.io/0fb2aa173deb536d0f3cbc01314eef65cabedc66c4ed1f716c31b0a55d47e9eb-sidebar-tooltip.png)
+*Each rail icon names its area on hover and on keyboard focus*
 
-The Personal Area is typically the default area where new passwords and secrets are saved. You can also manually add passwords and secrets to the Personal Area by clicking on the "Add New Password" or "Add New Secret" button.
+## The areas
 
-## Corporate Area
+| Icon | Area | What it holds |
+|---|---|---|
+| Person | **[Personal Secrets](https://docs.akeyless.io/docs/web-extension-personal-area)** | Items only you can see, including passkeys and files |
+| Building | **[Corporate Secrets](https://docs.akeyless.io/docs/web-extension-corporate-area)** | Items shared across your organization |
+| Star | **[Favorites](https://docs.akeyless.io/docs/adding-password-to-favorites-1)** | Shortcuts to items and folders from either vault |
+| Trash | **[Recycle Bin](https://docs.akeyless.io/docs/web-extension-recycle-bin)** | Deleted items, restorable |
+| Heart | **[Security Health](https://docs.akeyless.io/docs/web-extension-security-health)** | A score for your personal credentials |
 
-The Corporate Area is designed for storing and managing passwords and secrets that are for your work use. This could include passwords for your company's email, intranet, VPN, and other work-related applications.
+At the bottom of the rail:
 
-The Corporate Area is typically separate from the Personal Area to help you keep your work passwords and secrets separate from your personal passwords and secrets. This can help to improve security and prevent accidental sharing of passwords.
+| Icon | Does |
+|---|---|
+| Pin | [Dock the extension](https://docs.akeyless.io/docs/web-extension-side-panel) beside the page |
+| External link | Opens the Akeyless web console for your tenant |
+| Gear | [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings) |
 
-## Favorites Area
+## Tabs that are not there
 
-The Favorites Area is a place where you can store your most frequently used passwords and secrets. This can be a handy way to quickly access passwords for the websites and applications that you use most often.
+Areas are hidden when they do not apply to your account rather than shown and failing:
 
-You can add passwords and secrets to the Favorites Area by clicking on the star icon next to the password or secret in the Personal or Corporate Area.
+| Missing | Why |
+|---|---|
+| **Personal** | Password management disabled, personal folder hidden, or an API key sign-in (access type `api_key`) |
+| **Security Health** | Follows Personal — it scores personal items only |
+| **Corporate** | Your vault permissions do not allow listing secrets |
+
+See [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies).
+
+## Shared controls
+
+Every area has the same header: search, filter, view toggle, sort, **Select** for multi-select,
+and **Click to refresh** with a **Last refreshed** indicator.
+
+The create **+** appears in Personal and Corporate only.
+
+## Related
+
+- [Personal Secrets](https://docs.akeyless.io/docs/web-extension-personal-area)
+- [Corporate Secrets](https://docs.akeyless.io/docs/web-extension-corporate-area)
+- [Searching for Passwords and Secrets](https://docs.akeyless.io/docs/using-search)

@@ -1,27 +1,38 @@
 ---
-title: Editing Password / Secret Details
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  title: ''
-  description: ''
-  robots: index
-next:
-  description: ''
+title: Editing, Copying & Moving Items
 ---
-Access Quick Editing Menu: Identify the specific secret you wish to edit within the secrets/passwords list. Click on the three dots icon located next to the secret to reveal the quick editing menu.
+## Editing
 
-![Illustration for: Access Quick Editing Menu: Identify the specific secret you wish to edit within the secrets/passwords list. Click on the three dots icon located next to the secret to reveal…](https://files.readme.io/b3b9c11-Screenshot_2024-01-10_at_16.40.36.png)
+Open the **More Options** (⋯) menu on any item row, or on the item preview, and choose **Edit**. The same overlay used to create the item opens, pre-filled.
 
-Locate the Secret: Navigate to the "Secrets"/"Passwords" section of the Akeyless browser extension to view a list of your saved secrets.
+Every field is editable: `Name`, `Username`, `Password`, `Website URLs`, `Location`, `Description`, `Maximum Versions`, `Protection Key`, `Tags`, `Delete protection`, `Custom Fields` and `Authenticator (OTP)`.
 
-Initiate Edit Mode: From the quick editing menu, select the "Edit" option. This will trigger edit mode for the chosen secret.
+## Copying
 
-Make Desired Changes: Use the available fields to modify the secret information as needed.
+Choose **Copy** to duplicate an item. The overlay opens in copy mode — its `Location` section is headed `Copy to` — so you pick a destination for the duplicate.
 
-![Illustration for: Initiate Edit Mode: From the quick editing menu, select the "Edit" option. This will trigger edit mode for the chosen secret. Make Desired Changes: Use the available fields…](https://files.readme.io/e0c4908-Screenshot_2024-01-10_at_16.41.08.png)
+Use this to base a new credential on an existing one, or to place a copy in a different folder.
 
-Apply Changes: Once you have made the necessary edits, click the "Save" button to permanently apply your modifications.
+## Moving
 
-Confirmation of Saved Changes: The Akeyless browser extension will save your changes to the secret, ensuring that your updated information is securely stored.
+Items can be moved between folders, and between the Personal and Corporate areas, by editing the item and changing its `Location`.
+
+<Callout icon="ℹ️" theme="info">
+  Moving an item between Personal and Corporate changes who can see it. A Corporate item is visible to everyone with vault access to that folder.
+</Callout>
+
+## Versions
+
+The vault keeps historical versions of a secret up to the item's `Maximum Versions` value. Lowering the value discards the oldest versions beyond the new limit.
+
+## What you cannot edit
+
+- **Rotated** and **dynamic** secrets are managed by Akeyless — their values are read-only in the extension.
+- Items you only have read permission on show no **Edit** action.
+- **Delete-protected** items can be edited but not deleted.
+
+## Related
+
+- [Creating New Password](https://docs.akeyless.io/docs/creating-new-password-1)
+- [Deleting Password / Secret](https://docs.akeyless.io/docs/deleting-password-1)
+- [Viewing an Item](https://docs.akeyless.io/docs/web-extension-viewing-items)
