@@ -108,6 +108,8 @@ For provider-specific commands and flags, see [CLI Reference - Gateway Secure Re
 * **Masking:** Enabled by default. Known secret formats are replaced with `[masked]` in every record - including values following secret-named flags and fields (`--password`, `DB_PASSWORD=`, `"api_key":`), bearer tokens, passwords embedded in URLs, AWS, GitHub, Slack, Google, and Stripe keys, JWTs, and private key blocks. Masking is best effort on visible text, and is separate from the hidden-input rule above (hidden input is never recorded in the first place, so there's nothing for masking to replace there).
 
 <Callout icon="📘" theme="info">
+  ### Note:&#x20;
+
   SIEM rules that rely on raw keystrokes may need to be updated: SSH recordings now capture commands as displayed when Enter is pressed, instead of raw keystrokes.
 </Callout>
 
