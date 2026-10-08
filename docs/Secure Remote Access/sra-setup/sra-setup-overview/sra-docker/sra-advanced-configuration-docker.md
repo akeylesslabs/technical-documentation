@@ -105,7 +105,7 @@ For provider-specific commands and flags, see [CLI Reference - Gateway Secure Re
 
 * Commands entered in shells running inside **tmux** continue to be recorded.
 
-* **Masking:** Enabled by default. Known secret formats are replaced with `[masked]` in every record - including values following secret-named flags and fields (`--password`, `DB_PASSWORD=`, `"api_key":`), bearer tokens, passwords embedded in URLs, AWS, GitHub, Slack, Google, and Stripe keys, JWTs, and private key blocks. Masking is best effort on visible text, and is separate from the hidden-input rule above (hidden input is never recorded in the first place, so there's nothing for masking to replace there).
+* **Masking:** Enabled by default. Known secret formats are replaced with `[masked]` in every record — including values following secret-named flags and fields (`--password`, `DB_PASSWORD=`, `"api_key":`), bearer tokens, passwords embedded in URLs, AWS, GitHub, Slack, Google, and Stripe keys, JWTs, and private key blocks. Masking is best effort on visible text, and is separate from the hidden-input rule above (hidden input is never recorded in the first place, so there's nothing for masking to replace there).
 
 <Callout icon="📘" theme="info">
   SIEM rules that rely on raw keystrokes may need to be updated: SSH recordings now capture commands as displayed when Enter is pressed, instead of raw keystrokes.
@@ -121,13 +121,13 @@ These are environment variables on the SSH bastion, set as part of your deployme
 
 * `SRA_RECORDING_MASKING` (default `true`): Set to `false` to stop masking known secret formats.
 
-* `SRA_RECORDING_MASK_PATTERNS` (default empty): Extra masking rules, as one RE2 regular expression per line.
+* `SRA_RECORDING_MASK_PATTERNS` (default empty): Extra masking rules, as one RE2 regular expression per line. Leave empty to rely only on the built-in masking patterns.
 
 ```yaml
 SRA_RECORDING_CAPTURE_OUTPUT=true
 SRA_RECORDING_CAPTURE_KEYSTROKES=false
 SRA_RECORDING_MASKING=true
-SRA_RECORDING_MASK_PATTERNS=<RE2 pattern>
+SRA_RECORDING_MASK_PATTERNS=
 ```
 
 <Callout icon="⚠️" theme="warn">
@@ -175,6 +175,7 @@ Starting with SRA `v3.5.0`, multi-hop SSH sessions support SSH agent forwarding.
 SSH_ALLOW_AGENT_FORWARDING=true
 ```
 
+#
 Users then pass `-A` through to the SSH client when connecting:
 
 ```shell
