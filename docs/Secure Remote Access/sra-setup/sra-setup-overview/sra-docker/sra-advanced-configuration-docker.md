@@ -85,13 +85,56 @@ value: tr-tr-qwerty # Turkish-Q (Qwerty)
 
 ## Session Log Forwarding
 
-The Akeyless SRA supports Session Log Forwarding, which captures CLI input and output during sessions. These logs can be forwarded to any logging system. These settings can be added by way of the Gateway management console or by way of CLI:
+The Akeyless SRA supports Session Log Forwarding, which forwards SSH session recordings to any logging system. These settings can be added by way of the Gateway management console or by way of CLI:
 
 ```shell
 akeyless gateway update remote-access-session-forwarding -h
 ```
 
 For provider-specific commands and flags, see [CLI Reference - Gateway Secure Remote Access](https://docs.akeyless.io/docs/cli-reference-sra).
+
+### What a Session Log Contains
+
+* **Input:** The command as the terminal showed it when Enter was pressed, reflecting Tab completion, command history, and line edits — not the raw keystrokes used to produce it.
+
+* **Hidden input:** Never recorded. Typing at a prompt that hides input, such as a password prompt, produces an `[input not displayed]` marker instead.
+
+* **Output:** Each line the target printed, unless commands-only mode is enabled (see `SRA_RECORDING_CAPTURE_OUTPUT` below).
+
+* **Full-screen applications** (for example, `vi`, `less`, `top`): Recorded using start and end markers instead of keystroke-by-keystroke output.
+
+* Commands entered in shells running inside **tmux** continue to be recorded.
+
+* **Masking:** Enabled by default. Known secret formats are replaced with `[masked]` in every record — including values following secret-named flags and fields (`--password`, `DB_PASSWORD=`, `"api_key":`), bearer tokens, passwords embedded in URLs, AWS, GitHub, Slack, Google, and Stripe keys, JWTs, and private key blocks. Masking is best effort on visible text, and is separate from the hidden-input rule above (hidden input is never recorded in the first place, so there's nothing for masking to replace there).
+
+<Callout icon="📘" theme="info">
+  SIEM rules that rely on raw keystrokes may need to be updated: SSH recordings now capture commands as displayed when Enter is pressed, instead of raw keystrokes.
+</Callout>
+
+### Session Recording Settings
+
+These are environment variables on the SSH bastion, set as part of your deployment in the `sra.env` config file:
+
+* `SRA_RECORDING_CAPTURE_OUTPUT` (default `true`): Set to `false` to record commands only, without their output.
+
+* `SRA_RECORDING_CAPTURE_KEYSTROKES` (default `false`): Set to `true` to also record every key as typed.
+
+* `SRA_RECORDING_MASKING` (default `true`): Set to `false` to stop masking known secret formats.
+
+* `SRA_RECORDING_MASK_PATTERNS` (default empty): Extra masking rules, as one RE2 regular expression per line.
+
+```yaml
+SRA_RECORDING_CAPTURE_OUTPUT=true
+SRA_RECORDING_CAPTURE_KEYSTROKES=false
+SRA_RECORDING_MASKING=true
+SRA_RECORDING_MASK_PATTERNS=<RE2 pattern>
+```
+
+<Callout icon="⚠️" theme="warn">
+  ### Keystroke capture
+
+  Keystroke capture records every key exactly as typed, including passwords typed at hidden prompts, and sends them to your log destination in clear text. Enable it only if your compliance requirements call for keystroke-level evidence, and restrict access to the destination.
+</Callout>
 
 ## RDP Recordings
 
