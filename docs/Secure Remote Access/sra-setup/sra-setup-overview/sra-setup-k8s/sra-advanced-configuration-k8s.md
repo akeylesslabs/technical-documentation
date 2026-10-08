@@ -121,7 +121,7 @@ These are environment variables on the SSH bastion. In the gateway chart, they g
 
 * `SRA_RECORDING_MASKING` (default `true`): Set to `false` to stop masking known secret formats.
 
-* `SRA_RECORDING_MASK_PATTERNS` (default empty): Extra masking rules, as one RE2 regular expression per line.
+* `SRA_RECORDING_MASK_PATTERNS` (default empty): Extra masking rules, as one RE2 regular expression per line. Leave empty to rely only on the built-in masking patterns.
 
 ```yaml values.yaml
 sra:
@@ -133,9 +133,7 @@ sra:
     - name: SRA_RECORDING_MASKING
       value: "true"
     - name: SRA_RECORDING_MASK_PATTERNS
-      value: |
-        <RE2 pattern 1>
-        <RE2 pattern 2>
+      value: ""
 ```
 
 <Callout icon="⚠️" theme="warn">
