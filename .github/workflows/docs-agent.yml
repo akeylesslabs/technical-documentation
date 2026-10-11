@@ -1,0 +1,123 @@
+name: Docs Agent
+
+# Lives in akeylesslabs/technical-documentation.
+# Triggered manually (workflow_dispatch) from this repo's own Actions tab.
+#
+# The org has locked "Allow GitHub Actions to create and approve pull
+# requests", which blocks the automatic GITHUB_TOKEN from opening PRs here.
+# So this workflow never uses GITHUB_TOKEN for the actual work: it fetches a
+# real GitHub write token from the existing Akeyless dynamic secret
+# (/Technical-Documentation-Repo-Github-DS) instead -- that credential isn't
+# GITHUB_TOKEN, so the org policy above doesn't apply to it. Authentication
+# to Akeyless itself uses GitHub Actions' own built-in OIDC token, so no
+# Akeyless credential is stored in GitHub at all.
+#
+# One-time Akeyless-side setup needed before this works (see chat for the
+# exact CLI commands):
+#   - An OAuth2/JWT auth method trusting GitHub's OIDC issuer
+#     (jwks-uri https://token.actions.githubusercontent.com/.well-known/jwks),
+#     restricted via a sub-claim to repository=akeylesslabs/technical-documentation
+#   - A role, associated with that auth method, granted read access to
+#     /Technical-Documentation-Repo-Github-DS
+#
+# One GitHub-side value needed (NOT a secret -- an Access ID isn't sensitive):
+#   Settings -> Secrets and variables -> Actions -> Variables tab
+#   New repository variable: DOCS_AGENT_AKEYLESS_ACCESS_ID = <the auth method's access id>
+#   (named with a DOCS_AGENT_ prefix since AKEYLESS_ACCESS_ID was already taken
+#   by another integration in this repo)
+#
+# Plus the ANTHROPIC_API_KEY repository secret (Settings -> Secrets and
+# variables -> Actions -> Secrets tab).
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: 'Describe the documentation task for Claude (e.g. "Update docs/foo.md to document X; open a draft PR against v1.0"). Write it as a complete, standalone instruction -- each run starts fresh with no memory of previous runs or chat conversations.'
+        required: true
+        type: string
+      max_turns:
+        description: 'Safety cap on how many turns Claude can take before stopping'
+        required: false
+        default: '40'
+        type: choice
+        options:
+          - '20'
+          - '40'
+          - '60'
+
+concurrency:
+  group: docs-agent-${{ github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  docs-agent:
+    # Only these GitHub usernames may actually run this job, even though
+    # dispatching a workflow at all still requires Write access to the repo.
+    # github.actor is set by GitHub itself to whoever clicked "Run workflow"
+    # (or whoever's token called the dispatch API) -- it isn't something the
+    # prompt text or the triggering user can spoof. Anyone not listed here
+    # still sees the job start, but it's immediately skipped.
+    if: contains(fromJSON('["Avi-Akeyless", "EldadH89"]'), github.actor)
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # lets this job request GitHub's own OIDC token, for Akeyless
+      contents: read    # default GITHUB_TOKEN is never used to write; read is enough
+    steps:
+      - name: Fetch GitHub write token from Akeyless
+        id: akeyless
+        uses: LanceMcCarthy/akeyless-action@v5.7.0
+        with:
+          access-id: ${{ vars.DOCS_AGENT_AKEYLESS_ACCESS_ID }}
+          access-type: JWT
+          dynamic-secrets: '{"/Technical-Documentation-Repo-Github-DS":"TD_GITHUB_SECRET"}'
+
+      - name: Extract the token
+        run: |
+          # Mask the whole raw secret blob FIRST, before touching it at all --
+          # this is the earliest point in OUR code where masking can apply.
+          # (It can't retroactively mask anything the Akeyless action step
+          # above might have already printed to its own log -- that step is
+          # third-party code we don't control. Never enable
+          # ACTIONS_STEP_DEBUG / ACTIONS_RUNNER_DEBUG on this workflow, since
+          # that's what would make a step log extra internal detail.)
+          echo "::add-mask::$TD_GITHUB_SECRET"
+          RAW="$TD_GITHUB_SECRET"
+          # The exact field name Akeyless returns for a GitHub dynamic secret
+          # wasn't confirmed from public docs -- this tries the likely names
+          # and, if none match, prints just the KEY NAMES (never the values)
+          # so the real field name can be read safely from the run's log.
+          TOKEN=$(echo "$RAW" | jq -r '.token // .access_token // .github_token // empty')
+          if [ -z "$TOKEN" ]; then
+            echo "None of the expected fields were found. Keys actually returned:"
+            echo "$RAW" | jq -r 'keys | join(", ")'
+            echo "Update the jq filter above with the correct field name and re-run."
+            exit 1
+          fi
+          echo "::add-mask::$TOKEN"
+          echo "TD_GH_TOKEN=$TOKEN" >> "$GITHUB_ENV"
+
+      - name: Checkout technical-documentation
+        uses: actions/checkout@v6
+        with:
+          token: ${{ env.TD_GH_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure git identity
+        run: |
+          git config user.name "docs-agent[bot]"
+          git config user.email "docs-agent@users.noreply.github.com"
+
+      - name: Run Claude Code (Docs Agent)
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ env.TD_GH_TOKEN }}
+          GITHUB_TOKEN: ${{ env.TD_GH_TOKEN }}
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ env.TD_GH_TOKEN }}
+          prompt: ${{ github.event.inputs.prompt }}
+          claude_args: >-
+            --allowedTools "Bash,Edit,Write,Read,Glob,Grep"
+            --max-turns ${{ github.event.inputs.max_turns }}
+            --model claude-sonnet-5
