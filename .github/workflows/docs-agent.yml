@@ -7,10 +7,10 @@ name: Docs Agent
 # requests", which blocks the automatic GITHUB_TOKEN from opening PRs here.
 # So this workflow never uses GITHUB_TOKEN for the actual work: it fetches a
 # real GitHub write token from the existing Akeyless dynamic secret
-# (/Technical-Documentation-Repo-Github-DS) instead -- that credential isn't
-# GITHUB_TOKEN, so the org policy above doesn't apply to it. Authentication
-# to Akeyless itself uses GitHub Actions' own built-in OIDC token, so no
-# Akeyless credential is stored in GitHub at all.
+# (/DocsAgent/Technical-Documentation-Repo-Github-DS) instead -- that
+# credential isn't GITHUB_TOKEN, so the org policy above doesn't apply to it.
+# Authentication to Akeyless itself uses GitHub Actions' own built-in OIDC
+# token, so no Akeyless credential is stored in GitHub at all.
 #
 # One-time Akeyless-side setup needed before this works (see chat for the
 # exact CLI commands):
@@ -18,7 +18,7 @@ name: Docs Agent
 #     (jwks-uri https://token.actions.githubusercontent.com/.well-known/jwks),
 #     restricted via a sub-claim to repository=akeylesslabs/technical-documentation
 #   - A role, associated with that auth method, granted read access to
-#     /Technical-Documentation-Repo-Github-DS
+#     /DocsAgent/Technical-Documentation-Repo-Github-DS
 #
 # One GitHub-side value needed (NOT a secret -- an Access ID isn't sensitive):
 #   Settings -> Secrets and variables -> Actions -> Variables tab
@@ -26,8 +26,12 @@ name: Docs Agent
 #   (named with a DOCS_AGENT_ prefix since AKEYLESS_ACCESS_ID was already taken
 #   by another integration in this repo)
 #
-# Plus the ANTHROPIC_API_KEY repository secret (Settings -> Secrets and
-# variables -> Actions -> Secrets tab).
+# The Anthropic API key is ALSO fetched from Akeyless, not from a GitHub
+# secret -- as a static secret at /DocsAgent/ClaudeToken (create this path
+# yourself, with the real key as its value), read using the exact same
+# authenticated session as the GitHub token above. The same role from the
+# one-time setup needs read access granted to this path too. Nothing needs
+# adding under GitHub's own Secrets tab for this workflow at all.
 
 on:
   workflow_dispatch:
@@ -58,19 +62,29 @@ jobs:
     # (or whoever's token called the dispatch API) -- it isn't something the
     # prompt text or the triggering user can spoof. Anyone not listed here
     # still sees the job start, but it's immediately skipped.
-    if: contains(fromJSON('["Avi-Akeyless", "EldadH89"]'), github.actor)
+    if: contains(fromJSON('["avi-akeyless", "coworker-username-1", "coworker-username-2"]'), github.actor)
     runs-on: ubuntu-latest
     permissions:
       id-token: write   # lets this job request GitHub's own OIDC token, for Akeyless
       contents: read    # default GITHUB_TOKEN is never used to write; read is enough
     steps:
-      - name: Fetch GitHub write token from Akeyless
+      - name: Fetch credentials from Akeyless
         id: akeyless
         uses: LanceMcCarthy/akeyless-action@v5.7.0
         with:
           access-id: ${{ vars.DOCS_AGENT_AKEYLESS_ACCESS_ID }}
           access-type: JWT
-          dynamic-secrets: '{"/Technical-Documentation-Repo-Github-DS":"TD_GITHUB_SECRET"}'
+          dynamic-secrets: '{"/DocsAgent/Technical-Documentation-Repo-Github-DS":"TD_GITHUB_SECRET"}'
+          static-secrets: '{"/DocsAgent/ClaudeToken":"ANTHROPIC_API_KEY"}'
+
+      - name: Mask the Anthropic API key
+        run: |
+          # Static secrets (unlike the dynamic one below) come back as the
+          # plain value directly, already exported as $ANTHROPIC_API_KEY --
+          # nothing to parse, just mask it immediately so it never appears
+          # unmasked in any later step's log.
+          echo "::add-mask::$ANTHROPIC_API_KEY"
+          echo "ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY" >> "$GITHUB_ENV"
 
       - name: Extract the token
         run: |
@@ -114,9 +128,16 @@ jobs:
           GH_TOKEN: ${{ env.TD_GH_TOKEN }}
           GITHUB_TOKEN: ${{ env.TD_GH_TOKEN }}
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api_key: ${{ env.ANTHROPIC_API_KEY }}
           github_token: ${{ env.TD_GH_TOKEN }}
           prompt: ${{ github.event.inputs.prompt }}
+          # Temporary debugging aid: the previous run "succeeded" (the SDK
+          # call completed) without actually pushing a branch or opening a
+          # PR, and the default hidden output gave no clue why. This prints
+          # Claude's full turn-by-turn transcript to the log so we can see
+          # what it actually did and what its permission denials were.
+          # Turn this back off once we understand what happened.
+          show_full_output: true
           claude_args: >-
             --allowedTools "Bash,Edit,Write,Read,Glob,Grep"
             --max-turns ${{ github.event.inputs.max_turns }}
