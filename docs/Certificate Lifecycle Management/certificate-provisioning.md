@@ -12,6 +12,8 @@ next:
 ---
 Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a [Windows](https://docs.akeyless.io/docs/windows-target) and [F5](https://www.f5.com/) endpoints utilizing [Targets](https://docs.akeyless.io/docs/targets).
 
+For Windows targets, once the certificate is provisioned you can either run a custom **Post Provision Command**, or use the built-in **IIS** option to automatically replace the certificate bound to an IIS website.
+
 <Callout icon="📘" theme="info">
   ### F5 Certificate Type
 
@@ -40,7 +42,9 @@ akeyless assoc-target-item \
 --certificate-path <Where to save the certificate> \
 --post-provision-command <"echo Akeyless"> \
 --f5-certificate-type[=traffic] <Certificate Type> \
---certificate-format[=pem] <Certificate Format>
+--certificate-format[=pem] <Certificate Format> \
+--iis-site-name <IIS Site Name> \
+--iis-port[=443] <IIS HTTPS Binding Port>
 ```
 
 Where:
@@ -55,7 +59,11 @@ Where:
 
 - `certificate-format`: Optional, the file format to provision the certificate in. Supported values are `pem` (default) and `pfx`.
 
-- `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning, for example, restarting a service.
+- `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning, for example, restarting a service. For Windows targets, this is an alternative to the built-in `--iis-site-name` option below.
+
+- `iis-site-name`: Optional, relevant only for Windows targets. The name of the IIS website whose SSL certificate binding should be replaced with the newly provisioned certificate, as a built-in alternative to `post-provision-command`.
+
+- `iis-port`: Optional, relevant only when `iis-site-name` is set. The port of the IIS HTTPS binding to update. Defaults to `443`.
 
 For F5 BIG-IP, SSL profiles can be bound using the `--bind-ssl-profiles` flag. The partition segment of this flag can now include a subfolder path within the administrative partition (for example, `client-ssl:Common/my-subfolder:my-profile`), in addition to a top-level partition such as `Common`.
 
@@ -79,7 +87,11 @@ You can find the complete list of additional parameters for this command, includ
 
 - **Certificate Chain Path** - A path on the target to store the full chain.
 
-- **Post Provision Command** - A custom command of your choice that will be executed on the remote machine as part of the provisioning process.
+- **Post Provision Command** - A custom command of your choice that will be executed on the remote machine as part of the provisioning process. For **Windows** targets, this is an alternative to the built-in **IIS** option below.
+
+- **IIS** - Relevant only for **Windows** targets. Enable this built-in option instead of a **Post Provision Command** to automatically replace the certificate bound to an IIS website.
+  - **Site Name** - The name of the IIS website whose SSL certificate binding should be replaced with the newly provisioned certificate.
+  - **Port** - The port of the IIS HTTPS binding to update. Defaults to `443`.
 
 - **Bind to SSL Profile(s) **- If set, the certificate will be bound to an existing SSL profile (relevant only for **F5**).
   - **Profile Type **- Select **Client SSL** or **Server SSL**.
