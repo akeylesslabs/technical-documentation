@@ -228,15 +228,20 @@ jobs:
               exit 1
             fi
 
-            TICKET_BLOCK=$(cat <<EOF
-Jira ticket $ISSUE_KEY: $JIRA_BASE_URL/browse/$ISSUE_KEY
-
-Summary: $SUMMARY
-
-Description:
-$DESCRIPTION
-EOF
-)
+            # Built with plain echo lines, not a heredoc -- a heredoc's body
+            # text has to sit at column 0 in bash, but this whole script is
+            # itself the content of a YAML block scalar, where every line
+            # must stay indented at least as much as the block's base level.
+            # A dedented heredoc body ends that YAML block early and breaks
+            # the workflow file.
+            TICKET_BLOCK=$(
+              echo "Jira ticket $ISSUE_KEY: $JIRA_BASE_URL/browse/$ISSUE_KEY"
+              echo ""
+              echo "Summary: $SUMMARY"
+              echo ""
+              echo "Description:"
+              echo "$DESCRIPTION"
+            )
           else
             DESCRIPTION_BLOCK="$FEATURE_INPUT"
           fi
