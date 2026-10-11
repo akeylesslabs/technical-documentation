@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a [Windows](https://docs.akeyless.io/docs/windows-target) and [F5](https://www.f5.com/) endpoints utilizing [Targets](https://docs.akeyless.io/docs/targets).
+Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a [Windows](https://docs.akeyless.io/docs/windows-target) and [F5](https://www.f5.com/) endpoints utilizing [Targets](https://docs.akeyless.io/docs/targets). On **Linux** and **Windows** targets, the certificate can also be provisioned directly into a **Java Key Store** (`.jks`/`.p12`).
 
 <Callout icon="📘" theme="info">
   ### F5 Certificate Type
@@ -59,6 +59,40 @@ Where:
 
 For F5 BIG-IP, SSL profiles can be bound using the `--bind-ssl-profiles` flag. The partition segment of this flag can now include a subfolder path within the administrative partition (for example, `client-ssl:Common/my-subfolder:my-profile`), in addition to a top-level partition such as `Common`.
 
+### Provisioning a Certificate to a Java Key Store
+
+To provision a certificate directly into a Java Key Store (`.jks`/`.p12`) on a **Linux** or **Windows** target, add the following flags to the `assoc-target-item` command:
+
+```shell
+akeyless assoc-target-item \
+--name <Certificate name> \
+--target-name <Target Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--keystore-path <Path to the .jks/.p12 file on the target> \
+--keystore-password <Keystore password> \
+--key-alias <Alias to store/update the cert+key entry under> \
+--keystore-type[=jks] <jks or pkcs12> \
+--key-password <Per-entry password, if different from the keystore password> \
+--overwrite-alias \
+--create-keystore
+```
+
+Where:
+
+- `keystore-path`: Path on the target to the `.jks`/`.p12` keystore file, for example `/opt/app/config/keystore.jks`.
+
+- `keystore-password`: The password needed to open and write to the keystore.
+
+- `key-alias`: The alias the certificate and key entry is stored/updated under.
+
+- `keystore-type`: Optional, the keystore format, `jks` or `pkcs12`.
+
+- `key-password`: Optional, a per-entry password, only needed if it differs from the keystore password.
+
+- `overwrite-alias`: Optional, overwrite the entry if the alias already exists in the keystore. Without this flag, renewing a certificate onto an existing alias has no defined behavior.
+
+- `create-keystore`: Optional, create a new keystore at the specified path if one doesn't already exist. Without this flag, a mistyped path will result in an error rather than silently creating an empty keystore.
+
 You can find the complete list of additional parameters for this command, including `--bind-ssl-profiles`, in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#assoc-target-item) section.
 
 ## Provisioning a Certificate Using the Akeyless Console
@@ -85,3 +119,21 @@ You can find the complete list of additional parameters for this command, includ
   - **Profile Type **- Select **Client SSL** or **Server SSL**.
   - **Partition** - The partition where the profile exists. By default, the partition is taken from the **Certificate Remote Path**.
   - **Profile Name **- The name of the **SSL profile**.
+
+### Provisioning a Certificate to a Java Key Store
+
+For **Linux** and **Windows** targets, the certificate can also be provisioned into a Java Key Store. Enable this option under the **Provisioning** tab and enter the following parameters:
+
+- **Keystore Remote Path** - Path to the `.jks`/`.p12` file on the target, for example `/opt/app/config/keystore.jks`.
+
+- **Keystore Password** - Needed to open and write to the keystore.
+
+- **Key Alias** - The alias the certificate and key entry is stored/updated under.
+
+- **Keystore Type** - Optional, choose **JKS** or **PKCS12** (default **PKCS12**).
+
+- **Key Password** - Optional, a per-entry password, only needed if it differs from the Keystore Password.
+
+- **Overwrite Existing Alias** - Optional toggle. Without it, a renewal onto an existing alias has no defined behavior.
+
+- **Create Keystore If Missing** - Optional toggle. Without it, a typo'd path will result in an error instead of silently creating an empty keystore.
