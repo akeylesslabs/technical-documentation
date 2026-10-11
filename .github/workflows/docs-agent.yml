@@ -58,6 +58,25 @@ name: Docs Agent
 # data, not instructions, but that is a mitigation, not a guarantee -- only
 # point this at tickets from people you'd trust to trigger the agent
 # themselves.
+#
+# Credential isolation: every secret above is read ONLY as this job's
+# "akeyless" step output (export-secrets-to-environment is explicitly turned
+# off), and from there wired by hand into just the step that needs it --
+# nothing is broadcast into every step's shell via $GITHUB_ENV. In practice
+# that means:
+#   - the Jira email + API token are only ever visible inside the single
+#     "Build the prompt" step that calls Jira's API; Claude never sees them
+#   - the GitHub token (from the Akeyless DYNAMIC secret) is the one
+#     credential deliberately handed to the Claude step, because that's how
+#     the agent reads/writes this repo -- by design, not by leftover scope
+#   - the Anthropic key (from the Akeyless STATIC secret) is passed only as
+#     this action's anthropic_api_key input. One caveat: the action itself
+#     needs that key to authenticate Claude's own API calls, so it's the
+#     action's own choice, not this workflow's, whether that value ends up
+#     set in the environment of the `claude` process it launches -- the key
+#     is only Claude's own billing credential, not a repo or Jira secret, so
+#     that residual exposure is accepted here rather than fully eliminable
+#     from the workflow side.
 
 on:
   workflow_dispatch:
