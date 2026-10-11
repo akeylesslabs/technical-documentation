@@ -301,7 +301,17 @@ jobs:
           # what it actually did and what its permission denials were.
           # Turn this back off once we understand what happened.
           show_full_output: true
+          # --disallowedTools "Task" blocks Claude from spawning a background
+          # subagent (e.g. an "Explore" agent) to do its research. This run
+          # is a single one-shot, non-interactive SDK call: if Claude hands
+          # off work to a background subagent and ends its own turn waiting
+          # on it, there is no live session left for that subagent's eventual
+          # completion to be delivered back into -- the job just ends with
+          # "success" and nothing done. Disallowing Task forces all research
+          # to happen inline (Grep/Glob/Read) within the one turn sequence
+          # Claude is already running, so it actually finishes the work.
           claude_args: >-
             --allowedTools "Bash,Edit,Write,Read,Glob,Grep"
+            --disallowedTools "Task"
             --max-turns 40
             --model claude-sonnet-5
