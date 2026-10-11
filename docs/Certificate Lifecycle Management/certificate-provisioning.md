@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a [Windows](https://docs.akeyless.io/docs/windows-target) and [F5](https://www.f5.com/) endpoints utilizing [Targets](https://docs.akeyless.io/docs/targets).
+Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a [Windows](https://docs.akeyless.io/docs/windows-target) and [F5](https://www.f5.com/) endpoints utilizing [Targets](https://docs.akeyless.io/docs/targets), as well as provisioning certificates directly into a Java Key Store (`.jks`/`.p12`) on a Linux or Windows target.
 
 <Callout icon="📘" theme="info">
   ### F5 Certificate Type
@@ -61,6 +61,40 @@ For F5 BIG-IP, SSL profiles can be bound using the `--bind-ssl-profiles` flag. T
 
 You can find the complete list of additional parameters for this command, including `--bind-ssl-profiles`, in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#assoc-target-item) section.
 
+### Provisioning a Certificate to a Java Key Store
+
+Certificates can also be provisioned into a Java Key Store (`.jks`) or `PKCS12` (`.p12`) file on a [Linux](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Target, using the following flags on `assoc-target-item`:
+
+```shell
+akeyless assoc-target-item \
+--name <Certificate name> \
+--target-name <Target Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--keystore-path <Path to the .jks/.p12 keystore file on the target> \
+--keystore-password <Keystore password> \
+--key-alias <Alias the cert+key entry is stored/updated under> \
+--keystore-type[=jks] <Keystore format> \
+--key-password <Per-entry password, if different from the keystore password> \
+--overwrite-alias \
+--create-keystore
+```
+
+Where:
+
+- `keystore-path`: Path on the target to the `.jks`/`.p12` keystore file (for example, `/opt/app/config/keystore.jks`). Only relevant for certificate provisioning to JKS endpoints.
+
+- `keystore-password`: Keystore password, needed to open and write to the keystore. Only relevant for certificate provisioning to JKS endpoints.
+
+- `key-alias`: The alias the cert+key entry is stored/updated under. Only relevant for certificate provisioning to JKS endpoints.
+
+- `keystore-type`: Optional, the keystore format, `jks` or `pkcs12`. Defaults to `pkcs12`. Only relevant for certificate provisioning to JKS endpoints.
+
+- `key-password`: Optional, a per-entry password, only needed if it differs from the keystore password. Only relevant for certificate provisioning to JKS endpoints.
+
+- `overwrite-alias`: Optional, overwrites the entry if the alias already exists. Without this flag, a renewal onto an existing alias has no defined behavior. Only relevant for certificate provisioning to JKS endpoints.
+
+- `create-keystore`: Optional, creates a new keystore at the path if none exists. Without this flag, a typo'd path results in an error instead of silently creating an empty keystore. Only relevant for certificate provisioning to JKS endpoints.
+
 ## Provisioning a Certificate Using the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**, find the certificate you wish to provision.
@@ -85,3 +119,27 @@ You can find the complete list of additional parameters for this command, includ
   - **Profile Type **- Select **Client SSL** or **Server SSL**.
   - **Partition** - The partition where the profile exists. By default, the partition is taken from the **Certificate Remote Path**.
   - **Profile Name **- The name of the **SSL profile**.
+
+### Provisioning a Certificate to a Java Key Store Using the Console
+
+1. Log in to the Akeyless Console, and go to **Items**, find the certificate you wish to provision.
+2. Click on the **Certificate** item, click on the **Provisioning** tab, and then **Attach**.
+3. Enable the **Java Key Store** option, and enter the following parameters:
+
+- **Target Name** - Choose an existing [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Target from the drop-down list.
+
+- **Gateway** - Choose an existing Gateway from the drop-down list.
+
+- **Keystore Remote Path** - Path to the `.jks`/`.p12` file on the target, for example, `/opt/app/config/keystore.jks`.
+
+- **Keystore Password** - The password needed to open and write to the keystore.
+
+- **Key Alias** - The alias the cert+key entry is stored/updated under.
+
+- **Keystore Type** - Optional, dropdown with **JKS** or **PKCS12**. Defaults to **PKCS12**.
+
+- **Key Password** - Optional, a per-entry password, only needed if it differs from the keystore password.
+
+- **Overwrite Existing Alias** - Optional toggle. If disabled, a renewal onto an existing alias has no defined behavior.
+
+- **Create Keystore If Missing** - Optional toggle. If disabled, a typo'd path results in an error instead of silently creating an empty keystore.

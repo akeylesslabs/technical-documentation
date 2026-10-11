@@ -93,6 +93,20 @@ akeyless assoc-target-item \
 
 `--bind-ssl-profiles`: Bind the provisioned certificate to an existing `client-ssl` / `server-ssl` profile, in the format `type:partition:name` (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate's partition. To specify multiple profiles use argument multiple times: `--bind-ssl-profiles` `client-ssl:Common:my-profile` `--bind-ssl-profiles` `client-ssl:Common:my-other-profile`
 
+`--keystore-path`: Path on the target to the `.jks`/`.p12` keystore file (relevant only for certificate provisioning to JKS endpoints)
+
+`--keystore-password`: Keystore password (relevant only for certificate provisioning to JKS endpoints)
+
+`--key-alias`: Alias the cert+key entry is stored/updated under (relevant only for certificate provisioning to JKS endpoints)
+
+`--keystore-type[=jks]`: Keystore format, `jks` or `pkcs12`, defaults to `pkcs12` (relevant only for certificate provisioning to JKS endpoints)
+
+`--key-password`: Key password, only needed if it differs from the keystore password (relevant only for certificate provisioning to JKS endpoints)
+
+`--overwrite-alias`: Overwrite the entry if the alias already exists (relevant only for certificate provisioning to JKS endpoints)
+
+`--create-keystore`: Create a new keystore at the path if none exists (relevant only for certificate provisioning to JKS endpoints)
+
 `--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
 
 `--sra-association[=false]`: Specify if the target to associate is for sra, relevant only for sra linked target association to ldap rotated secret

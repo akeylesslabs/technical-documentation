@@ -64,6 +64,20 @@ akeyless assoc-target-item \
 
 `--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
 
+`--keystore-path`: Path on the target to the `.jks`/`.p12` keystore file (relevant only for certificate provisioning to JKS endpoints)
+
+`--keystore-password`: Keystore password (relevant only for certificate provisioning to JKS endpoints)
+
+`--key-alias`: Alias the cert+key entry is stored/updated under (relevant only for certificate provisioning to JKS endpoints)
+
+`--keystore-type[=jks]`: Keystore format, `jks` or `pkcs12`, defaults to `pkcs12` (relevant only for certificate provisioning to JKS endpoints)
+
+`--key-password`: Key password, only needed if it differs from the keystore password (relevant only for certificate provisioning to JKS endpoints)
+
+`--overwrite-alias`: Overwrite the entry if the alias already exists (relevant only for certificate provisioning to JKS endpoints)
+
+`--create-keystore`: Create a new keystore at the path if none exists (relevant only for certificate provisioning to JKS endpoints)
+
 `--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
 
 `--sra-association[=false]`: Specify if the target to associate is for SRA, relevant only for SRA linked target association to `ldap` rotated secret
