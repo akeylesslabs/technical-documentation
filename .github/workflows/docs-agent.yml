@@ -173,7 +173,14 @@ jobs:
     # prompt text or the triggering user can spoof. Anyone not listed here
     # still sees the job start, but it's immediately skipped.
     if: contains(fromJSON('["Avi-Akeyless", "EldadH89", "renanaAkeyless"]'), github.actor)
-    runs-on: ubuntu-latest
+    # Self-hosted, not ubuntu-latest: ARA calls go to the self-hosted gateway,
+    # which sits behind a load balancer that only admits our own networks. A
+    # GitHub-hosted runner is denied at the edge and never reaches Akeyless --
+    # it gets an HTML 403 from Google Front End on every path, including
+    # /api/v2. This did not matter before ARA, because the old flow fetched
+    # the dynamic secret from public SaaS (api.akeyless.io) rather than the
+    # gateway.
+    runs-on: akeyless-slim-spot
     permissions:
       id-token: write   # lets this job request GitHub's own OIDC token, for Akeyless
       contents: read    # the only GitHub access this job has; all writes go via ARA
