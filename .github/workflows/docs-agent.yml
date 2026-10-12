@@ -300,8 +300,12 @@ jobs:
       # the single shared identity, so it can, by design. See the accepted
       # trade-off at the top of this file.
       #
-      # Only pass/fail and HTTP status codes are printed -- never a response
-      # body, which could contain a secret value if a check unexpectedly passes.
+      # A successful response body is never printed -- it could contain a
+      # secret value if a check unexpectedly passes. A FAILING ARA call does
+      # print the gateway's error text, truncated: those messages say things
+      # like "runtime authority is not available for your account tier" or
+      # "missing allow_access capability on ara-rule", which is exactly what
+      # you need to fix the setup, and they carry no credential material.
       - name: ARA preflight checks (temporary)
         env:
           T: ${{ steps.ara-token.outputs.token }}
@@ -313,6 +317,15 @@ jobs:
 
           BODY=$(mktemp)
           trap 'rm -f "$BODY"' EXIT
+
+          # The gateway answers /config/target_query errors as plain text
+          # (http.Error), so there is nothing to parse -- just flatten and cap
+          # it. Called only on a failing check.
+          why() {
+            local msg
+            msg=$(tr '\n\r' '  ' < "$BODY" | cut -c1-300)
+            [ -n "$msg" ] && echo "     gateway said: $msg"
+          }
 
           # A "denied" result only proves anything if the server actually
           # answered AND answered because of permissions. Anything else -- no
@@ -362,7 +375,7 @@ jobs:
           # 2. An allowed read through ARA must succeed. Same wording as the
           #    read-back step in the prompt, so this also proves the allowed-ops
           #    input rule does not block that call.
-          CODE=$(curl -sS --connect-timeout 10 --max-time 240 -o /dev/null -w '%{http_code}' -X POST \
+          CODE=$(curl -sS --connect-timeout 10 --max-time 240 -o "$BODY" -w '%{http_code}' -X POST \
             "$GATEWAY_URL/config/target_query" \
             -H "Authorization: Bearer $T" \
             -H 'Content-Type: application/json' \
@@ -372,6 +385,7 @@ jobs:
             echo "OK   2/3 allowed ARA read returned HTTP 200"
           else
             echo "FAIL 2/3 allowed ARA read: expected HTTP 200, got $CODE"
+            why
             FAILED=1
           fi
 
@@ -389,6 +403,7 @@ jobs:
             echo "OK   3/3 forbidden ARA operation rejected by policy (HTTP 400)"
           else
             echo "FAIL 3/3 forbidden ARA operation: expected HTTP 400 with an AI policy rejection, got $CODE"
+            why
             FAILED=1
           fi
 
