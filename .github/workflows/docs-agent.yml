@@ -172,7 +172,7 @@ jobs:
     # (or whoever's token called the dispatch API) -- it isn't something the
     # prompt text or the triggering user can spoof. Anyone not listed here
     # still sees the job start, but it's immediately skipped.
-    if: contains(fromJSON('["Avi-Akeyless", "EldadH89"]'), github.actor)
+    if: contains(fromJSON('["Avi-Akeyless", "EldadH89", "renanaAkeyless"]'), github.actor)
     runs-on: ubuntu-latest
     permissions:
       id-token: write   # lets this job request GitHub's own OIDC token, for Akeyless
