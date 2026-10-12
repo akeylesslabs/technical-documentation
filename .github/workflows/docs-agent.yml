@@ -19,30 +19,35 @@ name: Docs Agent
 # credential never enters the runner, and every action taken with it is recorded
 # as an ARA session (approved or blocked) in the Akeyless Console.
 #
-# TWO SEPARATE AKEYLESS IDENTITIES, on purpose
+# ONE AKEYLESS IDENTITY
 #
-# An Akeyless token carries every permission its auth method's roles grant, so
-# one token for everything would let Claude's Bash tool read the Jira and
-# Anthropic secrets. There are two, and each is used by exactly one step:
+# Both the static-secret fetch and the ARA call authenticate as
+# DOCS_AGENT_AKEYLESS_ACCESS_ID. Its role needs:
+#   - read on the three /DocsAgent static secrets below, and
+#   - the ARA capability on the dynamic secret, and NOT read on it:
+#       akeyless set-role-rule --role-name <the docs agent role> \
+#         --path /DocsAgent/Technical-Documentation-Repo-Github-DS \
+#         --rule-type ara-rule --capability allow_access
 #
-#   1. DOCS_AGENT_AKEYLESS_ACCESS_ID -- static secrets only (Claude key, Jira
-#      credentials). Used by the "Fetch credentials from Akeyless" step. This
-#      identity must NOT have read on the GitHub dynamic secret.
-#   2. DOCS_AGENT_ARA_ACCESS_ID -- ARA only. Its role has a single rule:
-#        akeyless set-role-rule --role-name <ara role> \
-#          --path /DocsAgent/Technical-Documentation-Repo-Github-DS \
-#          --rule-type ara-rule --capability allow_access
-#      No read anywhere. Used by the "Get an Akeyless token for ARA" step, and
-#      its token is handed to Claude as the ARA MCP server's bearer token.
-#
-# Both are OAuth2/JWT auth methods trusting GitHub's OIDC issuer
+# It is an OAuth2/JWT auth method trusting GitHub's OIDC issuer
 # (jwks-uri https://token.actions.githubusercontent.com/.well-known/jwks),
 # restricted via a sub-claim to repository=akeylesslabs/technical-documentation.
 # No Akeyless credential is stored in GitHub at all -- authentication uses the
-# runner's own OIDC token. Both steps request that OIDC token with GitHub's
-# DEFAULT audience (the akeyless-action calls core.getIDToken() with no
-# argument), so the ara-token step below deliberately does not pass an
-# &audience= parameter either -- both auth methods see the same aud claim.
+# runner's own OIDC token. The ara-token step below deliberately does not pass
+# an &audience= parameter, because the akeyless-action calls core.getIDToken()
+# with no argument and so uses GitHub's DEFAULT audience -- this way the auth
+# method sees the same aud claim from both steps.
+#
+# Accepted trade-off: an Akeyless token carries every permission its roles
+# grant, and the ARA token is handed to Claude in the MCP server config, where
+# Claude's Bash tool can read it. With one identity that token can therefore
+# also read /DocsAgent/JiraApiToken and /DocsAgent/ClaudeToken. Splitting ARA
+# onto a second, read-nothing auth method would close that off; it was
+# considered and deliberately not done, to avoid running a second identity for
+# one workflow. What this still prevents is the thing that matters most here:
+# no GitHub write credential exists anywhere in the job, and the dynamic
+# secret cannot be read even with this token -- only used through ARA, under
+# the input rules below, with every use recorded as a session.
 #
 # GUARDRAILS ON THE DYNAMIC SECRET
 #
@@ -71,10 +76,9 @@ name: Docs Agent
 #
 # GITHUB-SIDE VALUES NEEDED (repository Variables, not Secrets -- none of these
 # are sensitive). Settings -> Secrets and variables -> Actions -> Variables:
-#   DOCS_AGENT_AKEYLESS_ACCESS_ID = <static-secrets auth method access id>
+#   DOCS_AGENT_AKEYLESS_ACCESS_ID = <the docs agent auth method access id>
 #     (DOCS_AGENT_ prefix because AKEYLESS_ACCESS_ID was already taken by
 #     another integration in this repo)
-#   DOCS_AGENT_ARA_ACCESS_ID      = <ARA-only auth method access id>
 #   GATEWAY_URL                   = https://<self-hosted gateway>  (serves
 #     /config/* and /ara-mcp; must be reachable from GitHub-hosted runners)
 #   DOCS_AGENT_JIRA_BASE_URL      = https://<your-domain>.atlassian.net
@@ -84,8 +88,8 @@ name: Docs Agent
 #   /DocsAgent/JiraEmail    -- the Atlassian account email tied to the token
 #   /DocsAgent/JiraApiToken -- an API token for that account
 #     (created at https://id.atlassian.com/manage-profile/security/api-tokens)
-# The static-secrets role needs read on all three. Nothing needs adding under
-# GitHub's own Secrets tab for this workflow at all.
+# The role needs read on all three. Nothing needs adding under GitHub's own
+# Secrets tab for this workflow at all.
 #
 # INPUTS
 #
@@ -123,8 +127,10 @@ name: Docs Agent
 #     installation token, which would either fail or hand Claude write access --
 #     exactly what this workflow is designed to avoid.
 #   - the ARA token sits in Claude's MCP server config, so Claude's Bash tool
-#     can read it. That is accepted: it grants nothing but allow_access on the
-#     one dynamic secret, under the input rules above.
+#     can read it. Because it is the single shared identity, that token can
+#     also re-read the Jira and Anthropic secrets from Akeyless -- see the
+#     accepted trade-off above. It still cannot read the GitHub dynamic
+#     secret, only use it through ARA.
 #   - that token is minted at the start of the job, but every service-execute
 #     call happens at the very end of Claude's run. Give the ARA auth method an
 #     access TTL comfortably longer than a full run (the default is 60 minutes),
@@ -208,13 +214,16 @@ jobs:
       - name: Get an Akeyless token for ARA
         id: ara-token
         env:
-          ACCESS_ID: ${{ vars.DOCS_AGENT_ARA_ACCESS_ID }}
+          # Same identity as the static-secret step above. The Akeyless action
+          # does not expose the token it minted, so this step authenticates
+          # again rather than reusing one.
+          ACCESS_ID: ${{ vars.DOCS_AGENT_AKEYLESS_ACCESS_ID }}
           GATEWAY_URL: ${{ vars.GATEWAY_URL }}
         run: |
           set -euo pipefail
 
           if [ -z "$ACCESS_ID" ]; then
-            echo "The DOCS_AGENT_ARA_ACCESS_ID repository variable is not set."
+            echo "The DOCS_AGENT_AKEYLESS_ACCESS_ID repository variable is not set."
             exit 1
           fi
 
@@ -285,7 +294,11 @@ jobs:
       # checks need a GitHub OIDC token, which only exists inside an Actions
       # run, so they cannot be run from a laptop. Run the workflow once from the
       # feature branch (gh workflow run docs-agent.yml --ref <branch>), confirm
-      # all four lines say OK, then delete this step.
+      # all three lines say OK, then delete this step.
+      #
+      # There is deliberately no "cannot read the Jira secret" check: this is
+      # the single shared identity, so it can, by design. See the accepted
+      # trade-off at the top of this file.
       #
       # Only pass/fail and HTTP status codes are printed -- never a response
       # body, which could contain a secret value if a check unexpectedly passes.
@@ -304,7 +317,7 @@ jobs:
           # A "denied" result only proves anything if the server actually
           # answered AND answered because of permissions. Anything else -- no
           # response at all (curl reports 000), a routing 404, a 5xx -- would
-          # otherwise read as "denied" and pass the two negative controls for
+          # otherwise read as "denied" and pass the negative control for
           # entirely the wrong reason.
           #
           # 400 has to count as a denial too, but only with a matching message.
@@ -334,7 +347,9 @@ jobs:
           # would kill the step on a connection error before expect_denied
           # could report it, and the remaining checks would never run.
 
-          # 1. The ARA identity must NOT be able to read the dynamic secret.
+          # 1. The identity must NOT be able to read the dynamic secret, even
+          #    though it may use it through ARA. This is the check that proves
+          #    `read` was actually removed from the role.
           #    Aimed at the gateway, which is what would actually serve a read
           #    of this gateway-bound GitHub producer: the gateway runs the CLI
           #    command set, so the last path segment is the command name.
@@ -342,16 +357,9 @@ jobs:
             "$GATEWAY_URL/api/v2/get-dynamic-secret-value" \
             -H 'Content-Type: application/json' \
             -d "$(jq -n --arg n "$DS_NAME" --arg t "$T" '{name:$n,token:$t}')" || true)
-          expect_denied "1/4 dynamic secret read" "$CODE"
+          expect_denied "1/3 dynamic secret read" "$CODE"
 
-          # 2. It must not reach the Jira credentials either.
-          CODE=$(curl -sS --connect-timeout 10 --max-time 60 -o "$BODY" -w '%{http_code}' -X POST \
-            "https://api.akeyless.io/get-secret-value" \
-            -H 'Content-Type: application/json' \
-            -d "$(jq -n --arg t "$T" '{names:["/DocsAgent/JiraApiToken"],token:$t}')" || true)
-          expect_denied "2/4 Jira secret read" "$CODE"
-
-          # 3. An allowed read through ARA must succeed. Same wording as the
+          # 2. An allowed read through ARA must succeed. Same wording as the
           #    read-back step in the prompt, so this also proves the allowed-ops
           #    input rule does not block that call.
           CODE=$(curl -sS --connect-timeout 10 --max-time 240 -o /dev/null -w '%{http_code}' -X POST \
@@ -361,13 +369,13 @@ jobs:
             -d "$(jq -n --arg n "$DS_NAME" \
                   '{secret_name:$n,payload:"get contents of README.md on branch v1.0 in akeylesslabs/technical-documentation",agent_id:"docs-agent-preflight"}')" || true)
           if [ "$CODE" = "200" ]; then
-            echo "OK   3/4 allowed ARA read returned HTTP 200"
+            echo "OK   2/3 allowed ARA read returned HTTP 200"
           else
-            echo "FAIL 3/4 allowed ARA read: expected HTTP 200, got $CODE"
+            echo "FAIL 2/3 allowed ARA read: expected HTTP 200, got $CODE"
             FAILED=1
           fi
 
-          # 4. A forbidden operation must be rejected by the input rules.
+          # 3. A forbidden operation must be rejected by the input rules.
           #    HTTP 400 alone is not enough -- the Gateway also returns 400 for
           #    an ambiguous request -- so match the rejection reason too. The
           #    body is matched quietly and never printed.
@@ -378,9 +386,9 @@ jobs:
             -d "$(jq -n --arg n "$DS_NAME" \
                   '{secret_name:$n,payload:"merge PR #1 in akeylesslabs/technical-documentation",agent_id:"docs-agent-preflight"}')" || true)
           if [ "$CODE" = "400" ] && grep -qi 'ai policy rejection' "$BODY"; then
-            echo "OK   4/4 forbidden ARA operation rejected by policy (HTTP 400)"
+            echo "OK   3/3 forbidden ARA operation rejected by policy (HTTP 400)"
           else
-            echo "FAIL 4/4 forbidden ARA operation: expected HTTP 400 with an AI policy rejection, got $CODE"
+            echo "FAIL 3/3 forbidden ARA operation: expected HTTP 400 with an AI policy rejection, got $CODE"
             FAILED=1
           fi
 
