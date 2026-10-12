@@ -396,7 +396,7 @@ jobs:
           exit "$FAILED"
 
       - name: Checkout technical-documentation
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           # No token: -- the job's own GITHUB_TOKEN is used, and this job only
           # has contents: read.
