@@ -128,6 +128,7 @@ See [Creating New File Item](https://docs.akeyless.io/docs/web-extension-file-it
 | Link | Goes to |
 |---|---|
 | **Import Passwords** | The import flow — see [CSV Password Importer](https://docs.akeyless.io/docs/csv-password-importer) |
+| **Export Passwords** | Downloads your personal passwords as a CSV file — see [Exporting Your Passwords](https://docs.akeyless.io/docs/web-extension-export-passwords). Greyed out when your account has no Personal area |
 | **Contact Support** | Your organization's support channel when configured, otherwise Akeyless support |
 | **Privacy Policy** | Your organization's policy when configured, otherwise the Akeyless policy |
 
@@ -148,5 +149,6 @@ method and Access ID, so signing back in is quick. See
 ## Related
 
 - [Using Autofill / Password Injection](https://docs.akeyless.io/docs/using-autofillpassword-injection-functionality-1)
+- [Exporting Your Passwords](https://docs.akeyless.io/docs/web-extension-export-passwords)
 - [Passkey](https://docs.akeyless.io/docs/passkey)
 - [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies)
