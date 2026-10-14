@@ -31,7 +31,6 @@
 - csv-password-importer
 - web-extension-export-passwords
 - web-extension-preconfigured-install
-- web-extension-accessibility
 - web-extension-security-health
 - web-extension-branding
 - web-extension-bridge-link
@@ -40,3 +39,4 @@
 - web-extension-troubleshooting
 - web-extension-settings
 - sra-web-extension-sa
+- web-extension-accessibility
