@@ -46,6 +46,14 @@ Token lifetime is set by your account's authentication method. Contact your acco
 
 Check the **import summary** shown after upload — it reports what was skipped. Common causes: a non-UTF-8 encoding the importer could not decode, and missing required columns. See [CSV Password Importer](https://docs.akeyless.io/docs/csv-password-importer).
 
+## Export Passwords is greyed out, or skipped items
+
+Greyed out means your account has no Personal area, which is set by account policy. See [Account Policies Affecting the Extension](https://docs.akeyless.io/docs/web-extension-account-policies). Skipped items usually have an empty password field. See [Exporting Your Passwords](https://docs.akeyless.io/docs/web-extension-export-passwords).
+
+## The extension turned off after an update
+
+Version 1.30.130 added the browser's downloads permission, used by **Export Passwords**. Chrome and Edge turn an extension off until you approve a newly requested permission. Open the browser's extensions page and approve it to turn the extension back on. Firefox instead holds the update and asks from its menu, and the previous version keeps working until you accept.
+
 ## Still stuck
 
 Use **Settings** → **Contact Support**, which points at your organization's support channel when configured.

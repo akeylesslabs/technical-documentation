@@ -41,6 +41,9 @@ Columns: `name`, `url`, `username`, `password`, `description` (also accepted as 
 | **Encoding** | UTF-8 preferred; common Western European (Latin) encodings also decode |
 | **Extra columns** | Ignored rather than rejected |
 
+The extension's own **Export Passwords** writes this format, so a file exported from one Akeyless
+account imports into another unchanged. See [Exporting Your Passwords](https://docs.akeyless.io/docs/web-extension-export-passwords).
+
 ### KeePass default columns
 
 A default KeePass export produces `Account`, `Login Name`, `Password`, `Web Site`, `Comments`.
@@ -60,7 +63,8 @@ Each row becomes a **password item**:
 | `url` | A website URL, which drives autofill matching and Launch |
 | `description` / `note` | The item description |
 
-Imported items land in the area and folder you choose during the import.
+Imported items land in the area and folder you choose during the import. A folder path in the
+`name` column, such as `Work/GitHub`, is recreated under the folder you choose.
 
 ## The import summary
 
@@ -99,6 +103,7 @@ Then:
 
 ## Related
 
+- [Exporting Your Passwords](https://docs.akeyless.io/docs/web-extension-export-passwords)
 - [Creating New Password](https://docs.akeyless.io/docs/creating-new-password-1)
 - [Security Health in the Extension](https://docs.akeyless.io/docs/web-extension-security-health)
 - [Extension Settings](https://docs.akeyless.io/docs/web-extension-settings)

@@ -36,6 +36,7 @@ Account settings and vault permissions change what users see without notificatio
 3. **No `Passkey Management` in Settings?** `allow_passkeys` is off, or the organization suppresses passkeys.
 4. **Dark mode toggle gone?** Branding is active — see [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding).
 5. **Protection key locked?** `account_default_key_name` is configured as exclusive.
+6. **`Export Passwords` greyed out?** The Personal vault is unavailable. Check the same policies as for a missing Personal tab.
 
 ## Where these are set
 
