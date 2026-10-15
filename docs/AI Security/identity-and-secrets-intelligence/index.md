@@ -66,10 +66,10 @@ Use these views to explore the product from high-level posture down to specific 
 | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Dashboard**                                              | trends, top 5 issues to address first, and Scanners Overview.                                                                                                                                                                                                           |
 | Inventory                                                  | Drill into findings by type, status, and severity. Export findings in `CSV` or `JSON` format, open finding surfacing why it matters, a graph of related objects and blast radius, and remediation steps, including AI-powered investigation and remediation assistance. |
-| [Scanners](doc:identity-and-secrets-intelligence-scanners) | Manage scanners and review scan history and details.                                                                                                                                                                                                                    |
-| [Policies](doc:identity-and-secrets-intelligence-policies) | Review policy scope and status.                                                                                                                                                                                                                                         |
+| [Scanners](doc:scanners) | Manage scanners and review scan history and details.                                                                                                                                                                                                                    |
+| [Policies](doc:policies) | Review policy scope and status.                                                                                                                                                                                                                                         |
 
 ## Next Steps
 
-* [Scanners](doc:identity-and-secrets-intelligence-scanners) for scanner setup
-* [Policies](doc:identity-and-secrets-intelligence-policies) for view policies
+* [Scanners](doc:scanners) for scanner setup
+* [Policies](doc:policies) for view policies
