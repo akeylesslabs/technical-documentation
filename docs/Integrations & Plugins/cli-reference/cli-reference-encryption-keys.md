@@ -91,6 +91,10 @@ akeyless assoc-target-item \
 
 `--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for SSH and Windows certificate provisioning, not supported for F5 BIG-IP)
 
+`--iis-site-name`: The name of the IIS website whose SSL certificate binding should be replaced with the newly provisioned certificate, as a built-in alternative to `--post-provision-command` (relevant only for Windows certificate provisioning)
+
+`--iis-port[=443]`: The port of the IIS HTTPS binding to update (relevant only when `--iis-site-name` is set)
+
 `--bind-ssl-profiles`: Bind the provisioned certificate to an existing `client-ssl` / `server-ssl` profile, in the format `type:partition:name` (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate's partition. To specify multiple profiles use argument multiple times: `--bind-ssl-profiles` `client-ssl:Common:my-profile` `--bind-ssl-profiles` `client-ssl:Common:my-other-profile`
 
 `--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
