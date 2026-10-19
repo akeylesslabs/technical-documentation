@@ -3,6 +3,7 @@
 - scep-server
 - certificate-storage
 - certificate-provisioning
+- certificate-provisioning-java-keystore
 - certificate-discovery
 - certificate-renewal
 - certificate-revocation-list
