@@ -180,7 +180,7 @@ jobs:
     # /api/v2. This did not matter before ARA, because the old flow fetched
     # the dynamic secret from public SaaS (api.akeyless.io) rather than the
     # gateway.
-    runs-on: akeyless-slim-spot
+    runs-on: ubuntu-latest
     permissions:
       id-token: write   # lets this job request GitHub's own OIDC token, for Akeyless
       contents: read    # the only GitHub access this job has; all writes go via ARA
