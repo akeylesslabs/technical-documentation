@@ -467,7 +467,6 @@ jobs:
           FEATURE_INPUT: ${{ github.event.inputs.feature }}
           DOC_ACTION: ${{ github.event.inputs.doc_action }}
           ACTOR: ${{ github.actor }}
-          RUN_ID: ${{ github.run_id }}
         run: |
           if [ -z "$FEATURE_INPUT" ]; then
             echo "The feature/ticket field is empty."
