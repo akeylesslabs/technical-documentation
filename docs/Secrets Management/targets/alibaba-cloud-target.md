@@ -1,13 +1,13 @@
 ---
 title: Alibaba Cloud Target
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
 You can define an AliCloud target that contains an Alibaba Cloud RAM identity to be used with an [AliCloud Rotated Secret](https://docs.akeyless.io/docs/create-an-alicloud-rotated-secret).
 
-If you are working with an explicit **AccessKey** pair, ensure you create automatic rotation for this **AccessKey** using an [AliCloud Rotated Secret](https://docs.akeyless.io/docs/create-an-alicloud-rotated-secret).
+If you are working with an explicit **Access Key** pair, ensure you create automatic rotation for this **Access Key** using an [AliCloud Rotated Secret](https://docs.akeyless.io/docs/create-an-alicloud-rotated-secret).
 
 When working with [Gateway](https://docs.akeyless.io/docs/gateway-overview) Cloud Identity, Akeyless uses the Alibaba Cloud default credential provider chain. In addition, if an External ID is used, make sure the RAM role your Gateway uses has permission to assume the relevant roles in the account.
 
@@ -72,17 +72,16 @@ You can find the complete list of parameters for this command in the [CLI Refere
    - Check the **Use Credentials** radio button to authenticate with the AccessKey pair of a RAM user.
 
    - Check the **Use Gateway's Cloud Identity** option to authenticate with the Gateway's local Alibaba Cloud identity.
-   <Callout icon="👍" theme="okay">
-     ### Note
+     <Callout icon="👍" theme="okay">
+       ### Note
 
-     **Use Gateway's Cloud Identity** is relevant when your Gateway is hosted on an Alibaba Cloud resource (for example, an ECS instance with a RAM role, or an ACK cluster with RRSA). Make sure the relevant RAM role has enough permissions to perform the required actions as described in the relevant guides, for example, [AliCloud Dynamic Secrets](https://docs.akeyless.io/docs/alicloud-producer) and [AliCloud Rotated Secret](https://docs.akeyless.io/docs/create-an-alicloud-rotated-secret).
-   </Callout>
+       **Use Gateway's Cloud Identity** is relevant when your Gateway is hosted on an Alibaba Cloud resource (for example, an ECS instance with a RAM role, or an ACK cluster with RRSA). Make sure the relevant RAM role has enough permissions to perform the required actions as described in the relevant guides, for example, [AliCloud Dynamic Secrets](https://docs.akeyless.io/docs/alicloud-producer) and [AliCloud Rotated Secret](https://docs.akeyless.io/docs/create-an-alicloud-rotated-secret).
+     </Callout>
 
 5. Define the remaining parameters as follows:
-   - **AccessKey ID:** If you selected the **Use Credentials** option in the previous step, specify the AccessKey ID of the RAM user that authenticates Akeyless with Alibaba Cloud.
-   - **AccessKey Secret:** Specify the AccessKey secret of that RAM user.
+   - **Access Key ID:** If you selected the **Use Credentials** option in the previous step, specify the AccessKey ID of the RAM user that authenticates Akeyless with Alibaba Cloud.
+   - **Access Key Secret:** Specify the AccessKey secret of that RAM user.
    - **Region:** Optional. The Alibaba Cloud region used to select the regional STS endpoint. If empty, the global endpoint is used.
-   - **STS Security Token:** Required only for temporary credentials retrieved through STS. Otherwise, leave it empty.
    - **External ID:** Optional. A unique auto-generated value to set as `sts:ExternalId` in the trust policy of your RAM role, to securely delegate access to Akeyless.
    - **Role ARN:** Optional. When using an External ID, the RAM role ARN that the Gateway assumes, in the format `acs:ram::<account-id>:role/<role-name>`.
 
