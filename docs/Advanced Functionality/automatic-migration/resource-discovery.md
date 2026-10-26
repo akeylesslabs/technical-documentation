@@ -60,7 +60,7 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 
 - **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, for example, `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
 
-- **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
+- **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
 
 - **Discover Services:** Discover any Windows service that runs with explicit user credentials, as part of the rotated secret those services will be reflected, and upon Rotation, the relevant services will be restarted with the latest password.
 
@@ -69,6 +69,14 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 - **Discover IIS Applications:** Discover any existing IIS Application that runs with explicit user credentials, as part of the rotated secret those IIS Application will be reflected, and upon Rotation, the relevant IIS Application will be restarted with the latest password.
 
 - **AI Certificate Discovery:** Discover existing certificates across the environment using an AI-driven scanner as part of Active Directory Migration.
+
+- **Automatic Sync:** Enable/Disable a recurring sync of this Active Directory Discovery migration, so that new domain or local accounts are picked up automatically, without having to manually trigger a sync. When enabled, set the sync interval in days, or switch to Cron mode to define the schedule with standard cron syntax (the two modes stay in sync, for example, an interval of 90 days shows as the equivalent expression in Cron mode, and the other way around). Default is Disabled. After creation, the scheduled sync date and time are shown under **General > Protection Key**.
+
+  <Callout icon="⚠️" theme="warn">
+    ### **Warning:**
+
+    Syncing is a heavy operation for the Active Directory server. Avoid scheduling it too frequently, and prefer the longest interval that still meets your freshness requirements.
+  </Callout>
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
