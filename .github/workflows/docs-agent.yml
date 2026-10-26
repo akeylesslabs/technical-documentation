@@ -669,14 +669,14 @@ jobs:
           # to happen inline (Grep/Glob/Read) within the one turn sequence
           # Claude is already running, so it actually finishes the work.
           # With multiple tickets now in one run, a higher --max-turns budget
-          # matters more than before: raised from 40 to 60 so a multi-ticket
-          # run has room to research, write, and publish each ticket in turn
-          # without hitting the cap mid-way (see the earlier max_turns failure
-          # discussion -- that was with a single ticket; several in one run
-          # will need more headroom, not less).
+          # matters more than before: raised 40 -> 60 -> 100. A 4-ticket run
+          # still hit 60 (research + write + the diff/checksum step + one ARA
+          # call per pushed file + one ARA call per read-back, across every
+          # ticket, adds up fast). 100 buys more headroom, not a guarantee --
+          # a run with still more tickets/files could exhaust even this.
           claude_args: >-
             --mcp-config '{"mcpServers":{"ara":{"type":"http","url":"${{ steps.ara-token.outputs.gateway_url }}/ara-mcp","headers":{"Authorization":"Bearer ${{ steps.ara-token.outputs.token }}"}}}}'
             --allowedTools "Bash,Edit,Write,Read,Glob,Grep,mcp__ara__service-execute"
             --disallowedTools "Task"
-            --max-turns 60
+            --max-turns 100
             --model claude-sonnet-5
