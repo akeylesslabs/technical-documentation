@@ -1,5 +1,6 @@
 - artifactory-targets
 - aerospike-target
+- alibaba-cloud-target
 - aws-targets
 - azure-targets
 - bedrock-target
@@ -38,4 +39,3 @@
 - web-targets
 - windows-target
 - zerossl-target
-- alibaba-cloud-target
