@@ -1,4 +1,5 @@
 - aerospike-rotated-secret
+- create-an-alicloud-rotated-secret
 - create-an-aws-rotated-secret
 - create-an-azure-rotated-secret
 - create-a-database-rotated-secret
