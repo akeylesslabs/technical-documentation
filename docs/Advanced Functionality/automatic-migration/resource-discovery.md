@@ -60,7 +60,7 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 
 - **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, for example, `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
 
-- **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
+- **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
 
 - **Discover Services:** Discover any Windows service that runs with explicit user credentials, as part of the rotated secret those services will be reflected, and upon Rotation, the relevant services will be restarted with the latest password.
 
@@ -97,6 +97,8 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 - **Skip dry-run validation:** Skip dry-run validation when creating rotated secrets for migrated Domain/Local Users.
 
 - **Custom Password Policy:&#x20;**&#x41;pply a custom password policy when generating passwords for migrated Domain/Local Users.
+
+- **Automatic Sync:** Enable/Disable a recurring re-sync of this migration on a schedule, so newly added domain or local accounts are picked up without manually triggering a sync. See [Automatic Sync](https://docs.akeyless.io/docs/automatic-migration#automatic-sync) for details.
 
 - **Target Format:** Relevant only for **Computers Discovery Type**, the output Target format to migrate all discovered computers supporting [Linked Target](https://docs.akeyless.io/docs/linked-target) for Secure Remote Access.
 
