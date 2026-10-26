@@ -1,4 +1,5 @@
 - aws-universal-secrets-connector
+- aws-organization-wide-universal-secrets-connector
 - azure-universal-secrets-connector
 - gcp-universal-secrets-connector
 - hc-vault-universal-secrets-connector
