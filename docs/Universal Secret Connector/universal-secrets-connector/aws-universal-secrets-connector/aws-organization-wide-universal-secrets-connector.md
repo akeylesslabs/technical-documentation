@@ -37,15 +37,110 @@ Once provisioned, a single AWS **USC** item is no longer bound to one account an
 
 ## Provisioning the Cross-Account Role
 
-1. Deploy the Akeyless-provided CloudFormation StackSet template once, against either the organization root or a specific OU.
+The following CloudFormation template creates the IAM role that the Akeyless Gateway assumes in each member account. Save it as `akeyless-usc-org-role.yaml`.
 
-2. Enable **service-managed permissions** and **automatic deployment** on the StackSet. AWS Organizations keeps the role in sync automatically. The role is created in every account currently in the targeted scope and deployed automatically into any account added to that scope afterward, with no separate activation step required in Akeyless.
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Akeyless org-wide AWS Universal Secrets Connector cross-account role
 
-3. The template creates an IAM role in every in-scope account with the following configuration:
-   * A trust policy that references the External ID configured on your Akeyless AWS Target.
-   * A permission policy that matches the [permission set documented for AWS USC](https://docs.akeyless.io/docs/aws-universal-secrets-connector#prerequisites), applied uniformly through the StackSet instead of being configured manually per account.
+Parameters:
+  RoleName:
+    Type: String
+    Default: AkeylessUSCRole
+    Description: Name of the IAM role created in every member account. Must be identical across all accounts.
+  TrustedPrincipalArn:
+    Type: String
+    Description: ARN of the IAM principal used by your Akeyless AWS Target to assume this role.
+  ExternalId:
+    Type: String
+    NoEcho: true
+    Description: External ID configured on your Akeyless AWS Target.
 
-To change the scope later, for example to add or remove an OU, re-run the StackSet against the new set of targets.
+Resources:
+  AkeylessUSCRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Ref RoleName
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Ref TrustedPrincipalArn
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                sts:ExternalId: !Ref ExternalId
+      Policies:
+        - PolicyName: AkeylessUSCSecretsManagerAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - secretsmanager:ListSecrets
+                  - secretsmanager:DescribeSecret
+                  - secretsmanager:GetSecretValue
+                  - secretsmanager:CreateSecret
+                  - secretsmanager:PutSecretValue
+                  - secretsmanager:UpdateSecret
+                  - secretsmanager:DeleteSecret
+                  - secretsmanager:TagResource
+                  - secretsmanager:UntagResource
+                Resource: '*'
+
+Outputs:
+  RoleArn:
+    Description: ARN of the Akeyless USC cross-account role
+    Value: !GetAtt AkeylessUSCRole.Arn
+```
+
+The template creates an IAM role in every in-scope account with the following configuration:
+
+* A trust policy that references the External ID configured on your Akeyless AWS Target.
+* A permission policy that matches the [permission set documented for AWS USC](https://docs.akeyless.io/docs/aws-universal-secrets-connector#prerequisites), applied uniformly through the StackSet instead of being configured manually per account.
+
+To deploy the template:
+
+1. Create the StackSet with **service-managed permissions** and **automatic deployment** enabled. Run this command from the authenticating account:
+
+```shell
+   aws cloudformation create-stack-set \
+     --stack-set-name akeyless-usc-org-role \
+     --template-body file://akeyless-usc-org-role.yaml \
+     --capabilities CAPABILITY_NAMED_IAM \
+     --permission-model SERVICE_MANAGED \
+     --auto-deployment Enabled=true,RetainStacksOnAccountRemoval=false \
+     --parameters \
+       ParameterKey=TrustedPrincipalArn,ParameterValue=<trusted-principal-arn> \
+       ParameterKey=ExternalId,ParameterValue=<external-id> \
+     --call-as DELEGATED_ADMIN
+```
+
+   If you authenticate from the management account, set `--call-as SELF`.
+
+2. Deploy stack instances against the organization root or a specific OU:
+
+```shell
+   aws cloudformation create-stack-instances \
+     --stack-set-name akeyless-usc-org-role \
+     --deployment-targets OrganizationalUnitIds=<root-or-ou-id> \
+     --regions <single-region> \
+     --call-as DELEGATED_ADMIN
+```
+
+   AWS Organizations keeps the role in sync automatically. The role is created in every account currently in the targeted scope and deployed automatically into any account added to that scope afterward, with no separate activation step required in Akeyless.
+
+> 🚧 Deploy to a Single Region
+>
+> IAM roles are global resources. Specify exactly one Region in `--regions`. Deploying the StackSet to multiple Regions in the same account fails because the role name already exists. The role still grants access to Secrets Manager in every Region of that account.
+
+> 📘 Management Account Coverage
+>
+> Service-managed StackSets do not deploy stack instances to the management account. If the management account holds secrets you want the connector to manage, create the role there manually using the same template.
+
+To change the scope later, for example to add or remove an OU, run `create-stack-instances` or `delete-stack-instances` against the new set of targets.
 
 ## Choosing the Authenticating Account
 
