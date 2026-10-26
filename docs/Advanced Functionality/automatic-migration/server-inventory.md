@@ -33,3 +33,5 @@ To create the Server Inventory Migration, login to your Gateway on port `8000`, 
 * **Enable SRA:** Enable/Disable Secure Remote Access setup for the migrated local users by way of the Rotated Secrets. Default is Disabled, the Rotated Secrets will not be created with SRA configuration. **Available only for accounts with the SRA package** .
 
 * **Auto Rotate:** Enable/Disable automatic/recurrent rotation for the migrated secrets. By default is **Disabled**. If Enabled, this should be set with rotation-interval and rotation-hour settings.
+
+* **Automatic Sync:** Enable/Disable a recurring re-sync of this migration on a schedule, so newly added local accounts are picked up without manually triggering a sync. See [Automatic Sync](https://docs.akeyless.io/docs/automatic-migration#automatic-sync) for details.
