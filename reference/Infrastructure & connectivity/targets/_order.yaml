@@ -149,3 +149,5 @@
 - updatewebtargetdetails
 - updatewindowstarget
 - updatezerossltarget
+- targetcreatealicloud
+- targetupdatealicloud
