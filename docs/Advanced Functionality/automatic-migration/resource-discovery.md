@@ -70,6 +70,8 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 
 - **AI Certificate Discovery:** Discover existing certificates across the environment using an AI-driven scanner as part of Active Directory Migration.
 
+- **Automatic Sync:** Enable/Disable a recurring sync of this Active Directory Discovery migration, so that new domain or local accounts are picked up automatically, without having to manually trigger a sync. When enabled, set the sync interval in days, or switch to Cron mode to define the schedule with standard cron syntax (the two modes stay in sync, for example, an interval of 90 days shows as the equivalent expression in Cron mode, and the other way around). Default is Disabled.
+
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
 
