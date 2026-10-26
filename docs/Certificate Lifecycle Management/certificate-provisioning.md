@@ -85,3 +85,46 @@ You can find the complete list of additional parameters for this command, includ
   - **Profile Type **- Select **Client SSL** or **Server SSL**.
   - **Partition** - The partition where the profile exists. By default, the partition is taken from the **Certificate Remote Path**.
   - **Profile Name **- The name of the **SSL profile**.
+
+## Provisioning a Certificate to a Cloud Certificate Manager
+
+In addition to host-based [SSH](https://docs.akeyless.io/docs/ssh-target)/[Windows](https://docs.akeyless.io/docs/windows-target)/[F5](https://www.f5.com/) targets, a certificate can be provisioned directly to **Azure Key Vault**, **AWS Certificate Manager (ACM)**, or **GCP Certificate Manager**, using an [Azure Target](https://docs.akeyless.io/docs/azure-targets), [AWS Target](https://docs.akeyless.io/docs/aws-targets), or [GCP Target](https://docs.akeyless.io/docs/gcp-targets) as a credential container to sign the API request.
+
+Unlike host-based targets, cloud targets do not expose a shell: there is no **Post Provision Command**, and because each cloud certificate manager stores the private key, public certificate, and chain together as a single object rather than as separate local files, the **Private Key Remote Path**, **Certificate Remote Path**, and **Certificate Chain Path** fields do not apply. To trigger downstream actions after provisioning (for example, reloading a web server or flushing a CDN edge), configure your cloud provider's native eventing, such as Azure Event Grid, AWS EventBridge, or a GCP Cloud Logging sink, on the certificate-created event.
+
+Every certificate provisioned to a cloud certificate manager through Akeyless is tagged `provisioned-by: akeyless`.
+
+### Azure Key Vault
+
+- **Certificate Name** - The certificate name in Azure Key Vault.
+
+- **Key Vault Name** - **Required**, the Azure Key Vault where the certificate object will be stored.
+
+### AWS Certificate Manager (ACM)
+
+- **Certificate Name** - The certificate name in ACM.
+
+- **Certificate ARN** - Optional, relevant only when renewing or overwriting an existing certificate. If left blank, ACM automatically provisions a new certificate resource.
+
+### GCP Certificate Manager
+
+- **Certificate Name** - The certificate name in GCP Certificate Manager.
+
+- **Location Scope** - **Required**, defines whether the certificate is deployed to the `global` namespace or a specific region (for example, `us-central1`).
+
+### Provisioning a Certificate to a Cloud Certificate Manager Using the CLI
+
+Run the `assoc-target-item` command, pointed at an Azure, AWS, or GCP target, with the relevant fields for that cloud provider:
+
+```shell
+akeyless assoc-target-item \
+--name <Certificate name> \
+--target-name <Azure/AWS/GCP Target Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--certificate-name <Certificate name in the cloud destination> \
+--vault-name <Azure Key Vault name> \
+--certificate-arn <Existing ACM Certificate ARN, optional> \
+--location-id <GCP Location Scope: global or a region>
+```
+
+Where `vault-name`, `certificate-arn`, and `location-id` are relevant only for their respective cloud provider, as described above. You can find the complete list of additional parameters for this command, including `--bind-ssl-profiles`, in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#assoc-target-item) section.
