@@ -54,6 +54,24 @@ After the migration, new secrets will be available under the specified path. If 
   Before getting started, ensure that the platform where the secrets are stored is accessible over the network from the Akeyless Gateway server. Depending on the deployment, it might require adding an Akeyless Gateway IP address to a security group or a firewall.
 </Callout>
 
+## Automatic Sync
+
+By default, a migration or discovery item only runs when triggered manually. **Automatic Sync** lets any migration or discovery type re-run on a recurring schedule, so that new accounts, secrets, or resources on the source platform are picked up automatically, without having to press the sync button again.
+
+To enable it, turn on the **Automatic Sync** toggle, located under the **Gateway** field in the **Basic Configuration** step when creating or editing a migration. Once enabled, set the sync interval in one of two modes:
+
+* **Interval mode:** Run the sync automatically every `X` days, at a time of your choosing.
+
+* **Cron mode:** Run the sync according to a standard cron expression. Switching between modes preserves the equivalent schedule, for example, setting an interval of `90` days and then switching to Cron mode displays the matching `90`-day cron expression, and the other way around.
+
+After the migration is created, the configured schedule, along with the date and time of the next scheduled sync, is displayed under **General > Protection Key**.
+
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  Running a full sync is a heavy operation on the source platform. Avoid scheduling it more frequently than necessary.
+</Callout>
+
 ## 1Password
 
 <Callout icon="ℹ️" theme="info">
