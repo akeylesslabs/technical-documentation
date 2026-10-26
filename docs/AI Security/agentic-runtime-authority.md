@@ -133,7 +133,7 @@ Use the administrative rule separately when you also want reporting visibility.
 6. Add, edit, or delete rules as needed.
 7. Save the Dynamic Secret.
 
-For new Dynamic Secrets, the current Console implementation can prepopulate default input rules for these producer types:
+For new Dynamic Secrets, the current Console implementation can pre-populate default input rules for these producer types:
 
 * MySQL
 * PostgreSQL
