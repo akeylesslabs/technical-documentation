@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-You can define an AliCloud target that contains an Alibaba Cloud RAM identity to be used with [AliCloud Dynamic Secrets](https://docs.akeyless.io/docs/alicloud-producer) or an [AliCloud Rotated Secret](https://docs.akeyless.io/docs/create-an-alicloud-rotated-secret).
+You can define an AliCloud target that contains an Alibaba Cloud RAM identity to be used with an [AliCloud Rotated Secret](https://docs.akeyless.io/docs/create-an-alicloud-rotated-secret).
 
 If you are working with an explicit **AccessKey** pair, ensure you create automatic rotation for this **AccessKey** using an [AliCloud Rotated Secret](https://docs.akeyless.io/docs/create-an-alicloud-rotated-secret).
 
