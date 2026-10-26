@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a [Windows](https://docs.akeyless.io/docs/windows-target) and [F5](https://www.f5.com/) endpoints utilizing [Targets](https://docs.akeyless.io/docs/targets).
+Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a [Windows](https://docs.akeyless.io/docs/windows-target) and [F5](https://www.f5.com/) endpoints utilizing [Targets](https://docs.akeyless.io/docs/targets). Akeyless also supports provisioning certificates directly to [cloud-native certificate stores](https://docs.akeyless.io/docs/certificate-provisioning-to-cloud-targets) such as AWS Certificate Manager, Azure Key Vault, and GCP Certificate Manager.
 
 <Callout icon="📘" theme="info">
   ### F5 Certificate Type
