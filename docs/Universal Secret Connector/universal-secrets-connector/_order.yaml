@@ -1,4 +1,5 @@
 - aws-universal-secrets-connector
+- aws-multi-account-and-multi-region-usc
 - azure-universal-secrets-connector
 - gcp-universal-secrets-connector
 - hc-vault-universal-secrets-connector
