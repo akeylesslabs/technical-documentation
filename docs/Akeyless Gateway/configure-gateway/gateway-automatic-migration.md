@@ -87,6 +87,40 @@ Where:
 
 For full command details, see the [Automatic Migration CLI Reference](https://docs.akeyless.io/docs/cli-reference-automatic-migration#sync).
 
+## Scheduled Automatic Sync
+
+In addition to manually triggering a sync, you can configure a migration to sync automatically on a recurring schedule, so that new or changed items on the source side (for example, new domain or local accounts discovered through Active Directory Discovery) are picked up without requiring a manual sync. This scheduling option is available for all migration and discovery types.
+
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  A sync is a heavy operation for the source system. Avoid scheduling it too frequently, and prefer the longest interval that still meets your freshness requirements.
+</Callout>
+
+**Console:**
+
+* When creating a migration, enable the **Automatic Sync** toggle, located under the **Gateway** field in the **Basic Configuration** step, then set the sync interval in days, or switch to Cron mode to define the schedule using standard cron syntax. Values are kept in sync between the two modes, for example, setting an interval of 90 days and then switching to Cron mode shows the equivalent 90-day cron expression, and switching back shows 90 days again.
+* After the migration is created, the scheduled sync date and time are shown under **General > Protection Key**.
+
+**CLI:**
+
+Set or update the schedule with `gateway-update-migration`:
+
+```shell
+akeyless gateway-update-migration \
+--name <Migration Name> \
+--target-location <Target location> \
+--schedule-sync <Cron expression> \
+--gateway-url <API Gateway URL>:8000
+```
+
+Where:
+
+* `--schedule-sync`: Runs the migration automatically on the specified schedule, in UTC. Accepts standard cron syntax. Limited to at most once every 24 hours.
+* `--disable-schedule-sync[=false]`: Disables an existing scheduled sync.
+
+For full flag details, see the [Automatic Migration CLI Reference](https://docs.akeyless.io/docs/cli-reference-automatic-migration#update).
+
 ## Operational Guidance
 
 Use a phased rollout:
