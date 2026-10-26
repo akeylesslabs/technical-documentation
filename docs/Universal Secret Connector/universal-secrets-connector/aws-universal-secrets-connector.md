@@ -247,3 +247,7 @@ More information and secret value can be viewed by selecting a specific secret, 
 ## Tutorial
 
 Check out our tutorial video on [AWS Universal Secrets Connector](https://tutorials.akeyless.io/docs/managing-secrets-stored-in-aws-azure-gcp-k8s).
+
+## Multi-Account & Multi-Region Support
+
+To cover every account in an AWS Organization with a single USC item, and to address a secret in a specific account and region per call, see [AWS Multi-Account & Multi-Region Universal Secrets Connector](https://docs.akeyless.io/docs/aws-multi-account-and-multi-region-usc).
