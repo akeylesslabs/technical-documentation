@@ -20,6 +20,7 @@ Agentic Runtime Authority allows AI agents to securely communicate with protecte
 
 * **Database targets**: MySQL, PostgreSQL, MSSQL, Oracle, Snowflake, HanaDB, Redshift, MongoDB, Redis, and Cassandra.
 * **Service targets**: AWS, GCP, Azure, Kubernetes (native K8s, EKS, and GKE), and GitHub.
+* **Remote command targets**: SSH, Windows, LDAP (Active Directory).
 
 The runtime authority execution path supports these secret types:
 
