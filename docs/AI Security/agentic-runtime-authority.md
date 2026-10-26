@@ -26,6 +26,7 @@ The runtime authority execution path supports these secret types:
 * **Dynamic secrets**: For just-in-time, temporary credentials with zero standing privileges.
 * **Rotated secrets**: For regularly rotated credentials.
 * **Static secrets**: For MCP-based service workflows, including OAuth authorization-code flows.
+* **SSH Certificate Issuers**: For running remote commands on SSH hosts with short-lived signed certificates.
 
 Agentic Runtime Authority extends Akeyless AI security beyond secretless credential retrieval by adding runtime controls and reporting for agent access.
 
