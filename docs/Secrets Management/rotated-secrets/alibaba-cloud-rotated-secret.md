@@ -1,7 +1,7 @@
 ---
 title: Alibaba Cloud Rotated Secret
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -112,9 +112,9 @@ You can find the complete list of parameters for this command in the [CLI Refere
      - **AccessKey**: Rotates the AccessKey pair defined inside the Rotated Secret item.
      - **Target**: Rotates the AccessKey defined inside the [AliCloud Target](https://docs.akeyless.io/docs/alicloud-targets) item.
 
-   - **AccessKey ID:** Defines the AccessKey ID of the RAM user whose AccessKey should be rotated.
+   - **Access Key ID:** Defines the AccessKey ID of the RAM user whose AccessKey should be rotated.
 
-   - **AccessKey Secret:** Defines the AccessKey secret to rotate.
+   - **Access Key Secret:** Defines the AccessKey secret to rotate.
 
    <Callout icon="👍" theme="okay">
      ### Note
