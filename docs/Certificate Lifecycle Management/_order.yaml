@@ -3,6 +3,7 @@
 - scep-server
 - certificate-storage
 - certificate-provisioning
+- certificate-provisioning-to-cloud-targets
 - certificate-discovery
 - certificate-renewal
 - certificate-revocation-list
