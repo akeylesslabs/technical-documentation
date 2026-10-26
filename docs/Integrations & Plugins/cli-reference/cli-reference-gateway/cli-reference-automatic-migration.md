@@ -306,6 +306,10 @@ akeyless gateway-update-migration \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
+`--schedule-sync`: Runs the migration automatically on the specified schedule in UTC. Accepts standard cron syntax. Limited to at most once every 24 hours.
+
+`--disable-schedule-sync[=false]`: Disables an existing scheduled sync.
+
 `-k, --protection-key`: The name of the key that protects the classic key value (if empty, the account default key will be used)
 
 `-g, --gcp-key-file-path`: Path to file with the Base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, for example, `roles/secretmanager.secretAccessor` (relevant only for GCP migration)
