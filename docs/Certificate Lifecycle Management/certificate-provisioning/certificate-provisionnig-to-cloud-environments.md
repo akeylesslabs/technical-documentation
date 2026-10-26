@@ -1,7 +1,7 @@
 ---
-title: Certificate Provisionnig to Cloud Environments
+title: Certificate Provisioning to Cloud Providers
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
