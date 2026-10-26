@@ -35,7 +35,7 @@ Runtime authority is exposed through these code-backed entry points:
 
 * The [runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#runtime-authority) for direct runtime execution through Gateway target query.
 * The [mcp-runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority) for MCP-based integrations.
-* MCP tools: `list-secrets`, `query-db`, and `service-execute`.
+* MCP tools: `list-secrets`, `list-sub-tools`, `query-db`, and `service-execute`.
 * The `ara-reports-access` role administrative rule for dashboard visibility.
 * The ARA role-rule **Allow Access** capability (`allow_access`) for runtime execution.
 * Repeated `--input-rule` and `--output-rule` flags on Dynamic Secret create and update commands.
