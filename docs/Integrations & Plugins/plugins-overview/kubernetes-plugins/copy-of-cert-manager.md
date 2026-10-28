@@ -1,12 +1,10 @@
 ---
-title: Copy of Cert Manager
+title: Akeyless Cert Manager Issuer
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
-## Overview
-
 The [Akeyless cert-manager Issuer](https://github.com/akeyless-community/akeyless-cert-manager-issuer) is an [external issuer](https://cert-manager.io/docs/configuration/issuers/) for [cert-manager](https://cert-manager.io/docs/) that signs certificate requests from your Kubernetes (K8s) cluster using an Akeyless [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). It calls the Akeyless API directly.
 
 <Callout icon="📘" theme="info">
