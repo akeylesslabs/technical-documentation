@@ -50,6 +50,12 @@ The issuance flow works as follows:
 
 The repository does not publish a ready-made container image, so you must build the image and push it to a registry that your cluster can pull from.
 
+<Callout icon="🚧" theme="warn">
+  ### Note
+
+  The image name in the repository README, `ghcr.io/akeyless-community/akeyless-cert-manager-issuer`, belongs to the repository maintainers' registry, and pushing to it requires write access to the `akeyless-community` GitHub organization. Use a registry that you own instead.
+</Callout>
+
 Clone the repository:
 
 ```shell Shell
@@ -57,16 +63,20 @@ git clone https://github.com/akeyless-community/akeyless-cert-manager-issuer.git
 cd akeyless-cert-manager-issuer
 ```
 
-Log in to your registry and build and push the image:
+Log in to your registry:
 
 ```shell Shell
 docker login <Your_Registry>
+```
 
-docker buildx build \
-  --platform linux/amd64 \
-  --build-arg VERSION=v0.1.0 \
+Build and push the image:
+
+```shell Shell
+docker build --platform linux/amd64 \
   -t <Your_Registry>/<Your_Repository>/akeyless-cert-manager-issuer:v0.1.0 \
-  --push .
+  --build-arg VERSION=v0.1.0 .
+
+docker push <Your_Registry>/<Your_Repository>/akeyless-cert-manager-issuer:v0.1.0
 ```
 
 Where:
