@@ -8,3 +8,4 @@
 - kubernetes-external-kms
 - external-secret-operator
 - k8s-external-secrets
+- copy-of-cert-manager
