@@ -4,7 +4,6 @@
 - external-secrets-operator
 - eso-and-aks-workload-identity
 - kubernetes-secrets-store-csi-provider
-- kubernetes-cert-manager
 - copy-of-cert-manager
 - kubernetes-external-kms
 - external-secret-operator
