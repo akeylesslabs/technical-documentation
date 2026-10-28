@@ -1,7 +1,7 @@
 ---
 title: Akeyless Cert Manager Issuer
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
