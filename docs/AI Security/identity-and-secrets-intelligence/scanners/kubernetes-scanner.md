@@ -27,8 +27,8 @@ Each scanner covers one or more object types, selected when the scanner is creat
 - A [Kubernetes Target](do:kubernetes-targets) representing the service account that will scan the cluster.
 - The credentials used by the Target granted the permissions listed under [Required Kubernetes Permissions](#required-kubernetes-permissions) below.
 - Access to configure and run the scanner, granted via:
-  1. `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-  2. `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
+  1. `Manage ISI Scanners `or `Admin` [Gateway Permission](doc:gateway-access-permissions-reference).
+  2. `Identity & Secrets Intelligence` [Administrative Rule](doc:rbac#administrative-rules) set to `Scoped` or `All`.
   3. `List` permission on the Kubernetes Target.
 
 ## Required Kubernetes Permissions
