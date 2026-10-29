@@ -7,7 +7,7 @@ metadata:
 ---
 # Scanners
 
-A scanner is a native Identity & Secrets Intelligence component that connects to an external environment through an Akeyless Target and Gateway, and inspects it for identities, secrets, and certificates. Each discovered object and the relationships between objects, such as which identity can access which secret. Objects evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings in [Inventory](doc:identity-and-secrets-intelligence#inventory).
+A scanner is a native Identity & Secrets Intelligence component that connects to an external environment through an Akeyless Target and Gateway, and inspects it for identities, secrets, and certificates. Each discovered object and the relationships between objects, such as which identity can access which secret. Objects evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings in Inventory.
 
 From the Akeyless Console, under **Products > Identity & Secrets Intelligence > Scanners**, you can:
 
