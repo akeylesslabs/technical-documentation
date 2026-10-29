@@ -24,7 +24,7 @@ Items can be configured to automatically lock for a customizable timeframe after
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.48.0` or later.
-* Only users with `list` and `update` permissions will be able to lock secrets.
+* Only users with `read` and `update` permissions will be able to lock secrets.
 
 ## Locking an item with the CLI
 

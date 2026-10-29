@@ -22,6 +22,12 @@ The process of generating a certificate request from a Kubernetes cluster to Ake
 
 Once all of the above are set, **CSR** will be generated to Akeyless from the Kubernetes Cluster, then, the certificate will be issued by the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 
+<Callout icon="📘" theme="info">
+  ### Info
+
+  Akeyless also provides a dedicated cert-manager external issuer that calls the Akeyless API directly, without the HashiCorp Vault Proxy. See [Akeyless Cert Manager Issuer](https://docs.akeyless.io/docs/akeyless-cert-manager-issuer).
+</Callout>
+
 ## Prerequisites
 
 * [cert-manager](https://cert-manager.io/docs/installation/) installed

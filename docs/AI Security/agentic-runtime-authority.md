@@ -20,12 +20,14 @@ Agentic Runtime Authority allows AI agents to securely communicate with protecte
 
 * **Database targets**: MySQL, PostgreSQL, MSSQL, Oracle, Snowflake, HanaDB, Redshift, MongoDB, Redis, and Cassandra.
 * **Service targets**: AWS, GCP, Azure, Kubernetes (native K8s, EKS, and GKE), and GitHub.
+* **Remote command targets**: SSH, Windows, LDAP (Active Directory).
 
 The runtime authority execution path supports these secret types:
 
 * **Dynamic secrets**: For just-in-time, temporary credentials with zero standing privileges.
 * **Rotated secrets**: For regularly rotated credentials.
 * **Static secrets**: For MCP-based service workflows, including OAuth authorization-code flows.
+* **SSH Certificate Issuers**: For running remote commands on SSH hosts with short-lived signed certificates.
 
 Agentic Runtime Authority extends Akeyless AI security beyond secretless credential retrieval by adding runtime controls and reporting for agent access.
 
@@ -35,7 +37,7 @@ Runtime authority is exposed through these code-backed entry points:
 
 * The [runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#runtime-authority) for direct runtime execution through Gateway target query.
 * The [mcp-runtime-authority CLI command](https://docs.akeyless.io/docs/cli-reference#mcp-runtime-authority) for MCP-based integrations.
-* MCP tools: `list-secrets`, `query-db`, and `service-execute`.
+* MCP tools: `list-secrets`, `list-sub-tools`, `query-db`, and `service-execute`.
 * The `ara-reports-access` role administrative rule for dashboard visibility.
 * The ARA role-rule **Allow Access** capability (`allow_access`) for runtime execution.
 * Repeated `--input-rule` and `--output-rule` flags on Dynamic Secret create and update commands.
@@ -133,7 +135,7 @@ Use the administrative rule separately when you also want reporting visibility.
 6. Add, edit, or delete rules as needed.
 7. Save the Dynamic Secret.
 
-For new Dynamic Secrets, the current Console implementation can prepopulate default input rules for these producer types:
+For new Dynamic Secrets, the current Console implementation can pre-populate default input rules for these producer types:
 
 * MySQL
 * PostgreSQL
