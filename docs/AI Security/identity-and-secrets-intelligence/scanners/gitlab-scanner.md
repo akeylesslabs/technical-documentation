@@ -27,14 +27,14 @@ A scanner with a **GitLab Group** set covers that group and, by default, its sub
 ## Prerequisites
 
 * An Akeyless account with the Identity & Secrets Intelligence license.
-* A deployed and connected [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `5.5.0` and later.
-* A Gateway with [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured.
+* A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `5.5.0` and later.
+* A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
 * Outbound HTTPS access from the Gateway to your GitLab instance.
-* A [GitLab Target](https://docs.akeyless.io/docs/gitlab-target) representing the GitLab user that will scan the group.&#x20;
-* The access token used by the Target granted the scopes listed under [Required GitLab Permissions](#required-gitlab-permissions) below.
+* A [GitLab Target](doc:gitlab-target) representing the GitLab user that will scan the group.&#x20;
+* The access token used by the Target granted the scopes listed under [Required GitLab Permissions](doc:gitlab-scanner#required-gitlab-permissions) below.
 * Access to configure and run the scanner, granted via:
-  1. `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-  2. `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
+  1. `Manage ISI Scanners `or `Admin` [Gateway Permission](doc:gateway-access-permissions-reference).
+  2. `Identity & Secrets Intelligence` [Administrative Rule](doc:rbac#administrative-rules) set to `Scoped` or `All`.
   3. `List` permission on the GitLab Target.
 
 ## Required GitLab Permissions
@@ -71,7 +71,7 @@ The following restrictions apply to self-managed instances:
 
 ## Create a GitLab Scanner in the Akeyless Console
 
-GitLab scanners are created and run from the Akeyless Console. The GitLab Target can be created from the Console or the CLI, as described in [GitLab Target](https://docs.akeyless.io/docs/gitlab-target).
+GitLab scanners are created and run from the Akeyless Console. The GitLab Target can be created from the Console or the CLI, as described in [GitLab Target](doc:gitlab-target).
 
 1. Log in to the Akeyless Console, and go to **Products > Identity & Secrets Intelligence > Scanners**.
 2. Click **New**, and select the scanner type **GitLab**, then click **Next**.
