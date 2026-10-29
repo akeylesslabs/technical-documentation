@@ -21,7 +21,7 @@ A scanner with a **GitLab Group** set covers that group and, by default, its sub
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
 
-  If you also scan that cloud account with the [AWS](https://docs.akeyless.io/docs/aws-scanner), [GCP](https://docs.akeyless.io/docs/gcp-scanner), or [Azure](https://docs.akeyless.io/docs/azure-scanner) Scanner, both scanners link to the same identity. The GitLab finding then shows what the leaked credential grants: the identity's permissions and the resources it can access, as discovered by that scanner. Without the cloud scanner, the identity is shown by name only.
+  If you also scan that cloud account with the [AWS](doc:aws-scanner), [GCP](doc:gcp-scanner), or [Azure](doc:azure-scanner) Scanner, both scanners link to the same identity. The GitLab finding then shows what the leaked credential grants: the identity's permissions and the resources it can access, as discovered by that scanner. Without the cloud scanner, the identity is shown by name only.
 </Callout>
 
 ## Prerequisites
