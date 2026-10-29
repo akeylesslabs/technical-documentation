@@ -27,11 +27,11 @@ Secrets, certificates, secret usage, and AI agents are discovered in the region 
 * An Akeyless account with the Identity & Secrets Intelligence license.
 * A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `4.53.0` and later. Scanning AI agents requires version `5.5.0` and later.
 * A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
-* An [AWS Target](https://docs.akeyless.io/docs/aws-targets) representing the AWS IAM Role that will scan the account.
-* The AWS IAM Role used by the Target granted the permissions listed under [AWS Service Account Permissions](#aws-service-account-permissions) below.
+* An [AWS Target](doc:aws-targets) representing the AWS IAM Role that will scan the account.
+* The AWS IAM Role used by the Target granted the permissions listed under [AWS Service Account Permissions](doc:aws-scanner#required-aws-permissions) below.
 * Access to configure and run the scanner, granted via:
-  - `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-  - `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
+  - `Manage ISI Scanners `or `Admin` [Gateway Permission](doc:gateway-access-permissions-reference).
+  - `Identity & Secrets Intelligence` [Administrative Rule](doc:rbac#administrative-rules) set to `Scoped` or `All`.
   - `List` permission on the GitLab Target.
 
 ## Required AWS Permissions
