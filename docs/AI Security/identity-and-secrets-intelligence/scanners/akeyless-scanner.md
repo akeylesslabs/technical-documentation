@@ -23,8 +23,8 @@ Each scanner covers one or more object types, selected when the scanner is creat
 - An Akeyless account with the Identity & Secrets Intelligence license.
 - A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `4.52.0` and later.
 - A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
-- A user with `Manage ISI Scanners`  or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-- A user with  `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to Scoped or All.
+- A user with `Manage ISI Scanners`  or `Admin` [Gateway Permission](doc:gateway-access-permissions-reference).
+- A user with  `Identity & Secrets Intelligence` [Administrative Rule](doc:rbac#administrative-rules) set to Scoped or All.
 
 ## Required Akeyless Permissions
 
@@ -39,7 +39,7 @@ The Akeyless Scanner does not use a Target. Grant the **List** capability on the
 
 To scan the whole account, set the path of each rule to `/*`.
 
-To scan AI agents, also set the `Agentic Runtime Authority` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) to `All` on the same Access Role. When set to `Scoped`, only the AI agents within its scope are discovered.
+To scan AI agents, also set the `Agentic Runtime Authority` [Administrative Rule](doc:rbac#administrative-rules) to `All` on the same Access Role. When set to `Scoped`, only the AI agents within its scope are discovered.
 
 <Callout icon="⚠️" theme="warning">
   ### Warning
