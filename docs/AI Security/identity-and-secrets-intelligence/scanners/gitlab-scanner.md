@@ -69,7 +69,7 @@ The following restrictions apply to self-managed instances:
 * The URL must use HTTPS. Plain HTTP is accepted only for a loopback address, such as a local test instance, because the access token would otherwise cross the network unencrypted.
 * A private certificate authority is not supported. A scanner that uses a GitLab Target with a **TLS Certificate** configured fails with an error. Use a separate GitLab Target, without a certificate, for scanning.
 
-## Create a GitLab Scanner in the Akeyless Console<br />(this needs to be validated with the new version)
+## Create a GitLab Scanner in the Akeyless Console
 
 GitLab scanners are created and run from the Akeyless Console. The GitLab Target can be created from the Console or the CLI, as described in [GitLab Target](https://docs.akeyless.io/docs/gitlab-target).
 
