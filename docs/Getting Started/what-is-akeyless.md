@@ -84,7 +84,29 @@ Provide zero-trust privileged access to internal systems without distributing lo
 
 ### AI Agents Security
 
-Provide short-lived credentials and secure retrieval patterns for AI pipelines, automated agents, and model-serving systems.
+Provide short-lived credentials and secure retrieval patterns for AI pipelines, automated agents, and model-serving systems. This capability has grown into a dedicated AI Security product line:
+
+#### Akeyless AI Insights
+
+Enables natural-language interaction with the Akeyless Platform using Large Language Models. AI Insights is enabled at the account level and configured at the Gateway level, and supports OpenAI, Gemini, Claude, Grok, and Amazon Bedrock as LLM targets.
+
+#### Agentic Runtime Authority
+
+Lets AI agents query protected Dynamic, Rotated, and Static Secrets through the Akeyless Gateway without ever holding long-lived credentials. Input rules constrain what an agent is allowed to send, output rules filter or redact what is returned, and every runtime session is recorded for audit and role-based reporting.
+
+#### AI Quorum
+
+An Agentic Runtime Authority capability that checks each agent action against multiple LLMs configured under AI Insights, instead of relying on a single model. If any model flags an action as a policy violation, the Gateway blocks it, the system always defaults to the most restrictive verdict.
+
+#### Identity and Secrets Intelligence (ISI)
+
+Continuously discovers secrets, identities, and certificates across AWS, Azure, GCP, Kubernetes, GitHub, and Akeyless itself, and evaluates them against built-in policies for secret hygiene, identity privilege, and certificate lifecycle risk. Findings surface in a dashboard and inventory with blast-radius graphing and AI-powered remediation guidance.
+
+#### Akeyless MCP Server
+
+A native Model Context Protocol server that connects AI clients and developer tools, including Claude Desktop, Cursor, GitHub Copilot, and JetBrains IDEs, directly to Akeyless secrets and runtime controls.
+
+[Read more about Akeyless' AI Security offerings.](https://docs.akeyless.io/docs/ai-security)
 
 ### Leaked Secret Detection & Response
 
