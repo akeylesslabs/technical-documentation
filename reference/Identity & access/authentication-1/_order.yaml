@@ -74,3 +74,4 @@
 - updateauthmethoduniversalidentity
 - validatecertificatechallenge
 - validatetoken
+- getscimstatus

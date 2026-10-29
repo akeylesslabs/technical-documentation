@@ -5,17 +5,18 @@ hidden: false
 metadata:
   robots: index
 ---
-The Akeyless Scanner is a native scanner type that inspects your Akeyless account, discovering the full inventory of identities, roles, secrets and certificates, as well as the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The Akeyless Scanner is a native scanner type that inspects your Akeyless account, discovering the full inventory of identities, AI agents, roles, secrets and certificates, as well as the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## What the Akeyless Scanner Discovers
 
 Each scanner covers one or more object types, selected when the scanner is created:
 
-| Object Type      | What is discovered                                                                                                   |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------- |
-| **Secrets**      | Static and rotated secrets, with their tags, dates, and rotation details, plus Targets                               |
-| **Certificates** | Certificates stored in Akeyless, with their status, algorithms, and validity dates                                   |
-| **Identities**   | Auth methods, Access Roles, and role assignments, showing which identities can access which secrets and certificates |
+| Object Type      | What is discovered                                                                                                                                                                         |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Secrets**      | Static and rotated secrets, with their tags, dates, and rotation details, plus Targets                                                                                                     |
+| **Certificates** | Certificates stored in Akeyless, with their status, algorithms, and validity dates                                                                                                         |
+| **Identities**   | Auth methods, Access Roles, and role assignments, showing which identities can access which secrets and certificates, including identities set up for AI agents that haven't been used yet |
+| **AI Agents**    | AI agents that use Secretless AI or Agentic Runtime Authority, with the identity they run as, the secrets they used, and the secrets they can access                                       |
 
 ## Prerequisite
 
@@ -27,15 +28,18 @@ Each scanner covers one or more object types, selected when the scanner is creat
 
 ## Required Akeyless Permissions
 
-The Akeyless Scanner does not use a Target. Grant the **List** capability on the Access Role associated with the Gateway's Admin Access ID. The scanner only lists objects, and never reads secret values.
+The Akeyless Scanner does not use a Target. Grant the **List** capability on the Access Role associated with the Gateway's Admin Access ID. The scanner only lists objects, and never reads secret values.<br />
 
 | Object Type      | Access Role rules          | Capability |
 | ---------------- | -------------------------- | ---------- |
 | **Secrets**      | Items, Targets             | **List**   |
 | **Certificates** | Items                      | **List**   |
 | **Identities**   | Auth Methods, Access Roles | **List**   |
+| **AI Agents**    | Access Roles               | **List**   |
 
 To scan the whole account, set the path of each rule to `/*`.
+
+To scan AI agents, also set the `Agentic Runtime Authority` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) to `All` on the same Access Role. When set to `Scoped`, only the AI agents within its scope are discovered.
 
 <Callout icon="⚠️" theme="warning">
   ### Warning
