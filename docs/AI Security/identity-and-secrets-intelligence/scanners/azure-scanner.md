@@ -27,8 +27,8 @@ Each scanner covers one Azure subscription, the one set on the Azure Target. Key
 - An [Azure Target](doc:azure-targets) representing the Azure AD application that will scan the subscription.
 - The Azure AD application used by the Target granted the permissions listed under [Required Azure Permissions](doc:azure-scanner#required-azure-permissions) below.
 - Access to configure and run the scanner, granted via:
-  - `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
-  - `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
+  - `Manage ISI Scanners `or `Admin` [Gateway Permission](doc:gateway-access-permissions-reference).
+  - `Identity & Secrets Intelligence` [Administrative Rule](doc:rbac#administrative-rules) set to `Scoped` or `All`.
   - `List` permission on the Azure Target.
 
 ## Required Azure Permissions
