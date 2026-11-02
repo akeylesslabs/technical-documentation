@@ -133,6 +133,8 @@ signing_cert_item = "/YourCompany/code-signing/code.sign.example.com"
 access_type = "access_key"
 access_id = "YOUR_ACCESS_ID"
 access_key = "YOUR_ACCESS_KEY"
+##access_type    = "universal_identity"
+##uid_token_path = "C:\\ProgramData\\akeyless\\uid_rotator\\uid-token"
 ```
 
 Set `signing_cert_item` to the generated certificate item path.
@@ -156,7 +158,12 @@ Note: You may need to restart your shell or machine for this to take effect glob
 
 ### Download KSP
 
-[https://akeyless.jfrog.io/ui/native/akeyless-ksp/](https://akeyless.jfrog.io/ui/native/akeyless-ksp/)
+```curl S3
+curl.exe https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-ksp/release/latest/AkeylessKspInstaller.msi --output AkeylessKspInstaller.msi
+```
+```curl GCP 
+curl.exe https://storage.googleapis.com/akeyless-services/services/akeyless-ksp/release/latest/AkeylessKspInstaller.msi --output AkeylessKspInstaller.msi
+```
 
 ### Install the KSP
 
