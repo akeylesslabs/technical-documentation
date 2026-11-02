@@ -5,29 +5,134 @@ hidden: false
 metadata:
   robots: index
 ---
-This page describes how to extend an [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector) (**USC**) across an entire AWS Organization. With org-wide scope, a single **USC** item can discover and manage secrets in every member account and Region in scope, instead of being limited to the single account and Region tied to its [AWS Target](https://docs.akeyless.io/docs/aws-targets).
+By default, an [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector) (**USC**) works with one AWS account and one Region: the ones set on its [AWS Target](https://docs.akeyless.io/docs/aws-targets). With **Organization-Wide Scope**, a single USC can list and manage AWS Secrets Manager secrets in any account of your AWS Organization, in any Region.
+
+Existing single-account USCs keep working exactly as before.
 
 ## How It Works
 
-AWS has no organization-level IAM binding that applies automatically to every member account. A trusted cross-account role must be deployed into each member account individually, and AWS does not provide a built-in way to be notified when a new account joins the organization. Org-wide AWS **USC** addresses both gaps:
+Two things make this work:
 
-* **Provisioning**: An Akeyless-provided CloudFormation StackSet template deploys the IAM role Akeyless needs into every account in scope, including accounts added to the organization later.
+1. **Account discovery.** The identity configured on your Akeyless AWS Target calls `organizations:ListAccounts` to get the list of accounts in your Organization. This identity must live in either the **management account** or a **delegated administrator account**. A regular member account can't list Organization accounts.
+2. **Access to each account.** Every account you want to manage has an IAM role named `AkeylessUSCRole`, created for you by an Akeyless CloudFormation StackSet. When you select an account, the Gateway assumes that account's `AkeylessUSCRole` and calls Secrets Manager in the Region you chose.
 
-* **Discovery**: AWS Organizations account-membership events, forwarded to Akeyless, trigger an inventory refresh as soon as a new account joins. A periodic reconciliation poll serves as a backstop.
+## Step 1: Choose Where the Akeyless Identity Lives
 
-Once provisioned, a single AWS **USC** item is no longer bound to one account and Region. You can target any in-scope account and Region per request by supplying either a full secret ARN or a discrete **Account ID** and **Region** pair wherever a secret identifier is accepted.
+|                                       | Management account                                         | Delegated administrator account                                  |
+| ------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------- |
+| Where the Akeyless identity lives     | The management account                                     | An account you choose, for example a Security or Tooling account |
+| Extra setup in the management account | None                                                       | One delegation policy (Step 2B)                                  |
+| Security                              | Akeyless holds credentials in your most privileged account | Akeyless never uses management-account credentials               |
+| Recommended                           | Fine for testing                                           | **Yes, for production**                                          |
 
-## Prerequisites
+Many security teams don't allow third-party integrations in the management account. If that applies to you, use the delegated administrator option.
 
-* An existing [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector), associated with an [AWS Target](https://docs.akeyless.io/docs/aws-targets) that has an [External ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) configured.
+## Step 2: Set Up the Akeyless Identity
 
-* Permission in AWS Organizations to deploy a CloudFormation StackSet with **service-managed permissions** and **automatic deployment** against the organization root or a chosen Organizational Unit (OU).
+Create an IAM user (with an access key) or an IAM role for the Akeyless AWS Target. Which one you need depends on how your target authenticates. Then follow the option you chose in Step 1.
 
-* A decision on which account authenticates the integration to AWS Organizations: the **management account** or a **delegated administrator** account. See [Choosing the Authenticating Account](#choosing-the-authenticating-account).
+### Option A: Management Account
 
-## Provisioning the Cross-Account Role
+Create the identity in the management account and attach this policy:
 
-The following CloudFormation template creates the IAM role that the Akeyless Gateway assumes in each member account. Save it as `akeyless-usc-org-role.yaml`.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ListOrganizationAccounts",
+      "Effect": "Allow",
+      "Action": [
+        "organizations:ListAccounts",
+        "organizations:DescribeOrganization"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AssumeRoleInMemberAccounts",
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Resource": "arn:aws:iam::*:role/AkeylessUSCRole"
+    },
+    {
+      "Sid": "ManageSecretsInThisAccount",
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:ListSecrets",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:CreateSecret",
+        "secretsmanager:PutSecretValue",
+        "secretsmanager:UpdateSecret",
+        "secretsmanager:DeleteSecret",
+        "secretsmanager:TagResource",
+        "secretsmanager:UntagResource"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+### Option B: Delegated Administrator Account
+
+This takes two parts: one done once by an admin in the management account, and one done in your account.
+
+**1. In the management account (one time):** go to **AWS Organizations → Settings → Delegated administrator for AWS Organizations → Delegate**, and add this policy. Replace `<delegated-account-id>` with the 12-digit ID of your account.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowAkeylessAccountDiscovery",
+      "Effect": "Allow",
+      "Principal": { "AWS": "arn:aws:iam::<delegated-account-id>:root" },
+      "Action": [
+        "organizations:ListAccounts",
+        "organizations:DescribeOrganization"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+You can also apply it from the CLI:
+
+```shell
+aws organizations put-resource-policy --content file://delegation-policy.json
+```
+
+**2. In your delegated account:** create the identity and attach the **same policy as Option A**.
+
+<Callout icon="📘" theme="info">
+  ### Why the Organizations permissions appear twice
+
+  The delegation policy allows your _account_ to read Organization data. AWS also requires the _identity_ inside your account to be allowed to make the call, so the identity's own policy needs `organizations:ListAccounts` as well.
+</Callout>
+
+**Check that discovery works.** Using the new identity's credentials, run:
+
+```shell
+aws organizations list-accounts
+```
+
+If this returns your account list, account discovery is ready.
+
+### About the Policy Blocks
+
+- `ListOrganizationAccounts` fills the account list in the USC.
+- `AssumeRoleInMemberAccounts` lets the identity switch into `AkeylessUSCRole` in other accounts. Cross-account access needs permission on both sides: this statement on your side, and the role's trust policy on the other side.
+- `ManageSecretsInThisAccount` is only needed if you want to manage secrets in the target's own account. Remove it otherwise.
+
+If your secrets use customer-managed KMS keys, add `kms:Decrypt` and `kms:GenerateDataKey` for those keys, both here and in `AkeylessUSCRole`.
+
+## Step 3: Create AkeylessUSCRole in Each Account
+
+You can only see secrets in accounts that have `AkeylessUSCRole`. The StackSet below creates the role in every account under the OUs you choose, and in any account added to those OUs later.
+
+Save this template as `akeyless-usc-org-role.yaml`:
 
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
@@ -40,11 +145,15 @@ Parameters:
     Description: Name of the IAM role created in every member account. Must be identical across all accounts.
   TrustedPrincipalArn:
     Type: String
-    Description: ARN of the IAM principal used by your Akeyless AWS Target to assume this role.
+    Description: ARN of the IAM user or role used by your Akeyless AWS Target.
   ExternalId:
     Type: String
+    Default: ''
     NoEcho: true
-    Description: External ID configured on your Akeyless AWS Target.
+    Description: Optional. External ID configured on your Akeyless AWS Target. Leave empty if you don't use one.
+
+Conditions:
+  HasExternalId: !Not [!Equals [!Ref ExternalId, '']]
 
 Resources:
   AkeylessUSCRole:
@@ -59,9 +168,11 @@ Resources:
             Principal:
               AWS: !Ref TrustedPrincipalArn
             Action: sts:AssumeRole
-            Condition:
-              StringEquals:
-                sts:ExternalId: !Ref ExternalId
+            Condition: !If
+              - HasExternalId
+              - StringEquals:
+                  sts:ExternalId: !Ref ExternalId
+              - !Ref AWS::NoValue
       Policies:
         - PolicyName: AkeylessUSCSecretsManagerAccess
           PolicyDocument:
@@ -86,111 +197,131 @@ Outputs:
     Value: !GetAtt AkeylessUSCRole.Arn
 ```
 
-The template creates an IAM role in every in-scope account with the following configuration:
+For `TrustedPrincipalArn`, use the exact ARN of the identity from Step 2, for example:
 
-* A trust policy that references the External ID configured on your Akeyless AWS Target.
-* A permission policy that matches the [permission set documented for AWS USC](https://docs.akeyless.io/docs/aws-universal-secrets-connector#prerequisites), applied uniformly through the StackSet instead of being configured manually per account.
+- Option A: `arn:aws:iam::<management-account-id>:role/akeyless-target`
+- Option B: `arn:aws:iam::<delegated-account-id>:role/akeyless-target`
 
-To deploy the template:
+For an IAM user, use `:user/<name>` instead of `:role/<name>`.
 
-1. Create the StackSet with **service-managed permissions** and **automatic deployment** enabled. Run this command from the authenticating account:
+### Deploy the StackSet
 
-```shell
-   aws cloudformation create-stack-set \
-     --stack-set-name akeyless-usc-org-role \
-     --template-body file://akeyless-usc-org-role.yaml \
-     --capabilities CAPABILITY_NAMED_IAM \
-     --permission-model SERVICE_MANAGED \
-     --auto-deployment Enabled=true,RetainStacksOnAccountRemoval=false \
-     --parameters \
-       ParameterKey=TrustedPrincipalArn,ParameterValue=<trusted-principal-arn> \
-       ParameterKey=ExternalId,ParameterValue=<external-id> \
-     --call-as DELEGATED_ADMIN
-```
-
-If you authenticate from the management account, set `--call-as SELF`.
-
-2. Deploy stack instances against the organization root or a specific OU:
+StackSets are deployed from the management account by default. If you want to deploy from your delegated account instead, first have the management account register it as a StackSets delegated administrator:
 
 ```shell
-   aws cloudformation create-stack-instances \
-     --stack-set-name akeyless-usc-org-role \
-     --deployment-targets OrganizationalUnitIds=<root-or-ou-id> \
-     --regions <single-region> \
-     --call-as DELEGATED_ADMIN
+aws organizations register-delegated-administrator \
+  --account-id <delegated-account-id> \
+  --service-principal member.org.stacksets.cloudformation.amazonaws.com
 ```
 
-AWS Organizations keeps the role in sync automatically. The role is created in every account currently in the targeted scope and deployed automatically into any account added to that scope afterward, with no separate activation step required in Akeyless.
+**1. Create the StackSet.** Use `--call-as SELF` from the management account, or `--call-as DELEGATED_ADMIN` from a registered delegated account.
+
+```shell
+aws cloudformation create-stack-set \
+  --stack-set-name akeyless-usc-org-role \
+  --template-body file://akeyless-usc-org-role.yaml \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --permission-model SERVICE_MANAGED \
+  --auto-deployment Enabled=true,RetainStacksOnAccountRemoval=false \
+  --parameters \
+    ParameterKey=TrustedPrincipalArn,ParameterValue=<trusted-principal-arn> \
+    ParameterKey=ExternalId,ParameterValue=<external-id> \
+  --call-as SELF
+```
+
+If your AWS Target has no External ID, remove the `ParameterKey=ExternalId,...` line. The role then trusts only the exact `TrustedPrincipalArn`.
+
+**2. Deploy it to the accounts you want.** Use the Organization root ID to cover every account, or specific OU IDs to limit the scope.
+
+```shell
+aws cloudformation create-stack-instances \
+  --stack-set-name akeyless-usc-org-role \
+  --deployment-targets OrganizationalUnitIds=<root-or-ou-id> \
+  --regions <single-region> \
+  --call-as SELF
+```
+
+To change the scope later, run `create-stack-instances` or `delete-stack-instances` with the new OUs.
 
 <Callout icon="🚧" theme="warn">
-  ### Deploy to a Single Region
+  ### Use exactly one Region
 
-  IAM roles are global resources. Specify exactly one Region in `--regions`. Deploying the StackSet to multiple Regions in the same account fails because the role name already exists. The role still grants access to Secrets Manager in every Region of that account.
+  IAM roles are global. Pass a single Region in `--regions`. Deploying to more Regions fails because the role already exists in the account. One role still covers Secrets Manager in every Region of that account.
 </Callout>
 
 <Callout icon="📘" theme="info">
-  ### Management Account Coverage
+  ### The management account isn't covered
 
-  Service-managed StackSets do not deploy stack instances to the management account. If the management account holds secrets you want the connector to manage, create the role there manually using the same template.
+  Service-managed StackSets don't deploy to the management account. If you need secrets from it, create `AkeylessUSCRole` there with a regular CloudFormation stack using the same template.
 </Callout>
-
-To change the scope later, for example to add or remove an OU, run `create-stack-instances` or `delete-stack-instances` against the new set of targets.
-
-## Choosing the Authenticating Account
-
-AWS Organizations requires a single account to authenticate the [account discovery](#account-discovery) integration. You can use one of the following:
-
-* **Management account**: The simplest option, requiring no additional AWS-side setup. Note that many organizations' security policies restrict placing third-party roles in the management account, so this option might not be available to you.
-
-* **Delegated administrator** (recommended): Keeps the Akeyless integration role out of the management account.
 
 <Callout icon="🚧" theme="warn">
-  ### Delegated Administrator Constraints
+  ### Delegated administrator limits
 
-  Before registering a delegated administrator for Akeyless, note the following:
-
-  * AWS limits an organization to 5 registered delegated administrators in total, shared across every AWS service and vendor that uses this pattern, such as Security Hub, GuardDuty, or other third-party integrations. Confirm you have an available slot before registering Akeyless.
-  * A delegated administrator registered for StackSets receives full organization-wide StackSet deployment authority, which the management account cannot further restrict at the AWS Organizations level. To narrow the scope, target a specific OU with the StackSet itself rather than relying on a permission boundary on the delegated administrator.
+  - AWS limits how many delegated administrators an Organization can register, and the limit is shared with other services and vendors. Check that you have a free slot.
+  - A StackSets delegated administrator can deploy StackSets across the whole Organization. To limit what Akeyless covers, target specific OUs in the StackSet.
 </Callout>
 
-## Account Discovery
+## Step 4: Configure Akeyless
 
-To keep the connector inventory current as accounts are added to or removed from the organization, configure an EventBridge rule in the authenticating account that listens for the following native AWS Organizations account-membership events and forwards them to Akeyless:
+1. Update your Akeyless AWS Target to use the identity from Step 2.
+2. Create or edit the AWS USC and set its scope to **Organization**.
+3. Open the USC. It loads the target's own account and Region first.
+4. Pick another account and Region from the **Account** and **Region** dropdowns. The secrets table reloads automatically.
 
-* `AccountJoinedOrganization`: Triggers an immediate inventory refresh and begins scanning the new account.
+## Step 5 (Optional): Keep the Account List Current
 
-* `AccountDepartedOrganization`: Flags the removed account for review.
+Akeyless polls `ListAccounts` periodically to pick up account changes. To pick them up right away, create an EventBridge rule in the account where the Akeyless identity lives that forwards these AWS Organizations events to Akeyless:
 
-This detects organization membership changes in near real time, without waiting for a periodic re-sync.
+- `AccountJoinedOrganization`: refreshes the account list and starts scanning the new account.
+- `AccountDepartedOrganization`: flags the removed account for review.
 
-As a backstop, Akeyless also periodically polls the AWS Organizations `ListAccounts` API to reconcile its inventory. This catches any account change missed by the EventBridge rule, for example in an organization where the rule has not been configured.
+## Choosing an Account and Region
 
-## Addressing Secrets by Account ID and Region
+In the UI, use the **Account** and **Region** dropdowns. Everywhere else, pass either a full secret ARN (`arn:aws:secretsmanager:<region>:<account-id>:secret:<name>`) or a secret name with an account ID and Region. If you pass neither, the target's own account and Region are used.
 
-AWS Secrets Manager calls are addressed by secret name or ARN. The account and Region are determined by the assumed role and the regional endpoint used. To target a specific account and Region from an org-wide AWS **USC** item, provide one of the following wherever a secret identifier is accepted:
+**CLI**
 
-* A full **ARN**: `arn:aws:secretsmanager:<region>:<account-id>:secret:<name>`
+```shell
+akeyless usc list \
+  --usc-name /prod/aws-usc \
+  --aws-account-id 123456789012 \
+  --region us-east-1
+```
 
-* A secret name together with discrete **Account ID** and **Region** parameters, as an alternative to the full ARN.
+The same flags work with `usc get`, `usc create`, `usc update`, and `usc delete`. See the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector).
 
-The Gateway resolves the supplied identifier to the matching regional endpoint and the per-account role provisioned by the StackSet, then assumes that role before calling AWS Secrets Manager.
+**API**
 
-Account and Region targeting is supported consistently across every surface that resolves an AWS-backed **USC** item:
+For list and get, pass `account_id` and `region` as query parameters. For create, update, and delete, add them to the request body:
 
-* **CLI**: Pass an Account ID and Region, or supply a full ARN as the secret identifier, on commands such as `akeyless usc get`, `akeyless usc create`, `akeyless usc update`, and `akeyless usc delete`. For the exact flags, see the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector).
+```json
+{
+  "account": "123456789012",
+  "region": "us-east-1"
+}
+```
 
-* **API**: The Get, Describe, and List request messages for AWS-backed **USC** items accept the same optional Account ID and Region (or ARN) fields, so Terraform, SDKs, and other programmatic callers can target a specific account and Region without using the CLI.
+**Sync:** each [sync](https://docs.akeyless.io/docs/sync-secret) mapping stores its own account ID and Region (or ARN).
 
-* **Sync**: Each [sync](https://docs.akeyless.io/docs/sync-secret) mapping to an AWS-backed **USC** item has its own Account ID and Region (or ARN), set at configuration time, since a sync mapping is a standing configuration rather than a one-off call.
+**Kubernetes Injector:** each secret reference in the [Akeyless Kubernetes Secrets Injector](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector) annotations can set its own account ID and Region (or ARN), so one workload can pull secrets from several accounts.
 
-* **Injector**: The [Akeyless Kubernetes Secrets Injector](https://docs.akeyless.io/docs/akeyless-kubernetes-secrets-injector) annotation syntax for an AWS-backed secret reference can specify an Account ID and Region (or ARN) per secret. This lets a single Injector deployment pointed at one org-wide **USC** item pull different secrets from different accounts and Regions within the same workload.
+The Gateway caches the assumed-role session for each account and reuses it until it's close to expiring, so switching accounts doesn't call STS every time.
 
-<Callout icon="📘" theme="info">
-  ### Assumed-Role Session Caching
+## Limiting Access
 
-  Targeting a different account requires the Gateway to call `sts:AssumeRole` before the first access to that account. AWS STS sessions are valid for up to one hour. The Gateway caches assumed-role sessions per Account ID and reuses them until they are near expiry, rather than re-assuming the role on every fetch. This avoids unnecessary latency and STS rate limits when a single **USC** item spans many accounts.
-</Callout>
+The account dropdown always shows every account in the Organization, because `ListAccounts` returns all of them. You control which ones actually work:
 
-## Global and All-Regions Aggregation
+- **By where the role exists.** Deploy the StackSet only to the OUs you want. Other accounts appear in the list but fail to load.
+- **By the target identity's policy.** Replace `arn:aws:iam::*:role/AkeylessUSCRole` with a list of specific account ARNs.
+- **By secret name.** In `AkeylessUSCRole`, scope `Resource` to a prefix such as `arn:aws:secretsmanager:*:*:secret:app/*`. `ListSecrets` can't be restricted this way, so names may still appear, but values outside the prefix can't be read or changed.
 
-Aggregating secrets across every Region, and, combined with org-wide provisioning, across every account in scope, into a single inventory view is a governance-focused capability that is separate from the per-secret Account ID and Region addressing described above. Each individual AWS secret still resides in exactly one Region, except for native AWS Secrets Manager cross-Region replicas.
+## Troubleshooting
+
+| Error or symptom                                                                                                                                                  | Cause                                                                                            | Fix                                                                                                                                                                                                              |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS Organization account discovery requires target credentials from the management account or a delegated administrator account with organizations:ListAccounts` | The target identity is in a regular member account, or it's missing `organizations:ListAccounts` | Follow Step 2. For Option B, confirm the delegation policy names the right account ID and the identity has its own `organizations:ListAccounts` permission                                                       |
+| An account appears in the list but fails to load (AssumeRole error)                                                                                               | `AkeylessUSCRole` doesn't exist there, or its trust policy doesn't match                         | Deploy the StackSet to that account's OU. Check that `TrustedPrincipalArn` is the exact identity ARN. If you use an External ID, check that it's set both on the target and in the StackSet, with the same value |
+| Secrets from the management account don't load                                                                                                                    | The StackSet doesn't deploy there                                                                | Create `AkeylessUSCRole` in the management account with a regular stack                                                                                                                                          |
+| Fewer secrets than expected                                                                                                                                       | Secrets are listed per Region                                                                    | Select the Region where the secrets live                                                                                                                                                                         |
+| Access denied reading a secret value                                                                                                                              | The secret uses a customer-managed KMS key                                                       | Add `kms:Decrypt` and `kms:GenerateDataKey` for that key                                                                                                                                                         |
