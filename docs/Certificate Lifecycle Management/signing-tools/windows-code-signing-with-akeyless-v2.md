@@ -156,7 +156,12 @@ Note: You may need to restart your shell or machine for this to take effect glob
 
 ### Download KSP
 
-[https://akeyless.jfrog.io/ui/native/akeyless-ksp/](https://akeyless.jfrog.io/ui/native/akeyless-ksp/)
+```curl S3
+curl.exe https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-ksp/release/latest/AkeylessKspInstaller.msi --output AkeylessKspInstaller.msi
+```
+```curl GCP 
+curl.exe https://storage.googleapis.com/akeyless-services/services/akeyless-ksp/release/latest/AkeylessKspInstaller.msi --output AkeylessKspInstaller.msi
+```
 
 ### Install the KSP
 
