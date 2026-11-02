@@ -133,6 +133,8 @@ signing_cert_item = "/YourCompany/code-signing/code.sign.example.com"
 access_type = "access_key"
 access_id = "YOUR_ACCESS_ID"
 access_key = "YOUR_ACCESS_KEY"
+##access_type    = "universal_identity"
+##uid_token_path = "C:\\ProgramData\\akeyless\\uid_rotator\\uid-token"
 ```
 
 Set `signing_cert_item` to the generated certificate item path.
