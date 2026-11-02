@@ -1,6 +1,7 @@
 - artifactory-targets
 - aerospike-target
 - alibaba-cloud-target
+- atlassian-target
 - aws-targets
 - azure-targets
 - bedrock-target

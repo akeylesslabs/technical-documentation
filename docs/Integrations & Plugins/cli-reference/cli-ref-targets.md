@@ -80,6 +80,8 @@ Create a new Target
 
 `aerospike`
 
+`atlassian`
+
 `aws`
 
 `azure`
@@ -252,6 +254,40 @@ akeyless target create artifactory \
 `--db-server-name`: TLS server name used to verify the certificate hostname. If not specified, the Aerospike hostname is used
 
 `--skip-server-name-validation`: Skip server name verification while still validating the certificate chain (`true`/`false`). If empty, server name validation is performed normally.
+
+### `atlassian`
+
+Creates a new Atlassian target in the current account
+
+#### Usage
+
+```shell
+akeyless target create atlassian \
+--name <Target name> \
+--atlassian-url <Atlassian site base URL> \
+--atlassian-email <Atlassian account email> \
+--atlassian-token <Atlassian API token>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--atlassian-url`: **Required**, Atlassian site base URL (`https://<site>.atlassian.net`, or a Data Center base URL)
+
+`--atlassian-token`: **Required**, Atlassian Cloud API token, or Data Center personal access token
+
+`--atlassian-email`: Atlassian account email paired with a Cloud API token (not needed for a Data Center personal access token)
+
+`--atlassian-automation-key`: Optional Jira Automation REST API key (**Jira settings** > **System** > **Automation** > **API keys**) so the scan can read the automation rules. Without it, the automation rules are reported as not read
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
+
+`-k, --key`: Key name used to encrypt the target secret value
 
 ### `aws`
 
@@ -1886,6 +1922,44 @@ akeyless target create artifactory \
 `--db-server-name`: TLS server name used to verify the certificate hostname. If not specified, the Aerospike hostname is used
 
 `--skip-server-name-validation`: Skip server name verification while still validating the certificate chain (`true`/`false`). If empty, server name validation is performed normally.
+
+#### `atlassian`
+
+Updates an existing Atlassian target in the current account
+
+##### Usage
+
+```shell
+akeyless target update atlassian \
+--name <Target name> \
+--atlassian-url <Atlassian site base URL> \
+--atlassian-email <Atlassian account email> \
+--atlassian-token <Atlassian API token>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`--atlassian-url`: **Required**, Atlassian site base URL (`https://<site>.atlassian.net`, or a Data Center base URL)
+
+`--atlassian-token`: **Required**, Atlassian Cloud API token, or Data Center personal access token
+
+`--atlassian-email`: Atlassian account email paired with a Cloud API token (not needed for a Data Center personal access token)
+
+`--atlassian-automation-key`: Optional Jira Automation REST API key (**Jira settings** > **System** > **Automation** > **API keys**) so the scan can read the automation rules. Without it, the automation rules are reported as not read
+
+`--description`: Description of the object
+
+`--max-versions`: Maximum number of versions, limited by the account settings defaults
+
+`--delete-protection`: Protection from accidental deletion of this object \[`true`/`false`]
+
+`-k, --key`: Key name used to encrypt the target secret value
+
+`--keep-prev-version`: Whether to keep the previous version \[`true`/`false`]
 
 #### `aws`
 
