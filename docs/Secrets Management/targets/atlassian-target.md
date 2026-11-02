@@ -72,9 +72,9 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 4. Define the remaining parameters as follows:
 
-    * **Atlassian URL:** The Atlassian site base URL, `https://<site>.atlassian.net` or a Data Center base URL.
+    * **Site URL:** The Atlassian site base URL, `https://<site>.atlassian.net` or a Data Center base URL.
 
-    * **Email:** The email of the Atlassian Cloud account paired with the API token. Leave it empty for a Data Center personal access token.
+    * **Account Email:** The email of the Atlassian Cloud account paired with the API token. Leave it empty for a Data Center personal access token.
 
     * **API Token:** The Atlassian Cloud API token or the Data Center personal access token.
 
