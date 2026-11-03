@@ -854,3 +854,6 @@
 /docs/akeyless-mcp-plugin-jetbrains-ides -> /docs/mcp-jetbrains-ides
 /v2/docs/akeyless-mcp-plugin-jetbrains-ides -> /docs/mcp-jetbrains-ides
 /docs/sra-setup-k8s -> /docs/sra-setup-k8s
+/docs/password-manager-overview -> /docs/password-manager-web-console
+/docs/password-manager-web-console-for-admin -> /docs/password-manager-web-console
+/docs/password-manager-mobile-application -> /docs/password-manager-mobile
