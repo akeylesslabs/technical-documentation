@@ -594,13 +594,36 @@ jobs:
             echo "record, not by you certifying your own output. Report honestly in step 4; do not"
             echo "claim a match you did not actually compute."
             echo ""
-            echo "Finish by printing the pull request URL. If any ARA call is blocked or errors, stop"
-            echo "and report which action failed and what the error said. Do not work around it with"
-            echo "git or gh."
+            echo "Finish by printing the pull request URL."
+            echo ""
+            echo "If any ARA call in steps 2, 3, or 5 fails, first work out which kind of failure it is:"
+            echo ""
+            echo "  REJECTION -- the error is an explicit policy denial (for example an AI policy"
+            echo "  rejection, or a message that says the action is not permitted). This is final:"
+            echo "  stop immediately and report exactly which action failed and what the error said."
+            echo "  Do not retry a rejection."
+            echo ""
+            echo "  TRANSIENT -- a timeout (for example 'The operation timed out'), a dropped MCP"
+            echo "  connection, or any other error that does not explicitly say the action was"
+            echo "  denied. For a transient failure specifically on step 2 (create branch) or step 3"
+            echo "  (push a file):"
+            echo "    a. Call ARA to check whether the action actually applied (Get branch for step 2,"
+            echo "       Get contents for step 3)."
+            echo "    b. If it did not apply, run 'sleep 15' via your Bash tool, then retry the exact"
+            echo "       same call."
+            echo "    c. Repeat up to 5 total attempts for that one action, waiting longer each time:"
+            echo "       15s, 30s, 60s, 90s, 120s."
+            echo "    d. Only after 5 failed attempts on that action, stop and report which attempt"
+            echo "       failed and what each error said."
+            echo ""
+            echo "Never use git or gh to work around a failed or rejected ARA call, in either case."
+            echo "Still make one ARA call at a time -- never several at once -- so each attempt is its"
+            echo "own recorded ARA session and a failure points at the exact attempt that failed."
             echo "$DELIM"
           } >> "$GITHUB_OUTPUT"
 
       - name: Run Claude Code (Docs Agent)
+        id: claude
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ steps.akeyless.outputs.ANTHROPIC_API_KEY }}
@@ -639,3 +662,52 @@ jobs:
             --disallowedTools "Task"
             --max-turns 40
             --model claude-sonnet-5
+
+      - name: Verify a pull request was actually opened
+        # always(): the Claude step itself reports outcome "success" even when
+        # Claude's own run concluded "failure" without throwing (see
+        # claude-code-base-action's src/index.ts -- core.setFailed only runs
+        # from the catch block, i.e. an actual crash). The run that prompted
+        # this step is exactly that case: a clean, no-crash turn in which
+        # Claude correctly diagnosed and reported a push failure instead of
+        # opening a PR. "Job succeeded" must mean a PR was opened, not just
+        # that the SDK call returned cleanly -- so this check runs regardless
+        # of steps.claude.outcome and is itself what fails the job when no PR
+        # exists.
+        if: always()
+        env:
+          EXECUTION_FILE: ${{ steps.claude.outputs.execution_file }}
+        run: |
+          set -uo pipefail
+
+          if [ -z "$EXECUTION_FILE" ] || [ ! -f "$EXECUTION_FILE" ]; then
+            echo "::error::No execution_file was produced by the Claude step -- cannot verify a pull request was opened. Check the step's own log for why it has no output."
+            exit 1
+          fi
+
+          # execution_file is a JSON array of the raw Claude Agent SDK stream
+          # messages for this run (claude-code-base-action's
+          # src/execution-file.ts). The SDK's final "result" message carries
+          # the agent's last turn of text in its "result" field -- that is
+          # where "Finish by printing the pull request URL" ends up. Taking
+          # the LAST such message (there should only ever be one) is more
+          # robust than grepping the whole array, which may otherwise match
+          # an incidental mention of a PR URL earlier in the transcript (for
+          # example while describing what step 5 is about to do).
+          FINAL_TEXT=$(jq -r '
+            [.[] | select(.type == "result")] | last | .result // empty
+          ' "$EXECUTION_FILE" 2>/dev/null || true)
+
+          if [ -z "$FINAL_TEXT" ]; then
+            echo "::warning::Could not read a final result message out of the execution file -- falling back to scanning the whole transcript."
+            FINAL_TEXT=$(jq -r '.' "$EXECUTION_FILE" 2>/dev/null || true)
+          fi
+
+          PR_URL=$(echo "$FINAL_TEXT" | grep -oE 'https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/pull/[0-9]+' | head -1)
+
+          if [ -z "$PR_URL" ]; then
+            echo "::error::Claude's run completed but no pull request URL appears in its final output -- no PR was opened. Read the step above for which ARA action failed and why."
+            exit 1
+          fi
+
+          echo "Pull request opened: $PR_URL"
