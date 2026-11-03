@@ -42,6 +42,8 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
+* [AliCloud](https://docs.akeyless.io/docs/alicloud)
+
 * [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
 
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
