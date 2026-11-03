@@ -62,6 +62,8 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 * [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
 
+* [AliCloud](https://docs.akeyless.io/docs/alicloud)
+
 * [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
 > ℹ️ **Note:**
@@ -80,7 +82,7 @@ GATEWAY_ACCESS_TYPE=access_key
 
 ### CSP IAM Authentication
 
-While running your Gateway instance inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) for authentication. Using machine-to-machine authentication between Akeyless and your Cloud Service Provider, they can supply a list of users allowed to to manage your Akeyless Gateway configuration by adding the `ALLOWED_ACCESS_PERMISSIONS` variable to the `.env` configuration file.
+While running your Gateway instance inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp), [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure), or [AliCloud](https://docs.akeyless.io/docs/alicloud) for authentication. Using machine-to-machine authentication between Akeyless and your Cloud Service Provider, they can supply a list of users allowed to to manage your Akeyless Gateway configuration by adding the `ALLOWED_ACCESS_PERMISSIONS` variable to the `.env` configuration file.
 
 Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you need to set a list of users who can [manage your Gateway](https://docs.akeyless.io/docs/gateway-docker-advanced-configuration#gateway-admins) configuration using the `ALLOWED_ACCESS_PERMISSIONS` variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), like [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key).
 
@@ -97,6 +99,11 @@ ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method 
 ```shell Azure AD
 GATEWAY_ACCESS_ID=<Access ID>
 GATEWAY_ACCESS_TYPE=azure_ad 
+ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
+```
+```shell AliCloud
+GATEWAY_ACCESS_ID=<Access ID>
+GATEWAY_ACCESS_TYPE=alicloud
 ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
 ```
 
