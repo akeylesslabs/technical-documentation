@@ -80,4 +80,4 @@ To use [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-id
 
 ## Legacy Configuration
 
-For the previous PowerShell script and manual Task Scheduler setup, refer to the [legacy Universal Identity setup guide for Windows machines](doc:setting-up-universal-identity-for-windows-machines-legacy).
+For the previous PowerShell script and manual Task Scheduler setup, refer to the [legacy Universal Identity setup guide for Windows machines](https://docs.akeyless.io/docs/setting-up-universal-identity-for-windows-machines-legacy).

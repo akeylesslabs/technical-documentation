@@ -22,13 +22,13 @@ Each scanner covers one or more object types, selected when the scanner is creat
 ## Prerequisites
 
 - An Akeyless account with the Identity & Secrets Intelligence license.
-- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `5.1.0` and later.
-- A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
+- A deployed and connected [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `5.1.0` and later.
+- A Gateway with [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured.
 - A [Kubernetes Target](do:kubernetes-targets) representing the service account that will scan the cluster.
 - The credentials used by the Target granted the permissions listed under [Required Kubernetes Permissions](#required-kubernetes-permissions) below.
 - Access to configure and run the scanner, granted via:
-  1. `Manage ISI Scanners `or `Admin` [Gateway Permission](doc:gateway-access-permissions-reference).
-  2. `Identity & Secrets Intelligence` [Administrative Rule](doc:rbac#administrative-rules) set to `Scoped` or `All`.
+  1. `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
+  2. `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
   3. `List` permission on the Kubernetes Target.
 
 ## Required Kubernetes Permissions

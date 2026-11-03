@@ -22,13 +22,13 @@ The scanner's scope can be set to a single Project, a Folder, or an entire Organ
 ## Prerequisites
 
 - An Akeyless account with the Identity & Secrets Intelligence license.
-- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `4.52.0` and later.
-- A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
-- A [GCP Target](doc:gcp-targets) representing the service account that will scan the project, folder, or organization.
-- The service account used by the Target granted the permissions listed under [Required GCP Permissions](doc:gcp-scanner#required-gcp-permissions) below.
+- A deployed and connected [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `4.52.0` and later.
+- A Gateway with [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured.
+- A [GCP Target](https://docs.akeyless.io/docs/gcp-targets) representing the service account that will scan the project, folder, or organization.
+- The service account used by the Target granted the permissions listed under [Required GCP Permissions](https://docs.akeyless.io/docs/gcp-scanner#required-gcp-permissions) below.
 - Access to configure and run the scanner, granted via:
-  - `Manage ISI Scanners` or `Admin` [Gateway Permission](doc:gateway-access-permissions-reference).
-  - `Identity & Secrets Intelligence` [Administrative Rule](doc:rbac#administrative-rules) set to `Scoped` or `All`.
+  - `Manage ISI Scanners` or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
+  - `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
   - `List` permission on the GCP Target.
 
 ## Required GCP Permissions
@@ -87,7 +87,7 @@ These permissions are optional. If missing, the scan still completes, but with r
 | Object Type      | Permission                                                                                                                                              | What it adds                                                                                                                                                        |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Secrets**      | `secretmanager.versions.list`                                                                                                                           | Last changed and rotated dates, and version counts                                                                                                                  |
-| **Secrets**      | `logging.logEntries.list`                                                                                                                               | Last-accessed dates, from the last 90 days of audit logs. Requires Data Access audit logs, see [Prerequisites Beyond IAM](doc:gcp-scanner#prerequisites-beyond-iam) |
+| **Secrets**      | `logging.logEntries.list`                                                                                                                               | Last-accessed dates, from the last 90 days of audit logs. Requires Data Access audit logs, see [Prerequisites Beyond IAM](https://docs.akeyless.io/docs/gcp-scanner#prerequisites-beyond-iam) |
 | **Secrets**      | `logging.privateLogEntries.list`                                                                                                                        | Reading the Data Access audit logs that record secret access. If missing, no gap is reported, and last-accessed dates stay empty                                    |
 | **Certificates** | Any certificate source not granted above                                                                                                                | Coverage across all three certificate sources                                                                                                                       |
 | **Identities**   | `resourcemanager.folders.get`, <br />`resourcemanager.organizations.get`                                                                                | The folder and organization hierarchy (Project scope). If missing, no gap is reported                                                                               |
@@ -101,7 +101,7 @@ These permissions are optional. If missing, the scan still completes, but with r
 | **Identities**   | `logging.logEntries.list`                                                                                                                               | Last-activity dates, from the last 90 days of audit logs                                                                                                            |
 | **Identities**   | `logging.privateLogEntries.list`                                                                                                                        | Activity recorded in Data Access audit logs. If missing, no gap is reported                                                                                         |
 | **Identities**   | `policyanalyzer.`<br />`serviceAccountLastAuthenticationActivities.query`, `policyanalyzer.`<br />`serviceAccountKeyLastAuthenticationActivities.query` | Service account and key last-authentication times (billing-enabled projects only)                                                                                   |
-| **Identities**   | `admin.directory.group.member.readonly` (Workspace scope)                                                                                               | Google Workspace group membership, see [Prerequisites Beyond IAM](doc:gcp-scanner#prerequisites-beyond-iam)                                                         |
+| **Identities**   | `admin.directory.group.member.readonly` (Workspace scope)                                                                                               | Google Workspace group membership, see [Prerequisites Beyond IAM](https://docs.akeyless.io/docs/gcp-scanner#prerequisites-beyond-iam)                                                         |
 
 ### Prerequisites Beyond IAM
 

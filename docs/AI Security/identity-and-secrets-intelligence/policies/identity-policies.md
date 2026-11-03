@@ -32,8 +32,8 @@ Identity & Secrets Intelligence currently ships the following built-in Identity 
 
 ### What's Next
 
-- [Policies](doc:policies)
-- [Secret Policies](doc:secret-policies)
-- [Certificate Policies](doc:certificate-policies)
+- [Policies](https://docs.akeyless.io/docs/policies)
+- [Secret Policies](https://docs.akeyless.io/docs/secret-policies)
+- [Certificate Policies](https://docs.akeyless.io/docs/certificate-policies)
 
 ###
