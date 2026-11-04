@@ -132,9 +132,9 @@ Configuration fields:
   Enter the command that starts the Akeyless MCP server. For example:
 
   ```text
-  akeyless mcp --gateway-url https://api.akeyless.io --profile saml
+  akeyless mcp --gateway-url https://api.akeyless.io
   ```
-  Adjust --profile to match a profile you configured with akeyless configure (e.g. default, saml, oidc). For a self-hosted / on-prem gateway, change --gateway-url accordingly.
+  Add --profile to match a profile you configured with akeyless configure (e.g. default, saml, oidc). For a self-hosted / on-prem gateway, change --gateway-url accordingly.
 
 * **Working Directory**
 
