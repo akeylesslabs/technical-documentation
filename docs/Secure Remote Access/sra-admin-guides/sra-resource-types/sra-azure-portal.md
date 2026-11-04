@@ -18,7 +18,7 @@ To enable Secure Remote Access to Azure Portal you need:
 
 * [Remote Access on Kubernetes](https://docs.akeyless.io/docs/sra-setup-k8s) deployed.
 
-* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
+* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/sra-web-extension-sa).
 
 In addition, for users to access the Azure Portal in Isolated mode, you need:
 
