@@ -32,3 +32,5 @@ Akeyless Platform's Secure Remote Access solution supports connections to the fo
 * [Web Applications](https://docs.akeyless.io/docs/sra-web-applications)
 
 * [kubectl](https://docs.akeyless.io/docs/kubectl-access)
+
+![](https://files.readme.io/d107f19bbc3e9486804061832ca1c9a6947d46e75ca2bfada928744535689df6-image.png)
