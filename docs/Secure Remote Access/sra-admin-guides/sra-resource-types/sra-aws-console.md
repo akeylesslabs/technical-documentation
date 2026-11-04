@@ -24,7 +24,7 @@ To enable Secure Remote Access to AWS you need:
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview) deployed.
 
-* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
+* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/sra-web-extension-sa).
 
 In addition, for users to access the AWS Console using the CLI, you need:
 
