@@ -1,6 +1,5 @@
 ---
 title: Akeyless MCP Plugin for JetBrains IDEs
-slug: mcp-jetbrains-ides
 excerpt: Integrate Akeyless secrets management directly into JetBrains IDEs with MCP
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: mcp-jetbrains-ides
 ---
 Integrate Akeyless secrets management directly into your JetBrains IDE through the Model Context Protocol (MCP). Browse, create, and manage secrets, keys, certificates, and other Akeyless resources without leaving your IDE.
 
@@ -117,7 +117,7 @@ For profile details and advanced options, see [CLI Profiles](https://docs.akeyle
 Install the generated plugin from disk:
 
 1. In your JetBrains IDE, go to **Settings → Plugins**.
-2. Select the gear icon, and then select **Install Plugin from Disk...**.
+2. Select the gear icon, and then select **Install Plugin from Disk.**
 3. Select the generated ZIP file from the `build/distributions/` directory.
 4. Restart the IDE when prompted.
 
@@ -134,7 +134,6 @@ Configuration fields:
   ```text
   akeyless mcp --gateway-url https://api.akeyless.io
   ```
-  Add --profile to match a profile you configured with akeyless configure (e.g. default, saml, oidc). For a self-hosted / on-prem gateway, change --gateway-url accordingly.
 
 * **Working Directory**
 
