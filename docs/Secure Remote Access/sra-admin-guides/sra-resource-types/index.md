@@ -1,6 +1,5 @@
 ---
 title: Supported Resource Types
-slug: sra-resource-types
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: sra-resource-types
 ---
 Akeyless Platform's Secure Remote Access solution supports connections to the following resource types:
 
@@ -32,5 +32,3 @@ Akeyless Platform's Secure Remote Access solution supports connections to the fo
 * [Web Applications](https://docs.akeyless.io/docs/sra-web-applications)
 
 * [kubectl](https://docs.akeyless.io/docs/kubectl-access)
-
-![Illustration for: Kubernetes Web Applications kubectl](https://files.readme.io/37f4055-Screen_Shot_2022-08-10_at_13.54.13.png)
