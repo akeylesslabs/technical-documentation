@@ -84,7 +84,7 @@ Provide zero-trust privileged access to internal systems without distributing lo
 
 ### AI Agents Security
 
-Provide short-lived credentials and secure retrieval patterns for AI pipelines, automated agents, and model-serving systems.
+Provide zero-trust, secretless access for AI agents to protected resources, with policy-based controls that govern agent actions at runtime and full auditability.
 
 ### Leaked Secret Detection & Response
 
