@@ -17,6 +17,8 @@ Akeyless is an **identity security platform** that protects the credentials, key
 
 Akeyless provides a single cloud-based control plane that supports application-to-application authentication, certificate issuance, privileged access, and automated identity workflows in hybrid and multi-cloud environments.
 
+Building on this foundation, Akeyless provides comprehensive visibility into secrets and the human, machine, and AI agent identities that hold access to them, and helps identify and remediate the risks they pose. It also provides zero-trust, secretless access for AI agents to protected resources, with policy-based controls that govern agent actions at runtime and full auditability.
+
 ## Core Purpose
 
 Akeyless enables organizations to control human and machine identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. These identities are critical for securing communication between applications, services, infrastructure, and automated workloads.
