@@ -21,9 +21,9 @@ Building on this foundation, Akeyless provides comprehensive visibility into sec
 
 ## Core Purpose
 
-Akeyless enables organizations to control human and machine identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. These identities are critical for securing communication between applications, services, infrastructure, and automated workloads.
+Akeyless enables organizations to control human, machine, and AI agent identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. These identities are critical for securing communication between applications, services, infrastructure, automated workloads, and AI agents.
 
-Akeyless provides a platform for creating, retrieving, issuing, rotating, and enforcing policies on these identities, reducing the operational challenges of managing identity material across distributed systems.
+Akeyless provides a platform for creating, retrieving, issuing, rotating, discovering, and enforcing policies on these identities, reducing the operational challenges of managing identity material across distributed systems.
 
 ***
 
