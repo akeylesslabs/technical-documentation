@@ -86,9 +86,9 @@ Provide zero-trust privileged access to internal systems without distributing lo
 
 Provide zero-trust, secretless access for AI agents to protected resources, with policy-based controls that govern agent actions at runtime and full auditability.
 
-### Leaked Secret Detection & Response
+### Secrets & Identity Discovery
 
-Detect potential exposures through audit visibility and respond with automated or emergency rotation.
+Obtain comprehensive visibility into secrets and the human, machine, and AI agent identities that hold access to them, then identify and remediate the risks they pose.
 
 ***
 
