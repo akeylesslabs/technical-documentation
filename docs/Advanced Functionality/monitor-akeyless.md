@@ -87,18 +87,45 @@ Each **Gateway** cluster exposes a `/status` endpoint that provides basic runtim
 
 ## Gateway Health
 
-To assess the Gateway’s connectivity to Akeyless SaaS core services, you can use the `/health` endpoint. When cluster cache is enabled, cache availability can also affect this endpoint result. For cache architecture and runtime semantics, see [Gateway Caching](https://docs.akeyless.io/docs/gateway-caching).
+The Gateway exposes several /health endpoints. They are not equivalent: some report SaaS connectivity, and others report process/cache readiness.
 
-* If the Gateway is successfully connected, it responds with an HTTP status code `200` and the message: **Health Check Ok**.
-* If the connection fails, it returns an HTTP status code `503` with the message: **Health Check Error**
-* If Cluster Cache is used, and not available, even when the Gateway is successfully connected, it will return `503` with **Health Check Error**
+**Configuration / SaaS connectivity — :8000/health**
 
-To disable the effect of cluster cache health on the `/health` endpoint, set the following environment variable as part of your Gateway deployment:
+Use this endpoint to assess the Gateway’s connectivity to Akeyless SaaS.
 
-```yaml Gateway chart
+Connected: HTTP 200 with Health Check Ok
+Disconnected or offline (no SaaS connectivity): HTTP 503 with Health Check Error
+This endpoint does not depend on Cluster Cache availability.
+
+**API process health — :8080/health and :8081/health**
+
+These endpoints report whether the Gateway API listeners are up.
+
+* `:8080/health` — API v1 listener
+* `:8081/health` — API v2 listener
+
+They do not check SaaS connectivity, so they can return 200 while the Gateway is offline or disconnected from SaaS.
+
+If Cluster Cache is enabled and Redis is unavailable, these endpoints return 503 status code with `Health Check Error`. 
+To keep them healthy when Redis should not affect process readiness, set:
+
+,,,yaml Gateway chart
 env:
   - name: IGNORE_REDIS_HEALTH
     value: "true"
-```
+,,,
 
-Note, the Kubernetes [ReadinessProbe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) monitors the `api/v1/health` endpoint to keep the deployment up and running while working in offline mode.
+If Cluster Cache is not enabled, Redis health is not evaluated.
+
+**Proxied API health — `/api/v1/health` and `/api/v2/health`**
+
+On the configuration port (:8000), these paths are reverse-proxied to the API listeners:
+
+* `http://<gateway>:8000/api/v1/health` → `:8080/health`
+* `http://<gateway>:8000/api/v2/health` → `:8081/health`
+
+Behavior matches the corresponding :8080 / :8081 endpoints above (including Cluster Cache / IGNORE_REDIS_HEALTH).
+
+**Kubernetes probes**
+
+The Kubernetes [ReadinessProbe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) monitors the `api/v1/health` endpoint to keep the deployment up and running while working in offline mode.
