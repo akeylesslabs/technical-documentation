@@ -20,7 +20,7 @@ Agentic Runtime Authority allows AI agents to securely communicate with protecte
 sequenceDiagram
     participant U as User
     participant C as Claude Desktop
-    participant M as akeyless-claude-mcp
+    participant M as akeyless-RTA-mcp
     participant A as Akeyless API
     participant G as Akeyless Gateway
     participant L as AI Quorum (LLMs)
