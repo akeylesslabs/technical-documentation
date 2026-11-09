@@ -14,7 +14,11 @@ Akeyless Zero Trust Web Access (ZTWA) gives users secure access to internal web 
 
 This guide deploys ZTWA with Docker Compose. For how the components fit together, see [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-topology).
 
-## Before you begin
+<Callout icon="far fa-circle-info" theme="info">
+  ### Using an earlier version
+
+  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0) and the current Docker Compose file. For earlier versions, see [Zero Trust Web Access On Docker (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-on-docker-legacy).Before you begin
+</Callout>
 
 ### Requirements
 
