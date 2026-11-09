@@ -33,7 +33,7 @@ sequenceDiagram
     M-->>C: /prod/db/postgres-ro
     C->>M: query-db (path + SQL)
     M->>G: POST /config/target_query
-    Note over G: 1. RBAC: ARA execute permission on path
+    Note over G: 1. RBAC: RTA execute permission on path
     Note over G: 2. Input rules (read-only, no multi-statement...)
     alt Input rule violated
         G-->>M: BLOCKED (never reaches target)
@@ -55,7 +55,7 @@ sequenceDiagram
     G-->>M: JSON results (no credentials)
     M-->>C: { count: 42 }
     C-->>U: "There are 42 users"
-    Note over G: ARA session recorded for audit
+    Note over G: RTA session recorded for audit
 ```
 
 ## Supported Targets And Secret Types
