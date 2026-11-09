@@ -187,7 +187,7 @@ jobs:
     steps:
       - name: Fetch credentials from Akeyless
         id: akeyless
-        uses: LanceMcCarthy/akeyless-action@v5.7.0
+        uses: LanceMcCarthy/akeyless-action@v5.8.0
         with:
           access-id: ${{ vars.DOCS_AGENT_AKEYLESS_ACCESS_ID }}
           access-type: JWT
