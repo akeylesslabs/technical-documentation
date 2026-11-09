@@ -32,10 +32,10 @@ cd akeyless-cert-manager-issuer
 docker login <Your_Registry>
 
 docker build --platform linux/amd64 \
-  -t <Your_Registry>/<Your_Repository>/akeyless-cert-manager-issuer:v0.1.0 \
+  -t <Your_Registry>/<Your_Repository>/akeyless-cert-manager-issuer:v0.1.2 \
   --build-arg VERSION=v0.1.0 .
 
-docker push <Your_Registry>/<Your_Repository>/akeyless-cert-manager-issuer:v0.1.0
+docker push <Your_Registry>/<Your_Repository>/akeyless-cert-manager-issuer:v0.1.2
 ```
 
 Where:
@@ -54,7 +54,7 @@ Where:
 Set your image in the install manifest, and install the CRDs and the controller:
 
 ```shell Shell
-sed -i.bak 's#ghcr.io/akeyless-community/akeyless-cert-manager-issuer:v0.1.0#<Your_Registry>/<Your_Repository>/akeyless-cert-manager-issuer:v0.1.0#' deploy/production/install.yaml
+sed -i.bak 's#ghcr.io/akeyless-community/akeyless-cert-manager-issuer:v0.1.2#<Your_Registry>/<Your_Repository>/akeyless-cert-manager-issuer:v0.1.2#' deploy/production/install.yaml
 
 kubectl apply -f deploy/crds/
 kubectl apply -f deploy/production/install.yaml
