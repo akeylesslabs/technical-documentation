@@ -13,7 +13,7 @@ next:
 <Callout icon="far fa-circle-info" theme="info">
   ### Using an earlier version
 
-  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0) and the current Docker Compose file. For earlier versions, see [Zero Trust Web Access on K8s Advanced Configuration (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-on-k8s-advanced-configuration-legacy).
+  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0). For earlier versions, see [Zero Trust Web Access on K8s Advanced Configuration (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-on-k8s-advanced-configuration-legacy).
 </Callout>
 
 ## Cluster name
