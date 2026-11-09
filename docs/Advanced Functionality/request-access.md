@@ -29,9 +29,9 @@ While default access can be assigned by way of [Role-Based Access Control (RBAC)
 To approve or decline Access Requests on **items and targets**, the approver's Access Role requires:
 
 * **Approve Access Request permission**: Set on the Access Role, with one of the following values:
-  * `none`: The role cannot approve Access Requests (default).
-  * `scoped`: The role can approve Access Requests, with Auth Method visibility limited to the scope of the request.
-  * `all`: The role can approve Access Requests, with visibility of all Auth Methods.
+    * `none`: The role cannot approve Access Requests (default).
+    * `scoped`: The role can approve Access Requests, with Auth Method visibility limited to the scope of the request.
+    * `all`: The role can approve Access Requests, with visibility of all Auth Methods.
 * **Item/Target rule**: The requested capabilities (`Read`, `Update`, and/or `Delete`) on the relevant item or target path.
 
 Approvers can only grant capabilities they already hold on the requested item or target.
