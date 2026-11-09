@@ -18,7 +18,7 @@ This chart deploys ZTWA on Kubernetes with Helm. For how the components fit toge
 <Callout icon="far fa-circle-info" theme="info">
   ### Using an earlier version
 
-  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0) and the current Docker Compose file. For earlier versions, see [Zero Trust Web Access (earlier versions)](OLD_DOCS_URL).
+  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0) and the current Docker Compose file. For earlier versions, see [Zero Trust Web Access on K8s (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-on-k8s-legacy-1).
 </Callout>
 
 ## Before you begin
