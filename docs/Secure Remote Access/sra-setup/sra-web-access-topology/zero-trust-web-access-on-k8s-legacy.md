@@ -1,5 +1,5 @@
 ---
-title: Zero Trust Web Access on K8s - Legacy
+title: Zero Trust Web Access - Legacy
 deprecated: false
 hidden: true
 metadata:
