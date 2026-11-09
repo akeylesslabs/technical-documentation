@@ -10,243 +10,200 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Web Access Bastion provides Secure Remote Access to any web application with session recording, including proxy service acting as an entry point to your internal web applications, where only after successful authentication users will get access, either by way of an isolated remote browser or directly to your target server based on your secret configuration.
+Akeyless Zero Trust Web Access (ZTWA) gives users secure access to internal web applications through an isolated Chromium browser, with optional session recording. Users never see the target's credentials.
 
-Working with isolated browsers provides a complete zero-knowledge where users do not have any knowledge about the access credentials.  
+This guide deploys ZTWA with Docker Compose. For how the components fit together, see [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-topology).
 
-This guide provides guidance for the deployment of the Akeyless-Web-Access-Bastion on **Docker** using **Docker Compose**
+## Before you begin
 
-## Prerequisites
+### Requirements
 
-* Docker Compose installed.
+* Docker with Docker Compose installed.
+* The ZTWA [`docker-compose.yml`](https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml) file.
+* At least 1 vCPU and 1 GB RAM for the dispatcher, and 1 vCPU and 2 GB RAM for each web worker.
 
-* Web Access Bastion - `docker-compose.yml` file.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
 
-* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and 1 vCPU available with 1 GB RAM for the `WebDispatcher`.
+  To enable Secure Remote Access features, request access to the Akeyless private repository from your account manager.
+</Callout>
 
-_**Network**_
+### Services
 
-When using an embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout. It is advised to increase it to a reasonably high value or leave it unlimited.
+The `docker-compose.yml` file runs these services:
 
-[For example, when running on AWS with ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
+| Service      | Purpose                                                  | Host port  |
+| ------------ | -------------------------------------------------------- | ---------- |
+| `dispatcher` | Entry point; checks authentication and assigns sessions  | `9000`     |
+| `worker`     | Isolated Chromium browser that runs the user's session   | —          |
+| `proxy`      | Web proxy for proxy-mode sessions                        | `19414`    |
+| `mediamtx`   | Media server; streams the live view and records sessions | `8189/UDP` |
+| `autoheal`   | Restarts containers whose health check fails             | —          |
 
-_**Storage**_
+### Network
 
-To be able to download files to your local machine, the Docker Engine requires mounted volumes. [For example, when running on AWS with EKS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html).
+* **UDP&#x20;**`8189` on the Docker host must be reachable from users' browsers. The live view of each session uses it.
+* Set the address users reach the host on in the `mediamtx` service. See [Set the media server address](https://docs.akeyless.io/docs/sra-web-access-docker#set-the-media-server-address).
 
-For security reasons, please limit the volume mount permissions to `0650`.
+### Network timeout settings
 
-> ℹ️ **Note:**
->
-> To enable Secure Remote Access features, you will have to get an access key to Akeyless's private repository. Please contact your Account Manager for more details.
+When an embedded browser session runs behind a load balancer (for example, ELB), idle timeout settings can close active sessions. Set the load balancer idle timeout to a high value or unlimited.
 
-## Configuration
+For AWS ELB guidance, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
-[Download the **Docker Compose** file](https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml).
+### Shared storage
 
-To work with a specific Gateway, set the environment variable that points to your Gateway URL on port `8080`. Alternatively, you can work with Akeyless public Gateway endpoint instead. To support `HTTP` connections, set the `DISABLE_SECURE_COOKIE` variable with `true` otherwise, only `HTTPS` connection will be supported, and set your policy for internal authentication using `ALLOW_INTERNAL_AUTH`. In the following example, internal authentication is blocked:
+The dispatcher, the web workers and the media server mount the `$PWD/shared` folder at `/etc/shared`, for file downloads and session recordings. Limit its permissions to `0650`, and make it owned by group `10000`.
 
-```yaml
-services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
-      - AKEYLESS_URL=https://vault.akeyless.io
+## Configure docker-compose.yml
+
+### Credentials
+
+Create a `.env` file next to `docker-compose.yml`. Docker Compose reads it automatically. Don't commit it to source control.
+
+```shell .env
+# Auth method ZTWA uses to read the secrets of the web targets (Read and List permissions)
+ZTWA_ACCESS_ID=<ZTWA_ACCESS_ID>
+# Only for an API Key auth method
+ZTWA_ACCESS_KEY=<ACCESS_KEY>
+# Auth methods allowed to open sessions, comma separated, for example your SAML auth method
+AUTHORIZED_ACCESS_IDS=<ACCESS_ID_1>,<ACCESS_ID_2>
 ```
 
-The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions. To fetch the relevant secret on behalf of your users, set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
+The dispatcher and the web proxy both read `AUTHORIZED_ACCESS_IDS` from this file.
 
-Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
+### ZTWA authentication
 
-To control which users are allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`.
+ZTWA reads the secrets of the web targets with its own auth method, the **ZTWA Access ID**. It needs **Read** and **List** permissions on those secrets. Users only need **List**.
 
-```yaml
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  `AUTHORIZED_ACCESS_IDS` is required. If it's empty, the dispatcher and the web proxy accept no users.
+</Callout>
+
+Supported auth method types: [API Key](https://docs.akeyless.io/docs/auth-with-api-key), [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [Azure AD](https://docs.akeyless.io/docs/auth-with-azure) and [GCP](https://docs.akeyless.io/docs/auth-with-gcp).
+
+* **API key:** set `ZTWA_ACCESS_ID` and `ZTWA_ACCESS_KEY` in `.env`.
+* **Cloud identity (AWS IAM, Azure AD, GCP):** set only `ZTWA_ACCESS_ID`. ZTWA detects the cloud through the instance metadata service. If the container can't reach it, set `ZTWA_ACCESS_TYPE` on the dispatcher:
+
+  ```yaml docker-compose.yml
+  services:
+    dispatcher:
+      environment:
+        - ZTWA_ACCESS_TYPE=aws_iam   # or azure_ad, gcp
+  ```
+
+### Set the media server address
+
+In the `mediamtx` service, replace `<MUST_BE_PROVIDED>` with the IP or hostname users' browsers reach the Docker host on:
+
+```yaml docker-compose.yml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
+  mediamtx:
     environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<accessID>
-      - ALLOWED_ACCESS_IDS=[AccessID1,AccessID2]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
+      - MTX_WEBRTCADDITIONALHOSTS=<HOST_IP_OR_HOSTNAME>
 ```
 
-### Authentication
+### Redirect URLs
 
-The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported:
+The SRA Portal redirects users only to the URLs you allow. In the `dispatcher` service, set them comma separated:
 
-* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
-
-* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
-
-* [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
-
-* [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp)
-
-### API Key Authentication
-
-To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/auth-with-api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` as environment variables with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
-
-```yaml
+```yaml docker-compose.yml
 services:
   dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
     environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<AccessID>
-      - PRIVILEGED_ACCESS_KEY=<AccessKey>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
+      - ALLOWED_BASTION_URLS=https://<HOST>:9000
+      - ALLOWED_PROXY_URLS=https://<HOST>:19414
 ```
 
-### CSP IAM Authentication
+Use the same URLs in the [SRA Portal](https://docs.akeyless.io/docs/sra-portal):
 
-While running your Docker inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
+* **Web Application Dispatcher**: the dispatcher URL
+* **Web Proxy URL**: the web proxy URL, for proxy-mode sessions
 
-### AWS IAM
+### Akeyless API URL
 
-AWS IAM can be used in the following approach:
+Keep the default for the Akeyless SaaS, or set the API URL of your Akeyless Gateway. Set the same value on the `dispatcher` and the `proxy` services:
 
-* Instance IAM Role
-
-While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
-
-```yaml
+```yaml docker-compose.yml
 services:
   dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
     environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<AWS_IAM_AccessID>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
+      - GATEWAY_URL=https://api.akeyless.io
+  proxy:
+    environment:
+      - GATEWAY_URL=https://api.akeyless.io
 ```
 
-### Azure Active Directory
+If your Gateway's certificate isn't signed by a public CA, mount the CA bundle and set `GATEWAY_CERT` on the `dispatcher`, `proxy` and `worker` services:
 
-Azure AD authentication is provided with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
+```yaml docker-compose.yml
+    volumes:
+      - /path/to/your-ca-bundle.pem:/var/akeyless/certs/ca-bundle.pem:ro
+    environment:
+      - GATEWAY_CERT=/var/akeyless/certs/ca-bundle.pem
+```
 
-Set your [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) `Access ID` as your `PRIVILEGED\_ACCESS\_ID` with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+### Proxy mode
 
-```yaml
+The web proxy uses HTTP by default. For SOCKS5, set on the `proxy` service:
+
+```yaml docker-compose.yml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
+  proxy:
     environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<Azure_AD_AccessID>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
+      - WEB_PROXY_TYPE=SOCKS
 ```
 
-### GCP GCE
+### HTTP deployments
 
-Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/auth-with-gcp) can be done using the GCP. Set your [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp) `Access ID` as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
+`DISABLE_SECURE_COOKIE=true` (the default) lets the dispatcher work over HTTP. Set it to `false` to send the session cookie only over HTTPS.
 
-```yaml
-services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<GCP_GCE_AccessID>
-      - ALLOWED_ACCESS_IDS=AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
-```
+`ALLOWED_INTERNAL_AUTH=false` (the default) makes the dispatcher accept only requests with preemptive JWT authentication.
 
-### Redirect to Bastion URLs
+### Session recording
 
-To ensure only validated redirects are accepted, you can harden your bastion using the `ALLOWED_BASTION_URLS` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-dispatcher-bastion**:
+The media server records each session to the shared folder, and the dispatcher uploads it to S3 or S3-compatible storage.
 
-```yaml
-services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<AccessID>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - ALLOWED_BASTION_URLS=[https://Web-Access-Bastion-URL]
-      - LOG_FORWARDING=
-      - WEB_PROXY_TYPE=http
-```
+1. Turn on recording in both services:
 
-## Advanced Configuration
+   ```yaml docker-compose.yml
+   services:
+     mediamtx:
+       environment:
+         - MTX_PATHDEFAULTS_RECORD=yes
+     dispatcher:
+       environment:
+         - ENABLE_RECORDING=true
+   ```
 
-### Cluster Name
+2. To upload to S3, set on the `dispatcher` service:
 
-Each Bastion is uniquely identified by combining the **Privilege Access ID** Authentication Method and the **Cluster Name**.
+   ```yaml docker-compose.yml
+   services:
+     dispatcher:
+       environment:
+         - ENABLE_RECORDING_UPLOAD=true
+         - RECORDING_S3_BUCKET=<S3_BUCKET_NAME>
+         - RECORDING_S3_REGION=<AWS_REGION>
+         - RECORDING_S3_PREFIX=          # optional
+         - RECORDING_S3_ENDPOINT=        # S3-compatible service, for example MinIO. Empty for AWS S3
+         - RECORDING_COMPRESS=false      # gzip before upload
+         - RECORDING_SSE_TYPE=           # empty, sse-s3 or sse-kms
+         - RECORDING_SSE_KMS_KEY_ID=     # for sse-kms. Empty uses the default KMS key
+   ```
 
-It means that changing the **Privilege Access ID** or the **Cluster Name** of your Bastion instance will create an entirely new Bastion instance.
+3. Put the S3 credentials in `.env`. Without them, the dispatcher uses the AWS default credential chain, for example an instance profile:
 
-It is recommended to set a meaningful Cluster Name for your Bastion cluster from the very beginning. By default, your cluster name is `compose-ztwa`.
+   ```shell .env
+   RECORDING_S3_ACCESS_KEY_ID=<ACCESS_KEY_ID>
+   RECORDING_S3_ACCESS_KEY_SECRET=<SECRET_ACCESS_KEY>
+   ```
 
-To do that, you can set the `clusterName="meaningful-cluster-name"` field as part of the Bastion Docker Compose `yaml` file.
+## Advanced configuration
+
+### Cluster name
 
 ```yaml docker-compose.yml
 services:
@@ -255,131 +212,45 @@ services:
       - CLUSTER_NAME=compose-ztwa
 ```
 
-### Proxy
+Each ZTWA bastion is identified by its **ZTWA Access ID** together with its **cluster name**. Changing either one registers a new bastion. Set a meaningful cluster name from the start. The default is `compose-ztwa`.
 
-To configure your proxy settings, you can set several parameters, including proxy settings for HTTP traffic, HTTPS traffic, and Ignore Hosts, using the `no_proxy` field, to prevent local traffic from going through your proxy server. You can set both services `dispatcher` and `worker` accordingly.
+### Outbound proxy
+
+To send a service's outbound traffic through your proxy server, set `http_proxy`, `https_proxy` and `no_proxy` on that service:
 
 ```yaml docker-compose.yml
 services:
   dispatcher:
     environment:
-      - CLUSTER_NAME=compose-ztwa
       - http_proxy=
       - https_proxy=
       - no_proxy=
+```
+
+This is the containers' own outbound proxy. It isn't the ZTWA web proxy that users connect through in proxy mode.
+
+### Display size
+
+Set the screen size of the isolated browser on the `worker` service:
+
+```yaml docker-compose.yml
+services:
   worker:
     environment:
-      - http_proxy=
-      - https_proxy=
-      - no_proxy=
-```
-
-### Log Forwarding
-
-To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on the [Log Forwarding](https://docs.akeyless.io/docs/gateway-log-forwarding) page. Set the `LOG_FORWARDING` variable inside the **Docker Compose** deployment file as follows:
-
-```yaml docker-compose.yml
-services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<AccessID>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - ALLOWED_BASTION_URLS=https://Web-Access-Bastion-URL
-      - WEB_PROXY_TYPE=http
-      - LOG_FORWARDING='enable="true"\n target_log_type="logz_io"\n target_logz_io_token=""\n target_logz_io_protocol="tcp" \n'
-```
-
-### WebWorker
-
-This section enables global settings of the internal dedicated remote browsers your users will use. You can customize the settings to provide a more flexible experience for your users.
-
-Default `policies` sections aimed to provide the most secure work mode. By default, all `URLs` are blocked hence users will not be able to navigate inside the remote browser to different sites. If needed, set the relevant `URLs` in the `Exceptions` list.
-
-```shell policies.json
-cat <<EOT > policies.json
-{
-  "policies": {
-    "BlockAboutConfig": true,
-    "BlockAboutAddons": true,
-    "BlockAboutProfiles": true,
-    "BlockAboutSupport": true,
-    "DisableDeveloperTools": true,
-    "DisableFirefoxAccounts": true,
-    "DisablePasswordReveal": true,
-    "DisablePrivateBrowsing": true,
-    "DisableProfileImport": true,
-    "DisableSafeMode": true,
-    "OfferToSaveLogins": false,
-    "OfferToSaveLoginsDefault": false,
-    "PasswordManagerEnabled": false,
-    "Proxy": {
-      "Mode": "system",
-      "Locked": true
-    },
-    "Preferences": {},
-    "Certificates": {
-#      "Install": ["/etc/ssl/certs/yourOrgRootCA.crt"]
-    },
-    "WebsiteFilter": {
-      "Block": [
-        "<all_urls>"
-      ],
-      "Exceptions": [
-        "https://*.akeyless.io/*"
-      ]
-    }
-  }
-}
-EOT
-```
-
-> **Notice:**
->
-> The `policies.json` **must** be provided for the isolated web browsing to work.
-
-**Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the `web-access-bastion`, or if your Akeyless\_GW\_URL is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
-
-1. Mount your organization's Root CA certificate to the containers (in the `docker-compose.yml`, under `services.worker.volumes`)
-2. In the `policies.json` above, uncomment the _Certificates.Install_ line and set it to the relevant certificates' paths inside the container
-
-### DLP
-
-To work with Data Leak Protection tools, you can explicitly set the target settings of your DLP server, as well as with dedicated Audit Logs forwarding.
-
-```yaml
-worker:
-    image: "akeyless/zero-trust-web-worker"
-    security_opt:
-      - seccomp=unconfined
-    shm_size: '2gb'
-    volumes:
-      - $PWD/policies.json:/usr/lib/firefox/distribution/policies.json:ro
-      - $PWD/shared:/etc/shared
-    environment:
-      - INTERNAL_DISPATCHER_IP=10.5.0.2
       - DISPLAY_WIDTH=2560
       - DISPLAY_HEIGHT=1200
-      - DLP_CONF=
-      - LOG_FORWARDING=
 ```
 
 ## Install
 
-Run the following command to apply your settings as part of the **Docker Compose** command:
+1. Start ZTWA:
 
-```shell
-docker-compose up -d --scale worker=3
-```
+   ```shell
+   docker compose up -d
+   ```
 
-Verify that both containers are up and running: `web-worker-deployment` / `web-dispatcher-deployment`
+2. Check that all services are running:
+
+   ```shell
+   docker compose ps
+   ```
