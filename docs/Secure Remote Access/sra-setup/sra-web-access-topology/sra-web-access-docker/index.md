@@ -17,7 +17,7 @@ This guide deploys ZTWA with Docker Compose. For how the components fit together
 <Callout icon="far fa-circle-info" theme="info">
   ### Using an earlier version
 
-  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0) and the current Docker Compose file. For earlier versions, see [Zero Trust Web Access On Docker (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-on-docker-legacy).Before you begin
+  This page describes the current ZTWA Docker Compose file, with the separate web proxy and media server services. For earlier versions, see [Zero Trust Web Access On Docker (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-on-docker-legacy).
 </Callout>
 
 ### Requirements
