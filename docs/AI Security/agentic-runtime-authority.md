@@ -14,6 +14,50 @@ metadata:
 ---
 Agentic Runtime Authority allows AI agents to securely communicate with protected resources through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview). It provides controlled, authorized access so agents can interact with supported secrets without exposing long-lived credentials. In this context, **runtime control** means the authorization checks and input or output rules that Akeyless enforces when an agent sends a live request to a protected resource. Policies on Dynamic Secrets define what agents can and cannot do—input rules restrict allowed operations, and output rules filter returned data—ensuring secure and compliant runtime execution.
 
+### Architecture
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant C as Claude Desktop
+    participant M as akeyless-claude-mcp
+    participant A as Akeyless API
+    participant G as Akeyless Gateway
+    participant L as AI Quorum (LLMs)
+    participant R as Database / Cloud
+
+    U->>C: "Query prod postgres for user count"
+    C->>M: list-secrets
+    M->>A: list-items (authenticated, role-scoped)
+    A-->>M: secret paths + target types (no values)
+    M-->>C: /prod/db/postgres-ro
+    C->>M: query-db (path + SQL)
+    M->>G: POST /config/target_query
+    Note over G: 1. RBAC: ARA execute permission on path
+    Note over G: 2. Input rules (read-only, no multi-statement...)
+    alt Input rule violated
+        G-->>M: BLOCKED (never reaches target)
+    end
+    opt AI Quorum enabled
+        G->>L: validate action
+        L-->>G: verdicts (any deny = block)
+        alt Any model denies
+            G-->>M: BLOCKED
+        end
+    end
+    Note over G: 3. Fetch JIT/rotated credential (stays in GW)
+    G->>R: execute with credential
+    R-->>G: raw results
+    Note over G: 4. Output rules (PII, secrets...)
+    alt Output rule violated
+        G-->>M: BLOCKED / redacted
+    end
+    G-->>M: JSON results (no credentials)
+    M-->>C: { count: 42 }
+    C-->>U: "There are 42 users"
+    Note over G: ARA session recorded for audit
+```
+
 ## Supported Targets And Secret Types
 
 **Agentic Runtime Authority** supports these target categories for runtime execution:
