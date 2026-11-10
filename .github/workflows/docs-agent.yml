@@ -98,9 +98,17 @@ name: Docs Agent
 # fetches that issue's summary + description over the Jira REST API BEFORE
 # Claude ever runs, and hands Claude that text as reference material inside
 # the prompt -- Claude itself never holds a Jira credential or makes the
-# Jira call. The "doc_action" input tells Claude whether to create a new doc
-# or edit an existing one; either way Claude still works out exactly which
-# file applies.
+# Jira call. The "doc_action" input tells Claude whether to create a new doc,
+# edit an existing one, or -- when the feature needs more than one documentation
+# change and some parts need a new page while others need an existing page
+# edited -- decide per page which to do. Either way Claude still works out
+# exactly which file(s) apply.
+#
+# "run_ara_preflight_checks" is off by default: it only re-runs the temporary
+# ARA scoping sanity checks (see that step's own comment below) and adds
+# ~25-30s to every run for something that, once the setup is verified, does
+# not need checking again on every single docs change. Turn it on from the
+# workflow_dispatch form only when troubleshooting ARA/role permissions.
 #
 # Security note: a Jira ticket's text is fed into Claude's prompt. If anyone
 # who can create or edit tickets in your Jira project isn't someone you'd trust
@@ -153,12 +161,18 @@ on:
         required: true
         type: string
       doc_action:
-        description: 'Create a new doc or edit an existing one? Claude still works out exactly which file applies, in either case.'
+        description: 'Create a new doc, edit an existing one, or (if this feature touches more than one doc) let Claude decide per page? Claude still works out exactly which file(s) apply either way.'
         required: true
         type: choice
         options:
           - 'Create a new doc'
           - 'Edit an existing doc'
+          - 'Mixed -- create new and/or edit existing, per page'
+      run_ara_preflight_checks:
+        description: 'Run the temporary ARA scoping sanity checks before the real work (adds ~25-30s). Leave off for normal runs; turn on only when troubleshooting ARA/role permissions.'
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
   group: docs-agent-${{ github.run_id }}
@@ -303,6 +317,12 @@ jobs:
       # feature branch (gh workflow run docs-agent.yml --ref <branch>), confirm
       # all three lines say OK, then delete this step.
       #
+      # Gated behind the run_ara_preflight_checks input (default false): once
+      # the scoping has been confirmed, re-running it on every ordinary docs
+      # change just adds ~25-30s for no new information. Flip the input on from
+      # the workflow_dispatch form whenever the ARA role/rules change and need
+      # re-verifying.
+      #
       # There is deliberately no "cannot read the Jira secret" check: this is
       # the single shared identity, so it can, by design. See the accepted
       # trade-off at the top of this file.
@@ -319,6 +339,7 @@ jobs:
       # balancer or WAF and the request never reached the gateway -- including
       # on check 1, where an edge 403 would otherwise pass as a real denial.
       - name: ARA preflight checks (temporary)
+        if: github.event.inputs.run_ara_preflight_checks == 'true'
         env:
           T: ${{ steps.ara-token.outputs.token }}
           GATEWAY_URL: ${{ steps.ara-token.outputs.gateway_url }}
@@ -452,7 +473,13 @@ jobs:
           # one present is the job's read-only token, deliberately installed,
           # rather than two copies left lying around by different steps.
           persist-credentials: false
-          fetch-depth: 0
+          # Was fetch-depth: 0 (the whole history). The agent only ever reads
+          # the tip of v1.0 and pushes new files to a brand-new branch off it --
+          # it never needs history, blame, or other branches locally (those are
+          # read through ARA, not this checkout). A shallow, single-branch
+          # clone is materially faster on a repo this size and changes nothing
+          # the agent can do.
+          fetch-depth: 1
 
       - name: Build the prompt (fetch Jira ticket if one was given)
         id: build-prompt
@@ -518,10 +545,19 @@ jobs:
             DESCRIPTION_BLOCK="$FEATURE_INPUT"
           fi
 
+          # Three shapes for DOC_ACTION. "Mixed" is for a feature that may need
+          # more than one documentation change, where different parts may need
+          # different treatment -- some pages already exist and just need an
+          # edit, others don't exist yet and need a new file. Left as an
+          # if/elif/else (not a lookup) so a typo'd or unexpected DOC_ACTION
+          # value falls through to the safest default (Mixed's "work it out per
+          # page") rather than silently matching the wrong branch.
           if [ "$DOC_ACTION" = "Create a new doc" ]; then
             ACTION_INSTRUCTION="This run should CREATE A NEW documentation page for this feature. First search the existing docs tree to confirm it isn't already documented elsewhere, and to work out the right location, category, and naming convention for the new file based on how similar docs are organized. Then add the new file there, following the structure and style of comparable existing docs."
-          else
+          elif [ "$DOC_ACTION" = "Edit an existing doc" ]; then
             ACTION_INSTRUCTION="This run should UPDATE AN EXISTING documentation page for this feature. Search the docs tree to find the correct existing file(s) to edit -- do not create a new file -- then update them in place."
+          else
+            ACTION_INSTRUCTION="This feature may need more than one documentation change, and different parts of it may need different treatment. For EACH part of the feature, first search the existing docs tree to see whether it is already covered somewhere: if an existing page already covers it, EDIT that page in place; if nothing covers it, CREATE a new file there, following the location, naming convention, and structure of comparable existing docs. Do not create a new file for something that already has a home in an existing doc, and do not force an edit onto an existing page for something that genuinely needs its own new page. If the feature touches several pages, make all of the needed edits and/or new files before moving on to publishing -- step 1 below (the diff/byte-count/checksum record) and the per-file publishing steps all repeat once per changed or new file."
           fi
 
           # service-execute wants a single-line original-prompt for its audit
@@ -574,7 +610,7 @@ jobs:
             echo "   merged PR against, so print it even if everything below succeeds."
             echo "2. One call. payload: Create branch docs-agent/$RUN_ID from v1.0 in"
             echo "   akeylesslabs/technical-documentation"
-            echo "3. One call PER CHANGED FILE. payload: Push the file <path> to branch"
+            echo "3. One call PER CHANGED OR NEW FILE. payload: Push the file <path> to branch"
             echo "   docs-agent/$RUN_ID in akeylesslabs/technical-documentation with exactly the"
             echo "   following content, verbatim -- do not reword, reformat, summarize or truncate"
             echo "   any part of it: <the file's full content>"
@@ -586,9 +622,12 @@ jobs:
             echo "   and skim it. Redo step 3 once, and only for an OBVIOUS corruption: content"
             echo "   truncated partway, a section missing, or prose that was clearly reworded."
             echo "   If it is still obviously wrong, STOP and report it instead of opening a PR."
-            echo "5. One call. payload: Open a pull request in akeylesslabs/technical-documentation"
-            echo "   from branch docs-agent/$RUN_ID into v1.0, with a clear title and a short summary"
-            echo "   of what changed and why"
+            echo "5. One call, once all files from step 3 are pushed and verified. payload: Open a"
+            echo "   pull request in akeylesslabs/technical-documentation from branch"
+            echo "   docs-agent/$RUN_ID into v1.0, with a clear title and a short summary of what"
+            echo "   changed and why, listing every file touched. This PR is only ever OPENED, never"
+            echo "   merged or published -- merging is both outside what you are asked to do and"
+            echo "   something your ARA permissions do not allow."
             echo ""
             echo "Content fidelity is verified by a human reading 'gh pr diff' against the step 1"
             echo "record, not by you certifying your own output. Report honestly in step 4; do not"
