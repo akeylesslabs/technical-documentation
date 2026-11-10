@@ -122,7 +122,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
    - **Private Key:** The private key that will be rotated (Relevant only for **Key** mode).
    - **Public Key:&#x20;**&#x54;he public key that corresponds to the private key, in `OpenSSH authorized_keys`\` format. Derived automatically and not editable.
    - **Algorithm:&#x20;**&#x54;he key algorithm this secret uses. Applied when Akeyless generates the key pair, and preserved on every rotation.
-   - **Authorized Keys Remote Path :&#x20;**&#x54;he file on the target server where the public key is written. By Default: `~/.ssh/authorized_keys` .
+   - **Authorized Keys Remote Path :&#x20;**&#x54;he file on the target server where the public key is written. By Default: `~/.ssh/authorized_keys` .
    - **Rotation Statement:** In this field you can provide a [Custom Rotation Statement](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#custom-rotation-statement).
    - **Password Length**: Set the user's password length.
    - **Gateway:** Select the Gateway through which the secret will be rotated.
@@ -171,6 +171,103 @@ Another example of rotating Windows service password:
 ```shell
 net user /domain "{{USERNAME}}" {{NEW_PASSWORD}} && sc config "lfsvc" obj= "ad\{{USERNAME}}" password= "{{NEW_PASSWORD}}" && net stop lfsvc && net start lfsvc
 ```
+
+## Provisioning SSH Keys
+
+In addition to rotating the key(s), you can provision the SSH key(s) to a remote server using any [Target](https://docs.akeyless.io/docs/targets), similarly to [Certificate Provisioning](https://docs.akeyless.io/docs/certificate-provisioning). Target support priority is:
+
+1. **Custom** - A web endpoint invoked using `POST`.
+2. **SSH Target**
+3. **Windows Target**
+4. **Linked Target**
+
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  For **Custom** targets, provisioning is managed by the customer, so there is no default location to confirm.
+</Callout>
+
+For all targets except **Custom**, you're asked to confirm the location where the key(s) should be placed. The default location is taken from the Rotated Secret's default setting, for example, `~/.ssh/authorized_keys`.
+
+By default, only the **public key** is provisioned. You can also choose to include the **private key**, and when you do, you can set a separate remote location for it.
+
+<Callout icon="⚠️" theme="warning">
+  ### **Note:**
+
+  If you provision the private key without setting a passphrase, the following warning is displayed: "No passphrase set. The private key will be stored unencrypted on the server. We recommend setting a passphrase". We recommend setting a passphrase to protect the private key at rest on the target server.
+</Callout>
+
+### Provisioning SSH Keys Using the Akeyless CLI
+
+To create a provisioning configuration for an SSH Rotated Secret, run the following command:
+
+```shell
+akeyless rotated-secret provision create \
+--name <Rotated Secret name> \
+--target-name <Target name> \
+--provision-keys[=public] <public-key/private-key> \
+--public-key-remote-path <path> \
+--private-key-remote-path <path> \
+--private-key-passphrase <passphrase>
+```
+
+Where:
+
+- `name`: The SSH Rotated Secret item name.
+- `target-name`: The Target to provision the key(s) to.
+- `provision-keys`: Which key(s) to provision. Options: `public-key` (default) or `private-key`. Set to `private-key` to also provision the private key.
+- `public-key-remote-path`: The path on the target where the public key will be provisioned.
+- `private-key-remote-path`: The path on the target where the private key will be provisioned (relevant only when `provision-keys` includes `private-key`).
+- `private-key-passphrase`: A passphrase to encrypt the private key with before it's provisioned. If not set, the private key is stored unencrypted on the target.
+
+To update an existing provisioning configuration, run:
+
+```shell
+akeyless rotated-secret provision update \
+--name <Rotated Secret name> \
+--target-name <Target name> \
+--provision-keys[=public] <public-key/private-key> \
+--public-key-remote-path <path> \
+--private-key-remote-path <path> \
+--private-key-passphrase <passphrase>
+```
+
+To delete a provisioning configuration, run:
+
+```shell
+akeyless rotated-secret provision delete \
+--name <Rotated Secret name> \
+--target-name <Target name>
+```
+
+To provision the key(s) immediately, run:
+
+```shell
+akeyless rotated-secret provision push \
+--name <Rotated Secret name> \
+--target-name <Target name>
+```
+
+You can find the complete list of parameters for these commands in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#provisioning) section.
+
+### Provisioning SSH Keys Using the Akeyless Console
+
+1. Log in to the Akeyless Console, and go to **Items**, find the SSH Rotated Secret you wish to provision.
+2. Click on the Rotated Secret item, click on the **Provisioning** tab, and then **Attach**.
+3. **Target Name** - Choose an existing [SSH](https://docs.akeyless.io/docs/ssh-target), [Windows](https://docs.akeyless.io/docs/windows-target), or [Linked](https://docs.akeyless.io/docs/linked-target-rotated-secret) Target from the drop-down list, or select **Custom** to provision to a web endpoint using `POST`.
+4. For any target other than **Custom**, confirm the **Location** where the public key should be placed. By default, this is taken from the Rotated Secret's default setting (for example, `~/.ssh/authorized_keys`).
+5. **Include Private Key** - Enable this option to also provision the private key, then confirm the **Location** where it should be placed.
+6. If you enable **Include Private Key** without setting a **Passphrase**, the following warning is displayed: "No passphrase set. The private key will be stored unencrypted on the server. We recommend setting a passphrase".
+7. Click **Save**.
+
+### Provisioning Events
+
+SSH key provisioning triggers the following events, which can be monitored from the [Event Center](https://docs.akeyless.io/docs/event-center):
+
+- `ssh-keys-provisioning-success`: When the SSH key(s) are successfully provisioned.
+- `ssh-keys-provisioning-failure`: Upon SSH key(s) provisioning failure.
+
+Click **View Details** on an event to see the name of the associated Target.
 
 ## Tutorial
 
