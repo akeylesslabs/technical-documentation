@@ -695,11 +695,19 @@ jobs:
           # "success" and nothing done. Disallowing Task forces all research
           # to happen inline (Grep/Glob/Read) within the one turn sequence
           # Claude is already running, so it actually finishes the work.
+          # --max-turns was 40, but a real single-feature run took 44 turns
+          # (search the docs tree, read candidates, write/edit, the
+          # diff/checksum step, the ARA push, and the closing report --
+          # more than one of these if the feature touches more than one
+          # file) and reported success despite exceeding it, so the cap was
+          # not even being hit cleanly. Raised to 75 for headroom on a
+          # slower run (a retried push, a feature spanning two files)
+          # without being open-ended.
           claude_args: >-
             --mcp-config '{"mcpServers":{"ara":{"type":"http","url":"${{ steps.ara-token.outputs.gateway_url }}/ara-mcp","headers":{"Authorization":"Bearer ${{ steps.ara-token.outputs.token }}"}}}}'
             --allowedTools "Bash,Edit,Write,Read,Glob,Grep,mcp__ara__service-execute"
             --disallowedTools "Task"
-            --max-turns 40
+            --max-turns 75
             --model claude-sonnet-5
 
       - name: Verify a pull request was actually opened
