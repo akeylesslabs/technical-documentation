@@ -29,11 +29,12 @@ Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tre
 
 Use this page for shared Helm setup and installation, then apply provider-specific delta steps:
 
-| Platform                       | Use this when                                                                  | Provider guide                                                                                               |
-| ------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| Amazon EKS                     | The cluster runs in Amazon EKS and uses AWS IAM or IRSA for workload identity. | [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-deploy-amazon-eks)                             |
-| Azure Kubernetes Service (AKS) | The cluster runs in AKS and uses Microsoft Entra workload identity.            | [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-kubernetes-service) |
-| Google Kubernetes Engine (GKE) | The cluster runs in GKE and uses Google Workload Identity.                     | [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-deploy-google-kubernetes-engine) |
+| Platform                       | Use this when                                                                        | Provider guide                                                                                               |
+| ------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Alibaba Cloud ACK              | The cluster runs in ACK and uses an AliCloud RAM role or RRSA for workload identity. | [Alibaba Cloud ACK Deployment](https://docs.akeyless.io/docs/alibaba-cloud-ack-deployment)                   |
+| Amazon EKS                     | The cluster runs in Amazon EKS and uses AWS IAM or IRSA for workload identity.       | [Amazon EKS Deployment](https://docs.akeyless.io/docs/gateway-deploy-amazon-eks)                             |
+| Azure Kubernetes Service (AKS) | The cluster runs in AKS and uses Microsoft Entra workload identity.                  | [Azure Kubernetes Service Deployment](https://docs.akeyless.io/docs/gateway-deploy-azure-kubernetes-service) |
+| Google Kubernetes Engine (GKE) | The cluster runs in GKE and uses Google Workload Identity.                           | [Google Kubernetes Engine Deployment](https://docs.akeyless.io/docs/gateway-deploy-google-kubernetes-engine) |
 
 ## Prerequisites
 
