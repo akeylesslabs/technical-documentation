@@ -510,16 +510,45 @@ env:
 
 ### Custom CA
 
-The Gateway application supports uploading Self-Signed and Private Certificates to establish trust between Akeyless and the relevant endpoint. However, for some cases, a custom Certificate Authority for closed environments might be required to ensure the related service is trusted **before** the Gateway application starts, for example, a proxy server in front of the public Internet.
+The Gateway application supports uploading Self-Signed and Private Certificates to establish trust between Akeyless and the relevant endpoint. However, for some cases, a custom Certificate Authority for closed environments might be required to ensure the related service is trusted **before** the Gateway application starts, for example, a TLS-intercepting proxy in front of the public Internet.
 
-To support those cases, you'll have to provide and maintain your own CA bundle file using a persistence volume, for example:
+To support those cases, provide your CA bundle in a `ConfigMap` or a `Secret` with a key named `ca-certificates.crt`, for example:
 
 ```yaml customCA
   customCA:
-    enabled: false
+    enabled: true
+    mode: "extend"
     volumeName: "ca-certificates"
-    volumeType: "configMap" 
-    volumeSourceName: <VolumeSourceName> 
+    volumeType: "configMap"
+    volumeSourceName: <VolumeSourceName>
 ```
 
-where the supported `volumeType` are either `configMap` or `secret` the `volumeSourceName` **must** include a key named `ca-certificates.crt`
+| Value              | Default           | Description                                                                                         |
+| ------------------ | ----------------- | --------------------------------------------------------------------------------------------------- |
+| `enabled`          | `false`           | Turns the custom CA on.                                                                             |
+| `mode`             | `extend`          | `extend` adds your CAs to the trust store of the image. `replace` uses your bundle instead of it. |
+| `volumeName`       | `ca-certificates` | Name of the pod volume that holds the bundle.                                                       |
+| `volumeType`       | `configMap`       | `configMap` or `secret`.                                                                            |
+| `volumeSourceName` | none              | Name of the `ConfigMap` or `Secret`. It **must** include a key named `ca-certificates.crt`.         |
+
+The SRA web and SSH components have the same settings under `sra.customCA`. Set both when both components are behind the proxy.
+
+**Modes:**
+
+* `extend` (default from chart version `3.13.0`): put only your own CAs in the bundle, for example the proxy CA and your internal root and intermediate CAs. An init container copies the trust store of the image and adds your CAs to it, so the public roots stay trusted. Certificates you add later to the Gateway CA Certificate Store are also added to the system trust store.
+* `replace` (the only behavior before chart version `3.13.0`): the bundle replaces `/etc/ssl/certs/ca-certificates.crt` in the container. It **must** hold the public roots **and** your CAs. A bundle that holds only your CAs breaks direct TLS connections to public endpoints. To build a complete bundle, start from the bundle in the image you run:
+
+```shell
+docker run --rm --entrypoint cat akeyless/gateway:<tag> /etc/ssl/certs/ca-certificates.crt > ca-certificates.crt
+cat private-root.crt private-intermediate.crt >> ca-certificates.crt
+```
+
+**Verify the trust store** from a running Gateway pod. Pass `-CAfile`, because the `openssl` binary in the Gateway image does not read `/etc/ssl` by default:
+
+```shell
+echo | openssl s_client -CAfile /etc/ssl/certs/ca-certificates.crt -connect <host>:<port> -servername <host> 2>&1 | grep "Verify return code"
+```
+
+The result must be `Verify return code: 0 (ok)` for a public endpoint and for an internal endpoint signed by your CA.
+
+The bundle is read when the pod starts. After you change the `ConfigMap` or `Secret`, restart the Gateway pods, for example with `kubectl rollout restart deployment/<name>`.
