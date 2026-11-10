@@ -1,6 +1,5 @@
 ---
 title: Zero Trust Web Access on K8s
-slug: sra-web-access-on-k8s
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,16 +9,17 @@ metadata:
   robots: index
 next:
   description: ''
+slug: sra-web-access-on-k8s
 ---
-Akeyless Zero Trust Web Access Bastion provides Secure Remote Access to internal web applications with session recording.
+Akeyless Zero Trust Web Access (ZTWA) gives users secure access to internal web applications through an isolated Chromium browser, with optional session recording. Users never see the target's credentials.
 
-This deployment can route sessions through an isolated remote browser or directly to the target server, based on secret configuration and policy.
+This chart deploys ZTWA on Kubernetes with Helm. For how the components fit together, see [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-topology).
 
-The non-privileged deployment model is supported, so you do not need to add a port `80` binding for the chart to run.
+<Callout icon="far fa-circle-info" theme="info">
+  ### Using an earlier version
 
-ZTWA session recording captures browser-based web access sessions and supports configurable quality, compression, and encryption for stored recordings.
-
-This chart bootstraps the `Akeyless-Web-Access-Bastion` deployment on Kubernetes with Helm.
+  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0). For earlier versions, see [Zero Trust Web Access on K8s (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-on-k8s-legacy-1).
+</Callout>
 
 ## Before you begin
 
@@ -27,13 +27,23 @@ This chart bootstraps the `Akeyless-Web-Access-Bastion` deployment on Kubernetes
 
 * Helm installed.
 * Kubernetes installed.
-* Available cluster resources:
-    * `webWorker`: minimum `1 vCPU` and `2 GiB` RAM.
-    * `dispatcher`: minimum `1 vCPU` and `1 GiB` RAM.
+* Cluster resources (chart defaults):
+
+| Component         | Kind                              | CPU request | Memory request / limit |
+| ----------------- | --------------------------------- | ----------- | ---------------------- |
+| Dispatcher        | Deployment                        | 1 vCPU      | 1 GiB / 2 GiB          |
+| Web worker (each) | Deployment, 5 replicas by default | 1 vCPU      | 1 GiB / 2 GiB          |
+| Web proxy         | Deployment                        | 0.5 vCPU    | 512 MiB / 1 GiB        |
+| Media server      | DaemonSet, one per node           | 0.1 vCPU    | 128 MiB / 1 GiB        |
 
 > ⚠️ **Warning:**
 >
 > To enable Secure Remote Access features, request access to the Akeyless private repository from your account manager.
+
+### Network
+
+* **UDP `8189` on every node** must be reachable from users' browsers. The live view of each session uses it.
+* If users can't reach the nodes' IPs, set a reachable address, for example a public IP, in `mediamtx.additionalHosts`.
 
 ### Network timeout settings
 
@@ -41,150 +51,40 @@ When an embedded browser session runs behind a load balancer (for example, ELB),
 
 For AWS ELB guidance, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
-### Shared storage requirements
+### Shared storage
 
-To support file downloads to local machines, configure a `StorageClass` with `ReadWriteMany` access mode.
+File downloads and session recording need a shared volume, mounted at `/etc/shared` on the dispatcher, the web workers and the media server. The chart fails to install if recording is enabled without it.
 
-Set a persistent volume reference under `persistence` in `values.yaml`.
+* **Single-node clusters** (k3s, Minikube, kind) can use a node-scoped provisioner such as `local-path`.
+* **Clusters with more than one node** need a `ReadWriteMany` storage class, for example AWS EFS, Azure Files, GCP Filestore or NFS.
 
-```yaml
+```yaml values.yaml
 persistence:
   shareStorageVolume:
     name: share-storage
     storageClassName: "efs-sc"
     accessModes:
       - ReadWriteMany
-    persistentVolumeReclaimPolicy: Retain
-    annotations: {}
-    mountOptions:
-      - dir_mode=0650
-      - file_mode=0650
     size: 2Gi
 ```
 
-For Amazon EKS and EFS examples, see [Use Amazon EFS with Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html).
+Limit the mount permissions to `0650`, and make the root directory owned by group `10000`. On Amazon EFS, use an access point with that ownership. See [Use Amazon EFS with Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html).
 
-For security, keep persistent volume mount permissions at `0650`.
+## Configure values.yaml
 
-For current Zero Trust Web Access (ZTWA) versions, configure the shared volume so the root directory is owned by group `10000`.
-
-When using Amazon EFS, mount through an EFS access point configured with the required ownership and permissions.
-
-### Horizontal autoscaling prerequisites
-
-Horizontal autoscaling uses the Kubernetes HorizontalPodAutoscaler.
-
-Install Kubernetes Metrics Server in the cluster before enabling autoscaling. See [Metrics Server](https://github.com/kubernetes-sigs/metrics-server).
-
-## Install the Helm chart
-
-1. Add and update the Akeyless Helm repository.
+Add the Akeyless Helm repository and get the default values file:
 
 ```shell
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
-```
-
-1. Prepare a local `values.yaml` file.
-
-Copy from GitHub: [akeyless-zero-trust-web-access chart values](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access).
-
-Or generate locally:
-
-```shell
 helm show values akeyless/akeyless-zero-trust-web-access > values.yaml
 ```
 
-1. Install the chart.
-
-```shell
-helm install <RELEASE_NAME> akeyless/akeyless-zero-trust-web-access -f values.yaml
-```
-
-1. Verify deployments.
-
-```shell
-kubectl describe deploy web-worker-deployment -n <NAMESPACE>
-kubectl describe deploy web-dispatcher-deployment -n <NAMESPACE>
-```
-
-### Baseline resources and non-root runtime
-
-The chart exposes resource requests and limits for workload and init containers.
-
-The chart templates also configure non-root execution for Web Dispatcher and Web Worker containers.
-
-ZTWA session recordings support configurable quality, compression, and encryption for stored sessions.
-
-Do not override default user or group security context values unless directed by Akeyless Support.
-
-Use this baseline for environments with strict Kubernetes admission policies:
-
-```yaml
-dispatcher:
-  resources:
-    requests:
-      cpu: 1000m
-      memory: 1Gi
-    limits:
-      memory: 2Gi
-  initContainer:
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        memory: 512Mi
-
-webWorker:
-  resources:
-    requests:
-      cpu: 1000m
-      memory: 1Gi
-    limits:
-      memory: 2Gi
-  initContainer:
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        memory: 512Mi
-```
-
-After installation, verify runtime security context in deployment specs:
-
-```shell
-kubectl get deploy web-dispatcher-deployment -n <NAMESPACE> -o yaml
-kubectl get deploy web-worker-deployment -n <NAMESPACE> -o yaml
-```
-
-### Get the dispatcher service URL
-
-After installation, retrieve the external URL of the dispatcher service. This URL is required for the **Web Application Dispatcher** field in the [SRA Portal](https://docs.akeyless.io/docs/sra-portal).
-
-```shell
-kubectl get svc -n <NAMESPACE>
-```
-
-Use the `EXTERNAL-IP` or hostname for the dispatcher service in SRA Portal configuration:
-
-* **Web Application Dispatcher** (main sessions): `http://<EXTERNAL_IP>:9000`
-* **Web Proxy URL** (secure proxy or HTTP proxy mode): `http://<EXTERNAL_IP>:19414`
-
-> ℹ️ **Note:**
->
-> If `EXTERNAL-IP` shows `<pending>`, the cloud load balancer is still provisioning. Wait and run the command again.
-
-If you use Ingress instead of `LoadBalancer`, use the hostname from `dispatcher.ingress.hostname` in `values.yaml`.
-
-## Configure values.yaml
+Then set the values below. At minimum, set [ZTWA authentication](https://docs.akeyless.io/docs/sra-web-access-on-k8s#ztwa-authentication), since ZTWA accepts no users without it.
 
 ### Private registry credentials
 
-To pull images from the Akeyless private registry, use `imagePullSecrets`.
-
-Before installing the chart, create a Kubernetes Secret of type `kubernetes.io/dockerconfigjson`:
+Create a pull secret for the Akeyless private registry:
 
 ```shell
 kubectl create secret docker-registry <SECRET_NAME> \
@@ -194,224 +94,211 @@ kubectl create secret docker-registry <SECRET_NAME> \
   --namespace <NAMESPACE>
 ```
 
-Reference that secret in `values.yaml` for components that pull from the private registry:
+Reference it once in `values.yaml`. It applies to every pod:
 
-```yaml
-dispatcher:
-  image:
-    imagePullSecrets:
-      - name: <SECRET_NAME>
-  initContainer:
-    imagePullSecrets:
-      - name: <SECRET_NAME>
-
-webWorker:
-  image:
-    imagePullSecrets:
-      - name: <SECRET_NAME>
-  initContainer:
-    imagePullSecrets:
-      - name: <SECRET_NAME>
+```yaml values.yaml
+image:
+  imagePullSecrets:
+    - name: <SECRET_NAME>
 ```
 
-> ℹ️ **Note:**
+### Akeyless API URL
+
+Keep the default for the Akeyless SaaS, or set the API URL of your Akeyless Gateway:
+
+```yaml values.yaml
+config:
+  gatewayURL: https://api.akeyless.io
+```
+
+If your Gateway's certificate isn't signed by a public CA, create a Secret with the CA certificate under the key `tls.crt` and set:
+
+```yaml values.yaml
+config:
+  gatewayCert:
+    tlsExistingSecret: <SECRET_NAME>
+```
+
+### ZTWA authentication
+
+ZTWA reads the secrets of the web targets with its own auth method, the **ZTWA Access ID**. It needs **Read** and **List** permissions on those secrets. Users only need **List**.
+
+`authorizedAccessIDs` lists the auth methods allowed to open sessions, for example your SAML auth method.
+
+> ⚠️ **Warning:**
 >
-> `dockerRepositoryCreds` is available as an inline alternative. Prefer `imagePullSecrets` wherever possible.
+> `authorizedAccessIDs` is required. If it's empty, the dispatcher and the web proxy accept no users.
 
-### Akeyless API endpoints
+Supported auth method types: [API Key](https://docs.akeyless.io/docs/auth-with-api-key), [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [Azure AD](https://docs.akeyless.io/docs/auth-with-azure) and [GCP](https://docs.akeyless.io/docs/auth-with-gcp).
 
-Set `apiGatewayURL` to the Akeyless Gateway REST API endpoint.
+#### API key
 
-For current ZTWA versions, include the `/api/v2` path.
+Create a Secret with the access key under the key `ztwa-access-key`:
 
-```yaml
-apiGatewayURL: https://rest.akeyless.io/api/v2
-
-# Optional: set the Akeyless SaaS URL for a specific environment.
-env:
-  - name: AKEYLESS_URL
-    value: "https://vault.akeyless.io"
+```shell
+kubectl create secret generic ztwa-access \
+  --from-literal=ztwa-access-key=<ACCESS_KEY> \
+  --namespace <NAMESPACE>
 ```
 
-### Web access session recording configuration
+```yaml values.yaml
+config:
+  ztwaAuth:
+    ztwaAccessID: "<API_KEY_ACCESS_ID>"
+    ztwaAccessType: access_key
+    ztwaExistingSecret: ztwa-access
+    authorizedAccessIDs:
+      - "<ALLOWED_ACCESS_ID>"
+```
 
-Use the `sessionRecording` block to configure browser-based session recording for ZTWA.
+#### Cloud identity (AWS IAM, Azure AD, GCP)
 
-```yaml
-sessionRecording:
+Set the cloud auth method's Access ID. No access key is needed:
+
+```yaml values.yaml
+config:
+  ztwaAuth:
+    ztwaAccessID: "<CLOUD_ACCESS_ID>"
+    ztwaAccessType: ""   # empty = detect the cloud automatically
+    authorizedAccessIDs:
+      - "<ALLOWED_ACCESS_ID>"
+```
+
+ZTWA detects the cloud through the instance metadata service at `169.254.169.254`. If the pods can't reach it, for example on EKS with an IMDSv2 hop limit of 1, set `ztwaAccessType` to `aws_iam`, `azure_ad` or `gcp`.
+
+### Proxy mode
+
+The web proxy uses HTTP by default. For SOCKS5, set:
+
+```yaml values.yaml
+webProxy:
+  env:
+    - name: WEB_PROXY_TYPE
+      value: SOCKS
+```
+
+### Session recording
+
+The media server records each session to the shared volume, and the dispatcher uploads it to S3 or S3-compatible storage. Recording needs [shared storage](https://docs.akeyless.io/docs/sra-web-access-on-k8s#shared-storage).
+
+```yaml values.yaml
+recording:
   enabled: true
-  quality: "360p" # 144p | 240p | 360p | 480p | 720p | 1080p
-  upload:
+  s3:
     enabled: true
-    s3Bucket: "<S3_BUCKET_NAME>"
-    s3Region: "<AWS_REGION>"
-    s3Prefix: "<OPTIONAL_PREFIX>"
-    s3Endpoint: "<OPTIONAL_S3_COMPATIBLE_ENDPOINT>"
+    bucket: "<S3_BUCKET_NAME>"
+    region: "<AWS_REGION>"
+    prefix: "<OPTIONAL_PREFIX>"
+    endpoint: "<OPTIONAL_S3_COMPATIBLE_ENDPOINT>"
+    existingSecretName: "<S3_CREDENTIALS_SECRET_NAME>"
+    accessKeyIdKey: "access-key-id"
+    secretAccessKeyKey: "secret-access-key"
     compress: false
     sse:
       type: "" # "" | sse-s3 | sse-kms
       kmsKeyId: "<OPTIONAL_KMS_KEY_ID_OR_ARN>"
-    existingSecretNames:
-      s3: "<S3_CREDENTIALS_SECRET_NAME>"
-      s3AccessKeyIdKey: "access-key-id"
-      s3SecretAccessKeyKey: "secret-access-key"
 ```
 
-When enabled, the worker captures the browser session and the dispatcher prepares the upload artifact and uploads it to S3 or S3-compatible storage.
-
-For supported ZTWA versions, recordings, Session Overview entries, and Audit Log events share the same Secure Remote Access session identifier.
+* `enabled`: Record sessions. Upload also needs `s3.enabled`.
+* `s3.bucket`, `s3.region`, `s3.prefix`: Destination bucket and object path. `bucket` and `region` are required for upload.
+* `s3.endpoint`: Endpoint of an S3-compatible service, for example MinIO. Leave empty for AWS S3.
+* `s3.existingSecretName`: Secret with the S3 credentials, under the keys set in `accessKeyIdKey` and `secretAccessKeyKey`. When empty, the dispatcher uses the AWS default credential chain, for example IRSA or an instance profile.
+* `s3.compress`: Gzip the recordings before upload.
+* `s3.sse.type`, `s3.sse.kmsKeyId`: Server-side encryption (`sse-s3` or `sse-kms`). An empty `kmsKeyId` uses the default KMS key.
 
 #### Session visibility prerequisites
 
-If browser sessions work but Session Overview and Audit Log entries do not appear, the deployment must meet the following requirements for audit logs and session recording correlation:
+Recordings, Session Overview entries and Audit Log events share the same session ID. If sessions work but don't appear in Session Overview or the Audit Log, check that:
 
-* Use a ZTWA version that includes session reporting (`v2.0.0-rc6` or later).
-* Ensure `clusterName` exactly matches the connected Akeyless Gateway cluster name.
-* Authenticate ZTWA by using the same Access ID that the Gateway is registered with.
-* If the Gateway certificate is private or self-signed, provide trust material to ZTWA.
-* Ensure the Gateway is running and registered in the same Akeyless account.
+* `config.clusterName` exactly matches the cluster name of the connected Akeyless Gateway.
+* ZTWA authenticates with the same Access ID that the Gateway is registered with.
+* If the Gateway certificate is private or self-signed, it's set in `config.gatewayCert.tlsExistingSecret`.
+* The Gateway is running and registered in the same Akeyless account.
 
-The same cluster name and Gateway Access ID are required to correlate audit logs and session recordings.
+### Autoscaling
 
-#### Recording quality
+The chart can scale the web workers by the share of busy workers. Autoscaling needs `metrics.enabled`, and `webProxy.replicaCount` must be set:
 
-Set `sessionRecording.quality` to one of:
-
-* `144p`
-* `240p`
-* `360p`
-* `480p`
-* `720p`
-* `1080p`
-
-#### Upload and encryption options
-
-Use `sessionRecording.upload` to control destination and storage behavior:
-
-* `enabled`: Turn upload on or off.
-* `s3Bucket`, `s3Region`, `s3Prefix`: Destination bucket and object path.
-* `s3Endpoint`: Optional custom endpoint for S3-compatible platforms.
-* `compress`: Gzip-compress before upload.
-* `sse.type`: Server-side encryption mode (`sse-s3` or `sse-kms`).
-* `sse.kmsKeyId`: KMS key ID or ARN when `sse-kms` is used.
-
-#### Credentials source
-
-Provide S3 credentials by using `sessionRecording.upload.existingSecretNames.s3`.
-
-If the secret is not set, the deployment falls back to the AWS default credential chain.
-
-#### Worker lifecycle watchdog controls
-
-Use `sessionRecording.watchdog` to tune long-running recording behavior:
-
-* `clientConnectTimeoutSeconds`: Timeout for initial browser websocket connection.
-* `intervalSeconds`: How often watchdog checks run.
-* `maxDurationSeconds`: Maximum wall-clock duration for one recording.
-
-#### Service-specific recording overrides
-
-For advanced setups, service-level `recording` blocks can override part of the top-level `sessionRecording` config:
-
-* `dispatcher.config.recording`: upload-related override fields for the dispatcher.
-* `webWorker.config.recording`: capture-related override fields (`enabled`, `quality`) for workers.
-
-Use these only when you need per-service behavior that differs from the shared `sessionRecording` defaults.
-
-### HTTP proxy mode
-
-To enable HTTP proxy mode for remote access, set `WEB_PROXY_TYPE` in dispatcher `env`.
-
-```yaml
-env:
-  - name: WEB_PROXY_TYPE
-    value: http
+```yaml values.yaml
+metrics:
+  enabled: true
+HPA:
+  enabled: true
+  webWorker:
+    busyWorkersPercentage: 50
+    minReplicas: 3
+    maxReplicas: 14
+webProxy:
+  replicaCount: 1
 ```
+
+A worker pod gets `webWorker.terminationGracePeriodSeconds` (default `3600`) to finish its live session before a scale-down or an upgrade stops it.
+
+## Install the Helm chart
+
+1. Install the chart with your `values.yaml`:
+
+   ```shell
+   helm install <RELEASE_NAME> akeyless/akeyless-zero-trust-web-access -f values.yaml --namespace <NAMESPACE>
+   ```
+
+2. Check that the components are running:
+
+   ```shell
+   kubectl get deploy web-dispatcher-deployment web-worker-deployment web-proxy-deployment --namespace <NAMESPACE>
+   kubectl get daemonset <RELEASE_NAME>-mediamtx --namespace <NAMESPACE>
+   ```
 
 > ⚠️ **Warning:**
 >
-> HTTP proxy mode currently works with Chrome. For Firefox, skip this setting so the default SOCKS proxy mode is used.
+> The dispatcher, the web workers and the web proxy run as non-root users. The media server (`mediamtx` DaemonSet) doesn't set a non-root user, so if your cluster enforces a policy such as the Kubernetes `restricted` Pod Security Standard, allow an exception for it.
 
-### Privileged access and allowed requesters
+### Set the external URLs
 
-Configure a privileged `accessID` with `read` and `list` permissions so the bastion can fetch target secrets for authenticated users.
+1. Get the external addresses of the dispatcher (the Service ending in `-dispatcher`, port `9000`) and the web proxy (the Service ending in `-proxy`, port `19414`):
 
-Use `allowedAccessIDs` to limit which Access IDs can request sessions.
+   ```shell
+   kubectl get svc --namespace <NAMESPACE>
+   ```
 
-```yaml
-privilegedAccess:
-  accessID: "<ACCESS_ID>"
-  allowedAccessIDs:
-    - <ALLOWED_ACCESS_ID>
-```
+   If `EXTERNAL-IP` shows `<pending>`, the load balancer is still being created. Wait and run the command again.
 
-## Configure authentication
+2. Add them to `values.yaml`, then run `helm upgrade` with the same values file. The SRA Portal redirects users only to these URLs:
 
-Supported authentication methods:
+   ```yaml values.yaml
+   config:
+     allowedBastionUrls:
+       - "https://<DISPATCHER_ADDRESS>:9000"
+     allowedProxyUrls:
+       - "https://<WEB_PROXY_ADDRESS>:19414"
+   ```
 
-* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
-* [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
+   ```shell
+   helm upgrade <RELEASE_NAME> akeyless/akeyless-zero-trust-web-access -f values.yaml --namespace <NAMESPACE>
+   ```
 
-### API key authentication
+3. In the [SRA Portal](https://docs.akeyless.io/docs/sra-portal), use the same URLs:
+   * **Web Application Dispatcher**: the dispatcher URL
+   * **Web Proxy URL**: the web proxy URL, for proxy-mode sessions
 
-For [API Key](https://docs.akeyless.io/docs/auth-with-api-key) authentication, configure `accessID`, `accessKey`, and the allowed requester list:
+If you use an ingress for the dispatcher (`dispatcher.ingress.enabled: true`), use `dispatcher.ingress.hostname` instead. With an ingress, the chart sets the dispatcher Service to `NodePort`.
 
-```yaml
-privilegedAccess:
-  accessID: "<API_KEY_ACCESS_ID>"
-  accessKey: "<API_KEY>"
-  allowedAccessIDs:
-    - <ALLOWED_ACCESS_ID>
-```
+## Upgrade from an earlier chart
 
-### AWS IAM authentication
+The values structure changed. The chart stops with an error that names each old key it finds, so update your `values.yaml` first:
 
-For clusters running in AWS, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) machine-to-machine authentication.
-
-For instance profile or node IAM role flows, set the AWS IAM Access ID:
-
-```yaml
-privilegedAccess:
-  accessID: "<AWS_IAM_ACCESS_ID>"
-  allowedAccessIDs:
-    - <ALLOWED_ACCESS_ID>
-```
-
-The dispatcher determines its cloud provider by probing the instance metadata service at `169.254.169.254`. When the instance metadata service is unreachable, provider detection can fail with `unknown-cloud-provider`. Set `dispatcher.config.cloudIdentity.type` to `aws_iam` to skip the instance metadata service probe and authenticate with the configured AWS IAM cloud identity directly.
-
-```yaml
-dispatcher:
-  config:
-    privilegedAccess:
-      accessID: "<AWS_IAM_ACCESS_ID>"
-      accessKey: ""
-      allowedAccessIDs:
-        - <ALLOWED_ACCESS_ID>
-    cloudIdentity:
-      type: "aws_iam"
-```
-
-Alternatively, set the `ADMIN_ACCESS_ID_TYPE` environment variable to `aws_iam` on the dispatcher. This renders the same override as the Helm value and matches the Akeyless Gateway fallback behavior:
-
-```yaml
-dispatcher:
-  env:
-    - name: ADMIN_ACCESS_ID_TYPE
-      value: "aws_iam"
-```
-
-Use either override when auto-detection fails. Leave `accessKey` empty for AWS IAM machine-to-machine authentication.
-
-### Azure Active Directory authentication
-
-For AKS, Azure AD authentication uses OpenID Connect and JWT validation against the configured tenant.
-
-Set the [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) Access ID:
-
-```yaml
-privilegedAccess:
-  accessID: "<AZURE_AD_ACCESS_ID>"
-  allowedAccessIDs:
-    - <ALLOWED_ACCESS_ID>
-```
+| Earlier chart | Current chart |
+| --- | --- |
+| `dispatcher.config.apiGatewayURL` | `config.gatewayURL` |
+| `dispatcher.config.apiGatewayCert.tlsCertsSecretName` | `config.gatewayCert.tlsExistingSecret` |
+| `dispatcher.config.clusterName` | `config.clusterName` |
+| `dispatcher.config.privilegedAccess.accessID` | `config.ztwaAuth.ztwaAccessID` |
+| `dispatcher.config.privilegedAccess.accessKey` | Removed. Use a Secret in `config.ztwaAuth.ztwaExistingSecret` |
+| `dispatcher.config.privilegedAccess.allowedAccessIDs` | `config.ztwaAuth.authorizedAccessIDs` (now required) |
+| `dispatcher.config.cloudIdentity.type` | `config.ztwaAuth.ztwaAccessType` |
+| `dispatcher.config.allowedBastionUrls`, `allowedProxyUrls` | `config.allowedBastionUrls`, `config.allowedProxyUrls` |
+| `dispatcher.config.disableSecureCookie`, `allowedInternalAuth` | `config.disableSecureCookie`, `config.allowedInternalAuth` |
+| `dispatcher.service.proxyPort` | `webProxy.service.port` (separate Service) |
+| `sessionRecording.*` | `recording.*` |
+| `webWorker.config.policies` (Firefox) | `webWorker.config.policies` (Chromium, Chrome Enterprise JSON) |
+| `listOnlyCredentials`, `logForward`, `dlp`, recording `quality` and `watchdog` | Removed |

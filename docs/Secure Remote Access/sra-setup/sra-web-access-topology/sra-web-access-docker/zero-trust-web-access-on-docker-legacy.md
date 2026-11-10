@@ -1,18 +1,13 @@
 ---
-title: Zero Trust Web Access on Docker
-excerpt: ''
+title: Zero Trust Web Access on Docker - Legacy
 deprecated: false
-hidden: false
+hidden: true
 metadata:
-  title: ''
-  description: ''
   robots: index
-next:
-  description: ''
 ---
 Akeyless Web Access Bastion provides Secure Remote Access to any web application with session recording, including proxy service acting as an entry point to your internal web applications, where only after successful authentication users will get access, either by way of an isolated remote browser or directly to your target server based on your secret configuration.
 
-Working with isolated browsers provides a complete zero-knowledge where users do not have any knowledge about the access credentials.  
+Working with isolated browsers provides a complete zero-knowledge where users do not have any knowledge about the access credentials.
 
 This guide provides guidance for the deployment of the Akeyless-Web-Access-Bastion on **Docker** using **Docker Compose**
 
@@ -24,21 +19,23 @@ This guide provides guidance for the deployment of the Akeyless-Web-Access-Basti
 
 * Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and 1 vCPU available with 1 GB RAM for the `WebDispatcher`.
 
-_**Network**_
+**_Network_**
 
 When using an embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout. It is advised to increase it to a reasonably high value or leave it unlimited.
 
 [For example, when running on AWS with ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
-_**Storage**_
+**_Storage_**
 
 To be able to download files to your local machine, the Docker Engine requires mounted volumes. [For example, when running on AWS with EKS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html).
 
 For security reasons, please limit the volume mount permissions to `0650`.
 
-> ℹ️ **Note:**
->
-> To enable Secure Remote Access features, you will have to get an access key to Akeyless's private repository. Please contact your Account Manager for more details.
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  To enable Secure Remote Access features, you will have to get an access key to Akeyless's private repository. Please contact your Account Manager for more details.
+</Callout>
 
 ## Configuration
 
@@ -48,21 +45,21 @@ To work with a specific Gateway, set the environment variable that points to you
 
 ```yaml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
-      - AKEYLESS_URL=https://vault.akeyless.io
+dispatcher:
+image: "akeyless/zero-trust-web-dispatcher"
+ports:
+- "9000:9000"
+- "19414:19414"
+volumes:
+- $PWD/shared:/etc/shared
+environment:
+- CLUSTER_NAME=compose-ztwa
+- SERVICE_DNS=worker
+- AKEYLESS_GW_URL=https://rest.akeyless.io
+- ALLOW_INTERNAL_AUTH=false
+- DISABLE_SECURE_COOKIE=true
+- WEB_PROXY_TYPE=http
+- AKEYLESS_URL=https://vault.akeyless.io
 ```
 
 The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions. To fetch the relevant secret on behalf of your users, set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
@@ -73,22 +70,22 @@ To control which users are allowed to request access from the Akeyless Bastion, 
 
 ```yaml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<accessID>
-      - ALLOWED_ACCESS_IDS=[AccessID1,AccessID2]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
+dispatcher:
+image: "akeyless/zero-trust-web-dispatcher"
+ports:
+- "9000:9000"
+- "19414:19414"
+volumes:
+- $PWD/shared:/etc/shared
+environment:
+- CLUSTER_NAME=compose-ztwa
+- SERVICE_DNS=worker
+- AKEYLESS_GW_URL=https://rest.akeyless.io
+- PRIVILEGED_ACCESS_ID=<accessID>
+- ALLOWED_ACCESS_IDS=[AccessID1,AccessID2]
+- ALLOW_INTERNAL_AUTH=false
+- DISABLE_SECURE_COOKIE=true
+- WEB_PROXY_TYPE=http
 ```
 
 ### Authentication
@@ -109,23 +106,23 @@ To set your Bastion default authentication based on [API Key](https://docs.akeyl
 
 ```yaml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<AccessID>
-      - PRIVILEGED_ACCESS_KEY=<AccessKey>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
+dispatcher:
+image: "akeyless/zero-trust-web-dispatcher"
+ports:
+- "9000:9000"
+- "19414:19414"
+volumes:
+- $PWD/shared:/etc/shared
+environment:
+- CLUSTER_NAME=compose-ztwa
+- SERVICE_DNS=worker
+- AKEYLESS_GW_URL=https://rest.akeyless.io
+- PRIVILEGED_ACCESS_ID=<AccessID>
+- PRIVILEGED_ACCESS_KEY=<AccessKey>
+- ALLOWED_ACCESS_IDS=[AccessIds]
+- ALLOW_INTERNAL_AUTH=false
+- DISABLE_SECURE_COOKIE=true
+- WEB_PROXY_TYPE=http
 ```
 
 ### CSP IAM Authentication
@@ -142,22 +139,22 @@ While working with an IAM Role associated with the instance itself, you can prov
 
 ```yaml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<AWS_IAM_AccessID>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
+dispatcher:
+image: "akeyless/zero-trust-web-dispatcher"
+ports:
+- "9000:9000"
+- "19414:19414"
+volumes:
+- $PWD/shared:/etc/shared
+environment:
+- CLUSTER_NAME=compose-ztwa
+- SERVICE_DNS=worker
+- AKEYLESS_GW_URL=https://rest.akeyless.io
+- PRIVILEGED_ACCESS_ID=<AWS_IAM_AccessID>
+- ALLOWED_ACCESS_IDS=[AccessIds]
+- ALLOW_INTERNAL_AUTH=false
+- DISABLE_SECURE_COOKIE=true
+- WEB_PROXY_TYPE=http
 ```
 
 ### Azure Active Directory
@@ -168,22 +165,22 @@ Set your [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
 
 ```yaml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<Azure_AD_AccessID>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
+dispatcher:
+image: "akeyless/zero-trust-web-dispatcher"
+ports:
+- "9000:9000"
+- "19414:19414"
+volumes:
+- $PWD/shared:/etc/shared
+environment:
+- CLUSTER_NAME=compose-ztwa
+- SERVICE_DNS=worker
+- AKEYLESS_GW_URL=https://rest.akeyless.io
+- PRIVILEGED_ACCESS_ID=<Azure_AD_AccessID>
+- ALLOWED_ACCESS_IDS=[AccessIds]
+- ALLOW_INTERNAL_AUTH=false
+- DISABLE_SECURE_COOKIE=true
+- WEB_PROXY_TYPE=http
 ```
 
 ### GCP GCE
@@ -192,22 +189,22 @@ Deploying Akeyless Bastion over Docker using the authentication between your Bas
 
 ```yaml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<GCP_GCE_AccessID>
-      - ALLOWED_ACCESS_IDS=AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - WEB_PROXY_TYPE=http
+dispatcher:
+image: "akeyless/zero-trust-web-dispatcher"
+ports:
+- "9000:9000"
+- "19414:19414"
+volumes:
+- $PWD/shared:/etc/shared
+environment:
+- CLUSTER_NAME=compose-ztwa
+- SERVICE_DNS=worker
+- AKEYLESS_GW_URL=https://rest.akeyless.io
+- PRIVILEGED_ACCESS_ID=<GCP_GCE_AccessID>
+- ALLOWED_ACCESS_IDS=AccessIds]
+- ALLOW_INTERNAL_AUTH=false
+- DISABLE_SECURE_COOKIE=true
+- WEB_PROXY_TYPE=http
 ```
 
 ### Redirect to Bastion URLs
@@ -216,24 +213,24 @@ To ensure only validated redirects are accepted, you can harden your bastion usi
 
 ```yaml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<AccessID>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - ALLOWED_BASTION_URLS=[https://Web-Access-Bastion-URL]
-      - LOG_FORWARDING=
-      - WEB_PROXY_TYPE=http
+dispatcher:
+image: "akeyless/zero-trust-web-dispatcher"
+ports:
+- "9000:9000"
+- "19414:19414"
+volumes:
+- $PWD/shared:/etc/shared
+environment:
+- CLUSTER_NAME=compose-ztwa
+- SERVICE_DNS=worker
+- AKEYLESS_GW_URL=https://rest.akeyless.io
+- PRIVILEGED_ACCESS_ID=<AccessID>
+- ALLOWED_ACCESS_IDS=[AccessIds]
+- ALLOW_INTERNAL_AUTH=false
+- DISABLE_SECURE_COOKIE=true
+- ALLOWED_BASTION_URLS=[https://Web-Access-Bastion-URL]
+- LOG_FORWARDING=
+- WEB_PROXY_TYPE=http
 ```
 
 ## Advanced Configuration
@@ -250,9 +247,9 @@ To do that, you can set the `clusterName="meaningful-cluster-name"` field as par
 
 ```yaml docker-compose.yml
 services:
-  dispatcher:
-    environment:
-      - CLUSTER_NAME=compose-ztwa
+dispatcher:
+environment:
+- CLUSTER_NAME=compose-ztwa
 ```
 
 ### Proxy
@@ -261,17 +258,17 @@ To configure your proxy settings, you can set several parameters, including prox
 
 ```yaml docker-compose.yml
 services:
-  dispatcher:
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - http_proxy=
-      - https_proxy=
-      - no_proxy=
-  worker:
-    environment:
-      - http_proxy=
-      - https_proxy=
-      - no_proxy=
+dispatcher:
+environment:
+- CLUSTER_NAME=compose-ztwa
+- http_proxy=
+- https_proxy=
+- no_proxy=
+worker:
+environment:
+- http_proxy=
+- https_proxy=
+- no_proxy=
 ```
 
 ### Log Forwarding
@@ -280,24 +277,24 @@ To enable log forwarding to an existing log management system, please find a lis
 
 ```yaml docker-compose.yml
 services:
-  dispatcher:
-    image: "akeyless/zero-trust-web-dispatcher"
-    ports:
-      - "9000:9000"
-      - "19414:19414"
-    volumes:
-      - $PWD/shared:/etc/shared
-    environment:
-      - CLUSTER_NAME=compose-ztwa
-      - SERVICE_DNS=worker
-      - AKEYLESS_GW_URL=https://rest.akeyless.io
-      - PRIVILEGED_ACCESS_ID=<AccessID>
-      - ALLOWED_ACCESS_IDS=[AccessIds]
-      - ALLOW_INTERNAL_AUTH=false
-      - DISABLE_SECURE_COOKIE=true
-      - ALLOWED_BASTION_URLS=https://Web-Access-Bastion-URL
-      - WEB_PROXY_TYPE=http
-      - LOG_FORWARDING='enable="true"\n target_log_type="logz_io"\n target_logz_io_token=""\n target_logz_io_protocol="tcp" \n'
+dispatcher:
+image: "akeyless/zero-trust-web-dispatcher"
+ports:
+- "9000:9000"
+- "19414:19414"
+volumes:
+- $PWD/shared:/etc/shared
+environment:
+- CLUSTER_NAME=compose-ztwa
+- SERVICE_DNS=worker
+- AKEYLESS_GW_URL=https://rest.akeyless.io
+- PRIVILEGED_ACCESS_ID=<AccessID>
+- ALLOWED_ACCESS_IDS=[AccessIds]
+- ALLOW_INTERNAL_AUTH=false
+- DISABLE_SECURE_COOKIE=true
+- ALLOWED_BASTION_URLS=https://Web-Access-Bastion-URL
+- WEB_PROXY_TYPE=http
+- LOG_FORWARDING='enable="true"\n target_log_type="logz_io"\n target_logz_io_token=""\n target_logz_io_protocol="tcp" \n'
 ```
 
 ### WebWorker
@@ -309,37 +306,37 @@ Default `policies` sections aimed to provide the most secure work mode. By defau
 ```shell policies.json
 cat <<EOT > policies.json
 {
-  "policies": {
-    "BlockAboutConfig": true,
-    "BlockAboutAddons": true,
-    "BlockAboutProfiles": true,
-    "BlockAboutSupport": true,
-    "DisableDeveloperTools": true,
-    "DisableFirefoxAccounts": true,
-    "DisablePasswordReveal": true,
-    "DisablePrivateBrowsing": true,
-    "DisableProfileImport": true,
-    "DisableSafeMode": true,
-    "OfferToSaveLogins": false,
-    "OfferToSaveLoginsDefault": false,
-    "PasswordManagerEnabled": false,
-    "Proxy": {
-      "Mode": "system",
-      "Locked": true
-    },
-    "Preferences": {},
-    "Certificates": {
-#      "Install": ["/etc/ssl/certs/yourOrgRootCA.crt"]
-    },
-    "WebsiteFilter": {
-      "Block": [
-        "<all_urls>"
-      ],
-      "Exceptions": [
-        "https://*.akeyless.io/*"
-      ]
-    }
-  }
+"policies": {
+"BlockAboutConfig": true,
+"BlockAboutAddons": true,
+"BlockAboutProfiles": true,
+"BlockAboutSupport": true,
+"DisableDeveloperTools": true,
+"DisableFirefoxAccounts": true,
+"DisablePasswordReveal": true,
+"DisablePrivateBrowsing": true,
+"DisableProfileImport": true,
+"DisableSafeMode": true,
+"OfferToSaveLogins": false,
+"OfferToSaveLoginsDefault": false,
+"PasswordManagerEnabled": false,
+"Proxy": {
+"Mode": "system",
+"Locked": true
+},
+"Preferences": {},
+"Certificates": {
+# "Install": ["/etc/ssl/certs/yourOrgRootCA.crt"]
+},
+"WebsiteFilter": {
+"Block": [
+"<all_urls>"
+],
+"Exceptions": [
+"https://*.akeyless.io/*"
+]
+}
+}
 }
 EOT
 ```
@@ -348,7 +345,7 @@ EOT
 >
 > The `policies.json` **must** be provided for the isolated web browsing to work.
 
-**Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the `web-access-bastion`, or if your Akeyless\_GW\_URL is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
+**Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the `web-access-bastion`, or if your Akeyless_GW_URL is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
 
 1. Mount your organization's Root CA certificate to the containers (in the `docker-compose.yml`, under `services.worker.volumes`)
 2. In the `policies.json` above, uncomment the _Certificates.Install_ line and set it to the relevant certificates' paths inside the container
@@ -359,19 +356,19 @@ To work with Data Leak Protection tools, you can explicitly set the target setti
 
 ```yaml
 worker:
-    image: "akeyless/zero-trust-web-worker"
-    security_opt:
-      - seccomp=unconfined
-    shm_size: '2gb'
-    volumes:
-      - $PWD/policies.json:/usr/lib/firefox/distribution/policies.json:ro
-      - $PWD/shared:/etc/shared
-    environment:
-      - INTERNAL_DISPATCHER_IP=10.5.0.2
-      - DISPLAY_WIDTH=2560
-      - DISPLAY_HEIGHT=1200
-      - DLP_CONF=
-      - LOG_FORWARDING=
+image: "akeyless/zero-trust-web-worker"
+security_opt:
+- seccomp=unconfined
+shm_size: '2gb'
+volumes:
+- $PWD/policies.json:/usr/lib/firefox/distribution/policies.json:ro
+- $PWD/shared:/etc/shared
+environment:
+- INTERNAL_DISPATCHER_IP=10.5.0.2
+- DISPLAY_WIDTH=2560
+- DISPLAY_HEIGHT=1200
+- DLP_CONF=
+- LOG_FORWARDING=
 ```
 
 ## Install

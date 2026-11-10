@@ -7,7 +7,7 @@ metadata:
 ---
 Locking [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), and [Targets](https://docs.akeyless.io/docs/targets) is available to users who have List and Update permissions for the item.
 
-When an item is locked, only the user who locked it or a user with an **Admin** role can access it. Admins can also remove the lock.
+When an item is locked, it cannot be accessed or modified by anyone other than the user who locked it. However, users with the **Admin** role can remove the lock, granting them access to the item and allowing them to manage it.
 
 You can choose whether the lock applies to **reading** the item or **updating** it.
 

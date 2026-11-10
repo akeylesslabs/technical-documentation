@@ -88,6 +88,8 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 - [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
 
+- [AliCloud](https://docs.akeyless.io/docs/alicloud)
+
 - [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
 - [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
@@ -136,7 +138,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ### CSP IAM Authentication
 
-While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [admin users](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#gateway-admins) who can manage your Gateway.
+While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) or [AliCloud](https://docs.akeyless.io/docs/alicloud), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [admin users](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#gateway-admins) who can manage your Gateway.
 
 Set the `gatewayAccessId` with your IAM [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you can define a list of users who can manage your Gateway settings by way of the `allowedAccessPermissions` setting with any other `Access ID` of your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), as described [here](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#access-permissions).
 
