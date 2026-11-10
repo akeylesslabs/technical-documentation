@@ -1,5 +1,5 @@
-- gateway-deploy-amazon-eks
 - alibaba-cloud-ack-deployment
+- gateway-deploy-amazon-eks
 - gateway-deploy-azure-container-app
 - gateway-deploy-azure-kubernetes-service
 - gateway-deploy-google-kubernetes-engine
