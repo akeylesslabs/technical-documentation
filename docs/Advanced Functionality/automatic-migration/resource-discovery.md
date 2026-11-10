@@ -58,9 +58,11 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 
 - **User Base DN:** Distinguished Name of User objects to search in Active Directory<br />(For example: `OU=OU_Name`, `CN=Users`, `DC=example`, `DC=com` or `OU=User_Name,DC=example,DC=com`).
 
-- **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, for example, `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
+- **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, for example, `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder. `{{USERNAME}}` (the user's `sAMAccountName`) is always required in this template. The template can also include additional placeholders mapped to other AD attributes, such as `{{OWNER}}`, to organize Domain Users by ownership or any other attribute instead of only by OU. See [Domain User Path Template Attributes](#domain-user-path-template-attributes) below.
 
-- **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
+- **Domain User Path Attributes:** An optional, comma-separated list of `PLACEHOLDER=ldap_attribute` pairs that map every placeholder used in the **Domain User Name Template** (other than `{{USERNAME}}`) to the LDAP attribute whose value should fill it in, for example, `OWNER=managedBy`. See [Domain User Path Template Attributes](#domain-user-path-template-attributes) below.
+
+- **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
 
 - **Discover Services:** Discover any Windows service that runs with explicit user credentials, as part of the rotated secret those services will be reflected, and upon Rotation, the relevant services will be restarted with the latest password.
 
@@ -102,4 +104,61 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 
 - **Target Format:** Relevant only for **Computers Discovery Type**, the output Target format to migrate all discovered computers supporting [Linked Target](https://docs.akeyless.io/docs/linked-target) for Secure Remote Access.
 
+- **Computers Grouping:** Relevant only for **Computers Discovery Type** when **Target Format** is `linked`. Controls how discovered computers are grouped into linked targets. See [Grouping Discovered Computers](#grouping-discovered-computers) below.
+
 - **Auto Rotate:** Enable/Disable automatic/recurrent rotation for the migrated secrets. Default is Disabled. Only manual rotation is allowed for migrated secrets. If Enabled, this should be set with rotation-interval and rotation-hour settings.
+
+## Domain User Path Template Attributes
+
+By default, the **Domain User Name Template** only supports `{{USERNAME}}`, filled from `sAMAccountName`. You can extend the template with additional placeholders mapped to other AD attributes using **Domain User Path Attributes** (`--ad-domain-users-path-attributes` on the CLI), so Domain Users can be organized by ownership, a custom attribute, or any other single-value AD attribute, instead of only by OU.
+
+For example, to organize Domain Users by their configured owner:
+
+```
+ad-domain-users-path-template: /Active Directory/Domain Users/{{OWNER}}/{{USERNAME}}
+ad-domain-users-path-attributes: OWNER=managedBy
+```
+
+Here, `{{OWNER}}` is a placeholder, and `OWNER=managedBy` maps it to the `managedBy` LDAP attribute. Akeyless requests that attribute as part of the LDAP search for Domain Users and uses its value to fill `{{OWNER}}` in the rendered path.
+
+Keep the following in mind when using this setting:
+
+- `{{USERNAME}}` is always required in the **Domain User Name Template** and always resolves to `sAMAccountName`. It cannot be remapped.
+- Every other placeholder used in the **Domain User Name Template** must have a matching entry in **Domain User Path Attributes**. A placeholder with no mapping is left as literal text by the path renderer, which would put every Domain User in a single folder named after the unmapped placeholder, so this configuration is rejected at validation time.
+- The rendered path is the identity of the migrated item: on the next discovery run, Akeyless finds the existing Rotated Secret at that path and updates it, rather than creating a duplicate. Because of this, an empty attribute value is placed under a fixed `unassigned` folder instead of an empty path segment, since an empty segment would change the item's path and the next run would no longer find the existing item there.
+- `managedBy`, and any other mapped attribute that returns a Distinguished Name (DN), is reduced to its CN, with `}}`, `{{`, `:`, and spaces stripped, the same cleanup already used for certificate names. A raw DN is not a usable folder name.
+- If a mapped attribute's value changes for a user (for example, their owner changes), the rendered path changes, and the next discovery creates a new item at the new path. The importer does not move an existing Rotated Secret when its source path changes; this matches the current rediscovery behavior.
+
+<Callout icon="ℹ️" theme="info">
+  ### **Note:**
+
+  Group membership (`memberOf`) cannot be mapped through **Domain User Path Attributes**, because a user can belong to multiple groups while Resource Discovery keeps a single item per Domain User. Mapping a multi-value attribute like `memberOf` into the template would create duplicate items for the same user. To group by domain group instead, configure an ordered list of groups so that a single `{{GROUP}}` placeholder resolves to the first group in that list that the user belongs to.
+</Callout>
+
+Computer targets, Local Users, and Certificates path templates are unaffected by this setting. Their placeholders continue to be filled from the host or the certificate rather than from a Domain User LDAP attribute:
+
+| Resource | Template | Placeholders that are filled |
+| --- | --- | --- |
+| Domain Users | Domain User Name Template | `{{USERNAME}}` (`sAMAccountName`, required), plus any placeholder mapped in Domain User Path Attributes |
+| Computer targets | Target Name Template | `{{COMPUTER_NAME}}` (DNS hostname) |
+| Local Users | Local User Name Template | `{{COMPUTER_NAME}}`, `{{USERNAME}}` |
+| Certificates | Certificates Path Template | `{{COMMON_NAME}}` (required), also `{{COMPUTER_NAME}}` and `{{MIGRATION_NAME}}` |
+
+## Grouping Discovered Computers
+
+When **Discovery Type** includes **Computers** and **Target Format** is `linked`, the **Computers Grouping** setting controls how discovered computers are grouped into [Linked Targets](https://docs.akeyless.io/docs/linked-target):
+
+| Value | Result |
+| --- | --- |
+| `flat` (default) | All discovered computers go into a single pile, split into linked targets of at most 1,000 hosts each, named using the Target Name Template with a `-1`, `-2`, etc. suffix. |
+| `ou` | Computers are grouped by their parent Organizational Unit (OU), taken from each computer's Distinguished Name, with one linked-target series created per OU that actually contains computers. |
+
+With `ou` grouping, a computer in `OU=Payroll,OU=Finance` is grouped under `Finance/Payroll`. It does not roll up into the parent `Finance` OU, so nested OUs stay separate. Computers that sit directly under the configured **Computer Base DN**, with no intermediate OU, are grouped together under that base.
+
+Within each OU group, the existing 1,000-host split used for `flat` grouping still applies: the target name uses the **Target Name Template**, followed by the OU path, and a numeric suffix when that OU needs more than one target. Rediscovery matches targets by this same name, so a later run that finds the same OU updates that target's host list in place instead of creating a duplicate.
+
+<Callout icon="⚠️" theme="warn">
+  ### **Note:**
+
+  Switching **Computers Grouping** from `flat` to `ou` on an existing migration creates the new per-OU targets but does not delete the previous flat targets. Resource Discovery does not remove a linked target it no longer produces, so clean up the old targets manually if they are no longer needed.
+</Callout>
