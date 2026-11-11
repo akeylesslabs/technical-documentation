@@ -84,3 +84,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
     > For example, `email` should be provided as is, and not the actual email address.
 
 4. Click **Finish**.
+
+## SCIM Provisioning
+
+OIDC Authentication Methods also support SCIM provisioning, so your IdP can push user and group changes to Akeyless directly instead of relying solely on JIT provisioning at sign-in. Enable it with the `scim-enabled`, `scim-bearer-access-id`, `scim-endpoint`, and `scim-gateway-url` flags on `akeyless auth-method create oidc` / `update oidc`. For setup steps, prerequisites, and group-to-role mapping, see [SCIM Provisioning](https://docs.akeyless.io/docs/auth-with-saml#scim-provisioning) on the SAML Authentication Method page.
