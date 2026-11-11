@@ -1,6 +1,5 @@
 ---
 title: CLI Reference
-slug: cli-reference
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,6 +9,7 @@ metadata:
   robots: index
 next:
   description: ''
+slug: cli-reference
 ---
 This section describes the available CLI commands that you can use when working with Akeyless.
 If you need help in context, check out the help flag (`-h`)
@@ -44,7 +44,7 @@ akeyless configure
 
 `--access-key`: Access Key
 
-`--access-type[=access_key]`: Access Type, options: `[access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s/cert/oci/kerberos]`
+`--access-type[=access_key]`: Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/alicloud/gcp/k8s/cert/oci/kerberos)
 
 `--admin-password`: Password (relevant only for `access-type=password`)
 
@@ -56,53 +56,77 @@ akeyless configure
 
 `--azure-ad-object-id`: Azure Active Directory ObjectId (relevant only for `access-type=azure_ad`)
 
-`--azure-cloud[=AzureCloud]`: Azure cloud environment to use. Values: `AzureCloud` (default), `AzureUSGovernment`, `AzureChinaCloud` (relevant only for `access-type=azure_ad`)
+`--azure-cloud[=AzureCloud]`: Azure cloud environment to use, Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud
 
-`--gcp-audience`: GCP audience to use in signed JWT (relevant only for `access-type=gcp`)
+`--gcp-audience[=akeyless.io]`: GCP audience to use in the signed JWT (relevant only for `access-type=gcp`)
 
-`--gateway-url`: Default Gateway URL used for API calls
+`--gateway-url`: Default Gateway URL
 
-`--k8s-auth-config-name`: The Kubernetes Auth config name (relevant only for `access-type=k8s`)
+`--auth-via-gateway`: Route the interactive OIDC/SAML browser login through the Gateway (`gateway-url`) instead of Akeyless Auth (relevant only for `access-type=saml/oidc`)
 
-`--k8s-token-path[=/var/run/secrets/kubernetes.io/serviceaccount/token]`: An optional path to a projected service account token inside the pod, for use instead of the default service account token (relevant only for `access-type=k8s`)
+`--force-gateway-routing`: Send all CLI requests to the Gateway instead of SaaS, using `--gateway-url` (port 8000), stored in `~/.akeyless/settings` and applies to every profile
 
-`--cert-file-name`: Name of the certificate file to use (relevant only for `access-type=cert`)
+`--trusted-tls-certificate`: Path to a TLS certificate file that replaces the system roots for CLI HTTPS when talking to the Gateway (same as `AKEYLESS_TRUSTED_TLS_CERTIFICATE_FILE`), stored per profile, omit it on a later `configure` to keep the existing path
 
-`--cert-data`: Certificate data encoded in Base64. Used if file was not provided (relevant only for `access-type=cert` in Curl Context)
+`--k8s-auth-config-name`: The K8s Auth config name (relevant only for `access-type=k8s`)
+
+`--k8s-token-path[=/var/run/secrets/kubernetes.io/serviceaccount/token]`: Optional path to a projected service account token inside the pod, used instead of the default service account token (relevant only for `access-type=k8s`)
+
+`--cert-file-name`: Name of the cert file to use (relevant only for `access-type=cert`)
+
+`--cert-data`: Certificate data encoded in Base64, used if no file was provided (relevant only for `access-type=cert` in Curl context)
 
 `--key-file-name`: Name of the private key file to use (relevant only for `access-type=cert`)
 
-`--key-data`: Private key data encoded in Base64. Used if file was not provided (relevant only for `access-type=cert` in Curl Context)
+`--key-data`: Private key data encoded in Base64, used if no file was provided (relevant only for `access-type=cert` in Curl context)
+
+`--oci-auth-type[=apikey]`: The type of the OCI configuration to use \[instance/apikey/resource] (relevant only for `access-type=oci`)
+
+`--oci-group-ocid`: A list of Oracle Cloud ID groups (relevant only for `access-type=oci`)
+
+`--default-location-prefix`: Default path prefix for the names of items, targets and auth methods
+
+`--legacy-signing-alg-name`: Output the legacy (`ssh-rsa-cert-v01@openssh.com`) signing algorithm name in the certificate
 
 `--cert-issuer-name`: Certificate Issuer Name
 
 `--cert-username`: The username to sign in the SSH certificate (use a comma-separated list for more than one username)
 
-`--public-key-file-path`: Path to a file from which the identity (private key) for public key authentication is read
+`--public-key-file-path`: File from which the identity (private key) for public key authentication is read
 
-`--oci-auth-type[=apikey]`: The type of OCI configuration to use, options: `[instance/apikey/resource]` (relevant only for `access-type=oci`)
+`--sra-ctrl-subdomain`: Default SRA control API URL prefix for `akeyless connect`, for example `https://<prefix>.sra-host`
 
-`--oci-group-ocid`: A list of Oracle Cloud IDs groups (relevant only for `access-type=oci`)
+`--sra-ctrl-path`: Default SRA control API path for `akeyless connect`, for example `https://sra-host/<path>`
 
-`--default-location-prefix`: Default path prefix for item, target, and auth method names
+`--sra-ctrl-proto`: Default SRA control API protocol for `akeyless connect` \[http/https]
 
-`--legacy-signing-alg-name`: Set this option to output legacy (`ssh-rsa-cert-v01@openssh.com`) signing algorithm name in the certificate
+`--sra-ctrl-port`: Default SRA control API port for `akeyless connect`
 
-`--krb5conf-file-path`: Path to a valid krb5.conf file specifying the settings and parameters required for Kerberos authentication (relevant only for `access-type=kerberos`)
+`--sra-ssh-port`: Default SRA SSH port for `akeyless connect`, used when `--via-sra` has no port
 
-`--krb5conf-file-data`: Base64-encoded content of a valid krb5.conf file (relevant only for `access-type=kerberos` in Curl Context)
+`--session-caching`: Default for `akeyless connect` to cache temporary session credentials \[true/false]
 
-`--keytab-file-path`: Path to a valid keytab file containing the user entry (relevant only for `access-type=kerberos`)
+`--display-stages`: Default for `akeyless connect` to print connection stages \[true/false]
 
-`--keytab-file-data`: Base64-encoded content of a valid keytab file (relevant only for `access-type=kerberos` in Curl Context)
+`--ssh-extra-args`: Default additional SSH arguments for `akeyless connect` (except `-i`)
 
-`--disable-kerberos-fast[=true]`: Disable the Kerberos FAST negotiation (relevant only for `access-type=kerberos`)
+`--ssh-command`: Default path to the SSH executable for `akeyless connect`, for example `/usr/bin/ssh`
 
-`--gateway-spn`: Optional, the service principal name of the gateway as registered in LDAP (for example, `HTTP/gateway`) (relevant only for `access-type=kerberos`)
+`--krb5conf-file-path`: Path to a valid `krb5.conf` file with the settings and parameters required for Kerberos authentication
 
-`--kerberos-token`: Optional, Kerberos token for the gateway SPN, used by SPNEGO for authentication (relevant only for `access-type=kerberos`)
+`--krb5conf-file-data`: Base64-encoded content of a valid `krb5.conf` file with the settings and parameters required for Kerberos authentication
 
-`--kerberos-username`: Optional, the username for the entry within the keytab to authenticate via Kerberos (relevant only for `access-type=kerberos`)
+`--keytab-file-path`: Path to a valid keytab file containing the user entry
+
+`--keytab-file-data`: Base64-encoded content of a valid keytab file containing the service account's entry
+
+`--gateway-spn`: Optional, the service principal name of the Gateway as registered in LDAP (for example, `HTTP/gateway`)
+
+`--kerberos-username`: Optional, the username for the entry within the keytab to authenticate via Kerberos
+
+`--disable-kerberos-fast[=true]`: Disable Kerberos FAST negotiation
+
+`--kerberos-token`: Optional, Kerberos token for the Gateway SPN, used by SPNEGO for authentication
 
 ### `delete-item`
 
