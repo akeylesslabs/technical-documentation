@@ -33,8 +33,8 @@
 - passkey
 - sra-web-extension-sa
 - csv-password-importer
-- web-extension-settings
 - web-extension-preconfigured-install
 - web-extension-branding
 - web-extension-account-policies
 - web-extension-troubleshooting
+- web-extension-settings
