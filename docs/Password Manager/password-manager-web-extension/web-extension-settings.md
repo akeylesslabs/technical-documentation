@@ -97,10 +97,10 @@ Switches the interface between the light and dark themes.
 | **Default** | Off (light) |
 | **Persists** | Yes — stored locally, and **survives signing out** |
 | **Scope** | This browser only |
-| **Hidden when** | Your organization has applied custom branding |
+| **Hidden when** | Your organization has custom branding, set up by Akeyless support |
 
 <Callout icon="ℹ️" theme="info">
-  **Why the toggle sometimes disappears.** When an organization configures brand colors, the
+  **Why the toggle sometimes disappears.** When Akeyless support applies brand colors for your organization, the
   extension locks to light mode so the palette renders as intended, and the toggle is hidden.
   This is a branding decision, not a fault — see
   [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding).
