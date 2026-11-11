@@ -17,11 +17,13 @@ Akeyless is an **identity security platform** that protects the credentials, key
 
 Akeyless provides a single cloud-based control plane that supports application-to-application authentication, certificate issuance, privileged access, and automated identity workflows in hybrid and multi-cloud environments.
 
+Building on this foundation, Akeyless provides comprehensive visibility into secrets and the human, machine, and AI agent identities that hold access to them, and helps identify and remediate the risks they pose. It also provides zero-trust, secretless access for AI agents to protected resources, with policy-based controls that govern agent actions at runtime and full auditability.
+
 ## Core Purpose
 
-Akeyless enables organizations to control human and machine identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. These identities are critical for securing communication between applications, services, infrastructure, and automated workloads.
+Akeyless enables organizations to control human, machine, and AI agent identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. These identities are critical for securing communication between applications, services, infrastructure, automated workloads, and AI agents.
 
-Akeyless provides a platform for creating, retrieving, issuing, rotating, and enforcing policies on these identities, reducing the operational challenges of managing identity material across distributed systems.
+Akeyless provides a platform for creating, retrieving, issuing, rotating, discovering, and enforcing policies on these identities, reducing the operational challenges of managing identity material across distributed systems.
 
 ***
 
@@ -84,11 +86,11 @@ Provide zero-trust privileged access to internal systems without distributing lo
 
 ### AI Agents Security
 
-Provide short-lived credentials and secure retrieval patterns for AI pipelines, automated agents, and model-serving systems.
+Provide zero-trust, secretless access for AI agents to protected resources, with policy-based controls that govern agent actions at runtime and full auditability.
 
-### Leaked Secret Detection & Response
+### Secrets & Identity Discovery
 
-Detect potential exposures through audit visibility and respond with automated or emergency rotation.
+Obtain comprehensive visibility into secrets and the human, machine, and AI agent identities that hold access to them, then identify and remediate the risks they pose.
 
 ***
 
