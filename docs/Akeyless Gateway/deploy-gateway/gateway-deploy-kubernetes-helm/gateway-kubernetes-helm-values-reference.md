@@ -283,7 +283,7 @@ parameters:
   csi.storage.k8s.io/node-stage-secret-namespace: <your-secret-namespace> 
   encrypted: "true"
 ```
-```shell AliCloud
+```yaml AliCloud
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
