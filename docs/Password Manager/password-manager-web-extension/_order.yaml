@@ -31,7 +31,6 @@
 - web-extension-security-health
 - passkey
 - csv-password-importer
-- web-extension-settings
 - web-extension-preconfigured-install
 - web-extension-accessibility
 - web-extension-branding
@@ -40,4 +39,5 @@
 - web-extension-preconfigured-package
 - web-extension-intune-self-distribution
 - web-extension-troubleshooting
+- web-extension-settings
 - sra-web-extension-sa
