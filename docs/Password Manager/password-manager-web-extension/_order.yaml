@@ -33,7 +33,6 @@
 - csv-password-importer
 - web-extension-preconfigured-install
 - web-extension-bridge-link
-- web-extension-account-policies
 - web-extension-preconfigured-package
 - web-extension-intune-self-distribution
 - web-extension-troubleshooting
@@ -41,3 +40,4 @@
 - sra-web-extension-sa
 - web-extension-accessibility
 - web-extension-branding
+- web-extension-account-policies
