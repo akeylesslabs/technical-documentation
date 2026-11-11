@@ -24,6 +24,7 @@ akeyless_bridge_config_id            (or akeyless_config_id)
 akeyless_bridge_contact_support_url
 akeyless_bridge_privacy_policy_url
 akeyless_bridge_passkey_enabled
+akeyless_bridge_passkey_verification      (off | on | required — can only make verification stricter)
 akeyless_bridge_preconfigured_sign_in_title
 akeyless_bridge_preconfigured_sign_in_message
 akeyless_bridge_sidebar_bg_color
@@ -49,7 +50,7 @@ akeyless_bridge_brand_folder
 
 ## Path B — cookiebridge redirect URL
 
-The hosted bridge service can carry settings as query parameters. The extension reads `id` / `config_id`, `contact_support_url`, `privacy_policy_url`, `passkey_enabled`, the branding colors, `brand_folder`, `logo_url`, and the sign-in title and message.
+The hosted bridge service can carry settings as query parameters. The extension reads `id` / `config_id`, `contact_support_url`, `privacy_policy_url`, `passkey_enabled`, `passkey_verification`, the branding colors, `brand_folder`, `logo_url`, and the sign-in title and message.
 
 ---
 
@@ -61,7 +62,7 @@ The same parameters can ride on the store page URL. The extension reads them on 
 ?access_id=<id>           or  ?account_id=<id>
 ?auth_method=<method>     or  ?auth=<method>     (also accepted in the URL #hash)
 ?environment=<region>
-?config_id=…   ?contact_support_url=…   ?privacy_policy_url=…   ?passkey_enabled=…
+?config_id=…   ?contact_support_url=…   ?privacy_policy_url=…   ?passkey_enabled=…   ?passkey_verification=…
 ?sidebar_bg_color=…   ?button_color=…   ?main_bg_color=…   ?icon_color=…
 ?loading_animation_color=…   ?logo_url=…   ?brand_folder=…
 ?preconfigured_sign_in_title=…   ?preconfigured_sign_in_message=…
