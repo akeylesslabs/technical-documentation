@@ -29,12 +29,12 @@
 - adding-and-using-otp-1
 - web-extension-export-passwords
 - web-extension-security-health
-- web-extension-preconfigured-install
 - passkey
 - web-extension-bridge-link
 - csv-password-importer
 - web-extension-preconfigured-package
 - web-extension-intune-self-distribution
+- web-extension-preconfigured-install
 - web-extension-settings
 - web-extension-accessibility
 - web-extension-branding
