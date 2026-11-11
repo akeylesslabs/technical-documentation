@@ -168,6 +168,52 @@ For optional features that apply across Authentication Methods, see [Common Opti
 - **Unique Identifier:** Define which IdP sub-claim key identifies a user.
 - **Sub-claim Delimiters:** Configure custom delimiters if your IdP uses a format other than comma-separated values.
 
+## SCIM Provisioning
+
+JIT provisioning only creates or updates a user's identity when they sign in, so Akeyless has no visibility into your IdP's directory until the next login. SCIM provisioning closes this gap: when enabled on a SAML Authentication Method, your IdP (for example, Okta, Microsoft Entra ID, or Ping Identity) pushes user and group changes to Akeyless directly, so onboarding, offboarding, and group membership stay in sync with the IdP directory in real time.
+
+SCIM users are provisioned as Akeyless human identities, and SCIM groups are provisioned as Akeyless groups that you can associate with Access Roles, just like any other group. When an IdP deactivates a user (`active: false`), Akeyless revokes that user's active sessions and short-lived tokens.
+
+### Prerequisites
+
+SCIM requests authenticate with a bearer token, not with end-user credentials. Before enabling SCIM:
+
+1. Create an [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) to serve as the SCIM bearer identity.
+2. Generate an access key for that Authentication Method and store it securely — your IdP uses it as the SCIM bearer token, and it can't be retrieved again after creation.
+
+### Enabling SCIM Provisioning with the CLI
+
+To enable SCIM provisioning on a SAML Authentication Method, add the SCIM flags when creating or updating it:
+
+```shell
+akeyless auth-method update saml \
+  --name <Existing SAML Auth Method Name> \
+  --scim-enabled \
+  --scim-bearer-access-id <Access ID of the API Key Auth Method> \
+  --scim-endpoint public
+```
+
+Where:
+
+* `scim-enabled`: Turns SCIM provisioning on for this Authentication Method.
+* `scim-bearer-access-id`: The Access ID of the API Key Authentication Method your IdP uses as the SCIM bearer.
+* `scim-endpoint`: Where the IdP reaches the SCIM server — `public` (served by Akeyless) or `private` (served by your own Akeyless Gateway).
+* `scim-gateway-url`: Required when `scim-endpoint` is `private`. The URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example `https://gateway.example.com:8000`.
+
+Point your IdP's SCIM application at the returned SCIM base URL, using the Access ID of the API Key Authentication Method as the bearer token.
+
+To check the SCIM provisioning status of a SAML Authentication Method, run:
+
+```shell
+akeyless get-scim-status --name <Existing SAML Auth Method Name>
+```
+
+This returns the SCIM base URL, connection status, and counts of synced users and groups.
+
+### Mapping SCIM Groups to Access Roles
+
+SCIM groups synced from your IdP behave like any other Akeyless group: associate a SCIM-provisioned group with an Access Role so that any user the IdP places in that group automatically inherits the role's permissions, without manual steps in the Akeyless Console.
+
 ## Related Pages
 
 For end-to-end IdP setup examples, see:

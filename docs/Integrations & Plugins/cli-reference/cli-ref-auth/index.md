@@ -679,6 +679,14 @@ akeyless auth-method create oidc \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
+`--scim-enabled`: Enable SCIM provisioning for this Auth Method \[true/false]
+
+`--scim-bearer-access-id`: Access ID of the API Key Auth Method the IdP uses as the SCIM bearer
+
+`--scim-endpoint`: Where the IdP reaches the SCIM endpoint \[`public`/`private`]. `public` is served by Akeyless, `private` by your own Akeyless Gateway
+
+`--scim-gateway-url`: URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example `https://gateway.example.com:8000`. Required for the `private` endpoint
+
 ### `saml`
 
 Create a new Auth Method that can authenticate using SAML
@@ -734,6 +742,14 @@ akeyless auth-method create saml \
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
 `--dedicated-saml-endpoint[=false]`: Enable a dedicated SAML ACS and metadata endpoint for this authentication method. When enabled, this SAML auth method uses endpoints that are unique to its Access ID instead of the account-level global SAML endpoints
+
+`--scim-enabled`: Enable SCIM provisioning for this Auth Method \[true/false]
+
+`--scim-bearer-access-id`: Access ID of the API Key Auth Method the IdP uses as the SCIM bearer
+
+`--scim-endpoint`: Where the IdP reaches the SCIM endpoint \[`public`/`private`]. `public` is served by Akeyless, `private` by your own Akeyless Gateway
+
+`--scim-gateway-url`: URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example `https://gateway.example.com:8000`. Required for the `private` endpoint
 
 ## `get-cloud-identity`
 
@@ -1263,6 +1279,14 @@ akeyless auth-method update oidc \
 
 `-d, --delimiters`          A list of additional sub-claims delimiters
 
+`--scim-enabled`: Enable SCIM provisioning for this Auth Method \[true/false]
+
+`--scim-bearer-access-id`: Access ID of the API Key Auth Method the IdP uses as the SCIM bearer
+
+`--scim-endpoint`: Where the IdP reaches the SCIM endpoint \[`public`/`private`]. `public` is served by Akeyless, `private` by your own Akeyless Gateway
+
+`--scim-gateway-url`: URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example `https://gateway.example.com:8000`. Required for the `private` endpoint
+
 #### `saml`
 
 Update a new Auth Method that can authenticate using SAML
@@ -1313,6 +1337,28 @@ akeyless auth-method update saml \
 `--idp-metadata-xml-data`: IdP metadata as XML encoded in Base64
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
+
+`--scim-enabled`: Enable SCIM provisioning for this Auth Method \[true/false]
+
+`--scim-bearer-access-id`: Access ID of the API Key Auth Method the IdP uses as the SCIM bearer
+
+`--scim-endpoint`: Where the IdP reaches the SCIM endpoint \[`public`/`private`]. `public` is served by Akeyless, `private` by your own Akeyless Gateway
+
+`--scim-gateway-url`: URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example `https://gateway.example.com:8000`. Required for the `private` endpoint
+
+## `get-scim-status`
+
+Returns the SCIM provisioning status of a SAML or OIDC Auth Method
+
+### Usage
+
+```shell
+akeyless get-scim-status --name <Auth method name>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, SAML or OIDC Auth Method name
 
 ## `validate-token`
 
