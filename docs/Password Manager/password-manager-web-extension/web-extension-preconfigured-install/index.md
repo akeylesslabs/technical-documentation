@@ -7,14 +7,21 @@ title: 'Preconfigured Installs: Overview'
 
 A preconfigured install ships your organization's sign-in settings with the extension, so your users open it to a login screen that is already correct — right method, right Access ID, right region.
 
+<Callout icon="⚠️" theme="warn">
+  **Preconfigured links are created by Akeyless support.** You can't create one yourself from
+  the extension or the console. Send your authentication method, Access ID and region to your
+  account team or [Akeyless support](https://www.akeyless.io/contact-support/), and Akeyless
+  sends you a link per browser to share with your users.
+</Callout>
+
 ## One destination, four paths
 
 Every path writes to the same place: a browser-storage record named `akeyless_installation_preferences`. The login screen reads it every time it opens.
 
 | Path | Use when | Page |
 |---|---|---|
-| **Bridge link** | You can send users a link | [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link) |
-| **Store URL parameters** | You link to the store from a portal | [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link) |
+| **Bridge link** | You send users a link that Akeyless creates for you | [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link) |
+| **Store URL parameters** | You link to the store from a portal, using a link from Akeyless | [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link) |
 | **Cookiebridge URL** | You use the hosted bridge service | [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link) |
 | **Preconfigured package** | You distribute the extension yourself | [Preconfigured Package](https://docs.akeyless.io/docs/web-extension-preconfigured-package) |
 
