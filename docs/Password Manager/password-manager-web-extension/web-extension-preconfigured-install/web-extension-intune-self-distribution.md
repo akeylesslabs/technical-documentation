@@ -402,7 +402,7 @@ And the Edge equivalent:
 https://microsoftedge.microsoft.com/addons/detail/akeyless-password-manager/fppjjcloabbllcakfjefmkdpbaaikeog?access_id=oidc:p-xxxxxxxxxxxx
 ```
 
-The part before the colon is the sign-in method, and the part after it is the Access ID. Links from Akeyless can also carry your login-screen text. Ask Akeyless to generate them rather than writing them by hand, because values that fail validation are silently dropped. The full parameter list is on [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link).
+The part before the colon is the sign-in method, and the part after it is the Access ID. Links from Akeyless can also carry your login-screen text. Akeyless generates these links for you; you can't create one yourself, and a hand-edited link can lose settings, because values that fail validation are silently dropped. The full parameter list is on [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link).
 
 ### Instructions to give your users
 
