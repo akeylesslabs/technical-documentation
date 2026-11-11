@@ -9,14 +9,15 @@ Select **Import** in the top toolbar.
 ![Step 1 — choose your source](https://files.readme.io/f38519af5fee1aaa082e07a7c43a987a807a868e2191c00c7179318bdde654ac-import-select-type.webp)
 *Ten import sources*
 
-## A four-step wizard
+## The import wizard
 
 | Step | What happens |
 |---|---|
-| **1. Select Type** | Choose the password manager you are moving from |
-| **2. Upload CSV** | Read the export instructions, then upload the file |
-| **3. Destination & metadata** | Choose Personal or Corporate, the folder, and any tags |
-| **4. Import progress & report** | Watch it run, then read what succeeded and what did not |
+| **1. Item Type** | Choose **Passwords**, **Secrets** or **Certificates**. This page covers passwords |
+| **2. Select Service** | Choose the password manager you are moving from (passwords only) |
+| **3. Upload CSV** | Read the export instructions, then upload the file |
+| **4. Destination** | Choose Personal or Corporate, the folder, and any tags |
+| **5. Results** | Watch it run, then read what succeeded and what did not |
 
 The rail on the left tracks your position, and you can step back without losing what you
 entered.
@@ -56,11 +57,41 @@ Columns: `name`, `url`, `username`, `password`, `description` (also accepted as 
 A default KeePass export produces `Account`, `Login Name`, `Password`, `Web Site`, `Comments`.
 These are recognized without renaming anything.
 
+### Keeper exports
+
+Upload Keeper's CSV export as it is, in **Keeper vault export CSV**. Keeper writes no header row,
+so the columns are read in Keeper's order: `Folder`, `Title`, `Login`, `Password`,
+`Website Address`, `Notes`, `Shared Folder`, then custom fields as name/value pairs. A file with
+a header row works too.
+
+| Keeper data | Becomes |
+|---|---|
+| `Folder` (sub-folders separated by `\`) | Folders under the destination you choose |
+| `Shared Folder` | A folder with that name under the destination. Permission suffixes such as `#edit` are dropped |
+| A row with `Notes` and no `Password` | A static secret (Keeper secure note) |
+| Custom fields | Custom fields on the password |
+
+**Shared Records Report (optional).** Also upload Keeper's Shared Records Report in
+**Shared Records Report CSV (optional)**, with or without a header row. Each item is tagged with
+who it was shared with in Keeper. With **Group direct-shared items into folders by who they were
+shared with** on, direct-shared items go under
+`<destination>/Keeper-Direct-Shares/<you>/<shared with>/`; **Importer identity** sets the `<you>`
+part. Keeper sharing permissions are not recreated, so share these folders in Akeyless if others
+need access.
+
+**Re-importing.** If an item with the same name already exists, an identical one is skipped and
+counted as a duplicate. A different one is saved as a copy under `_Keeper-Conflicts/<you>/` in
+the same folder, so nothing is overwritten. The report lists these, with a `keeper-conflicts.csv`
+download.
+
+Everything is created inside the destination you choose. Nothing is created at the vault root.
+The desktop app imports the same way.
+
 ---
 
-## Step 3 — destination
+## Destination
 
-Unlike the extension, the console lets you choose the destination **before** the import runs:
+Choose where everything goes **before** the import runs:
 
 | Choice | Notes |
 |---|---|
@@ -73,7 +104,7 @@ Unlike the extension, the console lets you choose the destination **before** the
   what the import created, review it, and bulk-delete it if something went wrong.
 </Callout>
 
-## Step 4 — the report
+## Results
 
 Each row becomes a **password item**:
 
@@ -109,6 +140,8 @@ failure, so no row is dropped without a record.
 | Rows failed | Missing name or password — the report names the row |
 | Accented characters mangled | A non-UTF-8 export; re-export choosing UTF-8 |
 | Nothing imported | Not a CSV, or no recognizable header row |
+| Keeper: "Could not detect required columns" | Older desktop app (before 0.1.128) needed a header row. Update it, or add `Folder,Title,Login,Password,Website Address,Notes,Shared Folder,Custom Fields` as the first line |
+| "unable to get personal folder" | An account setting blocks your personal folder. See [Personal Secrets](https://docs.akeyless.io/docs/pwm-console-personal-area). Import to Corporate meanwhile |
 | Autofill ignores imported items | The rows had no `url` column |
 
 ## Related

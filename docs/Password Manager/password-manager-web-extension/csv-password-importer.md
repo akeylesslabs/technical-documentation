@@ -34,20 +34,52 @@ Select a source to see its step-by-step export guide, then upload the CSV it pro
 
 Columns: `name`, `url`, `username`, `password`, `description` (also accepted as `note` or `notes`).
 
+Optional:
+
+| Column | Becomes |
+|---|---|
+| `otp` / `otpauth` / `totp` / `mfa_secret` (and similar) | Password OTP (`otpauth` custom field). Cell may be an `otpauth://` URI or a Base32 TOTP secret. |
+| **Any other header** | A custom field with that header as the label (toggle which columns to import after upload) |
+
 | Behavior | Detail |
 |---|---|
 | **Column order** | Any — headers are detected automatically |
 | **Delimiter** | Detected automatically (comma, semicolon, tab) |
 | **Encoding** | UTF-8 preferred; common Western European (Latin) encodings also decode |
-| **Extra columns** | Ignored rather than rejected |
+| **Extra columns** | Imported as custom fields (Generic CSV); you can deselect columns before import |
 
-The extension's own **Export Passwords** writes this format, so a file exported from one Akeyless
+The extension's own **Export Passwords** writes the core five-column format, so a file exported from one Akeyless
 account imports into another unchanged. See [Exporting Your Passwords](https://docs.akeyless.io/docs/web-extension-export-passwords).
 
 ### KeePass default columns
 
 A default KeePass export produces `Account`, `Login Name`, `Password`, `Web Site`, `Comments`.
 These are recognized without renaming anything.
+
+### Keeper exports
+
+Upload Keeper's CSV export as it is. Keeper writes no header row, so when **Keeper** is the
+selected source the columns are read in Keeper's order: `Folder`, `Title`, `Login`, `Password`,
+`Website Address`, `Notes`, `Shared Folder`, then custom fields as name/value pairs. A file with a
+header row works too.
+
+| Keeper data | Becomes |
+|---|---|
+| `Folder` (sub-folders separated by `\`) | Folders under the destination you choose |
+| `Shared Folder` | A folder with that name under the destination. Permission suffixes such as `#edit` are dropped |
+| A row with `Notes` and no `Password` | A secret (Keeper secure note) |
+| Custom fields | Custom fields on the password |
+
+You can also upload Keeper's **Shared Records Report** CSV, with or without a header row. Each
+item is then tagged with who it was shared with in Keeper, and direct-shared items can be grouped
+under `<destination>/Keeper-Direct-Shares/<you>/<shared with>/`. Keeper sharing permissions are not
+recreated; share these folders in Akeyless if others need access.
+
+**Re-importing.** If an item with the same name already exists, an identical one is skipped and
+counted as a duplicate. A different one is saved as a copy under `_Keeper-Conflicts/<you>/` in
+the same folder, so nothing is overwritten. The import summary lists these.
+
+Everything is created inside the destination you choose. Nothing is created at the vault root.
 
 ---
 
@@ -62,6 +94,8 @@ Each row becomes a **password item**:
 | `password` | The password |
 | `url` | A website URL, which drives autofill matching and Launch |
 | `description` / `note` | The item description |
+| `otp` (etc.) | Authenticator / OTP on the password item |
+| other columns | Custom fields (Generic CSV only) |
 
 Imported items land in the area and folder you choose during the import. A folder path in the
 `name` column, such as `Work/GitHub`, is recreated under the folder you choose.
@@ -99,6 +133,8 @@ Then:
 | Rows skipped | Missing name or password, or an unreadable encoding — re-export as UTF-8 |
 | Accented characters mangled | The export used a non-UTF-8 encoding; re-export choosing UTF-8 |
 | Nothing imported | The file is not a CSV, or has no recognizable header row |
+| Keeper: "Could not detect required columns" | Extension older than 1.30.161, which needed a header row. Update the extension, or add `Folder,Title,Login,Password,Website Address,Notes,Shared Folder,Custom Fields` as the first line |
+| "unable to get personal folder" | An account setting blocks your personal folder — see [Troubleshooting](https://docs.akeyless.io/docs/web-extension-troubleshooting). Import to Corporate meanwhile |
 | Autofill does not offer imported items | The rows had no `url` column — edit the items to add website URLs |
 
 ## Related

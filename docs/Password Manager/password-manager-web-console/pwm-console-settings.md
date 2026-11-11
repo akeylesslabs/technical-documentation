@@ -56,7 +56,7 @@ Switches the interface between the light and dark themes.
 | **Default** | Off |
 | **Scope** | This browser |
 | **Persists** | Yes, including across sign-out |
-| **Hidden when** | Your organization has applied custom branding, which locks the theme |
+| **Hidden when** | Your organization has custom branding (set up by Akeyless support), which locks the theme |
 
 ---
 

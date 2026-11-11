@@ -69,6 +69,26 @@ Selection spans pages — tick items on page 1, move to page 2, and the earlier 
   Hiding Personal also hides **Security Health**, which scores personal items only.
 </Callout>
 
+## Saving to Personal fails with "unable to get personal folder"
+
+The full message looks like `failed to create the requested secret … OperationFailed … unable to get personal folder`.
+It comes from Akeyless: your personal folder couldn't be found or created. It affects imports and
+new items alike.
+
+The most common cause is the account setting **Account Settings** → **Password Management** →
+**Personal Folder Mapping**. When it's enabled, each user's personal folder is found by the login
+attribute named in its **Unique Identifier**, so your login must send that attribute. The default,
+`users`, usually isn't sent, and then every save to Personal fails.
+
+Ask your account administrator to either:
+
+- set that Unique Identifier to an attribute your login sends, usually the same value as your
+  authentication method's own Unique Identifier (for example `email`), spelled exactly the same; or
+- turn Personal Folder Mapping off.
+
+Email-and-password logins don't send such an attribute, so they can't use Personal while the
+mapping is on. Until it's fixed, save or import to **Corporate** instead.
+
 ## Related
 
 - [Corporate Secrets](https://docs.akeyless.io/docs/pwm-console-corporate-area)
