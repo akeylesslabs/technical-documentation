@@ -41,7 +41,7 @@ create and fill credentials without leaving the page you are on.
   **Contact Akeyless** (your account team, or
   [Akeyless support](https://www.akeyless.io/contact-support/)) to have a preconfigured link
   or an MDM package produced for your tenant. You will be asked for your authentication
-  method, your Access ID, your region, and any branding you want applied.
+  method, your Access ID and your region.
 </Callout>
 
 ---
@@ -130,7 +130,6 @@ file has `"enabled": true`, its contents seed the extension's sign-in configurat
   "preferredAuthMethod": "saml",
   "allowedAuthMethods": ["saml"],
   "environment": "global",
-  "config_id": "…",
   "contact_support_url": "https://support.example.com",
   "open_web_console_url": "https://console-pwm.akeyless.io",
   "passkey_enabled": true,
