@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-The GCP Scanner is a native scanner type that inspects a connected Google Cloud project, folder, or organization, discovering the full inventory of identities, including human and non-human identities such as Google Cloud users and groups, service accounts and their keys, and workload and workforce identity federation principals, and AI agents built on Agent Runtime, Cloud Run, and Agent Registry, along with secrets stored in Secret Manager and certificates managed through Private CA, Certificate Manager, and Compute Engine SSL certificates, as well as the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
+The GCP Scanner is a native scanner type that inspects a connected Google Cloud project, folder, or organization, discovering the full inventory of identities, including human and non-human identities such as Google Cloud users and groups, service accounts and their keys, and workload and workforce identity federation principals, and AI agents deployed on Agent Runtime and Cloud Run or listed in Agent Registry, along with secrets stored in Secret Manager and certificates managed through Private CA, Certificate Manager, and Compute Engine SSL certificates, as well as the relationships between them. Each discovered object is evaluated against Identity & Secrets Intelligence security policies, which assess its risk posture and surface the resulting findings for review.
 
 ## What the GCP Scanner Discovers
 
@@ -52,6 +52,7 @@ For each object type selected on the scanner, grant the service account the pred
 | **Secrets**      | `roles/secretmanager.viewer`, `roles/logging.privateLogViewer`                               |
 | **Certificates** | `roles/privateca.auditor`, `roles/certificatemanager.viewer`, `roles/compute.viewer`         |
 | **Identities**   | `roles/browser`, `roles/iam.securityReviewer`, `roles/policyanalyzer.activityAnalysisViewer` |
+| **AI Agents**    | `roles/aiplatform.viewer`, `roles/run.viewer`, `roles/agentregistry.viewer`, `roles/iam.securityReviewer`, `roles/browser`, `roles/logging.privateLogViewer`, `roles/monitoring.viewer`, `roles/modelarmor.floorSettingsViewer` |
 
 For **Folder** or **Organization** scope, also grant `roles/browser` on the folder or organization, whatever object types are selected, so the scanner can list the projects and folders underneath it.
 
