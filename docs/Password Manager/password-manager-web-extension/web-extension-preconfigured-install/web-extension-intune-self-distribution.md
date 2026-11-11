@@ -111,7 +111,7 @@ Open `preconfigured_install.json` at the root of the folder and replace its cont
 }
 ```
 
-A fuller example, with branding and your own wording on the login screen:
+A fuller example, with your own wording on the login screen:
 
 ```json
 {
@@ -120,7 +120,6 @@ A fuller example, with branding and your own wording on the login screen:
   "preferredAuthMethod": "saml",
   "allowedAuthMethods": ["saml"],
   "environment": "global",
-  "config_id": "your-branding-id",
   "contact_support_url": "https://support.example.com",
   "open_web_console_url": "https://console-pwm.akeyless.io",
   "passkey_enabled": true,
@@ -138,7 +137,6 @@ A fuller example, with branding and your own wording on the login screen:
 | `prefillAccessId` | Yes, unless the method is `email` | Your Access ID, for example `p-xxxxxxxxxxxx` |
 | `allowedAuthMethods` | No | Limits the methods users can choose. Defaults to the preferred method only |
 | `environment` | No | Region for email sign-in: `global`, `us`, `eu` and others |
-| `config_id` | No | ID of your branding bundle. See [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding) |
 | `preconfigured_sign_in_title` | No | Heading on the login screen, up to 120 characters |
 | `preconfigured_sign_in_message` | No | Text on the login screen, up to 2,000 characters. `\n\n` starts a new paragraph |
 | `passkey_verification` | No | `off`, `on` or `required` |
@@ -371,7 +369,7 @@ You don't need Intune or your own package to give users a preconfigured extensio
 
 ### How it works
 
-1. Akeyless creates a **preconfigured link** for your tenant. It points to the official store listing and carries your settings: Access ID, sign-in method, region, branding, and your login-screen title and message.
+1. Akeyless creates a **preconfigured link** for your tenant. It points to the official store listing and carries your settings: Access ID, sign-in method, region, and your login-screen title and message.
 2. The user opens the link. It shows the normal store page for Akeyless Password Manager 2.0.
 3. The user clicks **Add to Chrome** (**Get** in Edge, **Add to Firefox** in Firefox).
 4. When it installs, the extension reads the settings from the link and saves them.
@@ -384,7 +382,7 @@ Because users install the official store extension, they get every update automa
 1. **Send your details to Akeyless** (your account team or support):
    - Your **Access ID** and **authentication method** (SAML, OIDC, alias, Google, GitHub, Access ID or email).
    - For email sign-in, your **region**.
-   - Optional: your branding, the login-screen **title** and **message**, and your support URL.
+   - Optional: the login-screen **title** and **message**, and your support URL.
    - The browsers your users use.
 2. **Receive your links.** Akeyless sends one preconfigured link per browser.
 3. **Test a link** on a browser profile that doesn't have the extension: open it, install, and check the login screen.
@@ -404,7 +402,7 @@ And the Edge equivalent:
 https://microsoftedge.microsoft.com/addons/detail/akeyless-password-manager/fppjjcloabbllcakfjefmkdpbaaikeog?access_id=oidc:p-xxxxxxxxxxxx
 ```
 
-The part before the colon is the sign-in method, and the part after it is the Access ID. Links from Akeyless can also carry your branding and login-screen text. Ask Akeyless to generate them rather than writing them by hand, because values that fail validation are silently dropped. The full parameter list is on [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link).
+The part before the colon is the sign-in method, and the part after it is the Access ID. Links from Akeyless can also carry your login-screen text. Ask Akeyless to generate them rather than writing them by hand, because values that fail validation are silently dropped. The full parameter list is on [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link).
 
 ### Instructions to give your users
 
@@ -460,5 +458,4 @@ Copy this into your email or intranet page:
 - [Preconfigured Installs: Overview](https://docs.akeyless.io/docs/web-extension-preconfigured-install)
 - [Preconfigured Package](https://docs.akeyless.io/docs/web-extension-preconfigured-package)
 - [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link)
-- [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding)
 - [Troubleshooting](https://docs.akeyless.io/docs/web-extension-troubleshooting)
