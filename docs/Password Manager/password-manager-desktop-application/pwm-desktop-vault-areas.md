@@ -17,6 +17,9 @@ Items only you can see, including passkeys and files. The only area available in
 
 → [Personal Secrets](https://docs.akeyless.io/docs/pwm-console-personal-area)
 
+If saving to Personal fails with "unable to get personal folder", it's an account setting, not
+the app. See [Personal Secrets](https://docs.akeyless.io/docs/pwm-console-personal-area) for the fix.
+
 ### Corporate
 
 ![Corporate](https://files.readme.io/0900f6366bc65fdaf94ff348ddd5b453e87b8666cc9cecc0c62748990fbc6f50-corporate-list.webp)

@@ -54,6 +54,25 @@ Greyed out means your account has no Personal area, which is set by account poli
 
 Version 1.30.130 added the browser's downloads permission, used by **Export Passwords**. Chrome and Edge turn an extension off until you approve a newly requested permission. Open the browser's extensions page and approve it to turn the extension back on. Firefox instead holds the update and asks from its menu, and the previous version keeps working until you accept.
 
+## Saving to Personal fails with "unable to get personal folder"
+
+The full message looks like `failed to create the requested secret … OperationFailed … unable to get personal folder`.
+It comes from Akeyless, not the extension: your personal folder couldn't be found or created.
+
+The most common cause is the account setting **Account Settings** → **Password Management** →
+**Personal Folder Mapping**. When it's enabled, each user's personal folder is found by the login
+attribute named in its **Unique Identifier**, so your login must send that attribute. The default,
+`users`, usually isn't sent, and then every save to Personal fails.
+
+Ask your account administrator to either:
+
+- set that Unique Identifier to an attribute your login sends, usually the same value as your
+  authentication method's own Unique Identifier (for example `email`), spelled exactly the same; or
+- turn Personal Folder Mapping off.
+
+Email-and-password logins don't send such an attribute, so they can't use Personal while the
+mapping is on. Until it's fixed, save or import to **Corporate** instead.
+
 ## Still stuck
 
 Use **Settings** → **Contact Support**, which points at your organization's support channel when configured.

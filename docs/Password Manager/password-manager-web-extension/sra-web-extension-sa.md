@@ -1,5 +1,5 @@
 ---
-title: SA Web Extension (Secure Access)
+title: SA Web Extension (Secrets Automation)
 ---
 **Akeyless SA 2.0** is a separate extension built from the same codebase as Akeyless Password
 Manager 2.0. It keeps every vault feature and adds Secure Remote Access: proxy-routed sessions,

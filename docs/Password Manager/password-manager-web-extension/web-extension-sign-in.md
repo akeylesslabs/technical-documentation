@@ -83,12 +83,16 @@ stored in your browser only, and never leave the device.
 
 ## Email sign-in
 
-1. `Email` — enter your address, select **Continue**.
-2. `Account` — if your address belongs to more than one Akeyless account, choose the account
-   ID, select **Continue**. This step is skipped when there is only one.
-3. `Password` — enter it, select **Sign In**.
-4. `Two-factor` — if your account requires MFA, a code is emailed to you. Enter it; a
+1. `Email` and `Password` — enter both.
+2. `Account ID (optional)` — leave it empty unless your email is on more than one Akeyless
+   account; then enter the ID of the account you want. Select **Sign In**.
+3. `Two-factor` — if your account requires MFA, a code is emailed to you. Enter it; a
    **resend** option appears after a short cooldown.
+
+For your security, every failed email sign-in shows the same message, so the extension never
+reveals whether an email or account exists:
+
+> Couldn't sign in. Check your email and password. If your email is on more than one Akeyless account, also enter your Account ID.
 
 ### Regions
 

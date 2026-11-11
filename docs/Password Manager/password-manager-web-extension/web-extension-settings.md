@@ -74,6 +74,18 @@ they are available on every machine where you sign in, not stored on one device 
 | **Hidden when** | Your account disables passkeys, or your organization suppresses them |
 | **Stored in** | Your **personal folder only** — never team or corporate vaults |
 
+### Verify it's me before using passkeys
+
+> *An extra check you can turn on. Before a passkey is created or used, confirm it's you with Touch ID, Windows Hello, your computer password or PIN, or an Akeyless PIN.*
+
+**Optional.** It sits in the same box as `Passkey Management`, below it, and is always shown; it takes effect when `Passkey Management` is on. The label next to it reads **Optional**, or **Required** when your organization turns it on for you. See [Passkeys](https://docs.akeyless.io/docs/web-extension-passkey).
+
+| Property | Value |
+|---|---|
+| **Default** | Off, unless your organization preconfigured it on |
+| **Locked on when** | Your organization requires it (`passkeyVerification: "required"`); the label reads **Required** |
+| **Reset** | Clears the saved method (computer verification or PIN); you choose again on next use |
+
 See [Passkey](https://docs.akeyless.io/docs/passkey).
 
 ### Dark Mode
@@ -85,10 +97,10 @@ Switches the interface between the light and dark themes.
 | **Default** | Off (light) |
 | **Persists** | Yes — stored locally, and **survives signing out** |
 | **Scope** | This browser only |
-| **Hidden when** | Your organization has applied custom branding |
+| **Hidden when** | Your organization has custom branding, set up by Akeyless support |
 
 <Callout icon="ℹ️" theme="info">
-  **Why the toggle sometimes disappears.** When an organization configures brand colors, the
+  **Why the toggle sometimes disappears.** When Akeyless support applies brand colors for your organization, the
   extension locks to light mode so the palette renders as intended, and the toggle is hidden.
   This is a branding decision, not a fault — see
   [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding).

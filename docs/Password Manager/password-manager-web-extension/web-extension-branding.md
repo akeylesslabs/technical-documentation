@@ -5,46 +5,42 @@ title: Branding & Customization
   **Audience: account administrators.**
 </Callout>
 
-The extension can carry your organization's identity.
+The extension can show your organization's logo and colors instead of the Akeyless defaults.
 
-## What you can change
+<Callout icon="⚠️" theme="warn">
+  **Branding is set up by Akeyless support.** It isn't something you can apply or change
+  yourself: there is no customer setting for it. To request branding, or to change or remove
+  it, contact [Akeyless support](https://www.akeyless.io/contact-support/) or your account team.
+</Callout>
 
-| Field | Effect | Default |
-|---|---|---|
-| `logoUrl` | Logo on the login screen and sidebar | Akeyless logo |
-| `brandFolder` | Bundled icon set | `akeyless_brand_icons` |
-| `sidebarBgColor` | Left rail background | `#eef0f0` |
-| `mainBgColor` | Main panel background | `#eef0f0` |
-| `buttonColor` | Primary buttons | `#2563eb` |
-| `iconColor` | Accent icons, including the in-page field icon | `#6cd7c4` |
-| `loadingColor` | Loading animation | `#63d6c1` |
-| `poweredByColor` | *Powered by Akeyless* text | — |
-| `preconfiguredSignInTitle` | Login info box heading | *Ready to Sign In* |
-| `preconfiguredSignInMessage` | Login info box body | — |
-| `contactSupportUrl` | **Contact Support** destination | Akeyless support |
-| `privacyPolicyUrl` | **Privacy Policy** destination | Akeyless policy |
-| `openWebConsoleUrl` | **Open Web Console** destination | Derived from tenant |
-| `consentMessage` | Consent copy | — |
+## What can be branded
 
-## Delivery
+| Element | Default |
+|---|---|
+| Logo on the login screen and sidebar | Akeyless logo |
+| Icon set | Akeyless icons |
+| Colors of the sidebar, main panel, buttons, accent icons and loading animation | Akeyless colors |
+| Color of the *Powered by Akeyless* text | Akeyless default |
 
-Either inline through the bridge link or URL parameters, or by `config_id` — an ID the extension resolves to a stored branding bundle and refreshes on demand.
+## Requesting branding
 
-Use `config_id` when you expect branding to change. Changing the bundle updates every installed extension without re-issuing links.
+Send Akeyless support:
+
+- your logo (Akeyless hosts it for you),
+- the colors you want, and
+- your account and Access ID, so the branding is attached to your organization.
+
+Akeyless applies the branding for you. Nothing needs to be configured in the extension or the
+console on your side.
 
 ## Dark mode
 
 <Callout icon="ℹ️" theme="info">
-  **When branding is active, dark mode is locked to light and the toggle is hidden**, so your palette renders as intended.
+  **When branding is active, dark mode is locked to light and the dark-mode toggle is hidden**,
+  so your colors display as intended.
 </Callout>
 
-If you want users to keep dark mode, do not set branding colors.
-
-## Logo requirements
-
-`logoUrl` must be `https://` on `*.akeyless.io` or the trusted Google Cloud Storage bucket. Other domains, `data:` URIs and `javascript:` are rejected and the default logo is used instead.
-
-Host your logo on an approved domain, or ask Akeyless to add it to the brand assets bucket.
+If your users need dark mode, ask Akeyless support not to apply branding colors.
 
 ## Related
 
