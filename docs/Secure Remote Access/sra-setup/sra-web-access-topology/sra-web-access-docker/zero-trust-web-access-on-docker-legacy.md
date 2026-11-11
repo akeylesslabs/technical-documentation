@@ -1,6 +1,6 @@
 ---
 title: Zero Trust Web Access on Docker - Legacy
-deprecated: false
+deprecated: true
 hidden: true
 metadata:
   robots: index
