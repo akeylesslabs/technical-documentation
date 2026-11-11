@@ -476,6 +476,10 @@ jobs:
           TITLE_HINT: ${{ steps.build-prompt.outputs.title_hint }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           BRANCH_PREFIX: docs-agent/${{ github.run_id }}-${{ github.run_attempt }}
+          # Largest file ARA can push before the gateway's 60 s cutoff
+          # (~15 KB at ~3.4 s/KB). Raise via the repository variable after
+          # raising the gateway/ingress timeout (e.g. 60000 for a 5-min one).
+          MAX_PUSH_BYTES: ${{ vars.DOCS_AGENT_MAX_PUSH_BYTES || '15000' }}
         run: |
           # set +e: GitHub runs this as `bash -e`, and the checks below rely on
           # functions returning non-zero ("branch not found yet") without the
@@ -606,10 +610,35 @@ jobs:
             bytes=$(wc -c < "$f" | tr -d ' ')
             sum=$(shasum -a 256 "$f" | cut -d' ' -f1)
             printf '%-10s %-64s %s\n' "$bytes" "$sum" "$f" | tee -a "$WORK/record.txt"
-            if [ "$bytes" -gt 40000 ]; then
-              echo "::warning::$f is $bytes bytes. ARA's LLM has to re-type the whole file on push, so this can take several minutes."
+            if [ "$bytes" -gt "$MAX_PUSH_BYTES" ]; then
+              echo "$f ($bytes bytes)" >> "$WORK/too-large.txt"
             fi
           done 3< "$WORK/files.txt"
+
+          # Fail BEFORE creating a branch if any file is too big for ARA to
+          # push in time: ARA's LLM re-types the whole file (~3-4 s per KB),
+          # and the gateway cuts requests off at 60 s. Better to stop here
+          # than leave a half-pushed branch behind.
+          if [ -s "$WORK/too-large.txt" ]; then
+            echo ""
+            echo "These files are over the $MAX_PUSH_BYTES-byte push limit:"
+            sed 's/^/  /' "$WORK/too-large.txt"
+            echo ""
+            echo "Nothing was pushed and no branch was created. To publish:"
+            echo "  - apply the attached patch by hand (artifact docs-agent-patch-*), or"
+            echo "  - once the gateway timeout is raised, set the repository variable"
+            echo "    DOCS_AGENT_MAX_PUSH_BYTES higher and re-run."
+            {
+              echo "### Docs agent: file too large to push via ARA"
+              echo ""
+              echo "Limit: $MAX_PUSH_BYTES bytes. Apply the patch artifact by hand, or raise the limit."
+              echo ""
+              echo '```'
+              cat "$WORK/too-large.txt"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            die "File(s) over the $MAX_PUSH_BYTES-byte ARA push limit (see above). The full patch is attached to this run."
+          fi
 
           # ---------------------------------------------------------------
           # 2. Create the branch from v1.0 and VERIFY its base.
