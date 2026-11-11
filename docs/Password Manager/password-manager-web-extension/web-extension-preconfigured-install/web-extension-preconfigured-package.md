@@ -32,7 +32,6 @@ Both snake_case and camelCase keys are accepted.
   "preferredAuthMethod": "saml",
   "allowedAuthMethods": ["saml"],
   "environment": "global",
-  "config_id": "…",
   "contact_support_url": "https://support.example.com",
   "open_web_console_url": "https://console-pwm.akeyless.io",
   "passkey_enabled": true,
@@ -67,7 +66,6 @@ The result is `dist/akeyless-chrome-<version>.zip`.
 | `--access-id=` | Access ID to pre-fill |
 | `--auth=` | `alias`, `saml`, `oidc`, `google`, `github`, `access-id`, `email` |
 | `--environment=` | Region for email sign-in |
-| `--config-id=` | Branding bundle ID |
 | `--contact-support-url=` | Custom support destination |
 | `--open-web-console-url=` | Custom web console destination |
 | `--passkey-enabled=` | `true` or `false` |
@@ -86,4 +84,3 @@ Install the package into a clean browser profile and confirm the login screen sh
 - [Preconfigured Installs: Overview](https://docs.akeyless.io/docs/web-extension-preconfigured-install)
 - [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link)
 - [Self-Distribution with Microsoft Intune](https://docs.akeyless.io/docs/web-extension-intune-self-distribution)
-- [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding)
