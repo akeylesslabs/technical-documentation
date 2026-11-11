@@ -556,6 +556,9 @@ jobs:
           T: ${{ steps.ara-token.outputs.token }}
           GATEWAY_URL: ${{ steps.ara-token.outputs.gateway_url }}
           DS_NAME: /DocsAgent/Technical-Documentation-Repo-Github-DS
+          # Per-run ID, so this run's two preflight sessions can be found in the
+          # Console's Agentic Access table by searching for the run number.
+          AGENT_ID: docs-agent-preflight-${{ github.run_id }}
         run: |
           set -uo pipefail
           FAILED=0
@@ -611,8 +614,8 @@ jobs:
             "$GATEWAY_URL/config/target_query" \
             -H "Authorization: Bearer $T" \
             -H 'Content-Type: application/json' \
-            -d "$(jq -n --arg n "$DS_NAME" \
-                  '{secret_name:$n,payload:"list the open pull requests in akeylesslabs/technical-documentation",agent_id:"docs-agent-preflight"}')" || true)
+            -d "$(jq -n --arg n "$DS_NAME" --arg a "$AGENT_ID" \
+                  '{secret_name:$n,payload:"list the open pull requests in akeylesslabs/technical-documentation",agent_id:$a}')" || true)
           if [ "$CODE" = "200" ]; then
             echo "OK   2/3 allowed ARA read returned HTTP 200"
           else
@@ -626,8 +629,8 @@ jobs:
             "$GATEWAY_URL/config/target_query" \
             -H "Authorization: Bearer $T" \
             -H 'Content-Type: application/json' \
-            -d "$(jq -n --arg n "$DS_NAME" \
-                  '{secret_name:$n,payload:"merge PR #1 in akeylesslabs/technical-documentation",agent_id:"docs-agent-preflight"}')" || true)
+            -d "$(jq -n --arg n "$DS_NAME" --arg a "$AGENT_ID" \
+                  '{secret_name:$n,payload:"merge PR #1 in akeylesslabs/technical-documentation",agent_id:$a}')" || true)
           if [ "$CODE" = "400" ] && grep -qi 'ai policy rejection' "$BODY"; then
             echo "OK   3/3 forbidden ARA operation rejected by policy (HTTP 400)"
           else
@@ -636,7 +639,7 @@ jobs:
             FAILED=1
           fi
 
-          echo "Cross-check the Console: ARA sessions should show one approved and one blocked session for agent docs-agent-preflight."
+          echo "Cross-check the Console: the Agentic Access table should show one Approved and one Blocked session with Agent Session ID $AGENT_ID."
           exit "$FAILED"
 
       - name: Push the branch (git) and open the pull request (ARA)
@@ -650,6 +653,10 @@ jobs:
           BASE_SHA: ${{ needs.edit.outputs.base_sha }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           BRANCH: docs-agent/${{ github.run_id }}-${{ github.run_attempt }}
+          # Per-run ID: shows up as the "Agent Session ID" in the Console's
+          # Agentic Access table, so each run's PR request has its own
+          # searchable row.
+          AGENT_ID: docs-agent-${{ github.run_id }}-${{ github.run_attempt }}
         run: |
           # set +e: GitHub runs this as `bash -e`, and the checks below rely on
           # functions returning non-zero ("not found yet") without the step
@@ -691,7 +698,7 @@ jobs:
             local label="$1" max="$2" code start
             : > "$WORK/ara.out"
             start=$SECONDS
-            code=$(python3 -c 'import json, sys; print(json.dumps({"secret_name": sys.argv[1], "payload": open(sys.argv[2], encoding="utf-8").read(), "agent_id": "docs-agent"}))' "$DS_NAME" "$WORK/payload.txt" \
+            code=$(python3 -c 'import json, sys; print(json.dumps({"secret_name": sys.argv[1], "payload": open(sys.argv[2], encoding="utf-8").read(), "agent_id": sys.argv[3]}))' "$DS_NAME" "$WORK/payload.txt" "$AGENT_ID" \
               | curl -sS --connect-timeout 10 --max-time "$max" -o "$WORK/ara.out" -w '%{http_code}' \
                   -X POST "$GATEWAY_URL/config/target_query" \
                   -H "Authorization: Bearer $ARA_TOKEN" \
@@ -820,8 +827,13 @@ jobs:
               cat "$WORK/pr-body.md"
               echo "END-PR-BODY"
             } > "$WORK/payload.txt"
+            echo "  ARA request sent $(date -u +%Y-%m-%dT%H:%M:%SZ) as Agent Session ID $AGENT_ID"
             ara "open-pr" 120
-            case $? in
+            rc=$?
+            # What the gateway answered (truncated). Useful when matching this
+            # request to its row in the Console's Agentic Access table.
+            echo "    ARA replied: $(tr -d '\\' < "$WORK/ara.out" | tr '\n\r' '  ' | cut -c1-400)"
+            case $rc in
               2) die "ARA policy REJECTED opening the pull request (the input rules on the dynamic secret blocked it) -- not retried. The branch $BRANCH is pushed and complete; open the PR by hand into $BASE_BRANCH, or fix the rules and re-run." ;;
               3) die "ARA refused the token (auth). Check the role's ara-rule on the dynamic secret. The branch $BRANCH is pushed and complete; open the PR by hand into $BASE_BRANCH." ;;
             esac
