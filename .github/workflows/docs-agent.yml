@@ -477,7 +477,10 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           BRANCH_PREFIX: docs-agent/${{ github.run_id }}-${{ github.run_attempt }}
         run: |
-          set -uo pipefail
+          # set +e: GitHub runs this as `bash -e`, and the checks below rely on
+          # functions returning non-zero ("branch not found yet") without the
+          # step dying. Every failure is handled explicitly via die().
+          set +e -uo pipefail
           WORK="$RUNNER_TEMP/docs-agent"
           rm -rf "$WORK"; mkdir -p "$WORK"
           OWNER="${REPO%%/*}"
@@ -522,8 +525,8 @@ jobs:
             local label="$1" max="$2" code start
             : > "$WORK/ara.out"
             start=$SECONDS
-            code=$(jq -n --arg n "$DS_NAME" --rawfile p "$WORK/payload.txt" \
-                     '{secret_name:$n,payload:$p,agent_id:"docs-agent"}' \
+            # python3 builds the JSON (portable; no dependency on jq --rawfile).
+            code=$(python3 -c 'import json, sys; print(json.dumps({"secret_name": sys.argv[1], "payload": open(sys.argv[2], encoding="utf-8").read(), "agent_id": "docs-agent"}))' "$DS_NAME" "$WORK/payload.txt" \
               | curl -sS --connect-timeout 10 --max-time "$max" -o "$WORK/ara.out" -w '%{http_code}' \
                   -X POST "$GATEWAY_URL/config/target_query" \
                   -H "Authorization: Bearer $ARA_TOKEN" \
