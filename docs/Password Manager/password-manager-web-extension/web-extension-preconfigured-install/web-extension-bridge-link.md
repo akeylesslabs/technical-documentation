@@ -5,6 +5,13 @@ title: Bridge Link Install
   **Audience: account administrators.**
 </Callout>
 
+<Callout icon="⚠️" theme="warn">
+  **Preconfigured links are created by Akeyless support**, not by you. To get one, send your
+  authentication method, Access ID and region to your account team or
+  [Akeyless support](https://www.akeyless.io/contact-support/). This page is a reference for
+  what a link carries, to help you check or troubleshoot a link you received.
+</Callout>
+
 Three link-based ways to deliver your organization's sign-in settings to a user's extension. All three write to `akeyless_installation_preferences` — see [Preconfigured Installs: Overview](https://docs.akeyless.io/docs/web-extension-preconfigured-install).
 
 ---
