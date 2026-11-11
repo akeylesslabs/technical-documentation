@@ -36,6 +36,7 @@ Both snake_case and camelCase keys are accepted.
   "contact_support_url": "https://support.example.com",
   "open_web_console_url": "https://console-pwm.akeyless.io",
   "passkey_enabled": true,
+  "passkey_verification": "required",
   "preconfigured_sign_in_title": "Ready to Sign In",
   "preconfigured_sign_in_message": "Use your corporate identity.\n\nContact IT if you need help.",
   "installationSource": "bundled_prefill"
@@ -70,6 +71,7 @@ The result is `dist/akeyless-chrome-<version>.zip`.
 | `--contact-support-url=` | Custom support destination |
 | `--open-web-console-url=` | Custom web console destination |
 | `--passkey-enabled=` | `true` or `false` |
+| `--passkey-verification=` | `off`, `on` or `required` |
 | `--preconfigured-sign-in-title=` | Login info box heading |
 | `--preconfigured-sign-in-message=` | Login info box body; use `\n\n` for paragraph breaks |
 
@@ -83,4 +85,5 @@ Install the package into a clean browser profile and confirm the login screen sh
 
 - [Preconfigured Installs: Overview](https://docs.akeyless.io/docs/web-extension-preconfigured-install)
 - [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link)
+- [Self-Distribution with Microsoft Intune](https://docs.akeyless.io/docs/web-extension-intune-self-distribution)
 - [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding)
