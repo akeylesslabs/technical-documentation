@@ -42,6 +42,8 @@ akeyless auth-method create ldap \
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 `--force-sub-claims`: enforce role-association must include sub-claims
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
@@ -158,6 +160,8 @@ akeyless update-auth-method-ldap \
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 

@@ -161,6 +161,8 @@ akeyless auth-method create alicloud --name <Auth method name>
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 `bound-account-id`: **Required**, A list of account-IDs that the acc`ss is restricted to`
 
 `--sts-url[=`[`https://sts.aliyuncs.com]`](https://sts.aliyuncs.com): STS URL.&#x20;
@@ -215,6 +217,8 @@ akeyless auth-method create api-key --name <Auth method name>
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 ### `aws-iam`
 
 Create a new Auth Method that can authenticate using AWS IAM credentials
@@ -255,6 +259,8 @@ akeyless auth-method create aws-iam \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `--aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to
 
@@ -313,6 +319,8 @@ akeyless auth-method create azure-ad \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `-b, --bound-tenant-id`: **Required**, The Azure tenant ID that the access is restricted to
 
@@ -379,6 +387,8 @@ akeyless auth-method create cert \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 `--certificate-data`: The certificate data in Base64, if no file was provided
 
 `--certificate-file-name`: The path to the file containing the CA certificate
@@ -441,6 +451,8 @@ akeyless auth-method create email \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 `--email`: **Required**, An email address to be invited to have access
 
 ### `gcp`
@@ -482,6 +494,8 @@ akeyless auth-method create gcp \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `-t, --type`: **Required**, The type of the GCP Auth Method (IAM/GCE)
 
@@ -541,6 +555,8 @@ akeyless auth-method create oauth2 \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `-j, --jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server
 
@@ -603,6 +619,8 @@ akeyless auth-method create oci \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 ### `oidc`
 
 Creates a new Authentication Method object that will allow the user to authenticate using OIDC
@@ -643,6 +661,8 @@ akeyless auth-method create oidc \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `--issuer`: Issuer URL
 `--client-id`: Client ID
@@ -698,6 +718,8 @@ akeyless auth-method create saml \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or UPN for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
@@ -785,6 +807,8 @@ akeyless auth-method update api-key --name <Auth method>
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 #### `aws-iam`
 
 Update a new Auth Method that can authenticate using AWS IAM credentials
@@ -842,6 +866,8 @@ For partition support and endpoint examples, see [AWS Partition and Deployment S
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 #### `azure-ad`
 
 Update a new Auth Method that can authenticate using Azure Active Directory credentials
@@ -880,6 +906,8 @@ akeyless auth-method update azure-ad \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `-b, --bound-tenant-id`: **Required**, The Azure tenant ID that the access is restricted to
 
@@ -944,6 +972,8 @@ akeyless auth-method update cert \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 `--certificate-data`: The certificate data in Base64, if no file was provided.
 
 `--certificate-file-name`: the path to the file containing the CA certificate
@@ -1004,6 +1034,8 @@ akeyless auth-method update email \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 `--enable-mfa`: Enable MFA for this authentication method \[true/false]
 
 `--mfa-type[=email]`: Enable two-factor authentication via \[email/app]
@@ -1047,6 +1079,8 @@ akeyless auth-method update gcp \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `-t, --type`: **Required**, The type of the GCP Auth Method (`iam`/`gce`)
 
@@ -1104,6 +1138,8 @@ akeyless auth-method update oauth2 \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `-j, --jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server.
 
@@ -1165,6 +1201,8 @@ akeyless auth-method update oci \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 #### `oidc`
 
 Update a new Auth Method that can authenticate using OIDC
@@ -1205,6 +1243,8 @@ akeyless auth-method update oidc \
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `--issuer`: Issuer URL
 
@@ -1260,6 +1300,8 @@ akeyless auth-method update saml \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
 
 `--idp-metadata-url`: IdP metadata URL
@@ -1299,6 +1341,8 @@ akeyless revoke-creds --profile/token <Profile/Token>
 akeyless auth-method get -n <Auth method name>
 ```
 
+The response includes the `owner` field, if one is set on the Auth Method.
+
 ## List
 
 ### Usage
@@ -1316,6 +1360,8 @@ akeyless auth-method list \
 `--filter`: Filter by Auth Method name or part of it
 
 `--pagination-token`: Next page reference
+
+The response includes the `owner` field for each Auth Method, if one is set.
 
 ## Delete
 

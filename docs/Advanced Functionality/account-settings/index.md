@@ -153,3 +153,7 @@ Set the Allowed Client Types for this account, the available client types are: *
 #### Choose default Auth method
 
 Choose a default auth method that will be used when generating links for items in the account. Relevant only for [SAML](https://docs.akeyless.io/docs/auth-with-saml) and [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication methods.
+
+#### Require owner on authentication methods
+
+When enabled, every Authentication Method in the account must have an `owner` (a user email, a group, or free text) set. With this toggle on, creating an Authentication Method without an owner fails, and updating an existing Authentication Method that has no owner fails unless an owner is provided in the same update. This setting is off by default, and turning it on does not affect existing Authentication Methods until they are next updated. It is also available via `update-account-settings` and `get-account-settings`.

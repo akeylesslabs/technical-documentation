@@ -50,6 +50,8 @@ akeyless auth-method create kerberos \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
+
 `-d, --delimiters`: A list of additional sub-claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT). To specify multiple delimiters use the argument multiple times: `-d # -d ^`
 
 `--krb5conf-file-path`: The path to a valid `krb5.conf` file, specifying the settings and parameters required for Kerberos authentication.
@@ -124,6 +126,8 @@ akeyless auth-method update kerberos \
 `--audit-logs-claims`: Sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
+
+`--owner`: Owner of the Auth Method (for example, a user email, a group, or free text). Required only if the account's "Require owner on authentication methods" setting is enabled
 
 `-d, --delimiters`: A list of additional sub-claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT). To specify multiple delimiters use the argument multiple times: `-d # -d ^`
 
