@@ -42,6 +42,8 @@ akeyless connect [flags]
 
 `-J, --justification`: User-supplied connection justification
 
+`--requested-ttl`: For how long to grant the requested access, in minutes. Defaults to 60 when not provided
+
 `--sra-ctrl-proto[=http]`: SRA control API protocol (`http` or `https`)
 
 `--sra-ctrl-port[=9900]`: SRA control API port
