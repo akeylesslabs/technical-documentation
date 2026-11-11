@@ -1,6 +1,5 @@
 ---
 title: OIDC
-slug: auth-with-oidc
 excerpt: OpenID Connect
 deprecated: false
 hidden: false
@@ -12,6 +11,7 @@ next:
   description: >-
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
+slug: auth-with-oidc
 ---
 [OpenID Connect (OIDC)](https://openid.net/connect/) is a simple identity layer on top of the OAuth 2.0 protocol. It allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
 
@@ -87,4 +87,60 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## SCIM Provisioning
 
-OIDC Authentication Methods also support SCIM provisioning, so your IdP can push user and group changes to Akeyless directly instead of relying solely on JIT provisioning at sign-in. Enable it with the `scim-enabled`, `scim-bearer-access-id`, `scim-endpoint`, and `scim-gateway-url` flags on `akeyless auth-method create oidc` / `update oidc`. For setup steps, prerequisites, and group-to-role mapping, see [SCIM Provisioning](https://docs.akeyless.io/docs/auth-with-saml#scim-provisioning) on the SAML Authentication Method page.
+OIDC Authentication Methods support SCIM provisioning. With SCIM, your Identity Provider (IdP) pushes user and group changes to Akeyless as they happen, so onboarding, offboarding, and group membership stay current, instead of updating users only when they sign in. SCIM users become Akeyless identities, and SCIM groups become Akeyless groups that you can associate with Access Roles. When the IdP deactivates a user, Akeyless revokes that user's active sessions and tokens.
+
+### Prerequisites
+
+1. Create an [API Key Authentication Method](doc:api-key) to act as the SCIM bearer identity.
+2. Generate an access key for it and store it securely. Your IdP uses it as the SCIM bearer token, and it can't be retrieved after creation.
+
+### Enable SCIM on an OIDC Authentication Method
+
+On an existing OIDC Authentication Method:
+
+```shell
+akeyless auth-method update oidc \
+  --name <OIDC Auth Method Name> \
+  --scim-enabled \
+  --scim-bearer-access-id <API Key Auth Method Access ID> \
+  --scim-endpoint public
+```
+
+You can pass the same flags to `akeyless auth-method create oidc` when you create a new method.
+
+| Flag                      | Description                                                                                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--scim-enabled`          | Turns on SCIM provisioning for this OIDC Authentication Method.                                                                                     |
+| `--scim-bearer-access-id` | Access ID of the API Key Authentication Method that the IdP uses for SCIM.                                                                          |
+| `--scim-endpoint`         | Where the IdP reaches the SCIM server: `public` (hosted by Akeyless) or `private` (served by your Gateway).                                         |
+| `--scim-gateway-url`      | Required when `--scim-endpoint` is `private`. The URL of the Gateway that serves the SCIM endpoint, for example `https://gateway.example.com:8000`. |
+
+To serve SCIM from your own Gateway:
+
+```shell
+akeyless auth-method update oidc \
+  --name <OIDC Auth Method Name> \
+  --scim-enabled \
+  --scim-bearer-access-id <API Key Auth Method Access ID> \
+  --scim-endpoint private \
+  --scim-gateway-url https://gateway.example.com:8000
+```
+
+### Connect Your IdP
+
+1. Get the SCIM base URL and check the connection:
+
+   ```shell
+   akeyless get-scim-status --name <OIDC Auth Method Name>
+   ```
+
+   The output shows the SCIM base URL, the connection status, and how many users and groups have synced.
+2. In your IdP's SCIM provisioning settings, set the SCIM base URL from the previous step, and use the API Key access key as the bearer token.
+
+<Callout icon="📘" theme="info">
+  ### Note
+
+  Some IdPs offer SCIM provisioning only for certain app types. If your IdP's OIDC app has no provisioning settings, see your IdP's documentation for adding SCIM provisioning.
+</Callout>
+
+###
