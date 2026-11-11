@@ -2842,3 +2842,105 @@ akeyless rotated-secret delete-sync \
 `--delete-from-usc[=false]`: Delete the secret from the remote target usc as well.
 
 `--gateway-url`: Akeyless Gateway URL (port `8000`).
+
+## Provisioning
+
+`akeyless rotated-secret provision`
+
+Commands to provision the fresh key(s) of an [SSH Rotated Secret](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#provisioning) to a remote server using a [Target](https://docs.akeyless.io/docs/targets).
+
+### `create`
+
+Creates a provisioning configuration for a Rotated Secret
+
+#### Usage
+
+```shell
+akeyless rotated-secret provision create \
+--name <Rotated Secret name> \
+--target-name <Target name> \
+--provision-keys[=public] <public/private> \
+--public-key-remote-path <path> \
+--private-key-remote-path <path> \
+--private-key-passphrase <passphrase>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Rotated Secret name
+
+`--target-name`: **Required**, the Target name to provision the keys to
+
+`--provision-keys[=public]`: Whether to provision the `public` key only, or the `public` and `private` keys
+
+`--public-key-remote-path`: The path on the target to provision the public key to
+
+`--private-key-remote-path`: The path on the target to provision the private key to (relevant only when `--provision-keys` includes the private key)
+
+`--private-key-passphrase`: A passphrase to encrypt the provisioned private key (relevant only when `--provision-keys` includes the private key)
+
+### `update`
+
+Updates an existing provisioning configuration for a Rotated Secret
+
+#### Usage
+
+```shell
+akeyless rotated-secret provision update \
+--name <Rotated Secret name> \
+--target-name <Target name> \
+--provision-keys[=public] <public/private> \
+--public-key-remote-path <path> \
+--private-key-remote-path <path> \
+--private-key-passphrase <passphrase>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Rotated Secret name
+
+`--target-name`: **Required**, the Target name of the provisioning configuration to update
+
+`--provision-keys[=public]`: Whether to provision the `public` key only, or the `public` and `private` keys
+
+`--public-key-remote-path`: The path on the target to provision the public key to
+
+`--private-key-remote-path`: The path on the target to provision the private key to (relevant only when `--provision-keys` includes the private key)
+
+`--private-key-passphrase`: A passphrase to encrypt the provisioned private key (relevant only when `--provision-keys` includes the private key)
+
+### `delete`
+
+Deletes a provisioning configuration from a Rotated Secret
+
+#### Usage
+
+```shell
+akeyless rotated-secret provision delete \
+--name <Rotated Secret name> \
+--target-name <Target name>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Rotated Secret name
+
+`--target-name`: **Required**, the Target name of the provisioning configuration to delete
+
+### `push`
+
+Provisions the Rotated Secret's fresh key(s) to the target on demand
+
+#### Usage
+
+```shell
+akeyless rotated-secret provision push \
+--name <Rotated Secret name> \
+--target-name <Target name>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Rotated Secret name
+
+`--target-name`: **Required**, the Target name to provision the keys to

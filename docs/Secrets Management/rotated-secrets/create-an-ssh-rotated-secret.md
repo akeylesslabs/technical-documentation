@@ -188,6 +188,71 @@ Another example of rotating Windows service password:
 net user /domain "{{USERNAME}}" {{NEW_PASSWORD}} && sc config "lfsvc" obj= "ad\{{USERNAME}}" password= "{{NEW_PASSWORD}}" && net stop lfsvc && net start lfsvc
 ```
 
+## Provisioning
+
+In addition to the [Authorized Keys Remote Path](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#create-a-rotated-ssh-secret-in-the-akeyless-console) used during rotation, you can provision the SSH Rotated Secret's fresh key(s) to a remote server using any [Target](https://docs.akeyless.io/docs/targets), similar to [Certificate Provisioning](https://docs.akeyless.io/docs/certificate-provisioning).
+
+Supported targets, in priority order:
+
+1. **Custom** - A web endpoint invoked with a `POST` request. Provisioning to the endpoint is managed by you.
+2. **SSH Target**
+3. **Windows Target**
+4. **Linked Target**
+
+For any target other than **Custom**, you must confirm the location where the keys will be placed. This location defaults to the Rotated Secret's own default setting, for example `authorized_keys`.
+
+### Provisioning Options
+
+- **Target Name** - The [Target](https://docs.akeyless.io/docs/targets) to provision the keys to.
+
+- **Provision Keys** - Choose whether to provision the **Public Key** only, or the **Public Key** and the **Private Key**.
+
+- **Public Key Remote Path** - The path on the target where the public key will be provisioned.
+
+- **Private Key Remote Path** - The path on the target where the private key will be provisioned (relevant only when the private key is included).
+
+- **Private Key Passphrase** - A passphrase used to encrypt the provisioned private key (relevant only when the private key is included).
+
+<Callout icon="⚠️" theme="warning">
+  ### **Note:**
+
+  If no passphrase is set, the private key will be stored unencrypted on the server. We recommend setting a passphrase.
+</Callout>
+
+### Provisioning SSH Keys Using the Akeyless CLI
+
+```shell
+akeyless rotated-secret provision create \
+--name <Rotated Secret name> \
+--target-name <Target name> \
+--provision-keys[=public] <public/private> \
+--public-key-remote-path <path> \
+--private-key-remote-path <path> \
+--private-key-passphrase <passphrase>
+```
+
+Where:
+
+- `name`: The Rotated Secret name.
+- `target-name`: The Target name to provision the keys to.
+- `provision-keys`: Whether to provision the `public` key only, or the `public` and `private` keys.
+- `public-key-remote-path`: The path on the target to provision the public key to.
+- `private-key-remote-path`: The path on the target to provision the private key to (relevant only when `provision-keys` includes the private key).
+- `private-key-passphrase`: A passphrase to encrypt the provisioned private key (relevant only when `provision-keys` includes the private key).
+
+Once a provisioning configuration is created, you can update it with `akeyless rotated-secret provision update`, remove it with `akeyless rotated-secret provision delete`, or push the keys to the target on demand with `akeyless rotated-secret provision push`.
+
+You can find the complete list of parameters for these commands in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#provisioning) section.
+
+### Provisioning Events
+
+The following events are triggered for each provisioning run:
+
+- **SSH Keys Provisioning Success**
+- **SSH Keys Provisioning Failure**
+
+Each event's **View Details** shows the name of the associated Target. For more information, see the [Event Center](https://docs.akeyless.io/docs/event-center).
+
 ## Tutorial
 
 Check out our tutorial video on [Creating and Using SSH Rotated Secrets](https://tutorials.akeyless.io/docs/creating-and-using-rotated-secrets).
