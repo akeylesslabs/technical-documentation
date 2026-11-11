@@ -120,9 +120,9 @@ You can find the complete list of parameters for this command in the [CLI Refere
    </Callout>
 
    - **Private Key:** The private key that will be rotated (Relevant only for **Key** mode).
-   - **Public Key:&#x20;**&#x54;he public key that corresponds to the private key, in `OpenSSH authorized_keys`\` format. Derived automatically and not editable.
+   - **Public Key:&#x20;**&#x54;he public key that corresponds to the private key, in `OpenSSH authorized_keys`\` format. Derived automatically and not editable. Since the public key is already distributed to every server it's provisioned to, it isn't sensitive and can be viewed by anyone with **List** (view) permission on the item — see [Retrieving the SSH Public Key](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#retrieving-the-ssh-public-key) below.
    - **Algorithm:&#x20;**&#x54;he key algorithm this secret uses. Applied when Akeyless generates the key pair, and preserved on every rotation.
-   - **Authorized Keys Remote Path :&#x20;**&#x54;he file on the target server where the public key is written. By Default: `~/.ssh/authorized_keys` .
+   - **Authorized Keys Remote Path :&#x20;**&#x54;he file on the target server where the public key is written. By Default: `~/.ssh/authorized_keys` .
    - **Rotation Statement:** In this field you can provide a [Custom Rotation Statement](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#custom-rotation-statement).
    - **Password Length**: Set the user's password length.
    - **Gateway:** Select the Gateway through which the secret will be rotated.
@@ -133,6 +133,22 @@ You can find the complete list of parameters for this command in the [CLI Refere
    - **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.
+
+## Retrieving the SSH Public Key
+
+For SSH Rotated Secrets using the **Key** rotator type, Akeyless manages a key pair and provisions the public key to the target server's `authorized_keys` file as part of rotation. Because the public key is, by definition, already distributed to every server it's provisioned to, it isn't sensitive material.
+
+To avoid over-provisioning access, the public key can be retrieved with **List** permission on the item — the same permission level already used to see an item's existence and metadata — rather than requiring the **Read** (`get-value`) permission needed for the private key:
+
+* **CLI/API:** Run `describe-item` on the Rotated Secret. A client with **List** permission on the item will receive the public key in the response, without needing **Read** (`get-value`) permission:
+
+  ```shell
+  akeyless describe-item --name <Rotated Secret name>
+  ```
+
+* **Console:** The item's details page shows the public key to any user with **List** (view) access to the item, without requiring **Read** (`get-value`) permission.
+
+This is additive to the existing behavior: the private key, and the existing `get-value` flow used to retrieve it, are unaffected. Anyone who already has **Read** (`get-value`) permission continues to get everything they get today.
 
 ## Custom Rotation Statement
 
