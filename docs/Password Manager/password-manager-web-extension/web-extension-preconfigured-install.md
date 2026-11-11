@@ -36,6 +36,7 @@ Every path writes to the same place: a browser-storage record named `akeyless_in
 | `privacyPolicyUrl` | Destination of **Privacy Policy** |
 | `openWebConsoleUrl` | Destination of **Open Web Console** |
 | `passkeyEnabled` | Initial state of `Passkey Management` |
+| `passkeyVerification` | Passkey verification before creating or using a passkey: `off`, `on` or `required` (`required` locks it on in Settings). Only this bundled file can turn it off; the bridge and URL sources can only make it stricter. |
 | `preconfiguredSignInTitle` | Heading of the login info box. Default *"Ready to Sign In"*. Max 120 characters |
 | `preconfiguredSignInMessage` | Body of that box. Blank lines separate paragraphs. Max 2000 characters |
 | `installationSource` | Records which path delivered the settings |
@@ -61,4 +62,5 @@ If you set no support or privacy URL, the extension uses:
 
 - [Bridge Link Install](https://docs.akeyless.io/docs/web-extension-bridge-link)
 - [Preconfigured Package](https://docs.akeyless.io/docs/web-extension-preconfigured-package)
+- [Self-Distribution with Microsoft Intune](https://docs.akeyless.io/docs/web-extension-intune-self-distribution)
 - [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding)
