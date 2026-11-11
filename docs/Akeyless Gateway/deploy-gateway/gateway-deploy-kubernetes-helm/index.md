@@ -290,6 +290,29 @@ serviceAccount:
 
 Save the file and proceed with the [installation](https://docs.akeyless.io/docs/gateway-kubernetes-legacy-deployment#installation) instructions.
 
+### AliCloud
+
+AliCloud can be used in the following approaches:
+
+- Worker node RAM role
+- RAM Roles for Service Accounts (RRSA)
+
+In both cases, provide your [AliCloud](https://docs.akeyless.io/docs/alicloud) Authentication Method's Access ID as your `gatewayAccessId`, and at least one other Access ID in the `allowedAccessPermissions` section to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#gateway-admins):
+
+```yaml values.yaml
+globalConfig:
+  gatewayAuth:
+    gatewayAccessId: <Access ID>
+    gatewayAccessType: alicloud
+  allowedAccessPermissions: {}
+```
+
+When the ECS instances in your node pool have a RAM role attached, nothing else is required, as the Gateway uses the RAM role of the instance it runs on.
+
+To use RRSA on Alibaba Cloud ACK, see [Alibaba Cloud ACK Deployment](https://docs.akeyless.io/docs/alibaba-cloud-ack-deployment).
+
+Save the file and proceed with the [installation](https://docs.akeyless.io/docs/gateway-deploy-kubernetes-helm#installation) instructions.
+
 ### Universal Identity
 
 Akeyless support [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) authentication method for on-premise Kubernetes cluster environments, eliminating the secret zero problems within your config files.
