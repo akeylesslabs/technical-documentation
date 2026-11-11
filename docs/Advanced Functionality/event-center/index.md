@@ -48,6 +48,10 @@ For `event-source-type = items | target`:
 
 - `certificate-provisioning-failure`: Upon **certificate provisioning** failure
 
+- `ssh-keys-provisioning-success`: When an [SSH Rotated Secret's](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#provisioning) fresh key(s) are successfully provisioned to a target.
+
+- `ssh-keys-provisioning-failure`: Upon **SSH key provisioning** failure.
+
 - `certificate-scanning-success`: When a Certificate Discovery scan completes, reporting how many certificates were added and updated across the scanned hosts and ports.
 
 - `certificate-scanning-failure`: When a Certificate Discovery scan fails, or completes with at least one failed target.
