@@ -40,6 +40,8 @@ Command to create a Dynamic Secret
 
 `aerospike`: Creates aerosipke dynamic secret
 
+`alicloud`: Created Alicloud dynamic secret
+
 `aws`: Creates AWS dynamic secret
 
 `azure`: Creates Azure AD dynamic secret
@@ -212,6 +214,44 @@ akeyless dynamic-secret create artifactory \
 `--ara-enabled`: Enable Agentic Runtime Authority (ARA) rule enforcement (`true`/`false`). When set to `false`, custom input and output rules are not enforced
 
 `--item-custom-fields`: Additional custom fields to associate with the item. To specify multiple fields, repeat the flag (for example: `--item-custom-fields fieldName1=value1`)
+
+### `alicloud`
+
+Creates AliCloud Dynamic Secret
+
+#### Usage
+
+```shell
+akeyless dynamic-secret create alicloud \
+--name <Dynamic Secret Name> \
+--target-name <Target Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--alicloud-access-mode <ram_user|assume_role> \
+--alicloud-user-policies <Policy name> \
+--alicloud-role-arns <AliCloud Role ARNs>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`--target-name`: **Required**, Name of an existing AliCloud target to use in Dynamic Secret creation
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port), Default = [http://localhost:8000](http://localhost:8000)
+
+`--alicloud-access-mode`: The type of credentials to retrieve from Alibaba Cloud, Options \[ram_user,assume_role]
+
+`--alicloud-user-policies`: Policy names to attach to the RAM user on creation, comma-separated (relevant only for `ram_user`)
+
+`--alicloud-role-arns`: RAM Role ARNs to use in the Assume Role operation, comma-separated (relevant only for `assume_role`)
+
+`--producer-encryption-key-name`: Dynamic producer encryption key
+
+`--user-ttl[=60m]`: User TTL, Default = 60m
+
+`--custom-username-template`: Customize how temporary usernames are generated using go template (relevant only for `ram_user`)
+
+`--password-length`: The length of the password to be generated (relevant only for `ram_user`)
 
 ### `aws`
 
@@ -2289,6 +2329,47 @@ akeyless dynamic-secret create artifactory \
 `--ara-enabled`: Enable Agentic Runtime Authority (ARA) rule enforcement (`true`/`false`). When set to `false`, custom input and output rules are not enforced
 
 `--item-custom-fields`: Additional custom fields to associate with the item. To specify multiple fields, repeat the flag (for example: `--item-custom-fields fieldName1=value1`)
+
+### `alicloud`
+
+Updates AliCloud Dynamic Secret
+
+#### Usage
+
+```shell
+akeyless dynamic-secret update alicloud \
+--name <Dynamic Secret Name> \
+--new-name <New Dynamic Secret Name> \
+--target-name <Target Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--alicloud-access-mode <ram_user|assume_role> \
+--alicloud-user-policies <Policy name> \
+--alicloud-role-arns <AliCloud Role ARNs>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Dynamic Secret name
+
+`--new-name`: Dynamic Secret new name
+
+`--target-name`: Name of an existing AliCloud target to use in Dynamic Secret update
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port), Default = [http://localhost:8000](http://localhost:8000)
+
+`--alicloud-access-mode`: The type of credentials to retrieve from Alibaba Cloud, Options \[ram_user,assume_role]
+
+`--alicloud-user-policies`: Policy names to attach to the RAM user, comma-separated (relevant only for `ram_user`)
+
+`--alicloud-role-arns`: RAM Role ARNs to use in the Assume Role operation, comma-separated (relevant only for `assume_role`)
+
+`--producer-encryption-key-name`: Dynamic producer encryption key
+
+`--user-ttl[=60m]`: User TTL, Default = 60m
+
+`--custom-username-template`: Customize how temporary usernames are generated using go template (relevant only for `ram_user`)
+
+`--password-length`: The length of the password to be generated (relevant only for `ram_user`)
 
 ### `aws`
 
