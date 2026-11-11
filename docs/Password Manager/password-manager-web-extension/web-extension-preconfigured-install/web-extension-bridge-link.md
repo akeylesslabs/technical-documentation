@@ -20,27 +20,19 @@ akeyless_bridge_access_id            (or akeyless_bridge_account_id)
 akeyless_bridge_auth_method
 akeyless_bridge_timestamp
 akeyless_bridge_environment
-akeyless_bridge_config_id            (or akeyless_config_id)
 akeyless_bridge_contact_support_url
 akeyless_bridge_privacy_policy_url
 akeyless_bridge_passkey_enabled
 akeyless_bridge_passkey_verification      (off | on | required — can only make verification stricter)
 akeyless_bridge_preconfigured_sign_in_title
 akeyless_bridge_preconfigured_sign_in_message
-akeyless_bridge_sidebar_bg_color
-akeyless_bridge_button_color
-akeyless_bridge_main_bg_color
-akeyless_bridge_icon_color
-akeyless_bridge_loading_animation_color
-akeyless_bridge_logo_url
-akeyless_bridge_brand_folder
 ```
 
 ### Rules
 
 - **Access ID, auth method and timestamp are all required.** If any is missing, nothing is stored.
 - **The data expires after 10 minutes.** Past that, the extension ignores it.
-- New values are **merged** into existing preferences, so an existing `config_id` survives.
+- New values are **merged** into existing preferences.
 
 <Callout icon="ℹ️" theme="info">
   The expiry is the single most common cause of "the link did not work". Tell users to install the extension immediately after opening the link, and re-issue rather than debug.
@@ -50,7 +42,7 @@ akeyless_bridge_brand_folder
 
 ## Path B — cookiebridge redirect URL
 
-The hosted bridge service can carry settings as query parameters. The extension reads `id` / `config_id`, `contact_support_url`, `privacy_policy_url`, `passkey_enabled`, `passkey_verification`, the branding colors, `brand_folder`, `logo_url`, and the sign-in title and message.
+The hosted bridge service can carry settings as query parameters. The extension reads `id`, `contact_support_url`, `privacy_policy_url`, `passkey_enabled`, `passkey_verification`, and the sign-in title and message.
 
 ---
 
@@ -62,9 +54,7 @@ The same parameters can ride on the store page URL. The extension reads them on 
 ?access_id=<id>           or  ?account_id=<id>
 ?auth_method=<method>     or  ?auth=<method>     (also accepted in the URL #hash)
 ?environment=<region>
-?config_id=…   ?contact_support_url=…   ?privacy_policy_url=…   ?passkey_enabled=…   ?passkey_verification=…
-?sidebar_bg_color=…   ?button_color=…   ?main_bg_color=…   ?icon_color=…
-?loading_animation_color=…   ?logo_url=…   ?brand_folder=…
+?contact_support_url=…   ?privacy_policy_url=…   ?passkey_enabled=…   ?passkey_verification=…
 ?preconfigured_sign_in_title=…   ?preconfigured_sign_in_message=…
 ```
 
@@ -89,8 +79,6 @@ Because these values arrive from a web page or a URL, they are validated before 
 | Value | Rule |
 |---|---|
 | `auth_method` | Must be one of the seven known methods; anything else is discarded |
-| `logo_url` | Must be `https://` on `*.akeyless.io` or the trusted Google Cloud Storage bucket. `data:`, `javascript:` and other domains are rejected |
-| `brand_folder` | Must match `[A-Za-z0-9_-]+` — no path traversal |
 | Sign-in title and message | Control characters stripped, length capped |
 | Support, privacy and console URLs | Must be safe `https://` URLs |
 
@@ -100,4 +88,3 @@ If a value you set does not appear, check it against this table first.
 
 - [Preconfigured Installs: Overview](https://docs.akeyless.io/docs/web-extension-preconfigured-install)
 - [Preconfigured Package](https://docs.akeyless.io/docs/web-extension-preconfigured-package)
-- [Branding & Customization](https://docs.akeyless.io/docs/web-extension-branding)
