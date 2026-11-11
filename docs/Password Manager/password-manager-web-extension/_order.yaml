@@ -30,9 +30,9 @@
 - web-extension-export-passwords
 - web-extension-security-health
 - web-extension-accessibility
-- csv-password-importer
 - passkey
 - sra-web-extension-sa
+- csv-password-importer
 - web-extension-preconfigured-install
 - web-extension-settings
 - web-extension-branding
