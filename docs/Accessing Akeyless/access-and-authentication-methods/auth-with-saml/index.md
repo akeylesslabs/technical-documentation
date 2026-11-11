@@ -210,10 +210,6 @@ akeyless get-scim-status --name <Existing SAML Auth Method Name>
 
 This returns the SCIM base URL, connection status, and counts of synced users and groups.
 
-### Mapping SCIM Groups to Access Roles
-
-SCIM groups synced from your IdP behave like any other Akeyless group: associate a SCIM-provisioned group with an Access Role so that any user the IdP places in that group automatically inherits the role's permissions, without manual steps in the Akeyless Console.
-
 ## Related Pages
 
 For end-to-end IdP setup examples, see:
