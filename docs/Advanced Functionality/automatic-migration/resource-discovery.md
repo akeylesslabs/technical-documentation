@@ -58,7 +58,7 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 
 - **User Base DN:** Distinguished Name of User objects to search in Active Directory<br />(For example: `OU=OU_Name`, `CN=Users`, `DC=example`, `DC=com` or `OU=User_Name,DC=example,DC=com`).
 
-- **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, for example, `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
+- **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, for example, `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder. In addition to `{{USERNAME}}`, you can add placeholders mapped to other LDAP attributes, see [Advanced Path Templates for Resource Discovery](https://docs.akeyless.io/docs/resource-discovery-path-templates).
 
 - **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
 
@@ -101,5 +101,7 @@ To create the migration from your Active Directory, log in to your **Gateway Con
 - **Custom Password Policy:&#x20;**&#x41;pply a custom password policy when generating passwords for migrated Domain/Local Users.
 
 - **Target Format:** Relevant only for **Computers Discovery Type**, the output Target format to migrate all discovered computers supporting [Linked Target](https://docs.akeyless.io/docs/linked-target) for Secure Remote Access.
+
+- **Computers Grouping:** Relevant only when **Target Format** is **Linked**. Controls how discovered computers are split into linked targets, see [Advanced Path Templates for Resource Discovery](https://docs.akeyless.io/docs/resource-discovery-path-templates).
 
 - **Auto Rotate:** Enable/Disable automatic/recurrent rotation for the migrated secrets. Default is Disabled. Only manual rotation is allowed for migrated secrets. If Enabled, this should be set with rotation-interval and rotation-hour settings.

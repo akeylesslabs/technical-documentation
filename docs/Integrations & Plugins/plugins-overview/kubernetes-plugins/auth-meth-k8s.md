@@ -15,6 +15,7 @@ Akeyless supports multiple options to authenticate your Kubernetes cluster with 
 * [Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/auth-with-kubernetes)
 * [Universal Identity (UID)](https://docs.akeyless.io/docs/auth-with-universal-identity) Not supported by the External Secret Operator (ESO).
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [OAuth 2.0/JWT](doc:auth-with-oauth-jwt)&#x20;
 * Cloud Authentication:
   * [Azure Active Directory (AD)](https://docs.akeyless.io/docs/auth-with-azure)
   * [AWS-IAM](https://docs.akeyless.io/docs/auth-with-aws)
@@ -67,6 +68,17 @@ AKEYLESS_URL: "https://vault.akeyless.io"
 AKEYLESS_ACCESS_TYPE: "api_key"
 AKEYLESS_API_KEY: "<Access Key>"
 AKEYLESS_ACCESS_ID: "<Access Id>"
+```
+
+## API Key
+
+To use API Key Auth Method for authentication:
+
+```yaml
+AKEYLESS_URL: "https://vault.akeyless.io"
+# to Work with Private GW
+# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
+AKEYLESS_ACCESS_TYPE: "jwt"
 ```
 
 ## Cloud Authentication
