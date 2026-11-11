@@ -283,6 +283,20 @@ parameters:
   csi.storage.k8s.io/node-stage-secret-namespace: <your-secret-namespace> 
   encrypted: "true"
 ```
+```yaml AliCloud
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: akeyless-cache-rwo
+provisioner: diskplugin.csi.alibabacloud.com
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+parameters:
+  type: cloud_essd
+  performanceLevel: PL1
+  fstype: ext4
+  encrypted: "true"
+```
 
 If you enable `cacheHA`, set or review the following keys to configure authentication and pod placement behavior:
 

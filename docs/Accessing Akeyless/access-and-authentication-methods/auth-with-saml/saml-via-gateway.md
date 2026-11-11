@@ -83,6 +83,14 @@ akeyless auth \
   --gateway-url https://<Your-Akeyless-GW-URL>:8000
 ```
 
+To set your CLI profile with offline authentication add to the profile the `auth_via_gateway`  flag alongside your Gateway URL : <br />
+
+```shell
+["profile-name"]
+  gateway_url = 'https://<Your-Akeyless-GW-URL>:8000'
+  auth_via_gateway = 'true'
+```
+
 ### Troubleshooting
 
 | Symptom                                      | Cause and resolution                                                                                                                                                                      |

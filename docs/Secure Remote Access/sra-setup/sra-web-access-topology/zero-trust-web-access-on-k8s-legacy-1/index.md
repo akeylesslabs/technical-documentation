@@ -1,6 +1,6 @@
 ---
 title: Zero Trust Web Access on K8s - Legacy
-deprecated: false
+deprecated: true
 hidden: true
 metadata:
   robots: index
