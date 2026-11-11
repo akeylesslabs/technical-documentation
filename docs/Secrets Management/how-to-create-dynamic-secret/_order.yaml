@@ -1,5 +1,6 @@
 - artifactory-dynamic-secret-producer
 - aerospike-dynamic-secrets
+- alicloud-producer
 - aws-producer
 - azure-ad-dynamic-secrets
 - create-an-azure-ad-app-service-account
