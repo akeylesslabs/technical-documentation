@@ -47,12 +47,12 @@ Both produce a complete scan, the difference is privilege scope, not scan covera
 
 For each object type selected on the scanner, grant the service account the predefined roles listed below:
 
-| Object Type      | Predefined roles                                                                             |
-| ---------------- | -------------------------------------------------------------------------------------------- |
-| **Secrets**      | `roles/secretmanager.viewer`, `roles/logging.privateLogViewer`                               |
-| **Certificates** | `roles/privateca.auditor`, `roles/certificatemanager.viewer`, `roles/compute.viewer`         |
-| **Identities**   | `roles/browser`, `roles/iam.securityReviewer`, `roles/policyanalyzer.activityAnalysisViewer` |
-| **AI Agents**    | `roles/aiplatform.viewer`, `roles/run.viewer`, `roles/agentregistry.viewer`, `roles/iam.securityReviewer`, `roles/browser`, `roles/logging.privateLogViewer`, `roles/monitoring.viewer`, `roles/modelarmor.floorSettingsViewer` |
+| Object Type      | Predefined roles                                                                                                                                                                                               |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Secrets**      | `roles/secretmanager.viewer`, `roles/logging.privateLogViewer`                                                                                                                                                 |
+| **Certificates** | `roles/privateca.auditor`, `roles/certificatemanager.viewer`, `roles/compute.viewer`                                                                                                                           |
+| **Identities**   | `roles/browser`, `roles/iam.securityReviewer`, `roles/policyanalyzer.activityAnalysisViewer`                                                                                                                   |
+| **AI Agents**    | `roles/aiplatform.viewer`, `roles/run.viewer`, `roles/agentregistry.viewer`, `roles/iam.securityReviewer`, `roles/logging.privateLogViewer`, `roles/monitoring.viewer`, `roles/modelarmor.floorSettingsViewer` |
 
 For **Folder** or **Organization** scope, also grant `roles/browser` on the folder or organization, whatever object types are selected, so the scanner can list the projects and folders underneath it.
 
@@ -79,6 +79,11 @@ The permissions listed below are required for the scan to complete successfully.
 | **Certificates**     | Discovering Compute Engine SSL certificates                                                | `compute.sslCertificates.list`, `compute.regionSslCertificates.list`                                                         | Skipped and reported as a gap.  Fails if the scope is a project and all three certificate sources are skipped |
 | **Identities**       | Resolving the project's folder and organization hierarchy (Project scope only)             | `resourcemanager.projects.get`                                                                                               | The scan fails                                                                                                |
 | **Identities**       | Reading the project IAM policy, the foundation of identity discovery                       | `resourcemanager.projects.getIamPolicy`                                                                                      | The scan fails if the scope is a project; otherwise reported as a gap for that project                        |
+| **AI Agents**        | Discovering Agent Runtime agents                                                           | `aiplatform.reasoningEngines.list`                                                                                           | Skipped and reported as a gap                                                                                 |
+| **AI Agents**        | Discovering Cloud Run agents                                                               | `run.locations.list`, `run.services.list`                                                                                    | Skipped and reported as a gap                                                                                 |
+| **AI Agents**        | Discovering agents listed in Agent Registry, and checking which agents are registered      | `agentregistry.agents.list`                                                                                                  | Skipped and reported as a gap. Agents are not flagged as unregistered                                         |
+
+<br />
 
 Under **Folder** or **Organization** scope, a failure in one project is reported as a gap for that project, and the scan continues with the remaining projects.&#x20;
 
