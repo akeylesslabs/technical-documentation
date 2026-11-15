@@ -138,7 +138,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 For SSH Rotated Secrets using the **Key** rotator type, Akeyless manages a key pair and provisions the public key to the target server's `authorized_keys` file as part of rotation. Because the public key is, by definition, already distributed to every server it's provisioned to, it isn't sensitive material.
 
-To avoid over-provisioning access, the public key can be retrieved with **List** permission on the item — the same permission level already used to see an item's existence and metadata — rather than requiring the **Read** (`get-value`) permission needed for the private key:
+To avoid over-provisioning access, the public key can be retrieved with **List** permission on the item, the same permission level already used to see an item's existence and metadata, rather than requiring the **Read** (`get-value`) permission needed for the private key:
 
 * **CLI/API:** Run `describe-item` on the Rotated Secret. A client with **List** permission on the item will receive the public key in the response, without needing **Read** (`get-value`) permission:
 
