@@ -16,9 +16,7 @@ This section covers deployment requirements and setup flows for Akeyless Secure 
 Use these pages in order:
 
 - [Requirements](https://docs.akeyless.io/docs/sra-requirements)
-- [Unified Gateway Setup](https://docs.akeyless.io/docs/sra-setup-overview)
-- [Kubernetes ](https://docs.akeyless.io/docs/sra-setup-k8s)
-- [Docker Compose ](https://docs.akeyless.io/docs/sra-docker)
+- [Gateway Setup](https://docs.akeyless.io/docs/sra-setup-overview)
 - [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-topology)
 
 Use this section for deployment and topology. For day-2 operations, use the related operations pages below.
