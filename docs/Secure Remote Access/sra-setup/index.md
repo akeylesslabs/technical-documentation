@@ -19,7 +19,7 @@ Use these pages in order:
 - [Unified Gateway Setup](https://docs.akeyless.io/docs/sra-setup-overview)
 - [Kubernetes ](https://docs.akeyless.io/docs/sra-setup-k8s)
 - [Docker Compose ](https://docs.akeyless.io/docs/sra-docker)
-- [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology)
+- [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-topology)
 
 Use this section for deployment and topology. For day-2 operations, use the related operations pages below.
 
