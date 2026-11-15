@@ -87,60 +87,120 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## SCIM Provisioning
 
-OIDC Authentication Methods support SCIM provisioning. With SCIM, your Identity Provider (IdP) pushes user and group changes to Akeyless as they happen, so onboarding, offboarding, and group membership stay current, instead of updating users only when they sign in. SCIM users become Akeyless identities, and SCIM groups become Akeyless groups that you can associate with Access Roles. When the IdP deactivates a user, Akeyless revokes that user's active sessions and tokens.
+With just-in-time (JIT) provisioning, Akeyless only learns about a user when that user signs in. Changes in your identity provider's directory don't reach Akeyless until the user's next login. SCIM 2.0 provisioning closes this gap. When you enable it on a OIDC Authentication Method, your identity provider (for example Okta, Microsoft Entra ID or Ping Identity) pushes user and group changes to Akeyless as they happen.
+
+- **SCIM users** become Akeyless human identities.
+- **SCIM groups** become Akeyless Groups, which you can associate with Access Roles.
+- **Deactivating** a user in the identity provider (`active: false`) blocks that user's new logins and revokes their active tokens within seconds.
+- **Removing a user from a group** revokes that user's active tokens. Their next login gets only the groups they still belong to.
+
+> **Warning:** When SCIM is enabled, only users that the identity provider has provisioned and marked active can sign in through this Authentication Method. Existing users can't sign in until the identity provider's first sync creates them. Logins whose OIDC assertion is missing the Unique Identifier attribute are rejected.
 
 ### Prerequisites
 
-1. Create an [API Key Authentication Method](doc:api-key) to act as the SCIM bearer identity.
-2. Generate an access key for it and store it securely. Your IdP uses it as the SCIM bearer token, and it can't be retrieved after creation.
+1. A OIDC Authentication Method with a **Unique Identifier** set, for example `email`. SCIM matches each provisioned user to this attribute at login.
+2. A dedicated [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) to act as the SCIM bearer, for example `/scim/okta-provisioner`. Save its **Access ID** and **Access Key**. The Access Key is shown only once.
+3. Recommended: set **Allowed IPs** (`--bound-ips`) on the API Key to your identity provider's published egress IP ranges.
+4. For a **private** endpoint: an Akeyless Gateway that your identity provider can reach over HTTPS with a publicly trusted certificate.
 
-### Enable SCIM on an OIDC Authentication Method
+### Required Permissions
 
-On an existing OIDC Authentication Method:
+#### Admin who enables SCIM
+
+| Action                                         | Permission needed                                |
+| ---------------------------------------------- | ------------------------------------------------ |
+| Enable SCIM or change its settings             | **Update** on the OIDC Authentication Method     |
+| Bind an API Key as the SCIM bearer             | **Update** on that API Key Authentication Method |
+| View the SCIM status, Base URL and sync counts | **Read** on the OIDC Authentication Method       |
+
+#### SCIM API Key (used by the identity provider)
+
+Create a dedicated Access Role, give it the rules below, and associate it **only** with the SCIM API Key. All rules use the **Auth Method** rule type.
+
+| Path                                                         | Capabilities                       | Why                                                                                                                                                                              |
+| ------------------------------------------------------------ | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/<OIDC auth method name>`, for example `/okta-oidc`         | Read, Create, Update, Delete       | Read, create, update and deactivate users. Each SCIM request type needs the matching permission: GET needs Read, POST needs Create, PUT/PATCH needs Update, DELETE needs Delete. |
+| `/scim/<OIDC auth method Access ID>/*`                       | Read, List, Create, Update, Delete | SCIM groups are stored as Akeyless Groups under this path.                                                                                                                       |
+| `/<SCIM API Key name>`, for example `/scim/okta-provisioner` | Read                               | Lets the Gateway confirm which OIDC Authentication Method the key is bound to.                                                                                                   |
 
 ```shell
-akeyless auth-method update oidc \
-  --name <OIDC Auth Method Name> \
-  --scim-enabled \
-  --scim-bearer-access-id <API Key Auth Method Access ID> \
-  --scim-endpoint public
+akeyless create-role --name /scim/okta-scim-role
+
+akeyless set-role-rule --role-name /scim/okta-scim-role --rule-type auth-method-rule \
+  --path /okta-oidc \
+  --capability read --capability create --capability update --capability delete
+
+akeyless set-role-rule --role-name /scim/okta-scim-role --rule-type auth-method-rule \
+  --path "/scim/<OIDC-Access-ID>/*" \
+  --capability read --capability list --capability create --capability update --capability delete
+
+akeyless set-role-rule --role-name /scim/okta-scim-role --rule-type auth-method-rule \
+  --path /scim/okta-provisioner \
+  --capability read
+
+akeyless assoc-role-am --role-name /scim/okta-scim-role --am-name /scim/okta-provisioner
 ```
 
-You can pass the same flags to `akeyless auth-method create oidc` when you create a new method.
+> **Note:** Don't give this role any other access. If it's missing a permission, the identity provider gets `401 Unauthorized`.
 
-| Flag                      | Description                                                                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--scim-enabled`          | Turns on SCIM provisioning for this OIDC Authentication Method.                                                                                     |
-| `--scim-bearer-access-id` | Access ID of the API Key Authentication Method that the IdP uses for SCIM.                                                                          |
-| `--scim-endpoint`         | Where the IdP reaches the SCIM server: `public` (hosted by Akeyless) or `private` (served by your Gateway).                                         |
-| `--scim-gateway-url`      | Required when `--scim-endpoint` is `private`. The URL of the Gateway that serves the SCIM endpoint, for example `https://gateway.example.com:8000`. |
+### Enable SCIM Provisioning
 
-To serve SCIM from your own Gateway:
+#### From the Console
+
+1. Go to **Users & Auth Methods**, open your OIDC Authentication Method, and select the **SCIM Provisioning** tab.
+2. Turn on **Enable SCIM Provisioning**.
+3. Select the **SCIM Endpoint**:
+   - **Public**: served by Akeyless.
+   - **Private**: served by your own Gateway. Your identity provider must be able to reach it.
+4. In **Bearer Credential**, select the SCIM API Key Authentication Method.
+5. Copy the **SCIM Base URL**.
+
+#### From the CLI
 
 ```shell
 akeyless auth-method update oidc \
   --name <OIDC Auth Method Name> \
-  --scim-enabled \
-  --scim-bearer-access-id <API Key Auth Method Access ID> \
+  --scim-enabled true \
+  --scim-bearer-access-id <API Key Access ID> \
   --scim-endpoint private \
-  --scim-gateway-url https://gateway.example.com:8000
+  --scim-gateway-url https://<your-gateway-host>
 ```
 
-### Connect Your IdP
+| Parameter                 | Description                                                                                                                               |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `--scim-enabled`          | Turns SCIM provisioning on or off for this Authentication Method.                                                                         |
+| `--scim-bearer-access-id` | The Access ID of the API Key Authentication Method the identity provider uses. An API Key can be bound to only one Authentication Method. |
+| `--scim-endpoint`         | `public` (served by Akeyless) or `private` (served by your own Gateway).                                                                  |
+| `--scim-gateway-url`      | The Gateway URL your identity provider calls. Required when `--scim-endpoint` is `private`.                                               |
 
-1. Get the SCIM base URL and check the connection:
+### Configure Your Identity Provider
 
-   ```shell
-   akeyless get-scim-status --name <OIDC Auth Method Name>
-   ```
+| Setting                     | Value                                                                                                                       |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **SCIM Base URL**           | Copy it from the **SCIM Provisioning** tab or from `get-scim-status`. Format: `https://<host>/scim/v2/<API-Key-Access-ID>/` |
+| **Authentication**          | HTTP Header / Bearer token                                                                                                  |
+| **Token**                   | The API Key's **Access Key alone**. Don't include the Access ID; it's already in the URL.                                   |
+| **Unique identifier field** | `userName`. Its value must match the OIDC Unique Identifier attribute, for example the user's email.                        |
+| **Supported actions**       | Create users, update user attributes, deactivate users, push groups                                                         |
 
-   The output shows the SCIM base URL, the connection status, and how many users and groups have synced.
-2. In your IdP's SCIM provisioning settings, set the SCIM base URL from the previous step, and use the API Key access key as the bearer token.
+> **Note:** SCIM groups can be changed only through SCIM. An admin can't edit them in the console or CLI. To control what group members can access, associate the group with an Access Role in the usual way.
 
-<Callout icon="📘" theme="info">
-  ### Note
+### Check the SCIM Status
 
-  Some IdPs offer SCIM provisioning only for certain app types. If your IdP's OIDC app has no provisioning settings, see your IdP's documentation for adding SCIM provisioning.
-</Callout>
+```shell
+akeyless get-scim-status --name <OIDC Auth Method Name>
+```
 
-###
+This returns the SCIM Base URL, the connection status, and counts of provisioned identities, groups and deactivated users.
+
+### Rotate the SCIM Credential
+
+Select **Rotate Credential** on the **SCIM Provisioning** tab to generate a new Access Key for the bound API Key. The old key stops working within about 15 seconds. Paste the new Access Key into your identity provider. The SCIM Base URL doesn't change.
+
+### Troubleshooting
+
+| Symptom                                      | Likely cause                                                                                                                                                                                       |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `401 Unauthorized` (JSON)                    | Wrong Access Key, the API Key's role is missing a permission, the identity provider's IPs aren't in **Allowed IPs**, or the endpoint type (public or private) doesn't match the host being called. |
+| `403 Forbidden` (HTML) or `Connection reset` | The request never reached Akeyless. A firewall, WAF, load balancer, or wrong scheme or port is blocking the identity provider.                                                                     |
+| Users can't sign in after SCIM is enabled    | They haven't been provisioned yet, or their identity provider `userName` doesn't match the OIDC Unique Identifier.                                                                                 |
