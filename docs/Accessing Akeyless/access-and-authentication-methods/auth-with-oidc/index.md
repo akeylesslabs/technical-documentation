@@ -87,18 +87,18 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## SCIM Provisioning
 
-With just-in-time (JIT) provisioning, Akeyless only learns about a user when that user signs in. Changes in your identity provider's directory don't reach Akeyless until the user's next login. SCIM 2.0 provisioning closes this gap. When you enable it on a OIDC Authentication Method, your identity provider (for example Okta, Microsoft Entra ID or Ping Identity) pushes user and group changes to Akeyless as they happen.
+With just-in-time (JIT) provisioning, Akeyless only learns about a user when that user signs in. Changes in your identity provider's directory don't reach Akeyless until the user's next login. SCIM 2.0 provisioning closes this gap. When you enable it on an OIDC Authentication Method, your identity provider (for example Okta, Microsoft Entra ID or Ping Identity) pushes user and group changes to Akeyless as they happen.
 
 - **SCIM users** become Akeyless human identities.
 - **SCIM groups** become Akeyless Groups, which you can associate with Access Roles.
 - **Deactivating** a user in the identity provider (`active: false`) blocks that user's new logins and revokes their active tokens within seconds.
 - **Removing a user from a group** revokes that user's active tokens. Their next login gets only the groups they still belong to.
 
-> **Warning:** When SCIM is enabled, only users that the identity provider has provisioned and marked active can sign in through this Authentication Method. Existing users can't sign in until the identity provider's first sync creates them. Logins whose OIDC assertion is missing the Unique Identifier attribute are rejected.
+> **Warning:** When SCIM is enabled, only users that the identity provider has provisioned and marked active can sign in through this Authentication Method. Existing users can't sign in until the identity provider's first sync creates them. Logins whose ID token is missing the Unique Identifier attribute are rejected.
 
 ### Prerequisites
 
-1. A OIDC Authentication Method with a **Unique Identifier** set, for example `email`. SCIM matches each provisioned user to this attribute at login.
+1. An OIDC Authentication Method with a **Unique Identifier** set, for example `email`. SCIM matches each provisioned user to this claim at login.
 2. A dedicated [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) to act as the SCIM bearer, for example `/scim/okta-provisioner`. Save its **Access ID** and **Access Key**. The Access Key is shown only once.
 3. Recommended: set **Allowed IPs** (`--bound-ips`) on the API Key to your identity provider's published egress IP ranges.
 4. For a **private** endpoint: an Akeyless Gateway that your identity provider can reach over HTTPS with a publicly trusted certificate.
@@ -180,7 +180,7 @@ akeyless auth-method update oidc \
 | **SCIM Base URL**           | Copy it from the **SCIM Provisioning** tab or from `get-scim-status`. Format: `https://<host>/scim/v2/<API-Key-Access-ID>/` |
 | **Authentication**          | HTTP Header / Bearer token                                                                                                  |
 | **Token**                   | The API Key's **Access Key alone**. Don't include the Access ID; it's already in the URL.                                   |
-| **Unique identifier field** | `userName`. Its value must match the OIDC Unique Identifier attribute, for example the user's email.                        |
+| **Unique identifier field** | `userName`. Its value must match the OIDC Unique Identifier claim, for example the user's email.                            |
 | **Supported actions**       | Create users, update user attributes, deactivate users, push groups                                                         |
 
 > **Note:** SCIM groups can be changed only through SCIM. An admin can't edit them in the console or CLI. To control what group members can access, associate the group with an Access Role in the usual way.
