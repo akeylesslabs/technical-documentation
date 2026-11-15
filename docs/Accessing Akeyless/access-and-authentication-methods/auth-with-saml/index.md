@@ -170,45 +170,122 @@ For optional features that apply across Authentication Methods, see [Common Opti
 
 ## SCIM Provisioning
 
-JIT provisioning only creates or updates a user's identity when they sign in, so Akeyless has no visibility into your IdP's directory until the next login. SCIM provisioning closes this gap: when enabled on a SAML Authentication Method, your IdP (for example, Okta, Microsoft Entra ID, or Ping Identity) pushes user and group changes to Akeyless directly, so onboarding, offboarding, and group membership stay in sync with the IdP directory in real time.
+With just-in-time (JIT) provisioning, Akeyless only learns about a user when that user signs in. Changes in your identity provider's directory don't reach Akeyless until the user's next login. SCIM 2.0 provisioning closes this gap. When you enable it on a SAML Authentication Method, your identity provider (for example Okta, Microsoft Entra ID or Ping Identity) pushes user and group changes to Akeyless as they happen.
 
-SCIM users are provisioned as Akeyless human identities, and SCIM groups are provisioned as Akeyless groups that you can associate with Access Roles, just like any other group. When an IdP deactivates a user (`active: false`), Akeyless revokes that user's active sessions and short-lived tokens.
+- **SCIM users** become Akeyless human identities.
+- **SCIM groups** become Akeyless Groups, which you can associate with Access Roles.
+- **Deactivating** a user in the identity provider (`active: false`) blocks that user's new logins and revokes their active tokens within seconds.
+- **Removing a user from a group** revokes that user's active tokens. Their next login gets only the groups they still belong to.
+
+> **Warning:** When SCIM is enabled, only users that the identity provider has provisioned and marked active can sign in through this Authentication Method. Existing users can't sign in until the identity provider's first sync creates them. Logins whose SAML assertion is missing the Unique Identifier attribute are rejected.
 
 ### Prerequisites
 
-SCIM requests authenticate with a bearer token, not with end-user credentials. Before enabling SCIM:
+1. A SAML Authentication Method with a **Unique Identifier** set, for example `email`. SCIM matches each provisioned user to this attribute at login.
+2. A dedicated [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) to act as the SCIM bearer, for example `/scim/okta-provisioner`. Save its **Access ID** and **Access Key**. The Access Key is shown only once.
+3. For a **private** endpoint: an Akeyless Gateway that your identity provider can reach over HTTPS with a publicly trusted certificate.
 
-1. Create an [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) to serve as the SCIM bearer identity.
-2. Generate an access key for that Authentication Method and store it securely — your IdP uses it as the SCIM bearer token, and it can't be retrieved again after creation.
+### Required Permissions
 
-### Enabling SCIM Provisioning with the CLI
+#### Admin who enables SCIM
 
-To enable SCIM provisioning on a SAML Authentication Method, add the SCIM flags when creating or updating it:
+| Action                                         | Permission needed                                |
+| ---------------------------------------------- | ------------------------------------------------ |
+| Enable SCIM or change its settings             | **Update** on the SAML Authentication Method     |
+| Bind an API Key as the SCIM bearer             | **Update** on that API Key Authentication Method |
+| View the SCIM status, Base URL and sync counts | **Read** on the SAML Authentication Method       |
+
+#### SCIM API Key (used by the identity provider)
+
+Create a dedicated Access Role, give it the rules below, and associate it **only** with the SCIM API Key. All rules use the **Auth Method** rule type.
+
+| Path                                                         | Capabilities                                 | Why                                                                                                                                                                              |
+| ------------------------------------------------------------ | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/<SAML auth method name>`, for example `/okta-saml`         | `Read`, `Create`, `Update`, `Delete`         | Read, create, update and deactivate users. Each SCIM request type needs the matching permission: GET needs Read, POST needs Create, PUT/PATCH needs Update, DELETE needs Delete. |
+| `/scim/<SAML auth method Access ID>/*`                       | `Read`, `List`, `Create`, `Update`, `Delete` | SCIM groups are stored as Akeyless Groups under this path.                                                                                                                       |
+| `/<SCIM API Key name>`, for example `/scim/okta-provisioner` | `Read`                                       | Lets the Gateway confirm which SAML Authentication Method the key is bound to.                                                                                                   |
+
+```shell
+akeyless create-role --name /scim/okta-scim-role
+
+akeyless set-role-rule --role-name /scim/okta-scim-role --rule-type auth-method-rule \
+  --path /okta-saml \
+  --capability read --capability create --capability update --capability delete
+
+akeyless set-role-rule --role-name /scim/okta-scim-role --rule-type auth-method-rule \
+  --path "/scim/<SAML-Access-ID>/*" \
+  --capability read --capability list --capability create --capability update --capability delete
+
+akeyless set-role-rule --role-name /scim/okta-scim-role --rule-type auth-method-rule \
+  --path /scim/okta-provisioner \
+  --capability read
+
+akeyless assoc-role-am --role-name /scim/okta-scim-role --am-name /scim/okta-provisioner
+```
+
+> **Note:** Don't give this role any other access. If it's missing a permission, the identity provider gets `401 Unauthorized`.
+
+### Enable SCIM Provisioning
+
+#### From the Console
+
+1. Go to **Users & Auth Methods**, open your SAML Authentication Method, and select the **SCIM Provisioning** tab.
+2. Turn on **Enable SCIM Provisioning**.
+3. Select the **SCIM Endpoint**:
+   - **Public**: served by Akeyless.
+   - **Private**: served by your own Gateway. Your identity provider must be able to reach it.
+4. In **Bearer Credential**, select the SCIM API Key Authentication Method.
+5. Copy the **SCIM Base URL**.
+
+#### From the CLI
 
 ```shell
 akeyless auth-method update saml \
-  --name <Existing SAML Auth Method Name> \
-  --scim-enabled \
-  --scim-bearer-access-id <Access ID of the API Key Auth Method> \
-  --scim-endpoint public
+  --name <SAML Auth Method Name> \
+  --scim-enabled true \
+  --scim-bearer-access-id <API Key Access ID> \
+  --scim-endpoint private \
+  --scim-gateway-url https://<your-gateway-host>
 ```
 
-Where:
+| Parameter                 | Description                                                                                                                               |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `--scim-enabled`          | Turns SCIM provisioning on or off for this Authentication Method.                                                                         |
+| `--scim-bearer-access-id` | The Access ID of the API Key Authentication Method the identity provider uses. An API Key can be bound to only one Authentication Method. |
+| `--scim-endpoint`         | `public` (served by Akeyless) or `private` (served by your own Gateway).                                                                  |
+| `--scim-gateway-url`      | The Gateway URL your identity provider calls. Required when `--scim-endpoint` is `private`.                                               |
 
-* `scim-enabled`: Turns SCIM provisioning on for this Authentication Method.
-* `scim-bearer-access-id`: The Access ID of the API Key Authentication Method your IdP uses as the SCIM bearer.
-* `scim-endpoint`: Where the IdP reaches the SCIM server — `public` (served by Akeyless) or `private` (served by your own Akeyless Gateway).
-* `scim-gateway-url`: Required when `scim-endpoint` is `private`. The URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example `https://gateway.example.com:8000`.
+### Configure Your Identity Provider
 
-Point your IdP's SCIM application at the returned SCIM base URL, using the Access ID of the API Key Authentication Method as the bearer token.
+| Setting                     | Value                                                                                                                       |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **SCIM Base URL**           | Copy it from the **SCIM Provisioning** tab or from `get-scim-status`. Format: `https://<host>/scim/v2/<API-Key-Access-ID>/` |
+| **Authentication**          | HTTP Header / Bearer token                                                                                                  |
+| **Token**                   | The API Key's **Access Key alone**. Don't include the Access ID; it's already in the URL.                                   |
+| **Unique identifier field** | `userName`. Its value must match the SAML Unique Identifier attribute, for example the user's email.                        |
+| **Supported actions**       | Create users, update user attributes, deactivate users, push groups                                                         |
 
-To check the SCIM provisioning status of a SAML Authentication Method, run:
+> **Note:** SCIM groups can be changed only through SCIM. An admin can't edit them in the console or CLI. To control what group members can access, associate the group with an Access Role in the usual way.
+
+### Check the SCIM Status
 
 ```shell
-akeyless get-scim-status --name <Existing SAML Auth Method Name>
+akeyless get-scim-status --name <SAML Auth Method Name>
 ```
 
-This returns the SCIM base URL, connection status, and counts of synced users and groups.
+This returns the SCIM Base URL, the connection status, and counts of provisioned identities, groups and deactivated users.
+
+### Rotate the SCIM Credential
+
+Select **Rotate Credential** on the **SCIM Provisioning** tab to generate a new Access Key for the bound API Key. The old key stops working within about 15 seconds. Paste the new Access Key into your identity provider. The SCIM Base URL doesn't change.
+
+### Troubleshooting
+
+| Symptom                                      | Likely cause                                                                                                                                                                                       |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `401 Unauthorized` (JSON)                    | Wrong Access Key, the API Key's role is missing a permission, the identity provider's IPs aren't in **Allowed IPs**, or the endpoint type (public or private) doesn't match the host being called. |
+| `403 Forbidden` (HTML) or `Connection reset` | The request never reached Akeyless. A firewall, WAF, load balancer, or wrong scheme or port is blocking the identity provider.                                                                     |
+| Users can't sign in after SCIM is enabled    | They haven't been provisioned yet, or their identity provider `userName` doesn't match the SAML Unique Identifier.                                                                                 |
 
 ## Related Pages
 
