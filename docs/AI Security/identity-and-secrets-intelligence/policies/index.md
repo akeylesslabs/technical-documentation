@@ -15,16 +15,16 @@ A policy translates raw inventory data into a "who can do what" risk signal: ins
 
 Policies are organized into three categories, matching the object types Identity & Secrets Intelligence inventories.
 
-- **Secret Policies** - Flag secret exposure risk and secret hygiene issues, such as unused, stale, or unrotated secrets. [Learn more about Secret Policies](doc:secret-policies).&#x20;
-- **Identity Policies** - Flag identity posture, privilege scope, and risky identity configurations. [Learn more about Identity Policies](doc:identity-policies).
-- **Certificate Policies** - Flag certificate posture, lifecycle state, and certificate-related findings. [Learn more about Certificate Policies](doc:certificate-policies).
+- **Secret Policies** - Flag secret exposure risk and secret hygiene issues, such as unused, stale, or unrotated secrets. [Learn more about Secret Policies](https://docs.akeyless.io/docs/secret-policies).&#x20;
+- **Identity Policies** - Flag identity posture, privilege scope, and risky identity configurations. [Learn more about Identity Policies](https://docs.akeyless.io/docs/identity-policies).
+- **Certificate Policies** - Flag certificate posture, lifecycle state, and certificate-related findings. [Learn more about Certificate Policies](https://docs.akeyless.io/docs/certificate-policies).
 
 ## Prerequisites
 
 - The account has the Identity and Secrets Intelligence feature enabled.
 - The user has admin-level Console access, or a role with the `isi-access` rule set to `scoped` or `all`.
 
-For full RBAC setup instructions, see [Control Access With RBAC](doc:identity-and-secrets-intelligence#control-access-with-role-based-access-control-rbac).
+For full RBAC setup instructions, see [Control Access With RBAC](https://docs.akeyless.io/docs/identity-and-secrets-intelligence#control-access-with-role-based-access-control-rbac).
 
 ## Using Policies
 

@@ -15,7 +15,7 @@ This page describes the Zero Trust Web Access (ZTWA) runtime topology and the ke
 <Callout icon="far fa-circle-info" theme="info">
   ### Using an earlier version
 
-  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0) and the current Docker Compose file. For earlier versions, see [Zero Trust Web Access (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-on-k8s-legacy).
+  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0) and the current Docker Compose file. For earlier versions, see [Zero Trust Web Access (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-legacy).
 </Callout>
 
 ## Architecture and Traffic Flow

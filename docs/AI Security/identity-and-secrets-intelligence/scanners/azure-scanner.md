@@ -22,13 +22,13 @@ Each scanner covers one Azure subscription, the one set on the Azure Target. Key
 ## Prerequisites
 
 - An Akeyless account with the Identity & Secrets Intelligence license.
-- A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `5.0.1` and later.
-- A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
-- An [Azure Target](doc:azure-targets) representing the Azure AD application that will scan the subscription.
-- The Azure AD application used by the Target granted the permissions listed under [Required Azure Permissions](doc:azure-scanner#required-azure-permissions) below.
+- A deployed and connected [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `5.0.1` and later.
+- A Gateway with [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured.
+- An [Azure Target](https://docs.akeyless.io/docs/azure-targets) representing the Azure AD application that will scan the subscription.
+- The Azure AD application used by the Target granted the permissions listed under [Required Azure Permissions](https://docs.akeyless.io/docs/azure-scanner#required-azure-permissions) below.
 - Access to configure and run the scanner, granted via:
-  - `Manage ISI Scanners `or `Admin` [Gateway Permission](doc:gateway-access-permissions-reference).
-  - `Identity & Secrets Intelligence` [Administrative Rule](doc:rbac#administrative-rules) set to `Scoped` or `All`.
+  - `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
+  - `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
   - `List` permission on the Azure Target.
 
 ## Required Azure Permissions
