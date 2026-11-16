@@ -490,7 +490,7 @@ jobs:
           fetch-depth: 1
 
       - name: Download Claude's changes
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: docs-agent-${{ github.run_id }}
           path: ${{ runner.temp }}/docs-agent-in
