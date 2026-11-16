@@ -452,7 +452,7 @@ jobs:
       # here (docs-agent.patch applies with `git apply` on top of base_sha).
       - name: Upload the changes
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: docs-agent-${{ github.run_id }}
           path: ${{ runner.temp }}/docs-agent-out
