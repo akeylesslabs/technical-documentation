@@ -304,8 +304,6 @@ Upgrading to ZTWA v3.0.0 requires upgrading to Helm chart 4.0.0 and updating val
 
 The values structure changed. The chart stops with an error that names each old key it finds, so update your `values.yaml` first:
 
-\| Earlier chart | Current chart |
-
 | Earlier chart | Current chart |
 | --- | --- |
 | `dispatcher.config.apiGatewayURL` | `config.gatewayURL` |
