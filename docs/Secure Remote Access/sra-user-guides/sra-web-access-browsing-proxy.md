@@ -14,13 +14,19 @@ Use this page to choose between isolated web browsing and proxy-based web access
 
 Web access behavior depends on target configuration, user permissions, and the web access runtime topology.
 
+<Callout icon="far fa-circle-info" theme="info">
+  ### Version
+
+  This page describes ZTWA v3.0.0 (Helm chart 4.0.0).
+</Callout>
+
 ## Before You Start
 
 Confirm the following prerequisites:
 
 1. You can sign in to the SRA portal and view web-access-capable targets.
 2. The target item has Secure Remote Access enabled and includes the required web fields.
-3. Your deployment has working dispatcher and proxy endpoints where required.
+3. Your deployment has the dispatcher (port `9000`) reachable, and, for proxy mode, the Web Proxy service deployed and reachable (port `19414`).
 4. Redirect and proxy URL allowlists are configured for your environment.
 
 For deployment requirements and endpoint planning, see [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements) and [Zero Trust Web Access Topology](https://docs.akeyless.io/docs/sra-web-access-topology).
@@ -43,7 +49,7 @@ If both modes are available for the same target, prefer:
 
 ### Secure Web Browsing
 
-Secure web browsing runs the target website in an isolated browser session managed by the SRA web stack.
+Secure web browsing runs the target website in an isolated Chromium browser session managed by the SRA web stack. The live view of the session is streamed to the user's browser over WebRTC.
 
 Use this mode when you want tighter isolation and stronger control over browser context during the active session.
 
@@ -55,7 +61,7 @@ Typical scenarios:
 
 ### Secure Web Proxy
 
-Secure web proxy mode routes user browser traffic through the dispatcher proxy path while users remain in their local browser.
+Secure web proxy mode routes user browser traffic through the dedicated Web Proxy service while users remain in their local browser. The Web Proxy is a separate ZTWA service, with its own container image and Kubernetes Service on port `19414`. It uses HTTP by default, or SOCKS5 when configured.
 
 Use this mode when users need direct browser interaction with internal web applications by way of approved proxy endpoints.
 
@@ -113,17 +119,17 @@ Expected behavior:
 For both modes, verify these settings before user rollout:
 
 1. Dispatcher URL (typically on port `9000`).
-2. Web proxy URL when proxy mode is enabled (typically on port `19414`).
+2. Web proxy URL when proxy mode is enabled — the external address of the Web Proxy Service (the Service ending in `-proxy`, port `19414`). It must be listed in `config.allowedProxyUrls`.
 3. Allowed bastion and proxy URL allowlists in your SRA and ZTWA configuration.
 
-For deployment-level setup details, see [Zero Trust Web Access on Kubernetes](https://docs.akeyless.io/docs/sra-web-access-on-k8s) and [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements).
+For deployment-level setup details, see [Set the external URLs](https://docs.akeyless.io/docs/sra-web-access-on-k8s#set-the-external-urls) in Zero Trust Web Access on Kubernetes, and [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements).
 
 ## Quick Troubleshooting
 
 If launch fails or opens the wrong path, validate in this order:
 
 1. Target configuration values for web access mode and URL fields.
-2. Dispatcher and proxy endpoint reachability.
+2. Dispatcher and proxy endpoint reachability. For proxy mode, confirm the `web-proxy-deployment` Deployment is running.
 3. Redirect and proxy URL allowlists.
 4. Current user permissions and approval state.
 
@@ -137,6 +143,7 @@ For infrastructure-level diagnostics, see [Session Drops and Timeout Runbooks](h
 | Session opens in wrong mode                | Confirm target mode setting                        | Confirm dispatcher or proxy URL mapping                    |
 | Session launches, then drops quickly       | Confirm endpoint reachability and timeout behavior | Review ingress affinity and session routing patterns       |
 | Proxy launch fails for selected users only | Confirm approval and policy state                  | Confirm allowlist and identity mapping for that user group |
+| Proxy launch fails for all users           | Confirm the `web-proxy-deployment` is running      | Confirm the web proxy URL and allowlist configuration       |
 
 ## Resource Discovery Scope
 
