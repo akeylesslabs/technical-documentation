@@ -25,6 +25,8 @@ This chart deploys ZTWA on Kubernetes with Helm. For how the components fit toge
 
 ### Requirements
 
+ZTWA v3.0.0 has [four components](https://docs.akeyless.io/docs/sra-web-access-topology): the dispatcher, the web workers, the web proxy and the media server. The web proxy and the media server are new in this version.
+
 * Helm installed.
 * Kubernetes installed.
 * Cluster resources (chart defaults):
@@ -43,7 +45,9 @@ This chart deploys ZTWA on Kubernetes with Helm. For how the components fit toge
 ### Network
 
 * **UDP `8189` on every node** must be reachable from users' browsers. The live view of each session uses it.
+* The media server streams the live view of each session to the user's browser over WebRTC, replacing the VNC-based viewer used in earlier versions. There's no TCP fallback.
 * If users can't reach the nodes' IPs, set a reachable address, for example a public IP, in `mediamtx.additionalHosts`.
+* UDP `8189` (`mediamtx.iceUDPPort`) is a hostPort, so the cluster's CNI must support hostPort, and two ZTWA releases in one cluster need different ports. Namespaces under Pod Security `baseline` or `restricted`, and OpenShift's `restricted` SCC, refuse a hostPort, and the media server doesn't start there.
 
 ### Network timeout settings
 
@@ -101,6 +105,13 @@ image:
   imagePullSecrets:
     - name: <SECRET_NAME>
 ```
+
+The pull secret applies to the Akeyless images:
+
+* Dispatcher: `akeyless/zero-trust-web-dispatcher` (`dispatcher.image`)
+* Web worker: `akeyless/zero-trust-web-worker` (`webWorker.image`)
+* Web proxy: `akeyless/zero-trust-web-proxy` (`webProxy.image`). New in 3.0.0.
+* Media server: `bluenviron/mediamtx`, default tag `1.21.0-ffmpeg` (`mediamtx.image`). New in 3.0.0. A public image, not from the Akeyless private registry. Recording needs a tag with the `-ffmpeg` suffix.
 
 ### Akeyless API URL
 
@@ -285,7 +296,13 @@ If you use an ingress for the dispatcher (`dispatcher.ingress.enabled: true`), u
 
 ## Upgrade from an earlier chart
 
+Upgrading to ZTWA v3.0.0 requires upgrading to Helm chart 4.0.0 and updating values.yaml to the new structure.
+
 The values structure changed. The chart stops with an error that names each old key it finds, so update your `values.yaml` first:
+
+> ⚠️ **Warning:**
+>
+> Run the upgrade with your values file (`-f values.yaml`) or with `--reset-then-reuse-values`. With `--reuse-values`, Helm keeps the old release values in place of the new chart defaults, and the upgrade fails with a nil pointer error.
 
 | Earlier chart | Current chart |
 | --- | --- |
@@ -295,10 +312,21 @@ The values structure changed. The chart stops with an error that names each old 
 | `dispatcher.config.privilegedAccess.accessID` | `config.ztwaAuth.ztwaAccessID` |
 | `dispatcher.config.privilegedAccess.accessKey` | Removed. Use a Secret in `config.ztwaAuth.ztwaExistingSecret` |
 | `dispatcher.config.privilegedAccess.allowedAccessIDs` | `config.ztwaAuth.authorizedAccessIDs` (now required) |
+| `dispatcher.config.privilegedAccess.existingSecretNames.access` | `config.ztwaAuth.ztwaExistingSecret`. The Secret now needs the key `ztwa-access-key`, and the access ID goes to `config.ztwaAuth.ztwaAccessID` |
+| `dispatcher.config.privilegedAccess.existingSecretNames.allowedIDs` | Removed. Put the IDs in `config.ztwaAuth.authorizedAccessIDs` |
 | `dispatcher.config.cloudIdentity.type` | `config.ztwaAuth.ztwaAccessType` |
 | `dispatcher.config.allowedBastionUrls`, `allowedProxyUrls` | `config.allowedBastionUrls`, `config.allowedProxyUrls` |
 | `dispatcher.config.disableSecureCookie`, `allowedInternalAuth` | `config.disableSecureCookie`, `config.allowedInternalAuth` |
-| `dispatcher.service.proxyPort` | `webProxy.service.port` (separate Service) |
+| `dispatcher.service.proxyPort` | `webProxy.service.port` (separate Service). The web proxy ran inside the dispatcher; it's now a separate Deployment, Service and image (`webProxy.image`) |
 | `sessionRecording.*` | `recording.*` |
+| `dispatcher.config.recording` (`enabled`, `s3Bucket`, `s3Region`, `s3Prefix`, `s3Endpoint`, `compress`, `sseType`, `sseKmsKeyId`) | `recording.s3` (`enabled`, `bucket`, `region`, `prefix`, `endpoint`, `compress`, `sse.type`, `sse.kmsKeyId`) |
+| `dispatcher.config.existingLogForwardSecretName` | Removed. Set the recording upload in `recording.s3` |
 | `webWorker.config.policies` (Firefox) | `webWorker.config.policies` (Chromium, Chrome Enterprise JSON) |
+| `webWorker.config.dispatcherDNS` | `dispatcher.dispatcherDNS` |
+| `HPA.webWorker.sessionTerminationGracePeriodSeconds` | `webWorker.terminationGracePeriodSeconds` |
+| `HPA.dispatcher` | Removed. The chart runs one dispatcher per worker pool |
+| `dispatcher.initContainer`, `webProxy.initContainer` | Removed. The dispatcher and the web proxy read their settings from env |
+| `sessionRecording.upload.uploaderStatePath`, `dispatcher.config.recording.uploaderStatePath` | Removed |
 | `listOnlyCredentials`, `logForward`, `dlp`, recording `quality` and `watchdog` | Removed |
+
+When a field was set in both `sessionRecording.upload` and `dispatcher.config.recording`, keep the `dispatcher.config.recording` value. The earlier chart used that one.
