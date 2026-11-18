@@ -24,7 +24,7 @@ Web Access Session Recording captures browser-based Zero Trust Web Access (ZTWA)
 
 Web Access Session Recording covers two capabilities, both provided by the Media Server (the `mediamtx` DaemonSet, one pod per node):
 
-* **Live session viewing**: full-screen live viewing of active sessions, streamed by the Media Server to the user's browser over WebRTC. This replaces the earlier VNC-based viewer.
+* **Live view**: the user's isolated browser session is streamed to their browser by the Media Server over WebRTC, replacing the earlier VNC-based viewer. The recording is made from the same stream, so if the Media Server is unavailable, there's no live view and no recording.
 * **Session recording**: the Media Server records each session to the shared volume mounted at `/etc/shared`, and the dispatcher uploads it to S3 or S3-compatible storage, with optional gzip compression and server-side encryption.
 
 This feature is configured with deployment-time defaults in the Zero Trust Web Access chart `values.yaml`.
@@ -97,12 +97,13 @@ recording:
 ## End-to-End Workflow
 
 1. Enable recording in `recording.enabled`.
-2. Enable upload in `recording.s3.enabled` and configure the destination bucket and region.
-3. Configure credential secret references or identity-based authentication.
-4. Optionally configure compression and encryption.
-5. Deploy or upgrade the chart.
-6. Start a ZTWA browser session and verify the recording artifact in the configured storage destination.
-7. Validate correlation by matching the session ID across the recording, Session Overview, and Audit Log.
+2. Configure shared storage in `persistence.shareStorageVolume`. See [Prerequisites](https://docs.akeyless.io/docs/sra-web-access-session-recording#prerequisites).
+3. Enable upload in `recording.s3.enabled` and configure the destination bucket and region.
+4. Configure credential secret references or identity-based authentication.
+5. Optionally configure compression and encryption.
+6. Deploy or upgrade the chart.
+7. Start a ZTWA browser session and verify the recording artifact in the configured storage destination.
+8. Validate correlation by matching the session ID across the recording, Session Overview, and Audit Log.
 
 ## Related Pages
 
