@@ -61,7 +61,7 @@ Typical scenarios:
 
 ### Secure Web Proxy
 
-Secure web proxy mode routes user browser traffic through the dedicated Web Proxy service while users remain in their local browser. The Web Proxy is a separate ZTWA service, with its own container image and Kubernetes Service on port `19414`. It uses HTTP by default, or SOCKS5 when `WEB_PROXY_TYPE` is set to `SOCKS` in `webProxy.env`"
+Secure web proxy mode routes user browser traffic through the dedicated Web Proxy service while users remain in their local browser. The Web Proxy is a separate ZTWA service, with its own container image and Kubernetes Service on port `19414`. It uses HTTP by default, or SOCKS5 when `WEB_PROXY_TYPE` is set to `SOCKS` in `webProxy.env`".
 
 Use this mode when users need direct browser interaction with internal web applications by way of approved proxy endpoints.
 
@@ -121,7 +121,7 @@ For both modes, verify these settings before user rollout:
 1. Dispatcher URL (typically on port `9000`).
 2. Web proxy URL when proxy mode is enabled — the external address of the Web Proxy Service (the Service ending in `-proxy`, port `19414`). It must be listed in `config.allowedProxyUrls`.
 3. Allowed bastion and proxy URL allowlists in your SRA and ZTWA configuration.
-4. the Web Proxy is exposed as a LoadBalancer Service by default (`webProxy.service.type`). It works at the TCP level, so it can't be placed behind a standard HTTP Ingress. As an alternative, `webProxy.ingress.enabled` adds a Gateway API TCPRoute, which needs a Gateway API controller and an existing Gateway with a TCP listener (`webProxy.ingress.parentGateway`, and `webProxy.ingress.sectionName` when the Gateway has more than one listener).
+4. The Web Proxy is exposed as a LoadBalancer Service by default (`webProxy.service.type`). It works at the TCP level, so it can't be placed behind a standard HTTP Ingress. As an alternative, `webProxy.ingress.enabled` adds a Gateway API TCPRoute, which needs a Gateway API controller and an existing Gateway with a TCP listener (`webProxy.ingress.parentGateway`, and `webProxy.ingress.sectionName` when the Gateway has more than one listener).
 
 For deployment-level setup details, see [Set the external URLs](https://docs.akeyless.io/docs/sra-web-access-on-k8s#set-the-external-urls) in Zero Trust Web Access on Kubernetes, and [SRA Requirements](https://docs.akeyless.io/docs/sra-requirements).
 
