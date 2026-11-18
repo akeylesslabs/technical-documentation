@@ -33,27 +33,9 @@ Apart from **how users first sign in** and **which URLs your tools and Gateways 
 
 The FedRAMP environment keeps the Akeyless Zero-Knowledge model: the hosted control plane stores ciphertext and metadata, while plaintext secrets and your Customer Fragment exist only inside the Gateway running in your environment.
 
-```mermaid
-flowchart LR
-  subgraph You["Your environment"]
-    U[Console users and admins]
-    IDP[Your IdP<br/>SAML / OIDC + MFA]
-    GW[Akeyless Gateway<br/>plaintext secrets and<br/>Customer Fragment]
-    APP[Applications, CI/CD,<br/>CLI, Terraform]
-    TGT[Target systems]
-  end
-  subgraph FED["Akeyless FedRAMP environment (AWS GovCloud)"]
-    HIDP[Hosted-provider IdP<br/>Game Warden identity layer]
-    CP[Akeyless control plane<br/>ciphertext and metadata]
-  end
-  U --> IDP --> HIDP --> CP
-  APP -->|HTTPS 443| CP
-  GW -->|outbound HTTPS 443| CP
-  GW --> TGT
-  APP --> GW
-```
+![](https://files.readme.io/6979a73138295616c3d38456f79b176d0230dd875b3e08aa41df0255cafc83c4-image.png)
 
-Key points:
+<br />Key points:
 
 - **Outbound only.** Gateways and clients connect outbound to the FedRAMP domain over HTTPS (443). The hosted environment never initiates a connection into yours.
 - **Gateways stay with you.** You deploy and operate Gateways in your own landing zones (GovCloud VPCs, on-premises, or other networks).
@@ -72,7 +54,7 @@ The Akeyless Customer Success team provides the exact hostnames and the Account 
 
 ## Shared Responsibility
 
-| Akeyless and the hosting provider                                           | You                                                                                |
+| Akeyless and the hosting provider                                           | Customer                                                                           |
 | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | Operate the hosted control plane in AWS GovCloud, with U.S.-based operators | Deploy and operate Gateways (lifecycle, upgrades, scaling)                         |
 | Platform monitoring, security operations, and incident response             | Custody of the Customer Fragment (optionally anchored to a FIPS 140-3 Level 3 HSM) |
