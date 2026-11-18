@@ -1413,6 +1413,12 @@ The response includes the `owner` field for each Auth Method, if one is set.
 
 Delete an Auth Method
 
+<Callout icon="far fa-circle-info" theme="info">
+  ### Required Permissions
+
+  `delete` and `list` on the auth method (an `auth-method-rule` on its path).
+</Callout>
+
 ### Usage
 
 ```shell
