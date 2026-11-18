@@ -69,6 +69,12 @@ webWorker:
 
 The chart checks the policies JSON with `jq`. If it isn't valid JSON, the web workers don't start.
 
+### Email (mailto:) links
+
+The isolated browser blocks `mailto:` links. Clicking one inside a session doesn't open the user's local email client or start any action outside the isolated session.
+
+The default `"URLBlocklist": ["*"]` policy enforces this. If you change `webWorker.config.policies`, keep `"*"` in `URLBlocklist` to keep `mailto:` links blocked.
+
 ## Private CA for the Gateway
 
 If your Akeyless Gateway's certificate isn't signed by a public CA, create a Secret with the CA certificate under the key `tls.crt`:
