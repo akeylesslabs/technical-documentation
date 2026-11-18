@@ -17,13 +17,13 @@ The Gateway for the FedRAMP environment is the same image and the same Helm char
 
 ## What Changes for the Gateway
 
-| Setting                 | Commercial                                                                                                        | FedRAMP                           |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| Control plane (API) URL | `https://api.akeyless.io`                                                                                         | `https://api.fedramp.akeyless.io` |
-| Admin Access ID and key | From the commercial account                                                                                       | From the FedRAMP account          |
-| Outbound connectivity   | `*.akeyless.io`, TCP 443                                                                                          | `*.fedramp.akeyless.io`, TCP 443  |
-| Inbound connectivity    | From your clients, per [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity) | Same                              |
-| Gateway image           | Latest stable or quarterly LTS                                                                                    | Same image. FIPS mode is optional |
+| Setting               | Commercial                                                                                                        | FedRAMP                             |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| Public Gateway URL    | `https://api.akeyless.io`                                                                                         | `https://api.fedramp.akeyless.io`   |
+| Vault URL             | `https://vault.akeyless.io`                                                                                       | `https://vault.fedramp.akeyless.io` |
+| Outbound connectivity | `*.akeyless.io`, TCP 443                                                                                          | `*.fedramp.akeyless.io`, TCP 443    |
+| Inbound connectivity  | From your clients, per [Gateway Network Connectivity](https://docs.akeyless.io/docs/gateway-network-connectivity) | Same                                |
+| Gateway image         | Latest stable or quarterly LTS                                                                                    | Same image. FIPS mode is optional   |
 
 Everything else, including authentication methods, targets, dynamic and rotated secrets, Secure Remote Access, and Kubernetes integrations, is configured the same way.
 
@@ -55,9 +55,8 @@ Everything else, including authentication methods, targets, dynamic and rotated 
 
    clusterName: "fedramp-gateway"
 
-   # Control plane URL: set to the FedRAMP API endpoint
-   # TODO: confirm the exact chart key / environment variable for the control plane URL
-   <CONTROL_PLANE_URL_SETTING>: "https://api.fedramp.akeyless.io"
+   env:
+   AKEYLESS_URL= "https://vault.fedramp.akeyless.io"
    ```
 
 3. Install the Gateway:
@@ -73,8 +72,7 @@ Everything else, including authentication methods, targets, dynamic and rotated 
 For non-Kubernetes deployments, set the same value as an environment variable on the container.
 
 ```shell
-# TODO: confirm the exact environment variable name for the control plane URL
--e <CONTROL_PLANE_URL_VARIABLE>="https://api.fedramp.akeyless.io"
+-e AKEYLESS_URL= "https://vault.fedramp.akeyless.io"
 ```
 
 ## Customer Fragment
