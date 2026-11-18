@@ -106,7 +106,7 @@ image:
     - name: <SECRET_NAME>
 ```
 
-The pull secret applies to the Akeyless images:
+The chart pulls these images. The pull secret is needed only for the Akeyless images (the first three):
 
 * Dispatcher: `akeyless/zero-trust-web-dispatcher` (`dispatcher.image`)
 * Web worker: `akeyless/zero-trust-web-worker` (`webWorker.image`)
@@ -298,11 +298,13 @@ If you use an ingress for the dispatcher (`dispatcher.ingress.enabled: true`), u
 
 Upgrading to ZTWA v3.0.0 requires upgrading to Helm chart 4.0.0 and updating values.yaml to the new structure.
 
-The values structure changed. The chart stops with an error that names each old key it finds, so update your `values.yaml` first:
-
 > ⚠️ **Warning:**
 >
 > Run the upgrade with your values file (`-f values.yaml`) or with `--reset-then-reuse-values`. With `--reuse-values`, Helm keeps the old release values in place of the new chart defaults, and the upgrade fails with a nil pointer error.
+
+The values structure changed. The chart stops with an error that names each old key it finds, so update your `values.yaml` first:
+
+\| Earlier chart | Current chart |
 
 | Earlier chart | Current chart |
 | --- | --- |
