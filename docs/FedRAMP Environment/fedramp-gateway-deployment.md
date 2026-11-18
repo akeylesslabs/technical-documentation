@@ -48,15 +48,13 @@ Everything else, including authentication methods, targets, dynamic and rotated 
    values.yaml
 
    ```yaml
-   # Gateway admin identity: an Auth Method in the FedRAMP account
-   akeylessUserAuth:
-     adminAccessId: "<FEDRAMP_ADMIN_ACCESS_ID>"
-     adminAccessKey: "<FEDRAMP_ADMIN_ACCESS_KEY>"
-
-   clusterName: "fedramp-gateway"
-
-   env:
-   AKEYLESS_URL= "https://vault.fedramp.akeyless.io"
+   globalConfig:
+     gatewayAuth:
+       gatewayAccessId:
+       gatewayAccessType:
+     clusterName:
+      env:
+       AKEYLESS_URL= "https://vault.fedramp.akeyless.io"
    ```
 
 3. Install the Gateway:
