@@ -16,10 +16,10 @@ The Akeyless CLI is the same binary in every environment. By default, it connect
 
 The CLI uses two separate settings. Do not mix them up.
 
-| Setting | Where it is set | FedRAMP value | What it points to |
-| ------- | --------------- | ------------- | ----------------- |
-| **Vault DNS** (control plane) | `dns` in the `~/.akeyless/settings` file | `vault.fedramp.akeyless.io` | The Akeyless FedRAMP environment |
-| **Gateway URL** | `gateway_url` in a profile, the `--gateway-url` flag, or the `AKEYLESS_GATEWAY_URL` variable | `https://<your-gateway-host>:8000/api/v1` | Your own Gateway, deployed in your environment |
+| Setting                       | Where it is set                                                                              | FedRAMP value                      | What it points to                              |
+| ----------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------------- |
+| **Vault DNS** (control plane) | `dns` in the `~/.akeyless/settings` file                                                     | `vault.fedramp.akeyless.io`        | The Akeyless FedRAMP environment               |
+| **Gateway URL**               | `gateway_url` in a profile, the `--gateway-url` flag, or the `AKEYLESS_GATEWAY_URL` variable | `https://<your-gateway-host>:8000` | Your own Gateway, deployed in your environment |
 
 > 📘 Note
 >
@@ -78,7 +78,7 @@ akeyless configure \
   --access-id <FEDRAMP_ACCESS_ID> \
   --access-type api_key \
   --access-key <FEDRAMP_ACCESS_KEY> \
-  --gateway-url https://<your-gateway-host>:8000/api/v1
+  --gateway-url https://<your-gateway-host>:8000
 ```
 
 Run any command with the profile:
