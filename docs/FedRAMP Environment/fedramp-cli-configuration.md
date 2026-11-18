@@ -9,14 +9,14 @@ metadata:
 
 Point the Akeyless CLI at the FedRAMP environment by changing the API URL in a profile or an environment variable.
 
-The Akeyless CLI is the same binary in every environment. By default, it connects to the commercial endpoint (`https://api.akeyless.io`). To work with the FedRAMP environment, set the URL to the FedRAMP API endpoint, or to your Gateway.
+The Akeyless CLI is the same binary in every environment. By default, it connects to the commercial endpoint (`https://vault.akeyless.io`). To work with the FedRAMP environment, set the URL to the FedRAMP Vault endpoint, or to your Gateway.
 
 ## Which URL to Use
 
-| URL                  | Value                              | When to use                                                                      |
-| -------------------- | ---------------------------------- | -------------------------------------------------------------------------------- |
-| FedRAMP API endpoint | `https://api.fedramp.akeyless.io`  | Direct calls to the hosted control plane                                         |
-| Your Gateway URL     | `https://<your-gateway-host>:8000` | Gateway-backed operations, such as dynamic secrets, rotated secrets, and targets |
+| URL                    | Value                               | When to use                                                                      |
+| ---------------------- | ----------------------------------- | -------------------------------------------------------------------------------- |
+| FedRAMP Vault endpoint | `https://vault.fedramp.akeyless.io` | Direct calls to the hosted control plane                                         |
+| Your Gateway URL       | `https://<your-gateway-URL>:8000`   | Gateway-backed operations, such as dynamic secrets, rotated secrets, and targets |
 
 <Callout icon="📘" theme="info">
   ### Note
@@ -34,7 +34,7 @@ akeyless configure \
   --access-id <FEDRAMP_ACCESS_ID> \
   --access-type api_key \
   --access-key <FEDRAMP_ACCESS_KEY> \
-  --gateway-url https://api.fedramp.akeyless.io
+  --gateway-url https://<your-gateway-URL>:8000
 ```
 
 Run any command with the profile:
@@ -56,18 +56,12 @@ export AKEYLESS_ACCESS_TYPE="api_key"
 export AKEYLESS_ACCESS_KEY="<FEDRAMP_ACCESS_KEY>"
 ```
 
-| Variable               | Description                                              |
-| ---------------------- | -------------------------------------------------------- |
-| `AKEYLESS_GATEWAY_URL` | The API or Gateway URL. Set this to the FedRAMP endpoint |
-| `AKEYLESS_ACCESS_ID`   | Access ID of an Auth Method in the FedRAMP account       |
-| `AKEYLESS_ACCESS_TYPE` | Authentication type, for example `api_key` or `aws_iam`  |
-| `AKEYLESS_ACCESS_KEY`  | Access key for the `api_key` type                        |
-
-## Option 3: Pass the URL per Command
-
-```shell
-akeyless list-items --gateway-url https://api.fedramp.akeyless.io
-```
+| Variable               | Description                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| `AKEYLESS_GATEWAY_URL` | The Public API Gateway or your Gateway URL. Set this to the FedRAMP endpoint |
+| `AKEYLESS_ACCESS_ID`   | Access ID of an Auth Method in the FedRAMP account                           |
+| `AKEYLESS_ACCESS_TYPE` | Authentication type, for example `api_key` or `aws_iam`                      |
+| `AKEYLESS_ACCESS_KEY`  | Access key for the `api_key` type                                            |
 
 ## Authenticate and Verify
 
@@ -76,17 +70,16 @@ akeyless auth \
   --access-id <FEDRAMP_ACCESS_ID> \
   --access-type api_key \
   --access-key <FEDRAMP_ACCESS_KEY> \
-  --gateway-url https://api.fedramp.akeyless.io
 ```
 
 A successful response returns a token. Then run a simple command, such as `akeyless list-items --profile fedramp`, to verify that the profile works.
 
 ## Switching Between Environments
 
-| Environment | Profile   | URL                               |
-| ----------- | --------- | --------------------------------- |
-| Commercial  | `default` | `https://api.akeyless.io`         |
-| FedRAMP     | `fedramp` | `https://api.fedramp.akeyless.io` |
+| Environment | Profile   | URL                                 |
+| ----------- | --------- | ----------------------------------- |
+| Commercial  | `default` | `https://vault.akeyless.io`         |
+| FedRAMP     | `fedramp` | `https://vault.fedramp.akeyless.io` |
 
 Do not store the access key in shell history or in scripts. Use your CI/CD secret store, or retrieve it from Akeyless.
 
