@@ -9,10 +9,10 @@ Change the endpoint in the Akeyless API, SDKs, Terraform, and integrations to wo
 
 Every Akeyless client that talks to the platform has a configurable API or Gateway URL. For the FedRAMP environment, set that URL to the FedRAMP API endpoint, or to your Gateway, and use credentials from your FedRAMP account. No other change to your code is required.
 
-| Value        | Commercial                    | FedRAMP                                              |
-| ------------ | ----------------------------- | ---------------------------------------------------- |
-| API endpoint | `https://api.akeyless.io`     | `https://api.fedramp.akeyless.io`                    |
-| Gateway URL  | `https://<gateway-host>:8000` | `https://<gateway-host>:8000` (your FedRAMP Gateway) |
+| Value        | Commercial                   | FedRAMP                                             |
+| ------------ | ---------------------------- | --------------------------------------------------- |
+| API endpoint | `https://api.akeyless.io`    | `https://api.fedramp.akeyless.io`                   |
+| Gateway URL  | `https://<gateway-url>:8000` | `https://<gateway-url>:8000` (your FedRAMP Gateway) |
 
 ## REST API
 
@@ -82,6 +82,7 @@ For integrations that run in your environment, such as the Kubernetes Secrets In
 1. Create the Auth Method in the **FedRAMP** account.
 2. Set the integration's API or Gateway URL to the FedRAMP endpoint or your FedRAMP Gateway.
 3. Make sure the runner or cluster can reach `*.fedramp.akeyless.io` over HTTPS (443). See [FedRAMP Network Connectivity](https://docs.akeyless.io/docs/fedramp-network-connectivity).
+4. For **K8s Injector** make sure to set the env var in your chart to point the FedRAMP vault service: `AKEYLESS_URL= "https://vault.fedramp.akeyless.io"`
 
 <Callout icon="📘" theme="info">
   ### Note
