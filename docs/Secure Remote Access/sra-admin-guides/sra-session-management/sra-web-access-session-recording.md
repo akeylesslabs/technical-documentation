@@ -12,24 +12,29 @@ next:
 ---
 Web Access Session Recording captures browser-based Zero Trust Web Access (ZTWA) sessions for review, compliance, and incident investigation.
 
+<Callout icon="far fa-circle-info" theme="info">
+  This page describes ZTWA Helm chart 4.0.0 (app version 3.0.0). For earlier versions, see [Zero Trust Web Access on K8s (earlier versions)](https://docs.akeyless.io/docs/zero-trust-web-access-on-k8s-legacy-1).
+</Callout>
+
 > ℹ️ **Note:**
 >
 > If you are looking for Remote Desktop Protocol recordings, use [RDP Session Recording](https://docs.akeyless.io/docs/sra-rdp-recordings).
 
 ## Feature Scope
 
-Web Access Session Recording covers:
+Web Access Session Recording covers two capabilities, both provided by the Media Server (the `mediamtx` DaemonSet, one pod per node):
 
-* Browser session video capture.
-* Recording quality selection.
-* Upload to S3 or S3-compatible storage.
-* Optional gzip compression before upload.
-* Optional server-side encryption options.
-* Lifecycle watchdog controls for recording duration and client-connect timing.
+* **Live session viewing**: full-screen live viewing of active sessions, streamed by the Media Server to the user's browser over WebRTC. This replaces the earlier VNC-based viewer.
+* **Session recording**: the Media Server records each session to the shared volume mounted at `/etc/shared`, and the dispatcher uploads it to S3 or S3-compatible storage, with optional gzip compression and server-side encryption.
 
 This feature is configured with deployment-time defaults in the Zero Trust Web Access chart `values.yaml`.
 
 For ongoing Secure Remote Access session behavior, manage web and SSH settings through the Akeyless API by using the CLI or Console UI.
+
+## Prerequisites
+
+* **Shared storage**: recording needs a shared volume mounted at `/etc/shared`. Clusters with more than one node need a `ReadWriteMany` storage class, for example AWS EFS, Azure Files, GCP Filestore or NFS. Single-node clusters can use a node-scoped provisioner such as `local-path`. The chart fails to install if recording is enabled without it.
+* **Live view connectivity**: UDP `8189` on every node must be reachable from users' browsers. If users can't reach the nodes' IPs, set a reachable address, for example a public IP, in `mediamtx.additionalHosts`.
 
 ## Session Correlation
 
@@ -49,83 +54,60 @@ In audit events, the end user identity appears as `sra_unique_identifier`.
 
 If browser sessions run but Session Overview and Audit Log entries are missing, verify the following deployment settings:
 
-* Use a ZTWA version that includes session reporting (`v2.0.0-rc6` or later).
-* Ensure `clusterName` exactly matches the connected Akeyless Gateway cluster name.
+* Ensure `config.clusterName` exactly matches the connected Akeyless Gateway cluster name.
 * Authenticate ZTWA by using the same Access ID that the Gateway is registered with.
-* If the Gateway certificate is private or self-signed, provide trust material to ZTWA.
+* If the Gateway certificate is private or self-signed, provide trust material to ZTWA by using `config.gatewayCert.tlsExistingSecret`.
 * Ensure the Gateway is running and registered in the same Akeyless account.
 
 ## Configuration Surfaces
 
 Use these surfaces:
 
-* Primary: `sessionRecording` in `values.yaml`.
-* Advanced overrides:
-    * `dispatcher.config.recording`
-    * `webWorker.config.recording`
+* Primary: `recording` in `values.yaml`.
 
 Deployment guidance: [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s).
 
 ## Configuration Reference
 
-### Base Recording Controls
+```yaml values.yaml
+recording:
+  enabled: true
+  s3:
+    enabled: true
+    bucket: "<S3_BUCKET_NAME>"
+    region: "<AWS_REGION>"
+    prefix: "<OPTIONAL_PREFIX>"
+    endpoint: "<OPTIONAL_S3_COMPATIBLE_ENDPOINT>"
+    existingSecretName: "<S3_CREDENTIALS_SECRET_NAME>"
+    accessKeyIdKey: "access-key-id"
+    secretAccessKeyKey: "secret-access-key"
+    compress: false
+    sse:
+      type: "" # "" | sse-s3 | sse-kms
+      kmsKeyId: "<OPTIONAL_KMS_KEY_ID_OR_ARN>"
+```
 
-* `sessionRecording.enabled`: Enables worker-side recording capture.
-* `sessionRecording.quality`: Recording quality (`144p`, `240p`, `360p`, `480p`, `720p`, `1080p`).
-
-### Upload Controls
-
-* `sessionRecording.upload.enabled`
-* `sessionRecording.upload.s3Bucket`
-* `sessionRecording.upload.s3Region`
-* `sessionRecording.upload.s3Prefix`
-* `sessionRecording.upload.s3Endpoint` (optional S3-compatible endpoint)
-* `sessionRecording.upload.compress`
-
-### Encryption Controls
-
-* `sessionRecording.upload.sse.type` (`""`, `sse-s3`, `sse-kms`)
-* `sessionRecording.upload.sse.kmsKeyId`
-
-### Credentials and Secret Wiring
-
-* `sessionRecording.upload.existingSecretNames.s3`
-* `sessionRecording.upload.existingSecretNames.s3AccessKeyIdKey`
-* `sessionRecording.upload.existingSecretNames.s3SecretAccessKeyKey`
-
-If no secret is set, upload can use the AWS default credential chain.
-
-### Watchdog Controls
-
-* `sessionRecording.watchdog.clientConnectTimeoutSeconds`
-* `sessionRecording.watchdog.intervalSeconds`
-* `sessionRecording.watchdog.maxDurationSeconds`
-
-These settings help bound long-running recordings and clean up stalled sessions.
-
-### Service-Level Overrides
-
-Dispatcher upload override fields can be set in `dispatcher.config.recording`.
-
-Worker capture override fields (`enabled`, `quality`) can be set in `webWorker.config.recording`.
-
-Use overrides only when service-specific behavior must differ from the shared `sessionRecording` block.
+* `enabled`: Record sessions. Upload also needs `s3.enabled`.
+* `s3.bucket`, `s3.region`, `s3.prefix`: Destination bucket and object path. `bucket` and `region` are required for upload.
+* `s3.endpoint`: Endpoint of an S3-compatible service, for example MinIO. Leave empty for AWS S3.
+* `s3.existingSecretName`: Secret with the S3 credentials, under the keys set in `accessKeyIdKey` and `secretAccessKeyKey`. When empty, the dispatcher uses the AWS default credential chain, for example IRSA or an instance profile.
+* `s3.compress`: Gzip the recordings before upload.
+* `s3.sse.type`, `s3.sse.kmsKeyId`: Server-side encryption (`sse-s3` or `sse-kms`). An empty `kmsKeyId` uses the default KMS key.
 
 ## End-to-End Workflow
 
-1. Enable recording in `sessionRecording.enabled`.
-2. Set desired recording quality.
-3. Enable upload and configure destination bucket and region.
-4. Configure credential secret references or identity-based authentication.
-5. Optionally configure compression and encryption.
-6. Optionally tune watchdog values for long-running workloads.
-7. Deploy or upgrade the chart.
-8. Start a ZTWA browser session and verify the recording artifact in the configured storage destination.
-9. Validate correlation by matching the session ID across the recording, Session Overview, and Audit Log.
+1. Enable recording in `recording.enabled`.
+2. Enable upload in `recording.s3.enabled` and configure the destination bucket and region.
+3. Configure credential secret references or identity-based authentication.
+4. Optionally configure compression and encryption.
+5. Deploy or upgrade the chart.
+6. Start a ZTWA browser session and verify the recording artifact in the configured storage destination.
+7. Validate correlation by matching the session ID across the recording, Session Overview, and Audit Log.
 
 ## Related Pages
 
 * [RDP Session Recording](https://docs.akeyless.io/docs/sra-rdp-recordings)
 * [Session Management](https://docs.akeyless.io/docs/sra-session-management)
 * [Zero Trust Web Access on K8s](https://docs.akeyless.io/docs/sra-web-access-on-k8s)
+* [Zero Trust Web Access](https://docs.akeyless.io/docs/sra-web-access-topology)
 * [Session Forwarding Destinations](https://docs.akeyless.io/docs/sra-session-forwarding-destinations)
