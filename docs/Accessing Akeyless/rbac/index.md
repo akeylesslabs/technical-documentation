@@ -95,7 +95,7 @@ The existing permissions for Items, Access Roles, Auth Methods, and Targets are 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
 
-  Some Akeyless permissions include others in them. For example, `list` is included under all other permissions, and `deny` has a complete override over any other permission.
+  Any permission on an object, for example `delete`, makes it appear in list results. To open the object or view its details, the user also needs `list` or `read`. deny overrides any other permission on the same path.
 </Callout>
 
 #### Privilege Elevation Prevention
