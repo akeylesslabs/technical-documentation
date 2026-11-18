@@ -1,7 +1,7 @@
 ---
 title: FedRAMP Gateway Deployment
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
