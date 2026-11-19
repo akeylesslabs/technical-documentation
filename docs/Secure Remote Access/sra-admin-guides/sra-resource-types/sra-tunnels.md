@@ -53,7 +53,7 @@ Where:
 
 * `--tunnel`: SSH tunnel setting, for example, `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
 
-* `cert-issuer-name`: Optional. If already configured inside `akeyless-connect.rc` file, alternatively provide the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) to establish the connection to the bastion.
+* `cert-issuer-name`: Optional. If already set in your CLI profile (`akeyless configure --cert-issuer-name`), alternatively provide the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) to establish the connection to the bastion.
 
 * `name`: Full name of the secret item to use to connect. For example, use a Dynamic or a Rotated Secret for a database or RDP connection, or a Static Secret that contains the target system credentials.
 

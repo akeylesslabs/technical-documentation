@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+> ⚠️ **Warning:**
+>
+> The `~/.akeyless-connect.rc` file is deprecated. Set Akeyless Connect defaults in your CLI profile with `akeyless configure` instead. If you still use the rc file, see [Akeyless Connect RC File (Legacy)](https://docs.akeyless.io/docs/sra-akeyless-connect-rc-legacy).
+
 Akeyless connect provides you with secure CLI access to resources or a secure tunnel from any Unix terminal.
 
 ## Prerequisites
@@ -28,116 +32,49 @@ For the unified Gateway `akeyless connect` flow (Gateway URL plus SSH host disco
 * Gateway `v4.42.0` or later
 * Unified Gateway deployment (Kubernetes or equivalent)
 
-Akeyless Connect does not replace the local SSH client. To use a non-default SSH executable, set `SSH_EXTERNAL_CLIENT` in `~/.akeyless-connect.rc`.
-
-> ℹ️ **Note:**
->
-> Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."
-> This feature enables users to use their Windows OS environment as a Unix-like system.
->
-> To work with the `akeyless-connect` command from a Windows machine, place the `.akeyless-connect.rc` script in your home directory.
+Akeyless Connect does not replace the local SSH client. To use a non-default SSH executable, set `--ssh-command` in your CLI profile (see [Set Defaults in the CLI Profile](#set-defaults-in-the-cli-profile)).
 
 ## Set Up Akeyless Connect
 
 Install the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli) or run `akeyless update` to ensure you're using the latest version.
 
-**Optional**: Download the [akeyless-connect.rc file](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs.
+## Set Defaults in the CLI Profile
 
-> ℹ️ **RC File Notes:**
->
-> The `~/.akeyless-connect.rc` file must be placed in your local `$HOME` directory to work.
-> The RC file still uses `BASTION_*` variable names for historical reasons, but the CLI flags are now `--sra-ctrl-*`.
+`akeyless connect` reads its defaults from the active Akeyless CLI profile. Use `akeyless configure` to set them once, instead of passing the same flags on every `akeyless connect` command. For profile creation, precedence, and default-profile behavior, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
 
-```shell akeyless-connect.rc
-# ---------------------------------------------------------------------
-# Copyright © 2019-2023  Akeyless Security LTD.
-#
-# All rights reserved
-# ----------------------------------------------------------------------
+`akeyless configure` flags:
 
-#
-# This file is a user-specific configuration file for `akeyless connect` CLI command, part of Akeyless Secure Remote Access
-# This file should be located under the user's home directory, named explicitly: .akeyless-connect.rc
-#
+`--cert-issuer-name` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) item. `akeyless connect` falls back to this value when `-c` isn't passed.
 
-# IDENTITY_FILE - the path to the ssh-key to be signed and used for Zero Trust session (if empty, default ssh-key is used)
-IDENTITY_FILE=""
+`--sra-ctrl-proto` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/sra-setup-k8s) is configured with TLS. This corresponds to the SRA control API protocol.
 
-# CERT_ISSUER_NAME - full path to the Akeyless SSH Cert Issuer to use for Zero Trust session
-CERT_ISSUER_NAME=""
+`--sra-ctrl-port` - Default is `9900`. Set your matching `ssh-sra` cluster service port. This corresponds to the SRA control API port.
 
-# AKEYLESS_PROFILE - Akeyless CLI profile to be used
-AKEYLESS_PROFILE="default"
+`--sra-ctrl-subdomain` - SRA control API URL prefix, for use with Application Load Balancers. This corresponds to the SRA control API subdomain.
 
-# Akeyless CLI binary (if needed)
-AKEYLESS_CLI=akeyless
+`--sra-ctrl-path` - SRA control API path, for use with Application Load Balancers. This corresponds to the SRA control API path.
 
-# AKEYLESS_GW_SSH_URL - URL for Akeyless Gateway SSH service
-AKEYLESS_GW_SSH_URL=""
+`--sra-ssh-port` - Default is `22`. Used when `--via-sra` has no port. Set your matching `ssh-sra` cluster service port.
 
-# AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (REST API)
-AKEYLESS_GW_REST_API=""
+`--ssh-command` - Path to the SSH executable. For example, `/usr/bin/ssh`.
 
-# Following are used for control service, to configure the temporary session:
-# ${BASTION_API_PROTO}://"${BASTION_API_PREFIX}${BASTION_HOST}${BASTION_API_PATH}":"${BASTION_API_PORT}
-#
-BASTION_API_PREFIX=""
-BASTION_API_PATH=""
-BASTION_API_PROTO=http
-BASTION_API_PORT=9900
-BASTION_SSH_PORT=22
+`--ssh-extra-args` - Any SSH arguments except `-i`.
 
-# Allow caching of temp session creds
-SESSION_CACHING=no
+`--session-caching` - Whether to cache temporary session credentials (`true` or `false`).
 
-# Display connection stages
-DISPLAY_STAGES=yes
+`--display-stages` - Whether to display connection stages (`true` or `false`).
 
-# Use SSH Agent to store user's identity keys.
-# This has been removed and no longer supported
-# USE_SSH_AGENT=no
+`--legacy-signing-alg-name` - Specifies whether to use the legacy SSH signing algorithm.
 
-SSH_EXTRA_ARGS=""
+For example:
 
-USE_SSH_LEGACY_ALG=no
-
-# Path to SSH executable. For example, /usr/bin/ssh
-SSH_EXTERNAL_CLIENT="ssh"
+```shell
+akeyless configure --profile default --cert-issuer-name /my-ssh-cert-issuer --sra-ctrl-proto https --session-caching true
 ```
 
-Edit the settings as follows:
+All settings in this example are stored in the `default` CLI profile.
 
-`IDENTITY_FILE` - Default is `~/.ssh/id_rsa`. Full path to the public key to be signed and used for the Zero Trust session.
-
-`CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates) item.
-
-`AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). By default, it's using the `default` profile of your Akeyless CLI. For profile creation, precedence, and default-profile behavior, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
-
-`AKEYLESS_CLI` - Akeyless CLI binary (if needed).
-
-`AKEYLESS_GW_SSH_URL` - Set your Akeyless SRA SSH endpoint in your local connection configuration (for example, `my.sra-server:22`).
-
-`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway REST API endpoint (for example, `https://rest.akeyless.io`).
-
-`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/sra-setup-k8s) is configured with TLS. This corresponds to the SRA control API protocol (CLI flag `--sra-ctrl-proto`).
-
-`BASTION_API_PORT` - Default is `9900`. Set your matching `ssh-sra` cluster service port. This corresponds to the SRA control API port (CLI flag `--sra-ctrl-port`).
-
-`BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra` cluster service port.
-
-**Optional**: When working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port:
-
-`BASTION_API_PREFIX` - Set your path prefix as your load balancer settings. This corresponds to the SRA control API port (CLI flag `--sra-ctrl-subdomain`).
-
-`BASTION_API_PATH` - Set your path as your load balancer settings. This corresponds to the SRA control API port (CLI flag `--sra-ctrl-path`).
-
-Where the URL will be set as follows:
-
-`${BASTION_API_PROTO}://"${BASTION_API_PREFIX}${BASTION_HOST}${BASTION_API_PATH}":"${BASTION_API_PORT}`
-
-`SSH_EXTRA_ARGS` - Add any official SSH arguments.
-
-`USE_SSH_LEGACY_ALG`- Specifies whether to use ssh-legacy-signing-algorithm. The default is No
+The Gateway REST endpoint, identity file, generate key, and Kubernetes tunnel settings aren't stored in the CLI profile. Set them with `akeyless connect --gateway-rest-endpoint`, `-i`/`--identity-file`, `--generate-key`, and `--k8s-tunnel` respectively.
 
 > **Compatibility Issue with Legacy SSH Versions (7.4 and 7.6):**
 >
@@ -155,7 +92,7 @@ Where the URL will be set as follows:
 
 ## Usage
 
-Use the `akeyless connect` command to connect to a resource through the Gateway's Remote Access (more examples below). If you are using the `akeyless-connect.rc` file with a `CERT_ISSUER_NAME`, you don't need to add the `-c <cert-issuer-name>` flag in the command:
+Use the `akeyless connect` command to connect to a resource through the Gateway's Remote Access (more examples below). If `--cert-issuer-name` is set in your CLI profile, you don't need to add the `-c <cert-issuer-name>` flag in the command:
 
 ```shell General Template
 akeyless connect -t <[user@]target/hostname/ip[:port]> -g <your-gateway-ip[:port]> -c <cert-issuer-name>
@@ -197,7 +134,7 @@ akeyless connect -t user@ssh-server[:port] -g <gateway-url> -c "<Path to SSH Cer
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -g <gateway-url> -n "<Path to AWS Dynamic Secret>"
 ```
 
-If you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file, you can use:
+If the certificate issuer is set in your CLI profile, you can use:
 
 ```shell
 akeyless connect -t us-east-1 -g <gateway-url> -n "<Path to AWS Dynamic Secret>"

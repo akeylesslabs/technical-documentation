@@ -62,7 +62,7 @@ SRA does not enforce a fixed file size limit for uploads or downloads. However, 
 
 Certificate issuance by the SRA bastion is the authoritative enforcement gate.
 
-If `--cert-issuer-name` is omitted, the CLI resolves it from the active profile or `~/.akeyless-connect.rc`. In that case, the pre-flight is skipped and permission is enforced at certificate issuance time.
+If `--cert-issuer-name` is omitted, the CLI resolves it from the active CLI profile (or, for legacy setups, from `~/.akeyless-connect.rc`). In that case, the pre-flight is skipped and permission is enforced at certificate issuance time.
 
 ### Usage
 
