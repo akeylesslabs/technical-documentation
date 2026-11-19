@@ -698,7 +698,7 @@ jobs:
             local label="$1" max="$2" code start
             : > "$WORK/ara.out"
             start=$SECONDS
-            code=$(python3 -c 'import json, sys; print(json.dumps({"secret_name": sys.argv[1], "payload": open(sys.argv[2], encoding="utf-8").read(), "agent_id": sys.argv[3]}))' "$DS_NAME" "$WORK/payload.txt" "$AGENT_ID" \
+            code=$(python3 -c 'import json, sys; print(json.dumps({"secret_name": sys.argv[1], "payload": "".join(c for c in open(sys.argv[2], encoding="utf-8").read() if ord(c) <= 0xFFFF), "agent_id": sys.argv[3]}))' "$DS_NAME" "$WORK/payload.txt" "$AGENT_ID" \
               | curl -sS --connect-timeout 10 --max-time "$max" -o "$WORK/ara.out" -w '%{http_code}' \
                   -X POST "$GATEWAY_URL/config/target_query" \
                   -H "Authorization: Bearer $ARA_TOKEN" \
@@ -828,7 +828,7 @@ jobs:
               echo "END-PR-BODY"
             } > "$WORK/payload.txt"
             echo "  ARA request sent $(date -u +%Y-%m-%dT%H:%M:%SZ) as Agent Session ID $AGENT_ID"
-            ara "open-pr" 120
+            ara "open-pr" 220
             rc=$?
             # What the gateway answered (truncated). Useful when matching this
             # request to its row in the Console's Agentic Access table.
