@@ -2,7 +2,7 @@
 title: Akeyless Connect RC File (Legacy)
 excerpt: ''
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
