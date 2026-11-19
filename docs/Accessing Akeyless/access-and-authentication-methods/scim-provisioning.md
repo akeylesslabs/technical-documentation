@@ -10,7 +10,11 @@ metadata:
 ---
 With just-in-time (JIT) provisioning, Akeyless only learns about a user when that user signs in. Changes in your identity provider's directory don't reach Akeyless until the user's next login. SCIM 2.0 provisioning closes this gap. SCIM is enabled per [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) Authentication Method, and your identity provider - for example Okta, Microsoft Entra ID or Ping Identity - provisions users and groups into that Authentication Method, pushing changes to Akeyless as they happen.
 
-> **Warning:** When SCIM is enabled, only users that the identity provider has provisioned and marked active can sign in through that Authentication Method. Existing users can't sign in until the identity provider's first sync creates them. Logins missing the Unique Identifier are rejected.
+<Callout icon="far fa-triangle-exclamation" theme="warn">
+  ### Warning:
+
+  When SCIM is enabled, only users that the identity provider has provisioned and marked active can sign in through that Authentication Method. Existing users can't sign in until the identity provider's first sync creates them. Logins missing the Unique Identifier are rejected.
+</Callout>
 
 ## Authentication Model
 
