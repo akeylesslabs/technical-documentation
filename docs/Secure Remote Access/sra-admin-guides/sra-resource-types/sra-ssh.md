@@ -93,47 +93,38 @@ Akeyless enables CLI access from any Unix terminal.
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
 
-  Starting from Windows 10, Microsoft supports the native feature "Windows subsystem for Linux."
-  This feature enables users to use their Windows OS environment as a Unix-like system.
-
-  To work with `Akeyless connect` command from Windows machine, place the `.akeyless-connect.rc` script on your home directory.
+  `akeyless connect` works the same way from a Windows machine using the native "Windows Subsystem for Linux" feature (available starting from Windows 10), which enables users to use their Windows OS environment as a Unix-like system.
 </Callout>
 
 1. Download and install the latest version of [Akeyless CLI](https://docs.akeyless.io/docs/cli).
 
-2. Create your `~/.akeyless-connect.rc`:
+2. Set your defaults in the CLI profile:
 
    ```shell
-   IDENTITY_FILE=""
-   CERT_ISSUER_NAME=""
-   AKEYLESS_PROFILE="default"
-   AKEYLESS_GW_REST_API=""
-
-   # Following are used for control service, to configure the temporary session:
-    # ${SRA_API_PROTO}://"${SRA_API_PREFIX}${SRA_HOST}${SRA_API_PATH}":"${SRA_API_PORT}
-   #
-   SRA_API_PREFIX=""
-    SRA_API_PATH=""
-    SRA_API_PROTO=http
-    SRA_API_PORT=9900
-   SRA_SSH_PORT=22
-
-   # Allow caching of temp session creds
-   SESSION_CACHING=no
-
-   # Display connection stages
-   DISPLAY_STAGES=yes
+   akeyless configure \
+   --cert-issuer-name "" \
+   --sra-ctrl-proto http \
+   --sra-ctrl-port 9900 \
+   --sra-ssh-port 22 \
+   --session-caching false \
+   --display-stages true
    ```
 
    Where:
 
-   * `IDENTITY_FILE`: The path to the `ssh-key` to be signed and used for Zero Trust session (if empty, a default of `ssh-key` is used).
+   * `--cert-issuer-name`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
 
-   * `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
+   * `--sra-ctrl-proto`, `--sra-ctrl-port`: Protocol and port for the SRA control service.
 
-   * `AKEYLESS_PROFILE`: Akeyless CLI profile to be used. For profile creation, precedence, and default-profile behavior, see [CLI Profiles](https://docs.akeyless.io/docs/cli-profiles).
+   * `--sra-ssh-port`: Port used when `--via-sra` has no port.
 
-   * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
+   * `--session-caching`: Whether to cache temporary session credentials.
+
+   * `--display-stages`: Whether to display connection stages.
+
+   The identity file, Akeyless CLI profile to use, and Gateway REST API endpoint aren't stored by `akeyless configure`; pass them as `akeyless connect -i`, `akeyless connect --profile`, and `akeyless connect --gateway-rest-endpoint` instead.
+
+   For the full list of settings, see [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect). If you still use the `~/.akeyless-connect.rc` file, see [Akeyless Connect RC File (Legacy)](https://docs.akeyless.io/docs/sra-akeyless-connect-rc-legacy).
 
 3. Use `akeyless connect` command to perform SSH authentication to the target server through [Secure Remote Access](https://docs.akeyless.io/docs/sra-setup-overview):
 

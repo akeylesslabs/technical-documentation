@@ -32,7 +32,7 @@ akeyless connect [flags]
 
 `-g, --gateway-url`: Gateway URL (Configuration Management port). Example: `http://localhost:8000`
 
-`-c, --cert-issuer-name`: Akeyless SSH certificate issuer name. Falls back to `~/.akeyless-connect.rc` or item details if not specified
+`-c, --cert-issuer-name`: Akeyless SSH certificate issuer name. Falls back to the CLI profile (`akeyless configure --cert-issuer-name`), then to item details
 
 `-n, --name`: Path to the secret or dynamic secret (producer) name used for the connection
 
@@ -85,9 +85,9 @@ You can also pass only the pre-connect flag and continue in interactive mode:
 
 `--debug`: Output debug information
 
-### RC file
+### Defaults
 
-Default values for most flags can be set in `~/.akeyless-connect.rc`. See [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) for the full RC file reference and setup instructions.
+Default values for most flags are set in the CLI profile with `akeyless configure`. See [Akeyless Connect](https://docs.akeyless.io/docs/sra-akeyless-connect) for the full list of settings. The `~/.akeyless-connect.rc` file is deprecated; see [Akeyless Connect RC File (Legacy)](https://docs.akeyless.io/docs/sra-akeyless-connect-rc-legacy) if you still use it.
 
 ### Examples
 
