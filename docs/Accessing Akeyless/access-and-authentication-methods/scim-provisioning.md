@@ -69,8 +69,6 @@ akeyless set-role-rule --role-name /scim/okta-scim-role --rule-type auth-method-
 akeyless assoc-role-am --role-name /scim/okta-scim-role --am-name /scim/okta-provisioner
 ```
 
-> **Note:** Don't give this role any other access.
-
 ### Turn On SCIM
 
 #### From the Console
