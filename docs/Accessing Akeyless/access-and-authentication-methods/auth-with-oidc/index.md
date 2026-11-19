@@ -123,6 +123,9 @@ Create a dedicated Access Role, give it the rules below, and associate it **only
 | `/scim/<OIDC auth method Access ID>/*`                       | Read, List, Create, Update, Delete | SCIM groups are stored as Akeyless Groups under this path.                                                                                                                       |
 | `/<SCIM API Key name>`, for example `/scim/okta-provisioner` | Read                               | Lets the Gateway confirm which OIDC Authentication Method the key is bound to.                                                                                                   |
 
+- **Listing users** works with either `Read` or `List` on the `/<OIDC auth method name>` path.
+- **SCIM groups** are stored as Akeyless Groups named `/scim/<OIDC auth method Access ID>/<group name>`, which is why the second rule's path is `/scim/<OIDC auth method Access ID>/*`.
+
 ```shell
 akeyless create-role --name /scim/okta-scim-role
 
@@ -141,7 +144,7 @@ akeyless set-role-rule --role-name /scim/okta-scim-role --rule-type auth-method-
 akeyless assoc-role-am --role-name /scim/okta-scim-role --am-name /scim/okta-provisioner
 ```
 
-> **Note:** Don't give this role any other access. If it's missing a permission, the identity provider gets `401 Unauthorized`.
+> **Note:** Don't give this role any other access. If the role is missing a permission, the identity provider gets `401 Unauthorized`. For requests about a specific user (look up, update or deactivate), a missing permission returns `404 Not Found`, the same as a user that doesn't exist.
 
 ### Enable SCIM Provisioning
 
@@ -173,6 +176,10 @@ akeyless auth-method update oidc \
 | `--scim-endpoint`         | `public` (served by Akeyless) or `private` (served by your own Gateway).                                                                  |
 | `--scim-gateway-url`      | The Gateway URL your identity provider calls. Required when `--scim-endpoint` is `private`.                                               |
 
+> **Note:** An API Key can be the SCIM bearer of only one Authentication Method.
+
+> **Note:** While an API Key is bound as the SCIM bearer, it can't be deleted. Turn off SCIM or bind another key first.
+
 ### Configure Your Identity Provider
 
 | Setting                     | Value                                                                                                                       |
@@ -183,7 +190,12 @@ akeyless auth-method update oidc \
 | **Unique identifier field** | `userName`. Its value must match the OIDC Unique Identifier claim, for example the user's email.                            |
 | **Supported actions**       | Create users, update user attributes, deactivate users, push groups                                                         |
 
-> **Note:** SCIM groups can be changed only through SCIM. An admin can't edit them in the console or CLI. To control what group members can access, associate the group with an Access Role in the usual way.
+> **Note:** SCIM groups can be changed only through SCIM. An admin can't edit them in the console or CLI. To control what group members can access, associate the group with an Access Role in the usual way. If SCIM stops managing the groups (for example, you turn off SCIM or remove the bound API Key), the groups stay, and they can then be edited by anyone with the usual permissions on them.
+
+### Identity Provider Notes
+
+- **Microsoft Entra ID:** Entra ID provisions changes in cycles that run about every 40 minutes, so a change can take up to 40 minutes to reach Akeyless. The time of the last cycle is shown on the application's Provisioning page in the Entra admin center. To push a change right away, use Provision on demand, which provisions one user, or one group with up to five members, per request. See [Set Up Microsoft Entra ID as an OIDC Authentication Method](https://docs.akeyless.io/docs/azure-active-directory-oidc).
+- **Okta:** Okta pushes changes to Akeyless as they happen (when a user is assigned, updated or deactivated), with no fixed sync interval. See [Set Up Okta as an OIDC Authentication Method](https://docs.akeyless.io/docs/okta-oidc).
 
 ### Check the SCIM Status
 
@@ -204,3 +216,5 @@ Select **Rotate Credential** on the **SCIM Provisioning** tab to generate a new 
 | `401 Unauthorized` (JSON)                    | Wrong Access Key, the API Key's role is missing a permission, the identity provider's IPs aren't in **Allowed IPs**, or the endpoint type (public or private) doesn't match the host being called. |
 | `403 Forbidden` (HTML) or `Connection reset` | The request never reached Akeyless. A firewall, WAF, load balancer, or wrong scheme or port is blocking the identity provider.                                                                     |
 | Users can't sign in after SCIM is enabled    | They haven't been provisioned yet, or their identity provider `userName` doesn't match the OIDC Unique Identifier.                                                                                 |
+| `404 Not Found` for a user that exists       | The SCIM API Key's role is missing Read, Update or Delete on the Authentication Method path.                                                                                                        |
+| `429 Too Many Requests`                      | The identity provider exceeded the SCIM rate limits: 20 requests per second per source IP address (bursts up to 100), and 50 requests per second per Authentication Method (bursts up to 200). The identity provider retries automatically. |
