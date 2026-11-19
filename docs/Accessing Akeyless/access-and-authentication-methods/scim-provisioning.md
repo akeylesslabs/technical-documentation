@@ -8,13 +8,13 @@ metadata:
   description: ''
   robots: index
 ---
-With just-in-time (JIT) provisioning, Akeyless only learns about a user when that user signs in. Changes in your identity provider's directory don't reach Akeyless until the user's next login. SCIM 2.0 provisioning closes this gap. SCIM is enabled per [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) Authentication Method, and your identity provider — for example Okta, Microsoft Entra ID or Ping Identity — provisions users and groups into that Authentication Method, pushing changes to Akeyless as they happen.
+With just-in-time (JIT) provisioning, Akeyless only learns about a user when that user signs in. Changes in your identity provider's directory don't reach Akeyless until the user's next login. SCIM 2.0 provisioning closes this gap. SCIM is enabled per [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) Authentication Method, and your identity provider - for example Okta, Microsoft Entra ID or Ping Identity - provisions users and groups into that Authentication Method, pushing changes to Akeyless as they happen.
 
 > **Warning:** When SCIM is enabled, only users that the identity provider has provisioned and marked active can sign in through that Authentication Method. Existing users can't sign in until the identity provider's first sync creates them. Logins missing the Unique Identifier are rejected.
 
 ## Authentication Model
 
-Your identity provider authenticates to the SCIM endpoint with a dedicated [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) — the SCIM bearer — bound to the SAML or OIDC Authentication Method.
+Your identity provider authenticates to the SCIM endpoint with a dedicated [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) - the SCIM bearer - bound to the SAML or OIDC Authentication Method.
 
 - **SCIM Base URL:** `https://<host>/scim/v2/<API-Key-Access-ID>/`
 - **Authentication:** The Access Key alone is sent as the Bearer token. The Access ID is already part of the URL.
