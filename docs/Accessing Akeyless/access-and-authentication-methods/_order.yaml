@@ -12,4 +12,5 @@
 - auth-with-oci
 - auth-with-oidc
 - auth-with-saml
+- scim-provisioning
 - auth-with-universal-identity
