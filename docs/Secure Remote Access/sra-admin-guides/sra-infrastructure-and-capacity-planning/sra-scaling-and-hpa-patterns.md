@@ -50,7 +50,7 @@ Use these safeguards together:
 * Add PodDisruptionBudget resources to reduce voluntary disruption during maintenance and autoscaler actions.
 * Roll out capacity changes gradually and watch active-session counts during each step.
 
-For ZTWA deployments, use the HPA session termination grace setting (`sessionTerminationGracePeriodSeconds`) to defer termination and reduce active session interruption.
+For ZTWA deployments, configure the HPA session-termination grace period in your Helm chart values to defer pod termination and reduce active session interruption during scale-in.
 
 ## Session-Based Autoscaling Signals
 
@@ -66,11 +66,4 @@ Validate metric quality before attaching it to production HPA policies. For prod
 
 ## Multi-Cluster Scaling Pattern
 
-For multi-cluster operations:
-
-1. Deploy gateway and bastion/dispatcher components with unique cluster naming per environment.
-2. Register and verify each bastion fleet by using `list-sra-bastions`.
-3. Scale clusters independently based on local load profile.
-4. Keep configuration parity across clusters for policy and session controls.
-
-Use [Cluster and Instance Health](https://docs.akeyless.io/docs/sra-cluster-and-instance-health) and [Version Drift and Upgrade Signals](https://docs.akeyless.io/docs/sra-version-drift-and-upgrade-signals) to validate post-scale stability.
+For multi-cluster operations, scale each cluster's gateway and bastion/dispatcher fleet independently based on its local load profile, and keep configuration parity across clusters for policy and session controls. Use [Cluster and Instance Health](https://docs.akeyless.io/docs/sra-cluster-and-instance-health) to inventory and verify each bastion fleet, and [Version Drift and Upgrade Signals](https://docs.akeyless.io/docs/sra-version-drift-and-upgrade-signals) to validate post-scale stability.

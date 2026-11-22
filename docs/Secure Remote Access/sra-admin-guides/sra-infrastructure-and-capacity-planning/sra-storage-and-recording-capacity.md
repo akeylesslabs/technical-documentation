@@ -19,53 +19,22 @@ For recording retrieval and operational review, use [RDP Recordings](https://doc
 
 ## Capacity Model by Session Type
 
-Recorded size depends on codec settings, session duration, and user interaction density.
+Recorded size depends on codec settings, session duration, and screen activity more than on a flat per-hour rate. Static screens consume almost no storage; constant UI movement is what drives usage up. Use these ranges as initial planning inputs, not hard limits, and validate with representative workloads before final capacity commitments:
 
-Use these planning ranges as initial estimates:
-
-| Session type              | Typical artifact                      | Planning range                                                                     | Lower-band scenario                                                 | Upper-band scenario                                                                 |
-| ------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| RDP video recording       | Encoded video (`.enc` or `.enc.gzip`) | Approximately `150 MB` to `1.5 GB` per hour                                        | Mostly static admin tasks, low screen-change rate, shorter sessions | High-motion UI activity, frequent full-screen refreshes, longer continuous sessions |
-| Web access recording      | Browser session video artifact        | Approximately `100 MB` to `1.2 GB` per hour                                        | Form-based workflows and low navigation churn                       | Media-heavy pages, frequent page reloads, high interaction density                  |
-| SSH and terminal sessions | Text command transcript and metadata  | Usually much smaller than video artifacts; plan by retention count and audit needs | Short command-only sessions with minimal output                     | Long sessions with verbose command output and frequent file/content dumps           |
-
-Treat these ranges as sizing inputs, not hard limits. Validate with representative workloads before final capacity commitments.
-
-### Quick Reference: Baseline Sizing by Screen Activity
-
-Session recording size is driven mainly by screen activity, not by a flat per-hour data rate. The following baseline estimates assume `1080p` resolution, standard compression, and no audio:
-
-| Activity profile | Example sessions                        | Estimated size per hour                  |
-| ---------------- | --------------------------------------- | ---------------------------------------- |
-| Low Profile      | SSH/CLI sessions, static logs           | Approximately `18` to `40 MB` per hour   |
-| Medium Profile   | UI navigation, web browsing             | Approximately `500 MB` per hour          |
-| High Profile     | Video, CAD, constant on-screen movement | Approximately `2.0` to `2.5 GB` per hour |
-
-**Screen Activity:** Static screens consume almost no storage; constant UI movement is what drives storage usage up. Use this profile view alongside the session-type table above as a quick sanity check when a session's recorded size looks higher or lower than expected for its protocol.
-
-### How to Estimate Where You Fall in the Range
-
-Use this quick method to choose a realistic planning band:
-
-1. Sample 3 to 5 representative sessions per access type (RDP, web, SSH).
-2. Capture duration and resulting artifact size for each sample.
-3. Convert each sample to hourly size (`artifact_size / session_minutes * 60`).
-4. Use the 75th percentile of your sample set as the baseline planning value.
-5. Add a 20% to 30% buffer for peak periods and retention-policy overlap.
-
-For initial planning before full measurements are available:
-
-1. Use the lower half of the range for low-interaction operational access.
-2. Use the upper half of the range for high-activity troubleshooting, GUI-heavy work, or long-lived sessions.
+| Session type              | Typical artifact                      | Planning range                                                                       |
+| ------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------- |
+| RDP video recording       | Encoded video (`.enc` or `.enc.gzip`) | Approximately `150 MB` to `1.5 GB` per hour, depending on screen-change rate          |
+| Web access recording      | Browser session video artifact        | Approximately `100 MB` to `1.2 GB` per hour, depending on page activity and media use |
+| SSH and terminal sessions | Text command transcript and metadata  | Much smaller than video artifacts; plan by retention count and audit needs, not by hourly rate |
 
 ## Recording Storage Backends
 
-RDP recording storage supports:
+Recording storage supports these backend types:
 
-* Amazon S3
-* S3-compatible object storage
-* Azure Blob Storage
 * Local filesystem on the SRA host
+* Amazon S3
+* Azure Blob Storage
+* NetApp StorageGRID and other S3-compatible object storage
 
 Use [RDP Recordings](https://docs.akeyless.io/docs/sra-rdp-recordings) for backend configuration flags and examples.
 
@@ -92,13 +61,9 @@ Use S3 lifecycle rules at bucket or prefix level to expire, transition, or archi
 
 Use Azure lifecycle management and tiering policies to move older recordings to lower-cost tiers.
 
-### GCS and Other Archive Targets
+### NetApp StorageGRID and Other S3-Compatible Storage
 
-If recordings are copied to Google Cloud Storage or another archive platform in your post-processing pipeline, apply equivalent object lifecycle rules there as well.
-
-### S3-Compatible Storage
-
-For S3-compatible systems, apply vendor-specific object lifecycle policy at bucket level and validate API compatibility for lifecycle enforcement.
+Apply vendor-specific object lifecycle policy at bucket level and validate API compatibility for lifecycle enforcement.
 
 ## Local Storage Limits and Production Risk
 
