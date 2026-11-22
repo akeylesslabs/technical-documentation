@@ -14,7 +14,7 @@ Certificate Provisioning to F5 BIG-IP lets you push a certificate stored in Akey
 
 Provisioning uploads the certificate, the private key, and optionally the chain to the F5 as traffic certificate and key objects. You can also bind the certificate to existing SSL profiles.
 
-<Callout icon="❗️" theme="error">
+<Callout icon="far fa-triangle-exclamation" theme="warn">
   ### Not Supported for F5 BIG-IP
 
   The `post-provision-command` parameter and the PFX certificate format aren't supported for F5 BIG-IP. Certificates are always uploaded as traffic certificates.
