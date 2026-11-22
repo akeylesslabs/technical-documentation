@@ -10,7 +10,7 @@ metadata:
 <Callout icon="⚠️" theme="warn">
   ### **Legacy:**
 
-  `akeyless-scp` is a legacy script maintained for existing workflows. For new deployments, use `akeyless file`.
+  `akeyless-scp` is a discontinued legacy script. The installer package has been removed from the Akeyless download center, so it can no longer be installed; existing installations may continue to run. Use [`akeyless file`](https://docs.akeyless.io/docs/sra-akeyless-scp) instead.
 </Callout>
 
 ### Legacy Prerequisites

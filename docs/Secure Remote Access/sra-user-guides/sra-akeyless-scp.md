@@ -132,4 +132,6 @@ Options:
   -h, --help               display help information
 ```
 
-###
+## Legacy Script
+
+`akeyless-scp` was a standalone script used before the CLI-based commands above. Its installer has been removed from the Akeyless download center, so it can no longer be installed; existing installations may continue to run. See [Akeyless SCP Script (Legacy)](https://docs.akeyless.io/docs/akeyless-scp-script) for reference.

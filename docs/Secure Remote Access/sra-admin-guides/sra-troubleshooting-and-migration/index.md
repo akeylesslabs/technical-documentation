@@ -3,7 +3,7 @@ title: Troubleshooting and Migration
 slug: sra-troubleshooting-and-migration
 excerpt: ''
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
@@ -11,6 +11,10 @@ metadata:
 next:
   description: ''
 ---
+> 📘 **Moved:**
+>
+> Troubleshooting and migration guidance is now part of [Infrastructure and Capacity Planning](https://docs.akeyless.io/docs/sra-infrastructure-and-capacity-planning).
+
 Troubleshooting and Migration provides incident runbooks for session reliability issues and practical guidance for moving from legacy split SRA deployments to the unified Gateway model.
 
 Use this section after baseline setup to reduce mean time to recovery during runtime incidents and upgrade windows.
