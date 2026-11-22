@@ -30,11 +30,17 @@ Where:
 
 * `github-app-id`: Provide the GitHub application ID.
 
-* `github-app-private-key`: The [GitHub application private key](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps).
+* `github-app-private-key`: The [GitHub application private key](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps), provided as a base64-encoded key.
 
 * `github-base-url`: Provide the GitHub base URL, default is [https://api.github.com/](https://api.github.com/).
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#github) section.
+
+For example, to base64-encode the private key file and pass it to the command in one line:
+
+```shell GitHub Target with base64-encoded key
+akeyless target create github --name <target name> --github-app-id <GitHub application ID> --github-app-private-key $(base64 -i private-key.pem) --github-base-url https://api.github.com
+```
 
 ## Create a GitHub Target in the Console
 
