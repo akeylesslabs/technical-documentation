@@ -13,8 +13,8 @@ By default, the provider retries only connection errors, such as a dropped or re
 
 Add a `retry` block to the provider, to a resource, or to both:
 
-- **Provider&#x20;**`retry`**&#x20;block:** the default for every resource in the configuration.
-- **Resource&#x20;**`retry`**&#x20;block:** used for that resource only, and replaces the provider block for it.
+- **Provider&#x20;**`retry`**&#x20;block:** covers the retries for every resource in the configuration. If you want to cover all your resources in one place, define the `retry` block under the provider.
+- **Resource&#x20;**`retry`**&#x20;block:** covers the retries for that resource only, and replaces the provider block for it.
 
 When a resource's Create, Read, Update or Delete fails with an error that matches your settings, the provider waits and runs the whole operation again.
 
@@ -29,7 +29,7 @@ The `retry` block is available on every Akeyless resource. It isn't available on
 
 ## Retry Settings
 
-Set at least one of `error_message_regex` and `retry_on_status_codes`.
+A `retry` block requires at least one of `error_message_regex` or `retry_on_status_codes`; without one of them, the block has nothing to match and isn't applied.
 
 | Setting                 | Default | Description                                                                               |
 | ----------------------- | ------- | ----------------------------------------------------------------------------------------- |
