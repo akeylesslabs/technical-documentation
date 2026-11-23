@@ -13,13 +13,13 @@ Ephemeral resources require **Terraform 1.10 or later**. Combining them with a r
 
 Declare an `ephemeral` block instead of a `data` block:
 
-```hcl
+```shell
 ephemeral "akeyless_static_secret" "db_password" {
   path = "/my-secret"
 }
 ```
 
-The resulting value is only available for the duration of the Terraform operation. Terraform only allows it to be referenced by another ephemeral resource, a provider configuration, or a resource's write-only argument — it cannot be assigned to an output or to a regular argument that Terraform persists in state.
+The resulting value is only available for the duration of the Terraform operation. Terraform only allows it to be referenced by another ephemeral resource, a provider configuration, or a resource's write-only argument - it cannot be assigned to an output or to a regular argument that Terraform persists in state.
 
 ## Available Ephemeral Resources
 
