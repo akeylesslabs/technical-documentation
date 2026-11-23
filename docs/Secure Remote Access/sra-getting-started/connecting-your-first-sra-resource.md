@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide walks you through connecting your first protected resource for SRA.<br />As a concrete example, it walks through an SSH session to a target host and connecting to it using the [Akeyless Connect](doc:new-structure-akeyless-console) CLI command. In this example, the target host is an Ubuntu server. <br />check our [Supported Resource Types](doc:sra-resource-types).
+This guide walks you through connecting your first protected resource for SRA.<br />As a concrete example, it walks through an SSH session to a target host and connecting to it using the [Akeyless Connect](https://docs.akeyless.io/docs/new-structure-akeyless-console) CLI command. In this example, the target host is an Ubuntu server. <br />check our [Supported Resource Types](https://docs.akeyless.io/docs/sra-resource-types).
 
-Configuration takes place in the Akeyless Console. Connection is established via CLI using an [API Key](doc:auth-with-api-key).
+Configuration takes place in the Akeyless Console. Connection is established via CLI using an [API Key](https://docs.akeyless.io/docs/auth-with-api-key).
 
 By the end, you'll have a real SSH session open from your terminal, proxied through SRA to your target host.
 
@@ -15,22 +15,22 @@ By the end, you'll have a real SSH session open from your terminal, proxied thro
 
 ## Prerequisites
 
-- [Gateway with SRA](doc:sra-quick-start-guide).
-- An existing [SSH Certificates Issuer](doc:sra-ssh-certificates)&#x20;
+- [Gateway with SRA](https://docs.akeyless.io/docs/sra-quick-start-guide).
+- An existing [SSH Certificates Issuer](https://docs.akeyless.io/docs/sra-ssh-certificates)&#x20;
 - A target host reachable over SSH.
-- Console access with permission to edit [SSH Certificate Issuers](doc:sra-ssh-certificates).
-- The [akeyless CLI ](doc:cli)installed.
+- Console access with permission to edit [SSH Certificate Issuers](https://docs.akeyless.io/docs/sra-ssh-certificates).
+- The [akeyless CLI ](https://docs.akeyless.io/docs/cli)installed.
 
 ***
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
 
-  This guide continues from the [Quick Start](doc:sra-structure-quick-start) Guide, where the Gateway was deployed without TLS.
+  This guide continues from the [Quick Start](https://docs.akeyless.io/docs/sra-structure-quick-start) Guide, where the Gateway was deployed without TLS.
 
   We strongly recommend not using this setup in production or with real credentials.
 
-  To configure your Gateway with TLS, see our [TLS Settings](doc:gateway-tls-settings) doc.
+  To configure your Gateway with TLS, see our [TLS Settings](https://docs.akeyless.io/docs/gateway-tls-settings) doc.
 </Callout>
 
 ## **Allow Gateway Access to the Host**
@@ -58,7 +58,7 @@ Edit the existing SSH Certificate Issuer created during the Gateway deployment d
 
 ## Create an Authentication Method
 
-This [Authentication Method](doc:access-and-authentication-methods) authenticates the user connecting to your resource. For this guide, API key authentication is used for simplicity.
+This [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) authenticates the user connecting to your resource. For this guide, API key authentication is used for simplicity.
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
@@ -72,7 +72,7 @@ akeyless auth-method create api-key --name MySraAPIKey
 
 ## Create an Access Role
 
-This [Access Role](doc:rbac) authorizes your SRA user to connect to the resource.
+This [Access Role](https://docs.akeyless.io/docs/rbac) authorizes your SRA user to connect to the resource.
 
 1. Create a new access role:
 

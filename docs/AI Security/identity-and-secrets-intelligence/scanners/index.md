@@ -20,10 +20,10 @@ From the Akeyless Console, under **Products > Identity & Secrets Intelligence > 
 
 ## Scanner Types
 
-- [Akeyless Scanner​](doc:akeyless-scanner)
-- [AWS Scanner](doc:aws-scanner)
-- [Azure Scanner](doc:azure-scanner)
-- [GCP Scanner](doc:gcp-scanner)
-- [GitHub Scanner](doc:github-scanner)
-- [GitLab Scanner](doc:gitlab-scanner)​
-- [Kubernetes Scanner](doc:kubernetes-scanner)
+- [Akeyless Scanner​](https://docs.akeyless.io/docs/akeyless-scanner)
+- [AWS Scanner](https://docs.akeyless.io/docs/aws-scanner)
+- [Azure Scanner](https://docs.akeyless.io/docs/azure-scanner)
+- [GCP Scanner](https://docs.akeyless.io/docs/gcp-scanner)
+- [GitHub Scanner](https://docs.akeyless.io/docs/github-scanner)
+- [GitLab Scanner](https://docs.akeyless.io/docs/gitlab-scanner)​
+- [Kubernetes Scanner](https://docs.akeyless.io/docs/kubernetes-scanner)

@@ -266,7 +266,7 @@ backend_kwargs = {
 
 3. Ensure the MWAA VPC has outbound HTTPS access to your Akeyless API endpoint (`api.akeyless.io` or your Akeyless Gateway).
 
-4. In Akeyless, create an `aws_iam` [Authentication Method](https://docs.akeyless.io/docs/aws-iam-auth-method) bounded to the MWAA execution role ARN.
+4. In Akeyless, create an `aws_iam` [Authentication Method](https://docs.akeyless.io/docs/auth-with-aws) bounded to the MWAA execution role ARN.
 
 5. Assign the Authentication Method to an Akeyless [Access Role](https://docs.akeyless.io/docs/rbac#access-roles) that has **read** permissions on the configured secret paths (for example, `/airflow/connections/*`, `/airflow/variables/*`).
 

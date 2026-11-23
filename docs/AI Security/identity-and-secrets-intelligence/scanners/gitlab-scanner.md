@@ -14,27 +14,27 @@ The GitLab Scanner is a code scanner. It finds credentials committed to your Git
 * **Hardcoded credentials in source and history**: The full commit history of every project in scope. This includes merge-request refs, which hold commits pushed to a merge request whose source branch was later deleted, and keep-around refs, which hold commits GitLab retains after a force-push or branch deletion.
 * **Validation status**: Whether each credential still authenticates, has been revoked or rotated, or could not be validated. For a credential that still works, the scanner also analyzes its reach, for example whether it can access a credential store, create new credentials, or call control-plane APIs.
 * **Authorship**: The GitLab user who committed each credential, matched against the members of the scanned group.
-* **Cloud identity correlation**: A validated AWS, GCP, or Azure credential is linked in the Security Graph to the same identity discovered by the matching [AWS](doc:aws-scanner), [GCP](doc:gcp-scanner), or [Azure](doc:azure-scanner) Scanner.
+* **Cloud identity correlation**: A validated AWS, GCP, or Azure credential is linked in the Security Graph to the same identity discovered by the matching [AWS](https://docs.akeyless.io/docs/aws-scanner), [GCP](https://docs.akeyless.io/docs/gcp-scanner), or [Azure](https://docs.akeyless.io/docs/azure-scanner) Scanner.
 
-A scanner with a **GitLab Group** set covers that group and, by default, its subgroups. A scanner with no group set covers every group the token's user is a member of. Archived projects are scanned in both cases. To scan only some of the projects, filter them when you create the scanner, as described in [Create a GitLab Scanner in the Akeyless Console](doc:gitlab-scanner#create-a-gitlab-scanner-in-the-akeyless-console). To cover more groups, add the token's user to each of them and leave the group blank, or create a scanner for each group.
+A scanner with a **GitLab Group** set covers that group and, by default, its subgroups. A scanner with no group set covers every group the token's user is a member of. Archived projects are scanned in both cases. To scan only some of the projects, filter them when you create the scanner, as described in [Create a GitLab Scanner in the Akeyless Console](https://docs.akeyless.io/docs/gitlab-scanner#create-a-gitlab-scanner-in-the-akeyless-console). To cover more groups, add the token's user to each of them and leave the group blank, or create a scanner for each group.
 
 <Callout icon="ℹ️" theme="info">
   ### **Note:**
 
-  If you also scan that cloud account with the [AWS](doc:aws-scanner), [GCP](doc:gcp-scanner), or [Azure](doc:azure-scanner) Scanner, both scanners link to the same identity. The GitLab finding then shows what the leaked credential grants: the identity's permissions and the resources it can access, as discovered by that scanner. Without the cloud scanner, the identity is shown by name only.
+  If you also scan that cloud account with the [AWS](https://docs.akeyless.io/docs/aws-scanner), [GCP](https://docs.akeyless.io/docs/gcp-scanner), or [Azure](https://docs.akeyless.io/docs/azure-scanner) Scanner, both scanners link to the same identity. The GitLab finding then shows what the leaked credential grants: the identity's permissions and the resources it can access, as discovered by that scanner. Without the cloud scanner, the identity is shown by name only.
 </Callout>
 
 ## Prerequisites
 
 * An Akeyless account with the Identity & Secrets Intelligence license.
-* A deployed and connected [Akeyless Gateway](doc:gateway-overview) version `5.5.0` and later.
-* A Gateway with [Akeyless AI Insights](doc:akeyless-ai-insight) configured.
+* A deployed and connected [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-overview) version `5.5.0` and later.
+* A Gateway with [Akeyless AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) configured.
 * Outbound HTTPS access from the Gateway to your GitLab instance.
-* A [GitLab Target](doc:gitlab-target) representing the GitLab user that will scan the group.&#x20;
-* The access token used by the Target granted the scopes listed under [Required GitLab Permissions](doc:gitlab-scanner#required-gitlab-permissions) below.
+* A [GitLab Target](https://docs.akeyless.io/docs/gitlab-target) representing the GitLab user that will scan the group.&#x20;
+* The access token used by the Target granted the scopes listed under [Required GitLab Permissions](https://docs.akeyless.io/docs/gitlab-scanner#required-gitlab-permissions) below.
 * Access to configure and run the scanner, granted via:
-  1. `Manage ISI Scanners `or `Admin` [Gateway Permission](doc:gateway-access-permissions-reference).
-  2. `Identity & Secrets Intelligence` [Administrative Rule](doc:rbac#administrative-rules) set to `Scoped` or `All`.
+  1. `Manage ISI Scanners `or `Admin` [Gateway Permission](https://docs.akeyless.io/docs/gateway-access-permissions-reference).
+  2. `Identity & Secrets Intelligence` [Administrative Rule](https://docs.akeyless.io/docs/rbac#administrative-rules) set to `Scoped` or `All`.
   3. `List` permission on the GitLab Target.
 
 ## Required GitLab Permissions
@@ -71,7 +71,7 @@ The following restrictions apply to self-managed instances:
 
 ## Create a GitLab Scanner in the Akeyless Console
 
-GitLab scanners are created and run from the Akeyless Console. The GitLab Target can be created from the Console or the CLI, as described in [GitLab Target](doc:gitlab-target).
+GitLab scanners are created and run from the Akeyless Console. The GitLab Target can be created from the Console or the CLI, as described in [GitLab Target](https://docs.akeyless.io/docs/gitlab-target).
 
 1. Log in to the Akeyless Console, and go to **Products > Identity & Secrets Intelligence > Scanners**.
 2. Click **New**, and select the scanner type **GitLab**, then click **Next**.
@@ -98,7 +98,7 @@ GitLab findings are evaluated against the following Identity & Secrets Intellige
 - Revoked Secret Found in Git History
 - Unvalidated Secret Pattern in Code
 
-For more information, see [Secret Policies](doc:secret-policies)​.
+For more information, see [Secret Policies](https://docs.akeyless.io/docs/secret-policies)​.
 
 Secret lifecycle policies such as Unused Secret, Stale Secret, and Rotation Overdue do not apply to GitLab findings, because they describe secrets held in a managed secret store rather than values committed to code.
 
