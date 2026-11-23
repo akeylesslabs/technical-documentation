@@ -28,6 +28,7 @@ API Key
 API Key Token
 apt
 ARM64
+Atlassian Cloud
 Auth Methods
 AWS
 AWS IAM
@@ -58,6 +59,7 @@ Create-Key-In-Akeyless
 Custom Rotation Statement
 Custom Tokenization
 customCA
+Data Center
 Datadog
 datafrom.yaml
 Default
