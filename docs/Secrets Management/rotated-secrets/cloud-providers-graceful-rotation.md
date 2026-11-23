@@ -11,7 +11,11 @@ Graceful Rotation keeps the previous credentials valid for a configurable grace 
 
 ## Graceful Rotation Modes
 
-> ⚠️ **Warning:** Switching between Graceful Rotation modes is destructive and resets the rotation state. When you change the mode, Akeyless removes any existing rotated key versions created by the previous mode (including overlapping copies, if present) and re-initializes the secret. Rotation then restarts with a single fresh credential/key version, and subsequent versions are created according to the newly selected mode.
+<Callout icon="⚠️" theme="warn">
+  ### **Warning:**
+
+  &#x20;Switching between Graceful Rotation modes is destructive and resets the rotation state. When you change the mode, Akeyless removes any existing rotated key versions created by the previous mode (including overlapping copies, if present) and re-initializes the secret. Rotation then restarts with a single fresh credential/key version, and subsequent versions are created according to the newly selected mode.
+</Callout>
 
 Use the following configuration rules when enabling Graceful Rotation:
 
