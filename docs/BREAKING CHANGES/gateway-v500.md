@@ -51,10 +51,10 @@ Review your deployment configuration and image selection if you plan to run Gate
 
 Starting with Gateway `v5.0.0`, the following Gateway-managed telemetry and **Internal** forwarding integrations are deprecated:
 
-- OpenTelemetry Collector-based telemetry
-- Splunk Forwarder
-- Loki
-- Syslog/RSyslog
+* OpenTelemetry Collector-based telemetry
+* Splunk Forwarder
+* Loki
+* Syslog/RSyslog
 
 If you currently rely on one of these **Internal&#x20;**&#x69;ntegrations, move the forwarding responsibility to your runtime, orchestration platform, or logging agent.
 
@@ -62,9 +62,9 @@ If you currently rely on one of these **Internal&#x20;**&#x69;ntegrations, move 
 
 You may be affected if you currently rely on any of the following:
 
-- Scraping Gateway logs from local log files.
-- Parsing Gateway logs in the previous non-JSON format.
-- Using the embedded OpenTelemetry Collector-based telemetry flow.
+* Scraping Gateway logs from local log files.
+* Parsing Gateway logs in the previous non-JSON format.
+* Using the embedded OpenTelemetry Collector-based telemetry flow.
 
 ## How to prepare
 

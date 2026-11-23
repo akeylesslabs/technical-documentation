@@ -30,10 +30,10 @@ Access to the FedRAMP environment has two layers:
 
 Before onboarding, make sure that:
 
-- A federal order and addendum are in place, and Akeyless has confirmed that your account(s) are provisioned in the FedRAMP tenant. Accounts are created in Staging first, and then in Production.
-- You have the list of initial administrators (name and work email).
-- If you federate Console access to your corporate IdP: you have the IdP protocol (SAML or OIDC), the IdP metadata or discovery URL, and a technical contact who can configure the IdP side.
-- Your network allows outbound HTTPS (443) to the FedRAMP domain. See [FedRAMP Network Connectivity](https://docs.akeyless.io/docs/fedramp-network-connectivity).
+* A federal order and addendum are in place, and Akeyless has confirmed that your account(s) are provisioned in the FedRAMP tenant. Accounts are created in Staging first, and then in Production.
+* You have the list of initial administrators (name and work email).
+* If you federate Console access to your corporate IdP: you have the IdP protocol (SAML or OIDC), the IdP metadata or discovery URL, and a technical contact who can configure the IdP side.
+* Your network allows outbound HTTPS (443) to the FedRAMP domain. See [FedRAMP Network Connectivity](https://docs.akeyless.io/docs/fedramp-network-connectivity).
 
 ## Onboarding Flow
 
@@ -80,9 +80,9 @@ Akeyless issues a signed token (JWT) after a successful authentication. The defa
 
 Use a separate account in each environment. The two are not mixed.
 
-- An **Access ID**, **API key**, and **Gateway** created in one environment are not valid in the other.
-- A user who needs both environments is onboarded separately in each.
-- Keep separate CLI profiles per environment. See [FedRAMP CLI Configuration](https://docs.akeyless.io/docs/fedramp-cli-configuration).
+* An **Access ID**, **API key**, and **Gateway** created in one environment are not valid in the other.
+* A user who needs both environments is onboarded separately in each.
+* Keep separate CLI profiles per environment. See [FedRAMP CLI Configuration](https://docs.akeyless.io/docs/fedramp-cli-configuration).
 
 ## Offboarding Users
 

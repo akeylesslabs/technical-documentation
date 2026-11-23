@@ -106,12 +106,13 @@ These endpoints report whether the Gateway API listeners are up.
 
 They do not check SaaS connectivity, so they can return 200 while the Gateway is offline or disconnected from SaaS.
 
-If Cluster Cache is enabled and Redis is unavailable, these endpoints return 503 status code with `Health Check Error`. 
+If Cluster Cache is enabled and Redis is unavailable, these endpoints return 503 status code with `Health Check Error`.
 To keep them healthy when Redis should not affect process readiness, set:
 
 ,,,yaml Gateway chart
 env:
-  - name: IGNORE_REDIS_HEALTH
+
+* name: IGNORE_REDIS_HEALTH
     value: "true"
 ,,,
 

@@ -37,9 +37,9 @@ The FedRAMP environment keeps the Akeyless Zero-Knowledge model: the hosted cont
 
 <br />Key points:
 
-- **Outbound only.** Gateways and clients connect outbound to the FedRAMP domain over HTTPS (443). The hosted environment never initiates a connection into yours.
-- **Gateways stay with you.** You deploy and operate Gateways in your own landing zones (GovCloud VPCs, on-premises, or other networks).
-- **One Gateway, one environment.** A Gateway connects only to its own control plane. Do not reuse a commercial Gateway for FedRAMP workloads, or the reverse.
+* **Outbound only.** Gateways and clients connect outbound to the FedRAMP domain over HTTPS (443). The hosted environment never initiates a connection into yours.
+* **Gateways stay with you.** You deploy and operate Gateways in your own landing zones (GovCloud VPCs, on-premises, or other networks).
+* **One Gateway, one environment.** A Gateway connects only to its own control plane. Do not reuse a commercial Gateway for FedRAMP workloads, or the reverse.
 
 ## Environments
 
@@ -72,9 +72,9 @@ The Akeyless Customer Success team provides the exact hostnames and the Account 
 
 ## In This Section
 
-- [FedRAMP Account Onboarding](https://docs.akeyless.io/docs/fedramp-account-onboarding)
-- [FedRAMP Network Connectivity](https://docs.akeyless.io/docs/fedramp-network-connectivity)
-- [FedRAMP CLI Configuration](https://docs.akeyless.io/docs/fedramp-cli-configuration)
-- [FedRAMP Gateway Deployment](https://docs.akeyless.io/docs/fedramp-gateway-deployment)
-- [FedRAMP API, SDKs, and Integrations](https://docs.akeyless.io/docs/fedramp-api-sdks-and-integrations)
-- [FedRAMP Feature Availability](https://docs.akeyless.io/docs/fedramp-feature-availability)
+* [FedRAMP Account Onboarding](https://docs.akeyless.io/docs/fedramp-account-onboarding)
+* [FedRAMP Network Connectivity](https://docs.akeyless.io/docs/fedramp-network-connectivity)
+* [FedRAMP CLI Configuration](https://docs.akeyless.io/docs/fedramp-cli-configuration)
+* [FedRAMP Gateway Deployment](https://docs.akeyless.io/docs/fedramp-gateway-deployment)
+* [FedRAMP API, SDKs, and Integrations](https://docs.akeyless.io/docs/fedramp-api-sdks-and-integrations)
+* [FedRAMP Feature Availability](https://docs.akeyless.io/docs/fedramp-feature-availability)

@@ -81,9 +81,9 @@ Integrations that would run **from the hosted control plane** are subject to the
 
 ## Proxies and TLS Inspection
 
-- If your network uses an HTTP(S) proxy, configure the Gateway and CLI to use it, and allow `*.fedramp.akeyless.io` through it.
-- Do not perform TLS inspection on traffic to `*.fedramp.akeyless.io`, because it breaks the client-certificate authentication and can break Gateway connectivity.
-- Requests pass through a web application firewall, and excessive request rates can be rate limited. If you see `429` or `403` responses from a CI/CD job that authenticates in a tight loop, reuse tokens until they expire.
+* If your network uses an HTTP(S) proxy, configure the Gateway and CLI to use it, and allow `*.fedramp.akeyless.io` through it.
+* Do not perform TLS inspection on traffic to `*.fedramp.akeyless.io`, because it breaks the client-certificate authentication and can break Gateway connectivity.
+* Requests pass through a web application firewall, and excessive request rates can be rate limited. If you see `429` or `403` responses from a CI/CD job that authenticates in a tight loop, reuse tokens until they expire.
 
 ## Verify Connectivity
 

@@ -29,10 +29,10 @@ Everything else, including authentication methods, targets, dynamic and rotated 
 
 ## Prerequisites
 
-- A FedRAMP account, with an Auth Method and an Access ID for the Gateway. See [FedRAMP Account Onboarding](https://docs.akeyless.io/docs/fedramp-account-onboarding).
-- A Kubernetes cluster in your landing zone, with enough capacity for three or more Gateway replicas across availability zones.
-- Outbound HTTPS (443) from the cluster to `*.fedramp.akeyless.io`. See [FedRAMP Network Connectivity](https://docs.akeyless.io/docs/fedramp-network-connectivity).
-- Network access from your clients and Console users to the Gateway.
+* A FedRAMP account, with an Auth Method and an Access ID for the Gateway. See [FedRAMP Account Onboarding](https://docs.akeyless.io/docs/fedramp-account-onboarding).
+* A Kubernetes cluster in your landing zone, with enough capacity for three or more Gateway replicas across availability zones.
+* Outbound HTTPS (443) from the cluster to `*.fedramp.akeyless.io`. See [FedRAMP Network Connectivity](https://docs.akeyless.io/docs/fedramp-network-connectivity).
+* Network access from your clients and Console users to the Gateway.
 
 ## Deploy With Helm
 
@@ -79,9 +79,9 @@ On first key creation, the Gateway generates your Customer Fragment. It is custo
 
 ## Resilience
 
-- Deploy three or more replicas across availability zones, with autoscaling.
-- Enable **Cluster Cache** so that the Gateway continues to serve cached static secrets, issue dynamic secrets, and validate existing sessions during a control plane outage.
-- New workloads that authenticate for the first time still depend on the authentication service in the FedRAMP environment. During an outage, administration is degraded, but application access to cached secrets continues.
+* Deploy three or more replicas across availability zones, with autoscaling.
+* Enable **Cluster Cache** so that the Gateway continues to serve cached static secrets, issue dynamic secrets, and validate existing sessions during a control plane outage.
+* New workloads that authenticate for the first time still depend on the authentication service in the FedRAMP environment. During an outage, administration is degraded, but application access to cached secrets continues.
 
 ## Audit Logs and SIEM
 

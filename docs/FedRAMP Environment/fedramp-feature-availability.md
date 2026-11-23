@@ -35,14 +35,14 @@ The FedRAMP environment is based on the same core technology as the commercial e
 
 ## New Features and Fixes
 
-- **Security fixes** are prioritized under FedRAMP vulnerability remediation timelines.
-- **New features** ship to the commercial environment first, then go through the hosting provider's validation pipeline. They typically reach the FedRAMP environment within a quarter of the commercial release.
-- **Boundary changes** follow the FedRAMP significant change process and can take longer.
-- **Gateway releases** are not gated by the hosting provider's pipeline. You can upgrade Gateways when you choose.
+* **Security fixes** are prioritized under FedRAMP vulnerability remediation timelines.
+* **New features** ship to the commercial environment first, then go through the hosting provider's validation pipeline. They typically reach the FedRAMP environment within a quarter of the commercial release.
+* **Boundary changes** follow the FedRAMP significant change process and can take longer.
+* **Gateway releases** are not gated by the hosting provider's pipeline. You can upgrade Gateways when you choose.
 
 Check the release notes and ask your Akeyless Customer Success team to confirm whether a specific feature is available in your environment.
 
 ## Related Pages
 
-- [FedRAMP Environment](https://docs.akeyless.io/docs/fedramp-environment)
-- [FedRAMP Network Connectivity](https://docs.akeyless.io/docs/fedramp-network-connectivity)
+* [FedRAMP Environment](https://docs.akeyless.io/docs/fedramp-environment)
+* [FedRAMP Network Connectivity](https://docs.akeyless.io/docs/fedramp-network-connectivity)
