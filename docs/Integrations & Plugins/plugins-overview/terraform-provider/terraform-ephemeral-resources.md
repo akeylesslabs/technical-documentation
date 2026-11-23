@@ -41,7 +41,7 @@ All returned attributes are sensitive strings (`value` on `akeyless_target_detai
 
 Use the ephemeral value together with a write-only argument, so the value passes through without being saved in state:
 
-```hcl
+```shell
 ephemeral "akeyless_static_secret" "db_password" {
   path = "/my-secret"
 }
@@ -57,7 +57,7 @@ resource "akeyless_static_secret" "copy" {
 
 Dynamic secret values are often JSON-encoded. Fetch the credentials as an ephemeral resource and decode them directly into another provider's configuration:
 
-```hcl
+```shell
 ephemeral "akeyless_dynamic_secret" "db_creds" {
   path = "/target/dynamic-secret-postgres"
 }
@@ -71,7 +71,7 @@ provider "postgresql" {
 
 ### Issue a Short-Lived PKI Certificate
 
-```hcl
+```shell
 ephemeral "akeyless_pki_certificate" "server_cert" {
   cert_issuer_name = "/pki/my-issuer"
   common_name      = "server.example.com"
