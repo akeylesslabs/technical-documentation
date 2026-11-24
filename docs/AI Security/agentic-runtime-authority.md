@@ -31,6 +31,16 @@ The runtime authority execution path supports these secret types:
 
 Agentic Runtime Authority extends Akeyless AI security beyond secretless credential retrieval by adding runtime controls and reporting for agent access.
 
+### GCP Secrets Include BigQuery Tools
+
+For GCP service targets, `service-execute` and `list-sub-tools` give the agent both the standard `gcloud` tools and a set of BigQuery tools, backed by Google's remote BigQuery MCP server. This happens automatically for every GCP secret used with runtime authority — there is no field, CLI flag, Console setting, or environment variable to turn it on or off.
+
+* The BigQuery tools authenticate with the same GCP service account credentials already configured on the GCP secret. No separate BigQuery credential setup is required.
+* The exact set of BigQuery tools offered depends on the IAM permissions granted to that service account. A service account with write access (including the `bigquery.tables.updateData` permission) is offered the full BigQuery tool set. A service account limited to read access is offered a read-only subset. A service account without BigQuery's MCP permission (`mcp.tools.call`) is offered `gcloud` tools only.
+* If the BigQuery MCP server can't be reached, `service-execute` still runs using the `gcloud` tools only, with no error returned to the agent.
+* `list-sub-tools` run against a GCP secret lists the BigQuery tools alongside the `gcloud` tools.
+* Other target types are unaffected.
+
 ## Runtime Entry Points
 
 Runtime authority is exposed through these code-backed entry points:
