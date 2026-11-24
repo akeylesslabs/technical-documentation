@@ -180,7 +180,7 @@ akeyless create-pki-cert-issuer \
 
 `--gw-cluster-url`: The GW cluster URL, Relevant for Public CA and CRL.
 
-`-t, --ttl`: **Required**, The maximum requested Time To Live for the issued certificate by `default` in seconds, supported formats are `s`, `m`, `h`, `d`.
+`-t, --ttl`: **Required**, The maximum requested Time To Live for the issued certificate by `default` in seconds, supported formats are `s`, `m`, `h`, `d`. In case of Public CA, this is based on the CA target's supported maximum TTLs. Not supported for Let's Encrypt, which always uses the CA default lifetime (about 90 days).
 
 `--allowed-domains`: A list of domains (comma-separated) this Issuer is allowed to issue certificates for.
 
