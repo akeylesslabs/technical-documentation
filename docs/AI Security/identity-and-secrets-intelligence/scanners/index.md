@@ -23,6 +23,7 @@ From the Akeyless Console, under **Products > Identity & Secrets Intelligence > 
 - [Akeyless Scanner​](doc:akeyless-scanner)
 - [AWS Scanner](doc:aws-scanner)
 - [Azure Scanner](doc:azure-scanner)
+- [Claude Scanner](doc:claude-scanner)
 - [GCP Scanner](doc:gcp-scanner)
 - [GitHub Scanner](doc:github-scanner)
 - [GitLab Scanner](doc:gitlab-scanner)​
