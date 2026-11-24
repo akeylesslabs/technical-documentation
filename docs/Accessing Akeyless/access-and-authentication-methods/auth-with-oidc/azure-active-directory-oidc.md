@@ -88,6 +88,8 @@ When Azure does not include the `groups` claim directly in an OIDC token and ins
 
 Akeyless detects this distributed-claim pattern and calls Microsoft Graph by using the OIDC auth method's client credentials (`client_id` and `client_secret`) to retrieve group memberships from the [getMemberObjects](https://learn.microsoft.com/en-us/graph/api/directoryobject-getmemberobjects?view=graph-rest-1.0) endpoint. For this flow to succeed, the Azure app registration must have Microsoft Graph **Application** permissions that allow group membership retrieval (for example, [GroupMember.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#groupmemberreadall) or [Directory.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#directoryreadall)), with admin consent granted.
 
+The group object IDs returned by `getMemberObjects` populate the standard `groups` claim, which is what group-based access rules evaluate by default. Since group object IDs aren't human-readable, Akeyless also resolves the IDs of the groups assigned to the Azure application to their display names and makes them available in a separate `group_names` claim, so you can reference readable group names instead of IDs when configuring rules or sub-claims. This resolution is automatic and requires no additional configuration on the OIDC auth method. If the name resolution fails for any reason (for example, insufficient Graph permissions), login still succeeds using the `groups` claim, and `group_names` is simply omitted.
+
 ### Grant the Required API Permission
 
 1. In the Azure portal, navigate to **App registrations** and select your Akeyless OIDC application.
