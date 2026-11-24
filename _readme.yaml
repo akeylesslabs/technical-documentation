@@ -1,0 +1,34 @@
+navigation:
+  - kind: home
+    name: Home
+    icon: far fa-house
+  - kind: guide
+    directory: docs
+    name: Documentation
+    icon: far fa-book-open
+  - kind: recipes
+    directory: recipes
+    name: Recipes
+    hidden: true
+    icon: far fa-flask
+  - kind: reference
+    directory: reference
+    name: API Reference
+    icon: far fa-code-simple
+  - kind: changelog
+    name: Change log
+    hidden: true
+    icon: far fa-bullhorn
+  - kind: discuss
+    name: Tutorials
+    hidden: true
+    icon: far fa-comments
+  - kind: url
+    url: https://updates.akeyless.io/en
+    name: Release Notes
+  - kind: url
+    url: https://www.akeyless.io/submit-a-ticket/
+    name: Contact Support
+  - kind: url
+    url: https://console.akeyless.io
+    name: Get Started
