@@ -7,9 +7,14 @@ metadata:
 ---
 You can define a [Claude](https://www.anthropic.com/api) target to be used for [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) in your account.
 
+A Claude target can authenticate to Anthropic in one of two ways:
+
+- **API Key** (default): A static Claude API key.
+- **Workload Identity Federation (WIF)**: The Gateway exchanges an OIDC JWT for a short-lived Claude access token bound to a Claude service account, so no static API key is stored, rotated, or at risk of leaking.
+
 ## Create a Claude Target with the CLI
 
-To create a Claude target with the CLI, run the following command:
+To create a Claude target with an API key, run the following command:
 
 ```shell
 akeyless target create claude \
@@ -26,6 +31,29 @@ Where:
 - `claude-url`: The Claude API base URL. Default: `https://api.anthropic.com`
 - `key`: The protection key used to encrypt the target secret value. If not specified, the account default protection key is used.
 
+To create a Claude target with Workload Identity Federation instead, run the following command:
+
+```shell
+akeyless target create claude \
+  --name <target name> \
+  --use-gw-cloud-identity \
+  --wif-organization-id <Anthropic organization ID> \
+  --wif-service-account-id <Claude service account ID (svac_...)> \
+  --wif-federation-rule-id <Federation rule ID (fdrl_...)> \
+  --wif-workspace-id <Workspace ID (wrkspc_...)> \
+  --key <protection key>
+```
+
+Where:
+
+- `use-gw-cloud-identity`: A boolean flag to use Workload Identity Federation instead of a static API key. Cannot be used together with `api-key`.
+- `wif-organization-id`: The Anthropic organization ID.
+- `wif-service-account-id`: The Claude service account ID (`svac_...`).
+- `wif-federation-rule-id`: The federation rule ID (`fdrl_...`).
+- `wif-workspace-id`: Optional, the workspace ID (`wrkspc_...`), needed only when the federation rule covers more than one workspace.
+
+On save, Akeyless validates the target by exchanging the Gateway's identity token for a Claude access token and calling the Anthropic API with it; the target creation fails with a clear error if validation does not succeed.
+
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets]() section.
 
 ## Create a Claude Target in the Console
@@ -34,8 +62,16 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
    For more information, [read here](https://docs.akeyless.io/docs/gateway-zero-knowledge).
-4. Define the remaining parameters as follows:
-   - **API Key**: The Claude API key.
-   - **Claude URL**: The Claude API base URL. Default: `https://api.anthropic.com`
+4. Select an **Auth type**:
+   - **API Key**:
+     - **API Key**: The Claude API key.
+     - **Claude URL**: The Claude API base URL. Default: `https://api.anthropic.com`
+   - **Workload Identity Federation**:
+     - **Organization ID**: The Anthropic organization ID.
+     - **Service Account ID**: The Claude service account ID (`svac_...`).
+     - **Federation Rule ID**: The federation rule ID (`fdrl_...`).
+     - **Workspace ID**: Optional, needed only when the federation rule covers more than one workspace.
+
+Existing API key targets continue to work unchanged.
 
 <br />

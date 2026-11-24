@@ -341,16 +341,35 @@ Creates a new Azure target in the current account
 akeyless target create claude \
 --name <Target name> \
 --api-key <Claude API Key> \
---claude-url[=https://api.anthropic.com] <Claude API base URL>
+--claude-url[=https://api.anthropic.com] <Claude API base URL> \
+--use-gw-cloud-identity <Use Workload Identity Federation> \
+--wif-organization-id <Anthropic organization ID> \
+--wif-service-account-id <Claude service account ID (svac_...)> \
+--wif-federation-rule-id <Federation rule ID (fdrl_...)> \
+--wif-workspace-id <Workspace ID (wrkspc_...)>
 ```
 
 ##### Flags
 
 `-n, --name`: **Required**, Target name
 
-`--api-key`: **Required**, Claude API Key
+`--api-key`: Claude API Key. Required unless `--use-gw-cloud-identity` is set
 
 `--claude-url`: Claude API base URL
+
+`-i, --use-gw-cloud-identity`: A boolean flag to use Workload Identity Federation instead of a static API key. Cannot be used together with `--api-key`
+
+`--wif-organization-id`: The Anthropic organization ID. Required when `--use-gw-cloud-identity` is set
+
+`--wif-service-account-id`: The Claude service account ID (`svac_...`). Required when `--use-gw-cloud-identity` is set
+
+`--wif-federation-rule-id`: The federation rule ID (`fdrl_...`). Required when `--use-gw-cloud-identity` is set
+
+`--wif-workspace-id`: Optional, the workspace ID (`wrkspc_...`), needed only when the federation rule covers more than one workspace
+
+`--wif-identity-token-source`: Optional, the source from which the Gateway reads its identity token, options:\[file, gcp, aws, azure]. Default: `file`
+
+`--wif-azure-audience`: The identifier URI (`api://<app-id>`) of the Entra app registration used as the Claude API audience. Required when `--wif-identity-token-source` is `azure`
 
 ### `cloudflare`
 
@@ -1998,7 +2017,12 @@ akeyless target update claude \
 --name <Target name> \
 --new-name <New target name> \
 --api-key <Claude API key> \
---claude-url <Claude API base URL> 
+--claude-url <Claude API base URL> \
+--use-gw-cloud-identity <Use Workload Identity Federation> \
+--wif-organization-id <Anthropic organization ID> \
+--wif-service-account-id <Claude service account ID (svac_...)> \
+--wif-federation-rule-id <Federation rule ID (fdrl_...)> \
+--wif-workspace-id <Workspace ID (wrkspc_...)>
 ```
 
 ##### Flags
@@ -2007,9 +2031,23 @@ akeyless target update claude \
 
 `--new-name`: New target name
 
-`api-key`: The Claude API key.
+`api-key`: The Claude API key. Required unless `use-gw-cloud-identity` is set
 
 `claude-url`: The Claude API base URL. Default: [https://api.anthropic.com](https://api.anthropic.com)
+
+`-i, --use-gw-cloud-identity`: A boolean flag to use Workload Identity Federation instead of a static API key. Cannot be used together with `api-key`
+
+`--wif-organization-id`: The Anthropic organization ID. Required when `use-gw-cloud-identity` is set
+
+`--wif-service-account-id`: The Claude service account ID (`svac_...`). Required when `use-gw-cloud-identity` is set
+
+`--wif-federation-rule-id`: The federation rule ID (`fdrl_...`). Required when `use-gw-cloud-identity` is set
+
+`--wif-workspace-id`: Optional, the workspace ID (`wrkspc_...`), needed only when the federation rule covers more than one workspace
+
+`--wif-identity-token-source`: Optional, the source from which the Gateway reads its identity token, options:\[file, gcp, aws, azure]. Default: `file`
+
+`--wif-azure-audience`: The identifier URI (`api://<app-id>`) of the Entra app registration used as the Claude API audience. Required when `wif-identity-token-source` is `azure`
 
 #### `cloudflare`
 
