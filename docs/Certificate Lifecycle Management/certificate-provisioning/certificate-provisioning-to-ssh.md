@@ -42,11 +42,13 @@ Where:
 - `certificate-path`: A path on the server to save the certificate.
 - `private-key-path`: Optional, a path on the server to save the private key.
 - `chain-path`: Optional, a path on the server to save the full chain. At least one path is required, and the paths can't overlap.
-- `certificate-format`: Optional, `pem` (default) or `pfx`. With `pfx`, a single PFX file that bundles the certificate, chain, and private key is saved to `certificate-path`, so `private-key-path` and `chain-path` can't be used.
+- `certificate-format`: Optional, `pem` (default), `pfx`, or `jks`. With `pfx` or `jks`, a single file that bundles the certificate, chain, and private key is saved to `certificate-path`, so `private-key-path` and `chain-path` can't be used. `jks` requires Gateway version 5.8.0 or higher.
 - `pfx-password`: Required with `--certificate-format pfx`. The password that protects the PFX file.
+- `jks-password`: Required with `--certificate-format jks`. The password that protects the JKS keystore.
+- `key-alias`: Optional, the alias the certificate and key entry is stored under in the JKS keystore (up to 128 characters). Defaults to `certificate`. Only relevant with `--certificate-format jks`.
 - `post-provision-command`: Optional, a command to run on the server after each successful provisioning, for example, to reload a web server.
 
-**Windows servers over SSH:** `certificate-path` can also be a Windows certificate store path, such as `Cert:\LocalMachine\My`. PFX isn't supported for certificate store paths over SSH. To import a PFX into a certificate store, use a [Windows Target](https://docs.akeyless.io/docs/certificate-provisioning-to-windows) instead.
+**Windows servers over SSH:** `certificate-path` can also be a Windows certificate store path, such as `Cert:\LocalMachine\My`. PFX and JKS aren't supported for certificate store paths over SSH. To import a PFX into a certificate store, use a [Windows Target](https://docs.akeyless.io/docs/certificate-provisioning-to-windows) instead.
 
 **Linked Targets:** When the Target is a [Linked Target](https://docs.akeyless.io/docs/linked-target), the certificate is provisioned to every host in it, using the parent Target's credentials.
 
@@ -62,7 +64,9 @@ You can find the complete list of parameters for `assoc-target-item` in the [CLI
 - **Target Name** - Choose an existing SSH Target from the drop-down list.
 - **Gateway** - Choose the Gateway that provisions the certificate.
 - **Certificate Remote Path** - The path where the certificate is provisioned.
-- **Certificate Format** - The file format the certificate is provisioned in: **PEM** (default) or **PFX**.
+- **Certificate Format** - The file format the certificate is provisioned in: **PEM** (default), **PFX**, or **JKS**.
+- **Keystore Password** - Required when **Certificate Format** is **JKS**. The password that protects the keystore.
+- **Key Alias** - Optional, the alias the certificate and key entry is stored under in the JKS keystore. Defaults to `certificate`. Only shown when **Certificate Format** is **JKS**.
 - **Private Key Remote Path** - A path on the target to store the private key.
 - **Certificate Chain Path** - A path on the target to store the full chain.
 - **Post Provision Command** - A custom command that runs on the server after each successful provisioning, for example, to reload a web server.
