@@ -66,7 +66,6 @@ The typical flow is:
 
 Reach for this one for agents that need to act on production systems (databases, AWS/GCP/Azure, Kubernetes, GitHub) or on a third-party service reachable through a custom MCP target - anywhere you want the agent to get results, not raw secrets.
 
-
 <Callout icon="📘" theme="success">
   ### Note
 
