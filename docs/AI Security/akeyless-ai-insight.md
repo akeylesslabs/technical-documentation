@@ -26,6 +26,7 @@ Akeyless AI Insights enables natural-language interaction with the Akeyless Plat
 - [Claude](https://claude.ai/login)
 - [Grok](https://grok.com/)
 - [Bedrock](https://aws.amazon.com/bedrock/)
+- [Custom LLM Provider](https://docs.akeyless.io/docs/custom-llm-target) — any OpenAI-compatible provider (for example LiteLLM, Mistral, vLLM, NVIDIA NIM, OpenRouter, Groq, or Together) that isn't one of the dedicated targets above
 
 This guide uses **OpenAI** examples. You can also use **Gemini** by creating a Gemini target and setting a compatible model or any other option.
 
