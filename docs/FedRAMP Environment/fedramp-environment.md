@@ -33,7 +33,7 @@ Apart from **how users first sign in** and **which URLs your tools and Gateways 
 
 The FedRAMP environment keeps the Akeyless Zero-Knowledge model: the hosted control plane stores ciphertext and metadata, while plaintext secrets and your Customer Fragment exist only inside the Gateway running in your environment.
 
-![](https://files.readme.io/7d79764414c5520f83e7ff21bae0e1878cfdfde89f7c4ff9a6f0b56013e42819-image_2.png)
+![](https://files.readme.io/2ef57e7cbdca4e91a8d88fcc7b187f89bfb6f26db65bfa9cf7f32487f6e8bacc-image_2.png)
 
 <br />Key points:
 
