@@ -23,9 +23,11 @@ Identity & Secrets Intelligence currently ships the following built-in AI Agent 
 | **Supervisor Aggregation Excess**       | High     | A supervisor or router agent aggregating access through more than 5 collaborator agents           |
 | **Missing Guardrail**                   | High     | An agent with no guardrail attached to filter harmful content or denied topics                    |
 | **Session/Credential Inheritance**      | High     | An execution role that can mint a human-scoped workload token instead of the agent's own identity |
-| **Static/Long-Lived Credential in Use** | High     | A static, key-shaped credential in an action-group function's environment variables               |
+| **Static/Long-Lived Credential in Use** | High     | A static, key-shaped credential in an action-group function's environment variables, or in an Anthropic Managed Agent's vault credential     |
 | **Shared Credential Across Agents**     | High     | The same static credential referenced by two or more distinct agents                              |
 | **Credential Age Violation**            | High     | Automatic rotation disabled on the agent's customer-managed KMS key                               |
+| **Agent With Unrestricted Network Access** | Medium | An Anthropic Managed Agent whose sessions ran in an environment with unrestricted network egress  |
+| **MCP Server Without Credential**       | Medium   | An MCP server that no Anthropic vault credential authenticates to                                 |
 | **Unowned Agent**                       | Medium   | An agent with no owner tag and no creator attributable from CloudTrail                            |
 | **Missing Agent Decision Record**       | Medium   | An active agent with model-invocation logging disabled, leaving no record of its decisions        |
 | **Retention Non-Compliance**            | Medium   | Agent invocation logs retained for fewer than 90 days                                             |

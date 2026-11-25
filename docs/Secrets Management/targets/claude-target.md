@@ -5,7 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-You can define a [Claude](https://www.anthropic.com/api) target to be used for [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) in your account.
+You can define a [Claude](https://www.anthropic.com/api) target to be used for [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) in your account, and for the [Claude Scanner](doc:claude-scanner) in [Identity & Secrets Intelligence](doc:identity-and-secrets-intelligence).
+
+For the Claude Scanner, set the **API Key** to an organization-scoped API key of a service account. The **Admin** role reads members, keys, workspaces, usage, the compliance settings, and Managed Agents. The **Developer** role is the least-privileged option, but cannot read the compliance settings or the workspace member roles. An Admin API key, or an `org:admin` OAuth access token, is also accepted, but cannot read Managed Agents, which the scan then reports as a permission gap.
 
 ## Create a Claude Target with the CLI
 
