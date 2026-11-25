@@ -33,7 +33,7 @@ Akeyless supports provisioning certificates to the following endpoints. Each has
 
 - **Multiple targets per certificate:** A certificate can be provisioned to several targets. Each target is a separate row in the certificate's **Provisioning** table, with its own settings. Adding a target adds a row and doesn't replace the existing ones. Each target can be added to a certificate only once.
 - **Immediate provisioning:** When you add a target, the certificate is provisioned to it right away. If that first provisioning fails, the target isn't added.
-- **Automatic provisioning after renewal:** After every renewal, the certificate is provisioned again to every target in the **Provisioning** table. Each target is provisioned through its own Gateway, and a failure on one target doesn't stop the others.
+- **Automatic provisioning after renewal:** After every renewal, the certificate is provisioned again to every target in the **Provisioning** table. Each target is provisioned through its own Gateway, and a failure on one target doesn't stop the others. If a [provisioning schedule](#scheduling-provisioning) is set on a target, provisioning after renewal waits for the next scheduled day and time instead of running right away.
 - **Events:** Every provisioning raises a `certificate-provisioning-success` or `certificate-provisioning-failure` event, which you can forward with the [Event Center](https://docs.akeyless.io/docs/event-center).
 
 Setting up certificate provisioning requires **Target** permissions on the Gateway.
@@ -50,11 +50,26 @@ Without `--target-name`, the certificate is provisioned to every target in its *
 
 You can find the complete list of parameters for `assoc-target-item` in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#assoc-target-item) section.
 
+## Scheduling Provisioning
+
+By default, a certificate is provisioned to a target right away, both when the target is first attached and after every renewal. To instead run the automatic provisioning that follows a renewal during a planned maintenance window, set a weekly provisioning schedule on the target.
+
+A provisioning schedule doesn't affect the immediate provisioning done when the target is first attached, or provisioning triggered on demand - only automatic provisioning after a renewal waits for the schedule.
+
+To set a schedule from the CLI, add the following parameters to `akeyless assoc-target-item`:
+
+- `--provisioning-schedule-days`: A comma-separated list of the UTC weekdays on which the certificate can be provisioned, for example `mon,wed,fri`.
+- `--provisioning-schedule-time`: The UTC time of day, as `HH:MM`, at which the certificate is provisioned on the scheduled days.
+
+Both parameters must be set together. After a renewal, the certificate is provisioned at the first occurrence of the scheduled day and time.
+
+In the Akeyless Console, set the schedule in the **Provisioning Schedule** field when attaching or editing a target. The schedule is displayed and configured in your local timezone, which the Console converts to and from UTC for storage.
+
 ## Provisioning a Certificate Using the Akeyless Console
 
 1. Log in to the Akeyless Console, go to **Items**, and find the certificate you wish to provision.
 2. Click on the **Certificate** item, and click on the **Provisioning** tab. The **Provisioning** tab lists all the targets the certificate is currently provisioned to.
 3. Click **Attach** to add a new row to the table.
-4. Choose a **Target Name** from the drop-down list, and a **Gateway** to provision the certificate through. The remaining fields depend on the Target type - see the dedicated page for each endpoint, linked above, for its specific fields.
+4. Choose a **Target Name** from the drop-down list, and a **Gateway** to provision the certificate through. The remaining fields depend on the Target type - see the dedicated page for each endpoint, linked above, for its specific fields. Optionally, set a **Provisioning Schedule** so that provisioning after renewal runs during a planned maintenance window - see [Scheduling Provisioning](#scheduling-provisioning).
 5. Click **Save**. The target is added as a new row in the **Provisioning** table.
 6. To provision the certificate to additional targets, repeat steps 3-5. Each target can be configured with its own settings.
