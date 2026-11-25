@@ -27,8 +27,8 @@ akeyless assoc-target-item \
 
 Where:
 
-- The `certificate-path`, `private-key-path`, `chain-path`, `certificate-format`, `pfx-password`, and `post-provision-command` parameters work the same way as for [SSH Servers](https://docs.akeyless.io/docs/certificate-provisioning-to-ssh).
-- `certificate-path` can be a file path or a Windows certificate store path, such as `Cert:\LocalMachine\My`. A PFX is imported into the certificate store using its password.
+- The `certificate-path`, `private-key-path`, `chain-path`, `certificate-format`, `pfx-password`, `jks-password`, `key-alias`, and `post-provision-command` parameters work the same way as for [SSH Servers](https://docs.akeyless.io/docs/certificate-provisioning-to-ssh).
+- `certificate-path` can be a file path or a Windows certificate store path, such as `Cert:\LocalMachine\My`. A PFX is imported into the certificate store using its password. JKS keystores aren't supported for certificate store paths - use a file path instead.
 
 **Linked Targets:** Same as for SSH Servers, the certificate is provisioned to every host in a [Linked Target](https://docs.akeyless.io/docs/linked-target).
 
@@ -75,7 +75,9 @@ If `certificate-format` is not set to `pfx`, provisioning fails with the error: 
 - **Target Name** - Choose an existing Windows Target from the drop-down list.
 - **Gateway** - Choose the Gateway that provisions the certificate.
 - **Certificate Remote Path** - The path, or Windows certificate store path, where the certificate is provisioned.
-- **Certificate Format** - The file format the certificate is provisioned in: **PEM** (default) or **PFX**.
+- **Certificate Format** - The file format the certificate is provisioned in: **PEM** (default), **PFX**, or **JKS**. JKS requires a file path, not a certificate store path.
+- **Keystore Password** - Required when **Certificate Format** is **JKS**. The password that protects the keystore.
+- **Key Alias** - Optional, the alias the certificate and key entry is stored under in the JKS keystore. Defaults to `certificate`. Only shown when **Certificate Format** is **JKS**.
 - **Private Key Remote Path** - A path on the target to store the private key.
 - **Certificate Chain Path** - A path on the target to store the full chain.
 - **Post Provision Command** - A custom command that runs on the server after each successful provisioning, for example, to reset IIS.
