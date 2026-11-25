@@ -66,7 +66,6 @@ The typical flow is:
 
 Reach for this one for agents that need to act on production systems (databases, AWS/GCP/Azure, Kubernetes, GitHub) or on a third-party service reachable through a custom MCP target - anywhere you want the agent to get results, not raw secrets.
 
-For GCP secrets, this server automatically also exposes BigQuery tools alongside the `gcloud` tools - see [GCP Secrets Include BigQuery Tools](https://docs.akeyless.io/docs/agentic-runtime-authority#gcp-secrets-include-bigquery-tools).
 
 <Callout icon="📘" theme="success">
   ### Note
