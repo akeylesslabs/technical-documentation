@@ -167,6 +167,14 @@ The following **Administrative Rules** can be set:
 
 Reverse RBAC can be used to review who has access to object types beyond Items and Targets, including Secure Remote Access and Agentic Runtime Authority paths.
 
+The **Reverse RBAC** Administrative Rule controls which permissions a user needs to open the Access Permissions view of an item:
+
+| Setting    | Permission on the item | Permission on Auth Methods and Access Roles |
+| ---------- | ---------------------- | ------------------------------------------- |
+| **None**   | `read`                 | `list`                                      |
+| **Scoped** | `list`                 | `list`                                      |
+| **All**    | Not required           | Not required                                |
+
 For command syntax and full parameter details, see the [CLI Reference - Access Roles reverse-rbac command](https://docs.akeyless.io/docs/cli-reference-access-roles#reverse-rbac).
 
 Use the CLI `reverse-rbac` command with:

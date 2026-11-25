@@ -8,6 +8,7 @@
 - claude-target
 - cloudflare-target
 - custom-dns-target
+- custom-llm-target
 - database-targets
 - digicert-target
 - docker-hub-target

@@ -46,7 +46,7 @@ Where:
 
 * `gw-cluster-url`: Akeyless Gateway URL (port `8000`).
 
-* `ttl`: The maximum requested Time To Live for an issued certificate by default in seconds, supported formats are `s`, `m`, `h`, `d`.
+* `ttl`: The maximum requested Time To Live for an issued certificate by default in seconds, supported formats are `s`, `m`, `h`, `d`. This is based on the CA target's supported maximum TTLs; it is not supported for Let's Encrypt, which always uses the CA default lifetime (about 90 days). As Public CAs move to shorter standard TTLs, a requested `ttl` that the selected Public CA cannot satisfy causes the certificate request to fail with the relevant error message returned by the Public CA.
 
 * `allowed-domains`: A list of domains that will be allowed to issue certificates for using this item.
 
@@ -61,7 +61,9 @@ Where:
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
 * **Allowed Domains**: Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix; it is recommended to check this in advance for future automated renewal.
-* **Auto-Renew and Public CA Certificate Validity**: `scheduled-renew` schedules renewal relative to the **certificate's actual expiration date**, not the issuer `ttl`. Public CAs may issue certificates with a shorter validity period than the `ttl` requested. For example, GlobalSign might cap validity at 200 days even if the issuer `ttl` is set to 365 days. In that case, Akeyless bases the renewal schedule on the real certificate expiry. With `--scheduled-renew 14` and a 200-day certificate, renewal is triggered on day 186.
+* **Auto-Renew and Public CA Certificate Validity**: `scheduled-renew` schedules renewal relative to the **certificate's actual expiration date**, not the issuer `ttl`. Public CAs may issue certificates with a shorter validity period than the `ttl` requested. For example, GlobalSign might cap validity at 200 days even if the issuer `ttl` is set to 365 days. In that case, Akeyless bases the renewal schedule on the real certificate expiry. With `--scheduled-renew 14` and a 200-day certificate, renewal is triggered on day 186. If the requested `ttl` falls outside what the Public CA supports (for example, below the CA's minimum validity policy), the certificate request fails with an error returned by the Public CA, instead of a certificate being silently issued with an unsupported validity.
+
+* **Public CA TTL in the Akeyless Console**: When creating or editing a PKI Issuer with a Public CA target from the Akeyless Console, the `TTL` field is not shown, since certificate validity for Public CA issuers is set and limited by the selected Public CA rather than by Akeyless.
 
 ### Issuing a Certificate
 
