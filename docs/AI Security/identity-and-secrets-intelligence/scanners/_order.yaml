@@ -1,6 +1,7 @@
 - akeyless-scanner
 - aws-scanner
 - azure-scanner
+- claude-scanner
 - gcp-scanner
 - github-scanner
 - gitlab-scanner
