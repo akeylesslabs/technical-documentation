@@ -39,9 +39,11 @@ akeyless batch-decrypt \
 --batch-data '<Inline batch payload JSON>'
 ```
 
+##
+
 ## `assoc-target-item`
 
-Create an association between a [Target](https://docs.akeyless.io/docs/targets) and a [Classic Key](https://docs.akeyless.io/docs/classic-keys) for [External KMS Integration](https://docs.akeyless.io/docs/external-kms)
+Create an association between a [Target](https://docs.akeyless.io/docs/targets) and a [Classic Key](https://docs.akeyless.io/docs/classic-keys) for [External KMS Integration](https://docs.akeyless.io/docs/external-kms), or between a Target and a certificate for certificate provisioning
 
 ### Usage
 
@@ -56,6 +58,51 @@ akeyless assoc-target-item \
 --keyring-name <Keyring name of the GCP KMS> \
 --purpose <Purpose if the key in GCP KMS>
 ```
+
+### Certificate provisioning examples
+
+**Scheduled provisioning.** Provisioning that follows a certificate renewal waits for the next scheduled slot. Days and time are in UTC:
+
+```shell
+akeyless assoc-target-item \
+--name /certs/my-cert \
+--target-name my-ssh-target \
+--certificate-path /etc/ssl/my-cert.pem \
+--private-key-path /etc/ssl/my-cert.key \
+--provisioning-schedule-days tue,fri \
+--provisioning-schedule-time 02:30
+```
+
+**JKS keystore:**
+
+```shell
+akeyless assoc-target-item \
+--name /certs/my-cert \
+--target-name my-ssh-target \
+--certificate-format jks \
+--jks-password '<JKS password>' \
+--key-alias my-alias \
+--certificate-path /opt/app/keystore.jks
+```
+
+**IIS binding on Windows:**
+
+```shell
+akeyless assoc-target-item \
+--name /certs/my-cert \
+--target-name my-windows-target \
+--certificate-format pfx \
+--pfx-password '<PFX password>' \
+--certificate-path 'Cert:\LocalMachine\My' \
+--iis-website-name 'Default Web Site' \
+--iis-binding-ip-address '*' \
+--iis-binding-port 443 \
+--iis-binding-hostname www.example.com \
+--iis-create-binding \
+--iis-restart-website
+```
+
+You can combine these options. For example, to schedule an IIS association, add `--provisioning-schedule-days` and `--provisioning-schedule-time` to the IIS command.
 
 ### Flags
 
@@ -83,13 +130,37 @@ akeyless assoc-target-item \
 
 `--regions`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: `--regions us-east-1` `--regions us-west-1`&#x20;
 
-`--private-key-path`: A path on the target to store the private key (relevant only for certificate provisioning)
+`--certificate-format[=pem]`: The format of the provisioned certificate: `pem`, `pfx` or `jks` (relevant only for certificate provisioning). With `pfx` or `jks`, `--certificate-path` points to a single file that holds the certificate and key, and `--private-key-path` and `--chain-path` aren't allowed. JKS isn't supported for GCP Certificate Manager targets. JKS and PFX for Azure Key Vault targets require Gateway version 5.8.0 or higher
 
-`--certificate-path`: A path on the target to store the certificate pem file (relevant only for certificate provisioning)
+`--pfx-password`: Password for the PFX file (relevant only when `--certificate-format` is `pfx`). Can't be combined with `--certificate-format jks`
 
-`--chain-path`: A path on the target to store the full chain pem file (relevant only for certificate provisioning)
+`--jks-password`: Password for the JKS keystore. **Required** when `--certificate-format` is `jks`. If you omit it, the CLI prompts for it. In curl mode, omitting it returns an error
 
-`--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for SSH and Windows certificate provisioning, not supported for F5 BIG-IP)
+`--key-alias[=certificate]`: The alias of the key entry in the JKS keystore, up to 128 characters (relevant only when `--certificate-format` is `jks`)
+
+`--private-key-path`: A path on the target to store the private key (relevant only for certificate provisioning in `pem` format)
+
+`--certificate-path`: A path on the target to store the certificate (relevant only for certificate provisioning). For `pem` this is the certificate PEM file. For `pfx` or `jks` this is the single keystore file. For IIS this must be a Windows certificate store in the format `Cert:\LocalMachine\<store>`, where `<store>` is one of `Root`, `My`, `CA`, `AuthRoot`, `Disallowed`, `TrustedPeople` or `TrustedPublisher`. Store names are case-sensitive
+
+`--chain-path`: A path on the target to store the full chain PEM file (relevant only for certificate provisioning in `pem` format)
+
+`--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for SSH and Windows certificate provisioning, not supported for F5 BIG-IP or IIS binding)
+
+`--provisioning-schedule-days`: A comma-separated list of days, in UTC, when provisioning that follows a certificate renewal can run: `sun`, `mon`, `tue`, `wed`, `thu`, `fri`, `sat`. Must be set together with `--provisioning-schedule-time` (relevant only for certificate provisioning to host and cloud targets). Creating the association doesn't provision the certificate. The schedule only delays provisioning after a renewal until the next scheduled slot. The `provision-certificate` command still provisions immediately. The provisioning Gateway must have a message queue configured, or the association is rejected
+
+`--provisioning-schedule-time`: The time of day, in UTC and 24-hour `HH:MM` format, when scheduled provisioning runs. Must be set together with `--provisioning-schedule-days`
+
+`--iis-website-name`: The exact name of the IIS website to bind the certificate to. Setting this flag enables IIS binding, and all other `--iis-*` flags require it (relevant only for Windows targets over WinRM, or linked targets whose parent is a Windows target). Requires `--certificate-format pfx` and Gateway version 5.8.0 or higher
+
+`--iis-binding-ip-address`: **Required** for IIS binding. The IP address for the HTTPS binding. Use `*` for all addresses, or a comma-separated list of IP addresses. Each IP address gets its own binding. Duplicate IP addresses aren't allowed, and `*` can't be mixed with specific IP addresses
+
+`--iis-binding-port[=443]`: The port for the HTTPS binding, from `1` to `65535`
+
+`--iis-binding-hostname`: The host name for the HTTPS binding. When set, SNI is enabled on any binding that gets created
+
+`--iis-create-binding[=false]`: Create the HTTPS binding if no matching binding exists. Without this flag, a missing binding fails provisioning before any changes are made. An existing matching binding is always updated
+
+`--iis-restart-website[=false]`: Stop and start the IIS website after the binding is updated
 
 `--bind-ssl-profiles`: Bind the provisioned certificate to an existing `client-ssl` / `server-ssl` profile, in the format `type:partition:name` (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate's partition. To specify multiple profiles use argument multiple times: `--bind-ssl-profiles` `client-ssl:Common:my-profile` `--bind-ssl-profiles` `client-ssl:Common:my-other-profile`
 
