@@ -126,6 +126,39 @@ On the configuration port (:8000), these paths are reverse-proxied to the API li
 
 Behavior matches the corresponding :8080 / :8081 endpoints above (including Cluster Cache / IGNORE_REDIS_HEALTH).
 
+I checked the live page. The best fit is a new subsection at the end of **Gateway Health**, after **Kubernetes probes**. The extended check changes how the Gateway decides it is offline. It does not change any `/health` endpoint on that page. Placing it under the `:8000/health` subsection would imply it does.
+
+---
+
 **Kubernetes probes**
 
 The Kubernetes [ReadinessProbe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) monitors the `api/v1/health` endpoint to keep the deployment up and running while working in offline mode.
+
+**Extended Connectivity Check**
+
+By default, the Gateway checks only the UAM `/health` endpoint to decide whether it is connected to Akeyless SaaS. Set `EXTENDED_HEALTH_CHECK` to `true` to also check Auth and Gator.
+
+Gateway chart env:
+
+```yaml
+- name: EXTENDED_HEALTH_CHECK
+  value: "true"
+```
+
+**Default:** Disabled.
+
+**Behavior when enabled:**
+
+1. The Gateway sends `GET /health` to UAM, Auth, and Gator. It also checks the read-only (`-ro`) variant of each, if one exists.
+2. Each check must return HTTP `200`. Any other status or a network error fails the check.
+3. An empty UAM URL fails the check. An empty Auth or Gator URL is skipped.
+4. The read-only variant is not checked for `localhost`, IP addresses, or hosts that already contain `-ro`.
+5. If any check fails, the Gateway enters offline (disconnected) mode. It returns to connected mode when all checks pass again.
+
+**Scope:** This setting only affects the Gateway's offline/connected state. It does not change the responses of the `/health` endpoints described above, including the Kubernetes readiness probe.
+
+**Notes:**
+
+- The Gateway reads this variable at startup. Restart the Gateway after you change it.
+- Individual endpoint failures are logged as warnings. The Gateway logs a single error when it loses connectivity.
+- With this option enabled, a failure in Auth, Gator, or their read-only endpoints can switch the Gateway to offline mode even when UAM is healthy.
