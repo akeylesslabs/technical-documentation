@@ -125,3 +125,5 @@
 - gatewayupdateproducersnowflake
 - gatewayupdatetmpusers
 - getdynamicsecretvalue
+- dynamicsecretcreatealicloud
+- dynamicsecretupdatealicloud

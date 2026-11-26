@@ -58,3 +58,7 @@
 - updaterotationsettings
 - rotatedsecretcreatealicloud
 - rotatedsecretupdatealicloud
+- rotatedsecretprovisioncreate
+- rotatedsecretprovisiondelete
+- rotatedsecretprovisionpush
+- rotatedsecretprovisionupdate
